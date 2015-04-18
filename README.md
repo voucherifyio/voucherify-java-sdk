@@ -7,6 +7,8 @@ Java SDK for Voucherify API.
 
 Voucherify is a....
 
+You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information,
+
 Setup
 =====
 
