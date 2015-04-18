@@ -43,10 +43,65 @@ If you want you can also specify a custom client to be used (see javadoc).
 -keep class * extends com.contentful.java.cda.model.** { *; }
 -keep class com.google.gson.** { *; }
 -keep class sun.misc.Unsafe { *; }
-
+```
 
 Usage
 =====
+The `VoucherifyClient` manages all your interaction with the Voucherify API.
 
+```java
+VoucherifyClient client = new VoucherifyClient.Builder()
+                                .setAppId("YOUR-APPLICATION-ID")
+                                .setAppToken("YOUR-APPLICATION-TOKEN")
+                                .build();
+```
 
+Current list of features:
+- fetch all vouchers
+- fetch one voucher based on his code
+- consume the voucher base on his code
+
+Every method has a corresponding asynchronous extension which can be accessed through the `async()` or 'rx()' method of the vouchers module.
+
+```java
+try {
+    Voucher voucher = client.vouchers().fetchOne(VOUCHER_CODE);
+} catch (RetrofitError e) {
+    // error
+}
+```
+
+or asynchronously:
+
+```java
+client.vouchers().async().fetchOne("VOUCHER_CODE", new VoucherifyCallback<Voucher>() {
+    @Override
+    public void onSuccess(Voucher result) {
+    }
+
+    @Override
+    public void onFailure(RetrofitError error) {
+    // error
+  }
+});
+```
+
+or using RxJava:
+
+```java
+client.vouchers()
+        .rx()
+        .fetchOne("VOUCHER_CODE")
+        .subscribeOn(Schedulers.io())
+        .subscribe(new Action1<Voucher>() {
+            @Override
+            public void call(Voucher vouchers) {
+
+            }
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+            }
+        });
+```
 
