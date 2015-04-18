@@ -39,8 +39,8 @@ If you want you can also specify a custom client to be used (see javadoc).
 -dontwarn rx.**
 -dontwarn retrofit.**
 -keep class retrofit.** { *; }
--keep class com.contentful.java.cda.** { *; }
--keep class * extends com.contentful.java.cda.model.** { *; }
+-keep class com.rspective.voucherify.client.** { *; }
+-keep class * extends com.rspective.voucherify.client.model.** { *; }
 -keep class com.google.gson.** { *; }
 -keep class sun.misc.Unsafe { *; }
 ```
