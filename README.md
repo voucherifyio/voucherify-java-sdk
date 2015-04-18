@@ -29,7 +29,7 @@ The SDK requires at least Java 6 or Android 2.3.3 (API 10)
 
 ### Default Client
 
-The Voucherify SDK uses Retrofit under the hood as a REST client, which detects [OkHttp][http://square.github.io/okhttp/] in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
+The Voucherify SDK uses [Retrofit](http://square.github.io/retrofit/) under the hood as a REST client, which detects [OkHttp](http://square.github.io/okhttp/) in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
 If you want you can also specify a custom client to be used (see javadoc).
 
 
