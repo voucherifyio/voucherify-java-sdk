@@ -1,4 +1,4 @@
-package com.rspective.voucherify.client.callback;
+package pl.rspective.voucherify.client.callback;
 
 import retrofit.RetrofitError;
 

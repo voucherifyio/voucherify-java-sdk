@@ -1,4 +1,4 @@
-package com.rspective.voucherify.client.exception;
+package pl.rspective.voucherify.client.exception;
 
 import retrofit.RetrofitError;
 

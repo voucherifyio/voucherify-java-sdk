@@ -1,10 +1,10 @@
-package com.rspective.voucherify.client;
+package pl.rspective.voucherify.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.rspective.voucherify.client.api.VoucherifyApi;
-import com.rspective.voucherify.client.module.VoucherModule;
-import com.rspective.voucherify.client.utils.Platform;
+import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.module.VoucherModule;
+import pl.rspective.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.client.Client;
@@ -268,7 +268,7 @@ public class VoucherifyClient {
          * Overrides the default remote address.
          *
          * @param remoteUrl String representing the remote address
-         * @return this {@link com.rspective.voucherify.client.VoucherifyClient.Builder} instance
+         * @return this {@link VoucherifyClient.Builder} instance
          */
         public Builder setEndpoint(String remoteUrl) {
             if (remoteUrl == null) {

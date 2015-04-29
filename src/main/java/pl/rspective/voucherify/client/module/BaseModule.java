@@ -1,16 +1,14 @@
-package com.rspective.voucherify.client.module;
+package pl.rspective.voucherify.client.module;
 
-import com.rspective.voucherify.client.api.VoucherifyApi;
-import com.rspective.voucherify.client.callback.VoucherifyCallback;
-import com.rspective.voucherify.client.model.Voucher;
-import com.rspective.voucherify.client.utils.RxUtils;
+import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.callback.VoucherifyCallback;
+import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.utils.RxUtils;
 
 import java.util.List;
 import java.util.concurrent.Executor;
 
 import rx.Observable;
-
-import static com.rspective.voucherify.client.utils.RxUtils.defer;
 
 /**
  * BaseModule for all sync, async and rx calls to the Voucherify
@@ -115,7 +113,7 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          * @return
          */
         public Observable<T> fetchOne(final String identifier) {
-            return defer(new RxUtils.DefFunc<T>() {
+            return RxUtils.defer(new RxUtils.DefFunc<T>() {
                 @Override
                 public T method() {
                     return BaseModule.this.fetchOne(identifier);
@@ -128,7 +126,7 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          * @return
          */
         public Observable<List<T>> fetchAll() {
-            return defer(new RxUtils.DefFunc<List<T>>() {
+            return RxUtils.defer(new RxUtils.DefFunc<List<T>>() {
                 @Override
                 public List<T> method() {
                     return BaseModule.this.fetchAll();
@@ -142,7 +140,7 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          * @return
          */
         public Observable<R> consumeVoucher(final String identifier) {
-            return defer(new RxUtils.DefFunc<R>() {
+            return RxUtils.defer(new RxUtils.DefFunc<R>() {
                 @Override
                 public R method() {
                     return BaseModule.this.consumeVoucher(identifier);

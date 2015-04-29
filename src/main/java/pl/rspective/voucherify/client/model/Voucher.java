@@ -1,4 +1,4 @@
-package com.rspective.voucherify.client.model;
+package pl.rspective.voucherify.client.model;
 
 import java.util.Date;
 

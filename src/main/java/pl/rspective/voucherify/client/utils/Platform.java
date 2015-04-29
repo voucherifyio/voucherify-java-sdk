@@ -1,4 +1,4 @@
-package com.rspective.voucherify.client.utils;
+package pl.rspective.voucherify.client.utils;
 
 import java.util.concurrent.Executor;
 

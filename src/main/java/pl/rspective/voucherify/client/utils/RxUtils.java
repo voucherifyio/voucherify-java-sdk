@@ -1,7 +1,6 @@
-package com.rspective.voucherify.client.utils;
+package pl.rspective.voucherify.client.utils;
 
-import com.rspective.voucherify.client.callback.VoucherifyCallback;
-import com.rspective.voucherify.client.exception.VoucherifyException;
+import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 
 import java.util.concurrent.Executor;
 
