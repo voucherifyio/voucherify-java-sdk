@@ -8,8 +8,8 @@ public final class Constants {
     // HTTP constants
     public static final String SCHEME_HTTP = "http";
     public static final String SCHEME_HTTPS = "https";
-    public static final String HTTP_HEADER_APP_ID = "X-Voucherify-Application-Id";
-    public static final String HTTP_HEADER_APP_TOKEN = "X-Voucherify-Application-Token";
+    public static final String HTTP_HEADER_APP_ID = "X-App-Id";
+    public static final String HTTP_HEADER_APP_TOKEN = "X-App-Token";
 
     // Configuration
     public static final String ENDPOINT_VOUCHERIFY = "voucherify.com";
