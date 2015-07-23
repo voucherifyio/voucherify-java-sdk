@@ -43,15 +43,6 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
     }
 
     /**
-     * Fetch all resources of the type associated with this module.
-     *
-     * @return array result instance
-     */
-    public List<T> fetchAll() {
-        return (List<T>) api.fetchAllVouchers();
-    }
-
-    /**
      * Fetch a single resource with an identifier.
      *
      * @param identifier resource id
@@ -74,14 +65,6 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
      * Base Async extension.
      */
     public class ExtAsync extends Async {
-
-        /**
-         *
-         * @param callback
-         */
-        public void fetchAll(VoucherifyCallback<List<Voucher>> callback) {
-            RxUtils.subscribe(executor, rx().fetchAll(), callback);
-        }
 
         /**
          *
@@ -117,19 +100,6 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
                 @Override
                 public T method() {
                     return BaseModule.this.fetchOne(identifier);
-                }
-            });
-        }
-
-        /**
-         *
-         * @return
-         */
-        public Observable<List<T>> fetchAll() {
-            return RxUtils.defer(new RxUtils.DefFunc<List<T>>() {
-                @Override
-                public List<T> method() {
-                    return BaseModule.this.fetchAll();
                 }
             });
         }
