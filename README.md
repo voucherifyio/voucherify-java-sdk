@@ -15,14 +15,14 @@ Setup
 Grab via Maven:
 ```xml
 <dependency>
-  <groupId></groupId>
-  <artifactId></artifactId>
-  <version></version>
+  <groupId>pl.rspective.voucherify.client</groupId>
+  <artifactId>voucherify-java-sdk</artifactId>
+  <version>VERSION</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile ''
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:VERSION'
 ```
 
 NOTE:
