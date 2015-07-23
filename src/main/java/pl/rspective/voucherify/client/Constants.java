@@ -12,7 +12,7 @@ public final class Constants {
     public static final String HTTP_HEADER_APP_TOKEN = "X-App-Token";
 
     // Configuration
-    public static final String ENDPOINT_VOUCHERIFY = "voucherify.com";
+    public static final String ENDPOINT_VOUCHERIFY = "api.voucherify.io/v1";
     public static final String ENDPOINT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
