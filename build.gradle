@@ -4,7 +4,7 @@ apply plugin: 'idea'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-version = '1.1.0'
+version = '1.2.0'
 
 repositories {
     mavenCentral()
@@ -27,3 +27,6 @@ dependencies {
         with jar
     }
 }
+
+
+apply from: 'gradle-mvn-push.gradle'
