@@ -1,11 +1,11 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.0.0
+###Version: 1.2.0
 
 Java SDK for Voucherify API.
 
-Voucherify is a....
+Manage your voucher campaigns, boost ROI & spread awareness. API-FIRST VOUCHER MANAGEMENT
 
 You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information,
 
@@ -59,7 +59,6 @@ VoucherifyClient client = new VoucherifyClient.Builder()
 ```
 
 Current list of features:
-- fetch all vouchers
 - fetch one voucher based on his code
 - consume the voucher base on his code
 
