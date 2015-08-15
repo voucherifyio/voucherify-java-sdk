@@ -2,10 +2,8 @@ package pl.rspective.voucherify.client.module;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.utils.RxUtils;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 
 import rx.Observable;
@@ -48,17 +46,27 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
      * @param identifier resource id
      * @return resource result instance
      */
-    public T fetchOne(String identifier) {
-        return (T) api.fetchVoucher(identifier);
+    public T fetchVoucher(String identifier) {
+        return (T) api.fetch(identifier);
+    }
+
+
+    /**
+     * Use a voucher by his identifier
+     * @param identifier of the voucher
+     * @return voucher which was consumed
+     */
+    public T consumeVoucher(String identifier, String trackingId) {
+        return (T) api.use(identifier, trackingId);
     }
 
     /**
-     *
-     * @param identifier
-     * @return
+     * Fetch information about voucher usage
+     * @param identifier of the voucher for which we fetch the usage details
+     * @return voucher usage information
      */
-    public R consumeVoucher(String identifier) {
-        return (R) api.useVoucher(identifier);
+    public R usageVoucher(String identifier) {
+        return (R) api.usage(identifier);
     }
 
     /**
@@ -67,21 +75,31 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
     public class ExtAsync extends Async {
 
         /**
+         * Fetch a single resource with an identifier.
          *
-         * @param identifier
-         * @param callback
+         * @param identifier resource id
+         * @return resource result instance
          */
-        public void fetchOne(final String identifier, VoucherifyCallback<Voucher> callback) {
-            RxUtils.subscribe(executor, rx().fetchOne(identifier), callback);
+        public void fetchVoucher(String identifier, VoucherifyCallback<T> callback) {
+            RxUtils.subscribe(executor, rx().fetchVoucher(identifier), callback);
         }
 
         /**
-         *
-         * @param identifier
-         * @param callback
+         * Use a voucher by his identifier
+         * @param identifier of the voucher
+         * @return voucher which was consumed
          */
-        public void consumeVoucher(String identifier, VoucherifyCallback<R> callback) {
-            RxUtils.subscribe(executor, rx().consumeVoucher(identifier), callback);
+        public void consumeVoucher(String identifier, String trackingId, VoucherifyCallback<T> callback) {
+            RxUtils.subscribe(executor, rx().consumeVoucher(identifier, trackingId), callback);
+        }
+
+        /**
+         * Fetch information about voucher usage
+         * @param identifier of the voucher for which we fetch the usage details
+         * @return voucher usage information
+         */
+        public void usageVoucher(String identifier, VoucherifyCallback<R> callback) {
+            RxUtils.subscribe(executor, rx().usageVoucher(identifier), callback);
         }
     }
 
@@ -91,29 +109,44 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
     public class ExtRxJava extends Rx {
 
         /**
+         * Fetch a single resource with an identifier.
          *
-         * @param identifier
-         * @return
+         * @param identifier resource id
+         * @return resource result instance
          */
-        public Observable<T> fetchOne(final String identifier) {
+        public Observable<T> fetchVoucher(final String identifier) {
             return RxUtils.defer(new RxUtils.DefFunc<T>() {
                 @Override
                 public T method() {
-                    return BaseModule.this.fetchOne(identifier);
+                    return BaseModule.this.fetchVoucher(identifier);
                 }
             });
         }
 
         /**
-         *
-         * @param identifier
-         * @return
+         * Use a voucher by his identifier
+         * @param identifier of the voucher
+         * @return voucher which was consumed
          */
-        public Observable<R> consumeVoucher(final String identifier) {
+        public Observable<T> consumeVoucher(final String identifier, final String trackingId) {
+            return RxUtils.defer(new RxUtils.DefFunc<T>() {
+                @Override
+                public T method() {
+                    return BaseModule.this.consumeVoucher(identifier, trackingId);
+                }
+            });
+        }
+
+        /**
+         * Fetch information about voucher usage
+         * @param identifier of the voucher for which we fetch the usage details
+         * @return voucher usage information
+         */
+        public Observable<R> usageVoucher(final String identifier) {
             return RxUtils.defer(new RxUtils.DefFunc<R>() {
                 @Override
                 public R method() {
-                    return BaseModule.this.consumeVoucher(identifier);
+                    return BaseModule.this.usageVoucher(identifier);
                 }
             });
         }

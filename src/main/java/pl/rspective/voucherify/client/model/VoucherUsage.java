@@ -1,5 +1,7 @@
 package pl.rspective.voucherify.client.model;
 
+import java.util.List;
+
 /**
  * Represents voucher usage
  */
@@ -17,6 +19,11 @@ public class VoucherUsage {
 
 	/**
 	 *
+	 */
+	private List<UsageEntry> usageEntries;
+
+	/**
+	 *
 	 * @return
 	 */
 	public int getQuantity() {
@@ -30,5 +37,12 @@ public class VoucherUsage {
 	public int getUsedQuantity() {
 		return usedQuantity;
 	}
-	
+
+	/**
+	 *
+	 * @return
+	 */
+	public List<UsageEntry> getUsageEntries() {
+		return usageEntries;
+	}
 }
