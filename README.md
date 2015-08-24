@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.2.0
+###Version: 1.3.0
 
 Java SDK for Voucherify API.
 
@@ -60,13 +60,17 @@ VoucherifyClient client = new VoucherifyClient.Builder()
 
 Current list of features:
 - fetch one voucher based on his code
-- consume the voucher base on his code
+- consume the voucher based on his code with consumer trackingId (optional, pass null if you want to disable trackingId)
+- fetch voucher usage details based on his code
 
 Every method has a corresponding asynchronous extension which can be accessed through the `async()` or 'rx()' method of the vouchers module.
 
+Fetch a voucher details
+===
+
 ```java
 try {
-    Voucher voucher = client.vouchers().fetchOne(VOUCHER_CODE);
+    Voucher voucher = client.vouchers().fetchVoucher(VOUCHER_CODE);
 } catch (RetrofitError e) {
     // error
 }
@@ -75,7 +79,7 @@ try {
 or asynchronously:
 
 ```java
-client.vouchers().async().fetchOne("VOUCHER_CODE", new VoucherifyCallback<Voucher>() {
+client.vouchers().async().fetchVoucher("VOUCHER_CODE", new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(Voucher result) {
     }
@@ -92,7 +96,7 @@ or using RxJava:
 ```java
 client.vouchers()
         .rx()
-        .fetchOne("VOUCHER_CODE")
+        .fetchVoucher("VOUCHER_CODE")
         .subscribeOn(Schedulers.io())
         .subscribe(new Action1<Voucher>() {
             @Override
@@ -106,3 +110,76 @@ client.vouchers()
         });
 ```
 
+Fetch a voucher usage details
+===
+```java
+try {
+    VoucherUsage voucher = client.vouchers().usageVoucher(VOUCHER_CODE);
+} catch (RetrofitError e) {
+    // error
+}
+
+client.vouchers().async().usageVoucher(VOUCHER_CODE, new VoucherifyCallback<VoucherUsage>() {
+    @Override
+    public void onSuccess(VoucherUsage result) {
+    }
+});
+
+
+client.vouchers().rx().usageVoucher(VOUCHER_CODE)
+    .subscribeOn(Schedulers.io())
+    .subscribe(new Subscriber<VoucherUsage>() {
+        @Override
+        public void onCompleted() {
+        }
+
+        @Override
+        public void onError(Throwable throwable) {
+        }
+
+        @Override
+        public void onNext(VoucherUsage voucherUsage) {
+        }
+});
+
+```
+
+Consume a voucher
+===
+```java
+try {
+    Voucher voucher = client.vouchers().consumeVoucher(VOUCHER_CODE, TRACKINGID);
+} catch (RetrofitError e) {
+    // error
+}
+
+
+client.vouchers().async().consumeVoucher(VOUCHER_CODE, TRACKINGID, new VoucherifyCallback<Voucher>() {
+    @Override
+    public void onSuccess(Voucher voucher) {
+    }
+
+    @Override
+    public void onFailure(RetrofitError retrofitError) {
+        super.onFailure(retrofitError);
+    }
+});
+
+
+client.vouchers().rx().consumeVoucher(VOUCHER_CODE, TRACKINGID)
+    .subscribeOn(Schedulers.io())
+    .subscribe(new Subscriber<Voucher>() {
+        @Override
+        public void onCompleted() {
+        }
+
+    @Override
+        public void onError(Throwable throwable) {
+    }
+
+    @Override
+    public void onNext(Voucher voucher) {
+    }
+    });
+
+```

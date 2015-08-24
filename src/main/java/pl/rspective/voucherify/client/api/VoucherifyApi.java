@@ -6,6 +6,7 @@ import pl.rspective.voucherify.client.model.VoucherUsage;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 /**
  *  An interface used internally to create a Retrofit API.
@@ -13,12 +14,12 @@ import retrofit.http.Path;
 public interface VoucherifyApi {
 
     /**
-     *
+     * Fetch details for specific voucher
      * @param code of the voucher
      * @return voucher based on his code
      */
     @GET("/vouchers/{code}")
-    Voucher fetchVoucher(@Path("code") String code);
+    Voucher fetch(@Path("code") String code);
 
     /**
      * Method used to consume the voucher based on his code
@@ -26,6 +27,14 @@ public interface VoucherifyApi {
      * @return
      */
     @POST("/vouchers/{code}/usage")
-    VoucherUsage useVoucher(@Path("code") String code);
+    Voucher use(@Path("code") String code, @Query("tracking_id") String trackingId);
+
+    /**
+     * Fetch information about voucher usage details
+     * @param code of the voucher
+     * @return voucher usage information
+     */
+    @GET("/vouchers/{code}/usage")
+    VoucherUsage usage(@Path("code") String code);
 
 }
