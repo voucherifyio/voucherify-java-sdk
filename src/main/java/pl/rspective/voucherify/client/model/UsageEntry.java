@@ -8,7 +8,7 @@ import java.util.Date;
 public class UsageEntry {
 
     /**
-     * When the voucher was usaged
+     * When the voucher was used
      */
     private Date date;
 
