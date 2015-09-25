@@ -1,11 +1,11 @@
 package pl.rspective.voucherify.client.module;
 
-import pl.rspective.voucherify.client.api.VoucherifyApi;
-import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.utils.RxUtils;
-
 import java.util.concurrent.Executor;
 
+import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.callback.VoucherifyCallback;
+import pl.rspective.voucherify.client.model.VoucherUsageContext;
+import pl.rspective.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
 /**
@@ -52,12 +52,23 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
 
 
     /**
-     * Use a voucher by his identifier
-     * @param identifier of the voucher
+     * Use a voucher identified by code
+     * @param identifier
+     *          code of the voucher
      * @return voucher which was consumed
      */
     public T consumeVoucher(String identifier, String trackingId) {
         return (T) api.use(identifier, trackingId);
+    }
+    
+    /**
+     * Use a voucher identified by code
+     * @param identifier
+     *          code of the voucher
+     * @return voucher which was consumed
+     */
+    public T consumeVoucher(String identifier, VoucherUsageContext usageContext) {
+        return (T) api.use(identifier, usageContext);
     }
 
     /**
@@ -91,6 +102,15 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          */
         public void consumeVoucher(String identifier, String trackingId, VoucherifyCallback<T> callback) {
             RxUtils.subscribe(executor, rx().consumeVoucher(identifier, trackingId), callback);
+        }
+        
+        /**
+         * Use a voucher by his identifier
+         * @param identifier of the voucher
+         * @return voucher which was consumed
+         */
+        public void consumeVoucher(String identifier, VoucherUsageContext usageContext, VoucherifyCallback<T> callback) {
+            RxUtils.subscribe(executor, rx().consumeVoucher(identifier, usageContext), callback);
         }
 
         /**
@@ -133,6 +153,20 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
                 @Override
                 public T method() {
                     return BaseModule.this.consumeVoucher(identifier, trackingId);
+                }
+            });
+        }
+        
+        /**
+         * Use a voucher by his identifier
+         * @param identifier of the voucher
+         * @return voucher which was consumed
+         */
+        public Observable<T> consumeVoucher(final String identifier, final VoucherUsageContext usageContext) {
+            return RxUtils.defer(new RxUtils.DefFunc<T>() {
+                @Override
+                public T method() {
+                    return BaseModule.this.consumeVoucher(identifier, usageContext);
                 }
             });
         }
