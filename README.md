@@ -146,14 +146,19 @@ client.vouchers().rx().usageVoucher(VOUCHER_CODE)
 
 Consume a voucher
 ===
+
+Synchronously:
+
 ```java
 try {
     Voucher voucher = client.vouchers().consumeVoucher(VOUCHER_CODE, TRACKINGID);
 } catch (RetrofitError e) {
     // error
 }
+```
+or asynchronously
 
-
+```java
 client.vouchers().async().consumeVoucher(VOUCHER_CODE, TRACKINGID, new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(Voucher voucher) {
@@ -164,8 +169,11 @@ client.vouchers().async().consumeVoucher(VOUCHER_CODE, TRACKINGID, new Voucherif
         super.onFailure(retrofitError);
     }
 });
+```
 
+or using RxJava:
 
+```java
 client.vouchers().rx().consumeVoucher(VOUCHER_CODE, TRACKINGID)
     .subscribeOn(Schedulers.io())
     .subscribe(new Subscriber<Voucher>() {
@@ -181,5 +189,19 @@ client.vouchers().rx().consumeVoucher(VOUCHER_CODE, TRACKINGID)
     public void onNext(Voucher voucher) {
     }
     });
+```
 
+Instead of just tracking id you can provide a detailed customer profile which can be later used for analytics:
+
+```java
+  Voucher voucher = client.vouchers().consumeVoucher("w7DWc", new VoucherUsageContext(
+          new Customer.Builder()
+                .setId("alice.morgan")
+                .setName("Alice Morgan")
+                .setEmail("alice@morgan.com")
+                .setDescription("")
+                .addMetadata("locale", "en-GB")
+                .addMetadata("shoeSize", 5)
+                .addMetadata("favouriteBrands", new String[]{"Armani", "L’Autre Chose", "Vicini"})
+                .build()));
 ```
