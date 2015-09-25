@@ -13,7 +13,7 @@ public final class VoucherModule extends BaseModule<Voucher, VoucherUsage> {
 
     /**
      *
-     * @param api describes Voucherif REST API
+     * @param api describes Voucherify REST API
      * @param executor of threads for current platform
      */
     public VoucherModule(VoucherifyApi api, Executor executor) {
