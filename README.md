@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.4.0
+###Version: 1.5.0
 
 Java SDK for Voucherify API.
 
