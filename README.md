@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.5.0
+###Version: 1.6.0
 
 Java SDK for Voucherify API.
 
@@ -110,25 +110,25 @@ client.vouchers()
         });
 ```
 
-Fetch a voucher usage details
+Fetch a voucher redemption details
 ===
 ```java
 try {
-    VoucherUsage voucher = client.vouchers().usageVoucher(VOUCHER_CODE);
+    VoucherRedemption voucherRedemption = client.vouchers().redemption(VOUCHER_CODE);
 } catch (RetrofitError e) {
     // error
 }
 
-client.vouchers().async().usageVoucher(VOUCHER_CODE, new VoucherifyCallback<VoucherUsage>() {
+client.vouchers().async().redemption(VOUCHER_CODE, new VoucherifyCallback<VoucherRedemption>() {
     @Override
-    public void onSuccess(VoucherUsage result) {
+    public void onSuccess(VoucherRedemption voucherRedemption) {
     }
 });
 
 
-client.vouchers().rx().usageVoucher(VOUCHER_CODE)
+client.vouchers().rx().redemption(VOUCHER_CODE)
     .subscribeOn(Schedulers.io())
-    .subscribe(new Subscriber<VoucherUsage>() {
+    .subscribe(new Subscriber<VoucherRedemption>() {
         @Override
         public void onCompleted() {
         }
@@ -138,20 +138,20 @@ client.vouchers().rx().usageVoucher(VOUCHER_CODE)
         }
 
         @Override
-        public void onNext(VoucherUsage voucherUsage) {
+        public void onNext(VoucherRedemption voucherRedemption) {
         }
 });
 
 ```
 
-Consume a voucher
+Redeem a voucher
 ===
 
 Synchronously:
 
 ```java
 try {
-    Voucher voucher = client.vouchers().consumeVoucher(VOUCHER_CODE, TRACKINGID);
+    Voucher voucher = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
 } catch (RetrofitError e) {
     // error
 }
@@ -159,7 +159,7 @@ try {
 or asynchronously
 
 ```java
-client.vouchers().async().consumeVoucher(VOUCHER_CODE, TRACKINGID, new VoucherifyCallback<Voucher>() {
+client.vouchers().async().redeem(VOUCHER_CODE, TRACKING_ID, new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(Voucher voucher) {
     }
@@ -174,7 +174,7 @@ client.vouchers().async().consumeVoucher(VOUCHER_CODE, TRACKINGID, new Voucherif
 or using RxJava:
 
 ```java
-client.vouchers().rx().consumeVoucher(VOUCHER_CODE, TRACKINGID)
+client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
     .subscribeOn(Schedulers.io())
     .subscribe(new Subscriber<Voucher>() {
         @Override
@@ -194,7 +194,7 @@ client.vouchers().rx().consumeVoucher(VOUCHER_CODE, TRACKINGID)
 Instead of just tracking id you can provide a detailed customer profile which can be later used for analytics:
 
 ```java
-  Voucher voucher = client.vouchers().consumeVoucher("w7DWc", new VoucherUsageContext(
+  Voucher voucher = client.vouchers().redeem("w7DWc", new VoucherRedemptionContext(
           new Customer.Builder()
                 .setId("alice.morgan")
                 .setName("Alice Morgan")

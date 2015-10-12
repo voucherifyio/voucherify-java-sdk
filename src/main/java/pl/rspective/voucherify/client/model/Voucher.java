@@ -38,9 +38,9 @@ public class Voucher {
     private Date expirationDate;
 
     /**
-     * Hold information about voucher's usage
+     * Hold information about voucher's redemption
      */
-    private VoucherUsage usage;
+    private VoucherRedemption redemption;
 
     /**
      * Additional voucher's information
@@ -99,8 +99,8 @@ public class Voucher {
      *
      * @return
      */
-    public VoucherUsage getUsage() {
-        return usage;
+    public VoucherRedemption getRedemption() {
+        return redemption;
     }
 
     /**

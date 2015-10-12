@@ -3,12 +3,12 @@ package pl.rspective.voucherify.client.model;
 import java.util.Date;
 
 /**
- * I hold a history information about voucher usage
+ * I hold a history information about voucher redemption
  */
-public class UsageEntry {
+public class RedemptionEntry {
 
     /**
-     * When the voucher was used
+     * When the voucher was redeemed
      */
     private Date date;
 

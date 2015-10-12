@@ -4,7 +4,7 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.VoucherUsageContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
@@ -52,32 +52,32 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
 
 
     /**
-     * Use a voucher identified by code
+     * Redeem a voucher identified by code
      * @param identifier
      *          code of the voucher
-     * @return voucher which was consumed
+     * @return voucher which was redeemed
      */
-    public T consumeVoucher(String identifier, String trackingId) {
-        return (T) api.use(identifier, trackingId);
+    public T redeem(String identifier, String trackingId) {
+        return (T) api.redeem(identifier, trackingId);
     }
     
     /**
-     * Use a voucher identified by code
+     * Redeem a voucher identified by code
      * @param identifier
      *          code of the voucher
-     * @return voucher which was consumed
+     * @return voucher which was redeemed
      */
-    public T consumeVoucher(String identifier, VoucherUsageContext usageContext) {
-        return (T) api.use(identifier, usageContext);
+    public T redeem(String identifier, VoucherRedemptionContext redemptionContext) {
+        return (T) api.redeem(identifier, redemptionContext);
     }
 
     /**
-     * Fetch information about voucher usage
-     * @param identifier of the voucher for which we fetch the usage details
-     * @return voucher usage information
+     * Fetch information about voucher redemption
+     * @param identifier of the voucher for which we fetch the redemption details
+     * @return voucher redemption information
      */
-    public R usageVoucher(String identifier) {
-        return (R) api.usage(identifier);
+    public R redemption(String identifier) {
+        return (R) api.redemption(identifier);
     }
 
     /**
@@ -96,30 +96,30 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
         }
 
         /**
-         * Use a voucher by his identifier
+         * Redeem a voucher by his identifier
          * @param identifier of the voucher
-         * @return voucher which was consumed
+         * @return voucher which was redeemed
          */
-        public void consumeVoucher(String identifier, String trackingId, VoucherifyCallback<T> callback) {
-            RxUtils.subscribe(executor, rx().consumeVoucher(identifier, trackingId), callback);
+        public void redeem(String identifier, String trackingId, VoucherifyCallback<T> callback) {
+            RxUtils.subscribe(executor, rx().redeem(identifier, trackingId), callback);
         }
         
         /**
-         * Use a voucher by his identifier
+         * Redeem a voucher by his identifier
          * @param identifier of the voucher
-         * @return voucher which was consumed
+         * @return voucher which was redeemed
          */
-        public void consumeVoucher(String identifier, VoucherUsageContext usageContext, VoucherifyCallback<T> callback) {
-            RxUtils.subscribe(executor, rx().consumeVoucher(identifier, usageContext), callback);
+        public void redeem(String identifier, VoucherRedemptionContext redemptionContext, VoucherifyCallback<T> callback) {
+            RxUtils.subscribe(executor, rx().redeem(identifier, redemptionContext), callback);
         }
 
         /**
-         * Fetch information about voucher usage
-         * @param identifier of the voucher for which we fetch the usage details
-         * @return voucher usage information
+         * Fetch information about voucher redemption
+         * @param identifier of the voucher for which we fetch the redemption details
+         * @return voucher redemption information
          */
-        public void usageVoucher(String identifier, VoucherifyCallback<R> callback) {
-            RxUtils.subscribe(executor, rx().usageVoucher(identifier), callback);
+        public void redemption(String identifier, VoucherifyCallback<R> callback) {
+            RxUtils.subscribe(executor, rx().redemption(identifier), callback);
         }
     }
 
@@ -144,43 +144,43 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
         }
 
         /**
-         * Use a voucher by his identifier
+         * Redeem a voucher by his identifier
          * @param identifier of the voucher
          * @return voucher which was consumed
          */
-        public Observable<T> consumeVoucher(final String identifier, final String trackingId) {
+        public Observable<T> redeem(final String identifier, final String trackingId) {
             return RxUtils.defer(new RxUtils.DefFunc<T>() {
                 @Override
                 public T method() {
-                    return BaseModule.this.consumeVoucher(identifier, trackingId);
+                    return BaseModule.this.redeem(identifier, trackingId);
                 }
             });
         }
         
         /**
-         * Use a voucher by his identifier
+         * Redeem a voucher by his identifier
          * @param identifier of the voucher
          * @return voucher which was consumed
          */
-        public Observable<T> consumeVoucher(final String identifier, final VoucherUsageContext usageContext) {
+        public Observable<T> redeem(final String identifier, final VoucherRedemptionContext redemptionContext) {
             return RxUtils.defer(new RxUtils.DefFunc<T>() {
                 @Override
                 public T method() {
-                    return BaseModule.this.consumeVoucher(identifier, usageContext);
+                    return BaseModule.this.redeem(identifier, redemptionContext);
                 }
             });
         }
 
         /**
-         * Fetch information about voucher usage
-         * @param identifier of the voucher for which we fetch the usage details
-         * @return voucher usage information
+         * Fetch information about voucher redemption
+         * @param identifier of the voucher for which we fetch the redemption details
+         * @return voucher redemption information
          */
-        public Observable<R> usageVoucher(final String identifier) {
+        public Observable<R> redemption(final String identifier) {
             return RxUtils.defer(new RxUtils.DefFunc<R>() {
                 @Override
                 public R method() {
-                    return BaseModule.this.usageVoucher(identifier);
+                    return BaseModule.this.redemption(identifier);
                 }
             });
         }
