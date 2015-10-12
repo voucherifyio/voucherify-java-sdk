@@ -1,8 +1,8 @@
 package pl.rspective.voucherify.client.api;
 
 import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherUsage;
-import pl.rspective.voucherify.client.model.VoucherUsageContext;
+import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -24,34 +24,34 @@ public interface VoucherifyApi {
     Voucher fetch(@Path("code") String code);
 
     /**
-     * Method used to consume a voucher identified by code
+     * Method used to redeem a voucher identified by code
      * @param code 
      *          code of the voucher
      * @param trackingId 
-     *          an id enabling you to correlate who has used the voucher
+     *          an id enabling you to correlate who has redeemed the voucher
      * @return
      */
-    @POST("/vouchers/{code}/usage")
-    Voucher use(@Path("code") String code, @Query("tracking_id") String trackingId);
+    @POST("/vouchers/{code}/redemption")
+    Voucher redeem(@Path("code") String code, @Query("tracking_id") String trackingId);
     
     /**
-     * Method used to consume a voucher and provide a context information.
+     * Method used to redeem a voucher and provide a context information.
      * 
      * @param code
      *          code of the voucher
-     * @param usageContext
-     *          a context in terms of which the voucher is being used (e.g. customer profile)
+     * @param redemptionContext
+     *          a context in terms of which the voucher is being redeemed (e.g. customer profile)
      * @return
      */
-    @POST("/vouchers/{code}/usage")
-    Voucher use(@Path("code") String code, @Body VoucherUsageContext usageContext);
+    @POST("/vouchers/{code}/redemption")
+    Voucher redeem(@Path("code") String code, @Body VoucherRedemptionContext redemptionContext);
 
     /**
-     * Fetch information about voucher usage details
+     * Fetch information about voucher redemption details
      * @param code of the voucher
-     * @return voucher usage information
+     * @return voucher redemption information
      */
-    @GET("/vouchers/{code}/usage")
-    VoucherUsage usage(@Path("code") String code);
+    @GET("/vouchers/{code}/redemption")
+    VoucherRedemption redemption(@Path("code") String code);
 
 }

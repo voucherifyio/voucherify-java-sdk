@@ -1,10 +1,10 @@
 package pl.rspective.voucherify.client.model;
 
-public class VoucherUsageContext {
+public class VoucherRedemptionContext {
 
     private final Customer customer;
 
-    public VoucherUsageContext(Customer customer) {
+    public VoucherRedemptionContext(Customer customer) {
         this.customer = customer;
     }
     
