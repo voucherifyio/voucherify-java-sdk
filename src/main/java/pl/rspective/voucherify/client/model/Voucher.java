@@ -1,5 +1,7 @@
 package pl.rspective.voucherify.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
@@ -30,11 +32,19 @@ public class Voucher {
     /**
      * The type of the voucher
      */
+    @SerializedName("discount_type")
     private DiscountType discountType;
 
     /**
+     * Voucher's start date
+     */
+    @SerializedName("start_date")
+    private Date startDate;
+    
+    /**
      * Voucher's expiration date
      */
+    @SerializedName("expiration_date")
     private Date expirationDate;
 
     /**
@@ -45,6 +55,7 @@ public class Voucher {
     /**
      * Additional voucher's information
      */
+    @SerializedName("additional_info")
     private String additionalInfo;
 
     /**
@@ -87,6 +98,14 @@ public class Voucher {
         return discountType;
     }
 
+    /**
+    *
+    * @return
+    */
+    public Date getStartDate() {
+        return startDate;
+    }
+    
     /**
      *
      * @return
