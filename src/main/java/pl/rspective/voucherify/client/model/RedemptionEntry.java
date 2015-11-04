@@ -1,5 +1,7 @@
 package pl.rspective.voucherify.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ public class RedemptionEntry {
     /**
      * Voucher's consumer tracking id
      */
+    @SerializedName("tracking_id")
     private String trackingId;
 
     public Date getDate() {
