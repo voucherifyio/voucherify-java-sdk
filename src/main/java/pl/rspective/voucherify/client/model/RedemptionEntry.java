@@ -10,9 +10,22 @@ import java.util.Date;
 public class RedemptionEntry {
 
     /**
+     *  An identifier for entity
+     */
+    private String id;
+
+    /**
      * When the voucher was redeemed
      */
     private Date date;
+
+    /**
+     *
+     * @return
+     */
+    public String getId() {
+        return id;
+    }
 
     /**
      * Voucher's consumer tracking id
