@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.7.0
+###Version: 1.8.0
 
 Java SDK for Voucherify API.
 
@@ -205,3 +205,8 @@ Instead of just tracking id you can provide a detailed customer profile which ca
                 .addMetadata("favouriteBrands", new String[]{"Armani", "L’Autre Chose", "Vicini"})
                 .build()));
 ```
+
+Changelog
+=========
+
+- **2015-11-06** - `1.8.0` - Added an id to RedemptionEntry
