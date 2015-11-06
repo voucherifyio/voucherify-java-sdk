@@ -10,11 +10,6 @@ import java.util.List;
 public class VoucherRedemption {
 
 	/**
-	 *  An identifier for redemption details
-	 */
-	private String id;
-
-	/**
 	 * Value of voucher's quantity
 	 */
 	private int quantity;
@@ -30,14 +25,6 @@ public class VoucherRedemption {
 	 */
 	@SerializedName("redemption_entries")
 	private List<RedemptionEntry> redemptionEntries;
-
-	/**
-	 *
-	 * @return
-	 */
-	public String getId() {
-		return id;
-	}
 
 	/**
 	 *
