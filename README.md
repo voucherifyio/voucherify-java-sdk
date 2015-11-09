@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.8.0
+###Version: 1.8.1
 
 Java SDK for Voucherify API.
 
@@ -209,4 +209,5 @@ Instead of just tracking id you can provide a detailed customer profile which ca
 Changelog
 =========
 
+- **2015-11-09** - `1.8.1` - Changed discount type from double to integer
 - **2015-11-06** - `1.8.0` - Added an id to RedemptionEntry
