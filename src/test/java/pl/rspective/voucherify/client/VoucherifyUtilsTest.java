@@ -25,12 +25,12 @@ public class VoucherifyUtilsTest {
 
     @Test
     public void shouldReturnZeroWhenDiscountAmountAboveBasePrice() throws VoucherifyException {
-        assertPriceAfterDiscount(10, 20000, DiscountType.AMOUNT, "0");
+        assertPriceAfterDiscount(10, 20000, DiscountType.AMOUNT, "0.00");
     }
 
     @Test
     public void shouldReturnZeroWhenDiscountAmountEqualsBasePrice() throws VoucherifyException {
-        assertPriceAfterDiscount(10, 10000, DiscountType.AMOUNT, "0");
+        assertPriceAfterDiscount(10, 10000, DiscountType.AMOUNT, "0.00");
     }
 
     @Test
@@ -72,6 +72,50 @@ public class VoucherifyUtilsTest {
         BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(basePrice), createVoucher(discount, type));
 
         assertThat(price.toString()).isEqualTo(expectedPrice);
+    }
+
+    // Calculate Discount
+
+    @Test
+    public void shouldReturnDiscount() throws VoucherifyException {
+        assertDiscount(100, 2599, DiscountType.AMOUNT, "25.99");
+    }
+
+    @Test
+    public void shouldReturnZeroWhenZeroDiscout() throws VoucherifyException {
+        assertDiscount(100, 0, DiscountType.AMOUNT, "0.00");
+    }
+
+    @Test
+    public void shouldReturnBasePriceWhenWhenDiscountIsHigher() throws VoucherifyException {
+        assertDiscount(10, 20000, DiscountType.AMOUNT, "10.00");
+    }
+
+    @Test
+    public void shouldReturnBasePriceWhenWhenDiscountIsEqual() throws VoucherifyException {
+        assertDiscount(10, 10000, DiscountType.AMOUNT, "10.00");
+    }
+
+    @Test
+    public void shouldReturnDiscountForPercentageVoucher() throws VoucherifyException {
+        assertDiscount(100.99, 2598, DiscountType.PERCENT, "26.24"); // 26.237202
+    }
+
+    @Test
+    public void shouldReturnDiscountForPercentageVoucherNoRound() throws VoucherifyException {
+        assertDiscount(100.97, 2409, DiscountType.PERCENT, "24.32"); // 24.323673
+    }
+
+    @Test
+    public void shouldReturnBasePriceWhen100PercentDiscount() throws VoucherifyException {
+        assertDiscount(100.99, 10000, DiscountType.PERCENT, "100.99");
+    }
+
+
+    private void assertDiscount(double basePrice, int discount, DiscountType type, String expectedDiscount) throws VoucherifyException {
+        BigDecimal finalDiscount = VoucherifyUtils.calculateDiscount(valueOf(basePrice), createVoucher(discount, type));
+
+        assertThat(finalDiscount.toString()).isEqualTo(expectedDiscount);
     }
 
     private Voucher createVoucher(int discount, DiscountType type) {

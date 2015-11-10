@@ -28,9 +28,32 @@ public class VoucherifyUtils {
                 throw new VoucherifyException("Invalid voucher, amount discount must be higher than zero.");
             }
 
+            BigDecimal newPrice = basePrice.subtract(discount);
+
+            return (newPrice.doubleValue() > 0.0 ? newPrice : BigDecimal.valueOf(0)).setScale(2, RoundingMode.HALF_UP);
+        } else {
+            throw new VoucherifyException("Unknown voucher type");
+        }
+    }
+
+    public static BigDecimal calculateDiscount(BigDecimal basePrice, Voucher voucher) throws VoucherifyException {
+        BigDecimal discount = valueOf(voucher.getDiscount() / 100.0);
+
+        if (voucher.getDiscountType() == DiscountType.PERCENT) {
+            if(voucher.getDiscount() < 0 || voucher.getDiscount() > 10000) {
+                throw new VoucherifyException("Invalid voucher, percent discount should be between 0-100.");
+            }
+
+            return basePrice.multiply(discount.divide(valueOf(100))).setScale(2, RoundingMode.HALF_UP);
+
+        } else if (voucher.getDiscountType() == DiscountType.AMOUNT) {
+            if(voucher.getDiscount() < 0) {
+                throw new VoucherifyException("Invalid voucher, amount discount must be higher than zero.");
+            }
+
             BigDecimal newPrice = basePrice.subtract(discount).setScale(2, RoundingMode.HALF_UP);
 
-            return newPrice.doubleValue() > 0.0 ? newPrice : BigDecimal.valueOf(0);
+            return (newPrice.doubleValue() > 0 ? discount : basePrice).setScale(2, RoundingMode.HALF_UP);
         } else {
             throw new VoucherifyException("Unknown voucher type");
         }
