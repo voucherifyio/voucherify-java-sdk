@@ -27,7 +27,7 @@ public class Voucher {
     /**
      * Value of the voucher discount
      */
-    private double discount;
+    private Integer discount;
 
     /**
      * The type of the voucher
@@ -86,7 +86,7 @@ public class Voucher {
      *
      * @return
      */
-    public double getDiscount() {
+    public Integer getDiscount() {
         return discount;
     }
 
