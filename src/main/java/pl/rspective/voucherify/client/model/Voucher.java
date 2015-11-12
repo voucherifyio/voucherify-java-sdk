@@ -129,4 +129,15 @@ public class Voucher {
     public String getAdditionalInfo() {
         return additionalInfo;
     }
+
+
+    public void setDiscountType(DiscountType discountType) {
+        this.discountType = discountType;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
+
 }
