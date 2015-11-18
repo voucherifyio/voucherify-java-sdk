@@ -23,6 +23,11 @@ public class Voucher {
      * The name of voucher's campaign
      */
     private String campaign;
+    
+    /**
+     * The name of voucher's category
+     */
+    private String category;
 
     /**
      * Value of the voucher discount
@@ -80,6 +85,14 @@ public class Voucher {
      */
     public String getCampaign() {
         return campaign;
+    }
+    
+    /**
+    *
+    * @return
+    */
+    public String getCategory() {
+        return category;
     }
 
     /**
