@@ -209,7 +209,8 @@ Instead of just tracking id you can provide a detailed customer profile which ca
 Changelog
 =========
 
-- **2015-11-10** - `1.9.0` - Add `VoucherifyUtils` which includes `calculatePrice` for computing product/cart price
+- **2015-11-18** - `1.9.2` - Added `category` to `Voucher`
+- **2015-11-10** - `1.9.0` - Added `VoucherifyUtils` which includes `calculatePrice` for computing product/cart price
                              after discount and `calculateDiscount`.
 - **2015-11-09** - `1.8.1` - Changed discount type from double to integer
 - **2015-11-06** - `1.8.0` - Added an id to RedemptionEntry
