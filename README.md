@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 1.9.1
+###Version: 2.0.0
 
 Java SDK for Voucherify API.
 
@@ -151,7 +151,7 @@ Synchronously:
 
 ```java
 try {
-    Voucher voucher = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
+    VoucherRedemptionResult result = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
 } catch (RetrofitError e) {
     // error
 }
@@ -161,7 +161,7 @@ or asynchronously
 ```java
 client.vouchers().async().redeem(VOUCHER_CODE, TRACKING_ID, new VoucherifyCallback<Voucher>() {
     @Override
-    public void onSuccess(Voucher voucher) {
+    public void onSuccess(VoucherRedemptionResult result) {
     }
 
     @Override
@@ -176,7 +176,7 @@ or using RxJava:
 ```java
 client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
     .subscribeOn(Schedulers.io())
-    .subscribe(new Subscriber<Voucher>() {
+    .subscribe(new Subscriber<VoucherRedemptionResult>() {
         @Override
         public void onCompleted() {
         }
@@ -186,7 +186,7 @@ client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
     }
 
     @Override
-    public void onNext(Voucher voucher) {
+    public void onNext(VoucherRedemptionResult result) {
     }
     });
 ```
@@ -194,7 +194,7 @@ client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
 Instead of just tracking id you can provide a detailed customer profile which can be later used for analytics:
 
 ```java
-  Voucher voucher = client.vouchers().redeem("w7DWc", new VoucherRedemptionContext(
+  VoucherRedemptionResult result = client.vouchers().redeem("w7DWc", new VoucherRedemptionContext(
           new Customer.Builder()
                 .setId("alice.morgan")
                 .setName("Alice Morgan")
@@ -209,6 +209,7 @@ Instead of just tracking id you can provide a detailed customer profile which ca
 Changelog
 =========
 
+- **2015-11-18** - `2.0.0` - New model for voucher redemption result
 - **2015-11-18** - `1.9.2` - Added `category` to `Voucher`
 - **2015-11-10** - `1.9.0` - Added `VoucherifyUtils` which includes `calculatePrice` for computing product/cart price
                              after discount and `calculateDiscount`.

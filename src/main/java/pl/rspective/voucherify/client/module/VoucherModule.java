@@ -1,15 +1,16 @@
 package pl.rspective.voucherify.client.module;
 
+import java.util.concurrent.Executor;
+
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
-
-import java.util.concurrent.Executor;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 
 /**
  * Vouchers Module to manage communication with Voucherify
  */
-public final class VoucherModule extends BaseModule<Voucher, VoucherRedemption> {
+public final class VoucherModule extends BaseModule<Voucher, VoucherRedemption, VoucherRedemptionResult> {
 
     /**
      *
