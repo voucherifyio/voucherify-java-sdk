@@ -3,6 +3,7 @@ package pl.rspective.voucherify.client.api;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -32,7 +33,7 @@ public interface VoucherifyApi {
      * @return
      */
     @POST("/vouchers/{code}/redemption")
-    Voucher redeem(@Path("code") String code, @Query("tracking_id") String trackingId);
+    VoucherRedemptionResult redeem(@Path("code") String code, @Query("tracking_id") String trackingId);
     
     /**
      * Method used to redeem a voucher and provide a context information.
@@ -44,7 +45,7 @@ public interface VoucherifyApi {
      * @return
      */
     @POST("/vouchers/{code}/redemption")
-    Voucher redeem(@Path("code") String code, @Body VoucherRedemptionContext redemptionContext);
+    VoucherRedemptionResult redeem(@Path("code") String code, @Body VoucherRedemptionContext redemptionContext);
 
     /**
      * Fetch information about voucher redemption details
