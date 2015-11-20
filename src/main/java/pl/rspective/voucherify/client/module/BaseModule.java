@@ -11,7 +11,7 @@ import rx.Observable;
 /**
  * BaseModule for all sync, async and rx calls to the Voucherify
  */
-abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModule.ExtRxJava> {
+abstract class BaseModule<T, R, RR> extends AbsModule<BaseModule.ExtAsync, BaseModule.ExtRxJava> {
 
     /**
      *
@@ -57,8 +57,8 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
      *          code of the voucher
      * @return voucher which was redeemed
      */
-    public T redeem(String identifier, String trackingId) {
-        return (T) api.redeem(identifier, trackingId);
+    public RR redeem(String identifier, String trackingId) {
+        return (RR) api.redeem(identifier, trackingId);
     }
     
     /**
@@ -67,8 +67,8 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
      *          code of the voucher
      * @return voucher which was redeemed
      */
-    public T redeem(String identifier, VoucherRedemptionContext redemptionContext) {
-        return (T) api.redeem(identifier, redemptionContext);
+    public RR redeem(String identifier, VoucherRedemptionContext redemptionContext) {
+        return (RR) api.redeem(identifier, redemptionContext);
     }
 
     /**
@@ -148,10 +148,10 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          * @param identifier of the voucher
          * @return voucher which was consumed
          */
-        public Observable<T> redeem(final String identifier, final String trackingId) {
-            return RxUtils.defer(new RxUtils.DefFunc<T>() {
+        public Observable<RR> redeem(final String identifier, final String trackingId) {
+            return RxUtils.defer(new RxUtils.DefFunc<RR>() {
                 @Override
-                public T method() {
+                public RR method() {
                     return BaseModule.this.redeem(identifier, trackingId);
                 }
             });
@@ -162,10 +162,10 @@ abstract class BaseModule<T, R> extends AbsModule<BaseModule.ExtAsync, BaseModul
          * @param identifier of the voucher
          * @return voucher which was consumed
          */
-        public Observable<T> redeem(final String identifier, final VoucherRedemptionContext redemptionContext) {
-            return RxUtils.defer(new RxUtils.DefFunc<T>() {
+        public Observable<RR> redeem(final String identifier, final VoucherRedemptionContext redemptionContext) {
+            return RxUtils.defer(new RxUtils.DefFunc<RR>() {
                 @Override
-                public T method() {
+                public RR method() {
                     return BaseModule.this.redeem(identifier, redemptionContext);
                 }
             });

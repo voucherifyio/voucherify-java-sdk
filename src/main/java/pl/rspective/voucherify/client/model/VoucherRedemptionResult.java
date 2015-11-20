@@ -5,10 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Map;
 
-/**
- * I hold a history information about voucher redemption
- */
-public class RedemptionEntry {
+public class VoucherRedemptionResult {
 
     /**
      *  An identifier for entity
@@ -45,11 +42,12 @@ public class RedemptionEntry {
      * Metadata - whatever you
      */
     private Map<String, Object> metadata;
-
+    
     /**
-     *
-     * @return
+     * Full voucher data
      */
+    private Voucher voucher;
+
     public String getId() {
         return id;
     }
@@ -76,5 +74,9 @@ public class RedemptionEntry {
     
     public Map<String, Object> getMetadata() {
         return metadata;
+    }
+    
+    public Voucher getVoucher() {
+        return voucher;
     }
 }
