@@ -10,6 +10,8 @@ public final class Constants {
     public static final String SCHEME_HTTPS = "https";
     public static final String HTTP_HEADER_APP_ID = "X-App-Id";
     public static final String HTTP_HEADER_APP_TOKEN = "X-App-Token";
+    public static final String HTTP_HEADER_VOUCHERIFY_CHANNEL = "X-Voucherify-Channel";
+    public static final String VOUCHERIFY_CHANNEL_NAME = "Java-SDK";
 
     // Configuration
     public static final String ENDPOINT_VOUCHERIFY = "voucherify-bouncer.herokuapp.com/v1";
