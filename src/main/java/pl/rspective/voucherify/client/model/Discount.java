@@ -2,7 +2,7 @@ package pl.rspective.voucherify.client.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Dicsount {
+public class Discount {
     
     private DiscountType type;
     

@@ -32,7 +32,7 @@ public class Voucher {
     /**
      * Discount associated with the voucher
      */
-    private Dicsount discount;
+    private Discount discount;
 
     /**
      * Voucher's start date
@@ -93,7 +93,7 @@ public class Voucher {
      *
      * @return
      */
-    public Dicsount getDiscount() {
+    public Discount getDiscount() {
         return discount;
     }
 
@@ -129,7 +129,7 @@ public class Voucher {
         return additionalInfo;
     }
 
-    public void setDiscount(Dicsount discount) {
+    public void setDiscount(Discount discount) {
         this.discount = discount;
     }
 

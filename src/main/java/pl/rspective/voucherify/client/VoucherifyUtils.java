@@ -3,7 +3,7 @@ package pl.rspective.voucherify.client;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import pl.rspective.voucherify.client.model.Dicsount;
+import pl.rspective.voucherify.client.model.Discount;
 import pl.rspective.voucherify.client.model.DiscountType;
 import pl.rspective.voucherify.client.model.Voucher;
 
@@ -11,19 +11,19 @@ import static java.math.BigDecimal.valueOf;
 
 public class VoucherifyUtils {
 
-    private static void validateAmountDiscount(Dicsount discount) {
+    private static void validateAmountDiscount(Discount discount) {
         if(discount.getAmountOff() < 0) {
             throw new RuntimeException("Invalid voucher, amount discount must be higher than zero.");
         }
     }
     
-    private static void validateUnitDiscount(Dicsount discount) {
+    private static void validateUnitDiscount(Discount discount) {
         if(discount.getUnitOff() < 0) {
             throw new RuntimeException("Invalid voucher, unit discount must be higher than zero.");
         }
     } 
     
-    private static void validatePercentDiscount(Dicsount discount) {
+    private static void validatePercentDiscount(Discount discount) {
         if(discount.getPercentOff() < 0.0 || discount.getPercentOff() > 100.0) {
             throw new RuntimeException("Invalid voucher, percent discount should be between 0-100.");
         }
@@ -31,7 +31,7 @@ public class VoucherifyUtils {
     
     
     public static BigDecimal calculatePrice(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice) {
-        Dicsount discount = voucher.getDiscount();
+        Discount discount = voucher.getDiscount();
 
         if (discount.getType() == DiscountType.PERCENT) {
             validatePercentDiscount(discount);
@@ -59,7 +59,7 @@ public class VoucherifyUtils {
     }
 
     public static BigDecimal calculateDiscount(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice) {
-        Dicsount discount = voucher.getDiscount();
+        Discount discount = voucher.getDiscount();
 
         if (discount.getType() == DiscountType.PERCENT) {
             validateAmountDiscount(discount);
