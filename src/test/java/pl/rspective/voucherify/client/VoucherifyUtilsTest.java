@@ -47,6 +47,12 @@ public class VoucherifyUtilsTest {
     public void shouldReturnPercentDiscountedPriceForFullDiscount() {
         assertPriceAfterDiscount(100.99, 10000, DiscountType.PERCENT, "0.00");
     }
+    
+    @Test
+    public void shouldReturnUnitDiscountedPrice() {
+        assertPriceAfterDiscount(50.00, 15.0, 200, DiscountType.UNIT, "20.00"); // 50.0 - 15.0 * 2 = 20.0
+    }
+
 
     @Test
     public void shouldThrowExceptionWhenPercentDiscountAbove100() {
@@ -70,6 +76,12 @@ public class VoucherifyUtilsTest {
 
     private void assertPriceAfterDiscount(double basePrice, int discount, DiscountType type, String expectedPrice) {
         BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(basePrice), createVoucher(discount, type), null);
+
+        assertThat(price.toString()).isEqualTo(expectedPrice);
+    }
+    
+    private void assertPriceAfterDiscount(double basePrice, double unitPrice, int discount, DiscountType type, String expectedPrice) {
+        BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(basePrice), createVoucher(discount, type), valueOf(unitPrice));
 
         assertThat(price.toString()).isEqualTo(expectedPrice);
     }
@@ -110,13 +122,25 @@ public class VoucherifyUtilsTest {
     public void shouldReturnBasePriceWhen100PercentDiscount() {
         assertDiscount(100.99, 10000, DiscountType.PERCENT, "100.99");
     }
+    
+    @Test
+    public void shouldReturnUnitDiscount() {
+        assertDiscount(50.00, 15.0, 200, DiscountType.UNIT, "30.00"); // 15.0 * 2 = 30.0
+    }
 
 
+    private void assertDiscount(double basePrice, double unitPrice, int discount, DiscountType type, String expectedDiscount) {
+        BigDecimal finalDiscount = VoucherifyUtils.calculateDiscount(valueOf(basePrice), createVoucher(discount, type), valueOf(unitPrice));
+
+        assertThat(finalDiscount.toString()).isEqualTo(expectedDiscount);
+    }
+    
     private void assertDiscount(double basePrice, int discount, DiscountType type, String expectedDiscount) {
         BigDecimal finalDiscount = VoucherifyUtils.calculateDiscount(valueOf(basePrice), createVoucher(discount, type), null);
 
         assertThat(finalDiscount.toString()).isEqualTo(expectedDiscount);
     }
+    
 
     private Voucher createVoucher(int discountValue, DiscountType type) {
         Voucher voucher = new Voucher();
