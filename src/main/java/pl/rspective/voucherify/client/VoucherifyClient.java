@@ -2,6 +2,9 @@ package pl.rspective.voucherify.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.concurrent.Executor;
+
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
@@ -9,8 +12,6 @@ import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.client.Client;
 import retrofit.converter.GsonConverter;
-
-import java.util.concurrent.Executor;
 
 /**
  * It's entrypoint to use voucherify java client
@@ -131,6 +132,7 @@ public class VoucherifyClient {
         return new RequestInterceptor() {
             @Override
             public void intercept(RequestFacade request) {
+                request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_CHANNEL, Constants.VOUCHERIFY_CHANNEL_NAME);
                 request.addHeader(Constants.HTTP_HEADER_APP_ID, appId);
                 request.addHeader(Constants.HTTP_HEADER_APP_TOKEN, appToken);
             }
