@@ -1,7 +1,7 @@
 voucherify-java-sdk
 ===============
 
-###Version: 2.0.1
+###Version: 2.1.0
 
 Java SDK for Voucherify API.
 
@@ -209,6 +209,7 @@ Instead of just tracking id you can provide a detailed customer profile which ca
 Changelog
 =========
 
+- **2015-12-14** - `2.1.0` - New discount model, new discount type: UNIT
 - **2015-11-23** - `2.0.1` - Added X-Voucherify-Channel header
 - **2015-11-18** - `2.0.0` - New model for voucher redemption result
 - **2015-11-18** - `1.9.2` - Added `category` to `Voucher`

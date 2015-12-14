@@ -30,15 +30,9 @@ public class Voucher {
     private String category;
 
     /**
-     * Value of the voucher discount
+     * Discount associated with the voucher
      */
-    private Integer discount;
-
-    /**
-     * The type of the voucher
-     */
-    @SerializedName("discount_type")
-    private DiscountType discountType;
+    private Discount discount;
 
     /**
      * Voucher's start date
@@ -99,16 +93,8 @@ public class Voucher {
      *
      * @return
      */
-    public Integer getDiscount() {
+    public Discount getDiscount() {
         return discount;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public DiscountType getDiscountType() {
-        return discountType;
     }
 
     /**
@@ -143,12 +129,7 @@ public class Voucher {
         return additionalInfo;
     }
 
-
-    public void setDiscountType(DiscountType discountType) {
-        this.discountType = discountType;
-    }
-
-    public void setDiscount(Integer discount) {
+    public void setDiscount(Discount discount) {
         this.discount = discount;
     }
 
