@@ -62,7 +62,7 @@ public class VoucherifyUtils {
         Discount discount = voucher.getDiscount();
 
         if (discount.getType() == DiscountType.PERCENT) {
-            validateAmountDiscount(discount);
+            validatePercentDiscount(discount);
 
             return basePrice.multiply(valueOf(discount.getPercentOff() / 100.0)).setScale(2, RoundingMode.HALF_UP);
             

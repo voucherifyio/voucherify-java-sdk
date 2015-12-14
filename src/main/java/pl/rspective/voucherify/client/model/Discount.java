@@ -17,6 +17,19 @@ public class Discount {
     
     @SerializedName("unit_type")
     private String unitType;
+    
+    public static Discount from(DiscountType type, int value) {
+        Discount discount = new Discount();
+        discount.type = type;
+        switch(type) {
+            case AMOUNT:  discount.amountOff = value; break;
+            case PERCENT: discount.percentOff = value / 100.0; break;
+            case UNIT:    discount.unitOff = value / 100.0; break;
+            default:
+                throw new IllegalArgumentException("Unsupported discount type: " + type);
+        }
+        return discount;
+    }
 
     public DiscountType getType() {
         return type;
