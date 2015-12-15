@@ -206,6 +206,27 @@ Instead of just tracking id you can provide a detailed customer profile which ca
                 .build()));
 ```
 
+Utils
+===
+
+You can use `VoucherifyUtils` to calculate actual discount and price after discount.
+
+- `BigDecimal calculatePrice(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
+- `BigDecimal calculateDiscount(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
+
+For example you can redeem a 10% off voucher and calculate the final price.
+
+```java
+BigDecimal initialPrice = new BigDecimal("25.00");
+try {
+    VoucherRedemptionResult result = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
+    BigDecimal finalPrice = VoucherifyUtils.calculatePrice(initialPrice, result.getVoucher());
+    // finalPrice == 22.50
+} catch (RetrofitError e) {
+    // handle errors
+}
+```
+
 Changelog
 =========
 
