@@ -1,13 +1,18 @@
-voucherify-java-sdk
-===============
+Voucherify Java SDK
+===================
 
 ###Version: 2.1.0
 
-Java SDK for Voucherify API.
+[Voucherify](http://voucherify.io) has a new platform that will help your team  to automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that let growth teams:
 
-Manage your voucher campaigns, boost ROI & spread awareness. API-FIRST VOUCHER MANAGEMENT
+- **roll-out thousands** of vouchers **in minutes** instead of weeks,
+- **check status** or disable **every single** promo code in real time, 
+- **track redemption** history and build reports on the fly.
 
-You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information,
+Here you can find a library that makes it easier to integrate your Java application with Voucherify.
+
+You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information or 
+go to the documentation located at [voucherify.readme.io](https://voucherify.readme.io).
 
 Setup
 =====
