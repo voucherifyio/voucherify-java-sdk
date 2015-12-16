@@ -39,8 +39,16 @@ The SDK requires at least Java 6.
 The Voucherify SDK uses [Retrofit](http://square.github.io/retrofit/) under the hood as a REST client, which detects [OkHttp](http://square.github.io/okhttp/) in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
 If you want you can also specify a custom client to be used (see javadoc).
 
+Authentication
+==============
+
+[Log-in](http://app.voucherify.io/#/login) to Voucherify web interace and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
+
+![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
+
 Usage
 =====
+
 The `VoucherifyClient` manages all your interaction with the Voucherify API.
 
 ```java
