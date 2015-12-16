@@ -1,13 +1,18 @@
-voucherify-java-sdk
-===============
+Voucherify Java SDK
+===================
 
 ###Version: 2.1.0
 
-Java SDK for Voucherify API.
+[Voucherify](http://voucherify.io?utm_source=inbound&utm_medium=github&utm_campaign=voucherify-java-sdk) has a new platform that will help your team  to automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that let growth teams:
 
-Manage your voucher campaigns, boost ROI & spread awareness. API-FIRST VOUCHER MANAGEMENT
+- **roll-out thousands** of vouchers **in minutes** instead of weeks,
+- **check status** or disable **every single** promo code in real time, 
+- **track redemption** history and build reports on the fly.
 
-You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information,
+Here you can find a library that makes it easier to integrate your Java application with Voucherify.
+
+You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information or 
+go to the documentation located at [voucherify.readme.io](https://voucherify.readme.io).
 
 Setup
 =====
@@ -17,16 +22,16 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>VERSION</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:VERSION'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.1.0'
 ```
 
 NOTE:
-The SDK requires at least Java 6 or Android 2.3.3 (API 10)
+The SDK requires at least Java 6.
 
 
 ### Default Client
@@ -34,21 +39,16 @@ The SDK requires at least Java 6 or Android 2.3.3 (API 10)
 The Voucherify SDK uses [Retrofit](http://square.github.io/retrofit/) under the hood as a REST client, which detects [OkHttp](http://square.github.io/okhttp/) in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
 If you want you can also specify a custom client to be used (see javadoc).
 
+Authentication
+==============
 
-### Proguard
-```
--keepattributes Signature
--dontwarn rx.**
--dontwarn retrofit.**
--keep class retrofit.** { *; }
--keep class com.rspective.voucherify.client.** { *; }
--keep class * extends com.rspective.voucherify.client.model.** { *; }
--keep class com.google.gson.** { *; }
--keep class sun.misc.Unsafe { *; }
-```
+[Log-in](http://app.voucherify.io/#/login) to Voucherify web interace and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
+
+![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
 
 Usage
 =====
+
 The `VoucherifyClient` manages all your interaction with the Voucherify API.
 
 ```java
