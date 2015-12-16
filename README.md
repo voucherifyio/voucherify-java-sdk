@@ -217,7 +217,6 @@ Customer profile:
                 .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
                 .build()));
 ```
-```
 
 Utils
 ===
