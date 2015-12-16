@@ -65,7 +65,7 @@ Current list of features:
 
 Every method has a corresponding asynchronous extension which can be accessed through the `async()` or 'rx()' method of the vouchers module.
 
-Fetch a voucher details
+Fetch voucher details
 ===
 
 ```java
@@ -110,7 +110,7 @@ client.vouchers()
         });
 ```
 
-Fetch a voucher redemption details
+Fetch voucher redemption details
 ===
 ```java
 try {
@@ -151,15 +151,15 @@ Synchronously:
 
 ```java
 try {
-    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", "alice.morgan");
+    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr");
 } catch (RetrofitError e) {
-    // error
+    // handle errors
 }
 ```
 or asynchronously
 
 ```java
-client.vouchers().async().redeem("Testing7fjWdr", "alice.morgan", new VoucherifyCallback<Voucher>() {
+client.vouchers().async().redeem("Testing7fjWdr", new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(VoucherRedemptionResult result) {
     }
@@ -174,25 +174,37 @@ client.vouchers().async().redeem("Testing7fjWdr", "alice.morgan", new Voucherify
 or using RxJava:
 
 ```java
-client.vouchers().rx().redeem("Testing7fjWdr", "alice.morgan")
+client.vouchers().rx().redeem("Testing7fjWdr")
     .subscribeOn(Schedulers.io())
     .subscribe(new Subscriber<VoucherRedemptionResult>() {
         @Override
         public void onCompleted() {
         }
 
-    @Override
+        @Override
         public void onError(Throwable throwable) {
-    }
+        }
 
-    @Override
-    public void onNext(VoucherRedemptionResult result) {
-    }
+        @Override
+        public void onNext(VoucherRedemptionResult result) {
+        }
     });
 ```
 
-Instead of just tracking id you can provide a detailed customer profile which can be later used for analytics:
+Customer tracking
+===
 
+Voucherify gives you an option to track customers actions. They can be used for analytics.
+
+You can pass tracking id or a detailed customer profile in a second parameter to the `redeem` method. 
+
+Just tracking id:
+
+```java
+VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", "alice.morgan");
+```
+
+Customer profile:
 ```java
   VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", new VoucherRedemptionContext(
           new Customer.Builder()
@@ -202,8 +214,9 @@ Instead of just tracking id you can provide a detailed customer profile which ca
                 .setDescription("")
                 .addMetadata("locale", "en-GB")
                 .addMetadata("shoeSize", 5)
-                .addMetadata("favouriteBrands", new String[]{"Armani", "L’Autre Chose", "Vicini"})
+                .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
                 .build()));
+```
 ```
 
 Utils
