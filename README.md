@@ -22,35 +22,22 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>VERSION</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:VERSION'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.1.0'
 ```
 
 NOTE:
-The SDK requires at least Java 6 or Android 2.3.3 (API 10)
+The SDK requires at least Java 6.
 
 
 ### Default Client
 
 The Voucherify SDK uses [Retrofit](http://square.github.io/retrofit/) under the hood as a REST client, which detects [OkHttp](http://square.github.io/okhttp/) in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
 If you want you can also specify a custom client to be used (see javadoc).
-
-
-### Proguard
-```
--keepattributes Signature
--dontwarn rx.**
--dontwarn retrofit.**
--keep class retrofit.** { *; }
--keep class com.rspective.voucherify.client.** { *; }
--keep class * extends com.rspective.voucherify.client.model.** { *; }
--keep class com.google.gson.** { *; }
--keep class sun.misc.Unsafe { *; }
-```
 
 Usage
 =====
