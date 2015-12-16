@@ -53,8 +53,8 @@ The `VoucherifyClient` manages all your interaction with the Voucherify API.
 
 ```java
 VoucherifyClient client = new VoucherifyClient.Builder()
-                                .setAppId("YOUR-APPLICATION-ID")
-                                .setAppToken("YOUR-APPLICATION-TOKEN")
+                                .setAppId("c70a6f00-cf91-4756-9df5-47628850002b")
+                                .setAppToken("3266b9f8-e246-4f79-bdf0-833929b1380c")
                                 .build();
 ```
 
@@ -70,7 +70,7 @@ Fetch a voucher details
 
 ```java
 try {
-    Voucher voucher = client.vouchers().fetchVoucher(VOUCHER_CODE);
+    Voucher voucher = client.vouchers().fetchVoucher("Testing7fjWdr");
 } catch (RetrofitError e) {
     // error
 }
@@ -79,7 +79,7 @@ try {
 or asynchronously:
 
 ```java
-client.vouchers().async().fetchVoucher("VOUCHER_CODE", new VoucherifyCallback<Voucher>() {
+client.vouchers().async().fetchVoucher("Testing7fjWdr", new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(Voucher result) {
     }
@@ -96,7 +96,7 @@ or using RxJava:
 ```java
 client.vouchers()
         .rx()
-        .fetchVoucher("VOUCHER_CODE")
+        .fetchVoucher("Testing7fjWdr")
         .subscribeOn(Schedulers.io())
         .subscribe(new Action1<Voucher>() {
             @Override
@@ -114,19 +114,19 @@ Fetch a voucher redemption details
 ===
 ```java
 try {
-    VoucherRedemption voucherRedemption = client.vouchers().redemption(VOUCHER_CODE);
+    VoucherRedemption voucherRedemption = client.vouchers().redemption("Testing7fjWdr");
 } catch (RetrofitError e) {
     // error
 }
 
-client.vouchers().async().redemption(VOUCHER_CODE, new VoucherifyCallback<VoucherRedemption>() {
+client.vouchers().async().redemption("Testing7fjWdr", new VoucherifyCallback<VoucherRedemption>() {
     @Override
     public void onSuccess(VoucherRedemption voucherRedemption) {
     }
 });
 
 
-client.vouchers().rx().redemption(VOUCHER_CODE)
+client.vouchers().rx().redemption("Testing7fjWdr")
     .subscribeOn(Schedulers.io())
     .subscribe(new Subscriber<VoucherRedemption>() {
         @Override
@@ -151,7 +151,7 @@ Synchronously:
 
 ```java
 try {
-    VoucherRedemptionResult result = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
+    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", "alice.morgan");
 } catch (RetrofitError e) {
     // error
 }
@@ -159,7 +159,7 @@ try {
 or asynchronously
 
 ```java
-client.vouchers().async().redeem(VOUCHER_CODE, TRACKING_ID, new VoucherifyCallback<Voucher>() {
+client.vouchers().async().redeem("Testing7fjWdr", "alice.morgan", new VoucherifyCallback<Voucher>() {
     @Override
     public void onSuccess(VoucherRedemptionResult result) {
     }
@@ -174,7 +174,7 @@ client.vouchers().async().redeem(VOUCHER_CODE, TRACKING_ID, new VoucherifyCallba
 or using RxJava:
 
 ```java
-client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
+client.vouchers().rx().redeem("Testing7fjWdr", "alice.morgan")
     .subscribeOn(Schedulers.io())
     .subscribe(new Subscriber<VoucherRedemptionResult>() {
         @Override
@@ -194,7 +194,7 @@ client.vouchers().rx().redeem(VOUCHER_CODE, TRACKING_ID)
 Instead of just tracking id you can provide a detailed customer profile which can be later used for analytics:
 
 ```java
-  VoucherRedemptionResult result = client.vouchers().redeem("w7DWc", new VoucherRedemptionContext(
+  VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", new VoucherRedemptionContext(
           new Customer.Builder()
                 .setId("alice.morgan")
                 .setName("Alice Morgan")
@@ -219,7 +219,7 @@ For example you can redeem a 10% off voucher and calculate the final price.
 ```java
 BigDecimal initialPrice = new BigDecimal("25.00");
 try {
-    VoucherRedemptionResult result = client.vouchers().redeem(VOUCHER_CODE, TRACKING_ID);
+    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", TRACKING_ID);
     BigDecimal finalPrice = VoucherifyUtils.calculatePrice(initialPrice, result.getVoucher());
     // finalPrice == 22.50
 } catch (RetrofitError e) {
