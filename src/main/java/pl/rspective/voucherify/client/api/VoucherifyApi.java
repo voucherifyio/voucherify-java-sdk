@@ -1,5 +1,8 @@
 package pl.rspective.voucherify.client.api;
 
+import java.util.List;
+
+import pl.rspective.voucherify.client.model.RedemptionDetails;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
@@ -54,5 +57,12 @@ public interface VoucherifyApi {
      */
     @GET("/vouchers/{code}/redemption")
     VoucherRedemption redemption(@Path("code") String code);
+    
+    /**
+     * List redemptions across all vouchers.
+     * 
+     */
+    @GET("/redemptions")
+    List<RedemptionDetails> listRedemptions();
 
 }

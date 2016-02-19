@@ -15,7 +15,7 @@ public final class Constants {
 
     // Configuration
     public static final String ENDPOINT_VOUCHERIFY = "voucherify-bouncer.herokuapp.com/v1";
-    public static final String ENDPOINT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String ENDPOINT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
 
 
     private Constants() {

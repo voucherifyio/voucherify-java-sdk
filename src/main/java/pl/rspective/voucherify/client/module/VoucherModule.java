@@ -1,8 +1,10 @@
 package pl.rspective.voucherify.client.module;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.model.RedemptionDetails;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
@@ -19,6 +21,10 @@ public final class VoucherModule extends BaseModule<Voucher, VoucherRedemption, 
      */
     public VoucherModule(VoucherifyApi api, Executor executor) {
         super(api, executor);
+    }
+    
+    public List<RedemptionDetails> listRedemptions() {
+        return api.listRedemptions();
     }
 
     /**
