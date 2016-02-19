@@ -5,6 +5,7 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.model.RedemptionDetails;
+import pl.rspective.voucherify.client.model.RedemptionsFilter;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
@@ -23,8 +24,8 @@ public final class VoucherModule extends BaseModule<Voucher, VoucherRedemption, 
         super(api, executor);
     }
     
-    public List<RedemptionDetails> listRedemptions() {
-        return api.listRedemptions();
+    public List<RedemptionDetails> listRedemptions(RedemptionsFilter filter) {
+        return api.listRedemptions(filter);
     }
 
     /**
