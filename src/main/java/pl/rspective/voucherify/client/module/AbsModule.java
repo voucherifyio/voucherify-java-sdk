@@ -1,15 +1,17 @@
 package pl.rspective.voucherify.client.module;
 
-import pl.rspective.voucherify.client.api.VoucherifyApi;
-
 import java.util.concurrent.Executor;
+
+import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.module.AbsModule.Async;
+import pl.rspective.voucherify.client.module.AbsModule.Rx;
 
 /**
  *
  * @param <A> the type of object to be used for async calls
  * @param <R> the type of object to be used for rx calls
  */
-abstract class AbsModule<A extends BaseModule.Async, R extends BaseModule.Rx> {
+abstract class AbsModule<A extends Async, R extends Rx> {
     /**
      * Represents platform thread executor
      */
@@ -64,5 +66,17 @@ abstract class AbsModule<A extends BaseModule.Async, R extends BaseModule.Rx> {
      * Returns the RxJava extension of this module.
      */
     public abstract R rx();
+    
+    /**
+    *
+    */
+    public static class Rx {
+    }
+
+    /**
+    *
+    */
+    public static class Async {
+    }
 
 }
