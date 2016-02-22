@@ -124,7 +124,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *
          * @param identifier
          *            resource id
-         * @return resource result instance
          */
         public void fetchVoucher(String identifier, VoucherifyCallback<Voucher> callback) {
             RxUtils.subscribe(executor, rx().fetchVoucher(identifier), callback);
@@ -135,7 +134,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * 
          * @param identifier
          *            of the voucher
-         * @return voucher which was redeemed
          */
         public void redeem(String identifier, String trackingId, VoucherifyCallback<VoucherRedemptionResult> callback) {
             RxUtils.subscribe(executor, rx().redeem(identifier, trackingId), callback);
@@ -146,7 +144,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * 
          * @param identifier
          *            of the voucher
-         * @return voucher which was redeemed
          */
         public void redeem(String identifier, VoucherRedemptionContext redemptionContext,
                 VoucherifyCallback<VoucherRedemptionResult> callback) {
@@ -158,10 +155,19 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * 
          * @param identifier
          *            of the voucher for which we fetch the redemption details
-         * @return voucher redemption information
          */
         public void redemption(String identifier, VoucherifyCallback<VoucherRedemption> callback) {
             RxUtils.subscribe(executor, rx().redemption(identifier), callback);
+        }
+        
+        /**
+         * List redemptions across all vouchers.
+         * 
+         * @param filter 
+         *          a set of conditions to narrow down the result
+         */
+        public void listRedemptions(RedemptionsFilter filter, VoucherifyCallback<List<RedemptionDetails>> callback) {
+            RxUtils.subscribe(executor, rx().listRedemptions(filter), callback);
         }
     }
 
@@ -230,6 +236,23 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public VoucherRedemption method() {
                     return VoucherModule.this.redemption(identifier);
+                }
+            });
+        }
+        
+        /**
+         * List redemptions across all vouchers.
+         * 
+         * @param filter 
+         *          a set of conditions to narrow down the result
+         *           
+         * @return a list of redemption details
+         */
+        public Observable<List<RedemptionDetails>> listRedemptions(final RedemptionsFilter filter) {
+            return RxUtils.defer(new RxUtils.DefFunc<List<RedemptionDetails>>() {
+                @Override
+                public List<RedemptionDetails> method() {
+                    return VoucherModule.this.listRedemptions(filter);
                 }
             });
         }
