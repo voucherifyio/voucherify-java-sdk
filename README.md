@@ -223,7 +223,7 @@ Fetch redemptions across all vouchers
 
 Sometimes you may need to list redemptions of all your vouchers at once. You can do this with `listRedemptions` method.
 
-It takes an optional `RedemptionFilter` as a parameter that enables you to narrow down the list of redemptions according to specified limits.
+It takes an optional [`RedemptionFilter`](http://rspective.github.io/voucherify-java-sdk/apidocs/pl/rspective/voucherify/client/model/RedemptionsFilter.html) as a parameter that enables you to narrow down the list of redemptions according to specified limits.
 It the filter is not provided a default filter will be used - a 100 redemptions from current month. 
  
 Example:
