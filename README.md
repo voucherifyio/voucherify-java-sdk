@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 2.1.0
+###Version: 2.2.0
 
 [Voucherify](http://voucherify.io?utm_source=inbound&utm_medium=github&utm_campaign=voucherify-java-sdk) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
@@ -22,12 +22,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>2.1.0</version>
+  <version>2.2.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.1.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.2.0'
 ```
 
 NOTE:
@@ -218,6 +218,28 @@ Customer profile:
                 .build()));
 ```
 
+Fetch redemptions across all vouchers
+===
+
+Sometimes you may need to list redemptions of all your vouchers at once. You can do this with `listRedemptions` method.
+
+It takes an optional `RedemptionFilter` as a parameter that enables you to narrow down the list of redemptions according to specified limits.
+It the filter is not provided a default filter will be used - a 100 redemptions from current month. 
+ 
+Example:
+
+```java
+    Date startOfToday = Date.from(ZonedDateTime.now().with(LocalTime.MIN).toInstant());
+    RedemptionsFilter filterTodayFailed = RedemptionsFilter.filter()
+                                .withStartDate(startOfToday)
+                                .withResult(
+                                    RedemptionResult.FAILURE_INACTIVE, 
+                                    RedemptionResult.FAILURE_NOT_EXIST);
+                
+        List<RedemptionDetails> todaysredemptions = createLocalClient().vouchers().listRedemptions(filterTodayFailed);
+```
+
+
 Utils
 ===
 
@@ -242,6 +264,7 @@ try {
 Changelog
 =========
 
+- **2016-02-22** - `2.2.0` - List redemptions from across all vouchers
 - **2015-12-14** - `2.1.0` - New discount model, new discount type: UNIT
 - **2015-11-23** - `2.0.1` - Added X-Voucherify-Channel header
 - **2015-11-18** - `2.0.0` - New model for voucher redemption result
