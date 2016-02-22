@@ -2,9 +2,11 @@ package pl.rspective.voucherify.client.model;
 
 import java.text.SimpleDateFormat;
 import java.util.AbstractMap;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,15 +17,15 @@ public class RedemptionsFilter extends AbstractMap<String, Object> {
     private final Integer limit;
     private final Date startDate;
     private final Date endDate;
-    private final RedemptionResult result;
+    private final List<RedemptionResult> results;
     
     private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(Constants.ENDPOINT_DATE_FORMAT);
     
-    private RedemptionsFilter(Integer limit, Date startDate, Date endDate, RedemptionResult result) {
+    private RedemptionsFilter(Integer limit, Date startDate, Date endDate, List<RedemptionResult> results) {
         this.limit = limit;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.result = result;
+        this.results = results;
     }
     
     public static RedemptionsFilter filter() {
@@ -31,19 +33,19 @@ public class RedemptionsFilter extends AbstractMap<String, Object> {
     }
     
     public RedemptionsFilter withLimit(Integer limit) {
-        return new RedemptionsFilter(limit, startDate, endDate, result);
+        return new RedemptionsFilter(limit, startDate, endDate, results);
     }
     
     public RedemptionsFilter withStartDate(Date startDate) {
-        return new RedemptionsFilter(limit, startDate, endDate, result);
+        return new RedemptionsFilter(limit, startDate, endDate, results);
     }
     
     public RedemptionsFilter withEndDate(Date endDate) {
-        return new RedemptionsFilter(limit, startDate, endDate, result);
+        return new RedemptionsFilter(limit, startDate, endDate, results);
     }
     
-    public RedemptionsFilter withResult(RedemptionResult result) {
-        return new RedemptionsFilter(limit, startDate, endDate, result);
+    public RedemptionsFilter withResult(RedemptionResult ... results) {
+        return new RedemptionsFilter(limit, startDate, endDate, Arrays.asList(results));
     }
     
     private String formatDate(Date date) {
@@ -54,14 +56,22 @@ public class RedemptionsFilter extends AbstractMap<String, Object> {
         }
     }
     
+    private static Map.Entry<String, Object> newEntry(String key, Object value) {
+        return new AbstractMap.SimpleEntry<>(key, value);
+    }
+    
     @Override
     public Set<Map.Entry<String, Object>> entrySet() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("limit", limit);
-        map.put("start_date", formatDate(startDate));
-        map.put("end_date", formatDate(endDate));
-        map.put("result", result);
-        return Collections.unmodifiableSet(map.entrySet());
+        Set<Map.Entry<String, Object>> entries = new HashSet<>();
+        entries.add(newEntry("limit", limit));
+        entries.add(newEntry("start_date", formatDate(startDate)));
+        entries.add(newEntry("end_date", formatDate(endDate)));
+        if (results != null) {
+            for (RedemptionResult result: results) {
+                entries.add(newEntry("result", result));
+            }
+        }
+        return Collections.unmodifiableSet(entries);
     }
 
     
