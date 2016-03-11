@@ -5,12 +5,7 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.RedemptionDetails;
-import pl.rspective.voucherify.client.model.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.*;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -30,6 +25,17 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      */
     public VoucherModule(VoucherifyApi api, Executor executor) {
         super(api, executor);
+    }
+
+    /**
+     * Fetch user's list of vouchers which meet provided filters.
+     *
+     * @param filter
+     *            a set of conditions to narrow down the result
+     * @return list of vouchers
+     */
+    public List<Voucher> listVouchers(VouchersFilter filter) {
+        return api.listVouchers(filter);
     }
 
     /**
@@ -120,6 +126,17 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     public class ExtAsync extends AbsModule.Async {
 
         /**
+         * Fetch user's list of vouchers which meet provided filters.
+         *
+         * @param filter
+         *            a set of conditions to narrow down the result
+         * @return list of vouchers
+         */
+        public void listVouchers(VouchersFilter filter, VoucherifyCallback<List<Voucher>> callback) {
+            RxUtils.subscribe(executor, rx().listVouchers(filter), callback);
+        }
+
+        /**
          * Fetch a single resource with an identifier.
          *
          * @param identifier
@@ -175,6 +192,22 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      * RxJava extension.
      */
     public class ExtRxJava extends AbsModule.Rx {
+
+        /**
+         * Fetch user's list of vouchers which meet provided filters.
+         *
+         * @param filter
+         *            a set of conditions to narrow down the result
+         * @return list of vouchers
+         */
+        public Observable<List<Voucher>> listVouchers(final VouchersFilter filter) {
+            return RxUtils.defer(new RxUtils.DefFunc<List<Voucher>>() {
+                @Override
+                public List<Voucher> method() {
+                    return VoucherModule.this.listVouchers(filter);
+                }
+            });
+        }
 
         /**
          * Fetch a single resource with an identifier.

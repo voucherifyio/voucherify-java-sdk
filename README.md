@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 2.2.0
+###Version: 2.3.0
 
 [Voucherify](http://voucherify.io?utm_source=inbound&utm_medium=github&utm_campaign=voucherify-java-sdk) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
@@ -22,12 +22,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>2.2.0</version>
+  <version>2.3.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.2.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.3.0'
 ```
 
 NOTE:
@@ -263,7 +263,7 @@ try {
 
 Changelog
 =========
-
+- **2016-03-11** - `2.3.0` - List vouchers which meet specified filters
 - **2016-02-22** - `2.2.0` - List redemptions from across all vouchers
 - **2015-12-14** - `2.1.0` - New discount model, new discount type: UNIT
 - **2015-11-23** - `2.0.1` - Added X-Voucherify-Channel header
