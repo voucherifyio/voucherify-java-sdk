@@ -236,9 +236,25 @@ Example:
                                     RedemptionResult.FAILURE_INACTIVE, 
                                     RedemptionResult.FAILURE_NOT_EXIST);
                 
-        List<RedemptionDetails> todaysredemptions = createLocalClient().vouchers().listRedemptions(filterTodayFailed);
+   List<RedemptionDetails> todaysredemptions = createLocalClient().vouchers().listRedemptions(filterTodayFailed);
 ```
 
+
+List vouchers that match given filter
+===
+
+You can list vouchers that meet specific criteria - for example belong to a specific category.
+Define the criteria using [`VouchersFilter`](http://rspective.github.io/voucherify-java-sdk/apidocs/pl/rspective/voucherify/client/model/VouchersFilter.html).
+A default filter will be used even if you pass `null` which means that the result will be limited to 10 vouchers.
+
+ 
+Example:
+
+```java
+    VouchersFilter filterTestCategory = VouchersFilter.filter().withCategory("Test");
+                
+    List<Voucher> testVouchers = createLocalClient().vouchers().listVouchers(filterTestCategory);
+```
 
 Utils
 ===
@@ -264,7 +280,7 @@ try {
 Changelog
 =========
 - **2016-03-11** - `2.3.0` - List vouchers which meet specified filters
-- **2016-02-22** - `2.2.0` - List redemptions from across all vouchers
+- **2016-02-22** - `2.2.0` - List redemptions across all vouchers
 - **2015-12-14** - `2.1.0` - New discount model, new discount type: UNIT
 - **2015-11-23** - `2.0.1` - Added X-Voucherify-Channel header
 - **2015-11-18** - `2.0.0` - New model for voucher redemption result
