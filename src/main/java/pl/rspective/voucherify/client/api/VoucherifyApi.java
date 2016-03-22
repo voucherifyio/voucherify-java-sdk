@@ -2,12 +2,7 @@ package pl.rspective.voucherify.client.api;
 
 import java.util.List;
 
-import pl.rspective.voucherify.client.model.RedemptionDetails;
-import pl.rspective.voucherify.client.model.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.*;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -19,6 +14,17 @@ import retrofit.http.QueryMap;
  *  An interface used internally to create a Retrofit API.
  */
 public interface VoucherifyApi {
+
+    /**
+     * List vouchers which meet provided filters.
+     *
+     * @param filter
+     *          a set of conditions to narrow down the result
+     *
+     * @return a list of user vouchers
+     */
+    @GET("/vouchers/")
+    List<Voucher> listVouchers(@QueryMap VouchersFilter filter);
 
     /**
      * Fetch details for a specific voucher.
