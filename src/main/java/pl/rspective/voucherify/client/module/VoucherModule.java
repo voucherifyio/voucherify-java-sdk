@@ -5,7 +5,13 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.RedemptionDetails;
+import pl.rspective.voucherify.client.model.RedemptionsFilter;
+import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VouchersFilter;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -130,7 +136,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *
          * @param filter
          *            a set of conditions to narrow down the result
-         * @return list of vouchers
          */
         public void listVouchers(VouchersFilter filter, VoucherifyCallback<List<Voucher>> callback) {
             RxUtils.subscribe(executor, rx().listVouchers(filter), callback);
