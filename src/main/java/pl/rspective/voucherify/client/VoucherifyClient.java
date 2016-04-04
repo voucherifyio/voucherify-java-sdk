@@ -216,7 +216,7 @@ public class VoucherifyClient {
          *
          */
         public Builder() {
-            this.secure = false;
+            this.secure = true;
         }
 
         /**
@@ -311,12 +311,22 @@ public class VoucherifyClient {
         }
 
         /**
-         * Makes the client execute all requests via HTTPS instead of HTTP - <b>use with caution</b>.
+         * Makes the client execute all requests via HTTPS (enabled by default)
          *
          * @return this {@code Builder} instance
          */
         public Builder withSSL() {
             this.secure = true;
+            return this;
+        }
+        
+        /**
+         * Makes the client execute all requests via HTTP instead of HTTPS
+         *
+         * @return this {@code Builder} instance
+         */
+        public Builder withoutSSL() {
+            this.secure = false;
             return this;
         }
 
