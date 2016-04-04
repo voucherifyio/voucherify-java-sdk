@@ -14,7 +14,7 @@ public final class Constants {
     public static final String VOUCHERIFY_CHANNEL_NAME = "Java-SDK";
 
     // Configuration
-    public static final String ENDPOINT_VOUCHERIFY = "voucherify-bouncer.herokuapp.com/v1";
+    public static final String ENDPOINT_VOUCHERIFY = "api.voucherify.io/v1";
     public static final String ENDPOINT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
 
 
