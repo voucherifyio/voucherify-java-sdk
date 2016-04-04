@@ -22,7 +22,7 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>2.3.0</version>
+  <version>2.3.1</version>
 </dependency>
 ```
 or via Gradle:
@@ -279,7 +279,7 @@ try {
 
 Changelog
 =========
-- **2016-04-04** - `2.3.1` - Updated API URL, HTTP enabled by default
+- **2016-04-04** - `2.3.1` - Updated API URL, HTTPS enabled by default
 - **2016-03-11** - `2.3.0` - List vouchers which meet specified filters
 - **2016-02-22** - `2.2.0` - List redemptions across all vouchers
 - **2015-12-14** - `2.1.0` - New discount model, new discount type: UNIT
