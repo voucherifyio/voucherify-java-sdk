@@ -54,6 +54,15 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     public Voucher fetchVoucher(String identifier) {
         return api.fetch(identifier);
     }
+    
+    public Voucher createVoucher(Voucher voucher) {
+        if (voucher.getCode() != null) {
+            return api.createVoucherWithCode(voucher.getCode(), voucher);
+        } else {
+            return api.createVoucher(voucher);    
+        }
+        
+    }
 
     /**
      * Redeem a voucher identified by code
@@ -150,6 +159,17 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         public void fetchVoucher(String identifier, VoucherifyCallback<Voucher> callback) {
             RxUtils.subscribe(executor, rx().fetchVoucher(identifier), callback);
         }
+        
+        /**
+         * Fetch a single resource with an identifier.
+         *
+         * @param identifier
+         *            resource id
+         */
+        public void createVoucher(Voucher voucher, VoucherifyCallback<Voucher> callback) {
+            RxUtils.subscribe(executor, rx().createVoucher(voucher), callback);
+        }
+
 
         /**
          * Redeem a voucher by his identifier
@@ -226,6 +246,23 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public Voucher method() {
                     return VoucherModule.this.fetchVoucher(identifier);
+                }
+            });
+        }
+        
+        /**
+         * Create a voucher.
+         * 
+         * @param voucher
+         *          voucher to be created
+         *          
+         * @return created voucher 
+         */
+        public Observable<Voucher> createVoucher(final Voucher voucher) {
+            return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
+                @Override
+                public Voucher method() {
+                    return VoucherModule.this.createVoucher(voucher);
                 }
             });
         }

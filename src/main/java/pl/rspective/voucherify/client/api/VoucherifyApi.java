@@ -2,7 +2,13 @@ package pl.rspective.voucherify.client.api;
 
 import java.util.List;
 
-import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.RedemptionDetails;
+import pl.rspective.voucherify.client.model.RedemptionsFilter;
+import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VouchersFilter;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -34,6 +40,28 @@ public interface VoucherifyApi {
      */
     @GET("/vouchers/{code}")
     Voucher fetch(@Path("code") String code);
+    
+    /**
+     * Create a voucher with generated code.
+     * 
+     * @param voucher
+     *          voucher to be created
+     *          
+     * @return created voucher 
+     */
+    @POST("/vouchers/")
+    Voucher createVoucher(Voucher voucher);
+    
+    /**
+     * Create a voucher with specified code.
+     * 
+     * @param voucher
+     *          voucher to be created
+     *          
+     * @return created voucher 
+     */
+    @POST("/vouchers/{code}")
+    Voucher createVoucherWithCode(@Path("code") String code, Voucher voucher);
 
     /**
      * Method used to redeem a voucher identified by code
