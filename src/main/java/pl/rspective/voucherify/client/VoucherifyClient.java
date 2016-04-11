@@ -3,9 +3,12 @@ package pl.rspective.voucherify.client;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Date;
 import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.json.DateDeserializer;
+import pl.rspective.voucherify.client.json.DateSerializer;
 import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
@@ -87,7 +90,8 @@ public class VoucherifyClient {
      */
     private Gson createGson() {
         return new GsonBuilder()
-                .setDateFormat(Constants.ENDPOINT_DATE_FORMAT)
+                .registerTypeAdapter(Date.class, new DateSerializer(Constants.ENDPOINT_DATE_FORMAT))
+                .registerTypeAdapter(Date.class, new DateDeserializer(Constants.ENDPOINT_DATE_FORMAT, Constants.ENDPOINT_SECONDARY_DATE_FORMAT))
                 .create();
     }
 
