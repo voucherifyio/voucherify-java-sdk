@@ -1,5 +1,7 @@
 package pl.rspective.voucherify.client.api;
 
+import com.squareup.okhttp.Response;
+
 import java.util.List;
 
 import pl.rspective.voucherify.client.model.RedemptionDetails;
@@ -50,7 +52,7 @@ public interface VoucherifyApi {
      * @return created voucher 
      */
     @POST("/vouchers/")
-    Voucher createVoucher(Voucher voucher);
+    Voucher createVoucher(@Body Voucher voucher);
     
     /**
      * Create a voucher with specified code.
@@ -61,7 +63,25 @@ public interface VoucherifyApi {
      * @return created voucher 
      */
     @POST("/vouchers/{code}")
-    Voucher createVoucherWithCode(@Path("code") String code, Voucher voucher);
+    Voucher createVoucherWithCode(@Path("code") String code, @Body Voucher voucher);
+    
+    /**
+     * Disable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be disabled
+     */
+    @POST("/vouchers/{code}/disable")
+    Response disableVoucher(@Path("code") String code);
+    
+    /**
+     * Enable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be enabled
+     */
+    @POST("/vouchers/{code}/enable")
+    Response enableVoucher(@Path("code") String code);
 
     /**
      * Method used to redeem a voucher identified by code
