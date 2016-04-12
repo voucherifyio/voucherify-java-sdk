@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 2.3.1
+###Version: 2.4.0
 
 [Voucherify](http://voucherify.io?utm_source=inbound&utm_medium=github&utm_campaign=voucherify-java-sdk) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
