@@ -54,6 +54,42 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     public Voucher fetchVoucher(String identifier) {
         return api.fetch(identifier);
     }
+    
+    /**
+     * Create a voucher.
+     * 
+     * @param voucher
+     *          voucher to be created
+     *          
+     * @return created voucher 
+     */
+    public Voucher createVoucher(Voucher voucher) {
+        if (voucher.getCode() != null) {
+            return api.createVoucherWithCode(voucher.getCode(), voucher);
+        } else {
+            return api.createVoucher(voucher);    
+        }
+    }
+    
+    /**
+     * Disable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be disabled
+     */
+    public void disableVoucher(String code) {
+        api.disableVoucher(code);
+    }
+    
+    /**
+     * Enable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be enabled
+     */
+    public void enableVoucher(String code) {
+        api.enableVoucher(code);
+    }
 
     /**
      * Redeem a voucher identified by code
@@ -150,7 +186,39 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         public void fetchVoucher(String identifier, VoucherifyCallback<Voucher> callback) {
             RxUtils.subscribe(executor, rx().fetchVoucher(identifier), callback);
         }
+        
+        /**
+         * Create a voucher.
+         * 
+         * @param voucher
+         *          voucher to be created
+         *          
+         */
+        public void createVoucher(Voucher voucher, VoucherifyCallback<Voucher> callback) {
+            RxUtils.subscribe(executor, rx().createVoucher(voucher), callback);
+        }
 
+        
+        /**
+         * Disable a voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be disabled
+         */
+        public void disableVoucher(String code, VoucherifyCallback<Void> callback) {
+            RxUtils.subscribe(executor, rx().disableVoucher(code), callback);
+        }
+
+        /**
+         * Enable a voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be enabled
+         */
+        public void enableVoucher(String code, VoucherifyCallback<Void> callback) {
+            RxUtils.subscribe(executor, rx().disableVoucher(code), callback);
+        }
+        
         /**
          * Redeem a voucher by his identifier
          * 
@@ -226,6 +294,55 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public Voucher method() {
                     return VoucherModule.this.fetchVoucher(identifier);
+                }
+            });
+        }
+        
+        /**
+         * Create a voucher.
+         * 
+         * @param voucher
+         *          voucher to be created
+         *          
+         * @return created voucher 
+         */
+        public Observable<Voucher> createVoucher(final Voucher voucher) {
+            return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
+                @Override
+                public Voucher method() {
+                    return VoucherModule.this.createVoucher(voucher);
+                }
+            });
+        }
+        
+        /**
+         * Disable a voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be disabled
+         */
+        public Observable<Void> disableVoucher(final String code) {
+            return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+                @Override
+                public Void method() {
+                    VoucherModule.this.disableVoucher(code);
+                    return null;
+                }
+            });
+        }
+        
+        /**
+         * Enable a voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be enabled
+         */
+        public Observable<Void> enableVoucher(final String code) {
+            return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+                @Override
+                public Void method() {
+                    VoucherModule.this.enableVoucher(code);
+                    return null;
                 }
             });
         }

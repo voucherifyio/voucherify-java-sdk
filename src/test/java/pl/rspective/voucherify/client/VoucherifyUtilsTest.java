@@ -143,9 +143,8 @@ public class VoucherifyUtilsTest {
     
 
     private Voucher createVoucher(int discountValue, DiscountType type) {
-        Voucher voucher = new Voucher();
-        voucher.setDiscount(Discount.from(type, discountValue));
-
-        return voucher;
+        return new Voucher.Builder()
+                        .setDiscount(Discount.from(type, discountValue))
+                        .build();
     }
 }

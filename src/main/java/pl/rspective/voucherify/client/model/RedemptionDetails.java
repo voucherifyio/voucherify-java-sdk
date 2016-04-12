@@ -18,7 +18,7 @@ public class RedemptionDetails {
     
     private Discount discount;
 
-    private Customer customer;
+    private String customer;
     
     public String getRedemptionId() {
         return redemptionId;
@@ -40,7 +40,7 @@ public class RedemptionDetails {
         return discount;
     }
     
-    public Customer getCustomer() {
+    public String getCustomer() {
         return customer;
     }
     

@@ -1,8 +1,16 @@
 package pl.rspective.voucherify.client.api;
 
+import com.squareup.okhttp.Response;
+
 import java.util.List;
 
-import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.RedemptionDetails;
+import pl.rspective.voucherify.client.model.RedemptionsFilter;
+import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VouchersFilter;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -34,6 +42,46 @@ public interface VoucherifyApi {
      */
     @GET("/vouchers/{code}")
     Voucher fetch(@Path("code") String code);
+    
+    /**
+     * Create a voucher with generated code.
+     * 
+     * @param voucher
+     *          voucher to be created
+     *          
+     * @return created voucher 
+     */
+    @POST("/vouchers/")
+    Voucher createVoucher(@Body Voucher voucher);
+    
+    /**
+     * Create a voucher with specified code.
+     * 
+     * @param voucher
+     *          voucher to be created
+     *          
+     * @return created voucher 
+     */
+    @POST("/vouchers/{code}")
+    Voucher createVoucherWithCode(@Path("code") String code, @Body Voucher voucher);
+    
+    /**
+     * Disable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be disabled
+     */
+    @POST("/vouchers/{code}/disable")
+    Response disableVoucher(@Path("code") String code);
+    
+    /**
+     * Enable a voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be enabled
+     */
+    @POST("/vouchers/{code}/enable")
+    Response enableVoucher(@Path("code") String code);
 
     /**
      * Method used to redeem a voucher identified by code
