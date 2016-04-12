@@ -19,13 +19,20 @@ public class VoucherRedemption {
 	 */
 	@SerializedName("redeemed_quantity")
 	private int redeemedQuantity;
-
+	
 	/**
 	 *
 	 */
 	@SerializedName("redemption_entries")
 	private List<RedemptionEntry> redemptionEntries;
 
+	
+	public static VoucherRedemption quantity(int limit) {
+	    VoucherRedemption redemption = new VoucherRedemption();
+	    redemption.quantity = limit;
+	    return redemption;
+	}
+	
 	/**
 	 *
 	 * @return

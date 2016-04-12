@@ -251,6 +251,11 @@ public class Voucher {
             this.redemption = redemption;
             return this;
         }
+
+        public Builder setRedemptionLimit(int limit) {
+            this.redemption = VoucherRedemption.quantity(limit);
+            return this;
+        }
         
         public Builder setActive(boolean active) {
             this.active = active;
