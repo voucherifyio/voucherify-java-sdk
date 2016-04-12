@@ -30,7 +30,28 @@ public class Discount {
         }
         return discount;
     }
-
+    
+    public static Discount amountOff(int amountOff) {
+        Discount discount = new Discount();
+        discount.type = DiscountType.AMOUNT;
+        discount.amountOff = amountOff;
+        return discount;
+    }
+    
+    public static Discount percentOff(double percentOff) {
+        Discount discount = new Discount();
+        discount.type = DiscountType.PERCENT;
+        discount.percentOff = percentOff;
+        return discount;
+    }
+    
+    public static Discount unitOff(double unitOff) {
+        Discount discount = new Discount();
+        discount.type = DiscountType.UNIT;
+        discount.unitOff = unitOff;
+        return discount;
+    }
+    
     public DiscountType getType() {
         return type;
     }

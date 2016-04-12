@@ -221,6 +221,21 @@ public class Voucher {
             this.discount = discount;
             return this;
         }
+        
+        public Builder setAmountOff(int amountOff) {
+            this.discount = Discount.amountOff(amountOff);
+            return this;
+        }
+        
+        public Builder setPercentOff(double percentOff) {
+            this.discount = Discount.percentOff(percentOff);
+            return this;
+        }
+        
+        public Builder setUnitOff(double unitOff) {
+            this.discount = Discount.unitOff(unitOff);
+            return this;
+        }
 
         public Builder setStartDate(Date startDate) {
             this.startDate = startDate;
