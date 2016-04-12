@@ -22,12 +22,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>2.3.1</version>
+  <version>2.4.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.3.1'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.4.0'
 ```
 
 NOTE:
@@ -42,7 +42,7 @@ If you want you can also specify a custom client to be used (see javadoc).
 Authentication
 ==============
 
-[Log-in](http://app.voucherify.io/#/login) to Voucherify web interace and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
+[Log-in](http://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
 
 ![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
 
@@ -64,6 +64,34 @@ Current list of features:
 - fetch voucher usage details based on his code
 
 Every method has a corresponding asynchronous extension which can be accessed through the `async()` or 'rx()' method of the vouchers module.
+
+Create a voucher
+===
+
+Use `Voucher.Builder` to define a voucher:
+
+```java
+DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        
+Voucher voucher = new Voucher.Builder()
+        .setPercentOff(10.0)
+        .setStartDate(df.parse("2016-01-01"))
+        .setExpirationDate(df.parse("2016-12-31"))
+        .setCategory("API Test")
+        .build();
+```
+
+Then send it to Voucherify:
+
+```java        
+try {
+    Voucher createdVoucher = client.vouchers().createVoucher(voucher);
+    System.out.println("Voucher created: " + createdVoucher.getCode());
+} catch (RetrofitError e) {
+    // handle errors
+}
+```
+
 
 Fetch voucher details
 ===
@@ -108,6 +136,28 @@ client.vouchers()
             public void call(Throwable throwable) {
             }
         });
+```
+
+Disable a voucher
+===
+
+```java        
+try {
+    Voucher createdVoucher = client.vouchers().disableVoucher("JxiJaV");
+} catch (RetrofitError e) {
+    // handle errors
+}
+```
+
+Enable a voucher
+===
+
+```java        
+try {
+    Voucher createdVoucher = client.vouchers().enableVoucher("JxiJaV");
+} catch (RetrofitError e) {
+    // handle errors
+}
 ```
 
 Fetch voucher redemption details
@@ -279,6 +329,7 @@ try {
 
 Changelog
 =========
+- **2016-04-12** - `2.4.0` - Create, disable and enable voucher
 - **2016-04-04** - `2.3.1` - Updated API URL, HTTPS enabled by default
 - **2016-03-11** - `2.3.0` - List vouchers which meet specified filters
 - **2016-02-22** - `2.2.0` - List redemptions across all vouchers
