@@ -18,34 +18,40 @@ public class RedemptionsFilter extends AbstractMap<String, Object> {
     private final Date startDate;
     private final Date endDate;
     private final List<RedemptionResult> results;
+    private final String customerId;
     
     private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(Constants.ENDPOINT_DATE_FORMAT);
     
-    private RedemptionsFilter(Integer limit, Date startDate, Date endDate, List<RedemptionResult> results) {
+    private RedemptionsFilter(Integer limit, Date startDate, Date endDate, List<RedemptionResult> results, String customerId) {
         this.limit = limit;
         this.startDate = startDate;
         this.endDate = endDate;
         this.results = results;
+        this.customerId = customerId;
     }
     
     public static RedemptionsFilter filter() {
-        return new RedemptionsFilter(null, null, null, null);
+        return new RedemptionsFilter(null, null, null, null, null);
     }
     
     public RedemptionsFilter withLimit(Integer limit) {
-        return new RedemptionsFilter(limit, startDate, endDate, results);
+        return new RedemptionsFilter(limit, startDate, endDate, results, customerId);
     }
     
     public RedemptionsFilter withStartDate(Date startDate) {
-        return new RedemptionsFilter(limit, startDate, endDate, results);
+        return new RedemptionsFilter(limit, startDate, endDate, results, customerId);
     }
     
     public RedemptionsFilter withEndDate(Date endDate) {
-        return new RedemptionsFilter(limit, startDate, endDate, results);
+        return new RedemptionsFilter(limit, startDate, endDate, results, customerId);
     }
     
     public RedemptionsFilter withResult(RedemptionResult ... results) {
-        return new RedemptionsFilter(limit, startDate, endDate, Arrays.asList(results));
+        return new RedemptionsFilter(limit, startDate, endDate, Arrays.asList(results), customerId);
+    }
+    
+    public RedemptionsFilter withCustomerId(String customerId) {
+        return new RedemptionsFilter(limit, startDate, endDate, results, customerId);
     }
     
     private String formatDate(Date date) {
@@ -71,6 +77,7 @@ public class RedemptionsFilter extends AbstractMap<String, Object> {
                 entries.add(newEntry("result", result));
             }
         }
+        entries.add(newEntry("customer_id", customerId));
         return Collections.unmodifiableSet(entries);
     }
 
