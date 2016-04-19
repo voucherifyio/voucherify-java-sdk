@@ -17,16 +17,16 @@ public class VouchersFilter extends AbstractMap<String, Object> {
     private final Integer skip;
     private final String campaign;
     private final String category;
-    private final String customerId;
+    private final String customer;
 
-    private VouchersFilter(Integer limit, String codeQuery, Integer page, Integer skip, String campaign, String category, String customerId) {
+    private VouchersFilter(Integer limit, String codeQuery, Integer page, Integer skip, String campaign, String category, String customer) {
         this.limit = limit;
         this.codeQuery = codeQuery;
         this.page = page;
         this.skip = skip;
         this.campaign = campaign;
         this.category = category;
-        this.customerId = customerId;
+        this.customer = customer;
     }
 
     public static VouchersFilter filter() {
@@ -34,31 +34,31 @@ public class VouchersFilter extends AbstractMap<String, Object> {
     }
 
     public VouchersFilter withLimit(Integer limit) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     public VouchersFilter withCodeQuery(String codeQuery) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     public VouchersFilter withPage(Integer page) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     public VouchersFilter withSkip(Integer skip) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     public VouchersFilter withCampaign(String campaign) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     public VouchersFilter withCategory(String category) {
-        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customerId);
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
     
-    public VouchersFilter withCustomerId(String customerId) {
-        return new VouchersFilter(limit, customerId, page, skip, campaign, category, customerId);
+    public VouchersFilter withCustomer(String customer) {
+        return new VouchersFilter(limit, codeQuery, page, skip, campaign, category, customer);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class VouchersFilter extends AbstractMap<String, Object> {
         entries.add(newEntry("skip", skip));
         entries.add(newEntry("campaign", campaign));
         entries.add(newEntry("category", category));
-        entries.add(newEntry("customer_id", customerId));
+        entries.add(newEntry("customer", customer));
 
         return Collections.unmodifiableSet(entries);
     }
