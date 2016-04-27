@@ -1,8 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 2.4.1
-
+###Version: 2.5.0
 [Voucherify](http://voucherify.io?utm_source=inbound&utm_medium=github&utm_campaign=voucherify-java-sdk) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -22,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>2.4.1</version>
+  <version>2.5.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.4.1'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:2.5.0'
 ```
 
 NOTE:
@@ -268,6 +267,19 @@ Customer profile:
                 .build()));
 ```
 
+Rollback a redemption
+===
+
+Your business logic may include a case when you need to undo a redemption. You can do it by calling `rollbackRedemption(String redemption_id, String tracking_id, String reason)` method.
+This operation will create a rollback entry in voucher's `redemption.redemption_entries` and give 1 redemption back to the pool (decrease `redeemed_quantity` by 1).
+
+Example:
+
+```java
+	VoucherRedemptionResult result = client.vouchers().rollbackRedemption("r_irOQWUTAjthQwnkn5JQM1V6N", "alice.morgan", "invalid_credit_card");
+```
+
+
 Fetch redemptions across all vouchers
 ===
 
@@ -329,6 +341,7 @@ try {
 
 Changelog
 =========
+- **2016-04-27** - `2.5.0` - Redemption rollback.
 - **2016-04-13** - `2.4.1` - Added customer_id to vouchers and redemption filter.
 - **2016-04-12** - `2.4.0` - Create, disable and enable voucher
 - **2016-04-04** - `2.3.1` - Updated API URL, HTTPS enabled by default

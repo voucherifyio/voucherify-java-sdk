@@ -101,7 +101,7 @@ public interface VoucherifyApi {
      *          code of the voucher
      * @param redemptionContext
      *          a context in terms of which the voucher is being redeemed (e.g. customer profile)
-     * @return
+     * @return redemption result (including redemption id)
      */
     @POST("/vouchers/{code}/redemption")
     VoucherRedemptionResult redeem(@Path("code") String code, @Body VoucherRedemptionContext redemptionContext);
@@ -124,5 +124,20 @@ public interface VoucherifyApi {
      */
     @GET("/redemptions")
     List<RedemptionDetails> listRedemptions(@QueryMap RedemptionsFilter filter);
+
+    
+    /**
+     * Redemption rollback reverts a redemption. 
+     * 
+     * @param redemptionId (required)
+     *          id of a redemption
+     * @param trackingId (optional)
+     *          id of a customer
+     * @param reason (optional)
+     *           
+     * @return rollback result (including rollback id, original redemption id, voucher after rollback)
+     */
+    @POST("/redemptions/{id}/rollback")
+    VoucherRedemptionResult rollbackRedemption(@Path("id") String redemptionId, @Query("tracking_id") String trackingId, @Query("reason") String reason);
 
 }
