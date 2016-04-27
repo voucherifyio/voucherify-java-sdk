@@ -453,7 +453,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *           
          * @return rollback result 
          */
-        public Observable<VoucherRedemptionResult> rollbackRedemption(String redemptionId, String trackingId, String reason) {
+        public Observable<VoucherRedemptionResult> rollbackRedemption(final String redemptionId, final String trackingId, final String reason) {
             return RxUtils.defer(new RxUtils.DefFunc<VoucherRedemptionResult>() {
                 @Override
                 public VoucherRedemptionResult method() {
