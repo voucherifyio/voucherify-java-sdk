@@ -135,6 +135,21 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     public List<RedemptionDetails> listRedemptions(RedemptionsFilter filter) {
         return api.listRedemptions(filter);
     }
+    
+    /**
+     * Redemption rollback reverts a redemption. 
+     * 
+     * @param redemptionId (required)
+     *          id of a redemption
+     * @param trackingId (optional)
+     *          id of a customer
+     * @param reason (optional)
+     *           
+     * @return rollback result 
+     */
+    public VoucherRedemptionResult rollbackRedemption(String redemptionId, String trackingId, String reason) {
+        return api.rollbackRedemption(redemptionId, trackingId, reason);
+    }
 
     @Override
     ExtAsync createAsyncExtension() {
@@ -258,6 +273,20 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          */
         public void listRedemptions(RedemptionsFilter filter, VoucherifyCallback<List<RedemptionDetails>> callback) {
             RxUtils.subscribe(executor, rx().listRedemptions(filter), callback);
+        }
+        
+        /**
+         * Redemption rollback reverts a redemption. 
+         * 
+         * @param redemptionId (required)
+         *          id of a redemption
+         * @param trackingId (optional)
+         *          id of a customer
+         * @param reason (optional)
+         *    
+         */
+        public void rollbackRedemption(String redemptionId, String trackingId, String reason, VoucherifyCallback<VoucherRedemptionResult> callback) {
+            RxUtils.subscribe(executor, rx().rollbackRedemption(redemptionId, trackingId, reason), callback);
         }
     }
 
@@ -408,6 +437,27 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public List<RedemptionDetails> method() {
                     return VoucherModule.this.listRedemptions(filter);
+                }
+            });
+        }
+        
+        
+        /**
+         * Redemption rollback reverts a redemption. 
+         * 
+         * @param redemptionId (required)
+         *          id of a redemption
+         * @param trackingId (optional)
+         *          id of a customer
+         * @param reason (optional)
+         *           
+         * @return rollback result 
+         */
+        public Observable<VoucherRedemptionResult> rollbackRedemption(String redemptionId, String trackingId, String reason) {
+            return RxUtils.defer(new RxUtils.DefFunc<VoucherRedemptionResult>() {
+                @Override
+                public VoucherRedemptionResult method() {
+                    return api.rollbackRedemption(redemptionId, trackingId, reason);
                 }
             });
         }
