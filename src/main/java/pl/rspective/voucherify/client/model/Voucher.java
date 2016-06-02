@@ -53,7 +53,12 @@ public class Voucher {
     private boolean active;
 
     /**
-     * Hold information about voucher's redemption
+     * Holds information about voucher's publications
+     */
+    private VoucherPublish publish;
+    
+    /**
+     * Holds information about voucher's redemption
      */
     private VoucherRedemption redemption;
 
@@ -87,6 +92,7 @@ public class Voucher {
         this.discount = discount;
         this.startDate = startDate;
         this.expirationDate = expirationDate;
+        this.publish = new VoucherPublish();
         this.redemption = redemption;
         this.active = active;
         this.additionalInfo = additionalInfo;
@@ -151,6 +157,14 @@ public class Voucher {
     
     public boolean isActive() {
         return active;
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    public VoucherPublish getPublish() {
+        return publish;
     }
 
     /**
