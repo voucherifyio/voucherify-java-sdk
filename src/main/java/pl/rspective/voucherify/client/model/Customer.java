@@ -1,31 +1,37 @@
 package pl.rspective.voucherify.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Customer {
     
-    private final String id;
-    private final String name;
-    private final String email;
-    private final String description;
-    private final Map<String, Object> metadata;
+    private String id;
     
-    public Customer(
-            String id,
-            String name,
-            String email,
-            String description,
-            Map<String, Object> metadata) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.description = description;
-        this.metadata = metadata;
-    }
-
+    @SerializedName("source_id")
+    private String sourceId;
+    
+    private String name;
+    
+    private String email;
+    
+    private String description;
+    
+    @SerializedName("created_at")
+    private Date createdAt;
+    
+    private Map<String, Object> metadata;
+    
+    private String object;
+    
     public String getId() {
         return id;
+    }
+    
+    public String getSourceId() {
+        return sourceId;
     }
     
     public String getName() {
@@ -40,19 +46,27 @@ public class Customer {
         return description;
     }
     
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+    
     public Map<String, Object> getMetadata() {
         return metadata;
     }
     
+    public String getObject() {
+        return object;
+    }
+    
     public static class Builder {
-        private String id;
+        private String sourceId;
         private String name;
         private String email;
         private String description;
         private Map<String, Object> metadata;
               
-        public Builder setId(String id) {
-            this.id = id;
+        public Builder setSourceId(String sourceId) {
+            this.sourceId = sourceId;
             return this;
         }
         
@@ -85,7 +99,14 @@ public class Customer {
         }
         
         public Customer build() {
-            return new Customer(id, name, email, description, metadata);
+            Customer customer = new Customer();
+            customer.sourceId = sourceId;
+            customer.name = name;
+            customer.email = email;
+            customer.description = description;
+            customer.metadata = metadata;
+            customer.object = "customer";
+            return customer;
         }
         
     }

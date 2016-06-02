@@ -1,6 +1,7 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-06-02** - `3.0.0` - New customer model.
 - **2016-05-30** - `2.6.0` - New publish model.
 - **2016-04-27** - `2.5.0` - Redemption rollback.
 - **2016-04-13** - `2.4.1` - Added customer_id to vouchers and redemption filter.

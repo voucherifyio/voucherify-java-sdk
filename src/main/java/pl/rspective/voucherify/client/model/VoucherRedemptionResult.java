@@ -23,6 +23,12 @@ public class VoucherRedemptionResult {
     private String object;
     
     /**
+     * Id of a customer who made this redemption
+     */
+    @SerializedName("customer_id")
+    private String customerId;
+    
+    /**
      * Voucher's consumer tracking id
      */
     @SerializedName("tracking_id")
@@ -58,6 +64,10 @@ public class VoucherRedemptionResult {
 
     public Date getDate() {
         return date;
+    }
+    
+    public String getCustomerId() {
+        return customerId;
     }
 
     public String getTrackingId() {

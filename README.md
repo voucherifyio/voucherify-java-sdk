@@ -245,7 +245,7 @@ Customer tracking
 
 Voucherify gives you an option to track customers actions. They can be used for analytics.
 
-You can pass tracking id or a detailed customer profile in a second parameter to the `redeem` method. 
+You can pass tracking id or a detailed customer profile in a second parameter to the `redeem` method.
 
 Just tracking id:
 
@@ -257,7 +257,7 @@ Customer profile:
 ```java
   VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", new VoucherRedemptionContext(
           new Customer.Builder()
-                .setId("alice.morgan")
+                .setSourceId("alice.morgan")
                 .setName("Alice Morgan")
                 .setEmail("alice@morgan.com")
                 .setDescription("")
@@ -341,8 +341,8 @@ try {
 
 Changelog
 =========
+- **2016-06-02** - `3.0.0` - New customer model.
 - **2016-05-30** - `2.6.0` - New publish model.
 - **2016-04-27** - `2.5.0` - Redemption rollback.
-- **2016-04-13** - `2.4.1` - Added customer_id to vouchers and redemption filter.
 
 See more in [Changelog](CHANGELOG.md)
