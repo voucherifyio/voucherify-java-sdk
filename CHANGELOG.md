@@ -1,6 +1,11 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-06-02** - `3.0.0` - New customer model. Customers are now a separate entity in Voucherify, thus there are a few changes in the model:
+  - `Customer`: added `source_id` (previously `id` which is now a generated value), `created_at` and `object`
+  - `VoucherRedemptionResult` - added `customer_id`
+  - `RedemptionEntry` - added `customer_id`
+  - `RedemptionDetails` - changed type of  `customer` from `String` to `Customer`
 - **2016-05-30** - `2.6.0` - New publish model.
 - **2016-04-27** - `2.5.0` - Redemption rollback.
 - **2016-04-13** - `2.4.1` - Added customer_id to vouchers and redemption filter.
