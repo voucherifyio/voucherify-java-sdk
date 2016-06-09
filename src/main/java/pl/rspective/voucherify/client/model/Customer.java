@@ -33,25 +33,50 @@ public class Customer {
     public String getSourceId() {
         return sourceId;
     }
+
+    public Customer setSourceId(String sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
     
     public String getName() {
         return name;
+    }
+
+    public Customer setName(String name) {
+        this.name = name;
+        return this;
     }
     
     public String getEmail() {
         return email;
     }
+
+    public Customer setEmail(String email) {
+        this.email = email;
+        return this;
+    }
     
     public String getDescription() {
         return description;
     }
-    
+
+    public Customer setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
     public Date getCreatedAt() {
         return createdAt;
     }
     
     public Map<String, Object> getMetadata() {
         return metadata;
+    }
+
+    public Customer setMetadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
     }
     
     public String getObject() {
