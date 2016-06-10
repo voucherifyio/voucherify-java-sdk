@@ -318,6 +318,145 @@ Example:
     List<Voucher> testVouchers = createLocalClient().vouchers().listVouchers(filterTestCategory);
 ```
 
+
+Create customer
+===
+
+Example:
+
+```java
+// Build customer object
+Customer customer = new Customer.Builder()
+        .setName("John Doe")
+        .setEmail("john@mail.com")
+        .setDescription("Sample description of customer")
+        .build();
+
+try {
+    Customer createdCustomer = client.customers().createCustomer(customer);
+    System.out.println("Created customer: '" + createdCustomer.getId());
+} catch (RetrofitError e) {
+    // handle errors
+}
+```
+
+or asynchronously
+
+```java
+client.customers().async().createCustomer(customer, new VoucherifyCallback<Customer>() {
+    @Override
+    public void onSuccess(Customer result) {
+        System.out.println("Created customer: '" + result.getId() + "'");
+    }
+
+    @Override
+    public void onFailure(RetrofitError error) {
+        // error
+    }
+});
+```
+
+Get customer
+===
+
+Example:
+
+```java
+try {
+    customer = client.customers().getCustomer("cus_123xxXXaaSSID");
+    System.out.println("Customer: '" + customer.getName() + "'");
+} catch (RetrofitError e) {
+    // e.g. Customer not exists
+}
+```
+
+or asynchronously
+
+```java
+client.customers().async().getCustomer("cus_123xxXXaaSSID", new VoucherifyCallback<Customer>() {
+    @Override
+    public void onSuccess(Customer customer) {
+        System.out.println("Fetched customer: '" + customer.getName() + "'");
+    }
+
+    @Override
+    public void onFailure(RetrofitError error) {
+        // e.g. Customer not exists
+    }
+});
+```
+
+Update customer
+===
+
+Example:
+
+```java
+// Edit customer's data
+Customer payload = myCustomer
+        .setName("John Doe")
+        .setEmail("john@email.com")
+        .setDescription("Sample description for customer with changes");
+
+// Update customer
+try {
+    Customer updatedCustomer = client.customers().updateCustomer(payload);
+    System.out.println("Updated customer " + updatedCustomer.getName()); // Updated customer: 'John Doe'
+} catch (RetrofitError e) {
+    // e.g. Customer not exists
+}
+```
+
+or asynchronously:
+
+```java
+// Edit customer's data
+Customer payload = myCustomer
+        .setName("John Doe")
+        .setEmail("john@email.com")
+        .setDescription("Sample description for customer with changes");
+
+client.customers().async().updateCustomer(payload, new VoucherifyCallback<Customer>() {
+    @Override
+    public void onSuccess(Customer updatedCustomer) {
+        System.out.println("Updated customer: '" + updatedCustomer.getName() + "'"); // Updated customer: 'John Doe'
+    }
+
+    @Override
+    public void onFailure(RetrofitError error) {
+        // error
+    }
+});
+```
+
+Delete customer
+===
+
+Example:
+
+```java
+try {
+    client.customers().deleteCustomer("cus_123xxXXaaSSID");
+} catch (RetrofitError e) {
+    // e.g. Customer not exists
+}
+```
+
+or asynchronously:
+
+```java
+client.customers().async().deleteCustomer("cus_123xxXXaaSSID", new VoucherifyCallback<Customer>() {
+    @Override
+    public void onSuccess(Void result) {
+    }
+
+    @Override
+    public void onFailure(RetrofitError error) {
+       // error
+    }
+});
+```
+
 Utils
 ===
 
@@ -341,6 +480,7 @@ try {
 
 Changelog
 =========
+- **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
 - **2016-06-02** - `3.0.0` - New customer model.
 - **2016-05-30** - `2.6.0` - New publish model.
 - **2016-04-27** - `2.5.0` - Redemption rollback.
