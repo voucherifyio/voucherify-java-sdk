@@ -11,9 +11,12 @@ import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.Customer;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.PUT;
+import retrofit.http.DELETE;
 import retrofit.http.Path;
 import retrofit.http.Query;
 import retrofit.http.QueryMap;
@@ -125,7 +128,6 @@ public interface VoucherifyApi {
     @GET("/redemptions")
     List<RedemptionDetails> listRedemptions(@QueryMap RedemptionsFilter filter);
 
-    
     /**
      * Redemption rollback reverts a redemption. 
      * 
@@ -140,4 +142,44 @@ public interface VoucherifyApi {
     @POST("/redemptions/{id}/rollback")
     VoucherRedemptionResult rollbackRedemption(@Path("id") String redemptionId, @Query("tracking_id") String trackingId, @Query("reason") String reason);
 
+    /**
+     * Create a customer using given Customer
+     *
+     * @param customer (required)
+     *
+     * @return created User
+     */
+    @POST("/customers")
+    Customer createCustomer(@Body Customer customer);
+
+    /**
+     * Get a Customer using Customer ID
+     *
+     * @param customerId (required)
+     *
+     * @return customer with given ID
+     */
+    @GET("/customers/{id}")
+    Customer getCustomer(@Path("id") String customerId);
+
+    /**
+     * Update a Customer by ID, using given Customer object
+     *
+     * @param customerId (required)
+     * @param customer (optional)
+     *
+     * @return Updated Customer with given ID
+     */
+    @PUT("/customers/{id}")
+    Customer updateCustomer(@Path("id") String customerId, @Body Customer customer);
+
+    /**
+     * Delete a Customer by ID
+     *
+     * @param customerId (required)
+     *
+     * @return Response without data
+     */
+    @DELETE("/customers/{id}")
+    Response deleteCustomer(@Path("id") String customerId);
 }

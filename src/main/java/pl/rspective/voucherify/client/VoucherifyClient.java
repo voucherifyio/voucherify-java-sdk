@@ -10,6 +10,7 @@ import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
 import pl.rspective.voucherify.client.module.VoucherModule;
+import pl.rspective.voucherify.client.module.CustomerModule;
 import pl.rspective.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -32,9 +33,14 @@ public class VoucherifyClient {
     private Gson gson;
 
     /**
-     * It's manage communication with Voucherify endpoint
+     * It's manage communication with Voucherify/Voucher endpoint
      */
     private VoucherModule voucherModule;
+
+    /**
+     * It's manage communication with Voucherify/Customer endpoint
+     */
+    private CustomerModule customerModule;
 
     /**
      * Describes client's REST API
@@ -66,6 +72,7 @@ public class VoucherifyClient {
         this.voucherifyApi = createRetrofitService(builder);
 
         this.voucherModule = new VoucherModule(voucherifyApi, executor);
+        this.customerModule = new CustomerModule(voucherifyApi, executor);
     }
 
     /**
@@ -75,6 +82,13 @@ public class VoucherifyClient {
         return voucherModule;
     }
 
+
+    /**
+     * Returns the Customers module.
+     */
+    public CustomerModule customers() {
+        return customerModule;
+    }
 
     /**
      *
