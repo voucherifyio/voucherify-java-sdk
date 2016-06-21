@@ -1,11 +1,10 @@
 package pl.rspective.voucherify.client.module;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.Customer;
 import pl.rspective.voucherify.client.module.CustomerModule.ExtAsync;
 import pl.rspective.voucherify.client.module.CustomerModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -65,8 +64,8 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
     /**
      * Delete a customer.
      *
-     * @param customer
-     *          customer to be deleted
+     * @param customerId
+     *          id of a customer to be deleted
      */
     public void deleteCustomer(String customerId) {
         api.deleteCustomer(customerId);
@@ -125,10 +124,10 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
         }
 
         /**
-         * Create a customer.
+         * Update a customer.
          *
          * @param customer
-         *          customer to be created
+         *          customer to be updated
          *
          */
         public void updateCustomer(Customer customer, VoucherifyCallback<Customer> callback) {
@@ -137,10 +136,10 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
 
 
         /**
-         * Create a customer.
+         * Delete a customer by customerId.
          *
-         * @param customer
-         *          customer to be created
+         * @param customerId
+         *          id of a customer to be deleted
          *
          */
         public void deleteCustomer(String customerId, VoucherifyCallback<Void> callback) {
@@ -154,7 +153,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
     public class ExtRxJava extends AbsModule.Rx {
 
         /**
-         * Fetch a single resource with a customerId.
+         * Get a single resource with a customerId.
          *
          * @param customerId
          *            resource id
@@ -187,12 +186,12 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
         }
 
         /**
-         * Create a customer.
+         * Update a customer.
          *
          * @param customer
-         *          customer to be created
+         *          customer to be updated
          *
-         * @return created customer
+         * @return updated customer
          */
         public Observable<Customer> updateCustomer(final Customer customer) {
             return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
@@ -207,7 +206,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
          * Delete a customer by customerId.
          *
          * @param customerId
-         *          customerId to be created
+         *          customerId to be deleted
          */
         public Observable<Void> deleteCustomer(final String customerId) {
             return RxUtils.defer(new RxUtils.DefFunc<Void>() {
