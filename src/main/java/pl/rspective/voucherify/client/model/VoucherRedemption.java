@@ -12,7 +12,7 @@ public class VoucherRedemption {
 	/**
 	 * Value of voucher's quantity
 	 */
-	private int quantity;
+	private Integer quantity;
 
 	/**
 	 * Value of redeemed voucher's quantity
@@ -33,11 +33,15 @@ public class VoucherRedemption {
 	    return redemption;
 	}
 	
+    public static VoucherRedemption unlimited() {
+        return new VoucherRedemption();
+    }
+	
 	/**
 	 *
 	 * @return
 	 */
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
@@ -56,4 +60,5 @@ public class VoucherRedemption {
 	public List<RedemptionEntry> getRedemptionEntries() {
 		return redemptionEntries;
 	}
+
 }

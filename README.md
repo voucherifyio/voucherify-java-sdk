@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.0.0
+###Version: 3.2.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.0.0</version>
+  <version>3.2.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.0.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.2.0'
 ```
 
 NOTE:
@@ -73,13 +73,14 @@ Use `Voucher.Builder` to define a voucher:
 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         
 Voucher voucher = new Voucher.Builder()
+        .setType(VoucherType.DISCOUNT_VOUCHER)
         .setPercentOff(10.0)
         .setStartDate(df.parse("2016-01-01"))
         .setExpirationDate(df.parse("2016-12-31"))
+        .setRedemption(VoucherRedemption.limit(3))
         .setCategory("API Test")
         .build();
 ```
-
 Then send it to Voucherify:
 
 ```java        
@@ -89,6 +90,19 @@ try {
 } catch (RetrofitError e) {
     // handle errors
 }
+```
+
+#### Gift voucher
+
+ Voucherify provides 2 types of vouchers: discount vouchers and gift vouchers. Gift vouchers are like prepaid cards. 
+ They have an amount associated with them that can be redeemed in portions.
+ 
+ ```java       
+Voucher voucher = new Voucher.Builder()
+        .setType(VoucherType.GIFT_VOUCHER)
+        .setGift(Gift.amount(10000)) // 100.00
+        .setRedemption(VoucherRedemption.unlimited())
+        .build();
 ```
 
 
@@ -240,6 +254,7 @@ client.vouchers().rx().redeem("Testing7fjWdr")
     });
 ```
 
+
 Customer tracking
 ===
 
@@ -266,6 +281,19 @@ Customer profile:
                 .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
                 .build()));
 ```
+
+Redeem a gift voucher
+===
+
+If you want to redeem a gift voucher you have to provide an amount that you wish take.
+You can pass the amount in `VoucherRedemptionContext.order.amount`:
+
+```java
+  VoucherRedemptionContext redemptionContext = new VoucherRedemptionContext(customer, Order.amount(5000), metadata);
+  VoucherRedemptionResult result = client.vouchers().redeem("Gift100", redemptionContext);
+```
+
+Redemption will fail if the provided amount (plus redeemed amount so far) is greater than voucher's amount. 
 
 Rollback a redemption
 ===
@@ -480,6 +508,8 @@ try {
 
 Changelog
 =========
+
+- **2016-06-21** - `3.2.0` - Added support for gift vouchers.
 - **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
 - **2016-06-02** - `3.0.0` - New customer model.
 - **2016-05-30** - `2.6.0` - New publish model.

@@ -1,6 +1,12 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-06-21** - `3.2.0` - Added support for gift vouchers.
+  - vouchers has a type now - `VoucherType`: `DISCOUNT_VOUCHER` or `GIFT_VOUCHER`
+  - gift vouchers have an amount limit defined in `gift.amount`
+  - redeeming a gift voucher requires to provide amount value (`VoucherRedemptionContext.order.amount`)
+  - you can redeem gift vouchers multiple times but the total amount cannot exceed the gift amount
+- **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
 - **2016-06-02** - `3.0.0` - New customer model. Customers are now a separate entity in Voucherify, thus there are a few changes in the model:
   - `Customer`: added `source_id` (previously `id` which is now a generated value), `created_at` and `object`
   - `VoucherRedemptionResult` - added `customer_id`

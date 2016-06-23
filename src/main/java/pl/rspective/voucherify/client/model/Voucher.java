@@ -19,6 +19,11 @@ public class Voucher {
      * The unique voucher's code used for instance to consume it
      */
     private String code;
+    
+    /**
+     * Voucher's type
+     */
+    private VoucherType type;
 
     /**
      * The name of voucher's campaign
@@ -31,9 +36,14 @@ public class Voucher {
     private String category;
 
     /**
-     * Discount associated with the voucher
+     * Discount definition - present if type is DISCOUNT_VOUCHER
      */
     private Discount discount;
+    
+    /**
+     * Gift definition (amount) - present if type is GIFT_VOUCHER
+     */
+    private Gift gift;
 
     /**
      * Voucher's start date
@@ -75,10 +85,12 @@ public class Voucher {
     
     private Voucher(
             String id,
+            VoucherType type,
             String code,
             String campaign,
             String category,
             Discount discount,
+            Gift gift,
             Date startDate,
             Date expirationDate,
             VoucherRedemption redemption,
@@ -86,10 +98,12 @@ public class Voucher {
             String additionalInfo,
             Map<String, Object> metadata) {
         this.id = id;
+        this.type = type;
         this.code = code;
         this.campaign = campaign;
         this.category = category;
         this.discount = discount;
+        this.gift = gift;
         this.startDate = startDate;
         this.expirationDate = expirationDate;
         this.publish = new VoucherPublish();
@@ -99,58 +113,38 @@ public class Voucher {
         this.metadata = metadata;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getId() {
         return id;
     }
+    
+    public VoucherType getType() {
+        return type;
+    }
 
-    /**
-     *
-     * @return
-     */
     public String getCode() {
         return code;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCampaign() {
         return campaign;
     }
     
-    /**
-    *
-    * @return
-    */
     public String getCategory() {
         return category;
     }
 
-    /**
-     *
-     * @return
-     */
     public Discount getDiscount() {
         return discount;
     }
+    
+    public Gift getGift() {
+        return gift;
+    }
 
-    /**
-    *
-    * @return
-    */
     public Date getStartDate() {
         return startDate;
     }
     
-    /**
-     *
-     * @return
-     */
     public Date getExpirationDate() {
         return expirationDate;
     }
@@ -159,26 +153,14 @@ public class Voucher {
         return active;
     }
     
-    /**
-     * 
-     * @return
-     */
     public VoucherPublish getPublish() {
         return publish;
     }
 
-    /**
-     *
-     * @return
-     */
     public VoucherRedemption getRedemption() {
         return redemption;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getAdditionalInfo() {
         return additionalInfo;
     }
@@ -192,12 +174,16 @@ public class Voucher {
         private String id;
 
         private String code;
+        
+        private VoucherType type;
 
         private String campaign;
         
         private String category;
 
         private Discount discount;
+        
+        private Gift gift;
 
         private Date startDate;
 
@@ -213,6 +199,11 @@ public class Voucher {
 
         public Builder setId(String id) {
             this.id = id;
+            return this;
+        }
+        
+        public Builder setType(VoucherType type) {
+            this.type = type;
             return this;
         }
 
@@ -248,6 +239,11 @@ public class Voucher {
         
         public Builder setUnitOff(double unitOff) {
             this.discount = Discount.unitOff(unitOff);
+            return this;
+        }
+        
+        public Builder setGift(Gift gift) {
+            this.gift = gift;
             return this;
         }
 
@@ -297,7 +293,7 @@ public class Voucher {
         }
 
         public Voucher build() {
-            return new Voucher(id, code, campaign, category, discount, startDate, expirationDate, redemption, active, additionalInfo, metadata);
+            return new Voucher(id, type, code, campaign, category, discount, gift, startDate, expirationDate, redemption, active, additionalInfo, metadata);
         }
     }
 
