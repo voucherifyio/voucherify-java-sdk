@@ -4,19 +4,20 @@ import com.squareup.okhttp.Response;
 
 import java.util.List;
 
+import pl.rspective.voucherify.client.model.Customer;
 import pl.rspective.voucherify.client.model.RedemptionDetails;
 import pl.rspective.voucherify.client.model.RedemptionsFilter;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VoucherUpdate;
 import pl.rspective.voucherify.client.model.VouchersFilter;
-import pl.rspective.voucherify.client.model.Customer;
 import retrofit.http.Body;
+import retrofit.http.DELETE;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.PUT;
-import retrofit.http.DELETE;
 import retrofit.http.Path;
 import retrofit.http.Query;
 import retrofit.http.QueryMap;
@@ -67,6 +68,17 @@ public interface VoucherifyApi {
      */
     @POST("/vouchers/{code}")
     Voucher createVoucherWithCode(@Path("code") String code, @Body Voucher voucher);
+    
+    /**
+     * Update voucher.
+     * 
+     * @param voucherUpdate
+     *          voucher fields to be updated
+     *          
+     * @return updated voucher 
+     */
+    @PUT("/vouchers/{code}")
+    Voucher updateVoucher(@Path("code") String code, @Body VoucherUpdate voucherUpdate);
     
     /**
      * Disable a voucher.

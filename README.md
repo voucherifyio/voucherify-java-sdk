@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.2.0
+###Version: 3.3.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.2.0</version>
+  <version>3.3.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.2.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.3.0'
 ```
 
 NOTE:
@@ -87,6 +87,42 @@ Then send it to Voucherify:
 try {
     Voucher createdVoucher = client.vouchers().createVoucher(voucher);
     System.out.println("Voucher created: " + createdVoucher.getCode());
+} catch (RetrofitError e) {
+    // handle errors
+}
+```
+
+Update a voucher
+===
+
+You can change some properties of a voucher that has been already created:
+- category
+- start date
+- expiration date
+- active
+- additinal info
+- metadata
+
+Use `VoucherUpdate.Builder` to define the update:
+
+```java
+DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        
+VoucherUpdate voucherUpdate = new VoucherUpdate.Builder()
+        .setCategory("New Category")
+        .setStartDate(df.parse("2016-08-01"))
+        .setExpirationDate(df.parse("2017-07-31"))
+        .build();
+```
+Then send it to Voucherify:
+
+```java        
+try {
+    Voucher updatedVoucher = client.vouchers().updateVoucher("uPd4t3", voucherUpdate);
+    System.out.println("Voucher updated. " + 
+                       "Category: " + updatedVoucher.getCategory() + ", " +
+                       "Start Date: " + updatedVoucher.getStartDate() + ", " +
+                       "Expiration Date: " + updatedVoucher.getExpirationDate());
 } catch (RetrofitError e) {
     // handle errors
 }
@@ -509,10 +545,10 @@ try {
 Changelog
 =========
 
+- **2016-07-18** - `3.3.0` - Update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.
 - **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
 - **2016-06-02** - `3.0.0` - New customer model.
 - **2016-05-30** - `2.6.0` - New publish model.
-- **2016-04-27** - `2.5.0` - Redemption rollback.
 
 See more in [Changelog](CHANGELOG.md)
