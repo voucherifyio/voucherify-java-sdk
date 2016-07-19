@@ -1,6 +1,7 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-07-18** - `3.3.0` - Added a method to update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.
   - vouchers has a type now - `VoucherType`: `DISCOUNT_VOUCHER` or `GIFT_VOUCHER`
   - gift vouchers have an amount limit defined in `gift.amount`

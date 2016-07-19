@@ -11,6 +11,7 @@ import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VoucherUpdate;
 import pl.rspective.voucherify.client.model.VouchersFilter;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
@@ -69,6 +70,20 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         } else {
             return api.createVoucher(voucher);    
         }
+    }
+    
+    /**
+     * Update voucher.
+     * 
+     * @param code
+     *          code of a voucher that should be updated
+     * @param voucherUpdate
+     *          voucher fields to be updated
+     *          
+     * @return updated voucher 
+     */
+    public Voucher updateVoucher(String code, VoucherUpdate voucherUpdate) {
+        return api.updateVoucher(code, voucherUpdate);
     }
     
     /**
@@ -213,6 +228,19 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
             RxUtils.subscribe(executor, rx().createVoucher(voucher), callback);
         }
 
+        /**
+         * Update voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be updated
+         * @param voucherUpdate
+         *          voucher fields to be updated 
+         * @param callback
+         *          callback to be invoked when voucher is updated         
+         */
+        public void updateVoucher(String code, VoucherUpdate voucherUpdate, VoucherifyCallback<Voucher> callback) {
+            RxUtils.subscribe(executor, rx().updateVoucher(code, voucherUpdate), callback);
+        }
         
         /**
          * Disable a voucher.
@@ -340,6 +368,25 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public Voucher method() {
                     return VoucherModule.this.createVoucher(voucher);
+                }
+            });
+        }
+        
+        /**
+         * Update voucher.
+         * 
+         * @param code
+         *          code of a voucher that should be updated
+         * @param voucherUpdate
+         *          voucher fields to be updated
+         *          
+         * @return updated voucher 
+         */
+        public Observable<Voucher> updateVoucher(final String code, final VoucherUpdate voucherUpdate) {
+            return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
+                @Override
+                public Voucher method() {
+                    return VoucherModule.this.updateVoucher(code, voucherUpdate);
                 }
             });
         }
