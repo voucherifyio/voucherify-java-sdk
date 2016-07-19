@@ -21,6 +21,12 @@ public class Voucher {
     private String code;
     
     /**
+     * A definition how to generate voucher's code. Used only on creation.
+     */
+    @SerializedName("code_config")
+    private CodeConfig codeConfig;
+    
+    /**
      * Voucher's type
      */
     private VoucherType type;
@@ -87,6 +93,7 @@ public class Voucher {
             String id,
             VoucherType type,
             String code,
+            CodeConfig codeConfig,
             String campaign,
             String category,
             Discount discount,
@@ -97,9 +104,13 @@ public class Voucher {
             Boolean active,
             String additionalInfo,
             Map<String, Object> metadata) {
+        if (code != null && codeConfig != null) {
+            throw new IllegalArgumentException("code and codeConfig are mutualy exclusive");
+        }
         this.id = id;
         this.type = type;
         this.code = code;
+        this.codeConfig = codeConfig;
         this.campaign = campaign;
         this.category = category;
         this.discount = discount;
@@ -175,6 +186,8 @@ public class Voucher {
 
         private String code;
         
+        private CodeConfig codeConfig;
+        
         private VoucherType type;
 
         private String campaign;
@@ -209,6 +222,11 @@ public class Voucher {
 
         public Builder setCode(String code) {
             this.code = code;
+            return this;
+        }
+        
+        public Builder setCodeConfig(CodeConfig codeConfig) {
+            this.codeConfig = codeConfig;
             return this;
         }
 
@@ -293,7 +311,7 @@ public class Voucher {
         }
 
         public Voucher build() {
-            return new Voucher(id, type, code, campaign, category, discount, gift, startDate, expirationDate, redemption, active, additionalInfo, metadata);
+            return new Voucher(id, type, code, codeConfig, campaign, category, discount, gift, startDate, expirationDate, redemption, active, additionalInfo, metadata);
         }
     }
 

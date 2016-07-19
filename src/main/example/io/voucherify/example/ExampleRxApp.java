@@ -2,6 +2,7 @@ package io.voucherify.example;
 import java.text.ParseException;
 
 import pl.rspective.voucherify.client.VoucherifyClient;
+import pl.rspective.voucherify.client.model.CodeConfig;
 import pl.rspective.voucherify.client.model.Customer;
 import pl.rspective.voucherify.client.model.Gift;
 import pl.rspective.voucherify.client.model.Order;
@@ -29,6 +30,7 @@ public class ExampleRxApp {
     
     public void start() {
         Voucher giftVoucher = new Voucher.Builder()
+                .setCodeConfig(CodeConfig.pattern("PROMO-#####-2016"))
                 .setType(VoucherType.GIFT_VOUCHER)
                 .setGift(Gift.amount(10000))
                 .setCategory("Java SDK Example")

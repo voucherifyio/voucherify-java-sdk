@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.3.0
+###Version: 3.4.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.3.0</version>
+  <version>3.4.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.3.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.4.0'
 ```
 
 NOTE:
@@ -81,6 +81,25 @@ Voucher voucher = new Voucher.Builder()
         .setCategory("API Test")
         .build();
 ```
+
+
+You can create the voucher with specified code:
+
+ ```java
+ 	Voucher voucher = new Voucher.Builder()
+ 	        .setCodeConfig(CodeConfig.pattern("PROMO-10OFF-2016"))
+ 	        ...
+ ```
+
+
+Or you can define how to generate the code by supplying a `CodeConfig`:
+
+ ```java
+ 	Voucher voucher = new Voucher.Builder()
+ 	        .setCodeConfig(CodeConfig.pattern("PROMO-#####-2016"))
+ 	        ...
+ ```
+
 Then send it to Voucherify:
 
 ```java        
@@ -545,6 +564,7 @@ try {
 Changelog
 =========
 
+- **2016-07-19** - `3.4.0` - Voucher code config.
 - **2016-07-18** - `3.3.0` - Update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.
 - **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
