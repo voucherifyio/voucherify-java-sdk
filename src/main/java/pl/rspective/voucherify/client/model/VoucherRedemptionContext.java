@@ -16,12 +16,17 @@ public class VoucherRedemptionContext {
         this.metadata = metadata;
     }
     
+    
+    public VoucherRedemptionContext(Customer customer, Order order) {
+        this(customer, order, null);
+    }
+    
     public VoucherRedemptionContext(Customer customer, Map<String, Object> metadata) {
         this(customer, null, metadata);
     }
     
     public VoucherRedemptionContext(Customer customer) {
-        this(customer, null);
+        this(customer, null, null);
     }
     
     public Customer getCustomer() {
