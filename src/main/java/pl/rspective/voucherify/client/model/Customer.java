@@ -84,12 +84,19 @@ public class Customer {
     }
     
     public static class Builder {
+        
+        private String id;
         private String sourceId;
         private String name;
         private String email;
         private String description;
         private Map<String, Object> metadata;
-              
+        
+        public Builder setId(String id) {
+            this.id = id;
+            return this;
+        }
+        
         public Builder setSourceId(String sourceId) {
             this.sourceId = sourceId;
             return this;
@@ -125,6 +132,7 @@ public class Customer {
         
         public Customer build() {
             Customer customer = new Customer();
+            customer.id = id;
             customer.sourceId = sourceId;
             customer.name = name;
             customer.email = email;

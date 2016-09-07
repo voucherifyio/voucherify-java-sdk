@@ -1,6 +1,7 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.
 - **2016-07-18** - `3.3.0` - Added a method to update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.

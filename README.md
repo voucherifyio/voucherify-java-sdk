@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.4.0
+###Version: 3.5.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
 * an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.4.0</version>
+  <version>3.5.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.4.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.5.0'
 ```
 
 NOTE:
@@ -348,7 +348,25 @@ You can pass the amount in `VoucherRedemptionContext.order.amount`:
   VoucherRedemptionResult result = client.vouchers().redeem("Gift100", redemptionContext);
 ```
 
-Redemption will fail if the provided amount (plus redeemed amount so far) is greater than voucher's amount. 
+Redemption will fail if the provided amount (plus redeemed amount so far) is greater than voucher's amount.
+
+Redeem a voucher with validation rules
+===
+
+If your voucher includes some validation rules regarding customer (segments) then you have to supply customer (by id, source id or tracking id) when redeeming the voucher.
+When redeeming vouchers with validation rules concerning products or variants (SKUs) it's required to pass order items.
+
+Customer profile:
+```java
+  VoucherRedemptionResult result = client.vouchers().redeem("VoucherWithValidationRules", new VoucherRedemptionContext(
+                new Customer.Builder()
+                    .setSourceId("alice.morgan")
+                    .build(),
+                new Order(1250, Arrays.asList(
+                    new OrderItem("prod_6wY2Vvc6FrfrwX", "sku_y7WxIymNSCR138", 1),
+                    new OrderItem("prod_r04XQ00xz6EVRi", "sku_XnmQ3d0jV3x3Uy", 2))
+                )));
+```  
 
 Rollback a redemption
 ===
@@ -564,11 +582,10 @@ try {
 Changelog
 =========
 
+- **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.
 - **2016-07-18** - `3.3.0` - Update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.
 - **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
-- **2016-06-02** - `3.0.0` - New customer model.
-- **2016-05-30** - `2.6.0` - New publish model.
 
 See more in [Changelog](CHANGELOG.md)
