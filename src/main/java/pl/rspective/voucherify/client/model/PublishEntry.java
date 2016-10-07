@@ -8,12 +8,19 @@ public class PublishEntry {
 
     private String customer;
     private String channel;
+
+    @SerializedName("customer_id")
+    private String customerId;
     
     @SerializedName("published_at")
     private Date publishedAt;
 
     public String getCustomer() {
         return customer;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 
     public String getChannel() {

@@ -13,6 +13,7 @@ import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import pl.rspective.voucherify.client.model.VoucherUpdate;
 import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.PublishParams;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -128,6 +129,17 @@ public interface VoucherifyApi {
      */
     @GET("/vouchers/{code}/redemption")
     VoucherRedemption redemption(@Path("code") String code);
+
+    /**
+     * Publish voucher.
+     *
+     * @param publishParams
+     *          voucher code or campaign name with publish details
+     *
+     * @return published voucher
+     */
+    @POST("/vouchers/publish")
+    Voucher publishVoucher(@Body PublishParams publishParams);
     
     /**
      * List redemptions across all vouchers.
