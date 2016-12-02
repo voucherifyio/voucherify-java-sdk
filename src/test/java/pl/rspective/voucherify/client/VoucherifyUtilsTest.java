@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import pl.rspective.voucherify.client.model.Discount;
 import pl.rspective.voucherify.client.model.DiscountType;
+import pl.rspective.voucherify.client.model.Gift;
 import pl.rspective.voucherify.client.model.Voucher;
 
 import static java.math.BigDecimal.valueOf;
@@ -73,6 +74,20 @@ public class VoucherifyUtilsTest {
             assertThat(e).hasMessage("Invalid voucher, amount discount must be higher than zero.");
         }
     }
+    
+    @Test
+    public void shouldCalculatePriceApplyingEntireGiftAmount() {
+        BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(50.00), createGiftVoucher(10000, 10000), null);
+
+        assertThat(price.toString()).isEqualTo("0.00");
+    }
+    
+    @Test
+    public void shouldCalculatePriceApplyingRemainingGiftAmount() {
+        BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(50.00), createGiftVoucher(10000,  3000), null);
+
+        assertThat(price.toString()).isEqualTo("20.00");
+    }
 
     private void assertPriceAfterDiscount(double basePrice, int discount, DiscountType type, String expectedPrice) {
         BigDecimal price = VoucherifyUtils.calculatePrice(valueOf(basePrice), createVoucher(discount, type), null);
@@ -127,6 +142,20 @@ public class VoucherifyUtilsTest {
     public void shouldReturnUnitDiscount() {
         assertDiscount(50.00, 15.0, 200, DiscountType.UNIT, "30.00"); // 15.0 * 2 = 30.0
     }
+    
+    @Test
+    public void shouldCalculateDiscountApplyingEntireGiftAmount() {
+        BigDecimal price = VoucherifyUtils.calculateDiscount(valueOf(50.00), createGiftVoucher(10000, 10000), null);
+
+        assertThat(price.toString()).isEqualTo("50.00");
+    }
+    
+    @Test
+    public void shouldCalculateDiscountApplyingRemainingGiftAmount() {
+        BigDecimal price = VoucherifyUtils.calculateDiscount(valueOf(50.00), createGiftVoucher(10000,  3000), null);
+
+        assertThat(price.toString()).isEqualTo("30.00");
+    }
 
 
     private void assertDiscount(double basePrice, double unitPrice, int discount, DiscountType type, String expectedDiscount) {
@@ -145,6 +174,12 @@ public class VoucherifyUtilsTest {
     private Voucher createVoucher(int discountValue, DiscountType type) {
         return new Voucher.Builder()
                         .setDiscount(Discount.from(type, discountValue))
+                        .build();
+    }
+    
+    private Voucher createGiftVoucher(Integer amount, Integer balance) {
+        return new Voucher.Builder()
+                        .setGift(new Gift(amount, balance))
                         .build();
     }
 }
