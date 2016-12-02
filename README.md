@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.5.1
+###Version: 3.6.1
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
 * an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.5.1</version>
+  <version>3.6.1</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.5.1'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.6.1'
 ```
 
 NOTE:
@@ -227,6 +227,74 @@ try {
     // handle errors
 }
 ```
+
+Publish voucher
+===
+
+This method selects a voucher that is suitable for publication, adds a publish entry and returns the voucher.
+A voucher is suitable for publication when it's active and has not been published more times than the redemption limit.
+
+Defining publish parameters:
+
+```java
+    Customer customer = Customer.Builder()
+        .setSourceId("alice@mail.com")
+        .setName("Alice Morgan")
+        .build();
+        
+    Map<String, Object> metadata = new HashMap<String, Object>();
+        
+    // By voucher code
+    PublishParams publishParams = PublishParams.voucher("Testing7fjWdr", customer, "Java SDK", metadata);
+    
+    // or campaign name
+    PublishParams publishParams = PublishParams.campaign("Black friday", customer, "Java SDK", metadata);
+```
+
+Calling SDK publish method
+
+```java
+try {
+    Voucher voucher = client.vouchers().publishVoucher(publishParams);
+} catch (RetrofitError e) {
+    // error
+}
+```
+
+or asynchronously:
+
+```java
+client.vouchers().async().publishVoucher(publishParams, new VoucherifyCallback<Voucher>() {
+    @Override
+        public void onSuccess(Voucher voucher) {
+        }
+    
+        @Override
+        public void onFailure(RetrofitError retrofitError) {
+        }
+});
+```
+
+or using RxJava:
+
+```java
+client.vouchers().rx().publishVoucher(publishParams)
+        .subscribeOn(Schedulers.io())
+        .subscribe(new Subscriber<Voucher>() {
+            @Override
+            public void onCompleted() {
+            }
+            
+            @Override
+            public void onError(Throwable throwable) {
+            }
+       
+            @Override
+            public void onNext(Voucher voucher) {
+            }
+        });
+```
+
 
 Fetch voucher redemption details
 ===
@@ -582,7 +650,8 @@ try {
 Changelog
 =========
 
-- **2016-12-02** - `3.5.1` - Added gift balance. Enhanced utils to support gift vouchers.
+- **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
+- **2016-10-07** - `3.6.0` - Added a method to publish voucher.
 - **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.
 - **2016-07-18** - `3.3.0` - Update voucher.

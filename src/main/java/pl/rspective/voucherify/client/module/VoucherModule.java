@@ -13,6 +13,7 @@ import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import pl.rspective.voucherify.client.model.VoucherUpdate;
 import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.PublishParams;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -84,6 +85,18 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      */
     public Voucher updateVoucher(String code, VoucherUpdate voucherUpdate) {
         return api.updateVoucher(code, voucherUpdate);
+    }
+
+    /**
+     * Publish voucher.
+     *
+     * @param publishParams
+     *          voucher code or campaign name with publish details
+     *
+     * @return published voucher
+     */
+    public Voucher publishVoucher(PublishParams publishParams) {
+        return api.publishVoucher(publishParams);
     }
     
     /**
@@ -260,6 +273,16 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          */
         public void enableVoucher(String code, VoucherifyCallback<Void> callback) {
             RxUtils.subscribe(executor, rx().disableVoucher(code), callback);
+        }
+
+        /**
+         * Publish suitable voucher by given params
+         *
+         * @param publishParams
+         *          voucher code or campaign name with publish details
+         */
+        public void publishVoucher(PublishParams publishParams, VoucherifyCallback<Voucher> callback) {
+            RxUtils.subscribe(executor, rx().publishVoucher(publishParams), callback);
         }
         
         /**
@@ -451,6 +474,22 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
                 @Override
                 public VoucherRedemptionResult method() {
                     return VoucherModule.this.redeem(identifier, redemptionContext);
+                }
+            });
+        }
+
+        /**
+         * Publish suitable voucher by given params
+         *
+         * @param publishParams
+         *          voucher code or campaign name with publish details
+         * @return published voucher
+         */
+        public Observable<Voucher> publishVoucher(final PublishParams publishParams) {
+            return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
+                @Override
+                public Voucher method() {
+                    return VoucherModule.this.publishVoucher(publishParams);
                 }
             });
         }

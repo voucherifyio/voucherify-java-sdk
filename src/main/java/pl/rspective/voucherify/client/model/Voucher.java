@@ -100,6 +100,7 @@ public class Voucher {
             Gift gift,
             Date startDate,
             Date expirationDate,
+            VoucherPublish publish,
             VoucherRedemption redemption,
             Boolean active,
             String additionalInfo,
@@ -117,7 +118,7 @@ public class Voucher {
         this.gift = gift;
         this.startDate = startDate;
         this.expirationDate = expirationDate;
-        this.publish = new VoucherPublish();
+        this.publish = publish;
         this.redemption = redemption;
         this.active = active;
         this.additionalInfo = additionalInfo;
@@ -202,6 +203,8 @@ public class Voucher {
 
         private Date expirationDate;
 
+        private VoucherPublish publish;
+
         private VoucherRedemption redemption;
 
         private boolean active = true;
@@ -275,6 +278,11 @@ public class Voucher {
             return this;
         }
 
+        public Builder setPublish(VoucherPublish publish) {
+            this.publish = publish;
+            return this;
+        }
+
         public Builder setRedemption(VoucherRedemption redemption) {
             this.redemption = redemption;
             return this;
@@ -311,7 +319,7 @@ public class Voucher {
         }
 
         public Voucher build() {
-            return new Voucher(id, type, code, codeConfig, campaign, category, discount, gift, startDate, expirationDate, redemption, active, additionalInfo, metadata);
+            return new Voucher(id, type, code, codeConfig, campaign, category, discount, gift, startDate, expirationDate, publish, redemption, active, additionalInfo, metadata);
         }
     }
 
