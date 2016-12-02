@@ -31,6 +31,11 @@ public class VoucherifyUtils {
     
     
     public static BigDecimal calculatePrice(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice) {
+        if (voucher.getGift() != null) {
+            BigDecimal priceDiscount = valueOf(voucher.getGift().getBalance() / 100.0).min(basePrice);
+            return basePrice.subtract(priceDiscount).setScale(2, RoundingMode.HALF_UP);
+        }
+        
         Discount discount = voucher.getDiscount();
 
         if (discount.getType() == DiscountType.PERCENT) {
@@ -59,6 +64,11 @@ public class VoucherifyUtils {
     }
 
     public static BigDecimal calculateDiscount(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice) {
+        if (voucher.getGift() != null) {
+            BigDecimal priceDiscount = valueOf(voucher.getGift().getBalance() / 100.0).min(basePrice);
+            return priceDiscount.setScale(2, RoundingMode.HALF_UP);
+        }
+        
         Discount discount = voucher.getDiscount();
 
         if (discount.getType() == DiscountType.PERCENT) {

@@ -1,6 +1,7 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-09-06** - `3.6.0` - Added a method to publish voucher for given code or campaign name.
 - **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.

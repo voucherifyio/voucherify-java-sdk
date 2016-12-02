@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.5.0
+###Version: 3.6.1
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
 * an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.5.0</version>
+  <version>3.6.1</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.5.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.6.1'
 ```
 
 NOTE:
@@ -408,7 +408,7 @@ Customer profile:
 Redeem a gift voucher
 ===
 
-If you want to redeem a gift voucher you have to provide an amount that you wish take.
+If you want to redeem a gift voucher you have to provide order's amount. the order will be entirely or partially paid by the gift voucher depending on its balance. 
 You can pass the amount in `VoucherRedemptionContext.order.amount`:
 
 ```java
@@ -650,11 +650,11 @@ try {
 Changelog
 =========
 
+- **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-10-07** - `3.6.0` - Added a method to publish voucher.
 - **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.
 - **2016-07-18** - `3.3.0` - Update voucher.
 - **2016-06-21** - `3.2.0` - Added support for gift vouchers.
-- **2016-06-10** - `3.1.0` - Added methods to SDK for supporting Customer API.
 
 See more in [Changelog](CHANGELOG.md)
