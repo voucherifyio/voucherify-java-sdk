@@ -122,17 +122,6 @@ public interface VoucherifyApi {
     VoucherRedemption redemption(@Path("code") String code);
 
     /**
-     * Publish voucher.
-     *
-     * @param publishParams
-     *          voucher code or campaign name with publish details
-     *
-     * @return published voucher
-     */
-    @POST("/vouchers/publish")
-    Voucher publishVoucher(@Body PublishParams publishParams);
-
-    /**
      * Validates given voucher code against the customer.
      *
      * @param code
@@ -210,4 +199,16 @@ public interface VoucherifyApi {
      */
     @DELETE("/customers/{id}")
     Response deleteCustomer(@Path("id") String customerId);
+
+    // DISTRIBUTIONS
+    /**
+     * Publish voucher.
+     *
+     * @param publishParams
+     *          voucher code or campaign name with publish details
+     *
+     * @return published voucher
+     */
+    @POST("/vouchers/publish")
+    Voucher publishVoucher(@Body PublishParams publishParams);
 }
