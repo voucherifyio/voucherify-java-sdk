@@ -4,16 +4,7 @@ import com.squareup.okhttp.Response;
 
 import java.util.List;
 
-import pl.rspective.voucherify.client.model.Customer;
-import pl.rspective.voucherify.client.model.RedemptionDetails;
-import pl.rspective.voucherify.client.model.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
-import pl.rspective.voucherify.client.model.VoucherUpdate;
-import pl.rspective.voucherify.client.model.VouchersFilter;
-import pl.rspective.voucherify.client.model.PublishParams;
+import pl.rspective.voucherify.client.model.*;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -150,7 +141,7 @@ public interface VoucherifyApi {
      * @return a list of redemption details
      */
     @GET("/redemptions")
-    List<RedemptionDetails> listRedemptions(@QueryMap RedemptionsFilter filter);
+    RedemptionsList listRedemptions(@QueryMap RedemptionsFilter filter);
 
     /**
      * Redemption rollback reverts a redemption. 

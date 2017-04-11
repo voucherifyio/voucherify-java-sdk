@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class RedemptionDetails {
 
-    @SerializedName("redemption_id")
+    @SerializedName("id")
     private String redemptionId;
     
     private RedemptionResult result;
@@ -19,6 +19,9 @@ public class RedemptionDetails {
     private Discount discount;
 
     private Customer customer;
+    
+    @SerializedName("order")
+    private Order Order;
     
     public String getRedemptionId() {
         return redemptionId;
@@ -42,5 +45,9 @@ public class RedemptionDetails {
     
     public Customer getCustomer() {
         return customer;
+    }
+    
+    public Order getOrder() {
+        return Order;
     }
 }

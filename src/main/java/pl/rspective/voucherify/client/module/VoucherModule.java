@@ -5,15 +5,15 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.RedemptionDetails;
+import pl.rspective.voucherify.client.model.PublishParams;
 import pl.rspective.voucherify.client.model.RedemptionsFilter;
+import pl.rspective.voucherify.client.model.RedemptionsList;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import pl.rspective.voucherify.client.model.VoucherUpdate;
 import pl.rspective.voucherify.client.model.VouchersFilter;
-import pl.rspective.voucherify.client.model.PublishParams;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -160,7 +160,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      *           
      * @return a list of redemption details
      */
-    public List<RedemptionDetails> listRedemptions(RedemptionsFilter filter) {
+    public RedemptionsList listRedemptions(RedemptionsFilter filter) {
         return api.listRedemptions(filter);
     }
     
@@ -322,7 +322,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * @param filter 
          *          a set of conditions to narrow down the result
          */
-        public void listRedemptions(RedemptionsFilter filter, VoucherifyCallback<List<RedemptionDetails>> callback) {
+        public void listRedemptions(RedemptionsFilter filter, VoucherifyCallback<RedemptionsList> callback) {
             RxUtils.subscribe(executor, rx().listRedemptions(filter), callback);
         }
         
@@ -518,10 +518,10 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *           
          * @return a list of redemption details
          */
-        public Observable<List<RedemptionDetails>> listRedemptions(final RedemptionsFilter filter) {
-            return RxUtils.defer(new RxUtils.DefFunc<List<RedemptionDetails>>() {
+        public Observable<RedemptionsList> listRedemptions(final RedemptionsFilter filter) {
+            return RxUtils.defer(new RxUtils.DefFunc<RedemptionsList>() {
                 @Override
-                public List<RedemptionDetails> method() {
+                public RedemptionsList method() {
                     return VoucherModule.this.listRedemptions(filter);
                 }
             });
