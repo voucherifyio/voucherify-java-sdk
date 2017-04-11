@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 3.6.1
+###Version: 4.0.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
 * an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>3.6.1</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:3.6.1'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.0.0'
 ```
 
 NOTE:
@@ -460,14 +460,11 @@ It the filter is not provided a default filter will be used - a 100 redemptions 
 Example:
 
 ```java
-    Date startOfToday = Date.from(ZonedDateTime.now().with(LocalTime.MIN).toInstant());
-    RedemptionsFilter filterTodayFailed = RedemptionsFilter.filter()
-                                .withStartDate(startOfToday)
-                                .withResult(
-                                    RedemptionResult.FAILURE_INACTIVE, 
-                                    RedemptionResult.FAILURE_NOT_EXIST);
+    RedemptionsFilter filterFailedFromWelcomeCampaign = RedemptionsFilter.filter()
+                                .withCampaign("Welcome")
+                                .withResult(RedemptionResult.FAILURE);
                 
-   List<RedemptionDetails> todaysredemptions = createLocalClient().vouchers().listRedemptions(filterTodayFailed);
+   List<RedemptionDetails> failedWelcomeRedemptions = createLocalClient().vouchers().listRedemptions(filterFailedFromWelcomeCampaign);
 ```
 
 
@@ -650,11 +647,10 @@ try {
 Changelog
 =========
 
+- **2017-04-11** - `4.0.0` - Fixed redemptions list filter and response format.
 - **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-10-07** - `3.6.0` - Added a method to publish voucher.
 - **2016-09-06** - `3.5.0` - Added order items.
 - **2016-07-19** - `3.4.0` - Voucher code config.
-- **2016-07-18** - `3.3.0` - Update voucher.
-- **2016-06-21** - `3.2.0` - Added support for gift vouchers.
 
 See more in [Changelog](CHANGELOG.md)
