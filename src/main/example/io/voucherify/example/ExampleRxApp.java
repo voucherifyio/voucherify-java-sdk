@@ -1,5 +1,6 @@
 package io.voucherify.example;
 import java.text.ParseException;
+import java.util.concurrent.TimeUnit;
 
 import pl.rspective.voucherify.client.VoucherifyClient;
 import pl.rspective.voucherify.client.model.CodeConfig;
@@ -23,8 +24,8 @@ public class ExampleRxApp {
     
     private static VoucherifyClient createVoucherifyClient() {
         return new VoucherifyClient.Builder()
-                .setAppId("c70a6f00-cf91-4756-9df5-47628850002b")
-                .setAppToken("3266b9f8-e246-4f79-bdf0-833929b1380c")
+                .setAppId("cfb281b6-e9f5-46d5-9ebe-4822945e3d0d")
+                .setAppToken("e09642b4-dd37-4356-89de-cd75da4aa8ce")
                 .build();
     }
     
@@ -60,6 +61,21 @@ public class ExampleRxApp {
                     @Override
                     public void call(VoucherRedemptionResult vrr) {
                         System.out.println("Voucher redeemed. RedemptionId: " + vrr.getId());
+                    }
+                })
+                .delay(5, TimeUnit.SECONDS)
+                .map(new Func1<VoucherRedemptionResult, VoucherRedemptionResult>() {
+
+                    @Override
+                    public VoucherRedemptionResult call(VoucherRedemptionResult redemption) {
+                        return client.vouchers().rollbackRedemption(redemption.getId(), redemption.getTrackingId(), null);
+                    }
+                    
+                })
+                .doOnNext(new Action1<VoucherRedemptionResult>() {
+                    @Override
+                    public void call(VoucherRedemptionResult vrr) {
+                        System.out.println("Redemption rolled-back. RedemptionId: " + vrr.getId());
                     }
                 })
                 .doOnError(new Action1<Throwable>() {
