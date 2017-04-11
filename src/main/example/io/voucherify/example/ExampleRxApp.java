@@ -3,15 +3,7 @@ import java.text.ParseException;
 import java.util.concurrent.TimeUnit;
 
 import pl.rspective.voucherify.client.VoucherifyClient;
-import pl.rspective.voucherify.client.model.CodeConfig;
-import pl.rspective.voucherify.client.model.Customer;
-import pl.rspective.voucherify.client.model.Gift;
-import pl.rspective.voucherify.client.model.Order;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
-import pl.rspective.voucherify.client.model.VoucherType;
+import pl.rspective.voucherify.client.model.*;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
@@ -31,7 +23,7 @@ public class ExampleRxApp {
     
     public void start() {
         Voucher giftVoucher = new Voucher.Builder()
-                .setCodeConfig(CodeConfig.pattern("PROMO-#####-2016"))
+                .setCodeConfig(CodeConfig.pattern("PROMO-#####-2017"))
                 .setType(VoucherType.GIFT_VOUCHER)
                 .setGift(Gift.amount(10000))
                 .setCategory("Java SDK Example")
@@ -46,6 +38,21 @@ public class ExampleRxApp {
                     @Override
                     public void call(Voucher voucher) {
                         System.out.println("Voucher created. Code: " + voucher.getCode());
+                    }
+                })
+                .map(new Func1<Voucher, Voucher>() {
+                    @Override
+                    public Voucher call(Voucher voucher) {
+                        VoucherUpdate voucherUpdate = new VoucherUpdate.Builder()
+                                .addMetadata("test", true)
+                                .build();
+                        return client.vouchers().updateVoucher(voucher.getCode(), voucherUpdate);
+                    }
+                })
+                .doOnNext(new Action1<Voucher>() {
+                    @Override
+                    public void call(Voucher voucher) {
+                        System.out.println("Voucher updated. Metadata: " + voucher.getMetadata());
                     }
                 })
                 .map(new Func1<Voucher, VoucherRedemptionResult>() {
