@@ -131,6 +131,19 @@ public interface VoucherifyApi {
      */
     @POST("/vouchers/publish")
     Voucher publishVoucher(@Body PublishParams publishParams);
+
+    /**
+     * Validates given voucher code against the customer.
+     *
+     * @param code
+     *          code of the voucher
+     * @param validityContext
+     *          a context in terms of which the voucher is being validated (e.g. customer profile)
+     *
+     * @return voucher validity information
+     */
+     @POST("/vouchers/{code}/validate")
+     VoucherValidity validate(@Path("code") String code, @Body VoucherValidityContext validityContext);
     
     /**
      * List redemptions across all vouchers.
