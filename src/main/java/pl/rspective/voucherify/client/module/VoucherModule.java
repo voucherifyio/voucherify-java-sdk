@@ -5,17 +5,7 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.PublishParams;
-import pl.rspective.voucherify.client.model.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.RedemptionsList;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
-import pl.rspective.voucherify.client.model.VoucherUpdate;
-import pl.rspective.voucherify.client.model.VoucherValidationResult;
-import pl.rspective.voucherify.client.model.VoucherValidationContext;
-import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.*;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -364,7 +354,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * @param validityContext
          *          a context in terms of which the voucher is being validated (e.g. customer profile)
          *
-         * @return voucher validity information
          */
         public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
             RxUtils.subscribe(executor, rx().validate(code, validityContext), callback);
