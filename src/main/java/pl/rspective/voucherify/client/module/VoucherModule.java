@@ -13,8 +13,8 @@ import pl.rspective.voucherify.client.model.VoucherRedemption;
 import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
 import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
 import pl.rspective.voucherify.client.model.VoucherUpdate;
-import pl.rspective.voucherify.client.model.VoucherValidity;
-import pl.rspective.voucherify.client.model.VoucherValidityContext;
+import pl.rspective.voucherify.client.model.VoucherValidationResult;
+import pl.rspective.voucherify.client.model.VoucherValidationContext;
 import pl.rspective.voucherify.client.model.VouchersFilter;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
@@ -191,7 +191,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      *
      * @return voucher validity information
      */
-    public VoucherValidity validate(String code, VoucherValidityContext validityContext) {
+    public VoucherValidationResult validate(String code, VoucherValidationContext validityContext) {
         return api.validate(code, validityContext);
     }
 
@@ -366,7 +366,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *
          * @return voucher validity information
          */
-        public void validate(String code, VoucherValidityContext validityContext, VoucherifyCallback<VoucherValidity> callback) {
+        public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
             RxUtils.subscribe(executor, rx().validate(code, validityContext), callback);
         }
     }
@@ -589,10 +589,10 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *
          * @return voucher validity information
          */
-        public Observable<VoucherValidity> validate(final String code, final VoucherValidityContext validityContext) {
-            return RxUtils.defer(new RxUtils.DefFunc<VoucherValidity>() {
+        public Observable<VoucherValidationResult> validate(final String code, final VoucherValidationContext validityContext) {
+            return RxUtils.defer(new RxUtils.DefFunc<VoucherValidationResult>() {
                 @Override
-                public VoucherValidity method() {
+                public VoucherValidationResult method() {
                 return api.validate(code, validityContext);
                 }
             });

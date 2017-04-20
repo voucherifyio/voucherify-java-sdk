@@ -166,7 +166,7 @@ Validate a voucher
 You can perform server side validation of the voucher. To do that, just invoke:
 
 ```java
-VoucherValidity validity = client.vouchers().validate("Testing7fjWdr", new VoucherValidityContext(
+VoucherValidationResult validity = client.vouchers().validate("Testing7fjWdr", new VoucherValidationContext(
    new Customer.Builder()
          .setSourceId("alice.morgan")
          .setName("Alice Morgan")
