@@ -5,15 +5,7 @@ import java.util.concurrent.Executor;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.PublishParams;
-import pl.rspective.voucherify.client.model.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.RedemptionsList;
-import pl.rspective.voucherify.client.model.Voucher;
-import pl.rspective.voucherify.client.model.VoucherRedemption;
-import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
-import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
-import pl.rspective.voucherify.client.model.VoucherUpdate;
-import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.*;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -179,6 +171,20 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         return api.rollbackRedemption(redemptionId, trackingId, reason);
     }
 
+    /**
+     * Validates given voucher code against the customer.
+     *
+     * @param code
+     *          code of the voucher
+     * @param validityContext
+     *          a context in terms of which the voucher is being validated (e.g. customer profile)
+     *
+     * @return voucher validity information
+     */
+    public VoucherValidationResult validate(String code, VoucherValidationContext validityContext) {
+        return api.validate(code, validityContext);
+    }
+
     @Override
     ExtAsync createAsyncExtension() {
         return new ExtAsync();
@@ -338,6 +344,19 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          */
         public void rollbackRedemption(String redemptionId, String trackingId, String reason, VoucherifyCallback<VoucherRedemptionResult> callback) {
             RxUtils.subscribe(executor, rx().rollbackRedemption(redemptionId, trackingId, reason), callback);
+        }
+
+        /**
+         * Validates given voucher code against the customer.
+         *
+         * @param code
+         *          code of the voucher
+         * @param validityContext
+         *          a context in terms of which the voucher is being validated (e.g. customer profile)
+         *
+         */
+        public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
+            RxUtils.subscribe(executor, rx().validate(code, validityContext), callback);
         }
     }
 
@@ -548,6 +567,25 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
             });
         }
 
+
+        /**
+         * Validates given voucher code against the customer.
+         *
+         * @param code
+         *          code of the voucher
+         * @param validityContext
+         *          a context in terms of which the voucher is being validated (e.g. customer profile)
+         *
+         * @return voucher validity information
+         */
+        public Observable<VoucherValidationResult> validate(final String code, final VoucherValidationContext validityContext) {
+            return RxUtils.defer(new RxUtils.DefFunc<VoucherValidationResult>() {
+                @Override
+                public VoucherValidationResult method() {
+                return api.validate(code, validityContext);
+                }
+            });
+        }
     }
 
 }

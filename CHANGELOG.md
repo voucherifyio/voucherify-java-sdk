@@ -1,6 +1,7 @@
 Voucherify Java SDK - Changelog
 ===============================
 
+- **2017-04-20** - `4.1.0` - Added method to validate voucher.
 - **2017-04-11** - `4.0.0` - Fixed redemptions list filter and response format.
 - **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-09-06** - `3.6.0` - Added a method to publish voucher for given code or campaign name.

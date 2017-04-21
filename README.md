@@ -1,7 +1,7 @@
 Voucherify Java SDK
 ===================
 
-###Version: 4.0.0
+###Version: 4.1.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
 * an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>4.0.0</version>
+  <version>4.1.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.0.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.1.0'
 ```
 
 NOTE:
@@ -158,6 +158,27 @@ Voucher voucher = new Voucher.Builder()
         .setGift(Gift.amount(10000)) // 100.00
         .setRedemption(VoucherRedemption.unlimited())
         .build();
+```
+
+Validate a voucher
+===
+
+You can perform server side validation of the voucher. To do that, just invoke:
+
+```java
+VoucherValidationResult validity = client.vouchers().validate("Testing7fjWdr", new VoucherValidationContext(
+   new Customer.Builder()
+         .setSourceId("alice.morgan")
+         .setName("Alice Morgan")
+         .setEmail("alice@morgan.com")
+         .setDescription("")
+         .addMetadata("locale", "en-GB")
+         .addMetadata("shoeSize", 5)
+         .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
+         .build()));
+
+// to check the validity just invoke:
+validity.isValid();
 ```
 
 
@@ -647,6 +668,7 @@ try {
 Changelog
 =========
 
+- **2017-04-20** - `4.1.0` - Added method to validate voucher.
 - **2017-04-11** - `4.0.0` - Fixed redemptions list filter and response format.
 - **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-10-07** - `3.6.0` - Added a method to publish voucher.
