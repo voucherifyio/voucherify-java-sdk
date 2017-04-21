@@ -9,8 +9,9 @@ import java.util.concurrent.Executor;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
-import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.module.CustomerModule;
+import pl.rspective.voucherify.client.module.ValidationsModule;
+import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -32,14 +33,11 @@ public class VoucherifyClient {
      */
     private Gson gson;
 
-    /**
-     * It's manage communication with Voucherify/Voucher endpoint
-     */
-    private VoucherModule voucherModule;
 
-    /**
-     * It's manage communication with Voucherify/Customer endpoint
-     */
+    private VoucherModule voucherModule;
+    
+    private ValidationsModule validationsModule;
+
     private CustomerModule customerModule;
 
     /**
@@ -72,6 +70,7 @@ public class VoucherifyClient {
         this.voucherifyApi = createRetrofitService(builder);
 
         this.voucherModule = new VoucherModule(voucherifyApi, executor);
+        this.validationsModule = new ValidationsModule(voucherifyApi, executor);
         this.customerModule = new CustomerModule(voucherifyApi, executor);
     }
 
@@ -81,7 +80,13 @@ public class VoucherifyClient {
     public VoucherModule vouchers() {
         return voucherModule;
     }
-
+    
+    /**
+     * Returns the Validations module.
+     */
+    public ValidationsModule validations() {
+        return validationsModule;
+    }
 
     /**
      * Returns the Customers module.

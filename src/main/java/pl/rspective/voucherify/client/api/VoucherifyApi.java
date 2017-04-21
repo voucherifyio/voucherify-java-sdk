@@ -143,7 +143,7 @@ public interface VoucherifyApi {
      * @return voucher validity information
      */
      @POST("/vouchers/{code}/validate")
-     VoucherValidationResult validate(@Path("code") String code, @Body VoucherValidationContext validityContext);
+     VoucherValidationResult validateVoucher(@Path("code") String code, @Body VoucherValidationContext validityContext);
     
     /**
      * List redemptions across all vouchers.

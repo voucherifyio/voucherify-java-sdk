@@ -21,12 +21,12 @@ Grab via Maven:
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>4.1.0</version>
+  <version>4.2.0</version>
 </dependency>
 ```
 or via Gradle:
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.1.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.2.0'
 ```
 
 NOTE:
@@ -166,7 +166,7 @@ Validate a voucher
 You can perform server side validation of the voucher. To do that, just invoke:
 
 ```java
-VoucherValidationResult validity = client.vouchers().validate("Testing7fjWdr", new VoucherValidationContext(
+VoucherValidationResult validity = client.validations().validateVoucher("Testing7fjWdr", new VoucherValidationContext(
    new Customer.Builder()
          .setSourceId("alice.morgan")
          .setName("Alice Morgan")
@@ -668,11 +668,10 @@ try {
 Changelog
 =========
 
+- **2017-04-21** - `4.2.0` - Moved validation to a separate module.
 - **2017-04-20** - `4.1.0` - Added method to validate voucher.
 - **2017-04-11** - `4.0.0` - Fixed redemptions list filter and response format.
 - **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
 - **2016-10-07** - `3.6.0` - Added a method to publish voucher.
-- **2016-09-06** - `3.5.0` - Added order items.
-- **2016-07-19** - `3.4.0` - Voucher code config.
 
 See more in [Changelog](CHANGELOG.md)
