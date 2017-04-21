@@ -180,9 +180,12 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      *          a context in terms of which the voucher is being validated (e.g. customer profile)
      *
      * @return voucher validity information
+     * 
+     * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule#validateVoucher(String, VoucherValidationContext)} instead.
      */
+    @Deprecated
     public VoucherValidationResult validate(String code, VoucherValidationContext validityContext) {
-        return api.validate(code, validityContext);
+        return api.validateVoucher(code, validityContext);
     }
 
     @Override
@@ -354,7 +357,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * @param validityContext
          *          a context in terms of which the voucher is being validated (e.g. customer profile)
          *
+         * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtAsync#validateVoucher(String, VoucherValidationContext, VoucherifyCallback)} instead.
          */
+        @Deprecated
         public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
             RxUtils.subscribe(executor, rx().validate(code, validityContext), callback);
         }
@@ -577,12 +582,15 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *          a context in terms of which the voucher is being validated (e.g. customer profile)
          *
          * @return voucher validity information
+         * 
+         * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtRxJava#validateVoucher(String, VoucherValidationContext)} instead.
          */
+        @Deprecated
         public Observable<VoucherValidationResult> validate(final String code, final VoucherValidationContext validityContext) {
             return RxUtils.defer(new RxUtils.DefFunc<VoucherValidationResult>() {
                 @Override
                 public VoucherValidationResult method() {
-                return api.validate(code, validityContext);
+                return api.validateVoucher(code, validityContext);
                 }
             });
         }
