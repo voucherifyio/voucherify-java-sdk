@@ -181,7 +181,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
      *
      * @return voucher validity information
      * 
-     * @deprecated Use {@link ValidationsModule.validateVoucher} instead.
+     * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule#validateVoucher(String, VoucherValidationContext)} instead.
      */
     @Deprecated
     public VoucherValidationResult validate(String code, VoucherValidationContext validityContext) {
@@ -357,7 +357,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          * @param validityContext
          *          a context in terms of which the voucher is being validated (e.g. customer profile)
          *
-         * @deprecated Use {@link ValidationsModule.ExtAsync.validateVoucher} instead.
+         * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtAsync#validateVoucher(String, VoucherValidationContext, VoucherifyCallback)} instead.
          */
         @Deprecated
         public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
@@ -583,7 +583,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
          *
          * @return voucher validity information
          * 
-         * @deprecated Use {@link ValidationsModule.ExtRxAsync.validateVoucher} instead.
+         * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtRxJava#validateVoucher(String, VoucherValidationContext)} instead.
          */
         @Deprecated
         public Observable<VoucherValidationResult> validate(final String code, final VoucherValidationContext validityContext) {
