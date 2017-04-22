@@ -5,10 +5,12 @@ import com.squareup.okhttp.Response;
 import java.util.List;
 
 import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.Customer;
 import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaign;
 import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaignResult;
 import pl.rspective.voucherify.client.model.campaign.CreateCampaign;
 import pl.rspective.voucherify.client.model.campaign.CreateCampaignResult;
+import pl.rspective.voucherify.client.model.customer.*;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -159,6 +161,7 @@ public interface VoucherifyApi {
      *
      * @param customer (required)
      * @return created User
+     * @deprecated
      */
     @POST("/customers")
     Customer createCustomer(@Body Customer customer);
@@ -168,6 +171,7 @@ public interface VoucherifyApi {
      *
      * @param customerId (required)
      * @return customer with given ID
+     * @deprecated
      */
     @GET("/customers/{id}")
     Customer getCustomer(@Path("id") String customerId);
@@ -178,18 +182,11 @@ public interface VoucherifyApi {
      * @param customerId (required)
      * @param customer   (optional)
      * @return Updated Customer with given ID
+     *
+     * @deprecated
      */
     @PUT("/customers/{id}")
     Customer updateCustomer(@Path("id") String customerId, @Body Customer customer);
-
-    /**
-     * Delete a Customer by ID
-     *
-     * @param customerId (required)
-     * @return Response without data
-     */
-    @DELETE("/customers/{id}")
-    Response deleteCustomer(@Path("id") String customerId);
 
     // CAMPAIGNS
 
@@ -205,4 +202,41 @@ public interface VoucherifyApi {
     @DELETE("/campaigns/{name}")
     void deleteCampaign(@Path("name") String campaignName, @Query("force") Boolean force);
 
+    // CUSTOMERS
+    /**
+     * Create a customer using given Customer
+     *
+     * @param customer (required)
+     * @return created User
+     */
+    @POST("/customers")
+    pl.rspective.voucherify.client.model.customer.Customer createCustomer(@Body pl.rspective.voucherify.client.model.customer.Customer customer);
+
+    /**
+     * Get a Customer using Customer ID
+     *
+     * @param customerId (required)
+     * @return customer with given ID
+     */
+    @GET("/customers/{id}")
+    pl.rspective.voucherify.client.model.customer.Customer getCustomerById(@Path("id") String customerId);
+
+    /**
+     * Update a Customer by ID, using given Customer object
+     *
+     * @param customerId (required)
+     * @param customer   (optional)
+     * @return Updated Customer with given ID
+     */
+    @PUT("/customers/{id}")
+    pl.rspective.voucherify.client.model.customer.Customer updateCustomer(@Path("id") String customerId, @Body pl.rspective.voucherify.client.model.customer.Customer customer);
+
+    /**
+     * Delete a Customer by ID
+     *
+     * @param customerId (required)
+     * @return Response without data
+     */
+    @DELETE("/customers/{id}")
+    Response deleteCustomer(@Path("id") String customerId);
 }
