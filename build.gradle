@@ -20,8 +20,9 @@ dependencies {
 
     compile 'io.reactivex:rxjava:1.0.0'
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile 'org.assertj:assertj-core:2.2.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.2'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.11'
 
     task fatJar(type: Jar) {
         baseName = project.name + '-all'
@@ -31,4 +32,20 @@ dependencies {
 }
 
 
-apply from: 'gradle-mvn-push.gradle'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'pl.rspective.voucherify.client'
+            artifactId 'voucherify-java-sdk'
+
+            from components.java
+        }
+    }
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }}
