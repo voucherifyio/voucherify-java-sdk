@@ -10,7 +10,9 @@ import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
 import pl.rspective.voucherify.client.module.CustomerModule;
+import pl.rspective.voucherify.client.module.DistributionsModule;
 import pl.rspective.voucherify.client.module.ValidationsModule;
+import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
@@ -33,12 +35,10 @@ public class VoucherifyClient {
      */
     private Gson gson;
 
-
-    private VoucherModule voucherModule;
-    
-    private ValidationsModule validationsModule;
-
     private CustomerModule customerModule;
+    private DistributionsModule distributionsModule;
+    private ValidationsModule validationsModule;
+    private VoucherModule voucherModule;
 
     /**
      * Describes client's REST API
@@ -72,27 +72,23 @@ public class VoucherifyClient {
         this.voucherModule = new VoucherModule(voucherifyApi, executor);
         this.validationsModule = new ValidationsModule(voucherifyApi, executor);
         this.customerModule = new CustomerModule(voucherifyApi, executor);
+        this.distributionsModule = new DistributionsModule(voucherifyApi, executor);
     }
 
-    /**
-     * Returns the Vouchers module.
-     */
     public VoucherModule vouchers() {
         return voucherModule;
     }
     
-    /**
-     * Returns the Validations module.
-     */
     public ValidationsModule validations() {
         return validationsModule;
     }
 
-    /**
-     * Returns the Customers module.
-     */
     public CustomerModule customers() {
         return customerModule;
+    }
+
+    public DistributionsModule distributions() {
+        return distributionsModule;
     }
 
     /**
