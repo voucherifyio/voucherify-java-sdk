@@ -1,7 +1,7 @@
 package pl.rspective.voucherify.client.model.campaign;
 
 import com.google.gson.annotations.SerializedName;
-import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import java.util.Date;
 import java.util.HashMap;

@@ -94,21 +94,4 @@ public class CreateCampaignResult {
     public Voucher getVoucher() {
         return voucher;
     }
-
-    @Override
-    public String toString() {
-        return "CreateCampaignResult{" +
-                "name='" + name + '\'' +
-                ", object='" + object + '\'' +
-                ", type=" + type +
-                ", description='" + description + '\'' +
-                ", metadata=" + metadata +
-                ", vouchersCount=" + vouchersCount +
-                ", startDate=" + startDate +
-                ", expirationDate=" + expirationDate +
-                ", updatedAt=" + updatedAt +
-                ", vouchersGenerationStatus=" + vouchersGenerationStatus +
-                ", voucher=" + voucher +
-                '}';
-    }
 }
