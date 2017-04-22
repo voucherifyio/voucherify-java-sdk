@@ -1,6 +1,10 @@
 package pl.rspective.voucherify.client.model.redemption;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.rspective.voucherify.client.utils.AbstractFilter;
 
 import java.util.HashMap;

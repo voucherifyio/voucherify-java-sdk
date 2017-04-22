@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
+import pl.rspective.voucherify.client.model.Address;
 import pl.rspective.voucherify.client.model.customer.Customer;
 
 import java.util.concurrent.Executor;
@@ -59,6 +60,7 @@ public class CustomersModuleTest {
   @Test
   public void shouldUpdateCustomer() {
     Customer customer = Customer.builder()
+            .address(Address.builder().value("line_1", "line").build())
             .id("some Id")
             .email("email")
             .phone("phone")

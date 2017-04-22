@@ -3,10 +3,8 @@ package pl.rspective.voucherify.client.model.redemption;
 import com.google.gson.annotations.SerializedName;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.rspective.voucherify.client.model.customer.Customer;
 import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import java.util.Date;
