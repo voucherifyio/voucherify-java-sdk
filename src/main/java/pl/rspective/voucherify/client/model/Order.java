@@ -2,6 +2,10 @@ package pl.rspective.voucherify.client.model;
 
 import java.util.List;
 
+/**
+ * @deprecated Use {@link pl.rspective.voucherify.client.model.order.Order} instead
+ */
+@Deprecated
 public class Order {
     
     private Integer amount;

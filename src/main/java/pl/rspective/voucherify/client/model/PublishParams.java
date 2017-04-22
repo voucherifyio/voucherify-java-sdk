@@ -2,6 +2,7 @@ package pl.rspective.voucherify.client.model;
 
 import java.util.Map;
 
+@Deprecated
 public class PublishParams {
 
     private final String campaign;

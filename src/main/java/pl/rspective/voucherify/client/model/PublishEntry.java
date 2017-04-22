@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
+@Deprecated
 public class PublishEntry {
 
     private String customer;

@@ -6,10 +6,14 @@ import com.google.gson.GsonBuilder;
 import java.util.Date;
 import java.util.concurrent.Executor;
 
+import lombok.Getter;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
+import pl.rspective.voucherify.client.module.CampaignsModule;
 import pl.rspective.voucherify.client.module.CustomerModule;
+import pl.rspective.voucherify.client.module.DistributionsModule;
+import pl.rspective.voucherify.client.module.RedemptionsModule;
 import pl.rspective.voucherify.client.module.ValidationsModule;
 import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
@@ -33,12 +37,17 @@ public class VoucherifyClient {
      */
     private Gson gson;
 
-
     private VoucherModule voucherModule;
-    
+
     private ValidationsModule validationsModule;
 
     private CustomerModule customerModule;
+
+    private CampaignsModule campaignsModule;
+
+    private RedemptionsModule redemptionsModule;
+
+    private DistributionsModule distributionsModule;
 
     /**
      * Describes client's REST API
@@ -51,7 +60,6 @@ public class VoucherifyClient {
     private Executor executor;
 
     /**
-     *
      * @param builder used to create VoucherifyClient
      */
     private VoucherifyClient(Builder builder) {
@@ -72,31 +80,36 @@ public class VoucherifyClient {
         this.voucherModule = new VoucherModule(voucherifyApi, executor);
         this.validationsModule = new ValidationsModule(voucherifyApi, executor);
         this.customerModule = new CustomerModule(voucherifyApi, executor);
+        this.campaignsModule = new CampaignsModule(voucherifyApi, executor);
+        this.redemptionsModule = new RedemptionsModule(voucherifyApi, executor);
+        this.distributionsModule = new DistributionsModule(voucherifyApi, executor);
     }
 
-    /**
-     * Returns the Vouchers module.
-     */
     public VoucherModule vouchers() {
         return voucherModule;
     }
-    
-    /**
-     * Returns the Validations module.
-     */
+
     public ValidationsModule validations() {
         return validationsModule;
     }
 
-    /**
-     * Returns the Customers module.
-     */
     public CustomerModule customers() {
         return customerModule;
     }
 
+    public CampaignsModule campaigns() {
+        return campaignsModule;
+    }
+
+    public RedemptionsModule redemptions() {
+        return redemptionsModule;
+    }
+
+    public DistributionsModule distributions() {
+        return distributionsModule;
+    }
+
     /**
-     *
      * @return system thread executor
      */
     private Executor createCallbackExecutor() {
@@ -104,7 +117,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @return
      */
     private Gson createGson() {
@@ -115,7 +127,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param builder
      * @return
      */
@@ -128,7 +139,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param builder
      * @return
      */
@@ -146,7 +156,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param appId
      * @param appToken
      * @return
@@ -163,7 +172,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param builder
      * @param restBuilder
      */
@@ -174,7 +182,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param builder
      * @param restBuilder
      */
@@ -185,7 +192,6 @@ public class VoucherifyClient {
     }
 
     /**
-     *
      * @param builder
      * @param restBuilder
      */
@@ -243,7 +249,6 @@ public class VoucherifyClient {
         }
 
         /**
-         *
          * @param appToken
          * @return
          */
@@ -257,7 +262,6 @@ public class VoucherifyClient {
         }
 
         /**
-         *
          * @param appId
          * @return
          */
@@ -342,7 +346,7 @@ public class VoucherifyClient {
             this.secure = true;
             return this;
         }
-        
+
         /**
          * Makes the client execute all requests via HTTP instead of HTTPS
          *
@@ -354,7 +358,6 @@ public class VoucherifyClient {
         }
 
         /**
-         *
          * @return
          */
         public VoucherifyClient build() {

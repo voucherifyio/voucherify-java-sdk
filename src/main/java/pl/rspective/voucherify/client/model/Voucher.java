@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * Class represents a voucher
  */
+@Deprecated
 public class Voucher {
 
     /**

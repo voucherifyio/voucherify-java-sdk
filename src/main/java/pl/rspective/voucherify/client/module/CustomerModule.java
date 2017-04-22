@@ -1,7 +1,5 @@
 package pl.rspective.voucherify.client.module;
 
-import java.util.concurrent.Executor;
-
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.Customer;
@@ -10,212 +8,223 @@ import pl.rspective.voucherify.client.module.CustomerModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
-/**
- * Customer Module to manage communication with Voucherify
- */
+import java.util.concurrent.Executor;
+
 public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
 
-    /**
-     *
-     * @param api
-     *            describes Voucherify REST API
-     * @param executor
-     *            of threads for current platform
-     */
-    public CustomerModule(VoucherifyApi api, Executor executor) {
-        super(api, executor);
-    }
+  public CustomerModule(VoucherifyApi api, Executor executor) {
+    super(api, executor);
+  }
+
+  /**
+   * @deprecated Use {@link CustomerModule#get(String)} instead
+   */
+  @Deprecated
+  public Customer getCustomer(String customerId) {
+    return api.getCustomer(customerId);
+  }
+
+  /**
+   * @deprecated Use {@link CustomerModule#create(pl.rspective.voucherify.client.model.customer.Customer)} instead
+   */
+  @Deprecated
+  public Customer createCustomer(Customer customer) {
+    return api.createCustomer(customer);
+  }
+
+  /**
+   * @deprecated Use {@link CustomerModule#update(pl.rspective.voucherify.client.model.customer.Customer)} instead
+   */
+  @Deprecated
+  public Customer updateCustomer(Customer customer) {
+    return api.updateCustomer(customer.getId(), customer);
+  }
+
+  /**
+   * @deprecated Use {@link CustomerModule#delete(String)} instead
+   */
+  @Deprecated
+  public void deleteCustomer(String customerId) {
+    api.deleteCustomer(customerId);
+  }
+
+  public pl.rspective.voucherify.client.model.customer.Customer get(String customerId) {
+    return api.getCustomerById(customerId);
+  }
+
+  public pl.rspective.voucherify.client.model.customer.Customer create(pl.rspective.voucherify.client.model.customer.Customer customer) {
+    return api.createCustomer(customer);
+  }
+
+  public pl.rspective.voucherify.client.model.customer.Customer update(pl.rspective.voucherify.client.model.customer.Customer customer) {
+    return api.updateCustomer(customer.getId(), customer);
+  }
+
+  public void delete(String customerId) {
+    api.deleteCustomer(customerId);
+  }
+
+  @Override
+  ExtAsync createAsyncExtension() {
+    return new ExtAsync();
+  }
+
+  @Override
+  ExtRxJava createRxJavaExtension() {
+    return new ExtRxJava();
+  }
+
+  @Override
+  public ExtAsync async() {
+    return extAsync;
+  }
+
+  @Override
+  public ExtRxJava rx() {
+    return extRxJava;
+  }
+
+  public class ExtAsync extends AbsModule.Async {
 
     /**
-     * Get a single resource with an customerId.
-     *
-     * @param customerId
-     *            resource id
-     * @return resource result instance
+     * @deprecated Use {@link CustomerModule.ExtAsync#get(String)} instead
      */
-    public Customer getCustomer(String customerId) {
-        return api.getCustomer(customerId);
+    @Deprecated
+    public void getCustomer(String customerId, VoucherifyCallback<Customer> callback) {
+      RxUtils.subscribe(executor, rx().getCustomer(customerId), callback);
     }
 
     /**
-     * Create a customer.
-     *
-     * @param customer
-     *          customer to be created
-     *
-     * @return created customer
+     * @deprecated Use {@link CustomerModule.ExtAsync#create(pl.rspective.voucherify.client.model.customer.Customer)} instead
      */
-    public Customer createCustomer(Customer customer) {
-        return api.createCustomer(customer);
+    @Deprecated
+    public void createCustomer(Customer customer, VoucherifyCallback<Customer> callback) {
+      RxUtils.subscribe(executor, rx().createCustomer(customer), callback);
     }
 
     /**
-     * Update a customer.
-     *
-     * @param customer
-     *          customer to be updated
-     *
-     * @return updated customer
+     * @deprecated User{@link CustomerModule.ExtAsync#update(pl.rspective.voucherify.client.model.customer.Customer)} instead
      */
-    public Customer updateCustomer(Customer customer) {
-        return api.updateCustomer(customer.getId(), customer);
+    @Deprecated
+    public void updateCustomer(Customer customer, VoucherifyCallback<Customer> callback) {
+      RxUtils.subscribe(executor, rx().updateCustomer(customer), callback);
     }
 
     /**
-     * Delete a customer.
-     *
-     * @param customerId
-     *          id of a customer to be deleted
+     * @deprecated Use {@link CustomerModule.ExtAsync#delete(String)} instead
      */
-    public void deleteCustomer(String customerId) {
-        api.deleteCustomer(customerId);
+    @Deprecated
+    public void deleteCustomer(String customerId, VoucherifyCallback<Void> callback) {
+      RxUtils.subscribe(executor, rx().deleteCustomer(customerId), callback);
     }
 
-    @Override
-    ExtAsync createAsyncExtension() {
-        return new ExtAsync();
+    public void getCustomerById(String customerId, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().getCustomerById(customerId), callback);
     }
 
-    @Override
-    ExtRxJava createRxJavaExtension() {
-        return new ExtRxJava();
+    public void createCustomer(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().createCustomer(customer), callback);
     }
+
+    public void updateCustomer(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().updateCustomer(customer), callback);
+    }
+
+    public void delete(String customerId, VoucherifyCallback<Void> callback) {
+      RxUtils.subscribe(executor, rx().delete(customerId), callback);
+    }
+  }
+
+  public class ExtRxJava extends AbsModule.Rx {
 
     /**
-     * {@inheritDoc}
+     * @deprecated Use {@link CustomerModule.ExtRxJava#getCustomerById(String)} instead
      */
-    @Override
-    public ExtAsync async() {
-        return extAsync;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ExtRxJava rx() {
-        return extRxJava;
-    }
-
-    /**
-     * Async extension.
-     */
-    public class ExtAsync extends AbsModule.Async {
-
-        /**
-         * Fetch a single resource with a customerId.
-         *
-         * @param customerId
-         *            resource id
-         */
-        public void getCustomer(String customerId, VoucherifyCallback<Customer> callback) {
-            RxUtils.subscribe(executor, rx().getCustomer(customerId), callback);
+    @Deprecated
+    public Observable<Customer> getCustomer(final String customerId) {
+      return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
+        @Override
+        public Customer method() {
+          return CustomerModule.this.getCustomer(customerId);
         }
-
-        /**
-         * Create a customer.
-         *
-         * @param customer
-         *          customer to be created
-         *
-         */
-        public void createCustomer(Customer customer, VoucherifyCallback<Customer> callback) {
-            RxUtils.subscribe(executor, rx().createCustomer(customer), callback);
-        }
-
-        /**
-         * Update a customer.
-         *
-         * @param customer
-         *          customer to be updated
-         *
-         */
-        public void updateCustomer(Customer customer, VoucherifyCallback<Customer> callback) {
-            RxUtils.subscribe(executor, rx().updateCustomer(customer), callback);
-        }
-
-
-        /**
-         * Delete a customer by customerId.
-         *
-         * @param customerId
-         *          id of a customer to be deleted
-         *
-         */
-        public void deleteCustomer(String customerId, VoucherifyCallback<Void> callback) {
-            RxUtils.subscribe(executor, rx().deleteCustomer(customerId), callback);
-        }
+      });
     }
 
     /**
-     * RxJava extension.
+     * @deprecated Use {@link CustomerModule.ExtRxJava#createCustomer(pl.rspective.voucherify.client.model.customer.Customer)} instead
      */
-    public class ExtRxJava extends AbsModule.Rx {
-
-        /**
-         * Get a single resource with a customerId.
-         *
-         * @param customerId
-         *            resource id
-         * @return resource result instance
-         */
-        public Observable<Customer> getCustomer(final String customerId) {
-            return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
-                @Override
-                public Customer method() {
-                    return CustomerModule.this.getCustomer(customerId);
-                }
-            });
+    @Deprecated
+    public Observable<Customer> createCustomer(final Customer customer) {
+      return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
+        @Override
+        public Customer method() {
+          return CustomerModule.this.createCustomer(customer);
         }
-
-        /**
-         * Create a customer.
-         *
-         * @param customer
-         *          customer to be created
-         *
-         * @return created customer
-         */
-        public Observable<Customer> createCustomer(final Customer customer) {
-            return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
-                @Override
-                public Customer method() {
-                    return CustomerModule.this.createCustomer(customer);
-                }
-            });
-        }
-
-        /**
-         * Update a customer.
-         *
-         * @param customer
-         *          customer to be updated
-         *
-         * @return updated customer
-         */
-        public Observable<Customer> updateCustomer(final Customer customer) {
-            return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
-                @Override
-                public Customer method() {
-                    return CustomerModule.this.updateCustomer(customer);
-                }
-            });
-        }
-
-        /**
-         * Delete a customer by customerId.
-         *
-         * @param customerId
-         *          customerId to be deleted
-         */
-        public Observable<Void> deleteCustomer(final String customerId) {
-            return RxUtils.defer(new RxUtils.DefFunc<Void>() {
-                @Override
-                public Void method() {
-                    CustomerModule.this.deleteCustomer(customerId);
-                    return null;
-                }
-            });
-        }
+      });
     }
+
+    /**
+     * @deprecated Use {@link CustomerModule.ExtRxJava#updateCustomer(pl.rspective.voucherify.client.model.customer.Customer)} instead
+     */
+    @Deprecated
+    public Observable<Customer> updateCustomer(final Customer customer) {
+      return RxUtils.defer(new RxUtils.DefFunc<Customer>() {
+        @Override
+        public Customer method() {
+          return CustomerModule.this.updateCustomer(customer);
+        }
+      });
+    }
+
+    /**
+     * @deprecated Use {@link CustomerModule.ExtRxJava#delete(String)} instead
+     */
+    @Deprecated
+    public Observable<Void> deleteCustomer(final String customerId) {
+      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+        @Override
+        public Void method() {
+          CustomerModule.this.delete(customerId);
+          return null;
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> getCustomerById(final String customerId) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
+        @Override
+        public pl.rspective.voucherify.client.model.customer.Customer method() {
+          return CustomerModule.this.get(customerId);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> createCustomer(final pl.rspective.voucherify.client.model.customer.Customer customer) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
+        @Override
+        public pl.rspective.voucherify.client.model.customer.Customer method() {
+          return CustomerModule.this.create(customer);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> updateCustomer(final pl.rspective.voucherify.client.model.customer.Customer customer) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
+        @Override
+        public pl.rspective.voucherify.client.model.customer.Customer method() {
+          return CustomerModule.this.update(customer);
+        }
+      });
+    }
+
+    public Observable<Void> delete(final String customerId) {
+      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+        @Override
+        public Void method() {
+          CustomerModule.this.delete(customerId);
+          return null;
+        }
+      });
+    }
+  }
 }

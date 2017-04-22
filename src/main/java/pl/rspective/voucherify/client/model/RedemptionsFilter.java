@@ -6,6 +6,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @deprecated Use {@link pl.rspective.voucherify.client.model.redemption.RedemptionsFilter} instead
+ */
+@Deprecated
 public class RedemptionsFilter extends AbstractMap<String, Object> {
 
     private final Integer limit;

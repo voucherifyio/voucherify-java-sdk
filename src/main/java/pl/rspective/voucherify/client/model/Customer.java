@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @deprecated Use{@link pl.rspective.voucherify.client.model.customer.Customer} instead
+ */
+@Deprecated
 public class Customer {
     
     private String id;
