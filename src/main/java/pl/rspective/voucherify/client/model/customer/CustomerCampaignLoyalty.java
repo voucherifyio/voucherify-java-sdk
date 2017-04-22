@@ -1,26 +1,19 @@
 package pl.rspective.voucherify.client.model.customer;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
 public class CustomerCampaignLoyalty {
 
-    private int points;
+  private int points;
 
-    @SerializedName("referred_customers")
-    private int referredCustomers;
+  @SerializedName("referred_customers")
+  private int referredCustomers;
 
-    private CustomerCampaignLoyalty() {}
-
-    private CustomerCampaignLoyalty(int points, int referredCustomers) {
-        this.points = points;
-        this.referredCustomers = referredCustomers;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public int getReferredCustomers() {
-        return referredCustomers;
-    }
 }

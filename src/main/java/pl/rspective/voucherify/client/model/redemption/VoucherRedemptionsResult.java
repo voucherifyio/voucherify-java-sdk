@@ -1,19 +1,24 @@
-package pl.rspective.voucherify.client.model.voucher;
+package pl.rspective.voucherify.client.model.redemption;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
-import pl.rspective.voucherify.client.model.redemption.RedemptionEntry;
 
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class VoucherRedemption {
+public class VoucherRedemptionsResult {
+
+  private String object;
+
+  private Integer total;
+
+  @SerializedName("data_ref")
+  private String dataRef;
 
   private Integer quantity;
 
@@ -24,24 +29,5 @@ public class VoucherRedemption {
   private Integer redeemedAmount;
 
   @SerializedName("redemption_entries")
-  @Singular("redemptionEntry")
   private List<RedemptionEntry> redemptionEntries;
-
-  public Builder builder() {
-    return new Builder();
-  }
-
-  public static class Builder {
-
-    private Integer quantity;
-
-    public Builder setQuantity(Integer quantity) {
-      this.quantity = quantity;
-      return this;
-    }
-
-    public VoucherRedemption build() {
-      return new VoucherRedemption(quantity, null, null, null);
-    }
-  }
 }

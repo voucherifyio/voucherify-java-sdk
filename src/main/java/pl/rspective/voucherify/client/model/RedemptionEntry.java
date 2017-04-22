@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * I hold a history information about voucher redemption
  */
+@Deprecated
 public class RedemptionEntry {
 
     /**

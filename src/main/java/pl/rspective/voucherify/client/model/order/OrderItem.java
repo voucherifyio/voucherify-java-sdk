@@ -1,35 +1,24 @@
 package pl.rspective.voucherify.client.model.order;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-class OrderItem {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
+@Builder
+public class OrderItem {
 
-    @SerializedName("product_id")
-    private String productId;
+  @SerializedName("product_id")
+  private String productId;
 
-    @SerializedName("sku_id")
-    private String skuId;
+  @SerializedName("sku_id")
+  private String skuId;
 
-    private Integer quantity;
+  private Integer quantity;
 
-    private OrderItem() {
-    }
-
-    private OrderItem(String productId, String skuId, Integer quantity) {
-        this.productId = productId;
-        this.skuId = skuId;
-        this.quantity = quantity;
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public String getSkuId() {
-        return skuId;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
 }

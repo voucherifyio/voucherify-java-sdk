@@ -9,6 +9,7 @@ import java.util.Set;
 /**
  * Class represent voucher list filter request
  */
+
 public class VouchersFilter extends AbstractMap<String, Object> {
 
     private final Integer limit;

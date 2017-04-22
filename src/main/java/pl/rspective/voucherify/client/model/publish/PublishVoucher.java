@@ -1,29 +1,30 @@
 package pl.rspective.voucherify.client.model.publish;
 
-import com.google.gson.annotations.SerializedName;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
+import pl.rspective.voucherify.client.model.customer.Customer;
 
-import java.util.Date;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 @Getter
-public class PublishEntry {
+public class PublishVoucher {
 
-  @SerializedName("cusomer_id")
-  private String customerId;
+  private String campaign;
 
-  private String customer;
+  private String voucher;
+
+  private Customer customer;
 
   private String channel;
 
-  @SerializedName("published_at")
-  private Date publishedAt;
-
+  @Singular("metadataEntry")
   private Map<String, Object> metadata;
 
 }

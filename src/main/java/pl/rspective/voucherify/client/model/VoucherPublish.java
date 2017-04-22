@@ -3,6 +3,7 @@ package pl.rspective.voucherify.client.model;
 import java.util.Collections;
 import java.util.List;
 
+@Deprecated
 public class VoucherPublish {
 
     private int count;

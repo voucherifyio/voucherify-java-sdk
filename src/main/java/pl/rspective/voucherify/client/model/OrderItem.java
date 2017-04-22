@@ -2,6 +2,7 @@ package pl.rspective.voucherify.client.model;
 
 import com.google.gson.annotations.SerializedName;
 
+@Deprecated
 public class OrderItem {
 
     @SerializedName("product_id")

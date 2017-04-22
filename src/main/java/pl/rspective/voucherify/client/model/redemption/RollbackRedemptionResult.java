@@ -1,4 +1,4 @@
-package pl.rspective.voucherify.client.model.order;
+package pl.rspective.voucherify.client.model.redemption;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AccessLevel;
@@ -6,39 +6,31 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import pl.rspective.voucherify.client.model.customer.Customer;
+import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import java.util.Date;
-import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Builder
-public class Order {
+public class RollbackRedemptionResult {
 
   private String id;
 
-  @SerializedName("source_id")
-  private String sourceId;
+  private String object;
 
-  @SerializedName("source_id")
-  private Date createdAt;
-
-  @SerializedName("source_id")
-  private Date updatedAt;
-
-  private OrderStatus status;
-
-  private Integer amount;
-
-  @Singular("item")
-  private List<OrderItem> items;
+  private Date date;
 
   @SerializedName("customer_id")
   private String customerId;
 
-  private Customer customer;
+  @SerializedName("tracking_id")
+  private String trackingId;
 
+  private String redemption;
+
+  private RollbackStatus status;
+
+  private Voucher voucher;
 }

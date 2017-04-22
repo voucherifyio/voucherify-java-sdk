@@ -1,9 +1,10 @@
-package pl.rspective.voucherify.client;
+package pl.rspective.voucherify.client.utils;
 
 import java.math.BigDecimal;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import pl.rspective.voucherify.client.VoucherifyUtils;
 import pl.rspective.voucherify.client.model.Discount;
 import pl.rspective.voucherify.client.model.DiscountType;
 import pl.rspective.voucherify.client.model.Gift;

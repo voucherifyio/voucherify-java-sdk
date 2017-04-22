@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Map;
 
+/**
+ * @deprecated Use {@link pl.rspective.voucherify.client.model.redemption.RedeemVoucherResult} instead
+ */
+@Deprecated
 public class VoucherRedemptionResult {
 
     /**
