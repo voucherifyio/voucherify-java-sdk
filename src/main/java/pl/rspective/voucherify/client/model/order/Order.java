@@ -1,7 +1,7 @@
 package pl.rspective.voucherify.client.model.order;
 
 import com.google.gson.annotations.SerializedName;
-import pl.rspective.voucherify.client.model.Customer;
+import pl.rspective.voucherify.client.model.customer.Customer;
 
 import java.util.Date;
 import java.util.List;
@@ -30,8 +30,7 @@ public class Order {
 
     private Customer customer;
 
-    private Order() {
-    }
+    private Order() {}
 
     private Order(String id, String sourceId, Date createdAt, Date updatedAt, OrderStatus status, Integer amount, List<OrderItem> items, String customerId, Customer customer) {
         this.id = id;
