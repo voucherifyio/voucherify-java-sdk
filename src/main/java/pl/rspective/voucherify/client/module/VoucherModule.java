@@ -1,58 +1,56 @@
 package pl.rspective.voucherify.client.module;
 
-import java.util.List;
-import java.util.concurrent.Executor;
-
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.*;
+import pl.rspective.voucherify.client.model.PublishParams;
 import pl.rspective.voucherify.client.model.RedemptionsFilter;
 import pl.rspective.voucherify.client.model.RedemptionsList;
-import pl.rspective.voucherify.client.model.redemption.*;
+import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VoucherUpdate;
+import pl.rspective.voucherify.client.model.VoucherValidationContext;
+import pl.rspective.voucherify.client.model.VoucherValidationResult;
+import pl.rspective.voucherify.client.model.VouchersFilter;
+import pl.rspective.voucherify.client.model.publish.PublishVoucher;
+import pl.rspective.voucherify.client.model.redemption.RedeemVoucher;
+import pl.rspective.voucherify.client.model.redemption.RollbackRedemption;
+import pl.rspective.voucherify.client.model.voucher.CreateVoucher;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtAsync;
 import pl.rspective.voucherify.client.module.VoucherModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
-/**
- * Vouchers Module to manage communication with Voucherify
- */
+import java.util.List;
+import java.util.concurrent.Executor;
+
 public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
 
-  /**
-   * @param api      describes Voucherify REST API
-   * @param executor of threads for current platform
-   */
   public VoucherModule(VoucherifyApi api, Executor executor) {
     super(api, executor);
   }
 
   /**
-   * Fetch user's list of vouchers which meet provided filters.
-   *
-   * @param filter a set of conditions to narrow down the result
-   * @return list of vouchers
+   * @deprecated Use {@link VoucherModule#list(pl.rspective.voucherify.client.model.voucher.VouchersFilter)} instead
    */
+  @Deprecated
   public List<Voucher> listVouchers(VouchersFilter filter) {
     return api.listVouchers(filter);
   }
 
   /**
-   * Fetch a single resource with an identifier.
-   *
-   * @param identifier resource id
-   * @return resource result instance
+   * @deprecated Use {@link VoucherModule#get(String)} instead
    */
+  @Deprecated
   public Voucher fetchVoucher(String identifier) {
     return api.fetch(identifier);
   }
 
   /**
-   * Create a voucher.
-   *
-   * @param voucher voucher to be created
-   * @return created voucher
+   * @deprecated Use {@link VoucherModule#create(CreateVoucher)} instead
    */
+  @Deprecated
   public Voucher createVoucher(Voucher voucher) {
     if (voucher.getCode() != null) {
       return api.createVoucherWithCode(voucher.getCode(), voucher);
@@ -62,50 +60,39 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * Update voucher.
-   *
-   * @param code          code of a voucher that should be updated
-   * @param voucherUpdate voucher fields to be updated
-   * @return updated voucher
+   * @deprecated Use {@link VoucherModule#update(String, pl.rspective.voucherify.client.model.voucher.VoucherUpdate)} instead
    */
+  @Deprecated
   public Voucher updateVoucher(String code, VoucherUpdate voucherUpdate) {
     return api.updateVoucher(code, voucherUpdate);
   }
 
   /**
-   * Publish voucher.
-   *
-   * @param publishParams voucher code or campaign name with publish details
-   * @return published voucher
+   * @deprecated Use {@link DistributionsModule#publish(PublishVoucher)} instead
    */
+  @Deprecated
   public Voucher publishVoucher(PublishParams publishParams) {
     return api.publishVoucher(publishParams);
   }
 
   /**
-   * Disable a voucher.
-   *
-   * @param code code of a voucher that should be disabled
+   * @deprecated Use {@link VoucherModule#disable(String)} instead
    */
+  @Deprecated
   public void disableVoucher(String code) {
     api.disableVoucher(code);
   }
 
   /**
-   * Enable a voucher.
-   *
-   * @param code code of a voucher that should be enabled
+   * @deprecated Use {@link VoucherModule#enable(String)} instead
    */
+  @Deprecated
   public void enableVoucher(String code) {
     api.enableVoucher(code);
   }
 
   /**
-   * @param identifier code of the voucher
-   * @return voucher which was redeemed
    * @deprecated Use {@link RedemptionsModule#redeem(String, RedeemVoucher)} instead
-   * <p>
-   * Redeem a voucher identified by code
    */
   @Deprecated
   public VoucherRedemptionResult redeem(String identifier, String trackingId) {
@@ -113,10 +100,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * @param identifier code of the voucher
-   * @return voucher which was redeemed
    * @deprecated Use {@link RedemptionsModule#redeem(String, RedeemVoucher)} instead
-   * Redeem a voucher identified by code
    */
   @Deprecated
   public VoucherRedemptionResult redeem(String identifier, VoucherRedemptionContext redemptionContext) {
@@ -124,10 +108,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * Fetch information about voucher redemption
-   *
-   * @param identifier of the voucher for which we fetch the redemption details
-   * @return voucher redemption information
    * @deprecated Use {@link RedemptionsModule#get(String)} instead
    */
   @Deprecated
@@ -136,10 +116,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * List redemptions across all vouchers.
-   *
-   * @param filter a set of conditions to narrow down the result
-   * @return a list of redemption details
    * @deprecated Use {@link RedemptionsModule#list(pl.rspective.voucherify.client.model.redemption.RedemptionsFilter)} instead
    */
   @Deprecated
@@ -148,15 +124,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * Redemption rollback reverts a redemption.
-   *
-   * @param redemptionId (required)
-   *                     id of a redemption
-   * @param trackingId   (optional)
-   *                     id of a customer
-   * @param reason       (optional)
-   * @return rollback result
-   * @deprecated
+   * @deprecated Use {@link RedemptionsModule#rollback(String, String, RollbackRedemption)} instead
    */
   @Deprecated
   public VoucherRedemptionResult rollbackRedemption(String redemptionId, String trackingId, String reason) {
@@ -164,17 +132,46 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   /**
-   * Validates given voucher code against the customer.
-   *
-   * @param code            code of the voucher
-   * @param validityContext a context in terms of which the voucher is being validated (e.g. customer profile)
-   * @return voucher validity information
    * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule#validateVoucher(String, VoucherValidationContext)} instead.
    */
   @Deprecated
   public VoucherValidationResult validate(String code, VoucherValidationContext validityContext) {
     return api.validateVoucher(code, validityContext);
   }
+
+  // NEW
+
+  public pl.rspective.voucherify.client.model.voucher.Voucher create(CreateVoucher createVoucher) {
+    if (createVoucher.getVoucher().getCode() != null) {
+      return api.createVoucher(createVoucher.getVoucher().getCode(), createVoucher);
+    }
+    return api.createVoucher(createVoucher);
+  }
+
+  public pl.rspective.voucherify.client.model.voucher.Voucher get(String code) {
+    return api.getVoucher(code);
+  }
+
+  public pl.rspective.voucherify.client.model.voucher.Voucher update(String code, pl.rspective.voucherify.client.model.voucher.VoucherUpdate voucherUpdate) {
+    return api.updateVoucher(code, voucherUpdate);
+  }
+
+  public void delete(String code, Boolean force) {
+    api.deleteVoucher(code, force);
+  }
+
+  public List<pl.rspective.voucherify.client.model.voucher.Voucher> list(pl.rspective.voucherify.client.model.voucher.VouchersFilter vouchersFilter) {
+    return api.listVouchers(vouchersFilter.asMap());
+  }
+
+  public pl.rspective.voucherify.client.model.voucher.Voucher disable(String code) {
+    return api.disable(code);
+  }
+
+  public pl.rspective.voucherify.client.model.voucher.Voucher enable(String code) {
+    return api.enable(code);
+  }
+  //
 
   @Override
   ExtAsync createAsyncExtension() {
@@ -186,96 +183,75 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     return new ExtRxJava();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public ExtAsync async() {
     return extAsync;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public ExtRxJava rx() {
     return extRxJava;
   }
 
-  /**
-   * Async extension.
-   */
   public class ExtAsync extends AbsModule.Async {
 
     /**
-     * Fetch user's list of vouchers which meet provided filters.
-     *
-     * @param filter a set of conditions to narrow down the result
+     * @deprecated Use {@link ExtAsync#list(pl.rspective.voucherify.client.model.voucher.VouchersFilter, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void listVouchers(VouchersFilter filter, VoucherifyCallback<List<Voucher>> callback) {
       RxUtils.subscribe(executor, rx().listVouchers(filter), callback);
     }
 
     /**
-     * Fetch a single resource with an identifier.
-     *
-     * @param identifier resource id
+     * @deprecated Use {@link ExtAsync#get(String, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void fetchVoucher(String identifier, VoucherifyCallback<Voucher> callback) {
       RxUtils.subscribe(executor, rx().fetchVoucher(identifier), callback);
     }
 
     /**
-     * Create a voucher.
-     *
-     * @param voucher voucher to be created
+     * @deprecated Use {@link ExtAsync#create(CreateVoucher, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void createVoucher(Voucher voucher, VoucherifyCallback<Voucher> callback) {
       RxUtils.subscribe(executor, rx().createVoucher(voucher), callback);
     }
 
     /**
-     * Update voucher.
-     *
-     * @param code          code of a voucher that should be updated
-     * @param voucherUpdate voucher fields to be updated
-     * @param callback      callback to be invoked when voucher is updated
+     * @deprecated Use {@link ExtAsync#update(String, pl.rspective.voucherify.client.model.voucher.VoucherUpdate, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void updateVoucher(String code, VoucherUpdate voucherUpdate, VoucherifyCallback<Voucher> callback) {
       RxUtils.subscribe(executor, rx().updateVoucher(code, voucherUpdate), callback);
     }
 
     /**
-     * Disable a voucher.
-     *
-     * @param code code of a voucher that should be disabled
+     * @deprecated Use {@link ExtAsync#disable(String, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void disableVoucher(String code, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().disableVoucher(code), callback);
     }
 
     /**
-     * Enable a voucher.
-     *
-     * @param code code of a voucher that should be enabled
+     * @deprecated Use {@link ExtAsync#enable(String)} instead.
      */
+    @Deprecated
     public void enableVoucher(String code, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().disableVoucher(code), callback);
     }
 
     /**
-     * Publish suitable voucher by given params
-     *
-     * @param publishParams voucher code or campaign name with publish details
+     * @deprecated Use {@link DistributionsModule.ExtAsync#publish(PublishVoucher, VoucherifyCallback)} instead.
      */
+    @Deprecated
     public void publishVoucher(PublishParams publishParams, VoucherifyCallback<Voucher> callback) {
       RxUtils.subscribe(executor, rx().publishVoucher(publishParams), callback);
     }
 
     /**
-     * Redeem a voucher by his identifier
-     *
-     * @param identifier of the voucher
      * @deprecated Use {@link RedemptionsModule.ExtAsync#redeem(String, RedeemVoucher)} instead
      */
     @Deprecated
@@ -284,9 +260,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Redeem a voucher by his identifier
-     *
-     * @param identifier of the voucher
      * @deprecated Use {@link RedemptionsModule.ExtAsync#redeem(String, RedeemVoucher)} instead
      */
     @Deprecated
@@ -296,9 +269,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Fetch information about voucher redemption
-     *
-     * @param identifier of the voucher for which we fetch the redemption details
      * @deprecated Use {@link RedemptionsModule.ExtAsync#get(String)} instead
      */
     @Deprecated
@@ -307,9 +277,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * List redemptions across all vouchers.
-     *
-     * @param filter a set of conditions to narrow down the result
      * @deprecated Use {@link RedemptionsModule.ExtAsync#list(pl.rspective.voucherify.client.model.redemption.RedemptionsFilter)} instead
      */
     @Deprecated
@@ -318,14 +285,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Redemption rollback reverts a redemption.
-     *
-     * @param redemptionId (required)
-     *                     id of a redemption
-     * @param trackingId   (optional)
-     *                     id of a customer
-     * @param reason       (optional)
-     * @deprecated
+     * @deprecated Use {@link RedemptionsModule#rollback(String, String, RollbackRedemption)} instead
      */
     @Deprecated
     public void rollbackRedemption(String redemptionId, String trackingId, String reason, VoucherifyCallback<VoucherRedemptionResult> callback) {
@@ -333,29 +293,44 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Validates given voucher code against the customer.
-     *
-     * @param code            code of the voucher
-     * @param validityContext a context in terms of which the voucher is being validated (e.g. customer profile)
      * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtAsync#validateVoucher(String, VoucherValidationContext, VoucherifyCallback)} instead.
      */
     @Deprecated
     public void validate(String code, VoucherValidationContext validityContext, VoucherifyCallback<VoucherValidationResult> callback) {
       RxUtils.subscribe(executor, rx().validate(code, validityContext), callback);
     }
+
+    public void list(pl.rspective.voucherify.client.model.voucher.VouchersFilter filter, VoucherifyCallback<List<pl.rspective.voucherify.client.model.voucher.Voucher>> callback) {
+      RxUtils.subscribe(executor, rx().list(filter), callback);
+    }
+
+    public void get(String code, VoucherifyCallback<pl.rspective.voucherify.client.model.voucher.Voucher> callback) {
+      RxUtils.subscribe(executor, rx().get(code), callback);
+    }
+
+    public void create(CreateVoucher createVoucher, VoucherifyCallback<pl.rspective.voucherify.client.model.voucher.Voucher> callback) {
+      RxUtils.subscribe(executor, rx().create(createVoucher), callback);
+    }
+
+    public void update(String code, pl.rspective.voucherify.client.model.voucher.VoucherUpdate voucherUpdate, VoucherifyCallback<pl.rspective.voucherify.client.model.voucher.Voucher> callback) {
+      RxUtils.subscribe(executor, rx().update(code, voucherUpdate), callback);
+    }
+
+    public void disable(String code, VoucherifyCallback<pl.rspective.voucherify.client.model.voucher.Voucher> callback) {
+      RxUtils.subscribe(executor, rx().disable(code), callback);
+    }
+
+    public void enable(String code, VoucherifyCallback<pl.rspective.voucherify.client.model.voucher.Voucher> callback) {
+      RxUtils.subscribe(executor, rx().enable(code), callback);
+    }
   }
 
-  /**
-   * RxJava extension.
-   */
   public class ExtRxJava extends AbsModule.Rx {
 
     /**
-     * Fetch user's list of vouchers which meet provided filters.
-     *
-     * @param filter a set of conditions to narrow down the result
-     * @return list of vouchers
+     * @deprecated Use {@link ExtRxJava#list(pl.rspective.voucherify.client.model.voucher.VouchersFilter)} instead.
      */
+    @Deprecated
     public Observable<List<Voucher>> listVouchers(final VouchersFilter filter) {
       return RxUtils.defer(new RxUtils.DefFunc<List<Voucher>>() {
         @Override
@@ -366,11 +341,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Fetch a single resource with an identifier.
-     *
-     * @param identifier resource id
-     * @return resource result instance
+     * @deprecated Use {@link ExtRxJava#get(String)} instead.
      */
+    @Deprecated
     public Observable<Voucher> fetchVoucher(final String identifier) {
       return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
         @Override
@@ -381,11 +354,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Create a voucher.
-     *
-     * @param voucher voucher to be created
-     * @return created voucher
+     * @deprecated Use {@link ExtRxJava#create(CreateVoucher)} instead.
      */
+    @Deprecated
     public Observable<Voucher> createVoucher(final Voucher voucher) {
       return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
         @Override
@@ -396,12 +367,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Update voucher.
-     *
-     * @param code          code of a voucher that should be updated
-     * @param voucherUpdate voucher fields to be updated
-     * @return updated voucher
+     * @deprecated Use {@link ExtRxJava#update(String, pl.rspective.voucherify.client.model.voucher.VoucherUpdate)} instead.
      */
+    @Deprecated
     public Observable<Voucher> updateVoucher(final String code, final VoucherUpdate voucherUpdate) {
       return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
         @Override
@@ -412,10 +380,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Disable a voucher.
-     *
-     * @param code code of a voucher that should be disabled
+     * @deprecated Use {@link ExtRxJava#disable(String)} instead.
      */
+    @Deprecated
     public Observable<Void> disableVoucher(final String code) {
       return RxUtils.defer(new RxUtils.DefFunc<Void>() {
         @Override
@@ -427,10 +394,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Enable a voucher.
-     *
-     * @param code code of a voucher that should be enabled
+     * @deprecated Use {@link ExtRxJava#enable(String)} instead.
      */
+    @Deprecated
     public Observable<Void> enableVoucher(final String code) {
       return RxUtils.defer(new RxUtils.DefFunc<Void>() {
         @Override
@@ -442,10 +408,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Redeem a voucher by his identifier
-     *
-     * @param identifier of the voucher
-     * @return voucher which was consumed
      * @deprecated Use {@link RedemptionsModule.ExtRxJava#redeem(String, RedeemVoucher)} instead
      */
     @Deprecated
@@ -459,10 +421,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Redeem a voucher by his identifier
-     *
-     * @param identifier of the voucher
-     * @return voucher which was consumed
      * @deprecated Use {@link RedemptionsModule.ExtRxJava#redeem(String, RedeemVoucher)} instead
      */
     @Deprecated
@@ -476,11 +434,9 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Publish suitable voucher by given params
-     *
-     * @param publishParams voucher code or campaign name with publish details
-     * @return published voucher
+     * @deprecated Use {@link DistributionsModule.ExtRxJava#publish(PublishVoucher)} instead
      */
+    @Deprecated
     public Observable<Voucher> publishVoucher(final PublishParams publishParams) {
       return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
         @Override
@@ -491,10 +447,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Fetch information about voucher redemption
-     *
-     * @param identifier of the voucher for which we fetch the redemption details
-     * @return voucher redemption information
      * @deprecated Use {@link RedemptionsModule.ExtRxJava#get(String)} instead
      */
     @Deprecated
@@ -508,10 +460,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * List redemptions across all vouchers.
-     *
-     * @param filter a set of conditions to narrow down the result
-     * @return a list of redemption details
      * @deprecated Use {@link RedemptionsModule.ExtRxJava#list(pl.rspective.voucherify.client.model.redemption.RedemptionsFilter)} instead
      */
     @Deprecated
@@ -525,14 +473,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Redemption rollback reverts a redemption.
-     *
-     * @param redemptionId (required)
-     *                     id of a redemption
-     * @param trackingId   (optional)
-     *                     id of a customer
-     * @param reason       (optional)
-     * @return rollback result
      * @deprecated Use {@link RedemptionsModule.ExtRxJava#rollback(String, String, RollbackRedemption)} instead
      */
     @Deprecated
@@ -546,11 +486,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * Validates given voucher code against the customer.
-     *
-     * @param code            code of the voucher
-     * @param validityContext a context in terms of which the voucher is being validated (e.g. customer profile)
-     * @return voucher validity information
      * @deprecated Use {@link pl.rspective.voucherify.client.module.ValidationsModule.ExtRxJava#validateVoucher(String, VoucherValidationContext)} instead.
      */
     @Deprecated
@@ -559,6 +494,70 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         @Override
         public VoucherValidationResult method() {
           return api.validateVoucher(code, validityContext);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.voucher.Voucher> create(final CreateVoucher createVoucher) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.voucher.Voucher>() {
+        @Override
+        public pl.rspective.voucherify.client.model.voucher.Voucher method() {
+          return VoucherModule.this.create(createVoucher);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.voucher.Voucher> get(final String code) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.voucher.Voucher>() {
+        @Override
+        public pl.rspective.voucherify.client.model.voucher.Voucher method() {
+          return VoucherModule.this.get(code);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.voucher.Voucher> update(final String code, final pl.rspective.voucherify.client.model.voucher.VoucherUpdate voucherUpdate) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.voucher.Voucher>() {
+        @Override
+        public pl.rspective.voucherify.client.model.voucher.Voucher method() {
+          return VoucherModule.this.update(code, voucherUpdate);
+        }
+      });
+    }
+
+    public Observable<Void> delete(final String code, final Boolean force) {
+      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+        @Override
+        public Void method() {
+          VoucherModule.this.delete(code, force);
+          return null;
+        }
+      });
+    }
+
+    public Observable<List<pl.rspective.voucherify.client.model.voucher.Voucher>> list(final pl.rspective.voucherify.client.model.voucher.VouchersFilter vouchersFilter) {
+      return RxUtils.defer(new RxUtils.DefFunc<List<pl.rspective.voucherify.client.model.voucher.Voucher>>() {
+        @Override
+        public List<pl.rspective.voucherify.client.model.voucher.Voucher> method() {
+         return VoucherModule.this.list(vouchersFilter);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.voucher.Voucher> disable(final String code) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.voucher.Voucher>() {
+        @Override
+        public pl.rspective.voucherify.client.model.voucher.Voucher method() {
+          return VoucherModule.this.disable(code);
+        }
+      });
+    }
+
+    public Observable<pl.rspective.voucherify.client.model.voucher.Voucher> enable(final String code) {
+      return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.voucher.Voucher>() {
+        @Override
+        public pl.rspective.voucherify.client.model.voucher.Voucher method() {
+          return VoucherModule.this.enable(code);
         }
       });
     }

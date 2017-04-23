@@ -1,12 +1,12 @@
 package pl.rspective.voucherify.client.model.campaign;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.rspective.voucherify.client.model.voucher.Voucher;
 import pl.rspective.voucherify.client.model.voucher.GenerationStatus;
+import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import java.util.Date;
 import java.util.Map;
@@ -28,16 +28,16 @@ public class CreateCampaignResult {
 
   private Integer vouchersCount;
 
-  @SerializedName("start_date")
+  @JsonProperty("start_date")
   private Date startDate;
 
-  @SerializedName("expiration_date")
+  @JsonProperty("expiration_date")
   private Date expirationDate;
 
-  @SerializedName("updated_at")
+  @JsonProperty("updated_at")
   private Date updatedAt;
 
-  @SerializedName("vouchers_generation_status")
+  @JsonProperty("vouchers_generation_status")
   private GenerationStatus generationStatus;
 
   private Voucher voucher;

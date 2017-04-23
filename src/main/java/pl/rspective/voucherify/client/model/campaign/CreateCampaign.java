@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.campaign;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,6 @@ import lombok.Singular;
 import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,15 +20,15 @@ public class CreateCampaign {
 
   private String name;
 
-  @SerializedName("start_date")
+  @JsonProperty("start_date")
   private Date startDate;
 
-  @SerializedName("expiration_date")
+  @JsonProperty("expiration_date")
   private Date expirationDate;
 
   private CampaignType type;
 
-  @SerializedName("vouchers_count")
+  @JsonProperty("vouchers_count")
   private Integer vouchersCount;
 
   private Voucher voucher;

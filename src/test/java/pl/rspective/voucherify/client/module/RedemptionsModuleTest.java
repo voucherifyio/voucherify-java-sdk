@@ -1,11 +1,7 @@
 package pl.rspective.voucherify.client.module;
 
+import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.model.customer.Customer;
 import pl.rspective.voucherify.client.model.order.Order;
 import pl.rspective.voucherify.client.model.order.OrderItem;
@@ -19,27 +15,13 @@ import pl.rspective.voucherify.client.model.redemption.RollbackRedemption;
 import pl.rspective.voucherify.client.model.redemption.RollbackRedemptionResult;
 import pl.rspective.voucherify.client.model.redemption.VoucherRedemptionsResult;
 
-import java.util.concurrent.Executor;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
-@RunWith(MockitoJUnitRunner.class)
-public class RedemptionsModuleTest {
-
-  @Mock
-  private VoucherifyApi voucherifyApi;
-
-  @Mock
-  private Executor executor;
-
-  @InjectMocks
-  private RedemptionsModule RedemptionsModule;
+public class RedemptionsModuleTest extends AbstractModuleTest {
 
   @Test
-  public void shouldRedeemVoucher() {
+  public void shouldRedeemVoucher() throws Exception {
+    // given
     Customer customer = Customer.builder().email("some email")
             .description("some description")
             .metadataEntry("locale", "en-GB")
@@ -56,58 +38,73 @@ public class RedemptionsModuleTest {
             .order(order)
             .build();
 
-    given(voucherifyApi.redeem("some code", redeemVoucher)).willReturn(null);
+    enqueueRequest(redeemVoucher);
 
-    RedeemVoucherResult result = RedemptionsModule.redeem("some code", redeemVoucher);
+    // when
+    RedeemVoucherResult result = client.redemptions().redeem("some code", redeemVoucher);
 
-    assertThat(result).isEqualTo(null);
-    verify(voucherifyApi).redeem("some code", redeemVoucher);
-    verifyZeroInteractions(executor);
+    // then
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
-  public void shouldGetRedemption() {
-    given(voucherifyApi.getRedemption("some id")).willReturn(null);
+  public void shouldGetRedemption() throws Exception {
+    // given
+    enqueueRequest("{}");
 
-    RedemptionEntry result = RedemptionsModule.get("some id");
+    //when
+    RedemptionEntry result = client.redemptions().get("some id");
 
-    assertThat(result).isEqualTo(null);
-    verify(voucherifyApi).getRedemption("some id");
-    verifyZeroInteractions(executor);
+    // then
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/redemption/some%20id");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 
   @Test
-  public void shouldListRedemptions() {
+  public void shouldListRedemptions() throws Exception {
     RedemptionsFilter redemptionsFilter = RedemptionsFilter.builder()
             .customer("customer")
-            .campaign("campaing")
+            .campaign("campaign")
             .limit(10)
             .page(5)
             .result(RedemptionStatus.SUCCESS)
             .build();
 
-    given(voucherifyApi.listRedemptions(redemptionsFilter)).willReturn(null);
+    enqueueRequest("{}");
 
-    RedemptionsList list = RedemptionsModule.list(redemptionsFilter);
+    // when
+    RedemptionsList list = client.redemptions().list(redemptionsFilter);
 
-    assertThat(list).isEqualTo(null);
-    verify(voucherifyApi).listRedemptions(redemptionsFilter);
-    verifyZeroInteractions(executor);
+    // then
+    assertThat(list).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 
   @Test
-  public void shouldGetRedemptionsForVoucher() {
-    given(voucherifyApi.getVoucherRedemptions("some code")).willReturn(null);
+  public void shouldGetRedemptionsForVoucher() throws Exception {
+    // given
+    enqueueRequest("{}");
 
-    VoucherRedemptionsResult result = RedemptionsModule.getForVoucher("some code");
+    // when
+    VoucherRedemptionsResult result = client.redemptions().getForVoucher("some code");
 
-    assertThat(result).isEqualTo(null);
-    verify(voucherifyApi).getVoucherRedemptions("some code");
-    verifyZeroInteractions(executor);
+    // then
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 
   @Test
-  public void shouldRollbackRedemption() {
+  public void shouldRollbackRedemption() throws Exception {
+    // given
     Customer customer = Customer.builder().email("some email")
             .description("some description")
             .metadataEntry("locale", "en-GB")
@@ -117,13 +114,16 @@ public class RedemptionsModuleTest {
             .customer(customer)
             .build();
 
-    given(voucherifyApi.rollbackRedemption("some code", "reason", rollbackRedemption)).willReturn(null);
+    enqueueRequest("{}");
 
-    RollbackRedemptionResult result = RedemptionsModule.rollback("some code", "reason", rollbackRedemption);
+    // when
+    RollbackRedemptionResult result = client.redemptions().rollback("some code", "reason", rollbackRedemption);
 
-    assertThat(result).isEqualTo(null);
-    verify(voucherifyApi).rollbackRedemption("some code", "reason", rollbackRedemption);
-    verifyZeroInteractions(executor);
+    // then
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/redemption/some%20code/rollback?reason=reason");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 
 }

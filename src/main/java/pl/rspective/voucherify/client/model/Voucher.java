@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class Voucher {
     /**
      * A definition how to generate voucher's code. Used only on creation.
      */
-    @SerializedName("code_config")
+    @JsonProperty("code_config")
     private CodeConfig codeConfig;
     
     /**
@@ -55,13 +55,13 @@ public class Voucher {
     /**
      * Voucher's start date
      */
-    @SerializedName("start_date")
+    @JsonProperty("start_date")
     private Date startDate;
     
     /**
      * Voucher's expiration date
      */
-    @SerializedName("expiration_date")
+    @JsonProperty("expiration_date")
     private Date expirationDate;
     
     /**
@@ -82,7 +82,7 @@ public class Voucher {
     /**
      * Additional voucher's information
      */
-    @SerializedName("additional_info")
+    @JsonProperty("additional_info")
     private String additionalInfo;
     
     private Map<String, Object> metadata;

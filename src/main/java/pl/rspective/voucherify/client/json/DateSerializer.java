@@ -1,29 +1,26 @@
 package pl.rspective.voucherify.client.json;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateSerializer implements JsonSerializer<Date> {
+public class DateSerializer extends JsonSerializer<Date> {
 
-    private final DateFormat df;
-    
-    public DateSerializer(String dateFormat) {
-        df = new SimpleDateFormat(dateFormat);
-    }
-    
-    @Override
-    public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
-        if (src != null) {
-            return new JsonPrimitive(df.format(src));
-        }
-        return null;
-    }
+  private final DateFormat df;
 
+  public DateSerializer(String dateFormat) {
+    df = new SimpleDateFormat(dateFormat);
+  }
+
+  @Override
+  public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+    if (value != null) {
+      gen.writeString(df.format(value));
+    }
+  }
 }

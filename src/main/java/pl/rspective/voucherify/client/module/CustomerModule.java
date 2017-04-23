@@ -118,16 +118,16 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().deleteCustomer(customerId), callback);
     }
 
-    public void getCustomerById(String customerId, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
-      RxUtils.subscribe(executor, rx().getCustomerById(customerId), callback);
+    public void get(String customerId, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().get(customerId), callback);
     }
 
-    public void createCustomer(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
-      RxUtils.subscribe(executor, rx().createCustomer(customer), callback);
+    public void create(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().create(customer), callback);
     }
 
-    public void updateCustomer(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
-      RxUtils.subscribe(executor, rx().updateCustomer(customer), callback);
+    public void update(pl.rspective.voucherify.client.model.customer.Customer customer, VoucherifyCallback<pl.rspective.voucherify.client.model.customer.Customer> callback) {
+      RxUtils.subscribe(executor, rx().update(customer), callback);
     }
 
     public void delete(String customerId, VoucherifyCallback<Void> callback) {
@@ -138,7 +138,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
   public class ExtRxJava extends AbsModule.Rx {
 
     /**
-     * @deprecated Use {@link CustomerModule.ExtRxJava#getCustomerById(String)} instead
+     * @deprecated Use {@link CustomerModule.ExtRxJava#get(String)} instead
      */
     @Deprecated
     public Observable<Customer> getCustomer(final String customerId) {
@@ -151,7 +151,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * @deprecated Use {@link CustomerModule.ExtRxJava#createCustomer(pl.rspective.voucherify.client.model.customer.Customer)} instead
+     * @deprecated Use {@link CustomerModule.ExtRxJava#create(pl.rspective.voucherify.client.model.customer.Customer)} instead
      */
     @Deprecated
     public Observable<Customer> createCustomer(final Customer customer) {
@@ -164,7 +164,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     /**
-     * @deprecated Use {@link CustomerModule.ExtRxJava#updateCustomer(pl.rspective.voucherify.client.model.customer.Customer)} instead
+     * @deprecated Use {@link CustomerModule.ExtRxJava#update(pl.rspective.voucherify.client.model.customer.Customer)} instead
      */
     @Deprecated
     public Observable<Customer> updateCustomer(final Customer customer) {
@@ -190,7 +190,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
       });
     }
 
-    public Observable<pl.rspective.voucherify.client.model.customer.Customer> getCustomerById(final String customerId) {
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> get(final String customerId) {
       return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
         @Override
         public pl.rspective.voucherify.client.model.customer.Customer method() {
@@ -199,7 +199,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
       });
     }
 
-    public Observable<pl.rspective.voucherify.client.model.customer.Customer> createCustomer(final pl.rspective.voucherify.client.model.customer.Customer customer) {
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> create(final pl.rspective.voucherify.client.model.customer.Customer customer) {
       return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
         @Override
         public pl.rspective.voucherify.client.model.customer.Customer method() {
@@ -208,7 +208,7 @@ public final class CustomerModule extends AbsModule<ExtAsync, ExtRxJava> {
       });
     }
 
-    public Observable<pl.rspective.voucherify.client.model.customer.Customer> updateCustomer(final pl.rspective.voucherify.client.model.customer.Customer customer) {
+    public Observable<pl.rspective.voucherify.client.model.customer.Customer> update(final pl.rspective.voucherify.client.model.customer.Customer customer) {
       return RxUtils.defer(new RxUtils.DefFunc<pl.rspective.voucherify.client.model.customer.Customer>() {
         @Override
         public pl.rspective.voucherify.client.model.customer.Customer method() {

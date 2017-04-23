@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.order;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OrderItem {
 
-  @SerializedName("product_id")
+  @JsonProperty("product_id")
   private String productId;
 
-  @SerializedName("sku_id")
+  @JsonProperty("sku_id")
   private String skuId;
 
   private Integer quantity;

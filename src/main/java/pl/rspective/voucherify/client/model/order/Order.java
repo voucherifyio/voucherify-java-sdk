@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.order;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,27 +18,12 @@ import java.util.List;
 @Builder
 public class Order {
 
-  private String id;
-
-  @SerializedName("source_id")
-  private String sourceId;
-
-  @SerializedName("source_id")
-  private Date createdAt;
-
-  @SerializedName("source_id")
-  private Date updatedAt;
-
+  @JsonProperty("result")
   private OrderStatus status;
 
   private Integer amount;
 
   @Singular("item")
   private List<OrderItem> items;
-
-  @SerializedName("customer_id")
-  private String customerId;
-
-  private Customer customer;
 
 }

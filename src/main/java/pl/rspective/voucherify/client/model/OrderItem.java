@@ -1,14 +1,14 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Deprecated
 public class OrderItem {
 
-    @SerializedName("product_id")
+    @JsonProperty("product_id")
     private String productId;
     
-    @SerializedName("sku_id")
+    @JsonProperty("sku_id")
     private String skuId;
     
     private Integer quantity;

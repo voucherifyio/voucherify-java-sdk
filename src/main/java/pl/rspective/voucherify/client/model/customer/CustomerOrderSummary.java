@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.customer;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,19 +13,19 @@ import java.util.Date;
 @Getter
 public class CustomerOrderSummary {
 
-  @SerializedName("total_amount")
+  @JsonProperty("total_amount")
   private int totalAmount;
 
-  @SerializedName("total_count")
+  @JsonProperty("total_count")
   private int totalCount;
 
-  @SerializedName("average_amount")
+  @JsonProperty("average_amount")
   private int averageAmount;
 
-  @SerializedName("last_order_amount")
+  @JsonProperty("last_order_amount")
   private int lastOrderAmount;
 
-  @SerializedName("last_order_date")
+  @JsonProperty("last_order_date")
   private Date lastOrderDate;
 
 }

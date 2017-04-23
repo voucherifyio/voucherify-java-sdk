@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
@@ -10,10 +10,10 @@ public class PublishEntry {
     private String customer;
     private String channel;
 
-    @SerializedName("customer_id")
+    @JsonProperty("customer_id")
     private String customerId;
     
-    @SerializedName("published_at")
+    @JsonProperty("published_at")
     private Date publishedAt;
 
     public String getCustomer() {

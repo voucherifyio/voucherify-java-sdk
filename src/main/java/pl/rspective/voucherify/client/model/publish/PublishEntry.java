@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.publish;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,14 +14,14 @@ import java.util.Map;
 @Getter
 public class PublishEntry {
 
-  @SerializedName("cusomer_id")
+  @JsonProperty("cusomer_id")
   private String customerId;
 
   private String customer;
 
   private String channel;
 
-  @SerializedName("published_at")
+  @JsonProperty("published_at")
   private Date publishedAt;
 
   private Map<String, Object> metadata;

@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.redemption;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class RedemptionsList {
 
   private Integer total;
 
-  @SerializedName("data_ref")
+  @JsonProperty("data_ref")
   private String dataRef;
 
   private List<RedemptionEntry> redemptions;

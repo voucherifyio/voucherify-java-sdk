@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Class represents validity of a voucher
@@ -40,7 +40,7 @@ public class VoucherValidationResult {
     /**
      * Tracking id which can be used in further calls
      */
-    @SerializedName("tracking_id")
+    @JsonProperty("tracking_id")
     private String trackingId;
 
     private VoucherValidationResult() {

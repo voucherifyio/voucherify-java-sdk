@@ -1,9 +1,8 @@
 package pl.rspective.voucherify.client.model.campaign;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.rspective.voucherify.client.model.Discount;
@@ -20,9 +19,6 @@ import java.util.Map;
 @Getter
 public class AddVoucherToCampaignResult {
 
-  @SerializedName("_id")
-  private String id;
-
   private String code;
 
   private String campaign;
@@ -35,10 +31,10 @@ public class AddVoucherToCampaignResult {
 
   private Gift gift;
 
-  @SerializedName("start_date")
+  @JsonProperty("start_date")
   private Date startDate;
 
-  @SerializedName("expiration_date")
+  @JsonProperty("expiration_date")
   private Date expirationDate;
 
   private VoucherPublish publish;
@@ -47,20 +43,20 @@ public class AddVoucherToCampaignResult {
 
   private Boolean active;
 
-  @SerializedName("additional_info")
+  @JsonProperty("additional_info")
   private String additionalInfo;
 
   private Map<String, Object> metadata;
 
   private Map<String, Object> assets;
 
-  @SerializedName("is_referral_code")
+  @JsonProperty("is_referral_code")
   private Boolean isReferralCode;
 
-  @SerializedName("referrer_id")
+  @JsonProperty("referrer_id")
   private String referrerId;
 
-  @SerializedName("updated_at")
+  @JsonProperty("updated_at")
   private Date updatedAt;
 
 }

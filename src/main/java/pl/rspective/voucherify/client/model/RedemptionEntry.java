@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.Map;
@@ -29,13 +29,13 @@ public class RedemptionEntry {
     /**
      * Id of a customer who made this redemption
      */
-    @SerializedName("customer_id")
+    @JsonProperty("customer_id")
     private String customerId;
     
     /**
      * Voucher's consumer tracking id
      */
-    @SerializedName("tracking_id")
+    @JsonProperty("tracking_id")
     private String trackingId;
     
     /**

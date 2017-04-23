@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ public class VoucherRedemption {
 
   private Integer quantity;
 
-  @SerializedName("redeemed_quantity")
+  @JsonProperty("redeemed_quantity")
   private int redeemedQuantity;
 
-  @SerializedName("redemption_entries")
+  @JsonProperty("redemption_entries")
   private List<RedemptionEntry> redemptionEntries;
 
   public static VoucherRedemption quantity(int limit) {

@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.redemption;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +21,10 @@ public class RedemptionEntry {
 
   private Date date;
 
-  @SerializedName("customer_id")
+  @JsonProperty("customer_id")
   private String customerId;
 
-  @SerializedName("tracking_id")
+  @JsonProperty("tracking_id")
   private String trackingId;
 
   private String redemption;
@@ -39,9 +39,9 @@ public class RedemptionEntry {
 
   private RedemptionStatus result;
 
-  @SerializedName("failure_code")
+  @JsonProperty("failure_code")
   private String failureCode;
 
-  @SerializedName("failure_message")
+  @JsonProperty("failure_message")
   private String failureMessage;
 }

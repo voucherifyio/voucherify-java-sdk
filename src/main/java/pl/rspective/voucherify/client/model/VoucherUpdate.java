@@ -1,25 +1,25 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Deprecated
 public class VoucherUpdate {
     
     private String category;
 
-    @SerializedName("start_date")
+    @JsonProperty("start_date")
     private Date startDate;
 
-    @SerializedName("expiration_date")
+    @JsonProperty("expiration_date")
     private Date expirationDate;
 
     private boolean active;
 
-    @SerializedName("additional_info")
+    @JsonProperty("additional_info")
     private String additionalInfo;
 
     private Map<String, Object> metadata;

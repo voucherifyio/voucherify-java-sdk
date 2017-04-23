@@ -1,26 +1,26 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
 public class RedemptionDetails {
 
-    @SerializedName("id")
+    @JsonProperty("id")
     private String redemptionId;
     
     private RedemptionResult result;
     
     private Date date;
     
-    @SerializedName("voucher_code")
+    @JsonProperty("voucher_code")
     private String voucherCode;
     
     private Discount discount;
 
     private Customer customer;
     
-    @SerializedName("order")
+    @JsonProperty("order")
     private Order Order;
     
     public String getRedemptionId() {

@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.redemption;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,10 +20,10 @@ public class RollbackRedemptionResult {
 
   private Date date;
 
-  @SerializedName("customer_id")
+  @JsonProperty("customer_id")
   private String customerId;
 
-  @SerializedName("tracking_id")
+  @JsonProperty("tracking_id")
   private String trackingId;
 
   private String redemption;

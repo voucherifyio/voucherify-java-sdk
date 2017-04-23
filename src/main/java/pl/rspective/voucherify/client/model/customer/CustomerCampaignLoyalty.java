@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.customer;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ public class CustomerCampaignLoyalty {
 
   private int points;
 
-  @SerializedName("referred_customers")
+  @JsonProperty("referred_customers")
   private int referredCustomers;
 
 }

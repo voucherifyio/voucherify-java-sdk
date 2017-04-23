@@ -1,24 +1,30 @@
 package pl.rspective.voucherify.client.api;
 
 import com.squareup.okhttp.Response;
-
-import java.util.List;
-
-import pl.rspective.voucherify.client.model.*;
 import pl.rspective.voucherify.client.model.Customer;
+import pl.rspective.voucherify.client.model.PublishParams;
 import pl.rspective.voucherify.client.model.RedemptionsFilter;
 import pl.rspective.voucherify.client.model.RedemptionsList;
 import pl.rspective.voucherify.client.model.Voucher;
 import pl.rspective.voucherify.client.model.VoucherRedemption;
+import pl.rspective.voucherify.client.model.VoucherRedemptionContext;
+import pl.rspective.voucherify.client.model.VoucherRedemptionResult;
+import pl.rspective.voucherify.client.model.VoucherUpdate;
+import pl.rspective.voucherify.client.model.VoucherValidationContext;
+import pl.rspective.voucherify.client.model.VoucherValidationResult;
+import pl.rspective.voucherify.client.model.VouchersFilter;
 import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaign;
 import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaignResult;
 import pl.rspective.voucherify.client.model.campaign.CreateCampaign;
 import pl.rspective.voucherify.client.model.campaign.CreateCampaignResult;
-import pl.rspective.voucherify.client.model.customer.*;
 import pl.rspective.voucherify.client.model.publish.PublishVoucher;
-import pl.rspective.voucherify.client.model.redemption.*;
+import pl.rspective.voucherify.client.model.redemption.RedeemVoucher;
+import pl.rspective.voucherify.client.model.redemption.RedeemVoucherResult;
 import pl.rspective.voucherify.client.model.redemption.RedemptionEntry;
-import pl.rspective.voucherify.client.model.voucher.*;
+import pl.rspective.voucherify.client.model.redemption.RollbackRedemption;
+import pl.rspective.voucherify.client.model.redemption.RollbackRedemptionResult;
+import pl.rspective.voucherify.client.model.redemption.VoucherRedemptionsResult;
+import pl.rspective.voucherify.client.model.voucher.CreateVoucher;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -28,96 +34,75 @@ import retrofit.http.Path;
 import retrofit.http.Query;
 import retrofit.http.QueryMap;
 
-/**
- * An interface used internally to create a Retrofit API.
- */
+import java.util.List;
+import java.util.Map;
+
 public interface VoucherifyApi {
 
   /**
-   * List vouchers which meet provided filters.
-   *
-   * @param filter a set of conditions to narrow down the result
-   * @return a list of user vouchers
+   * @deprecated Use {@link VoucherifyApi#listVouchers(Map)} instead
    */
+  @Deprecated
   @GET("/vouchers/")
   List<Voucher> listVouchers(@QueryMap VouchersFilter filter);
 
   /**
-   * Fetch details for a specific voucher.
-   *
-   * @param code code of the voucher
-   * @return details of a the voucher identified by given code
+   * @deprecated Use {@link VoucherifyApi#getVoucher(String)} instead
    */
+  @Deprecated
   @GET("/vouchers/{code}")
   Voucher fetch(@Path("code") String code);
 
   /**
-   * Create a voucher with generated code.
-   *
-   * @param voucher voucher to be created
-   * @return created voucher
+   * @deprecated Use {@link VoucherifyApi#createVoucher(CreateVoucher)} instead
    */
   @POST("/vouchers/")
+  @Deprecated
   Voucher createVoucher(@Body Voucher voucher);
 
   /**
-   * Create a voucher with specified code.
-   *
-   * @param voucher voucher to be created
-   * @return created voucher
+   * @deprecated Use {@link VoucherifyApi#createVoucher(String, CreateVoucher)} instead
    */
   @POST("/vouchers/{code}")
+  @Deprecated
   Voucher createVoucherWithCode(@Path("code") String code, @Body Voucher voucher);
 
   /**
-   * Update voucher.
-   *
-   * @param voucherUpdate voucher fields to be updated
-   * @return updated voucher
+   * @deprecated Use {@link VoucherifyApi#updateVoucher(String, pl.rspective.voucherify.client.model.voucher.VoucherUpdate)} instead
    */
   @PUT("/vouchers/{code}")
+  @Deprecated
   Voucher updateVoucher(@Path("code") String code, @Body VoucherUpdate voucherUpdate);
 
   /**
-   * Disable a voucher.
-   *
-   * @param code code of a voucher that should be disabled
+   * @deprecated Use {@link VoucherifyApi#disable(String)} instead
    */
+  @Deprecated
   @POST("/vouchers/{code}/disable")
   Response disableVoucher(@Path("code") String code);
 
   /**
-   * Enable a voucher.
-   *
-   * @param code code of a voucher that should be enabled
+   * @deprecated Use {@link VoucherifyApi#enable(String)} instead
    */
   @POST("/vouchers/{code}/enable")
+  @Deprecated
   Response enableVoucher(@Path("code") String code);
 
   /**
-   * @param code       code of the voucher
-   * @param trackingId an id enabling you to correlate who has redeemed the voucher
    * @deprecated use {@link VoucherifyApi#redeem(String, RedeemVoucher)} instead
-   * Method used to redeem a voucher identified by code
    */
   @POST("/vouchers/{code}/redemption")
+  @Deprecated
   VoucherRedemptionResult redeem(@Path("code") String code, @Query("tracking_id") String trackingId);
 
   /**
-   * @param code              code of the voucher
-   * @param redemptionContext a context in terms of which the voucher is being redeemed (e.g. customer profile)
-   * @return redemption result (including redemption id)
-   * Method used to redeem a voucher and provide a context information.
    * @deprecated use {@link VoucherifyApi#redeem(String, RedeemVoucher)} instead
    */
+  @Deprecated
   @POST("/vouchers/{code}/redemption")
   VoucherRedemptionResult redeem(@Path("code") String code, @Body VoucherRedemptionContext redemptionContext);
 
   /**
-   * Fetch information about voucher redemption details
-   *
-   * @param code of the voucher
-   * @return voucher redemption information
    * @deprecated User {@link VoucherifyApi#getVoucherRedemptions(String)}} instead
    */
   @Deprecated
@@ -125,10 +110,6 @@ public interface VoucherifyApi {
   VoucherRedemption redemption(@Path("code") String code);
 
   /**
-   * Publish voucher.
-   *
-   * @param publishParams voucher code or campaign name with publish details
-   * @return published voucher
    * @deprecated Use {@link VoucherifyApi#publishVoucher(PublishVoucher)} instead
    */
   @POST("/vouchers/publish")
@@ -136,69 +117,38 @@ public interface VoucherifyApi {
   Voucher publishVoucher(@Body PublishParams publishParams);
 
   /**
-   * Validates given voucher code against the customer.
-   *
-   * @param code            code of the voucher
-   * @param validityContext a context in terms of which the voucher is being validated (e.g. customer profile)
-   * @return voucher validity information
-   */
-  @POST("/vouchers/{code}/validate")
-  VoucherValidationResult validateVoucher(@Path("code") String code, @Body VoucherValidationContext validityContext);
-
-  /**
-   * List redemption across all vouchers.
-   *
-   * @param filter a set of conditions to narrow down the result
-   * @return a list of redemption details
-   * @deprecated Use {@link VoucherifyApi#listRedemptions(pl.rspective.voucherify.client.model.redemption.RedemptionsFilter)} instead
+   * @deprecated Use {@link VoucherifyApi#listRedemptions(Map)} instead
    */
   @GET("/redemption")
   @Deprecated
   RedemptionsList listRedemptions(@QueryMap RedemptionsFilter filter);
 
   /**
-   * Redemption rollback reverts a redemption.
-   *
-   * @param redemptionId (required)
-   *                     id of a redemption
-   * @param trackingId   (optional)
-   *                     id of a customer
-   * @param reason       (optional)
-   * @return rollback result (including rollback id, original redemption id, voucher after rollback)
+   * @deprecated Use {@link VoucherifyApi#rollbackRedemption(String, String, RollbackRedemption)} instead
    */
   @POST("/redemption/{id}/rollback")
   @Deprecated
   VoucherRedemptionResult rollbackRedemption(@Path("id") String redemptionId, @Query("tracking_id") String trackingId, @Query("reason") String reason);
 
   /**
-   * Create a customer using given Customer
-   *
-   * @param customer (required)
-   * @return created User
-   * @deprecated
+   * @deprecated Use {@link VoucherifyApi#createCustomer(pl.rspective.voucherify.client.model.customer.Customer)} instead
    */
   @POST("/customers")
+  @Deprecated
   Customer createCustomer(@Body Customer customer);
 
   /**
-   * Get a Customer using Customer ID
-   *
-   * @param customerId (required)
-   * @return customer with given ID
-   * @deprecated
+   * @deprecated Use {@link VoucherifyApi#getCustomerById(String)} instead
    */
   @GET("/customers/{id}")
+  @Deprecated
   Customer getCustomer(@Path("id") String customerId);
 
   /**
-   * Update a Customer by ID, using given Customer object
-   *
-   * @param customerId (required)
-   * @param customer   (optional)
-   * @return Updated Customer with given ID
-   * @deprecated
+   * @deprecated Use {@link VoucherifyApi#updateCustomer(String, pl.rspective.voucherify.client.model.customer.Customer)} instead
    */
   @PUT("/customers/{id}")
+  @Deprecated
   Customer updateCustomer(@Path("id") String customerId, @Body Customer customer);
 
   // CAMPAIGNS
@@ -235,7 +185,7 @@ public interface VoucherifyApi {
   RedeemVoucherResult redeem(@Path("code") String code, @Body RedeemVoucher redeemVoucher);
 
   @GET("/redemptions")
-  pl.rspective.voucherify.client.model.redemption.RedemptionsList listRedemptions(@QueryMap pl.rspective.voucherify.client.model.redemption.RedemptionsFilter redemptionsFilter);
+  pl.rspective.voucherify.client.model.redemption.RedemptionsList listRedemptions(@QueryMap Map<String, Object> redemptionsFilter);
 
   @GET("/vouchers/{code}/redemption")
   VoucherRedemptionsResult getVoucherRedemptions(@Path("code") String code);
@@ -250,4 +200,35 @@ public interface VoucherifyApi {
 
   @POST("/vouchers/publish")
   pl.rspective.voucherify.client.model.voucher.Voucher publishVoucher(@Body PublishVoucher publishVoucher);
+
+  // VOUCHERS
+
+  @POST("/vouchers")
+  pl.rspective.voucherify.client.model.voucher.Voucher createVoucher(@Body CreateVoucher createVoucher);
+
+  @POST("/vouchers/{code}")
+  pl.rspective.voucherify.client.model.voucher.Voucher createVoucher(@Path("code") String code, @Body CreateVoucher createVoucher);
+
+  @GET("/vouchers/{code}")
+  pl.rspective.voucherify.client.model.voucher.Voucher getVoucher(@Path("code") String code);
+
+  @PUT("/vouchers/{code}")
+  pl.rspective.voucherify.client.model.voucher.Voucher updateVoucher(@Path("code") String code, @Body pl.rspective.voucherify.client.model.voucher.VoucherUpdate voucherUpdate);
+
+  @DELETE("/vouchers/{code}")
+  void deleteVoucher(@Path("code") String code, @Query("force") Boolean force);
+
+  @GET("/vouchers")
+  List<pl.rspective.voucherify.client.model.voucher.Voucher> listVouchers(@QueryMap Map<String, Object> filter);
+
+  @POST("/vouchers/{code}/enable")
+  pl.rspective.voucherify.client.model.voucher.Voucher enable(@Path("code") String code);
+
+  @POST("/vouchers/{code}/disable")
+  pl.rspective.voucherify.client.model.voucher.Voucher disable(@Path("code") String code);
+
+  // VALIDATIONS
+
+  @POST("/vouchers/{code}/validate")
+  VoucherValidationResult validateVoucher(@Path("code") String code, @Body VoucherValidationContext validityContext);
 }

@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.customer;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Getter
 public class GiftRedemptionSummary {
 
-  @SerializedName("redeemed_amount")
+  @JsonProperty("redeemed_amount")
   private int redeemedAmount;
 
-  @SerializedName("amount_to_go")
+  @JsonProperty("amount_to_go")
   private int amountToGo;
 
 }

@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class Customer {
     
     private String id;
     
-    @SerializedName("source_id")
+    @JsonProperty("source_id")
     private String sourceId;
     
     private String name;
@@ -23,7 +23,7 @@ public class Customer {
     
     private String description;
     
-    @SerializedName("created_at")
+    @JsonProperty("created_at")
     private Date createdAt;
     
     private Map<String, Object> metadata;

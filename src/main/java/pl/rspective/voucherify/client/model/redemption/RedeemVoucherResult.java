@@ -1,6 +1,6 @@
 package pl.rspective.voucherify.client.model.redemption;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public class RedeemVoucherResult {
 
   private Date date;
 
-  @SerializedName("tracking_id")
+  @JsonProperty("tracking_id")
   private String trackingId;
 
   private Order order;

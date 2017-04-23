@@ -1,5 +1,6 @@
 package pl.rspective.voucherify.client.model;
 
+@Deprecated
 public class CodeConfig {
     
     public final static char PATTERN_PLACEHOLDER = '#';

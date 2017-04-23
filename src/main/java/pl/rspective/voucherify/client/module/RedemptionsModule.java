@@ -32,7 +32,7 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   public RedemptionsList list(RedemptionsFilter redemptionsFilter) {
-    return api.listRedemptions(redemptionsFilter);
+    return api.listRedemptions(redemptionsFilter.asMap());
   }
 
   public VoucherRedemptionsResult getForVoucher(String code) {
