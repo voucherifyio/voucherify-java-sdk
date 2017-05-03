@@ -3,9 +3,9 @@ package pl.rspective.voucherify.client;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import pl.rspective.voucherify.client.model.Discount;
-import pl.rspective.voucherify.client.model.DiscountType;
-import pl.rspective.voucherify.client.model.Voucher;
+import pl.rspective.voucherify.client.model.voucher.Discount;
+import pl.rspective.voucherify.client.model.voucher.DiscountType;
+import pl.rspective.voucherify.client.model.voucher.Voucher;
 
 import static java.math.BigDecimal.valueOf;
 

@@ -7,15 +7,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
-import pl.rspective.voucherify.client.model.Address;
+import lombok.ToString;
 
-import java.util.Date;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Builder
+@ToString
 public class Customer {
 
   private String id;
@@ -33,27 +33,7 @@ public class Customer {
 
   private String phone;
 
-  private String birthday;
-
-  private CustomerSummary summary;
-
-  private CustomerLoyalty loyalty;
-
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
-  @JsonProperty("system_metadata")
-  private Map<String, Object> systemMetadata;
-
-  @JsonProperty("created_at")
-  private Date createdAt;
-
-  @JsonProperty("updated_at")
-  private Date updatedAt;
-
-  @JsonProperty("email_unsubscribed")
-  private Boolean emailUnsubscribed;
-
-  private String object;
 
 }

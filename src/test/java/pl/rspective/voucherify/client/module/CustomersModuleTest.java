@@ -4,6 +4,7 @@ import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import org.junit.Test;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.customer.Customer;
+import pl.rspective.voucherify.client.model.customer.response.CustomerResponse;
 import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -13,7 +14,7 @@ import static org.awaitility.Awaitility.await;
 public class CustomersModuleTest extends AbstractModuleTest {
 
   @Test
-  public void shouldCreateCustomer() throws Exception {
+  public void shouldCreateCustomer() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -21,10 +22,10 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Customer result = client.customers().create(customer);
+    CustomerResponse result = client.customers().create(customer);
 
     // then
     assertThat(result).isNotNull();
@@ -34,7 +35,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetCustomer() throws Exception {
+  public void shouldGetCustomer() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -42,10 +43,10 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Customer result = client.customers().get("customer-id");
+    CustomerResponse result = client.customers().get("customer-id");
 
     // then
     assertThat(result).isNotNull();
@@ -55,7 +56,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateCustomer() throws Exception {
+  public void shouldUpdateCustomer() {
     // given
     Customer customer = Customer.builder()
             .id("customer-id")
@@ -64,10 +65,10 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Customer result = client.customers().update(customer);
+    CustomerResponse result = client.customers().update(customer);
 
     // then
     assertThat(result).isNotNull();
@@ -77,7 +78,23 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldCreateCustomerAsync() throws Exception {
+  public void shouldDeleteCustomer() {
+    // given
+    String customerId = "customer-id";
+
+    enqueueEmptyResponse();
+
+    // when
+    client.customers().delete(customerId);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldCreateCustomerAsync() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -85,7 +102,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     VoucherifyCallback callback = createCallback();
 
@@ -100,7 +117,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetCustomerAsync() throws Exception {
+  public void shouldGetCustomerAsync() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -108,7 +125,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     VoucherifyCallback callback = createCallback();
 
@@ -123,7 +140,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateCustomerAsync() throws Exception {
+  public void shouldUpdateCustomerAsync() {
     // given
     Customer customer = Customer.builder()
             .id("customer-id")
@@ -132,7 +149,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     VoucherifyCallback callback = createCallback();
 
@@ -147,7 +164,26 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldCreateCustomerRxJava() throws Exception {
+  public void shouldDeleteCustomerAsync() {
+    // given
+    String customerId = "customer-id";
+
+    enqueueEmptyResponse();
+
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.customers().async().delete(customerId, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldCreateCustomerRxJava() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -155,13 +191,13 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Observable<Customer> observable = client.customers().rx().create(customer);
+    Observable<CustomerResponse> observable = client.customers().rx().create(customer);
 
     // then
-    Customer result = observable.toBlocking().first();
+    CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/customers");
@@ -169,7 +205,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetCustomerRxJava() throws Exception {
+  public void shouldGetCustomerRxJava() {
     // given
     Customer customer = Customer.builder()
             .email("email")
@@ -177,13 +213,13 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Observable<Customer> observable = client.customers().rx().get("customer-id");
+    Observable<CustomerResponse> observable = client.customers().rx().get("customer-id");
 
     // then
-    Customer result = observable.toBlocking().first();
+    CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/customers/customer-id");
@@ -191,7 +227,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateCustomerRxJava() throws Exception {
+  public void shouldUpdateCustomerRxJava() {
     // given
     Customer customer = Customer.builder()
             .id("customer-id")
@@ -200,16 +236,32 @@ public class CustomersModuleTest extends AbstractModuleTest {
             .description("description")
             .build();
 
-    enqueueRequest(customer);
+    enqueueResponse(customer);
 
     // when
-    Observable<Customer> observable = client.customers().rx().update(customer);
+    Observable<CustomerResponse> observable = client.customers().rx().update(customer);
 
     // then
-    Customer result = observable.toBlocking().first();
+    CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
+  public void shouldDeleteCustomerRxJava() {
+    // given
+    String customerId = "customer-id";
+    enqueueEmptyResponse();
+
+    // when
+    Observable<Void> observable = client.customers().rx().delete(customerId);
+
+    // then
+    observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 }

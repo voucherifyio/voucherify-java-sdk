@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import pl.rspective.voucherify.client.utils.AbstractFilter;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @Getter
+@ToString
 public class RedemptionsFilter extends AbstractFilter<String, Object> {
 
   private Integer limit;

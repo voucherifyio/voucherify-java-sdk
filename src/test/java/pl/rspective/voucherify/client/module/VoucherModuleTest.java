@@ -3,9 +3,10 @@ package pl.rspective.voucherify.client.module;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import org.junit.Test;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.Discount;
+import pl.rspective.voucherify.client.model.voucher.Discount;
 import pl.rspective.voucherify.client.model.voucher.CreateVoucher;
 import pl.rspective.voucherify.client.model.voucher.Voucher;
+import pl.rspective.voucherify.client.model.voucher.response.VoucherResponse;
 import pl.rspective.voucherify.client.model.voucher.VoucherUpdate;
 import pl.rspective.voucherify.client.model.voucher.VouchersFilter;
 import rx.Observable;
@@ -28,10 +29,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     CreateVoucher createVoucher = CreateVoucher.builder().voucher(voucher).build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     // when
-    Voucher result = client.vouchers().create(createVoucher);
+    VoucherResponse result = client.vouchers().create(createVoucher);
 
     // then
     assertThat(result).isNotNull();
@@ -50,10 +51,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     // when
-    Voucher result = client.vouchers().get("some-code");
+    VoucherResponse result = client.vouchers().get("some-code");
 
     // then
     assertThat(result).isNotNull();
@@ -73,7 +74,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest("[" + mapper.writeValueAsString(voucher) + "]");
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
 
     VouchersFilter filter = VouchersFilter.builder()
             .limit(10)
@@ -83,7 +84,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .build();
 
     // when
-    List<Voucher> list = client.vouchers().list(filter);
+    List<VoucherResponse> list = client.vouchers().list(filter);
 
     // then
     assertThat(list).isNotEmpty();
@@ -107,10 +108,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .category("some-category")
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Voucher result = client.vouchers().update("some-code", update);
+    VoucherResponse result = client.vouchers().update("some-code", update);
 
     // then
     assertThat(result.getCategory()).isEqualTo("some-category");
@@ -130,10 +131,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Voucher result = client.vouchers().disable("some-code");
+    VoucherResponse result = client.vouchers().disable("some-code");
 
     // then
     assertThat(result.getActive()).isEqualTo(false);
@@ -152,10 +153,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Voucher result = client.vouchers().enable("some-code");
+    VoucherResponse result = client.vouchers().enable("some-code");
 
     // then
     assertThat(result.getActive()).isEqualTo(true);
@@ -174,7 +175,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     CreateVoucher createVoucher = CreateVoucher.builder().voucher(voucher).build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     VoucherifyCallback callback = createCallback();
 
@@ -198,7 +199,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     VoucherifyCallback callback = createCallback();
 
@@ -222,7 +223,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest("[" + mapper.writeValueAsString(voucher) + "]");
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
 
     VoucherifyCallback callback = createCallback();
 
@@ -260,7 +261,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     VoucherifyCallback callback = createCallback();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
     client.vouchers().async().update("some-code", update, callback);
@@ -284,7 +285,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     VoucherifyCallback callback = createCallback();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
     client.vouchers().async().disable("some-code", callback);
@@ -308,7 +309,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     VoucherifyCallback callback = createCallback();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
     client.vouchers().async().enable("some-code", callback);
@@ -330,13 +331,13 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     CreateVoucher createVoucher = CreateVoucher.builder().voucher(voucher).build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     // when
-    Observable<Voucher> observable = client.vouchers().rx().create(createVoucher);
+    Observable<VoucherResponse> observable = client.vouchers().rx().create(createVoucher);
 
     // then
-    Voucher result = observable.toBlocking().first();
+    VoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers");
@@ -353,13 +354,13 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(voucher);
+    enqueueResponse(voucher);
 
     // when
-    Observable<Voucher> observable = client.vouchers().rx().get("some-code");
+    Observable<VoucherResponse> observable = client.vouchers().rx().get("some-code");
 
     // then
-    Voucher result = observable.toBlocking().first();
+    VoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo(voucher.getCode());
     RecordedRequest request = getRequest();
@@ -377,7 +378,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest("[" + mapper.writeValueAsString(voucher) + "]");
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
 
     VouchersFilter filter = VouchersFilter.builder()
             .limit(10)
@@ -387,10 +388,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .build();
 
     // when
-    Observable<List<Voucher>> observable = client.vouchers().rx().list(filter);
+    Observable<List<VoucherResponse>> observable = client.vouchers().rx().list(filter);
 
     // then
-    List<Voucher> result = observable.toBlocking().first();
+    List<VoucherResponse> result = observable.toBlocking().first();
     assertThat(result).isNotEmpty();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
@@ -412,13 +413,13 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .category("some-category")
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Observable<Voucher> observable = client.vouchers().rx().update("some-code", update);
+    Observable<VoucherResponse> observable = client.vouchers().rx().update("some-code", update);
 
     // then
-    Voucher result = observable.toBlocking().first();
+    VoucherResponse result = observable.toBlocking().first();
     assertThat(result.getCategory()).isEqualTo("some-category");
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
@@ -436,13 +437,13 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Observable<Voucher> observable = client.vouchers().rx().disable("some-code");
+    Observable<VoucherResponse> observable = client.vouchers().rx().disable("some-code");
 
     // then
-    Voucher result = observable.toBlocking().first();
+    VoucherResponse result = observable.toBlocking().first();
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some-code/disable");
@@ -459,13 +460,13 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .discount(Discount.unitOff(10.0))
             .build();
 
-    enqueueRequest(mapper.writeValueAsString(voucher));
+    enqueueResponse(voucher);
 
     // when
-    Observable<Voucher> observable = client.vouchers().rx().enable("some-code");
+    Observable<VoucherResponse> observable = client.vouchers().rx().enable("some-code");
 
     // then
-    Voucher result = observable.toBlocking().first();
+    VoucherResponse result = observable.toBlocking().first();
     assertThat(result.getActive()).isEqualTo(true);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some-code/enable");

@@ -3,6 +3,8 @@ package pl.rspective.voucherify.client.module;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.campaign.*;
+import pl.rspective.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
+import pl.rspective.voucherify.client.model.campaign.response.CreateCampaignResponse;
 import pl.rspective.voucherify.client.module.CampaignsModule.ExtAsync;
 import pl.rspective.voucherify.client.module.CampaignsModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -16,15 +18,15 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
         super(api, executor);
     }
 
-    public CreateCampaignResult create(CreateCampaign createCampaign) {
+    public CreateCampaignResponse create(CreateCampaign createCampaign) {
         return api.createCampaign(createCampaign);
     }
 
-    public AddVoucherToCampaignResult addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign) {
+    public AddVoucherToCampaignResponse addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign) {
         return api.addVoucherToCampaign(campaignName, addVoucherToCampaign);
     }
 
-    public AddVoucherToCampaignResult addVoucherWithCode(String campaignName, String code, AddVoucherToCampaign addVoucherToCampaign) {
+    public AddVoucherToCampaignResponse addVoucherWithCode(String campaignName, String code, AddVoucherToCampaign addVoucherToCampaign) {
         return api.addVoucherToCampaignWithCode(campaignName, code, addVoucherToCampaign);
     }
 
@@ -54,15 +56,15 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public class ExtAsync extends AbsModule.Async {
 
-        public void create(CreateCampaign createCampaign, VoucherifyCallback<CreateCampaignResult> callback) {
+        public void create(CreateCampaign createCampaign, VoucherifyCallback<CreateCampaignResponse> callback) {
             RxUtils.subscribe(executor, rx().create(createCampaign), callback);
         }
 
-        public void addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign, VoucherifyCallback<AddVoucherToCampaignResult> callback) {
+        public void addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign, VoucherifyCallback<AddVoucherToCampaignResponse> callback) {
             RxUtils.subscribe(executor, rx().addVoucher(campaignName, addVoucherToCampaign), callback);
         }
 
-        public void addVoucherWithCode(String campaignName, String code, AddVoucherToCampaign addVoucherToCampaign, VoucherifyCallback<AddVoucherToCampaignResult> callback) {
+        public void addVoucherWithCode(String campaignName, String code, AddVoucherToCampaign addVoucherToCampaign, VoucherifyCallback<AddVoucherToCampaignResponse> callback) {
             RxUtils.subscribe(executor, rx().addVoucherWithCode(campaignName, code, addVoucherToCampaign), callback);
         }
 
@@ -73,28 +75,28 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public class ExtRxJava extends AbsModule.Rx {
 
-        public Observable<CreateCampaignResult> create(final CreateCampaign createCampaign) {
-            return RxUtils.defer(new RxUtils.DefFunc<CreateCampaignResult>() {
+        public Observable<CreateCampaignResponse> create(final CreateCampaign createCampaign) {
+            return RxUtils.defer(new RxUtils.DefFunc<CreateCampaignResponse>() {
                 @Override
-                public CreateCampaignResult method() {
+                public CreateCampaignResponse method() {
                     return CampaignsModule.this.create(createCampaign);
                 }
             });
         }
 
-        public Observable<AddVoucherToCampaignResult> addVoucher(final String campaignName, final AddVoucherToCampaign addVoucherToCampaign) {
-            return RxUtils.defer(new RxUtils.DefFunc<AddVoucherToCampaignResult>() {
+        public Observable<AddVoucherToCampaignResponse> addVoucher(final String campaignName, final AddVoucherToCampaign addVoucherToCampaign) {
+            return RxUtils.defer(new RxUtils.DefFunc<AddVoucherToCampaignResponse>() {
                 @Override
-                public AddVoucherToCampaignResult method() {
+                public AddVoucherToCampaignResponse method() {
                     return CampaignsModule.this.addVoucher(campaignName, addVoucherToCampaign);
                 }
             });
         }
 
-        public Observable<AddVoucherToCampaignResult> addVoucherWithCode(final String campaignName, final String code, final AddVoucherToCampaign addVoucherToCampaign) {
-            return RxUtils.defer(new RxUtils.DefFunc<AddVoucherToCampaignResult>() {
+        public Observable<AddVoucherToCampaignResponse> addVoucherWithCode(final String campaignName, final String code, final AddVoucherToCampaign addVoucherToCampaign) {
+            return RxUtils.defer(new RxUtils.DefFunc<AddVoucherToCampaignResponse>() {
                 @Override
-                public AddVoucherToCampaignResult method() {
+                public AddVoucherToCampaignResponse method() {
                     return CampaignsModule.this.addVoucherWithCode(campaignName, code, addVoucherToCampaign);
                 }
             });

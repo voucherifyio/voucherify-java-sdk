@@ -3,13 +3,13 @@ package pl.rspective.voucherify.client.module;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.redemption.RedeemVoucher;
-import pl.rspective.voucherify.client.model.redemption.RedeemVoucherResult;
-import pl.rspective.voucherify.client.model.redemption.RedemptionEntry;
 import pl.rspective.voucherify.client.model.redemption.RedemptionsFilter;
-import pl.rspective.voucherify.client.model.redemption.RedemptionsList;
 import pl.rspective.voucherify.client.model.redemption.RollbackRedemption;
-import pl.rspective.voucherify.client.model.redemption.RollbackRedemptionResult;
-import pl.rspective.voucherify.client.model.redemption.VoucherRedemptionsResult;
+import pl.rspective.voucherify.client.model.redemption.response.RedeemVoucherResponse;
+import pl.rspective.voucherify.client.model.redemption.response.RedemptionEntryResponse;
+import pl.rspective.voucherify.client.model.redemption.response.RedemptionsResponse;
+import pl.rspective.voucherify.client.model.redemption.response.RollbackRedemptionResponse;
+import pl.rspective.voucherify.client.model.redemption.response.VoucherRedemptionsResponse;
 import pl.rspective.voucherify.client.module.RedemptionsModule.ExtAsync;
 import pl.rspective.voucherify.client.module.RedemptionsModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -23,23 +23,23 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
     super(api, executor);
   }
 
-  public RedeemVoucherResult redeem(String code, RedeemVoucher redeemVoucher) {
+  public RedeemVoucherResponse redeem(String code, RedeemVoucher redeemVoucher) {
     return api.redeem(code, redeemVoucher);
   }
 
-  public RedemptionEntry get(String redemptionId) {
+  public RedemptionEntryResponse get(String redemptionId) {
     return api.getRedemption(redemptionId);
   }
 
-  public RedemptionsList list(RedemptionsFilter redemptionsFilter) {
+  public RedemptionsResponse list(RedemptionsFilter redemptionsFilter) {
     return api.listRedemptions(redemptionsFilter.asMap());
   }
 
-  public VoucherRedemptionsResult getForVoucher(String code) {
+  public VoucherRedemptionsResponse getForVoucher(String code) {
     return api.getVoucherRedemptions(code);
   }
 
-  public RollbackRedemptionResult rollback(String redemptionId, String reason, RollbackRedemption rollbackRedemption) {
+  public RollbackRedemptionResponse rollback(String redemptionId, String reason, RollbackRedemption rollbackRedemption) {
     return api.rollbackRedemption(redemptionId, reason, rollbackRedemption);
   }
 
@@ -65,69 +65,69 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public class ExtAsync extends AbsModule.Async {
 
-    public void redeem(String code, RedeemVoucher redeemVoucher, VoucherifyCallback<RedeemVoucherResult> callback) {
+    public void redeem(String code, RedeemVoucher redeemVoucher, VoucherifyCallback<RedeemVoucherResponse> callback) {
       RxUtils.subscribe(executor, rx().redeem(code, redeemVoucher), callback);
     }
 
-    public void list(RedemptionsFilter redemptionsFilter, VoucherifyCallback<RedemptionsList> callback) {
+    public void list(RedemptionsFilter redemptionsFilter, VoucherifyCallback<RedemptionsResponse> callback) {
       RxUtils.subscribe(executor, rx().list(redemptionsFilter), callback);
     }
 
-    public void get(String redemptionId, VoucherifyCallback<RedemptionEntry> callback) {
+    public void get(String redemptionId, VoucherifyCallback<RedemptionEntryResponse> callback) {
       RxUtils.subscribe(executor, rx().get(redemptionId), callback);
     }
 
-    public void getForVoucher(String code, VoucherifyCallback<VoucherRedemptionsResult> callback) {
+    public void getForVoucher(String code, VoucherifyCallback<VoucherRedemptionsResponse> callback) {
       RxUtils.subscribe(executor, rx().getForVoucher(code), callback);
     }
 
-    public void rollback(String redemptionId, String reason, RollbackRedemption rollbackRedemption, VoucherifyCallback<RollbackRedemptionResult> callback) {
+    public void rollback(String redemptionId, String reason, RollbackRedemption rollbackRedemption, VoucherifyCallback<RollbackRedemptionResponse> callback) {
       RxUtils.subscribe(executor, rx().rollback(redemptionId, reason, rollbackRedemption), callback);
     }
   }
 
   public class ExtRxJava extends AbsModule.Rx {
 
-    public Observable<RedeemVoucherResult> redeem(final String code, final RedeemVoucher redeemVoucher) {
-      return RxUtils.defer(new RxUtils.DefFunc<RedeemVoucherResult>() {
+    public Observable<RedeemVoucherResponse> redeem(final String code, final RedeemVoucher redeemVoucher) {
+      return RxUtils.defer(new RxUtils.DefFunc<RedeemVoucherResponse>() {
         @Override
-        public RedeemVoucherResult method() {
+        public RedeemVoucherResponse method() {
           return RedemptionsModule.this.redeem(code, redeemVoucher);
         }
       });
     }
 
-    public Observable<RedemptionEntry> get(final String redemptionId) {
-      return RxUtils.defer(new RxUtils.DefFunc<RedemptionEntry>() {
+    public Observable<RedemptionEntryResponse> get(final String redemptionId) {
+      return RxUtils.defer(new RxUtils.DefFunc<RedemptionEntryResponse>() {
         @Override
-        public RedemptionEntry method() {
+        public RedemptionEntryResponse method() {
           return RedemptionsModule.this.get(redemptionId);
         }
       });
     }
 
-    public Observable<RedemptionsList> list(final RedemptionsFilter redemptionsFilter) {
-      return RxUtils.defer(new RxUtils.DefFunc<RedemptionsList>() {
+    public Observable<RedemptionsResponse> list(final RedemptionsFilter redemptionsFilter) {
+      return RxUtils.defer(new RxUtils.DefFunc<RedemptionsResponse>() {
         @Override
-        public RedemptionsList method() {
+        public RedemptionsResponse method() {
           return RedemptionsModule.this.list(redemptionsFilter);
         }
       });
     }
 
-    public Observable<VoucherRedemptionsResult> getForVoucher(final String code) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherRedemptionsResult>() {
+    public Observable<VoucherRedemptionsResponse> getForVoucher(final String code) {
+      return RxUtils.defer(new RxUtils.DefFunc<VoucherRedemptionsResponse>() {
         @Override
-        public VoucherRedemptionsResult method() {
+        public VoucherRedemptionsResponse method() {
           return RedemptionsModule.this.getForVoucher(code);
         }
       });
     }
 
-    public Observable<RollbackRedemptionResult> rollback(final String redemptionId, final String reason, final RollbackRedemption rollbackRedemption) {
-      return RxUtils.defer(new RxUtils.DefFunc<RollbackRedemptionResult>() {
+    public Observable<RollbackRedemptionResponse> rollback(final String redemptionId, final String reason, final RollbackRedemption rollbackRedemption) {
+      return RxUtils.defer(new RxUtils.DefFunc<RollbackRedemptionResponse>() {
         @Override
-        public RollbackRedemptionResult method() {
+        public RollbackRedemptionResponse method() {
           return RedemptionsModule.this.rollback(redemptionId, reason, rollbackRedemption);
         }
       });

@@ -6,10 +6,14 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
+import pl.rspective.voucherify.client.model.validationRules.Operator;
 import pl.rspective.voucherify.client.module.CampaignsModule;
-import pl.rspective.voucherify.client.module.CustomerModule;
+import pl.rspective.voucherify.client.module.CustomersModule;
 import pl.rspective.voucherify.client.module.DistributionsModule;
+import pl.rspective.voucherify.client.module.ProductsModule;
 import pl.rspective.voucherify.client.module.RedemptionsModule;
+import pl.rspective.voucherify.client.module.SegmentsModule;
+import pl.rspective.voucherify.client.module.ValidationRulesModule;
 import pl.rspective.voucherify.client.module.ValidationsModule;
 import pl.rspective.voucherify.client.module.VoucherModule;
 import pl.rspective.voucherify.client.utils.Platform;
@@ -29,13 +33,19 @@ public class VoucherifyClient {
 
   private ValidationsModule validationsModule;
 
-  private CustomerModule customerModule;
+  private CustomersModule customersModule;
 
   private CampaignsModule campaignsModule;
 
   private RedemptionsModule redemptionsModule;
 
   private DistributionsModule distributionsModule;
+
+  private ProductsModule productsModule;
+
+  private SegmentsModule segmentsModule;
+
+  private ValidationRulesModule validationRulesModule;
 
   private VoucherifyApi voucherifyApi;
 
@@ -57,10 +67,13 @@ public class VoucherifyClient {
 
     this.voucherModule = new VoucherModule(voucherifyApi, executor);
     this.validationsModule = new ValidationsModule(voucherifyApi, executor);
-    this.customerModule = new CustomerModule(voucherifyApi, executor);
+    this.customersModule = new CustomersModule(voucherifyApi, executor);
     this.campaignsModule = new CampaignsModule(voucherifyApi, executor);
     this.redemptionsModule = new RedemptionsModule(voucherifyApi, executor);
     this.distributionsModule = new DistributionsModule(voucherifyApi, executor);
+    this.productsModule = new ProductsModule(voucherifyApi, executor);
+    this.segmentsModule = new SegmentsModule(voucherifyApi, executor);
+    this.validationRulesModule = new ValidationRulesModule(voucherifyApi, executor);
   }
 
   public VoucherModule vouchers() {
@@ -71,8 +84,8 @@ public class VoucherifyClient {
     return validationsModule;
   }
 
-  public CustomerModule customers() {
-    return customerModule;
+  public CustomersModule customers() {
+    return customersModule;
   }
 
   public CampaignsModule campaigns() {
@@ -85,6 +98,18 @@ public class VoucherifyClient {
 
   public DistributionsModule distributions() {
     return distributionsModule;
+  }
+
+  public ProductsModule products() {
+    return productsModule;
+  }
+
+  public SegmentsModule segments() {
+    return segmentsModule;
+  }
+
+  public ValidationRulesModule validationRules() {
+    return validationRulesModule;
   }
 
   private Executor createCallbackExecutor() {

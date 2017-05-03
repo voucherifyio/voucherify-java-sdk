@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
-import pl.rspective.voucherify.client.model.Gift;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.Map;
@@ -16,6 +16,7 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Builder
+@ToString
 public class VoucherUpdate {
 
   private String category;

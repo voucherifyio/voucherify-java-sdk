@@ -3,7 +3,7 @@ package pl.rspective.voucherify.client.module;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.publish.PublishVoucher;
-import pl.rspective.voucherify.client.model.voucher.Voucher;
+import pl.rspective.voucherify.client.model.publish.response.PublishVoucherResponse;
 import pl.rspective.voucherify.client.module.DistributionsModule.ExtAsync;
 import pl.rspective.voucherify.client.module.DistributionsModule.ExtRxJava;
 import pl.rspective.voucherify.client.utils.RxUtils;
@@ -17,7 +17,7 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
     super(api, executor);
   }
 
-  public Voucher publish(PublishVoucher publishVoucher) {
+  public PublishVoucherResponse publish(PublishVoucher publishVoucher) {
     return api.publishVoucher(publishVoucher);
   }
 
@@ -43,17 +43,17 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public class ExtAsync extends AbsModule.Async {
 
-    public void publish(PublishVoucher publishParams, VoucherifyCallback<Voucher> callback) {
+    public void publish(PublishVoucher publishParams, VoucherifyCallback<PublishVoucherResponse> callback) {
       RxUtils.subscribe(executor, rx().publish(publishParams), callback);
     }
   }
 
   public class ExtRxJava extends AbsModule.Rx {
 
-    public Observable<Voucher> publish(final PublishVoucher publishVoucher) {
-      return RxUtils.defer(new RxUtils.DefFunc<Voucher>() {
+    public Observable<PublishVoucherResponse> publish(final PublishVoucher publishVoucher) {
+      return RxUtils.defer(new RxUtils.DefFunc<PublishVoucherResponse>() {
         @Override
-        public Voucher method() {
+        public PublishVoucherResponse method() {
           return DistributionsModule.this.publish(publishVoucher);
         }
       });
