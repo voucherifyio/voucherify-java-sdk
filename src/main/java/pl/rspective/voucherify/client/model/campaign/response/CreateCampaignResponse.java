@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import pl.rspective.voucherify.client.model.campaign.CampaignType;
+import pl.rspective.voucherify.client.model.validationRules.response.ValidationRulesResponse;
 import pl.rspective.voucherify.client.model.voucher.GenerationStatus;
 import pl.rspective.voucherify.client.model.voucher.response.VoucherResponse;
 
@@ -44,5 +45,8 @@ public class CreateCampaignResponse {
   private GenerationStatus generationStatus;
 
   private VoucherResponse voucher;
+
+  @JsonProperty("validation_rules")
+  private ValidationRulesResponse validationRulesResponse;
 
 }

@@ -1,11 +1,11 @@
 package pl.rspective.voucherify.client;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import pl.rspective.voucherify.client.model.voucher.Discount;
 import pl.rspective.voucherify.client.model.voucher.DiscountType;
 import pl.rspective.voucherify.client.model.voucher.Voucher;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static java.math.BigDecimal.valueOf;
 

@@ -1,14 +1,13 @@
 package pl.rspective.voucherify.client.utils;
 
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-
-import java.util.concurrent.Executor;
-
 import retrofit.RetrofitError;
 import rx.Observable;
 import rx.functions.Action1;
 import rx.functions.Func0;
 import rx.schedulers.Schedulers;
+
+import java.util.concurrent.Executor;
 
 /**
  * Utils's class used to wrap sync and async calls into RX world

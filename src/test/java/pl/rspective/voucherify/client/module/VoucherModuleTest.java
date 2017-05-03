@@ -3,12 +3,12 @@ package pl.rspective.voucherify.client.module;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import org.junit.Test;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.voucher.Discount;
 import pl.rspective.voucherify.client.model.voucher.CreateVoucher;
+import pl.rspective.voucherify.client.model.voucher.Discount;
 import pl.rspective.voucherify.client.model.voucher.Voucher;
-import pl.rspective.voucherify.client.model.voucher.response.VoucherResponse;
 import pl.rspective.voucherify.client.model.voucher.VoucherUpdate;
 import pl.rspective.voucherify.client.model.voucher.VouchersFilter;
+import pl.rspective.voucherify.client.model.voucher.response.VoucherResponse;
 import rx.Observable;
 
 import java.util.List;

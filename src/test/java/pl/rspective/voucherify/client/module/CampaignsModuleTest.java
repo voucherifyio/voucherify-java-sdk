@@ -4,10 +4,10 @@ import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import org.junit.Test;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
 import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaign;
-import pl.rspective.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import pl.rspective.voucherify.client.model.campaign.CreateCampaign;
-import pl.rspective.voucherify.client.model.campaign.response.CreateCampaignResponse;
 import pl.rspective.voucherify.client.model.campaign.DeleteCampaignParams;
+import pl.rspective.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
+import pl.rspective.voucherify.client.model.campaign.response.CreateCampaignResponse;
 import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;

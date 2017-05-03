@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.json.DateDeserializer;
 import pl.rspective.voucherify.client.json.DateSerializer;
-import pl.rspective.voucherify.client.model.validationRules.Operator;
 import pl.rspective.voucherify.client.module.CampaignsModule;
 import pl.rspective.voucherify.client.module.CustomersModule;
 import pl.rspective.voucherify.client.module.DistributionsModule;

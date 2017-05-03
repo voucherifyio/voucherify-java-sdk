@@ -1,11 +1,11 @@
 package io.voucherify.example;
-import java.text.ParseException;
-import java.util.concurrent.TimeUnit;
 
 import pl.rspective.voucherify.client.VoucherifyClient;
-import pl.rspective.voucherify.client.model.*;
 import rx.functions.Action1;
 import rx.functions.Func1;
+
+import java.text.ParseException;
+import java.util.concurrent.TimeUnit;
 
 public class ExampleRxApp {
 

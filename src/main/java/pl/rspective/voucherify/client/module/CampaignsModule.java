@@ -2,7 +2,9 @@ package pl.rspective.voucherify.client.module;
 
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.model.campaign.*;
+import pl.rspective.voucherify.client.model.campaign.AddVoucherToCampaign;
+import pl.rspective.voucherify.client.model.campaign.CreateCampaign;
+import pl.rspective.voucherify.client.model.campaign.DeleteCampaignParams;
 import pl.rspective.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import pl.rspective.voucherify.client.model.campaign.response.CreateCampaignResponse;
 import pl.rspective.voucherify.client.module.CampaignsModule.ExtAsync;

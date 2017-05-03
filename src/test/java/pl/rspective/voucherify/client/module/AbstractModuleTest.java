@@ -10,7 +10,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import pl.rspective.voucherify.client.VoucherifyClient;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import retrofit.RestAdapter;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;
@@ -30,7 +29,6 @@ public class AbstractModuleTest {
             .setAppToken("some token")
             .setAppId("some app id")
             .withoutSSL()
-            .setLogLevel(RestAdapter.LogLevel.FULL)
             .setEndpoint(server.getUrl("/").toString().replaceFirst("http://", ""))
             .build();
   }

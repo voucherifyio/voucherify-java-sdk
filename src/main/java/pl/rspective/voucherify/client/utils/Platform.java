@@ -1,8 +1,8 @@
 package pl.rspective.voucherify.client.utils;
 
-import java.util.concurrent.Executor;
-
 import retrofit.android.MainThreadExecutor;
+
+import java.util.concurrent.Executor;
 
 /**
  * Util class to get information about current system platform.

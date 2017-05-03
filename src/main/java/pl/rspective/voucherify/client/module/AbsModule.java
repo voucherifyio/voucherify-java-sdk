@@ -1,10 +1,10 @@
 package pl.rspective.voucherify.client.module;
 
-import java.util.concurrent.Executor;
-
 import pl.rspective.voucherify.client.api.VoucherifyApi;
 import pl.rspective.voucherify.client.module.AbsModule.Async;
 import pl.rspective.voucherify.client.module.AbsModule.Rx;
+
+import java.util.concurrent.Executor;
 
 /**
  *
