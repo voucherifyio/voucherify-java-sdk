@@ -17,6 +17,8 @@
 |
 <b><a href="#setup">Setup</a></b>
 |
+<b><a href="#synchronous-rx-or-async">Synchronous, Rx or Async?</a></b>
+|
 <b><a href="#error-handling">Error handling</a></b>
 |
 <b><a href="#development">Development</a></b>
@@ -47,10 +49,6 @@ API:
 <a href="#segments-api">Segments</a>
 |
 <a href="#utils">Utils</a>
-| 
-<a href="#rxjava">RxJava</a>
-|
-<a href="#async">Async</a>
 </p>
 
 ---
@@ -82,13 +80,60 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
             .build();
 ```
 
+## Synchronous, Rx or Async?
+
+All the methods in SDK are provided directly or in asynchronous or rx version:
+
+Every method has a corresponding asynchronous extension which can be accessed through the `async()` or `rx()` method of the vouchers module.
+
+```java
+try {
+    VoucherResponse voucher = client.vouchers.create(createVoucher);
+} catch (IOExceptions e) {
+    // error
+}
+```
+
+or asynchronously:
+
+```java
+client.vouchers().async().create(createVoucher, new VoucherifyCallback<VoucherResponse>() {
+    @Override
+    public void onSuccess(VoucherResponse result) {
+    }
+
+    @Override
+    public void onFailure(IOExceptions error) {
+    // error
+  }
+});
+```
+
+or using RxJava:
+
+```java
+client.vouchers()
+        .rx()
+        .create(createVoucher)
+        .subscribe(new Action1<VoucherResponse>() {
+            @Override
+            public void call(VoucherResponse voucher) {
+
+            }
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+            }
+        });
+```
+
 ## API
 
 This SDK is fully consistent with restful API Voucherify provides.
 Detailed descriptions and example responses you will find at [official docs](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq).
 Method headers point to more detailed params description you can use.
 
-Each namespace provides method equivalents for RxJava and Async/callback style API calls. Check // TODO
+Each namespace provides method equivalents for RxJava and Async/callback style API calls.
 
 ### Vouchers API
 Methods are provided within `voucherify.vouchers().*` namespace.
@@ -344,28 +389,6 @@ voucherify.segments().delete(String id);
 
 ---
 
-### Rx Java
-
-Each namespace provides Rx java methods. In order to use them simply type:
-```java
-voucherify.customers().rx();
-
-```
-
-Method names are exactly the same as in the `voucherify.customers()` - this applies to all modules.
-
-### Async 
-
-Each namespace provides Async/Callback style java methods. In order to use them simply type:
-```java
-voucherify.customers().async();
-
-```
-
-Method names are exactly the same as in the `voucherify.customers()` - this applies to all modules, and the last param of each method is a callback.
-
----
-
 ### Migration to 5.0
 
 Version 5.x of the SDK is not backwards compatible with previous version
@@ -402,6 +425,12 @@ Changes made in version 5.x mostly relate to grouping methods within namespaces.
 Most of the classes were moved under the `model/moduleName` package. For example:
 
 * `model/customer` and `model/customer/response` (which contains only response classes)
+
+#### Builders
+
+In most cases invoking builders has changed in the following way:
+
+* `new Customer.Builder()` -> `Customer.builder()`
 
 ---
 
