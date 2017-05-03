@@ -42,7 +42,15 @@ API:
 |
 <a href="#products-api">Products</a>
 |
+<a href="#validation-rules-api">Validation Rules</a>
+|
+<a href="#segments-api">Segments</a>
+|
 <a href="#utils">Utils</a>
+| 
+<a href="#rxjava">RxJava</a>
+|
+<a href="#async">Async</a>
 </p>
 
 ---
@@ -53,15 +61,15 @@ Grab via Maven:
 
 ```xml
 <dependency>
-  <groupId>pl.rspective.voucherify.client</groupId>
+  <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>4.2.0</version>
+  <version>5.0.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:5.0.0'
+compile 'io.voucherify.client:voucherify-java-sdk:5.0.0'
 
 ```
 
@@ -79,6 +87,8 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
 This SDK is fully consistent with restful API Voucherify provides.
 Detailed descriptions and example responses you will find at [official docs](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq).
 Method headers point to more detailed params description you can use.
+
+Each namespace provides method equivalents for RxJava and Async/callback style API calls. Check // TODO
 
 ### Vouchers API
 Methods are provided within `voucherify.vouchers().*` namespace.
@@ -334,13 +344,64 @@ voucherify.segments().delete(String id);
 
 ---
 
-### Migration from 0.x
+### Rx Java
 
-Version 1.x of the SDK is not backwards compatible with versions 0.x.
-Changes made in version 1.x mostly relate to grouping methods within namespaces.
-So all you need to do is to follow the list bellow and just replace methods
-with their namespaced equivalent.
+Each namespace provides Rx java methods. In order to use them simply type:
+```java
+voucherify.customers().rx();
 
+```
+
+Method names are exactly the same as in the `voucherify.customers()` - this applies to all modules.
+
+### Async 
+
+Each namespace provides Async/Callback style java methods. In order to use them simply type:
+```java
+voucherify.customers().async();
+
+```
+
+Method names are exactly the same as in the `voucherify.customers()` - this applies to all modules, and the last param of each method is a callback.
+
+---
+
+### Migration to 5.0
+
+Version 5.x of the SDK is not backwards compatible with previous version
+Changes made in version 5.x mostly relate to grouping methods within namespaces.
+
+#### Methods changes:
+* `voucherify.customers().getCustomer(String customerId)` - [voucherify.customers().get()](#get-customer)
+* `voucherify.customers().createCustomer(Customer customer)` - [voucherify.customers().create()](#create-customer)
+* `voucherify.customers().updateCustomer(Customer customer)` - [voucherify.customers().update()](#update-customer)
+* `voucherify.customers().deleteCustomer(String customerId)` - [voucherify.customers().delete()](#delete-customers)
+
+* `voucherify.validations().validateVoucher(String code, VoucherValidationContext validityContext)` - [voucherify.validations().validate()](#validate-voucher)
+
+* `voucherify.vouchers().listVouchers(VouchersFilter filter)` - [voucherify.vouchers().list()](#list-vouchers)
+* `voucherify.vouchers().fetchVoucher(String identifier)` - [voucherify.vouchers().list()](#get-voucher)
+* `voucherify.vouchers().createVoucher(Voucher voucher)` - [voucherify.vouchers().create()](#create-voucher)
+* `voucherify.vouchers().updateVoucher(String code, VoucherUpdate voucherUpdate)` - [voucherify.vouchers().update()](#update-voucher)
+* `voucherify.vouchers().publishVoucher(String code)` - [voucherify.distributions().publish()](#create-voucher)
+* `voucherify.vouchers().disableVoucher(String code)` - [voucherify.vouchers().disable()](#disable-voucher)
+* `voucherify.vouchers().enableVoucher(String code)` - [voucherify.vouchers().enable()](#enable-voucher)
+* `voucherify.vouchers().redeem(String identifier, String trackingId)` - [voucherify.redemptions().redeem()](#redeem-voucher)
+* `voucherify.vouchers().redeem(String identifier, VoucherRedemptionContext redemptionContext)` -  - [voucherify.redemptions().redeem()](#redeem-voucher)
+* `voucherify.vouchers().redemption(String identifier)` - [voucherify.redemptions().get()](#get-redemption)
+* `voucherify.vouchers().listRedemptions(RedemptionsFilter filter)` - [voucherify.redemptions().list()](#list-redemptions)
+* `voucherify.vouchers().rollbackRedemption(String redemptionId, String trackingId, String reason)` - [voucherify.redemptions().rollback()](#rollback-redemption)
+* `voucherify.vouchers().validate(String code, VoucherValidationContext validityContext)` - [voucherify.validations().validate()](#validate-voucher)
+
+#### Package changes:
+
+* `pl.rspective.voucherify.client` -> `io.voucherify.client`
+
+#### Classes changes
+
+Most of the classes were moved under the `model/moduleName` package. For example:
+
+* `model/customer` and `model/customer/response` (which contains only response classes)
 
 ---
 
@@ -348,12 +409,8 @@ with their namespaced equivalent.
 
 #### Available methods
 
-- `Voucherify::Utils.round_money(value)`
-- `Voucherify::Utils.validate_percent_discount(discount)`
-- `Voucherify::Utils.validate_amount_discount(discount)`
-- `Voucherify::Utils.validate_unit_discount(discount)`
-- `Voucherify::Utils.calculate_price(base_price, voucher, [unit_price])`
-- `Voucherify::Utils.calculate_discount(base_price, voucher, [unit_price])`
+- `VoucherifyUtils.calculatePrice(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
+- `VoucherifyUtils.calculateDiscount(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
 
 ---
 
@@ -416,3 +473,12 @@ The gem is available as open source under the terms of the [MIT License](http://
 [Update SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-sku
 [Delete SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-sku
 [List all product SKUs]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-skus
+
+[Create Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-validation-rules
+[Get Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-validation-rules
+[Update Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-validation-rules
+[Delete Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-validation-rules
+
+[Create Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-segment
+[Get Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-segment
+[Delete Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-segment
