@@ -51,7 +51,7 @@ public class VoucherifyClient {
   private Executor executor;
 
   private VoucherifyClient(Builder builder) {
-    if (builder.appToken == null) {
+    if (builder.clientSecretKey == null) {
       throw new IllegalArgumentException("App token must be defined.");
     }
 
@@ -139,7 +139,7 @@ public class VoucherifyClient {
     RestAdapter.Builder restBuilder =
             new RestAdapter.Builder()
                     .setConverter(createJacksonConverter())
-                    .setRequestInterceptor(createInterceptor(builder.appId, builder.appToken));
+                    .setRequestInterceptor(createInterceptor(builder.appId, builder.clientSecretKey));
 
     setEndPoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
@@ -185,7 +185,7 @@ public class VoucherifyClient {
 
   public static class Builder {
 
-    String appToken;
+    String clientSecretKey;
 
     String appId;
 
@@ -201,12 +201,12 @@ public class VoucherifyClient {
       this.secure = true;
     }
 
-    public Builder setAppToken(String appToken) {
-      if (appToken == null) {
-        throw new IllegalArgumentException("Cannot call setAppToken() with null.");
+    public Builder setClientSecretKey(String clientSecretKey) {
+      if (clientSecretKey == null) {
+        throw new IllegalArgumentException("Cannot call setClientSecretKey() with null.");
       }
 
-      this.appToken = appToken;
+      this.clientSecretKey = clientSecretKey;
       return this;
     }
 

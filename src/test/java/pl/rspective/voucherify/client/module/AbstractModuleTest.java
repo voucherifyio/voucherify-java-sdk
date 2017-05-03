@@ -26,7 +26,7 @@ public class AbstractModuleTest {
     server = new MockWebServer();
     server.play();
     client = new VoucherifyClient.Builder()
-            .setAppToken("some token")
+            .setClientSecretKey("some token")
             .setAppId("some app id")
             .withoutSSL()
             .setEndpoint(server.getUrl("/").toString().replaceFirst("http://", ""))

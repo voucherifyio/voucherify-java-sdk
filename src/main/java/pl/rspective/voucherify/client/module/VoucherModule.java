@@ -50,7 +50,6 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   public VoucherResponse enable(String code) {
     return api.enable(code);
   }
-  //
 
   @Override
   ExtAsync createAsyncExtension() {

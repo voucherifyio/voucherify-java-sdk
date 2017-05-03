@@ -1,23 +1,56 @@
-Voucherify Java SDK
-===================
+<p align="center">
+  <img src="./voucherify-ruby-sdk.png"/>
+</p>
 
-### Version: 4.2.0
+<h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
 
-[Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
+<p align="center">
+<a href="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk"><img src="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk/badges/gpa.svg" /></a>
+  <a href="https://travis-ci.org/voucherifyio/voucherify-ruby-sdk"><img src="https://travis-ci.org/voucherifyio/voucherify-ruby-sdk.svg?branch=master" alt="Build Status"/></a>
+  <a href="https://rubygems.org/gems/voucherify"><img src="https://img.shields.io/gem/v/voucherify.svg" alt="Gem Version"/></a>
+  <a href="https://rubygems.org/gems/voucherify"><img src="https://img.shields.io/gem/dt/voucherify.svg" alt="Gem Downloads"/></a>
+</p>
+<hr />
 
-* an API-first SaaS platform that enables customisation of every aspect of coupon campaigns
-* a management console that helps cut down maintenance and reporting overhead
-* an infrastructure to scale up coupon activity in no time
+<p align="center">
+<b><a href="#migration-to-5-x">Migration to 5.x</a></b>
+|
+<b><a href="#setup">Setup</a></b>
+|
+<b><a href="#error-handling">Error handling</a></b>
+|
+<b><a href="#development">Development</a></b>
+|
+<b><a href="#contributing">Contributing</a></b>
+|
+<b><a href="#changelog">Changelog</a></b>
+</p>
 
-Here you can find a library that makes it easier to integrate your Java application with Voucherify.
+<p align="center">
+API:
+<a href="#vouchers-api">Vouchers</a>
+|
+<a href="#campaigns-api">Campaigns</a>
+|
+<a href="#distributions-api">Distributions</a>
+|
+<a href="#validations-api">Validations</a>
+|
+<a href="#redemptions-api">Redemptions</a>
+|
+<a href="#customers-api">Customers</a>
+|
+<a href="#products-api">Products</a>
+|
+<a href="#utils">Utils</a>
+</p>
 
-You can browse the [javadoc](http://rspective.github.io/voucherify-java-sdk/apidocs/index.html) for more information or 
-go to the documentation located at [voucherify.readme.io](https://voucherify.readme.io).
+---
 
-Setup
-=====
+## Setup
 
 Grab via Maven:
+
 ```xml
 <dependency>
   <groupId>pl.rspective.voucherify.client</groupId>
@@ -25,654 +58,361 @@ Grab via Maven:
   <version>4.2.0</version>
 </dependency>
 ```
-or via Gradle:
+
+or via Gradle
 ```groovy
-compile 'pl.rspective.voucherify.client:voucherify-java-sdk:4.2.0'
+compile 'pl.rspective.voucherify.client:voucherify-java-sdk:5.0.0'
+
 ```
 
-NOTE:
-The SDK requires at least Java 6.
-
-
-### Default Client
-
-The Voucherify SDK uses [Retrofit](http://square.github.io/retrofit/) under the hood as a REST client, which detects [OkHttp](http://square.github.io/okhttp/) in your classpath and uses it if it's available, otherwise falls back to the default `HttpURLConnection`.
-If you want you can also specify a custom client to be used (see javadoc).
-
-Authentication
-==============
-
-[Log-in](http://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
-
-![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
-
-Usage
-=====
-
-The `VoucherifyClient` manages all your interaction with the Voucherify API.
+[Log-in](http://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/app/configuration):
 
 ```java
-VoucherifyClient client = new VoucherifyClient.Builder()
-                                .setAppId("c70a6f00-cf91-4756-9df5-47628850002b")
-                                .setAppToken("3266b9f8-e246-4f79-bdf0-833929b1380c")
-                                .build();
+VoucherifyClient voucherify = new VoucherifyClient.Builder()
+            .setAppId("YOUR-APPLICATION-ID")
+            .setClientSecretKey("YOUR-CLIENT-SECRET-KEY")
+            .build();
 ```
 
-Current list of features:
-- fetch one voucher based on his code
-- consume the voucher based on his code with consumer trackingId (optional, pass null if you want to disable trackingId)
-- fetch voucher usage details based on his code
+## API
 
-Every method has a corresponding asynchronous extension which can be accessed through the `async()` or 'rx()' method of the vouchers module.
+This SDK is fully consistent with restful API Voucherify provides.
+Detailed descriptions and example responses you will find at [official docs](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq).
+Method headers point to more detailed params description you can use.
 
-Create a voucher
-===
+### Vouchers API
+Methods are provided within `voucherify.vouchers().*` namespace.
+- [Create Voucher](#create-voucher)
+- [Get Voucher](#get-voucher)
+- [Update Voucher](#update-voucher)
+- [Delete Voucher](#delete-voucher)
+- [List Vouchers](#list-vouchers)
+- [Enable Voucher](#enable-voucher)
+- [Disable Voucher](#disable-voucher)
 
-Use `Voucher.Builder` to define a voucher:
-
+#### [Create Voucher]
 ```java
-DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        
-Voucher voucher = new Voucher.Builder()
-        .setType(VoucherType.DISCOUNT_VOUCHER)
-        .setPercentOff(10.0)
-        .setStartDate(df.parse("2016-01-01"))
-        .setExpirationDate(df.parse("2016-12-31"))
-        .setRedemption(VoucherRedemption.limit(3))
-        .setCategory("API Test")
-        .build();
+voucherify.vouchers().create(CreateVoucher createVoucher);
 ```
-
-
-You can create the voucher with specified code:
-
- ```java
- 	Voucher voucher = new Voucher.Builder()
- 	        .setCodeConfig(CodeConfig.pattern("PROMO-10OFF-2016"))
- 	        ...
- ```
-
-
-Or you can define how to generate the code by supplying a `CodeConfig`:
-
- ```java
- 	Voucher voucher = new Voucher.Builder()
- 	        .setCodeConfig(CodeConfig.pattern("PROMO-#####-2016"))
- 	        ...
- ```
-
-Then send it to Voucherify:
-
-```java        
-try {
-    Voucher createdVoucher = client.vouchers().createVoucher(voucher);
-    System.out.println("Voucher created: " + createdVoucher.getCode());
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-Update a voucher
-===
-
-You can change some properties of a voucher that has been already created:
-- category
-- start date
-- expiration date
-- active
-- additinal info
-- metadata
-
-Use `VoucherUpdate.Builder` to define the update:
-
+Check [voucher object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-voucher-object).
+#### [Get Voucher]
 ```java
-DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        
-VoucherUpdate voucherUpdate = new VoucherUpdate.Builder()
-        .setCategory("New Category")
-        .setStartDate(df.parse("2016-08-01"))
-        .setExpirationDate(df.parse("2017-07-31"))
-        .build();
+voucherify.vouchers().get(String code);
 ```
-Then send it to Voucherify:
-
-```java        
-try {
-    Voucher updatedVoucher = client.vouchers().updateVoucher("uPd4t3", voucherUpdate);
-    System.out.println("Voucher updated. " + 
-                       "Category: " + updatedVoucher.getCategory() + ", " +
-                       "Start Date: " + updatedVoucher.getStartDate() + ", " +
-                       "Expiration Date: " + updatedVoucher.getExpirationDate());
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-#### Gift voucher
-
- Voucherify provides 2 types of vouchers: discount vouchers and gift vouchers. Gift vouchers are like prepaid cards. 
- They have an amount associated with them that can be redeemed in portions.
- 
- ```java       
-Voucher voucher = new Voucher.Builder()
-        .setType(VoucherType.GIFT_VOUCHER)
-        .setGift(Gift.amount(10000)) // 100.00
-        .setRedemption(VoucherRedemption.unlimited())
-        .build();
-```
-
-Validate a voucher
-===
-
-You can perform server side validation of the voucher. To do that, just invoke:
-
+#### [Update Voucher]
 ```java
-VoucherValidationResult validity = client.validations().validateVoucher("Testing7fjWdr", new VoucherValidationContext(
-   new Customer.Builder()
-         .setSourceId("alice.morgan")
-         .setName("Alice Morgan")
-         .setEmail("alice@morgan.com")
-         .setDescription("")
-         .addMetadata("locale", "en-GB")
-         .addMetadata("shoeSize", 5)
-         .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
-         .build()));
-
-// to check the validity just invoke:
-validity.isValid();
+voucherify.vouchers().update(String code, VoucherUpdate update)
 ```
-
-
-Fetch voucher details
-===
-
+#### [Delete Voucher]
 ```java
-try {
-    Voucher voucher = client.vouchers().fetchVoucher("Testing7fjWdr");
-} catch (RetrofitError e) {
-    // error
-}
+voucherify.vouchers().delete(String code, boolean force)
 ```
-
-or asynchronously:
-
+#### [List Vouchers]
 ```java
-client.vouchers().async().fetchVoucher("Testing7fjWdr", new VoucherifyCallback<Voucher>() {
-    @Override
-    public void onSuccess(Voucher result) {
-    }
-
-    @Override
-    public void onFailure(RetrofitError error) {
-    // error
-  }
-});
+voucherify.vouchers().list(VouchersFilter filter);
 ```
-
-or using RxJava:
-
+#### [Enable Voucher]
 ```java
-client.vouchers()
-        .rx()
-        .fetchVoucher("Testing7fjWdr")
-        .subscribeOn(Schedulers.io())
-        .subscribe(new Action1<Voucher>() {
-            @Override
-            public void call(Voucher vouchers) {
-
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-            }
-        });
+voucherify.vouchers().enable(String code);
 ```
-
-Disable a voucher
-===
-
-```java        
-try {
-    Voucher createdVoucher = client.vouchers().disableVoucher("JxiJaV");
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-Enable a voucher
-===
-
-```java        
-try {
-    Voucher createdVoucher = client.vouchers().enableVoucher("JxiJaV");
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-Publish voucher
-===
-
-This method selects a voucher that is suitable for publication, adds a publish entry and returns the voucher.
-A voucher is suitable for publication when it's active and has not been published more times than the redemption limit.
-
-Defining publish parameters:
-
+#### [Disable Voucher]
 ```java
-    Customer customer = Customer.Builder()
-        .setSourceId("alice@mail.com")
-        .setName("Alice Morgan")
-        .build();
-        
-    Map<String, Object> metadata = new HashMap<String, Object>();
-        
-    // By voucher code
-    PublishParams publishParams = PublishParams.voucher("Testing7fjWdr", customer, "Java SDK", metadata);
-    
-    // or campaign name
-    PublishParams publishParams = PublishParams.campaign("Black friday", customer, "Java SDK", metadata);
+voucherify.vouchers().disable(String code);
+```
+---
+
+### Campaigns API
+Methods are provided within `voucherify.campaigns().*` namespace.
+- [Create Campaign](#create-campaign)
+- [Add Voucher to Campaign](#add-voucher-to-campaign)
+- [Delete Campaign](#delete-campaign)
+
+#### [Create Campaign]
+```java
+voucherify.campaigns().create(CreateCampaign campaign);
+```
+#### [Add Voucher to Campaign]
+```java
+voucherify.campaigns().addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaing);
+voucherify.campaigns().addVoucherWithCode(String campaignName, String code, AddVoucherToCampaign addVoucherToCampaing);
+```
+#### [Delete Campaign]
+```java
+voucherify.campaigns().delete(String campaignName, DeleteCampaignParams params);
 ```
 
-Calling SDK publish method
+---
 
+### Distributions API
+Methods are provided within `voucherify.distributions().*` namespace.
+
+- [Publish Vouchers](#publish-vouchers)
+
+#### [Publish Vouchers]
 ```java
-try {
-    Voucher voucher = client.vouchers().publishVoucher(publishParams);
-} catch (RetrofitError e) {
-    // error
-}
+voucherify.distributions().publish(PublishVoucher publishVoucher);
 ```
 
-or asynchronously:
+---
 
+### Validations API
+Methods are provided within `voucherify.validations().*` namespace.
+
+- [Validate Voucher](#validate-voucher)
+
+#### [Validate Voucher]
 ```java
-client.vouchers().async().publishVoucher(publishParams, new VoucherifyCallback<Voucher>() {
-    @Override
-        public void onSuccess(Voucher voucher) {
-        }
-    
-        @Override
-        public void onFailure(RetrofitError retrofitError) {
-        }
-});
+voucherify.validations().validate(String code, VoucherValidation voucherValidation);
 ```
 
-or using RxJava:
+---
 
+### Redemptions API
+Methods are provided within `voucherify.redemptions.*` namespace.
+
+- [Redeem Voucher](#redeem-voucher)
+- [List Redemptions](#list-redemptions)
+- [Get Voucher's Redemptions](#get-vouchers-redemptions)
+- [Get Redemption](#get-redemption)
+- [Rollback Redemption](#rollback-redemption)
+
+#### [Redeem Voucher]
 ```java
-client.vouchers().rx().publishVoucher(publishParams)
-        .subscribeOn(Schedulers.io())
-        .subscribe(new Subscriber<Voucher>() {
-            @Override
-            public void onCompleted() {
-            }
-            
-            @Override
-            public void onError(Throwable throwable) {
-            }
-       
-            @Override
-            public void onNext(Voucher voucher) {
-            }
-        });
+voucherify.redemptions().redeem(String code, RedeemVoucher redeemVoucher);
+```
+#### [List Redemptions]
+```java
+voucherify.redemptions().list(RedemptionsFilter filter);
+```
+#### [Get Voucher's Redemptions]
+```java
+voucherify.redemptions().getForVoucher(String code);
+```
+#### [Get Redemption]
+```java
+voucherify.redemptions().get(String id);
+```
+#### [Rollback Redemption]
+```java
+voucherify.redemptions().rollback(String id, String reason, RollbackRedemption rollbackRedemption);
+```
+Check [redemption rollback object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-redemption-rollback-object).
+
+---
+
+### Customers API
+Methods are provided within `voucherify.customers().*` namespace.
+
+- [Create Customer](#create-customer)
+- [Get Customer](#get-customer)
+- [Update Customer](#update-customer)
+- [Delete Customer](#delete-customer)
+
+#### [Create Customer]
+```java
+voucherify.customers().create(Customer customer);
+```
+Check [customer object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-customer-object).
+#### [Get Customer]
+```java
+voucherify.customers().get(String id);
+```
+#### [Update Customer]
+```java
+voucherify.customers().update(Customer customer);
+```
+#### [Delete Customer]
+```java
+voucherify.customers().delete(String id);
 ```
 
+### Products API
+Methods are provided within `voucherify.products().*` namespace.
 
-Fetch voucher redemption details
-===
+- [Create Product](#create-product)
+- [Get Product](#get-product)
+- [Update Product](#update-product)
+- [Delete Product](#delete-product)
+- [List Products](#list-products)
+- [Create SKU](#create-sku)
+- [Get SKU](#get-sku)
+- [Update SKU](#update-sku)
+- [Delete SKU](#delete-sku)
+- [List all product SKUs](#list-all-product-skus)
+
+#### [Create Product]
 ```java
-try {
-    VoucherRedemption voucherRedemption = client.vouchers().redemption("Testing7fjWdr");
-} catch (RetrofitError e) {
-    // error
-}
-
-client.vouchers().async().redemption("Testing7fjWdr", new VoucherifyCallback<VoucherRedemption>() {
-    @Override
-    public void onSuccess(VoucherRedemption voucherRedemption) {
-    }
-});
-
-
-client.vouchers().rx().redemption("Testing7fjWdr")
-    .subscribeOn(Schedulers.io())
-    .subscribe(new Subscriber<VoucherRedemption>() {
-        @Override
-        public void onCompleted() {
-        }
-
-        @Override
-        public void onError(Throwable throwable) {
-        }
-
-        @Override
-        public void onNext(VoucherRedemption voucherRedemption) {
-        }
-});
-
+voucherify.products().create(Product product);
+```
+Check [product object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-product-object).
+#### [Get Product]
+```java
+voucherify.products().get(String id);
+```
+#### [Update Product]
+```java
+voucherify.products().update(Product product);
+```
+#### [Delete Product]
+```java
+voucherify.products().delete(String id, DeleteProductParams params);
+```
+#### [List Products]
+```java
+voucherify.products().list(ProductsFilter filter);
+```
+#### [Create SKU]
+```java
+voucherify.products().createSKU(String productId, SKU sku);
+```
+Check [SKU object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-sku-object).
+#### [Get SKU]
+```java
+voucherify.products().getSKU(String productId, String skuId);
+```
+#### [Update SKU]
+```java
+voucherify.products().updateSKU(String product_id, SKU sku);
+```
+#### [Delete SKU]
+```java
+voucherify.products().deleteSKU(String productId, String skuId, DeleteSKUParams params);
+```
+#### [List all product SKUs]
+```java
+voucherify.products().listSKU(String productId)
 ```
 
-Redeem a voucher
-===
+---
 
-Synchronously:
+### Validation Rules API
+Methods are provided within `voucherify.validationRules().*` namespace.
 
+- [Create Validation Rules](#create-validation-rules)
+- [Get Validation Rules](#get-validation-rules)
+- [Update Validation Rules](#update-validation-rules)
+- [Delete Validation Rules](#delete-validation-rules)
+
+#### [Create Validation Rules]
 ```java
-try {
-    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr");
-} catch (RetrofitError e) {
-    // handle errors
-}
+voucherify.validationRules().create(ValidationRules rules);
 ```
-or asynchronously
-
+#### [Get Validation Rules]
 ```java
-client.vouchers().async().redeem("Testing7fjWdr", new VoucherifyCallback<Voucher>() {
-    @Override
-    public void onSuccess(VoucherRedemptionResult result) {
-    }
-
-    @Override
-    public void onFailure(RetrofitError retrofitError) {
-        super.onFailure(retrofitError);
-    }
-});
+voucherify.validationRules().get(String id);
 ```
-
-or using RxJava:
-
+#### [Update Validation Rules]
 ```java
-client.vouchers().rx().redeem("Testing7fjWdr")
-    .subscribeOn(Schedulers.io())
-    .subscribe(new Subscriber<VoucherRedemptionResult>() {
-        @Override
-        public void onCompleted() {
-        }
-
-        @Override
-        public void onError(Throwable throwable) {
-        }
-
-        @Override
-        public void onNext(VoucherRedemptionResult result) {
-        }
-    });
+voucherify.validationRules().update(ValidationRules rules);
+```
+#### [Delete Validation Rules]
+```java
+voucherify.validationRules().delete(String id);
 ```
 
+---
 
-Customer tracking
-===
+### Segments API
+Methods are provided within `voucherify.segments().*` namespace.
 
-Voucherify gives you an option to track customers actions. They can be used for analytics.
+- [Create Segment](#create-segment)
+- [Get Segment](#get-segment)
+- [Delete Validation Rules](#delete-segment)
 
-You can pass tracking id or a detailed customer profile in a second parameter to the `redeem` method.
-
-Just tracking id:
-
+#### [Create Segment]
 ```java
-VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", "alice.morgan");
+voucherify.segments().create(Segment segment);
+```
+#### [Get Segment]
+```java
+voucherify.segments().get(String id);
+```
+#### [Delete Segment]
+```java
+voucherify.segments().delete(String id);
 ```
 
-Customer profile:
-```java
-  VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", new VoucherRedemptionContext(
-          new Customer.Builder()
-                .setSourceId("alice.morgan")
-                .setName("Alice Morgan")
-                .setEmail("alice@morgan.com")
-                .setDescription("")
-                .addMetadata("locale", "en-GB")
-                .addMetadata("shoeSize", 5)
-                .addMetadata("favouriteBrands", new String[]{"Armani", "L'Autre Chose", "Vicini"})
-                .build()));
-```
+---
 
-Redeem a gift voucher
-===
+### Migration from 0.x
 
-If you want to redeem a gift voucher you have to provide order's amount. the order will be entirely or partially paid by the gift voucher depending on its balance. 
-You can pass the amount in `VoucherRedemptionContext.order.amount`:
-
-```java
-  VoucherRedemptionContext redemptionContext = new VoucherRedemptionContext(customer, Order.amount(5000), metadata);
-  VoucherRedemptionResult result = client.vouchers().redeem("Gift100", redemptionContext);
-```
-
-Redemption will fail if the provided amount (plus redeemed amount so far) is greater than voucher's amount.
-
-Redeem a voucher with validation rules
-===
-
-If your voucher includes some validation rules regarding customer (segments) then you have to supply customer (by id, source id or tracking id) when redeeming the voucher.
-When redeeming vouchers with validation rules concerning products or variants (SKUs) it's required to pass order items.
-
-Customer profile:
-```java
-  VoucherRedemptionResult result = client.vouchers().redeem("VoucherWithValidationRules", new VoucherRedemptionContext(
-                new Customer.Builder()
-                    .setSourceId("alice.morgan")
-                    .build(),
-                new Order(1250, Arrays.asList(
-                    new OrderItem("prod_6wY2Vvc6FrfrwX", "sku_y7WxIymNSCR138", 1),
-                    new OrderItem("prod_r04XQ00xz6EVRi", "sku_XnmQ3d0jV3x3Uy", 2))
-                )));
-```  
-
-Rollback a redemption
-===
-
-Your business logic may include a case when you need to undo a redemption. You can do it by calling `rollbackRedemption(String redemption_id, String tracking_id, String reason)` method.
-This operation will create a rollback entry in voucher's `redemption.redemption_entries` and give 1 redemption back to the pool (decrease `redeemed_quantity` by 1).
-
-Example:
-
-```java
-	VoucherRedemptionResult result = client.vouchers().rollbackRedemption("r_irOQWUTAjthQwnkn5JQM1V6N", "alice.morgan", "invalid_credit_card");
-```
+Version 1.x of the SDK is not backwards compatible with versions 0.x.
+Changes made in version 1.x mostly relate to grouping methods within namespaces.
+So all you need to do is to follow the list bellow and just replace methods
+with their namespaced equivalent.
 
 
-Fetch redemptions across all vouchers
-===
+---
 
-Sometimes you may need to list redemptions of all your vouchers at once. You can do this with `listRedemptions` method.
+### Utils
 
-It takes an optional [`RedemptionFilter`](http://rspective.github.io/voucherify-java-sdk/apidocs/pl/rspective/voucherify/client/model/RedemptionsFilter.html) as a parameter that enables you to narrow down the list of redemptions according to specified limits.
-It the filter is not provided a default filter will be used - a 100 redemptions from current month. 
- 
-Example:
+#### Available methods
 
-```java
-    RedemptionsFilter filterFailedFromWelcomeCampaign = RedemptionsFilter.filter()
-                                .withCampaign("Welcome")
-                                .withResult(RedemptionResult.FAILURE);
-                
-   List<RedemptionDetails> failedWelcomeRedemptions = createLocalClient().vouchers().listRedemptions(filterFailedFromWelcomeCampaign);
-```
+- `Voucherify::Utils.round_money(value)`
+- `Voucherify::Utils.validate_percent_discount(discount)`
+- `Voucherify::Utils.validate_amount_discount(discount)`
+- `Voucherify::Utils.validate_unit_discount(discount)`
+- `Voucherify::Utils.calculate_price(base_price, voucher, [unit_price])`
+- `Voucherify::Utils.calculate_discount(base_price, voucher, [unit_price])`
 
+---
 
-List vouchers that match given filter
-===
+## Error handling
 
-You can list vouchers that meet specific criteria - for example belong to a specific category.
-Define the criteria using [`VouchersFilter`](http://rspective.github.io/voucherify-java-sdk/apidocs/pl/rspective/voucherify/client/model/VouchersFilter.html).
-A default filter will be used even if you pass `null` which means that the result will be limited to 10 vouchers.
+## Contributing
 
- 
-Example:
+Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
-```java
-    VouchersFilter filterTestCategory = VouchersFilter.filter().withCategory("Test");
-                
-    List<Voucher> testVouchers = createLocalClient().vouchers().listVouchers(filterTestCategory);
-```
-
-
-Create customer
-===
-
-Example:
-
-```java
-// Build customer object
-Customer customer = new Customer.Builder()
-        .setName("John Doe")
-        .setEmail("john@mail.com")
-        .setDescription("Sample description of customer")
-        .build();
-
-try {
-    Customer createdCustomer = client.customers().createCustomer(customer);
-    System.out.println("Created customer: '" + createdCustomer.getId());
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-or asynchronously
-
-```java
-client.customers().async().createCustomer(customer, new VoucherifyCallback<Customer>() {
-    @Override
-    public void onSuccess(Customer result) {
-        System.out.println("Created customer: '" + result.getId() + "'");
-    }
-
-    @Override
-    public void onFailure(RetrofitError error) {
-        // error
-    }
-});
-```
-
-Get customer
-===
-
-Example:
-
-```java
-try {
-    customer = client.customers().getCustomer("cus_123xxXXaaSSID");
-    System.out.println("Customer: '" + customer.getName() + "'");
-} catch (RetrofitError e) {
-    // e.g. Customer not exists
-}
-```
-
-or asynchronously
-
-```java
-client.customers().async().getCustomer("cus_123xxXXaaSSID", new VoucherifyCallback<Customer>() {
-    @Override
-    public void onSuccess(Customer customer) {
-        System.out.println("Fetched customer: '" + customer.getName() + "'");
-    }
-
-    @Override
-    public void onFailure(RetrofitError error) {
-        // e.g. Customer not exists
-    }
-});
-```
-
-Update customer
-===
-
-Example:
-
-```java
-// Edit customer's data
-Customer payload = myCustomer
-        .setName("John Doe")
-        .setEmail("john@email.com")
-        .setDescription("Sample description for customer with changes");
-
-// Update customer
-try {
-    Customer updatedCustomer = client.customers().updateCustomer(payload);
-    System.out.println("Updated customer " + updatedCustomer.getName()); // Updated customer: 'John Doe'
-} catch (RetrofitError e) {
-    // e.g. Customer not exists
-}
-```
-
-or asynchronously:
-
-```java
-// Edit customer's data
-Customer payload = myCustomer
-        .setName("John Doe")
-        .setEmail("john@email.com")
-        .setDescription("Sample description for customer with changes");
-
-client.customers().async().updateCustomer(payload, new VoucherifyCallback<Customer>() {
-    @Override
-    public void onSuccess(Customer updatedCustomer) {
-        System.out.println("Updated customer: '" + updatedCustomer.getName() + "'"); // Updated customer: 'John Doe'
-    }
-
-    @Override
-    public void onFailure(RetrofitError error) {
-        // error
-    }
-});
-```
-
-Delete customer
-===
-
-Example:
-
-```java
-try {
-    client.customers().deleteCustomer("cus_123xxXXaaSSID");
-} catch (RetrofitError e) {
-    // e.g. Customer not exists
-}
-```
-
-or asynchronously:
-
-```java
-client.customers().async().deleteCustomer("cus_123xxXXaaSSID", new VoucherifyCallback<Customer>() {
-    @Override
-    public void onSuccess(Void result) {
-    }
-
-    @Override
-    public void onFailure(RetrofitError error) {
-       // error
-    }
-});
-```
-
-Utils
-===
-
-You can use `VoucherifyUtils` to calculate actual discount and price after discount.
-
-- `BigDecimal calculatePrice(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
-- `BigDecimal calculateDiscount(BigDecimal basePrice, Voucher voucher, BigDecimal unitPrice)`
-
-For example you can redeem a 10% off voucher and calculate the final price.
-
-```java
-BigDecimal initialPrice = new BigDecimal("25.00");
-try {
-    VoucherRedemptionResult result = client.vouchers().redeem("Testing7fjWdr", TRACKING_ID);
-    BigDecimal finalPrice = VoucherifyUtils.calculatePrice(initialPrice, result.getVoucher());
-    // finalPrice == 22.50
-} catch (RetrofitError e) {
-    // handle errors
-}
-```
-
-Changelog
-=========
-
-- **2017-04-21** - `4.2.0` - Moved validation to a separate module.
-- **2017-04-20** - `4.1.0` - Added method to validate voucher.
-- **2017-04-11** - `4.0.0` - Fixed redemptions list filter and response format.
-- **2016-12-02** - `3.6.1` - Added gift balance. Enhanced utils to support gift vouchers.
-- **2016-10-07** - `3.6.0` - Added a method to publish voucher.
+## Changelog
+* 2017-05-10 - 5.0.0 - Separate modules, general refactoring, updated models.
+* 2017-04-21 - 4.2.0 - Moved validation to a separate module.
+* 2017-04-20 - 4.1.0 - Added method to validate voucher.
+* 2017-04-11 - 4.0.0 - Fixed redemptions list filter and response format.
+* 2016-12-02 - 3.6.1 - Added gift balance. Enhanced utils to support gift vouchers.
+* 2016-10-07 - 3.6.0 - Added a method to publish voucher.
 
 See more in [Changelog](CHANGELOG.md)
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+[Create Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-voucher
+[Get Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-get
+[Update Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-voucher
+[Delete Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-voucher
+[List Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-vouchers
+[Enable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#enable-voucher
+[Disable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#disable-voucher
+[Import Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers-1
+
+[Create Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-campaign
+[Delete Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-campaign
+[Add Voucher to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-voucher-to-campaign
+[Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
+
+[Publish Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
+
+[Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
+
+[Redeem Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-voucher
+[List Redemptions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-redemptions
+[Get Voucher's Redemptions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-redemptions
+[Get Redemption]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-redemption
+[Rollback Redemption]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#rollback-redemption
+
+[Create Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-customer
+[Get Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#read-customer
+[Update Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-customer
+[Delete Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-customer
+
+[Create Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-product
+[Get Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-product
+[Update Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-product
+[Delete Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-product
+[List Products]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-products
+[Create SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-sku
+[Get SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-sku
+[Update SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-sku
+[Delete SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-sku
+[List all product SKUs]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-skus
