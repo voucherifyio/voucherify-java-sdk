@@ -4,5 +4,5 @@ import java.util.Map;
 
 public abstract class AbstractParams<K, V> {
 
-    public abstract Map<K, V> asMap();
+  public abstract Map<K, V> asMap();
 }

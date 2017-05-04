@@ -445,6 +445,49 @@ In most cases invoking builders has changed in the following way:
 
 ## Error handling
 
+When an abnormal situation (http calls return 4xx or 5xx, network issues, )a VoucherifyError. It contains following properties:
+
+* code - HTTP status code.
+* message - a human-readable message providing short description about the error.
+* details - a human-readable message providing more details about the error, usually includes a hint on how to fix the error.
+* key - a short string describing the kind of error that occurred.
+* kind - kind of error which occurred - `NETWORK`, `CONVERSION`, `HTTP`, `UNEXPECTED`.
+* url - path for which the error occurred.
+
+###Examples
+
+#### Synchronous
+```java
+try {
+    voucherify.vouchers().create(createVoucher);
+  } catch(VoucherifyError e) {
+    // Error handling
+  }
+```
+
+#### RX java
+```java
+voucherify.vouchers().rx().create(createVoucher)
+  .doOnError(new Action1<VoucherifyError>() {
+    
+    @Override
+    public void call(VoucherifyError error) {
+     // Error handling
+    }
+  });
+```
+
+#### Async
+```java
+voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<VoucherResponse>() {
+  
+  @Override
+  public void onFailure(VoucherifyError error) {
+     // Error handling
+  }
+});
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.

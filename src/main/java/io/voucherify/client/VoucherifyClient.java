@@ -3,6 +3,7 @@ package io.voucherify.client;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import io.voucherify.client.exception.VoucherifyErrorHandler;
 import io.voucherify.client.json.DateDeserializer;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
@@ -144,6 +145,7 @@ public class VoucherifyClient {
     setEndPoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
     setLogLevel(builder, restBuilder);
+    setErrorHandler(builder, restBuilder);
 
     return restBuilder.build().create(VoucherifyApi.class);
   }
@@ -181,6 +183,10 @@ public class VoucherifyClient {
     }
 
     restBuilder.setEndpoint(String.format("%s://%s", httpScheme, endpoint));
+  }
+
+  private void setErrorHandler(Builder builder, RestAdapter.Builder restBuilder) {
+    restBuilder.setErrorHandler(new VoucherifyErrorHandler());
   }
 
   public static class Builder {
