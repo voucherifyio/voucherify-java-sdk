@@ -5,14 +5,6 @@
 <h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
 
 <p align="center">
-<a href="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk"><img src="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk/badges/gpa.svg" /></a>
-  <a href="https://travis-ci.org/voucherifyio/voucherify-ruby-sdk"><img src="https://travis-ci.org/voucherifyio/voucherify-ruby-sdk.svg?branch=master" alt="Build Status"/></a>
-  <a href="https://rubygems.org/gems/voucherify"><img src="https://img.shields.io/gem/v/voucherify.svg" alt="Gem Version"/></a>
-  <a href="https://rubygems.org/gems/voucherify"><img src="https://img.shields.io/gem/dt/voucherify.svg" alt="Gem Downloads"/></a>
-</p>
-<hr />
-
-<p align="center">
 <b><a href="#migration-to-5-x">Migration to 5.x</a></b>
 |
 <b><a href="#setup">Setup</a></b>
@@ -20,8 +12,6 @@
 <b><a href="#synchronous-rx-or-async">Synchronous, Rx or Async?</a></b>
 |
 <b><a href="#error-handling">Error handling</a></b>
-|
-<b><a href="#development">Development</a></b>
 |
 <b><a href="#contributing">Contributing</a></b>
 |
@@ -89,7 +79,7 @@ Every method has a corresponding asynchronous extension which can be accessed th
 ```java
 try {
     VoucherResponse voucher = client.vouchers.create(createVoucher);
-} catch (IOExceptions e) {
+} catch (VoucherifyError e) {
     // error
 }
 ```
@@ -103,7 +93,7 @@ client.vouchers().async().create(createVoucher, new VoucherifyCallback<VoucherRe
     }
 
     @Override
-    public void onFailure(IOExceptions error) {
+    public void onFailure(VoucherifyError error) {
     // error
   }
 });
@@ -144,6 +134,8 @@ Methods are provided within `voucherify.vouchers().*` namespace.
 - [List Vouchers](#list-vouchers)
 - [Enable Voucher](#enable-voucher)
 - [Disable Voucher](#disable-voucher)
+- [Add Gift Voucher Balance](#add-gift-voucher-balance)
+- [Import Vouchers](#import-vouchers)
 
 #### [Create Voucher]
 ```java
@@ -174,6 +166,15 @@ voucherify.vouchers().enable(String code);
 ```java
 voucherify.vouchers().disable(String code);
 ```
+#### [Add Gift Voucher Balance]
+```java
+voucherify.vouchers().addBalance(String code, AddBalance addBalance);
+```
+#### [Import Vouchers]
+```java
+voucherify.vouchers().importVouchers(ImportVouchers importVouchers);
+```
+
 ---
 
 ### Campaigns API
@@ -181,6 +182,7 @@ Methods are provided within `voucherify.campaigns().*` namespace.
 - [Create Campaign](#create-campaign)
 - [Add Voucher to Campaign](#add-voucher-to-campaign)
 - [Delete Campaign](#delete-campaign)
+- [Import Vouchers to Campaign](#import-vouchers-to-campaign)
 
 #### [Create Campaign]
 ```java
@@ -195,6 +197,10 @@ voucherify.campaigns().addVoucherWithCode(String campaignName, String code, AddV
 ```java
 voucherify.campaigns().delete(String campaignName, DeleteCampaignParams params);
 ```
+#### [Import Vouchers to Campaign]
+```java
+voucherify.campaigns().importVouchers(String campaignName, String campaignName, CampaignImportVouchers importVouchers);
+```
 
 ---
 
@@ -202,10 +208,25 @@ voucherify.campaigns().delete(String campaignName, DeleteCampaignParams params);
 Methods are provided within `voucherify.distributions().*` namespace.
 
 - [Publish Vouchers](#publish-vouchers)
+- [Create Export](#create-export)
+- [Get Export](#get-export)
+- [Delete Export](#delete-export)
 
 #### [Publish Vouchers]
 ```java
 voucherify.distributions().publish(PublishVoucher publishVoucher);
+```
+#### [Create Export]
+```java
+voucherify.distributions().createExport(CreateExport createExport);
+```
+#### [Get Export]
+```java
+voucherify.distributions().getExport(String id);
+```
+#### [Delete Export]
+```java
+voucherify.distributions().deleteExport(String id);
 ```
 
 ---
@@ -280,6 +301,8 @@ voucherify.customers().update(Customer customer);
 ```java
 voucherify.customers().delete(String id);
 ```
+
+---
 
 ### Products API
 Methods are provided within `voucherify.products().*` namespace.
@@ -451,8 +474,6 @@ When an abnormal situation (http calls return 4xx or 5xx, network issues, )a Vou
 * message - a human-readable message providing short description about the error.
 * details - a human-readable message providing more details about the error, usually includes a hint on how to fix the error.
 * key - a short string describing the kind of error that occurred.
-* kind - kind of error which occurred - `NETWORK`, `CONVERSION`, `HTTP`, `UNEXPECTED`.
-* url - path for which the error occurred.
 
 ###Examples
 
@@ -513,6 +534,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 [List Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-vouchers
 [Enable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#enable-voucher
 [Disable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#disable-voucher
+[Add Gift Voucher Balance]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-gift-voucher-balance
 [Import Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers-1
 
 [Create Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-campaign
@@ -521,6 +543,9 @@ The gem is available as open source under the terms of the [MIT License](http://
 [Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
 
 [Publish Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
+[Create Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-export
+[Get Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-export
+[Delete Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#elete-export
 
 [Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
 
