@@ -65,6 +65,7 @@ public class ExampleRxApp {
               @Override
               public VoucherResponse call(VoucherResponse voucher) {
                 VoucherUpdate voucherUpdate = VoucherUpdate.builder()
+                        .active(false)
                         .metadataEntry("test", true)
                         .build();
                 return client.vouchers().update(voucher.getCode(), voucherUpdate);

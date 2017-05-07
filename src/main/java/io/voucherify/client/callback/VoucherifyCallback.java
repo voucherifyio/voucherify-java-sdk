@@ -1,6 +1,6 @@
 package io.voucherify.client.callback;
 
-import io.voucherify.client.exception.VoucherifyError;
+import io.voucherify.client.error.VoucherifyError;
 
 public abstract class VoucherifyCallback<T> {
 

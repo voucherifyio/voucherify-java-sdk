@@ -3,6 +3,8 @@ package io.voucherify.client.module;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
+import io.voucherify.client.model.campaign.CampaignImportVoucher;
+import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
 import io.voucherify.client.model.campaign.DeleteCampaignParams;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
@@ -38,13 +40,12 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldAddVoucherToCampaign() throws Exception {
+  public void shouldAddVoucherToCampaign() {
     // given
     AddVoucherToCampaign addVoucher = AddVoucherToCampaign
             .builder()
             .category("category")
             .build();
-
 
     enqueueResponse("{\"campaign\": \"campaign-name\"}");
 
@@ -60,7 +61,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldAddVoucherWithCodeToCampaign() throws Exception {
+  public void shouldAddVoucherWithCodeToCampaign() {
     // given
     AddVoucherToCampaign addVoucher = AddVoucherToCampaign
             .builder()
@@ -82,7 +83,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDeleteCampaign() throws Exception {
+  public void shouldDeleteCampaign() {
     // given
     DeleteCampaignParams params = DeleteCampaignParams.builder().force(true).build();
     enqueueEmptyResponse();
@@ -94,6 +95,22 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldImportVouchers() {
+    // given
+    CampaignImportVoucher voucher = CampaignImportVoucher.builder().active(true).code("some-code").build();
+    CampaignImportVouchers campaignImportVouchers = CampaignImportVouchers.builder().voucher(voucher).build();
+    enqueueEmptyResponse();
+
+    // when
+    client.campaigns().importVouchers("campaign-name", campaignImportVouchers);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
@@ -119,7 +136,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldAddVoucherToCampaignAsync() throws Exception {
+  public void shouldAddVoucherToCampaignAsync() {
     // given
     AddVoucherToCampaign addVoucher = AddVoucherToCampaign
             .builder()
@@ -141,7 +158,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldAddVoucherWithCodeToCampaignAsync() throws Exception {
+  public void shouldAddVoucherWithCodeToCampaignAsync() {
     // given
     AddVoucherToCampaign addVoucher = AddVoucherToCampaign
             .builder()
@@ -163,7 +180,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDeleteCampaignAsync() throws Exception {
+  public void shouldDeleteCampaignAsync() {
     // given
     DeleteCampaignParams params = DeleteCampaignParams.builder().force(true).build();
     enqueueEmptyResponse();
@@ -177,6 +194,24 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldImportVouchersAsync() {
+    // given
+    CampaignImportVoucher voucher = CampaignImportVoucher.builder().active(true).code("some-code").build();
+    CampaignImportVouchers campaignImportVouchers = CampaignImportVouchers.builder().voucher(voucher).build();
+    VoucherifyCallback callback = createCallback();
+    enqueueEmptyResponse();
+
+    // when
+    client.campaigns().async().importVouchers("campaign-name", campaignImportVouchers, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
@@ -222,7 +257,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldAddVoucherWithCodeToCampaignRxJava() throws Exception {
+  public void shouldAddVoucherWithCodeToCampaignRxJava() {
     // given
     AddVoucherToCampaign addVoucher = AddVoucherToCampaign
             .builder()
@@ -243,7 +278,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDeleteCampaignRxJava() throws Exception {
+  public void shouldDeleteCampaignRxJava() {
     // given
     DeleteCampaignParams params = DeleteCampaignParams.builder().force(true).build();
     enqueueEmptyResponse();
@@ -256,5 +291,22 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldImportVouchersRxJava() {
+    // given
+    CampaignImportVoucher voucher = CampaignImportVoucher.builder().active(true).code("some-code").build();
+    CampaignImportVouchers campaignImportVouchers = CampaignImportVouchers.builder().voucher(voucher).build();
+    enqueueEmptyResponse();
+
+    // when
+    Observable<Void> observable = client.campaigns().rx().importVouchers("campaign-name", campaignImportVouchers);
+
+    // then
+    observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 }

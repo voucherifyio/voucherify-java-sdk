@@ -1,4 +1,4 @@
-package io.voucherify.client.model.publish.response;
+package io.voucherify.client.model.distribution.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -14,18 +14,25 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class PublishEntryResponse {
+public class ExportResponse {
 
-  @JsonProperty("cusomer_id")
-  private String customerId;
+  private String id;
 
-  private String customer;
+  private String object;
+
+  @JsonProperty("created_at")
+  private Date createdAt;
 
   private String channel;
 
-  @JsonProperty("published_at")
-  private Date publishedAt;
+  private ExportStatus status;
 
-  private Map<String, Object> metadata;
+  @JsonProperty("exported_object")
+  private String exportedObject;
+
+  private Map<String, Object> parameters;
+
+  private Map<String, Object> result;
 
 }
+

@@ -1,26 +1,28 @@
 package io.voucherify.client;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import io.voucherify.client.exception.VoucherifyErrorHandler;
-import io.voucherify.client.json.DateDeserializer;
+import io.voucherify.client.api.VoucherifyApi;
+import io.voucherify.client.error.VoucherifyErrorHandler;
+import io.voucherify.client.json.deserializer.DateDeserializer;
+import io.voucherify.client.json.serializer.DateSerializer;
+import io.voucherify.client.json.converter.JsonConverter;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
-import io.voucherify.client.module.ValidationsModule;
-import io.voucherify.client.utils.Platform;
-import io.voucherify.client.api.VoucherifyApi;
-import io.voucherify.client.json.DateSerializer;
 import io.voucherify.client.module.DistributionsModule;
 import io.voucherify.client.module.ProductsModule;
 import io.voucherify.client.module.RedemptionsModule;
 import io.voucherify.client.module.SegmentsModule;
 import io.voucherify.client.module.ValidationRulesModule;
+import io.voucherify.client.module.ValidationsModule;
 import io.voucherify.client.module.VoucherModule;
+import io.voucherify.client.utils.Platform;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.client.Client;
-import retrofit.converter.JacksonConverter;
 
 import java.util.Date;
 import java.util.concurrent.Executor;
@@ -116,16 +118,17 @@ public class VoucherifyClient {
     return Platform.get().callbackExecutor();
   }
 
-  private JacksonConverter createJacksonConverter() {
+  private JsonConverter createConverter() {
     ObjectMapper mapper = new ObjectMapper();
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
+    mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+    mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 
     SimpleModule dateModule = new SimpleModule();
     dateModule.addSerializer(Date.class, new DateSerializer(Constants.ENDPOINT_DATE_FORMAT));
     dateModule.addDeserializer(Date.class, new DateDeserializer(Constants.ENDPOINT_DATE_FORMAT, Constants.ENDPOINT_SECONDARY_DATE_FORMAT));
     mapper.registerModule(dateModule);
-    return new JacksonConverter(mapper);
+    return new JsonConverter(mapper);
   }
 
   private String createHttpScheme(Builder builder) {
@@ -137,15 +140,14 @@ public class VoucherifyClient {
   }
 
   private VoucherifyApi createRetrofitService(Builder builder) {
-    RestAdapter.Builder restBuilder =
-            new RestAdapter.Builder()
-                    .setConverter(createJacksonConverter())
-                    .setRequestInterceptor(createInterceptor(builder.appId, builder.clientSecretKey));
+    RestAdapter.Builder restBuilder = new RestAdapter.Builder()
+            .setConverter(createConverter())
+            .setRequestInterceptor(createInterceptor(builder.appId, builder.clientSecretKey));
 
     setEndPoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
     setLogLevel(builder, restBuilder);
-    setErrorHandler(builder, restBuilder);
+    setErrorHandler(restBuilder);
 
     return restBuilder.build().create(VoucherifyApi.class);
   }
@@ -185,7 +187,7 @@ public class VoucherifyClient {
     restBuilder.setEndpoint(String.format("%s://%s", httpScheme, endpoint));
   }
 
-  private void setErrorHandler(Builder builder, RestAdapter.Builder restBuilder) {
+  private void setErrorHandler(RestAdapter.Builder restBuilder) {
     restBuilder.setErrorHandler(new VoucherifyErrorHandler());
   }
 

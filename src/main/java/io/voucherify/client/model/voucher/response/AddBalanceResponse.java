@@ -1,22 +1,26 @@
 package io.voucherify.client.model.voucher.response;
 
-import io.voucherify.client.model.distribution.response.PublishEntryResponse;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.voucher.VoucherType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class VoucherPublishResponse {
+public class AddBalanceResponse {
 
-  private Integer count;
+  private Integer amount;
 
-  private List<PublishEntryResponse> entries;
+  private String object;
+
+  private VoucherType type;
+
+  @JsonProperty("related_object")
+  private RelatedObject relatedObject;
 
 }

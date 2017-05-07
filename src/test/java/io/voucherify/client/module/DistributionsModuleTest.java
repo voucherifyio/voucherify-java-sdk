@@ -1,11 +1,14 @@
 package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
-import org.junit.Test;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
-import io.voucherify.client.model.publish.PublishVoucher;
-import io.voucherify.client.model.publish.response.PublishVoucherResponse;
+import io.voucherify.client.model.distribution.CreateExport;
+import io.voucherify.client.model.distribution.PublishVoucher;
+import io.voucherify.client.model.distribution.response.ExportResponse;
+import io.voucherify.client.model.distribution.response.ExportStatus;
+import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
+import org.junit.Test;
 import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -36,12 +39,60 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo("some-code");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
-  public void shouldValidateVoucherAsync() throws Exception {
+  public void shouldCreateExport() {
+    // given
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+
+    // when
+    ExportResponse result = client.distributions().createExport(createExport);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldGetExport() {
+    // given
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+
+    // when
+    ExportResponse result = client.distributions().getExport("some-id");
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
+    assertThat(result.getId()).isEqualTo("1");
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldDeleteExport() {
+    // given
+    enqueueEmptyResponse();
+
+    // when
+    client.distributions().deleteExport("some-id");
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldPublishVoucherAsync() {
     // given
     enqueueResponse("{\"code\" : \"some-code\", \"campaign\": \"some-campaign\" }");
     VoucherifyCallback callback = createCallback();
@@ -52,12 +103,61 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
-  public void shouldValidateVoucherRxJava() throws Exception {
+  public void shouldCreateExportAsync() {
+    // given
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.distributions().async().createExport(createExport, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldGetExportAsync() {
+    // given
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.distributions().async().getExport("some-id", callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldDeleteExportAsync() {
+    // given
+    enqueueEmptyResponse();
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.distributions().async().deleteExport("some-id", callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldPublishVoucherRxJava() {
     // given
     enqueueResponse("{\"code\" : \"some-code\", \"campaign\": \"some-campaign\" }");
 
@@ -68,7 +168,58 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     PublishVoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
     assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldCreateExportRxJava() {
+    // given
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+
+    // when
+    Observable<ExportResponse> observable = client.distributions().rx().createExport(createExport);
+
+    // then
+    ExportResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldGetExportRxJava() {
+    // given
+    enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
+
+    // when
+    Observable<ExportResponse> observable = client.distributions().rx().getExport("some-id");
+
+    // then
+    ExportResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
+    assertThat(result.getId()).isEqualTo("1");
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldDeleteExportRxJava() {
+    // given
+    enqueueEmptyResponse();
+
+    // when
+    Observable<Void> observable = client.distributions().rx().deleteExport("some-id");
+
+    // then
+    observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 }

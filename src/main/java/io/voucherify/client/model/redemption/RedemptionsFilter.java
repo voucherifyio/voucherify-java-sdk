@@ -30,7 +30,7 @@ public class RedemptionsFilter extends AbstractFilter<String, Object> {
 
   @Override
   public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<>();
+    Map<String, Object> map = new HashMap<String, Object>();
     map.put("limit", limit);
     map.put("page", page);
     map.put("result", result);

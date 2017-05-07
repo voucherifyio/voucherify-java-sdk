@@ -2,9 +2,13 @@ package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.Discount;
+import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.Voucher;
+import io.voucherify.client.model.voucher.VoucherType;
+import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import org.junit.Test;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
@@ -20,7 +24,7 @@ import static org.awaitility.Awaitility.await;
 public class VoucherModuleTest extends AbstractModuleTest {
 
   @Test
-  public void shouldCreateVoucher() throws Exception {
+  public void shouldCreateVoucher() {
     // given
     Voucher voucher = Voucher.builder().active(true).category("category")
             .campaign("my-campaign").isReferralCode(false)
@@ -42,7 +46,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetVoucher() throws Exception {
+  public void shouldGetVoucher() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -94,7 +98,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateVoucher() throws Exception {
+  public void shouldUpdateVoucher() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -122,7 +126,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDisableVoucher() throws Exception {
+  public void shouldDisableVoucher() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -144,7 +148,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldEnableVoucher() throws Exception {
+  public void shouldEnableVoucher() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -166,7 +170,47 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldCreateVoucherAsync() throws Exception {
+  public void shouldAddBalance() {
+    // given
+    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
+
+    // when
+    AddBalanceResponse response = client.vouchers().addBalance("some-code", addBalance);
+
+    // then
+    assertThat(response).isNotNull();
+    assertThat(response.getAmount()).isEqualTo(1000);
+    assertThat(response.getObject()).isEqualTo("voucher");
+    assertThat(response.getType()).isEqualTo(VoucherType.GIFT_VOUCHER);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldImportVouchers() {
+    // given
+    Voucher voucher = Voucher.builder().active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .build();
+
+    ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
+
+    enqueueEmptyResponse();
+
+    // when
+    client.vouchers().importVouchers(importVouchers);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldCreateVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder().active(true).category("category")
             .campaign("my-campaign").isReferralCode(false)
@@ -190,7 +234,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetVoucherAsync() throws Exception {
+  public void shouldGetVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -245,7 +289,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateVoucherAsync() throws Exception {
+  public void shouldUpdateVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -274,7 +318,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDisableVoucherAsync() throws Exception {
+  public void shouldDisableVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -298,7 +342,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldEnableVoucherAsync() throws Exception {
+  public void shouldEnableVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -322,7 +366,48 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldCreateVoucherRxJava() throws Exception {
+  public void shouldAddBalanceAsync() {
+    // given
+    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.vouchers().async().addBalance("some-code", addBalance, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldImportVouchersAsync() {
+    // given
+    Voucher voucher = Voucher.builder().active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .build();
+
+    ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
+
+    VoucherifyCallback callback = createCallback();
+
+    enqueueEmptyResponse();
+
+    // when
+    client.vouchers().async().importVouchers(importVouchers, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldCreateVoucherRxJava() {
     // given
     Voucher voucher = Voucher.builder().active(true).category("category")
             .campaign("my-campaign").isReferralCode(false)
@@ -345,7 +430,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldGetVoucherRxJava() throws Exception {
+  public void shouldGetVoucherRxJava() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -399,7 +484,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldUpdateVoucherRxJava() throws Exception {
+  public void shouldUpdateVoucherRxJava() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -428,7 +513,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldDisableVoucherRxJava() throws Exception {
+  public void shouldDisableVoucherRxJava() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -451,7 +536,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldEnableVoucherRxJava() throws Exception {
+  public void shouldEnableVoucherRxJava() {
     // given
     Voucher voucher = Voucher.builder()
             .code("some-code")
@@ -470,6 +555,48 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result.getActive()).isEqualTo(true);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some-code/enable");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldAddBalanceRxJava() {
+    // given
+    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
+
+    // when
+    Observable<AddBalanceResponse> observable = client.vouchers().rx().addBalance("some-code", addBalance);
+
+    // then
+    AddBalanceResponse response = observable.toBlocking().first();
+    assertThat(response).isNotNull();
+    assertThat(response.getAmount()).isEqualTo(1000);
+    assertThat(response.getObject()).isEqualTo("voucher");
+    assertThat(response.getType()).isEqualTo(VoucherType.GIFT_VOUCHER);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldImportVouchersRxJava() {
+    // given
+    Voucher voucher = Voucher.builder().active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .build();
+
+    ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
+
+    enqueueEmptyResponse();
+
+    // when
+    Observable<Void> observable = client.vouchers().rx().importVouchers(importVouchers);
+
+    // then
+    observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 }

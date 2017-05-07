@@ -1,5 +1,6 @@
 package io.voucherify.client.model.voucher;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -45,9 +46,11 @@ public class Voucher {
   private String additionalInfo;
 
   @Singular("metadataEntry")
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)
   private Map<String, Object> metadata;
 
   @Singular("asset")
+  @JsonInclude(JsonInclude.Include.NON_EMPTY)
   private Map<String, Object> assets;
 
   @JsonProperty("is_referral_code")

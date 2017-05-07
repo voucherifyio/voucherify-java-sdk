@@ -1,4 +1,4 @@
-package io.voucherify.client.exception;
+package io.voucherify.client.error;
 
 import retrofit.RetrofitError;
 
@@ -6,6 +6,6 @@ public class VoucherifyErrorHandler implements retrofit.ErrorHandler {
 
   @Override
   public Throwable handleError(RetrofitError cause) {
-    return new VoucherifyError(cause);
+    return VoucherifyError.from(cause);
   }
 }

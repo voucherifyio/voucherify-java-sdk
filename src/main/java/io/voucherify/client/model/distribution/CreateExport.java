@@ -1,5 +1,6 @@
-package io.voucherify.client.model.publish;
+package io.voucherify.client.model.distribution;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
-import io.voucherify.client.model.customer.Customer;
 
 import java.util.Map;
 
@@ -16,17 +16,12 @@ import java.util.Map;
 @Builder
 @Getter
 @ToString
-public class PublishVoucher {
+public class CreateExport {
 
-  private String campaign;
+  @JsonProperty("exported_object")
+  private String exportedObject;
 
-  private String voucher;
-
-  private Customer customer;
-
-  private String channel;
-
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+  @Singular("param")
+  private Map<String, Object> parameters;
 
 }

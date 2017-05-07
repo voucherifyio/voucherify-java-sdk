@@ -1,7 +1,7 @@
 package io.voucherify.client.utils;
 
 import io.voucherify.client.callback.VoucherifyCallback;
-import retrofit.RetrofitError;
+import io.voucherify.client.error.VoucherifyError;
 import rx.Observable;
 import rx.functions.Action1;
 import rx.functions.Func0;
@@ -31,7 +31,7 @@ public final class RxUtils {
                         executor.execute(new Runnable() {
                           @Override
                           public void run() {
-                            callback.onFailure(RetrofitError.unexpectedError("", throwable));
+                            callback.onFailure(VoucherifyError.from(throwable));
                           }
                         });
                       }

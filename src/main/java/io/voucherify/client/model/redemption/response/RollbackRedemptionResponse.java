@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.model.publish.response.PublishVoucherResponse;
+import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.redemption.RollbackStatus;
 
 import java.util.Date;

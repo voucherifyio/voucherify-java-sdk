@@ -6,77 +6,34 @@ import io.voucherify.client.module.AbsModule.Rx;
 
 import java.util.concurrent.Executor;
 
-/**
- *
- * @param <A> the type of object to be used for async calls
- * @param <R> the type of object to be used for rx calls
- */
 abstract class AbsModule<A extends Async, R extends Rx> {
-    /**
-     * Represents platform thread executor
-     */
-    final Executor executor;
 
-    /**
-     * Describes REST API for voucherify
-     */
-    final VoucherifyApi api;
+  final Executor executor;
 
-    /**
-     * The type of object used to do async calls
-     */
-    final A extAsync;
+  final VoucherifyApi api;
 
-    /**
-     * The type of object used to do rx calls
-     */
-    final R extRxJava;
+  final A extAsync;
 
-    /**
-     *
-     * @param api describes Voucherif REST API
-     * @param executor of threads for current platform
-     */
-    AbsModule(VoucherifyApi api, Executor executor) {
-        this.api = api;
-        this.executor = executor;
+  final R extRxJava;
 
-        this.extAsync = createAsyncExtension();
-        this.extRxJava = createRxJavaExtension();
-    }
+  AbsModule(VoucherifyApi api, Executor executor) {
+    this.api = api;
+    this.executor = executor;
 
-    /**
-     *
-     * @return
-     */
-    abstract A createAsyncExtension();
+    this.extAsync = createAsyncExtension();
+    this.extRxJava = createRxJavaExtension();
+  }
 
-    /**
-     *
-     * @return
-     */
-    abstract R createRxJavaExtension();
+  abstract A createAsyncExtension();
 
-    /**
-     * Returns the asynchronous extension of this module.
-     */
-    public abstract A async();
+  abstract R createRxJavaExtension();
 
-    /**
-     * Returns the RxJava extension of this module.
-     */
-    public abstract R rx();
-    
-    /**
-    *
-    */
-    public static class Rx {
-    }
+  public abstract A async();
 
-    /**
-    *
-    */
-    public static class Async {
-    }
+  public abstract R rx();
+
+  public static class Rx {}
+
+  public static class Async {}
 
 }

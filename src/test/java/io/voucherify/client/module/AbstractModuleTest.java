@@ -10,14 +10,15 @@ import io.voucherify.client.callback.VoucherifyCallback;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import retrofit.RestAdapter;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
 public class AbstractModuleTest {
 
-  ObjectMapper mapper = new ObjectMapper();
-  static VoucherifyClient client;
+  protected ObjectMapper mapper = new ObjectMapper();
+  protected static VoucherifyClient client;
   private static MockWebServer server;
   private boolean[] callbackFired = new boolean[]{false};
 
@@ -28,20 +29,19 @@ public class AbstractModuleTest {
     client = new VoucherifyClient.Builder()
             .setClientSecretKey("some token")
             .setAppId("some app id")
+            .setLogLevel(RestAdapter.LogLevel.FULL)
             .withoutSSL()
             .setEndpoint(server.getUrl("/").toString().replaceFirst("http://", ""))
             .build();
   }
 
-  void enqueueResponse(Object body) {
+  protected void enqueueResponse(Object body) {
     try {
       server.enqueue(new MockResponse().setBody(mapper.writeValueAsString(body)).setResponseCode(200));
-    } catch (JsonProcessingException e) {
-      // ignore
-    }
+    } catch (JsonProcessingException ignore) {}
   }
 
-  void enqueueResponse(String body) {
+  protected void enqueueResponse(String body) {
     server.enqueue(new MockResponse().setBody(body).setResponseCode(200));
   }
 

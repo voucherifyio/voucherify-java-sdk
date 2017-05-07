@@ -1,4 +1,4 @@
-package io.voucherify.client.model.publish.response;
+package io.voucherify.client.model.distribution.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.voucher.Discount;

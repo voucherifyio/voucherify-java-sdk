@@ -1,13 +1,22 @@
 package io.voucherify.client.api;
 
-import com.squareup.okhttp.Response;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
+import io.voucherify.client.model.campaign.CampaignImportVouchers;
+import io.voucherify.client.model.campaign.CreateCampaign;
+import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
+import io.voucherify.client.model.campaign.response.CreateCampaignResponse;
+import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerResponse;
+import io.voucherify.client.model.distribution.CreateExport;
+import io.voucherify.client.model.distribution.response.ExportResponse;
 import io.voucherify.client.model.product.Product;
+import io.voucherify.client.model.product.SKU;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
+import io.voucherify.client.model.product.response.SKUResponse;
 import io.voucherify.client.model.product.response.SKUsResponse;
-import io.voucherify.client.model.publish.PublishVoucher;
+import io.voucherify.client.model.distribution.PublishVoucher;
+import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
@@ -18,18 +27,14 @@ import io.voucherify.client.model.redemption.response.VoucherRedemptionsResponse
 import io.voucherify.client.model.segment.Segment;
 import io.voucherify.client.model.segment.response.SegmentResponse;
 import io.voucherify.client.model.validation.VoucherValidation;
+import io.voucherify.client.model.validation.VoucherValidationResponse;
 import io.voucherify.client.model.validationRules.ValidationRules;
 import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
-import io.voucherify.client.model.campaign.CreateCampaign;
-import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
-import io.voucherify.client.model.campaign.response.CreateCampaignResponse;
-import io.voucherify.client.model.customer.Customer;
-import io.voucherify.client.model.product.SKU;
-import io.voucherify.client.model.product.response.SKUResponse;
-import io.voucherify.client.model.publish.response.PublishVoucherResponse;
-import io.voucherify.client.model.validation.VoucherValidationResponse;
+import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
+import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
+import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
@@ -57,7 +62,10 @@ public interface VoucherifyApi {
   AddVoucherToCampaignResponse addVoucherToCampaignWithCode(@Path("name") String campaignName, @Path("code") String voucherCode, @Body AddVoucherToCampaign addVoucherToCampaign);
 
   @DELETE("/campaigns/{name}")
-  Response deleteCampaign(@Path("name") String campaignName, @Query("force") Boolean force);
+  Void deleteCampaign(@Path("name") String campaignName, @Query("force") Boolean force);
+
+  @POST("/campaigns/{name}/import")
+  Void importVouchersToCampaign(@Path("name") String campaignName, @Body CampaignImportVouchers importVouchers);
 
   // CUSTOMERS
 
@@ -71,7 +79,7 @@ public interface VoucherifyApi {
   CustomerResponse updateCustomer(@Path("id") String customerId, @Body Customer customer);
 
   @DELETE("/customers/{id}")
-  Response deleteCustomer(@Path("id") String customerId);
+  Void deleteCustomer(@Path("id") String customerId);
 
   // REDEMPTIONS
 
@@ -79,7 +87,7 @@ public interface VoucherifyApi {
   RedeemVoucherResponse redeem(@Path("code") String code, @Body RedeemVoucher redeemVoucher);
 
   @GET("/redemptions")
-  RedemptionsResponse listRedemptions(@QueryMap Map<String, Object> redemptionsFilter);
+  RedemptionsResponse listRedemptions(@QueryMap Map<String, Object> filter);
 
   @GET("/vouchers/{code}/redemption")
   VoucherRedemptionsResponse getVoucherRedemptions(@Path("code") String code);
@@ -92,8 +100,17 @@ public interface VoucherifyApi {
 
   // DISTRIBUTIONS
 
-  @POST("/vouchers/publish")
+  @POST("/vouchers/distribution")
   PublishVoucherResponse publishVoucher(@Body PublishVoucher publishVoucher);
+
+  @POST("/exports")
+  ExportResponse createExport(@Body CreateExport createExport);
+
+  @GET("/exports/{id}")
+  ExportResponse getExport(@Path("id") String id);
+
+  @DELETE("/exports/{id}")
+  Void deleteExport(@Path("id") String id);
 
   // VOUCHERS
 
@@ -110,7 +127,7 @@ public interface VoucherifyApi {
   VoucherResponse updateVoucher(@Path("code") String code, @Body VoucherUpdate voucherUpdate);
 
   @DELETE("/vouchers/{code}")
-  Response deleteVoucher(@Path("code") String code, @Query("force") Boolean force);
+  Void deleteVoucher(@Path("code") String code, @Query("force") Boolean force);
 
   @GET("/vouchers")
   List<VoucherResponse> listVouchers(@QueryMap Map<String, Object> filter);
@@ -120,6 +137,12 @@ public interface VoucherifyApi {
 
   @POST("/vouchers/{code}/disable")
   VoucherResponse disable(@Path("code") String code);
+
+  @POST("/vouchers/{code}/balance")
+  AddBalanceResponse addBalance(@Path("code") String code, @Body AddBalance addBalance);
+
+  @POST("/vouchers/import")
+  Void importVouchers(@Body ImportVouchers vouchers);
 
   // VALIDATIONS
 
@@ -141,7 +164,7 @@ public interface VoucherifyApi {
   ProductsResponse getProducts(@QueryMap Map<String, Object> filter);
 
   @DELETE("/products/{id}")
-  Response deleteProduct(@Path("id") String id, @QueryMap Map<String, Object> params);
+  Void deleteProduct(@Path("id") String id, @QueryMap Map<String, Object> params);
 
   // SKU
 
@@ -158,7 +181,7 @@ public interface VoucherifyApi {
   SKUsResponse getSKUs(@Path("id") String productId);
 
   @DELETE("/products/{id}/skus/{skuId}")
-  Response deleteSKU(@Path("id") String productId, @Path("skuId") String skuId, @QueryMap Map<String, Object> params);
+  Void deleteSKU(@Path("id") String productId, @Path("skuId") String skuId, @QueryMap Map<String, Object> params);
 
   // SEGMENTS
 
@@ -169,7 +192,7 @@ public interface VoucherifyApi {
   SegmentResponse getSegment(@Path("id") String id);
 
   @DELETE("/segments/{id}")
-  Response deleteSegment(@Path("id") String id);
+  Void deleteSegment(@Path("id") String id);
 
   // VALIDATION RULES
 
@@ -183,5 +206,5 @@ public interface VoucherifyApi {
   ValidationRulesResponse updateValidationRules(@Path("id") String id, @Body ValidationRules validationRules);
 
   @DELETE("/validation-rules/{id}")
-  Response deleteValidationRules(@Path("id") String id);
+  Void deleteValidationRules(@Path("id") String id);
 }

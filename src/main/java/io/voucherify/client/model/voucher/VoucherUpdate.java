@@ -1,7 +1,6 @@
 package io.voucherify.client.model.voucher;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,8 +11,10 @@ import lombok.ToString;
 import java.util.Date;
 import java.util.Map;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+import static lombok.AccessLevel.PRIVATE;
+
+@NoArgsConstructor(access = PRIVATE)
+@AllArgsConstructor(access = PRIVATE)
 @Getter
 @Builder
 @ToString
@@ -27,7 +28,7 @@ public class VoucherUpdate {
   @JsonProperty("expiration_date")
   private Date expirationDate;
 
-  private boolean active;
+  private Boolean active;
 
   @JsonProperty("additional_info")
   private String additionalInfo;
