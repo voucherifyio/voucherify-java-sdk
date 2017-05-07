@@ -1,6 +1,5 @@
-package io.voucherify.client.model.validationRules;
+package io.voucherify.client.model.distribution;
 
-import io.voucherify.client.model.Operator;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +16,11 @@ import java.util.Map;
 @Builder
 @Getter
 @ToString
-public class ProductValidationRules {
+public class ExportParams {
 
-  private Junction junction;
+  @Singular("field")
+  private List<String> fields;
 
-  @Singular("condition")
-  private Map<Operator, List<IdPair>> conditions;
-
+  @Singular("filter")
+  private Map<String, Object> filters;
 }

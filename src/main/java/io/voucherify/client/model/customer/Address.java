@@ -1,14 +1,12 @@
 package io.voucherify.client.model.customer;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
-
-import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -17,7 +15,19 @@ import java.util.Map;
 @ToString
 public class Address {
 
-  @Singular("value")
-  private Map<String, String> values;
+  private String city;
+
+  private String state;
+
+  @JsonProperty("line_1")
+  private String line1;
+
+  @JsonProperty("line_2")
+  private String line2;
+
+  private String country;
+
+  @JsonProperty("postal_code")
+  private String postalCode;
 
 }

@@ -21,7 +21,6 @@ public class CreateExport {
   @JsonProperty("exported_object")
   private String exportedObject;
 
-  @Singular("param")
-  private Map<String, Object> parameters;
+  private ExportParams parameters;
 
 }

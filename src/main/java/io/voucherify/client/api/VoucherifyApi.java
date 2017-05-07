@@ -92,15 +92,15 @@ public interface VoucherifyApi {
   @GET("/vouchers/{code}/redemption")
   VoucherRedemptionsResponse getVoucherRedemptions(@Path("code") String code);
 
-  @POST("/redemption/{id}/rollback")
+  @POST("/redemptions/{id}/rollback")
   RollbackRedemptionResponse rollbackRedemption(@Path("id") String redemptionId, @Query("reason") String reason, @Body RollbackRedemption rollbackRedemption);
 
-  @GET("/redemption/{id}")
+  @GET("/redemptions/{id}")
   RedemptionEntryResponse getRedemption(@Path("id") String redemptionId);
 
   // DISTRIBUTIONS
 
-  @POST("/vouchers/distribution")
+  @POST("/vouchers/publish")
   PublishVoucherResponse publishVoucher(@Body PublishVoucher publishVoucher);
 
   @POST("/exports")

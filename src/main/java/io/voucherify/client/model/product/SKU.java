@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 import lombok.ToString;
 
 import java.util.Map;
@@ -24,7 +25,9 @@ public class SKU {
   @JsonProperty("source_id")
   private String sourceId;
 
+  @Singular("attribute")
   private Map<String, Object> attributes;
 
+  @Singular("metadataEntry")
   private Map<String, Object> metadata;
 }

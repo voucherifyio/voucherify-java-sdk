@@ -26,6 +26,4 @@ public class RedemptionValidationRules {
   @JsonProperty("count_per_customer_per_campaign")
   private RedemptionCountValidationRules countPerCustomerPerCampaign;
 
-  @Singular("metadataEntry")
-  private Map<String, Conditions<Object>> metadata;
 }

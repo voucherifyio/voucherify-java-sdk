@@ -1,4 +1,4 @@
-package io.voucherify.client.model.validationRules;
+package io.voucherify.client.model;
 
 public enum Operator {
 

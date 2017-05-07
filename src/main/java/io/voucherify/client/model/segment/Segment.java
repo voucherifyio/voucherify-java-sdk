@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,6 +22,12 @@ public class Segment {
 
   private SegmentType type;
 
+  @Singular("customer")
+  private List<String> customers;
+
   @Singular("filterEntry")
   private Map<String, Object> filter;
+
+  @Singular("metadataEntry§")
+  private Map<String, Object> metadata;
 }

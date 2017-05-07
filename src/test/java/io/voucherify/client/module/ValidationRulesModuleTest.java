@@ -1,16 +1,15 @@
 package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
-import org.junit.Test;
 import io.voucherify.client.callback.VoucherifyCallback;
-import io.voucherify.client.model.validationRules.Conditions;
 import io.voucherify.client.model.validationRules.IdPair;
 import io.voucherify.client.model.validationRules.Junction;
-import io.voucherify.client.model.validationRules.Operator;
+import io.voucherify.client.model.Operator;
 import io.voucherify.client.model.validationRules.OrderValidationRules;
 import io.voucherify.client.model.validationRules.ProductValidationRules;
 import io.voucherify.client.model.validationRules.ValidationRules;
 import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
+import org.junit.Test;
 import rx.Observable;
 
 import java.util.LinkedList;
@@ -28,8 +27,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
           .voucherCode("code")
           .orderRules(OrderValidationRules.builder()
                   .junction(Junction.AND)
-                  .productsCount(new Conditions<Integer>()
-                          .setCondition(Operator.$contains, new LinkedList<Integer>()))
+                  .productsCountCondition(Operator.$contains, new LinkedList<Integer>())
                   .build())
           .productRules(ProductValidationRules.builder()
                   .condition(Operator.$is_not, new LinkedList<IdPair>())
@@ -47,7 +45,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -64,7 +62,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
@@ -81,7 +79,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
@@ -177,7 +175,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     ValidationRulesResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -195,7 +193,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     ValidationRulesResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
@@ -213,7 +211,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     ValidationRulesResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().getConditions().containsKey(Operator.$contains)).isTrue();
+    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");

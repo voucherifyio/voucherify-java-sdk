@@ -65,7 +65,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20id");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -126,7 +126,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -175,7 +175,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20id");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -241,7 +241,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -289,7 +289,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RedemptionEntryResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20id");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -353,7 +353,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RollbackRedemptionResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemption/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 

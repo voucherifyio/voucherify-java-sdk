@@ -39,14 +39,14 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo("some-code");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
   public void shouldCreateExport() {
     // given
-    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").build();
     enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
 
     // when
@@ -103,14 +103,14 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
   public void shouldCreateExportAsync() {
     // given
-    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").build();
     enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
     VoucherifyCallback callback = createCallback();
 
@@ -168,14 +168,14 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     PublishVoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/distribution");
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test
   public void shouldCreateExportRxJava() {
     // given
-    CreateExport createExport = CreateExport.builder().exportedObject("voucher").param("fields", null).build();
+    CreateExport createExport = CreateExport.builder().exportedObject("voucher").build();
     enqueueResponse("{\"status\" : \"IN_PROGRESS\", \"id\": \"1\" }");
 
     // when

@@ -1,6 +1,7 @@
 package io.voucherify.client.model.customer.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.customer.Address;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
-import io.voucherify.client.model.customer.Address;
 
 import java.util.Date;
 import java.util.Map;

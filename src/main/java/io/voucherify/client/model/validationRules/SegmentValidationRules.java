@@ -1,5 +1,6 @@
 package io.voucherify.client.model.validationRules;
 
+import io.voucherify.client.model.Operator;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,13 +1,13 @@
 package io.voucherify.client.module;
 
 import io.voucherify.client.model.product.ProductsFilter;
+import io.voucherify.client.model.product.SKU;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.product.DeleteProductParams;
 import io.voucherify.client.model.product.DeleteSKUParams;
 import io.voucherify.client.model.product.Product;
-import io.voucherify.client.model.product.SKU;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
 import io.voucherify.client.model.product.response.SKUsResponse;
