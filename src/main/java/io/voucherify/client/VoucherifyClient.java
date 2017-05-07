@@ -7,9 +7,9 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.error.VoucherifyErrorHandler;
+import io.voucherify.client.json.converter.JsonConverter;
 import io.voucherify.client.json.deserializer.DateDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
-import io.voucherify.client.json.converter.JsonConverter;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
@@ -142,7 +142,7 @@ public class VoucherifyClient {
   private VoucherifyApi createRetrofitService(Builder builder) {
     RestAdapter.Builder restBuilder = new RestAdapter.Builder()
             .setConverter(createConverter())
-            .setRequestInterceptor(createInterceptor(builder.appId, builder.clientSecretKey));
+            .setRequestInterceptor(createInterceptor(builder));
 
     setEndPoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
@@ -152,13 +152,17 @@ public class VoucherifyClient {
     return restBuilder.build().create(VoucherifyApi.class);
   }
 
-  private RequestInterceptor createInterceptor(final String appId, final String appToken) {
+  private RequestInterceptor createInterceptor(final Builder builder) {
     return new RequestInterceptor() {
       @Override
       public void intercept(RequestFacade request) {
         request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_CHANNEL, Constants.VOUCHERIFY_CHANNEL_NAME);
-        request.addHeader(Constants.HTTP_HEADER_APP_ID, appId);
-        request.addHeader(Constants.HTTP_HEADER_APP_TOKEN, appToken);
+        request.addHeader(Constants.HTTP_HEADER_APP_ID, builder.appId);
+        request.addHeader(Constants.HTTP_HEADER_APP_TOKEN, builder.clientSecretKey);
+
+        if (builder.apiVersion != null) {
+          request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, builder.apiVersion.getValue());
+        }
       }
     };
   }
@@ -204,6 +208,8 @@ public class VoucherifyClient {
     RestAdapter.LogLevel logLevel;
 
     Client.Provider clientProvider;
+
+    ApiVersion apiVersion;
 
     public Builder() {
       this.secure = true;
@@ -275,6 +281,11 @@ public class VoucherifyClient {
 
     public Builder withoutSSL() {
       this.secure = false;
+      return this;
+    }
+
+    public Builder apiVersion(ApiVersion version) {
+      this.apiVersion = version;
       return this;
     }
 

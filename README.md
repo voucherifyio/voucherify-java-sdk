@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./voucherify-ruby-sdk.png"/>
+  <img src="./voucherify-java-sdk.png"/>
 </p>
 
 <h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
@@ -67,6 +67,13 @@ compile 'io.voucherify.client:voucherify-java-sdk:5.0.0'
 VoucherifyClient voucherify = new VoucherifyClient.Builder()
             .setAppId("YOUR-APPLICATION-ID")
             .setClientSecretKey("YOUR-CLIENT-SECRET-KEY")
+            .build();
+```
+
+You can also specify which API version you want to use. Simply specify it when creating client:
+```java
+VoucherifyClient.Builder()
+            .apiVersion(ApiVersion.V_2017_04_05)
             .build();
 ```
 
@@ -244,7 +251,7 @@ voucherify.validations().validate(String code, VoucherValidation voucherValidati
 ---
 
 ### Redemptions API
-Methods are provided within `voucherify.redemptions.*` namespace.
+Methods are provided within `voucherify.redemptions.()*` namespace.
 
 - [Redeem Voucher](#redeem-voucher)
 - [List Redemptions](#list-redemptions)

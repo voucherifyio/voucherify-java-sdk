@@ -1,5 +1,6 @@
 package io.voucherify.example;
 
+import io.voucherify.client.ApiVersion;
 import io.voucherify.client.VoucherifyClient;
 import io.voucherify.example.sync.CampaignsExample;
 import io.voucherify.example.sync.CustomersExample;
@@ -25,6 +26,7 @@ public class ExampleApp {
     return new VoucherifyClient.Builder()
             .setAppId("cfb281b6-e9f5-46d5-9ebe-4822945e3d0d")
             .setClientSecretKey("e09642b4-dd37-4356-89de-cd75da4aa8ce")
+            .apiVersion(ApiVersion.V_2017_04_05)
             .setLogLevel(RestAdapter.LogLevel.FULL)
             .build();
   }
