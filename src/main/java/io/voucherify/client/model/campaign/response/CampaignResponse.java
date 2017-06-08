@@ -18,7 +18,7 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class CreateCampaignResponse {
+public class CampaignResponse {
 
   private String name;
 

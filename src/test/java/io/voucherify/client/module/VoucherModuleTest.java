@@ -9,6 +9,7 @@ import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.Voucher;
 import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
 import org.junit.Test;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
@@ -88,10 +89,10 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .build();
 
     // when
-    List<VoucherResponse> list = client.vouchers().list(filter);
+    VouchersResponse list = client.vouchers().list(filter);
 
     // then
-    assertThat(list).isNotEmpty();
+    assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
     assertThat(request.getMethod()).isEqualTo("GET");
@@ -473,11 +474,11 @@ public class VoucherModuleTest extends AbstractModuleTest {
             .build();
 
     // when
-    Observable<List<VoucherResponse>> observable = client.vouchers().rx().list(filter);
+    Observable<VouchersResponse> observable = client.vouchers().rx().list(filter);
 
     // then
-    List<VoucherResponse> result = observable.toBlocking().first();
-    assertThat(result).isNotEmpty();
+    VouchersResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
     assertThat(request.getMethod()).isEqualTo("GET");

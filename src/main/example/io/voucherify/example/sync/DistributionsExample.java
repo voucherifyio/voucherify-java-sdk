@@ -48,7 +48,7 @@ public class DistributionsExample extends AbsExample {
             .customer(custToPublish)
             .build();
 
-    client.distributions().publish(publishVoucher);
+    System.out.println(client.distributions().publish(publishVoucher));
 
     CreateExport createExport = CreateExport.builder()
             .exportedObject("voucher")

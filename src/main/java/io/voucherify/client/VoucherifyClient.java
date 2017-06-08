@@ -1,6 +1,7 @@
 package io.voucherify.client;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -8,8 +9,12 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.error.VoucherifyErrorHandler;
 import io.voucherify.client.json.converter.JsonConverter;
+import io.voucherify.client.json.deserializer.CampaignsResponseDeserializer;
 import io.voucherify.client.json.deserializer.DateDeserializer;
+import io.voucherify.client.json.deserializer.VouchersResponseDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
+import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
@@ -118,16 +123,18 @@ public class VoucherifyClient {
     return Platform.get().callbackExecutor();
   }
 
-  private JsonConverter createConverter() {
+  private JsonConverter createConverter(Builder builder) {
     ObjectMapper mapper = new ObjectMapper();
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
     mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 
-    SimpleModule dateModule = new SimpleModule();
-    dateModule.addSerializer(Date.class, new DateSerializer(Constants.ENDPOINT_DATE_FORMAT));
-    dateModule.addDeserializer(Date.class, new DateDeserializer(Constants.ENDPOINT_DATE_FORMAT, Constants.ENDPOINT_SECONDARY_DATE_FORMAT));
-    mapper.registerModule(dateModule);
+    SimpleModule jsonParsingModule = new SimpleModule();
+    jsonParsingModule.addSerializer(Date.class, new DateSerializer(Constants.ENDPOINT_DATE_FORMAT));
+    jsonParsingModule.addDeserializer(Date.class, new DateDeserializer(Constants.ENDPOINT_DATE_FORMAT, Constants.ENDPOINT_SECONDARY_DATE_FORMAT));
+    jsonParsingModule.addDeserializer(CampaignsResponse.class, new CampaignsResponseDeserializer(builder.apiVersion));
+    jsonParsingModule.addDeserializer(VouchersResponse.class, new VouchersResponseDeserializer(builder.apiVersion));
+    mapper.registerModule(jsonParsingModule);
     return new JsonConverter(mapper);
   }
 
@@ -141,7 +148,7 @@ public class VoucherifyClient {
 
   private VoucherifyApi createRetrofitService(Builder builder) {
     RestAdapter.Builder restBuilder = new RestAdapter.Builder()
-            .setConverter(createConverter())
+            .setConverter(createConverter(builder))
             .setRequestInterceptor(createInterceptor(builder));
 
     setEndPoint(builder, restBuilder);

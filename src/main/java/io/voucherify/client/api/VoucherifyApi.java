@@ -4,19 +4,20 @@ import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
-import io.voucherify.client.model.campaign.response.CreateCampaignResponse;
+import io.voucherify.client.model.campaign.response.CampaignResponse;
+import io.voucherify.client.model.campaign.response.CampaignsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.distribution.CreateExport;
+import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
+import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
 import io.voucherify.client.model.product.response.SKUsResponse;
-import io.voucherify.client.model.distribution.PublishVoucher;
-import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
@@ -36,6 +37,7 @@ import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.GET;
@@ -45,7 +47,6 @@ import retrofit.http.Path;
 import retrofit.http.Query;
 import retrofit.http.QueryMap;
 
-import java.util.List;
 import java.util.Map;
 
 public interface VoucherifyApi {
@@ -53,10 +54,16 @@ public interface VoucherifyApi {
   // CAMPAIGNS
 
   @POST("/campaigns")
-  CreateCampaignResponse createCampaign(@Body CreateCampaign createCampaign);
+  CampaignResponse createCampaign(@Body CreateCampaign createCampaign);
 
   @POST("/campaigns/{name}/vouchers")
   AddVoucherToCampaignResponse addVoucherToCampaign(@Path("name") String campaignName, @Body AddVoucherToCampaign addVoucherToCampaign);
+
+  @GET("/campaigns/{name}")
+  CampaignResponse getCampaign(@Path("name") String campaignName);
+
+  @GET("/campaigns")
+  CampaignsResponse listCampaigns(@QueryMap Map<String, Object> filter);
 
   @POST("/campaigns/{name}/vouchers/{code}")
   AddVoucherToCampaignResponse addVoucherToCampaignWithCode(@Path("name") String campaignName, @Path("code") String voucherCode, @Body AddVoucherToCampaign addVoucherToCampaign);
@@ -130,7 +137,7 @@ public interface VoucherifyApi {
   Void deleteVoucher(@Path("code") String code, @Query("force") Boolean force);
 
   @GET("/vouchers")
-  List<VoucherResponse> listVouchers(@QueryMap Map<String, Object> filter);
+  VouchersResponse listVouchers(@QueryMap Map<String, Object> filter);
 
   @POST("/vouchers/{code}/enable")
   VoucherResponse enable(@Path("code") String code);

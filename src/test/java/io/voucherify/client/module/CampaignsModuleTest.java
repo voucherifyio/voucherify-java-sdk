@@ -8,7 +8,7 @@ import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
 import io.voucherify.client.model.campaign.DeleteCampaignParams;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
-import io.voucherify.client.model.campaign.response.CreateCampaignResponse;
+import io.voucherify.client.model.campaign.response.CampaignResponse;
 import org.junit.Test;
 import rx.Observable;
 
@@ -29,7 +29,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     enqueueResponse("{\"name\" : \"name\"}");
 
     // when
-    CreateCampaignResponse result = client.campaigns().create(createCampaign);
+    CampaignResponse result = client.campaigns().create(createCampaign);
 
     // then
     assertThat(result).isNotNull();
@@ -225,10 +225,10 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     enqueueResponse("{\"name\" : \"name\"}");
 
     // when
-    Observable<CreateCampaignResponse> observable = client.campaigns().rx().create(createCampaign);
+    Observable<CampaignResponse> observable = client.campaigns().rx().create(createCampaign);
 
     // then
-    CreateCampaignResponse result = observable.toBlocking().first();
+    CampaignResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns");

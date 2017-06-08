@@ -9,12 +9,12 @@ import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.VoucherModule.ExtAsync;
 import io.voucherify.client.module.VoucherModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 
 public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -42,7 +42,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     api.deleteVoucher(code, force);
   }
 
-  public List<VoucherResponse> list(VouchersFilter vouchersFilter) {
+  public VouchersResponse list(VouchersFilter vouchersFilter) {
     return api.listVouchers(vouchersFilter.asMap());
   }
 
@@ -84,7 +84,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public class ExtAsync extends AbsModule.Async {
 
-    public void list(VouchersFilter filter, VoucherifyCallback<List<VoucherResponse>> callback) {
+    public void list(VouchersFilter filter, VoucherifyCallback<VouchersResponse> callback) {
       RxUtils.subscribe(executor, rx().list(filter), callback);
     }
 
@@ -156,11 +156,11 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
       });
     }
 
-    public Observable<List<VoucherResponse>> list(final VouchersFilter vouchersFilter) {
-      return RxUtils.defer(new RxUtils.DefFunc<List<VoucherResponse>>() {
+    public Observable<VouchersResponse> list(final VouchersFilter vouchersFilter) {
+      return RxUtils.defer(new RxUtils.DefFunc<VouchersResponse>() {
         @Override
-        public List<VoucherResponse> method() {
-         return VoucherModule.this.list(vouchersFilter);
+        public VouchersResponse method() {
+          return VoucherModule.this.list(vouchersFilter);
         }
       });
     }

@@ -24,7 +24,7 @@ public class VoucherifyError extends RuntimeException {
   }
 
   private VoucherifyError(WrappedError wrapped, Throwable throwable) {
-    super(wrapped.getMessage(), throwable);
+    super(wrapped != null ? wrapped.getMessage() : "unknown", throwable);
     this.code = wrapped.getCode();
     this.details = wrapped.getDetails();
     this.key = wrapped.getKey();

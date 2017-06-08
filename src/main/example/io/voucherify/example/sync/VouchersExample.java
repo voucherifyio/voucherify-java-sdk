@@ -12,6 +12,7 @@ import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
 
 import java.util.List;
 
@@ -54,9 +55,9 @@ public class VouchersExample extends AbsExample {
 
     client.vouchers().importVouchers(importVouchers);
 
-    List<VoucherResponse> list = client.vouchers().list(VouchersFilter.builder().limit(10).page(0).build());
+    VouchersResponse vouchers = client.vouchers().list(VouchersFilter.builder().limit(10).page(1).build());
 
-    for (VoucherResponse response : list) {
+    for (VoucherResponse response : vouchers.getVouchers()) {
       client.vouchers().delete(response.getCode(), true);
     }
   }
