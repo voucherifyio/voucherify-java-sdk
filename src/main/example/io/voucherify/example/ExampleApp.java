@@ -24,9 +24,9 @@ public class ExampleApp {
 
   private static VoucherifyClient createVoucherifyClient() {
     return new VoucherifyClient.Builder()
-            .setAppId("d6e63dde-3c08-4f0e-9046-09a12e66f4ec")
-            .setClientSecretKey("34b2e280-4678-4d1d-bc86-007737ab69ed")
-//            .apiVersion(ApiVersion.V_2017_04_05)
+            .setAppId("d6e63dde-3c08-4f0e-9046-09a12e66f4de")
+            .setClientSecretKey("34b2e280-4678-4d1d-bc86-007737ab69de")
+            .apiVersion(ApiVersion.V_2017_04_05)
             .setLogLevel(RestAdapter.LogLevel.FULL)
             .build();
   }
@@ -34,14 +34,14 @@ public class ExampleApp {
   private void start() {
     VoucherifyClient client = createVoucherifyClient();
 
-//    new VouchersExample(client).example();
-//    new CampaignsExample(client).example();
-//    new CustomersExample(client).example();
-//    new ProductsExample(client).example();
-//    new ValidationRulesExample(client).example();
-//    new SegmentsExample(client).example();
-//    new ValidationsExample(client).example();
-//    new RedemptionsExample(client).example();
+    new VouchersExample(client).example();
+    new CampaignsExample(client).example();
+    new CustomersExample(client).example();
+    new ProductsExample(client).example();
+    new ValidationRulesExample(client).example();
+    new SegmentsExample(client).example();
+    new ValidationsExample(client).example();
+    new RedemptionsExample(client).example();
     new DistributionsExample(client).example();
   }
 

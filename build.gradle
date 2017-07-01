@@ -35,8 +35,30 @@ dependencies {
     }
 }
 
-
 apply plugin: 'maven-publish'
+
+def pomConfig = {
+    description 'Voucherify-java-sdk is a Java client (can be used in Android application as well) which was created to simplify integration with Voucherify backend (http://www.voucherify.io)'
+    url 'https://github.com/rspective/voucherify-java-sdk'
+    scm {
+        url 'https://github.com/rspective/voucherify-java-sdk.git'
+        connection 'scm:git@github.com:rspective/voucherify-java-sdk.git'
+        developerConnection 'scm:git@github.com:rspective/voucherify-java-sdk.git'
+    }
+    licenses {
+        license {
+            name 'The Apache Software License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            distribution 'repo'
+        }
+    }
+    developers {
+        developer {
+            id 'rspective'
+            name 'RSPECTIVE P RYCHLIK SPOLKA JAWNA'
+        }
+    }
+}
 
 publishing {
     publications {
@@ -45,11 +67,21 @@ publishing {
             artifactId 'voucherify-java-sdk'
 
             from components.java
+
+            pom.withXml {
+                asNode().children().last() + pomConfig
+            }
+        }
+    }
+    repositories {
+        maven {
+            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
         }
     }
 }
 
 test {
     testLogging {
-        events "passed", "skipped", "failed", "standardOut", "standardError"
-    }}
+        events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+    }
+}
