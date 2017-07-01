@@ -1,0 +1,42 @@
+package io.voucherify.client.model.redemption;
+
+import io.voucherify.client.utils.AbstractFilter;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
+@Getter
+@ToString
+public class RedemptionsFilter extends AbstractFilter<String, Object> {
+
+  private Integer limit;
+
+  private Integer page;
+
+  private RedemptionStatus result;
+
+  private String customer;
+
+  private String campaign;
+
+  @Override
+  public Map<String, Object> asMap() {
+    Map<String, Object> map = new HashMap<String, Object>();
+    map.put("limit", limit);
+    map.put("page", page);
+    map.put("result", result);
+    map.put("customer", customer);
+    map.put("campaign", campaign);
+    return map;
+  }
+
+}
