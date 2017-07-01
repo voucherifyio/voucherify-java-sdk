@@ -5,12 +5,16 @@ apply plugin: 'eclipse'
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
+group = 'io.voucherify.client'
 version = '5.0.0'
 
 repositories {
     mavenCentral()
     jcenter()
 }
+
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 dependencies {
     compile 'com.squareup.retrofit:retrofit:1.9.0'
@@ -28,54 +32,66 @@ dependencies {
     testCompile group: 'com.squareup.okhttp', name: 'mockwebserver', version: '2.0.0'
     testCompile 'org.awaitility:awaitility-scala:2.0.0'
 
-    task fatJar(type: Jar) {
-        baseName = project.name + '-all'
-        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-        with jar
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives javadocJar, sourcesJar
+    }
+
+    signing {
+        sign configurations.archives
     }
 }
 
-apply plugin: 'maven-publish'
-
-def pomConfig = {
-    description 'Voucherify-java-sdk is a Java client (can be used in Android application as well) which was created to simplify integration with Voucherify backend (http://www.voucherify.io)'
-    url 'https://github.com/rspective/voucherify-java-sdk'
-    scm {
-        url 'https://github.com/rspective/voucherify-java-sdk.git'
-        connection 'scm:git@github.com:rspective/voucherify-java-sdk.git'
-        developerConnection 'scm:git@github.com:rspective/voucherify-java-sdk.git'
-    }
-    licenses {
-        license {
-            name 'The Apache Software License, Version 2.0'
-            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-            distribution 'repo'
-        }
-    }
-    developers {
-        developer {
-            id 'rspective'
-            name 'RSPECTIVE P RYCHLIK SPOLKA JAWNA'
-        }
-    }
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'io.voucherify.client'
-            artifactId 'voucherify-java-sdk'
-
-            from components.java
-
-            pom.withXml {
-                asNode().children().last() + pomConfig
-            }
-        }
-    }
+uploadArchives {
     repositories {
-        maven {
-            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: RELEASE_REPOSITORY_URL) {
+                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            }
+
+            snapshotRepository(url: SNAPSHOT_REPOSITORY_URL) {
+                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            }
+
+            pom.project {
+                name POM_NAME
+                artifactId 'voucherify-java-sdk'
+                packaging POM_PACKAGING
+                description POM_DESCRIPTION
+                url POM_URL
+
+                scm {
+                    connection POM_SCM_CONNECTION
+                    developerConnection POM_SCM_DEV_CONNECTION
+                    url POM_SCM_URL
+                }
+
+                licenses {
+                    license {
+                        name POM_LICENCE_NAME
+                        url POM_LICENCE_URL
+                        distribution POM_LICENCE_DIST
+                    }
+                }
+
+                developers {
+                    developer {
+                        id POM_DEVELOPER_ID
+                        name POM_DEVELOPER_NAME
+                    }
+                }
+            }
         }
     }
 }
