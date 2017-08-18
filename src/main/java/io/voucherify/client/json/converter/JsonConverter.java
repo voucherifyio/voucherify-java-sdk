@@ -28,9 +28,6 @@ public class JsonConverter implements Converter {
   @Override
   public Object fromBody(TypedInput body, Type type) throws ConversionException {
     try {
-      if (body.length() <= 0) {
-        return null;
-      }
       JavaType javaType = objectMapper.getTypeFactory().constructType(type);
       return objectMapper.readValue(body.in(), javaType);
     } catch (JsonParseException e) {

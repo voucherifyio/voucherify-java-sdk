@@ -521,6 +521,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2017-08-18 - 5.0.1 - Fix for retrofit response body mapping.
 * 2017-05-10 - 5.0.0 - Separate modules, general refactoring, updated models.
 * 2017-04-21 - 4.2.0 - Moved validation to a separate module.
 * 2017-04-20 - 4.1.0 - Added method to validate voucher.
