@@ -51,7 +51,7 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>5.0.0</version>
+  <version>5.1.1</version>
 </dependency>
 ```
 
@@ -521,6 +521,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2017-08-21 - 5.1.1 - Added metadata to VoucherValidationResponse.
 * 2017-08-21 - 5.1.0 - Added metadata to VoucherValidation.
 * 2017-08-18 - 5.0.1 - Fix for retrofit response body mapping.
 * 2017-05-10 - 5.0.0 - Separate modules, general refactoring, updated models.

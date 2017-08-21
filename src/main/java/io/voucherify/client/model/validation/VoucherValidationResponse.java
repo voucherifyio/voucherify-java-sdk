@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Map;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -30,5 +32,7 @@ public class VoucherValidationResponse {
 
   @JsonProperty("tracking_id")
   private String trackingId;
+
+  private Map<String, Object> metadata;
 
 }
