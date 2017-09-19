@@ -56,39 +56,39 @@ uploadArchives {
         mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-            repository(url: RELEASE_REPOSITORY_URL) {
-                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            repository(url: System.getenv('RELEASE_REPOSITORY_URL') ?: RELEASE_REPOSITORY_URL) {
+                authentication(userName: System.getenv('NEXUS_USERNAME') ?: NEXUS_USERNAME, password: System.getenv('NEXUS_PASSWORD') ?: NEXUS_PASSWORD)
             }
 
-            snapshotRepository(url: SNAPSHOT_REPOSITORY_URL) {
-                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            snapshotRepository(url: System.getenv('SNAPSHOT_REPOSITORY_URL') ?: SNAPSHOT_REPOSITORY_URL) {
+                authentication(userName: System.getenv('NEXUS_USERNAME') ?: NEXUS_USERNAME, password: System.getenv('NEXUS_PASSWORD') ?: NEXUS_PASSWORD)
             }
 
             pom.project {
-                name POM_NAME
+                name System.getenv('POM_NAME') ?: POM_NAME
                 artifactId 'voucherify-java-sdk'
-                packaging POM_PACKAGING
-                description POM_DESCRIPTION
-                url POM_URL
+                packaging System.getenv('POM_PACKAGING') ?: POM_PACKAGING
+                description System.getenv('POM_DESCRIPTION') ?: POM_DESCRIPTION
+                url System.getenv('POM_URL') ?: POM_URL
 
                 scm {
-                    connection POM_SCM_CONNECTION
-                    developerConnection POM_SCM_DEV_CONNECTION
-                    url POM_SCM_URL
+                    connection System.getenv('POM_SCM_CONNECTION') ?: POM_SCM_CONNECTION
+                    developerConnection System.getenv('POM_SCM_DEV_CONNECTION') ?: POM_SCM_DEV_CONNECTION
+                    url System.getenv('POM_SCM_URL') ?: POM_SCM_URL
                 }
 
                 licenses {
                     license {
-                        name POM_LICENCE_NAME
-                        url POM_LICENCE_URL
-                        distribution POM_LICENCE_DIST
+                        name System.getenv('POM_LICENCE_NAME') ?: POM_LICENCE_NAME
+                        url System.getenv('POM_LICENCE_URL') ?: POM_LICENCE_URL
+                        distribution System.getenv('POM_LICENCE_DIST') ?: POM_LICENCE_DIST
                     }
                 }
 
                 developers {
                     developer {
-                        id POM_DEVELOPER_ID
-                        name POM_DEVELOPER_NAME
+                        id System.getenv('POM_DEVELOPER_ID') ?: POM_DEVELOPER_ID
+                        name System.getenv('POM_DEVELOPER_NAME') ?: POM_DEVELOPER_NAME
                     }
                 }
             }
