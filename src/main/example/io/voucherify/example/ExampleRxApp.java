@@ -82,7 +82,7 @@ public class ExampleRxApp {
               public RedeemVoucherResponse call(VoucherResponse voucher) {
                 Customer customer = Customer.builder().sourceId("alice.morgan").build();
                 Order order = Order.builder().amount(7250).build();
-                RedeemVoucher redeemVoucher = RedeemVoucher.builder().customer(customer).order(order).medatadaEntry("test", true).build();
+                RedeemVoucher redeemVoucher = RedeemVoucher.builder().customer(customer).order(order).metadataEntry("test", true).build();
                 return client.redemptions().redeem(voucher.getCode(), redeemVoucher);
               }
             })

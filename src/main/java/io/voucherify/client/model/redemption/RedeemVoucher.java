@@ -23,7 +23,7 @@ public class RedeemVoucher {
 
   private Order order;
 
-  @Singular("medatadaEntry")
+  @Singular("metadataEntry")
   private Map<String, Object> metadata;
 
 }
