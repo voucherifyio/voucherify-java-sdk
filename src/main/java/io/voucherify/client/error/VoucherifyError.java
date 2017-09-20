@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import retrofit.RetrofitError;
 
+import static retrofit.RetrofitError.*;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -25,9 +27,9 @@ public class VoucherifyError extends RuntimeException {
 
   private VoucherifyError(WrappedError wrapped, Throwable throwable) {
     super(wrapped != null ? wrapped.getMessage() : "unknown", throwable);
-    this.code = wrapped.getCode();
-    this.details = wrapped.getDetails();
-    this.key = wrapped.getKey();
+    this.code = wrapped != null ? wrapped.getCode() : null;
+    this.details = wrapped != null ? wrapped.getDetails() : throwable.getMessage();
+    this.key = wrapped != null ? wrapped.getKey() : null;
   }
 
   private VoucherifyError(Throwable throwable) {
@@ -36,7 +38,14 @@ public class VoucherifyError extends RuntimeException {
 
   public static VoucherifyError from(Throwable throwable) {
     if (throwable instanceof RetrofitError) {
-      WrappedError wrapped = (WrappedError) ((RetrofitError) throwable).getBodyAs(WrappedError.class);
+      RetrofitError retrofitError = (RetrofitError) throwable;
+      Kind kind = retrofitError.getKind();
+
+      if (kind == Kind.NETWORK || kind == Kind.UNEXPECTED || kind == Kind.CONVERSION) {
+        return new VoucherifyError(retrofitError.getMessage());
+      }
+
+      WrappedError wrapped = (WrappedError) retrofitError.getBodyAs(WrappedError.class);
       return new VoucherifyError(wrapped, throwable);
     }
 
