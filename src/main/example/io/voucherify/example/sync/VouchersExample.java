@@ -14,8 +14,6 @@ import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 
-import java.util.List;
-
 public class VouchersExample extends AbsExample {
 
   public VouchersExample(VoucherifyClient client) {
@@ -24,23 +22,23 @@ public class VouchersExample extends AbsExample {
 
   public void example() {
     Voucher giftVoucher = Voucher.builder()
-            .type(VoucherType.GIFT_VOUCHER)
-            .gift(Gift.builder().amount(10000).build())
-            .category("Java SDK Example")
-            .redemption(VoucherRedemption.builder().quantity(1).build())
-            .build();
+        .type(VoucherType.GIFT_VOUCHER)
+        .gift(Gift.builder().amount(10000).build())
+        .category("Java SDK Example")
+        .redemption(VoucherRedemption.builder().quantity(1).build())
+        .build();
 
     CreateVoucher createVoucher = CreateVoucher.builder()
-            .voucher(giftVoucher)
-            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-            .build();
+        .voucher(giftVoucher)
+        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+        .build();
 
     VoucherResponse voucherResponse = client.vouchers().create(createVoucher);
 
     VoucherUpdate voucherUpdate = VoucherUpdate.builder()
-            .active(false)
-            .metadataEntry("test", true)
-            .build();
+        .active(false)
+        .metadataEntry("test", true)
+        .build();
 
     client.vouchers().update(voucherResponse.getCode(), voucherUpdate);
 

@@ -26,11 +26,10 @@ public class SegmentsExample extends AbsExample {
     condition.put(Operator.$contains, list);
     filter.put("conditions", condition);
 
-
     Segment segment = Segment.builder()
-            .type(SegmentType.AUTO_UPDATE)
-            .filterEntry("name", filter)
-            .build();
+        .type(SegmentType.AUTO_UPDATE)
+        .filterEntry("name", filter)
+        .build();
 
     SegmentResponse result = client.segments().create(segment);
 

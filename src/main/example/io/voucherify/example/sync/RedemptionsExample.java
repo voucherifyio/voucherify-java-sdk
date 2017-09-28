@@ -25,31 +25,32 @@ public class RedemptionsExample extends AbsExample {
 
   public void example() {
     Voucher giftVoucher = Voucher.builder()
-            .type(VoucherType.GIFT_VOUCHER)
-            .gift(Gift.builder().amount(10000).build())
-            .category("Java SDK Example")
-            .redemption(VoucherRedemption.builder().quantity(1).build())
-            .build();
+        .type(VoucherType.GIFT_VOUCHER)
+        .gift(Gift.builder().amount(10000).build())
+        .category("Java SDK Example")
+        .redemption(VoucherRedemption.builder().quantity(1).build())
+        .build();
 
     CreateVoucher createVoucher = CreateVoucher.builder()
-            .voucher(giftVoucher)
-            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-            .build();
+        .voucher(giftVoucher)
+        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+        .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
     Customer customer = Customer.builder().name("Doe").email("some-email").build();
     CustomerResponse customerResponse = client.customers().create(customer);
 
     Customer redeemCustomer = Customer.builder()
-            .id(customerResponse.getId())
-            .build();
+        .id(customerResponse.getId())
+        .build();
 
     RedeemVoucher redeemVoucher = RedeemVoucher.builder()
-            .customer(redeemCustomer)
-            .order(Order.builder()
-                    .amount(100)
-                    .build()
-            ).build();
+        .customer(redeemCustomer)
+        .order(Order.builder()
+            .amount(100)
+            .build()
+        )
+        .build();
 
     RedeemVoucherResponse redeemVoucherResponse = client.redemptions().redeem(result.getCode(), redeemVoucher);
 

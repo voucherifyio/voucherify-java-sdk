@@ -14,13 +14,13 @@ public class CustomersExample extends AbsExample {
   @Override
   public void example() {
     Address address = Address.builder()
-            .state("state")
-            .city("City")
-            .country("Country")
-            .line1("line1")
-            .line2("line2")
-            .postalCode("postalCode")
-            .build();
+        .state("state")
+        .city("City")
+        .country("Country")
+        .line1("line1")
+        .line2("line2")
+        .postalCode("postalCode")
+        .build();
 
     Customer customer = Customer.builder().name("Doe").email("some-email").address(address).build();
 

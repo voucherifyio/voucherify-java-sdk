@@ -24,11 +24,11 @@ public class ExampleApp {
 
   private static VoucherifyClient createVoucherifyClient() {
     return new VoucherifyClient.Builder()
-            .setAppId("d6e63dde-3c08-4f0e-9046-09a12e66f4de")
-            .setClientSecretKey("34b2e280-4678-4d1d-bc86-007737ab69de")
-            .apiVersion(ApiVersion.V_2017_04_05)
-            .setLogLevel(RestAdapter.LogLevel.FULL)
-            .build();
+        .setAppId("d6e63dde-3c08-4f0e-9046-09a12e66f4de")
+        .setClientSecretKey("34b2e280-4678-4d1d-bc86-007737ab69de")
+        .apiVersion(ApiVersion.V_2017_04_05)
+        .setLogLevel(RestAdapter.LogLevel.FULL)
+        .build();
   }
 
   private void start() {

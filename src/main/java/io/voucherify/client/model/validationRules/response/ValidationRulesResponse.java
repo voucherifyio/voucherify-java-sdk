@@ -3,7 +3,9 @@ package io.voucherify.client.model.validationRules.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.validationRules.OrderValidationRules;
 import io.voucherify.client.model.validationRules.ProductValidationRules;
+import io.voucherify.client.model.validationRules.PublicationValidationRules;
 import io.voucherify.client.model.validationRules.SegmentValidationRules;
+import io.voucherify.client.model.validationRules.UserValidationRules;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,6 +47,12 @@ public class ValidationRulesResponse {
 
   @JsonProperty("redemptions")
   private RedemptionValidationRules redemptionRules;
+
+  @JsonProperty("publications")
+  private PublicationValidationRules publicationRules;
+
+  @JsonProperty("users")
+  private UserValidationRules userRules;
 
   private String object;
 

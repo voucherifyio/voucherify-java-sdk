@@ -21,16 +21,16 @@ public class ValidationsExample extends AbsExample {
 
   public void example() {
     Voucher giftVoucher = Voucher.builder()
-            .type(VoucherType.GIFT_VOUCHER)
-            .gift(Gift.builder().amount(10000).build())
-            .category("Java SDK Example")
-            .redemption(VoucherRedemption.builder().quantity(1).build())
-            .build();
+        .type(VoucherType.GIFT_VOUCHER)
+        .gift(Gift.builder().amount(10000).build())
+        .category("Java SDK Example")
+        .redemption(VoucherRedemption.builder().quantity(1).build())
+        .build();
 
     CreateVoucher createVoucher = CreateVoucher.builder()
-            .voucher(giftVoucher)
-            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-            .build();
+        .voucher(giftVoucher)
+        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+        .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
 
@@ -38,15 +38,15 @@ public class ValidationsExample extends AbsExample {
     CustomerResponse customerResponse = client.customers().create(customer);
 
     Customer custToValidate = Customer.builder()
-            .id(customerResponse.getId())
-            .build();
+        .id(customerResponse.getId())
+        .build();
 
     VoucherValidation validation = VoucherValidation.builder()
-            .customer(custToValidate)
-            .order(Order.builder()
-                    .amount(100)
-                    .build()
-            ).build();
+        .customer(custToValidate)
+        .order(Order.builder()
+            .amount(100)
+            .build()
+        ).build();
 
     client.validations().validate(result.getCode(), validation);
     client.vouchers().delete(result.getCode(), true);

@@ -40,4 +40,9 @@ public class ValidationRules {
   @JsonProperty("redemptions")
   private RedemptionValidationRules redemptionRules;
 
+  @JsonProperty("publications")
+  private PublicationValidationRules publicationRules;
+
+  @JsonProperty("users")
+  private UserValidationRules userRules;
 }
