@@ -23,16 +23,16 @@ public class DistributionsExample extends AbsExample {
 
   public void example() {
     Voucher discountVoucher = Voucher.builder()
-            .type(VoucherType.DISCOUNT_VOUCHER)
-            .discount(Discount.amountOff(100))
-            .category("Java SDK Example")
-            .redemption(VoucherRedemption.builder().quantity(1).build())
-            .build();
+        .type(VoucherType.DISCOUNT_VOUCHER)
+        .discount(Discount.amountOff(100))
+        .category("Java SDK Example")
+        .redemption(VoucherRedemption.builder().quantity(1).build())
+        .build();
 
     CreateVoucher createVoucher = CreateVoucher.builder()
-            .voucher(discountVoucher)
-            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-            .build();
+        .voucher(discountVoucher)
+        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+        .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
 
@@ -40,23 +40,24 @@ public class DistributionsExample extends AbsExample {
     CustomerResponse customerResponse = client.customers().create(customer);
 
     Customer custToPublish = Customer.builder()
-            .id(customerResponse.getId())
-            .build();
+        .id(customerResponse.getId())
+        .build();
 
     PublishVoucher publishVoucher = PublishVoucher.builder()
-            .voucher(result.getCode())
-            .customer(custToPublish)
-            .build();
+        .voucher(result.getCode())
+        .customer(custToPublish)
+        .build();
 
     System.out.println(client.distributions().publish(publishVoucher));
 
     CreateExport createExport = CreateExport.builder()
-            .exportedObject("voucher")
-            .parameters(ExportParams.builder()
-                    .field("code")
-                    .field("voucher_type")
-                    .build()
-            ).build();
+        .exportedObject("voucher")
+        .parameters(ExportParams.builder()
+            .field("code")
+            .field("voucher_type")
+            .build()
+        )
+        .build();
 
     ExportResponse export = client.distributions().createExport(createExport);
 

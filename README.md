@@ -51,13 +51,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>5.1.2</version>
+  <version>5.2.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:5.1.2'
+compile 'io.voucherify.client:voucherify-java-sdk:5.2.0'
 
 ```
 
@@ -521,6 +521,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2017-09-28 - 5.2.0 - Support for additional ValidationRules properties, additional examples, license info update.
 * 2017-09-19 - 5.1.2 - Fix creating VoucherifyError from Retrofit errors, fix typo in RedeemVoucherBuilder.
 * 2017-08-21 - 5.1.1 - Added metadata to VoucherValidationResponse.
 * 2017-08-21 - 5.1.0 - Added metadata to VoucherValidation.
@@ -536,7 +537,7 @@ See more in [Changelog](CHANGELOG.md)
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The SDK is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 [Create Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-voucher
 [Get Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-get

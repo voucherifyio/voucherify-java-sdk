@@ -29,4 +29,15 @@ public class OrderValidationRules {
   @JsonProperty("products_count")
   @Singular("productsCountCondition")
   private Map<Operator, List<Integer>> productsCount;
+
+  @JsonProperty("all_orders_total_amount")
+  @Singular("allOrdersTotalAmountCondition")
+  private Map<Operator, List<Integer>> allOrdersTotalAmount;
+
+  @JsonProperty("all_orders_discount_amount")
+  @Singular("allOrdersDiscountAmountCondition")
+  private Map<Operator, List<Integer>> allOrdersDiscountAmount;
+
+
+  List<String> dupa;
 }
