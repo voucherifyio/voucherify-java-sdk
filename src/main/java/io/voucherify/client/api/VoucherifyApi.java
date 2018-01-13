@@ -3,6 +3,7 @@ package io.voucherify.client.api;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
+import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
@@ -11,6 +12,7 @@ import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.distribution.CreateExport;
 import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
+import io.voucherify.client.model.distribution.response.ListPublicationsResponse;
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
@@ -65,6 +67,9 @@ public interface VoucherifyApi {
   @GET("/campaigns")
   CampaignsResponse listCampaigns(@QueryMap Map<String, Object> filter);
 
+  @PUT("/campaigns/{name}")
+  CampaignResponse updateCampaign(@Path("name") String campaignName, @Body UpdateCampaign updateCampaign);
+
   @POST("/campaigns/{name}/vouchers/{code}")
   AddVoucherToCampaignResponse addVoucherToCampaignWithCode(@Path("name") String campaignName, @Path("code") String voucherCode, @Body AddVoucherToCampaign addVoucherToCampaign);
 
@@ -118,6 +123,9 @@ public interface VoucherifyApi {
 
   @DELETE("/exports/{id}")
   Void deleteExport(@Path("id") String id);
+
+  @GET("/publications")
+  ListPublicationsResponse list(@QueryMap Map<String, Object> filter);
 
   // VOUCHERS
 
