@@ -35,8 +35,10 @@ import io.voucherify.client.model.redemption.response.RollbackRedemptionResponse
 import io.voucherify.client.model.redemption.response.VoucherRedemptionsResponse;
 import io.voucherify.client.model.segment.Segment;
 import io.voucherify.client.model.segment.response.SegmentResponse;
+import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.VoucherValidationResponse;
+import io.voucherify.client.model.validation.response.PromotionValidationResponse;
 import io.voucherify.client.model.validationRules.ValidationRules;
 import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
 import io.voucherify.client.model.voucher.AddBalance;
@@ -172,6 +174,9 @@ public interface VoucherifyApi {
 
   @POST("/vouchers/{code}/validate")
   VoucherValidationResponse validateVoucher(@Path("code") String code, @Body VoucherValidation voucherValidation);
+
+  @POST("/promotions/validation")
+  PromotionValidationResponse validatePromotion(@Body PromotionValidation promotionValidation);
 
   // PRODUCTS
 
