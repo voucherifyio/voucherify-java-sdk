@@ -3,7 +3,9 @@ package io.voucherify.client.module;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
+import io.voucherify.client.model.customer.CustomersFilter;
 import io.voucherify.client.model.customer.response.CustomerResponse;
+import io.voucherify.client.model.customer.response.CustomersResponse;
 import io.voucherify.client.module.CustomersModule.ExtAsync;
 import io.voucherify.client.module.CustomersModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
@@ -31,6 +33,10 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public void delete(String customerId) {
     api.deleteCustomer(customerId);
+  }
+
+  public CustomersResponse list(CustomersFilter filter) {
+    return api.listCustomers(filter.asMap());
   }
 
   @Override
@@ -70,12 +76,17 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
     public void delete(String customerId, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().delete(customerId), callback);
     }
+
+    public void list(CustomersFilter filter, VoucherifyCallback<CustomersResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(filter), callback);
+    }
   }
 
   public class ExtRxJava extends AbsModule.Rx {
 
     public Observable<CustomerResponse> get(final String customerId) {
       return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
+
         @Override
         public CustomerResponse method() {
           return CustomersModule.this.get(customerId);
@@ -85,6 +96,7 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<CustomerResponse> create(final Customer customer) {
       return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
+
         @Override
         public CustomerResponse method() {
           return CustomersModule.this.create(customer);
@@ -94,6 +106,7 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<CustomerResponse> update(final Customer customer) {
       return RxUtils.defer(new RxUtils.DefFunc<CustomerResponse>() {
+
         @Override
         public CustomerResponse method() {
           return CustomersModule.this.update(customer);
@@ -103,10 +116,21 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<Void> delete(final String customerId) {
       return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+
         @Override
         public Void method() {
           CustomersModule.this.delete(customerId);
           return null;
+        }
+      });
+    }
+
+    public Observable<CustomersResponse> list(final CustomersFilter filter) {
+      return RxUtils.defer(new RxUtils.DefFunc<CustomersResponse>() {
+
+        @Override
+        public CustomersResponse method() {
+         return CustomersModule.this.list(filter);
         }
       });
     }

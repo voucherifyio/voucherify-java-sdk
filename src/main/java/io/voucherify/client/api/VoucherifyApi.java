@@ -9,6 +9,7 @@ import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerResponse;
+import io.voucherify.client.model.customer.response.CustomersResponse;
 import io.voucherify.client.model.distribution.CreateExport;
 import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
@@ -92,6 +93,9 @@ public interface VoucherifyApi {
 
   @DELETE("/customers/{id}")
   Void deleteCustomer(@Path("id") String customerId);
+
+  @GET("/customers")
+  CustomersResponse listCustomers(@QueryMap Map<String, Object> filter);
 
   // REDEMPTIONS
 
