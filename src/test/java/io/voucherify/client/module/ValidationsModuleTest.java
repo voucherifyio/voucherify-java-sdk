@@ -1,13 +1,15 @@
 package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
-import org.junit.Test;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.order.Order;
 import io.voucherify.client.model.order.OrderItem;
+import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.VoucherValidationResponse;
+import io.voucherify.client.model.validation.response.PromotionValidationResponse;
+import org.junit.Test;
 import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -47,6 +49,29 @@ public class ValidationsModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldValidatePromotionCampaign() {
+    // given
+    PromotionValidation validation = PromotionValidation.builder()
+        .customer(
+            Customer.builder()
+                .email("sth@sth.com")
+                .build()
+        )
+        .build();
+    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+
+    // when
+    PromotionValidationResponse result = client.validations().validate(validation);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getValid()).isEqualTo(true);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/validation");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
   public void shouldValidateVoucherAsync() throws Exception {
     // given
     enqueueResponse("{\"code\" : \"some-code\", \"valid\": true }");
@@ -59,6 +84,30 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some-code/validate");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldValidatePromotionCampaignAsync() {
+    // given
+    PromotionValidation validation = PromotionValidation.builder()
+        .customer(
+            Customer.builder()
+                .email("sth@sth.com")
+                .build()
+        )
+        .build();
+    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+    VoucherifyCallback callback = createCallback();
+
+
+    // when
+    client.validations().async().validate(validation, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -77,4 +126,29 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(request.getPath()).isEqualTo("/vouchers/some-code/validate");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
+
+  @Test
+  public void shouldValidatePromotionCampaignRxJava() {
+    // given
+    PromotionValidation validation = PromotionValidation.builder()
+        .customer(
+            Customer.builder()
+                .email("sth@sth.com")
+                .build()
+        )
+        .build();
+    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+
+    // when
+    Observable<PromotionValidationResponse> observable = client.validations().rx().validate(validation);
+
+    // then
+    PromotionValidationResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    assertThat(result.getValid()).isEqualTo(true);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/validation");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
 }

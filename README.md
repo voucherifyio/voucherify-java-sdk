@@ -244,10 +244,16 @@ voucherify.distributions().deleteExport(String id);
 Methods are provided within `voucherify.validations().*` namespace.
 
 - [Validate Voucher](#validate-voucher)
+- [Validate Promotion Campaign](#validate-promotion-campaign)
 
 #### [Validate Voucher]
 ```java
 voucherify.validations().validate(String code, VoucherValidation voucherValidation);
+```
+
+#### [Validate Promotion Campaign]
+```java
+voucherify.validations().validate(PromotionValidation promotionValidation);
 ```
 
 ---
