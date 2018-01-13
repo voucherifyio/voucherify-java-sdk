@@ -169,6 +169,8 @@ public class VoucherifyClient {
 
         if (builder.apiVersion != null) {
           request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, builder.apiVersion.getValue());
+        } else {
+          request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, ApiVersion.V_2017_04_20.getValue());
         }
       }
     };
