@@ -7,25 +7,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class PublishEntryResponse {
+public class ListPublicationsResponse {
 
-  @JsonProperty("customer_id")
-  private String customerId;
+  private String object;
 
-  private String customer;
+  private Integer total;
 
-  private String channel;
+  @JsonProperty("data_ref")
+  private String dataRef;
 
-  @JsonProperty("published_at")
-  private Date publishedAt;
-
-  private Map<String, Object> metadata;
-
+  private List<PublicationResponse> publications;
 }

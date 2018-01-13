@@ -3,8 +3,10 @@ package io.voucherify.client.module;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.distribution.CreateExport;
+import io.voucherify.client.model.distribution.ListPublicationsFilter;
 import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
+import io.voucherify.client.model.distribution.response.ListPublicationsResponse;
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.module.DistributionsModule.ExtAsync;
 import io.voucherify.client.module.DistributionsModule.ExtRxJava;
@@ -33,6 +35,10 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public void deleteExport(String id) {
     api.deleteExport(id);
+  }
+
+  public ListPublicationsResponse list(ListPublicationsFilter filter) {
+    return api.list(filter.asMap());
   }
 
   @Override
@@ -72,12 +78,17 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
     public void deleteExport(String id, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().deleteExport(id), callback);
     }
+
+    public void list(ListPublicationsFilter filter, VoucherifyCallback<ListPublicationsResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(filter), callback);
+    }
   }
 
   public class ExtRxJava extends AbsModule.Rx {
 
     public Observable<PublishVoucherResponse> publish(final PublishVoucher publishVoucher) {
       return RxUtils.defer(new RxUtils.DefFunc<PublishVoucherResponse>() {
+
         @Override
         public PublishVoucherResponse method() {
           return DistributionsModule.this.publish(publishVoucher);
@@ -87,6 +98,7 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<ExportResponse> createExport(final CreateExport createExport) {
       return RxUtils.defer(new RxUtils.DefFunc<ExportResponse>() {
+
         @Override
         public ExportResponse method() {
           return DistributionsModule.this.createExport(createExport);
@@ -96,6 +108,7 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<ExportResponse> getExport(final String id) {
       return RxUtils.defer(new RxUtils.DefFunc<ExportResponse>() {
+
         @Override
         public ExportResponse method() {
           return DistributionsModule.this.getExport(id);
@@ -105,10 +118,21 @@ public final class DistributionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<Void> deleteExport(final String id) {
       return RxUtils.defer(new RxUtils.DefFunc<Void>() {
+
         @Override
         public Void method() {
           DistributionsModule.this.deleteExport(id);
           return null;
+        }
+      });
+    }
+
+    public Observable<ListPublicationsResponse> list(final ListPublicationsFilter filter) {
+      return RxUtils.defer(new RxUtils.DefFunc<ListPublicationsResponse>() {
+
+        @Override
+        public ListPublicationsResponse method() {
+          return DistributionsModule.this.list(filter);
         }
       });
     }

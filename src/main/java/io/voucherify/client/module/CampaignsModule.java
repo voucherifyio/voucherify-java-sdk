@@ -7,6 +7,7 @@ import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CampaignsFilter;
 import io.voucherify.client.model.campaign.CreateCampaign;
 import io.voucherify.client.model.campaign.DeleteCampaignParams;
+import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
@@ -27,6 +28,18 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
     return api.createCampaign(createCampaign);
   }
 
+  public CampaignResponse get(String name) {
+    return api.getCampaign(name);
+  }
+
+  public CampaignResponse update(String name, UpdateCampaign updateCampaign) {
+    return api.updateCampaign(name, updateCampaign);
+  }
+
+  public void delete(String campaignName, DeleteCampaignParams deleteCampaignParams) {
+    api.deleteCampaign(campaignName, deleteCampaignParams.getForce());
+  }
+
   public AddVoucherToCampaignResponse addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign) {
     return api.addVoucherToCampaign(campaignName, addVoucherToCampaign);
   }
@@ -35,16 +48,8 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
     return api.addVoucherToCampaignWithCode(campaignName, code, addVoucherToCampaign);
   }
 
-  public void delete(String campaignName, DeleteCampaignParams deleteCampaignParams) {
-    api.deleteCampaign(campaignName, deleteCampaignParams.getForce());
-  }
-
   public void importVouchers(String campaignName, CampaignImportVouchers importVouchers) {
     api.importVouchersToCampaign(campaignName, importVouchers);
-  }
-
-  public CampaignResponse get(String name) {
-    return api.getCampaign(name);
   }
 
   public CampaignsResponse list(CampaignsFilter campaignsFilter) {
@@ -91,6 +96,18 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void importVouchers(String campaignName, CampaignImportVouchers importVouchers, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().importVouchers(campaignName, importVouchers), callback);
+    }
+
+    public void list(CampaignsFilter campaignsFilter, VoucherifyCallback<CampaignsResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(campaignsFilter), callback);
+    }
+
+    public void get(String name, VoucherifyCallback<CampaignResponse> callback) {
+      RxUtils.subscribe(executor, rx().get(name), callback);
+    }
+
+    public void update(String name, UpdateCampaign updateCampaign, VoucherifyCallback<CampaignResponse> callback) {
+      RxUtils.subscribe(executor, rx().update(name, updateCampaign), callback);
     }
   }
 
@@ -157,6 +174,15 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
         @Override
         public CampaignResponse method() {
           return CampaignsModule.this.get(name);
+        }
+      });
+    }
+
+    public Observable<CampaignResponse> update(final String name, final UpdateCampaign updateCampaign) {
+      return RxUtils.defer(new RxUtils.DefFunc<CampaignResponse>() {
+        @Override
+        public CampaignResponse method() {
+          return CampaignsModule.this.update(name, updateCampaign);
         }
       });
     }

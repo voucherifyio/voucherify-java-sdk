@@ -2,11 +2,15 @@ package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.Operator;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.distribution.CreateExport;
+import io.voucherify.client.model.distribution.ListPublicationsFilter;
+import io.voucherify.client.model.distribution.ListPublicationsFilters;
 import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
 import io.voucherify.client.model.distribution.response.ExportStatus;
+import io.voucherify.client.model.distribution.response.ListPublicationsResponse;
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import org.junit.Test;
 import rx.Observable;
@@ -92,6 +96,39 @@ public class DistributionsModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldListPublications() {
+    // given
+    enqueueResponse("{\"object\" : \"list\", \"publications\": [] }");
+    ListPublicationsFilter filter = ListPublicationsFilter.builder()
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(0)
+                .value("sth")
+                .build()
+        )
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(1)
+                .value("sth2")
+                .build()
+        )
+        .build();
+
+    // when
+    ListPublicationsResponse response = client.distributions().list(filter);
+
+    // then
+    assertThat(response).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
   public void shouldPublishVoucherAsync() {
     // given
     enqueueResponse("{\"code\" : \"some-code\", \"campaign\": \"some-campaign\" }");
@@ -154,6 +191,40 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldListPublicationsAsync() {
+    // given
+    VoucherifyCallback callback = createCallback();
+    enqueueResponse("{\"object\" : \"list\", \"publications\": [] }");
+    ListPublicationsFilter filter = ListPublicationsFilter.builder()
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(0)
+                .value("sth")
+                .build()
+        )
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(1)
+                .value("sth2")
+                .build()
+        )
+        .build();
+
+    // when
+   client.distributions().async().list(filter, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 
   @Test
@@ -221,5 +292,39 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldListPublicationsRxJava() {
+    // given
+    enqueueResponse("{\"object\" : \"list\", \"publications\": [] }");
+    ListPublicationsFilter filter = ListPublicationsFilter.builder()
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(0)
+                .value("sth")
+                .build()
+        )
+        .filter(
+            ListPublicationsFilters.builder()
+                .fieldName("some_field")
+                .operator(Operator.$has_value)
+                .index(1)
+                .value("sth2")
+                .build()
+        )
+        .build();
+
+    // when
+    Observable<ListPublicationsResponse> observable = client.distributions().rx().list(filter);
+
+    // then
+    ListPublicationsResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 }

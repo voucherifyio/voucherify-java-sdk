@@ -5,8 +5,10 @@ import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVoucher;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
+import io.voucherify.client.model.campaign.CampaignType;
 import io.voucherify.client.model.campaign.CreateCampaign;
 import io.voucherify.client.model.campaign.DeleteCampaignParams;
+import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import org.junit.Test;
@@ -114,6 +116,21 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldUpdateCampaign() {
+    // given
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
+
+    // when
+    client.campaigns().update("campaign-name", updateCampaign);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
   public void shouldCreateCampaignAsync() {
     // given
     CreateCampaign createCampaign = CreateCampaign
@@ -215,6 +232,23 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldUpdateCampaignAsync() {
+    // given
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    VoucherifyCallback callback = createCallback();
+    enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
+
+    // when
+    client.campaigns().async().update("campaign-name", updateCampaign, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
   public void shouldCreateCampaignRxJava() {
     // given
     CreateCampaign createCampaign = CreateCampaign
@@ -308,5 +342,23 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldUpdateCampaignRxJava() {
+    // given
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    VoucherifyCallback callback = createCallback();
+    enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
+
+    // when
+    Observable<CampaignResponse> observable = client.campaigns().rx().update("campaign-name", updateCampaign);
+
+    // then
+    CampaignResponse result = observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(result).isNotNull();
+    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getMethod()).isEqualTo("PUT");
   }
 }
