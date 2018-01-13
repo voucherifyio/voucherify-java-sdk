@@ -1,6 +1,8 @@
 package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.voucherify.client.model.customer.CustomersFilter;
+import io.voucherify.client.model.customer.response.CustomersResponse;
 import org.junit.Test;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
@@ -94,6 +96,23 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldListCustomers() {
+    // given
+    CustomersFilter filter = CustomersFilter.builder().limit(5).email("sth@sth.com").build();
+
+    enqueueResponse("{\"object\" : \"list\", \"customers\": [] }");
+
+    // when
+    CustomersResponse result = client.customers().list(filter);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(result).isNotNull();
+    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
   public void shouldCreateCustomerAsync() {
     // given
     Customer customer = Customer.builder()
@@ -183,6 +202,24 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldListCustomersAsync() {
+    // given
+    CustomersFilter filter = CustomersFilter.builder().limit(5).email("sth@sth.com").build();
+    VoucherifyCallback callback = createCallback();
+
+    enqueueResponse("{\"object\" : \"list\", \"customers\": [] }");
+
+    // when
+    client.customers().async().list(filter, callback);
+
+    // then
+    RecordedRequest request = getRequest();
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
   public void shouldCreateCustomerRxJava() {
     // given
     Customer customer = Customer.builder()
@@ -263,5 +300,23 @@ public class CustomersModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
+  }
+
+  @Test
+  public void shouldListCustomersRxJava() {
+    // given
+    CustomersFilter filter = CustomersFilter.builder().limit(5).email("sth@sth.com").build();
+
+    enqueueResponse("{\"object\" : \"list\", \"customers\": [] }");
+
+    // when
+    Observable<CustomersResponse> observable = client.customers().rx().list(filter);
+
+    // then
+    CustomersResponse result = observable.toBlocking().first();
+    RecordedRequest request = getRequest();
+    assertThat(result).isNotNull();
+    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getMethod()).isEqualTo("GET");
   }
 }
