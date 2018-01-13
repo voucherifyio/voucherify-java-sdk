@@ -15,6 +15,11 @@ import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
 import io.voucherify.client.model.distribution.response.ListPublicationsResponse;
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
+import io.voucherify.client.model.order.CreateOrder;
+import io.voucherify.client.model.order.UpdateOrder;
+import io.voucherify.client.model.order.response.CreateOrderResponse;
+import io.voucherify.client.model.order.response.GetOrderResponse;
+import io.voucherify.client.model.order.response.ListOrdersResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
 import io.voucherify.client.model.product.response.ProductResponse;
@@ -258,4 +263,17 @@ public interface VoucherifyApi {
 
   @DELETE("/promotions/tiers/{id}")
   Void deletePromotionTier(@Path("id") String id);
+
+  // ORDERS
+  @POST("/orders")
+  CreateOrderResponse createOrder(@Body CreateOrder createOrder);
+
+  @GET("/orders/{id}")
+  GetOrderResponse getOrder(@Path("id") String id);
+
+  @PUT("/orders/{id}")
+  GetOrderResponse updateOrder(@Path("id") String id, @Body UpdateOrder updateOrder);
+
+  @GET("/orders")
+  ListOrdersResponse listOrders();
 }
