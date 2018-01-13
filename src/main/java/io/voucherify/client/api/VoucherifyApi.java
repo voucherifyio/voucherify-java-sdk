@@ -26,8 +26,10 @@ import io.voucherify.client.model.promotion.Tier;
 import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignResponse;
 import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
 import io.voucherify.client.model.promotion.reponse.TierResponse;
+import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
+import io.voucherify.client.model.redemption.response.RedeemPromotionResponse;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
 import io.voucherify.client.model.redemption.response.RedemptionEntryResponse;
 import io.voucherify.client.model.redemption.response.RedemptionsResponse;
@@ -108,6 +110,9 @@ public interface VoucherifyApi {
 
   @POST("/vouchers/{code}/redemption")
   RedeemVoucherResponse redeem(@Path("code") String code, @Body RedeemVoucher redeemVoucher);
+
+  @POST("/promotions/tiers/{id}/redemption")
+  RedeemPromotionResponse redeem(@Path("id") String id, @Body RedeemPromotion redeemPromotion);
 
   @GET("/redemptions")
   RedemptionsResponse listRedemptions(@QueryMap Map<String, Object> filter);

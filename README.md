@@ -262,6 +262,7 @@ voucherify.validations().validate(PromotionValidation promotionValidation);
 Methods are provided within `voucherify.redemptions.()*` namespace.
 
 - [Redeem Voucher](#redeem-voucher)
+- [Redeem Promotion](#redeem-promotion)
 - [List Redemptions](#list-redemptions)
 - [Get Voucher's Redemptions](#get-vouchers-redemptions)
 - [Get Redemption](#get-redemption)
@@ -270,6 +271,10 @@ Methods are provided within `voucherify.redemptions.()*` namespace.
 #### [Redeem Voucher]
 ```java
 voucherify.redemptions().redeem(String code, RedeemVoucher redeemVoucher);
+```
+#### [Redeem Promotion]
+```java
+voucherify.redemptions().redeem(String id, RedeemPromotion redeemPromotion);
 ```
 #### [List Redemptions]
 ```java
@@ -637,6 +642,6 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Validate Promotion Campaign]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-promotions-1
 [List Promotion Tiers]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-promotions
 [Add Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-promotion-tier-to-campaign
-[Redeem Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-promotion
+[Redeem Promotion]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-promotion
 [Update Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-promotion
 [Delete Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-promotion
