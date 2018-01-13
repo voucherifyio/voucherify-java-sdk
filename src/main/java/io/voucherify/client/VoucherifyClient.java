@@ -19,6 +19,7 @@ import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
 import io.voucherify.client.module.ProductsModule;
+import io.voucherify.client.module.PromotionsModule;
 import io.voucherify.client.module.RedemptionsModule;
 import io.voucherify.client.module.SegmentsModule;
 import io.voucherify.client.module.ValidationRulesModule;
@@ -54,6 +55,8 @@ public class VoucherifyClient {
 
   private ValidationRulesModule validationRulesModule;
 
+  private PromotionsModule promotionsModule;
+
   private VoucherifyApi voucherifyApi;
 
   private Executor executor;
@@ -81,6 +84,7 @@ public class VoucherifyClient {
     this.productsModule = new ProductsModule(voucherifyApi, executor);
     this.segmentsModule = new SegmentsModule(voucherifyApi, executor);
     this.validationRulesModule = new ValidationRulesModule(voucherifyApi, executor);
+    this.promotionsModule = new PromotionsModule(voucherifyApi, executor);
   }
 
   public VoucherModule vouchers() {
@@ -117,6 +121,10 @@ public class VoucherifyClient {
 
   public ValidationRulesModule validationRules() {
     return validationRulesModule;
+  }
+
+  public PromotionsModule promotions() {
+    return promotionsModule;
   }
 
   private Executor createCallbackExecutor() {

@@ -38,6 +38,8 @@ API:
 |
 <a href="#segments-api">Segments</a>
 |
+<a href="#promotions-api">Promotions</a>
+|
 <a href="#utils">Utils</a>
 </p>
 
@@ -419,6 +421,39 @@ voucherify.segments().delete(String id);
 
 ---
 
+### Promotions API
+Methods are provided within `voucherify.promotions().*` namespace.
+
+- [Create Promotion Campaign](#create-promotion-campaign)
+- [List Promotion Tiers](#list-promotion-tiers)
+- [Add Promotion Tier](#add-promotion-tier)
+- [Update Promotion Tier](#update-promotion-tier)
+- [Delete Promotion Tier](#delete-promotion-tier)
+
+#### [Create Promotion Campaign]
+```java
+voucherify.promotions().create(CreatePromotionCampaign campaign);
+```
+#### [List Promotion Tiers]
+```java
+voucherify.promotions().list(String campaignId);
+```
+#### [Add Promotion Tier]
+```java
+voucherify.promotions().addPromotionTier(String tierId, Tier tier);
+```
+#### [Update Promotion Tier]
+```java
+voucherify.promotions().updatePromotionTier(String tierId, Tier tier);
+```
+#### [Delete Promotion Tier]
+```java
+voucherify.promotions().deletePromotionTier(String tierId);
+```
+
+---
+
+
 ### Migration to 5.0
 
 Version 5.x of the SDK is not backwards compatible with previous version
@@ -591,3 +626,11 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Create Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-segment
 [Get Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-segment
 [Delete Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-segment
+
+[Create Promotion Campaign]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-promotion-campaign
+[Validate Promotion Campaign]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-promotions-1
+[List Promotion Tiers]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-promotions
+[Add Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-promotion-tier-to-campaign
+[Redeem Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-promotion
+[Update Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-promotion
+[Delete Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-promotion

@@ -21,6 +21,11 @@ import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
 import io.voucherify.client.model.product.response.SKUsResponse;
+import io.voucherify.client.model.promotion.CreatePromotionCampaign;
+import io.voucherify.client.model.promotion.Tier;
+import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignResponse;
+import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
+import io.voucherify.client.model.promotion.reponse.TierResponse;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
@@ -226,4 +231,21 @@ public interface VoucherifyApi {
 
   @DELETE("/validation-rules/{id}")
   Void deleteValidationRules(@Path("id") String id);
+
+  // PROMOTIONS
+
+  @POST("/campaigns")
+  CreatePromotionCampaignResponse createPromotionCampaign(@Body CreatePromotionCampaign createPromotionCampaign);
+
+  @GET("/promotions/{id}/tiers")
+  ListPromotionTiersResponse listPromotionTiers(@Path("id") String id);
+
+  @POST("/promotions/{id}/tiers")
+  TierResponse addPromotionTier(@Path("id") String id, @Body Tier tier);
+
+  @PUT("/promotions/tiers/{id}")
+  TierResponse updatePromotionTier(@Path("id") String id, @Body Tier tier);
+
+  @DELETE("/promotions/tiers/{id}")
+  Void deletePromotionTier(@Path("id") String id);
 }
