@@ -1,6 +1,8 @@
 package io.voucherify.client.module;
 
+import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RollbackRedemption;
+import io.voucherify.client.model.redemption.response.RedeemPromotionResponse;
 import io.voucherify.client.model.redemption.response.RedemptionEntryResponse;
 import io.voucherify.client.model.redemption.response.RedemptionsResponse;
 import io.voucherify.client.model.redemption.response.RollbackRedemptionResponse;
@@ -25,6 +27,10 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public RedeemVoucherResponse redeem(String code, RedeemVoucher redeemVoucher) {
     return api.redeem(code, redeemVoucher);
+  }
+
+  public RedeemPromotionResponse redeem(String id, RedeemPromotion redeemPromotion) {
+    return api.redeem(id, redeemPromotion);
   }
 
   public RedemptionEntryResponse get(String redemptionId) {
@@ -69,6 +75,10 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().redeem(code, redeemVoucher), callback);
     }
 
+    public void redeem(String id, RedeemPromotion redeemPromotion, VoucherifyCallback<RedeemPromotionResponse> callback) {
+      RxUtils.subscribe(executor, rx().redeem(id, redeemPromotion), callback);
+    }
+
     public void list(RedemptionsFilter redemptionsFilter, VoucherifyCallback<RedemptionsResponse> callback) {
       RxUtils.subscribe(executor, rx().list(redemptionsFilter), callback);
     }
@@ -93,6 +103,15 @@ public final class RedemptionsModule extends AbsModule<ExtAsync, ExtRxJava> {
         @Override
         public RedeemVoucherResponse method() {
           return RedemptionsModule.this.redeem(code, redeemVoucher);
+        }
+      });
+    }
+
+    public Observable<RedeemPromotionResponse> redeem(final String id, final RedeemPromotion redeemPromotion) {
+      return RxUtils.defer(new RxUtils.DefFunc<RedeemPromotionResponse>() {
+        @Override
+        public RedeemPromotionResponse method() {
+          return RedemptionsModule.this.redeem(id, redeemPromotion);
         }
       });
     }

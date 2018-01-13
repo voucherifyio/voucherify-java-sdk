@@ -5,10 +5,12 @@ import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.order.Order;
 import io.voucherify.client.model.order.OrderItem;
+import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RedemptionStatus;
 import io.voucherify.client.model.redemption.RedemptionsFilter;
 import io.voucherify.client.model.redemption.RollbackRedemption;
+import io.voucherify.client.model.redemption.response.RedeemPromotionResponse;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
 import io.voucherify.client.model.redemption.response.RedemptionEntryResponse;
 import io.voucherify.client.model.redemption.response.RedemptionsResponse;
@@ -51,6 +53,38 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldRedeemPromotion() {
+    // given
+    Customer customer = Customer.builder().email("some email")
+        .description("some description")
+        .metadataEntry("locale", "en-GB")
+        .build();
+
+    Order order = Order.builder()
+        .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
+        .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
+        .amount(25000)
+        .build();
+
+    RedeemPromotion redeemPromotion = RedeemPromotion.builder()
+        .customer(customer)
+        .order(order)
+        .build();
+
+    enqueueResponse("{\"object\" : \"redemption\", \"order\": {}, \"promotion_tier\": {} }");
+
+    // when
+    RedeemPromotionResponse result = client.redemptions().redeem("id", redeemPromotion);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getTier()).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -160,6 +194,39 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldRedeemPromotionAsync() {
+    // given
+    Customer customer = Customer.builder().email("some email")
+        .description("some description")
+        .metadataEntry("locale", "en-GB")
+        .build();
+
+    Order order = Order.builder()
+        .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
+        .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
+        .amount(25000)
+        .build();
+
+    RedeemPromotion redeemPromotion = RedeemPromotion.builder()
+        .customer(customer)
+        .order(order)
+        .build();
+
+    enqueueResponse("{\"object\" : \"redemption\", \"order\": {}, \"promotion_tier\": {} }");
+
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.redemptions().async().redeem("id", redeemPromotion, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -274,6 +341,39 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldRedeemPromotionRxJava() {
+    // given
+    Customer customer = Customer.builder().email("some email")
+        .description("some description")
+        .metadataEntry("locale", "en-GB")
+        .build();
+
+    Order order = Order.builder()
+        .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
+        .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
+        .amount(25000)
+        .build();
+
+    RedeemPromotion redeemPromotion = RedeemPromotion.builder()
+        .customer(customer)
+        .order(order)
+        .build();
+
+    enqueueResponse("{\"object\" : \"redemption\", \"order\": {}, \"promotion_tier\": {} }");
+
+    // when
+    Observable<RedeemPromotionResponse> observable = client.redemptions().rx().redeem("id", redeemPromotion);
+
+    // then
+    RedeemPromotionResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    assertThat(result.getTier()).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
