@@ -11,6 +11,7 @@ import io.voucherify.client.module.CustomersModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
+import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -37,6 +38,10 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public CustomersResponse list(CustomersFilter filter) {
     return api.listCustomers(filter.asMap());
+  }
+
+  public CustomersResponse list() {
+    return api.listCustomers(new HashMap<String, Object>());
   }
 
   @Override
@@ -79,6 +84,10 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void list(CustomersFilter filter, VoucherifyCallback<CustomersResponse> callback) {
       RxUtils.subscribe(executor, rx().list(filter), callback);
+    }
+
+    public void list(VoucherifyCallback<CustomersResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(), callback);
     }
   }
 
@@ -130,7 +139,17 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
         @Override
         public CustomersResponse method() {
-         return CustomersModule.this.list(filter);
+          return CustomersModule.this.list(filter);
+        }
+      });
+    }
+
+    public Observable<CustomersResponse> list() {
+      return RxUtils.defer(new RxUtils.DefFunc<CustomersResponse>() {
+
+        @Override
+        public CustomersResponse method() {
+          return CustomersModule.this.list();
         }
       });
     }
