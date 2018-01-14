@@ -42,6 +42,8 @@ API:
 |
 <a href="#promotions-api">Promotions</a>
 |
+<a href="#events-api">Events</a>
+|
 <a href="#utils">Utils</a>
 </p>
 
@@ -495,6 +497,18 @@ voucherify.promotions().deletePromotionTier(String tierId);
 
 ---
 
+### Events API
+Methods are provided within `voucherify.events.*` namespace.
+
+- [Create Events](#create-custom-event)
+
+#### [Create event]
+Check [customer object](https://docs.voucherify.io/v1/reference#the-customer-object).
+```java
+voucherify.events.track(CustomEvent customEvent)
+```
+
+---
 
 ### Migration to 5.0
 
@@ -681,3 +695,5 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Get Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
 [Update Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-order
 [List Orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
+
+[Create Event]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-custom-event-object
