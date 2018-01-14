@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>5.2.0</version>
+  <version>5.3.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:5.2.0'
+compile 'io.voucherify.client:voucherify-java-sdk:5.3.0'
 
 ```
 
@@ -629,6 +629,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-01-14 - 5.3.0 - API Version set in header by default, Events API, Orders API, added missing methods to Customers, Distributions and Campaigns modules.
 * 2017-09-28 - 5.2.0 - Support for additional ValidationRules properties, additional examples, license info update.
 * 2017-09-19 - 5.1.2 - Fix creating VoucherifyError from Retrofit errors, fix typo in RedeemVoucherBuilder.
 * 2017-08-21 - 5.1.1 - Added metadata to VoucherValidationResponse.
