@@ -275,5 +275,5 @@ public interface VoucherifyApi {
   GetOrderResponse updateOrder(@Path("id") String id, @Body UpdateOrder updateOrder);
 
   @GET("/orders")
-  ListOrdersResponse listOrders();
+  ListOrdersResponse listOrders(@QueryMap Map<String, Object> filter);
 }

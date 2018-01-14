@@ -3,6 +3,7 @@ package io.voucherify.client.module;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.order.CreateOrder;
+import io.voucherify.client.model.order.OrdersFilter;
 import io.voucherify.client.model.order.UpdateOrder;
 import io.voucherify.client.model.order.response.CreateOrderResponse;
 import io.voucherify.client.model.order.response.GetOrderResponse;
@@ -12,6 +13,7 @@ import io.voucherify.client.module.OrdersModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
+import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -32,8 +34,12 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
     return api.updateOrder(id, updateOrder);
   }
 
+  public ListOrdersResponse list(OrdersFilter ordersFilter) {
+    return api.listOrders(ordersFilter.asMap());
+  }
+
   public ListOrdersResponse list() {
-    return api.listOrders();
+    return api.listOrders(new HashMap<String, Object>());
   }
 
   @Override
@@ -70,10 +76,13 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().update(id, updateOrder), callback);
     }
 
+    public void list(OrdersFilter ordersFilter, VoucherifyCallback<ListOrdersResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(ordersFilter), callback);
+    }
+
     public void list(VoucherifyCallback<ListOrdersResponse> callback) {
       RxUtils.subscribe(executor, rx().list(), callback);
     }
-
   }
 
   public class ExtRxJava extends AbsModule.Rx {
@@ -104,6 +113,16 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
         @Override
         public GetOrderResponse method() {
           return OrdersModule.this.update(id, updateOrder);
+        }
+      });
+    }
+
+    public Observable<ListOrdersResponse> list(final OrdersFilter ordersFilter) {
+      return RxUtils.defer(new RxUtils.DefFunc<ListOrdersResponse>() {
+
+        @Override
+        public ListOrdersResponse method() {
+          return OrdersModule.this.list(ordersFilter);
         }
       });
     }
