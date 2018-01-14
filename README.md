@@ -32,6 +32,8 @@ API:
 |
 <a href="#customers-api">Customers</a>
 |
+<a href="#orders-api">Orders</a>
+|
 <a href="#products-api">Products</a>
 |
 <a href="#validation-rules-api">Validation Rules</a>
@@ -320,6 +322,35 @@ voucherify.customers().update(Customer customer);
 #### [Delete Customer]
 ```java
 voucherify.customers().delete(String id);
+```
+
+---
+
+### Orders API
+Methods are provided within `voucherify.orders.*` namespace.
+
+- [Create Order](#create-order)
+- [Get Order](#get-order)
+- [Update Order](#update-order)
+- [List Orders](#list-orders)
+
+#### [Create Order]
+```java
+voucherify.orders.create(CreateOrder order)
+```
+Check [the order object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-order-object).
+#### [Get Order]
+```java
+voucherify.orders.get(String orderId)
+```
+#### [Update Order]
+```java
+voucherify.orders.update(UpdateOrder order)
+```
+#### [List Orders]
+```java
+voucherify.orders.list()
+voucherify.orders.list(OrdersFilter filter)
 ```
 
 ---
@@ -645,3 +676,8 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Redeem Promotion]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-promotion
 [Update Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-promotion
 [Delete Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-promotion
+
+[Create Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-order
+[Get Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
+[Update Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-order
+[List Orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
