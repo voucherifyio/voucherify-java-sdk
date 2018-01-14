@@ -15,6 +15,8 @@ import io.voucherify.client.model.distribution.PublishVoucher;
 import io.voucherify.client.model.distribution.response.ExportResponse;
 import io.voucherify.client.model.distribution.response.ListPublicationsResponse;
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
+import io.voucherify.client.model.event.CustomEvent;
+import io.voucherify.client.model.event.response.CustomEventResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
 import io.voucherify.client.model.order.response.CreateOrderResponse;
@@ -276,4 +278,8 @@ public interface VoucherifyApi {
 
   @GET("/orders")
   ListOrdersResponse listOrders(@QueryMap Map<String, Object> filter);
+
+  // EVENTS
+  @POST("/events")
+  CustomEventResponse createCustomEvent(@Body CustomEvent event);
 }

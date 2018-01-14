@@ -1,7 +1,6 @@
 package io.voucherify.client;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -18,6 +17,7 @@ import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
+import io.voucherify.client.module.EventsModule;
 import io.voucherify.client.module.OrdersModule;
 import io.voucherify.client.module.ProductsModule;
 import io.voucherify.client.module.PromotionsModule;
@@ -60,6 +60,8 @@ public class VoucherifyClient {
 
   private final OrdersModule ordersModule;
 
+  private final EventsModule eventsModule;
+
   private VoucherifyApi voucherifyApi;
 
   private Executor executor;
@@ -89,6 +91,7 @@ public class VoucherifyClient {
     this.validationRulesModule = new ValidationRulesModule(voucherifyApi, executor);
     this.promotionsModule = new PromotionsModule(voucherifyApi, executor);
     this.ordersModule = new OrdersModule(voucherifyApi, executor);
+    this.eventsModule = new EventsModule(voucherifyApi, executor);
   }
 
   public VoucherModule vouchers() {
@@ -135,6 +138,10 @@ public class VoucherifyClient {
     return ordersModule;
   }
 
+  public EventsModule events() {
+    return eventsModule;
+  }
+
   private Executor createCallbackExecutor() {
     return Platform.get().callbackExecutor();
   }
@@ -164,8 +171,8 @@ public class VoucherifyClient {
 
   private VoucherifyApi createRetrofitService(Builder builder) {
     RestAdapter.Builder restBuilder = new RestAdapter.Builder()
-            .setConverter(createConverter(builder))
-            .setRequestInterceptor(createInterceptor(builder));
+        .setConverter(createConverter(builder))
+        .setRequestInterceptor(createInterceptor(builder));
 
     setEndPoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
@@ -177,6 +184,7 @@ public class VoucherifyClient {
 
   private RequestInterceptor createInterceptor(final Builder builder) {
     return new RequestInterceptor() {
+
       @Override
       public void intercept(RequestFacade request) {
         request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_CHANNEL, Constants.VOUCHERIFY_CHANNEL_NAME);
@@ -264,6 +272,7 @@ public class VoucherifyClient {
       }
 
       return setClientProvider(new Client.Provider() {
+
         @Override
         public Client get() {
           return client;
