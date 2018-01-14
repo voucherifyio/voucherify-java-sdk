@@ -5,7 +5,9 @@ import io.voucherify.client.VoucherifyClient;
 import io.voucherify.example.sync.CampaignsExample;
 import io.voucherify.example.sync.CustomersExample;
 import io.voucherify.example.sync.DistributionsExample;
+import io.voucherify.example.sync.OrdersExample;
 import io.voucherify.example.sync.ProductsExample;
+import io.voucherify.example.sync.PromotionsExample;
 import io.voucherify.example.sync.RedemptionsExample;
 import io.voucherify.example.sync.SegmentsExample;
 import io.voucherify.example.sync.ValidationRulesExample;
@@ -43,6 +45,8 @@ public class ExampleApp {
     new ValidationsExample(client).example();
     new RedemptionsExample(client).example();
     new DistributionsExample(client).example();
+    new OrdersExample(client).example();
+    new PromotionsExample(client).example();
   }
 
 }

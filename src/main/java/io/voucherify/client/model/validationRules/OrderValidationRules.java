@@ -38,6 +38,4 @@ public class OrderValidationRules {
   @Singular("allOrdersDiscountAmountCondition")
   private Map<Operator, List<Integer>> allOrdersDiscountAmount;
 
-
-  List<String> dupa;
 }
