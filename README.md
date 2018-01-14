@@ -195,6 +195,7 @@ Methods are provided within `voucherify.campaigns().*` namespace.
 - [Create Campaign](#create-campaign)
 - [Add Voucher to Campaign](#add-voucher-to-campaign)
 - [Delete Campaign](#delete-campaign)
+- [Update Campaign](#update-campaign)
 - [Import Vouchers to Campaign](#import-vouchers-to-campaign)
 
 #### [Create Campaign]
@@ -210,6 +211,10 @@ voucherify.campaigns().addVoucherWithCode(String campaignName, String code, AddV
 ```java
 voucherify.campaigns().delete(String campaignName, DeleteCampaignParams params);
 ```
+#### [Update Campaign]
+```java
+voucherify.campaigns().update(String name, UpdateCampaign updateCampaign);
+```
 #### [Import Vouchers to Campaign]
 ```java
 voucherify.campaigns().importVouchers(String campaignName, String campaignName, CampaignImportVouchers importVouchers);
@@ -224,6 +229,7 @@ Methods are provided within `voucherify.distributions().*` namespace.
 - [Create Export](#create-export)
 - [Get Export](#get-export)
 - [Delete Export](#delete-export)
+- [List publications](#list-publications)
 
 #### [Publish Vouchers]
 ```java
@@ -240,6 +246,11 @@ voucherify.distributions().getExport(String id);
 #### [Delete Export]
 ```java
 voucherify.distributions().deleteExport(String id);
+```
+#### [List publications]
+```java
+voucherify.distributions.list()
+voucherify.distributions.list(ListPublicationsFilter filter)
 ```
 
 ---
@@ -307,6 +318,7 @@ Methods are provided within `voucherify.customers().*` namespace.
 - [Get Customer](#get-customer)
 - [Update Customer](#update-customer)
 - [Delete Customer](#delete-customer)
+- [List Customers](#list-customers)
 
 #### [Create Customer]
 ```java
@@ -324,6 +336,11 @@ voucherify.customers().update(Customer customer);
 #### [Delete Customer]
 ```java
 voucherify.customers().delete(String id);
+```
+#### [List Customers]
+```java
+voucherify.customers.list()
+voucherify.customers.list(CustomersFilter filter)
 ```
 
 ---
@@ -643,12 +660,14 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Create Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-campaign
 [Delete Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-campaign
 [Add Voucher to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-voucher-to-campaign
+[Update Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-campaign
 [Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
 
 [Publish Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
 [Create Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-export
 [Get Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-export
 [Delete Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#elete-export
+[List publications]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-publications
 
 [Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
 
@@ -662,6 +681,7 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Get Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#read-customer
 [Update Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-customer
 [Delete Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-customer
+[List Customers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-customers
 
 [Create Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-product
 [Get Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-product
