@@ -57,9 +57,15 @@ public class Discount {
   }
 
   public static Discount percentOff(double percentOff) {
+    return percentOff(percentOff, null);
+  }
+
+  public static Discount percentOff(double percentOff, Integer amountLimit) {
     Discount discount = new Discount();
     discount.type = DiscountType.PERCENT;
     discount.percentOff = percentOff;
+    discount.amountLimit = amountLimit;
+
     return discount;
   }
 
