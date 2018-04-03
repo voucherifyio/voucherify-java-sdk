@@ -1,6 +1,7 @@
 package io.voucherify.client.model.validation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.order.response.OrderResponse;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.Gift;
 import io.voucherify.client.model.voucher.VoucherType;
@@ -27,6 +28,8 @@ public class VoucherValidationResponse {
   private Discount discount;
 
   private Gift gift;
+
+  private OrderResponse order;
 
   private String reason;
 
