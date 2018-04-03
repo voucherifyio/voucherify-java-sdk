@@ -21,6 +21,9 @@ public class Discount {
   @JsonProperty("percent_off")
   private Double percentOff;
 
+  @JsonProperty("amount_limit")
+  private Integer amountLimit;
+
   @JsonProperty("unit_off")
   private Double unitOff;
 
