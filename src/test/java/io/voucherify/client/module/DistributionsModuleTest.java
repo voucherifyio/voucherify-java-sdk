@@ -48,6 +48,26 @@ public class DistributionsModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldPublishVoucherWithParentPublicationStructure() {
+    // given
+    enqueueResponse("{\"id\" : \"pub_testId\", \"voucher\" : {  \"code\" : \"some-code\", \"campaign\": \"some-campaign\" } }");
+
+    // when
+    PublishVoucherResponse result = client.distributions().publish(PUBLISH_VOUCHER);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getCode()).isNull();
+    assertThat(result.getId()).isEqualTo("pub_testId");
+    assertThat(result.getVoucher()).isNotNull();
+    assertThat(result.getVoucher().getCode()).isEqualTo("some-code");
+    assertThat(result.getVoucher().getCampaign()).isEqualTo("some-campaign");
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
   public void shouldCreateExport() {
     // given
     CreateExport createExport = CreateExport.builder().exportedObject("voucher").build();
@@ -132,6 +152,22 @@ public class DistributionsModuleTest extends AbstractModuleTest {
   public void shouldPublishVoucherAsync() {
     // given
     enqueueResponse("{\"code\" : \"some-code\", \"campaign\": \"some-campaign\" }");
+    VoucherifyCallback callback = createCallback();
+
+    // when
+    client.distributions().async().publish(PUBLISH_VOUCHER, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldPublishVoucherWithParentPublicationStructureAsync() {
+    // given
+    enqueueResponse("{\"id\" : \"pub_testId\", \"voucher\" : {  \"code\" : \"some-code\", \"campaign\": \"some-campaign\" } }");
     VoucherifyCallback callback = createCallback();
 
     // when
@@ -238,6 +274,27 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     PublishVoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldPublishVoucherWithParentPublicationStructureRxJava() {
+    // given
+    enqueueResponse("{\"id\" : \"pub_testId\", \"voucher\" : {  \"code\" : \"some-code\", \"campaign\": \"some-campaign\" } }");
+
+    // when
+    Observable<PublishVoucherResponse> observable = client.distributions().rx().publish(PUBLISH_VOUCHER);
+
+    // then
+    PublishVoucherResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    assertThat(result.getCode()).isNull();
+    assertThat(result.getId()).isEqualTo("pub_testId");
+    assertThat(result.getVoucher()).isNotNull();
+    assertThat(result.getVoucher().getCode()).isEqualTo("some-code");
+    assertThat(result.getVoucher().getCampaign()).isEqualTo("some-campaign");
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
