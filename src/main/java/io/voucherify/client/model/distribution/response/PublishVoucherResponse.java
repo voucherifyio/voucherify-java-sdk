@@ -6,6 +6,7 @@ import io.voucherify.client.model.voucher.Gift;
 import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.response.VoucherPublishResponse;
 import io.voucherify.client.model.voucher.response.VoucherRedemptionResponse;
+import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -66,4 +67,18 @@ public class PublishVoucherResponse {
   @JsonProperty("updated_at")
   private Date updatedAt;
 
+  private String id;
+
+  private String object;
+
+  @JsonProperty("created_at")
+  private Date createdAt;
+
+  @JsonProperty("customer_id")
+  private String customerId;
+
+  @JsonProperty("tracking_id")
+  private String trackingId;
+
+  private VoucherResponse voucher;
 }
