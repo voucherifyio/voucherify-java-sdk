@@ -629,6 +629,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-04-04 - 6.0.0 - Response from Publish Voucher method now includes additional fields and structure introduced when using `ApiVersion.V_2017_04_20`. RollbackRedemptionResponse object uses VoucherResponse as voucher field instead of PublishVoucherResponse.
 * 2018-04-03 - 5.3.2 - Add missing fields in Validation and Redeem responses, provide more examples related to percent discount voucher.
 * 2018-04-03 - 5.3.1 - Add Order to Validation response.
 * 2018-01-14 - 5.3.0 - API Version set in header by default, Events API, Orders API, added missing methods to Customers, Distributions and Campaigns modules.
