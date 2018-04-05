@@ -10,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class CustomerSummary {
+public class CustomerSummary {
 
   private CustomerRedemptionSummary redemptions;
 

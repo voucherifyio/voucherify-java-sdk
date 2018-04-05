@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class OrderItemResponse {
+public class OrderItemResponse {
 
   @JsonProperty("product_id")
   private String productId;
