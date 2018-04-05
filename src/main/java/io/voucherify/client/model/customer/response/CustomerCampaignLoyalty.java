@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class CustomerCampaignLoyalty {
+public class CustomerCampaignLoyalty {
 
   private Integer points;
 

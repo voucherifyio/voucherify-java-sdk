@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class ProductSKUs {
+public class ProductSKUs {
 
   private String object;
 

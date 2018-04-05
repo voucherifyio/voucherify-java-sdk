@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class CustomerOrderSummary {
+public class CustomerOrderSummary {
 
   @JsonProperty("total_amount")
   private Integer totalAmount;

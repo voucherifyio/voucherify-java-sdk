@@ -13,7 +13,7 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-class CustomerLoyalty {
+public class CustomerLoyalty {
 
   private Integer points;
 
