@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>5.3.0</version>
+  <version>6.0.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:5.3.0'
+compile 'io.voucherify.client:voucherify-java-sdk:6.0.0'
 
 ```
 
@@ -525,6 +525,28 @@ Check [customer object](https://docs.voucherify.io/v1/reference#the-customer-obj
 voucherify.events.track(CustomEvent customEvent)
 ```
 
+---
+
+### Migration to 6.0
+
+Version 6.0 of the SDK is not backwards compatible with previous version
+Changes made in version 6.0 relate to `PublishVoucherResponse` class and `RollbackRedemptionResponse` class.
+
+#### Classes changes
+
+* `RollbackRedemptionResponse` class uses `VoucherResponse` class as type for `voucher` field instead of `PublishVoucherResponse`
+* `PublishVoucherResponse` class has additional fields to be compatible with API version - `2017-04-20`:
+
+  * `id`
+  * `object`
+  * `createdAt`
+  * `customerId`
+  * `trackingId`
+  * `voucher`
+
+  When API version `2017-04-05` is used, the `PublishVoucherResponse` object returned from `distributions().publish` call will use older structure and new fields will be set to null.
+  Developers using API version `2017-04-05` can still safely use access returned fields as before.  
+  When API version `2017-04-20` is used, the `PublisherVoucherResponse` object returned from `distributions().publish` call will use new structure and new fields will be set to proper values.
 ---
 
 ### Migration to 5.0
