@@ -545,7 +545,7 @@ Changes made in version 6.0 relate to `PublishVoucherResponse` class and `Rollba
   * `voucher`
 
   When API version `2017-04-05` is used, the `PublishVoucherResponse` object returned from `distributions().publish` call will use older structure and new fields will be set to null.
-  Developers using API version `2017-04-05` can still safely use access returned fields as before.  
+  Developers using API version `2017-04-05` can still safely access returned fields as before.  
   When API version `2017-04-20` is used, the `PublisherVoucherResponse` object returned from `distributions().publish` call will use new structure and new fields will be set to proper values.
 ---
 
