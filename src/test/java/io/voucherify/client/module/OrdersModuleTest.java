@@ -45,6 +45,36 @@ public class OrdersModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldCreateOrderWithItemWithPrice() {
+    // given
+    CreateOrder createOrder = CreateOrder.builder()
+            .amount(10)
+            .item(OrderItem.builder()
+                    .productId("productId")
+                    .quantity(10)
+                    .price(1200)
+                    .build()
+            )
+            .build();
+
+    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 1200} ], \"amount\": 10}");
+
+    // when
+    CreateOrderResponse result = client.orders().create(createOrder);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getId()).isEqualTo("some-id");
+    assertThat(result.getItems().size()).isEqualTo(1);
+    assertThat(result.getItems().get(0).getProductId()).isEqualTo("productId");
+    assertThat(result.getItems().get(0).getQuantity()).isEqualTo(10);
+    assertThat(result.getItems().get(0).getPrice()).isEqualTo(1200);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
   public void shouldGetOrder() {
     // given
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 10}");
@@ -56,6 +86,27 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     assertThat(result.getItems()).isEmpty();
+    assertThat(result.getAmount()).isEqualTo(10);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldGetOrderWithItemWithPrice() {
+    // given
+    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 1, \"price\" : 10000} ], \"amount\": 10}");
+
+    // when
+    GetOrderResponse result = client.orders().get("some-id");
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getId()).isEqualTo("some-id");
+    assertThat(result.getItems().size()).isEqualTo(1);
+    assertThat(result.getItems().get(0).getPrice()).isEqualTo(10000);
+    assertThat(result.getItems().get(0).getQuantity()).isEqualTo(1);
+    assertThat(result.getItems().get(0).getProductId()).isEqualTo("productId");
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/orders/some-id");
@@ -82,6 +133,36 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     assertThat(result.getItems()).isEmpty();
+    assertThat(result.getAmount()).isEqualTo(100);
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
+  public void shouldUpdateOrderWithItemWithPrice() {
+    // given
+    UpdateOrder updateOrder = UpdateOrder.builder()
+            .amount(100)
+            .item(OrderItem.builder()
+                    .productId("productId")
+                    .quantity(10)
+                    .price(5000)
+                    .build()
+            )
+            .build();
+    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 5000} ], \"amount\": 100}");
+
+    // when
+    GetOrderResponse result = client.orders().update("some-id", updateOrder);
+
+    // then
+    assertThat(result).isNotNull();
+    assertThat(result.getId()).isEqualTo("some-id");
+    assertThat(result.getItems().size()).isEqualTo(1);
+    assertThat(result.getItems().get(0).getProductId()).isEqualTo("productId");
+    assertThat(result.getItems().get(0).getQuantity()).isEqualTo(10);
+    assertThat(result.getItems().get(0).getPrice()).isEqualTo(5000);
     assertThat(result.getAmount()).isEqualTo(100);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/orders/some-id");
