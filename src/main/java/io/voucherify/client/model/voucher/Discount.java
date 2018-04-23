@@ -75,4 +75,12 @@ public class Discount {
     discount.unitOff = unitOff;
     return discount;
   }
+
+  public static Discount unitOff(double unitOff, String unitType) {
+    Discount discount = new Discount();
+    discount.type = DiscountType.UNIT;
+    discount.unitOff = unitOff;
+    discount.unitType = unitType;
+    return discount;
+  }
 }

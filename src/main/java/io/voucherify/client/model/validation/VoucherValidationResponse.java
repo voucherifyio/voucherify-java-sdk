@@ -23,8 +23,6 @@ public class VoucherValidationResponse {
 
   private boolean valid;
 
-  private VoucherType type;
-
   private Discount discount;
 
   private Gift gift;
