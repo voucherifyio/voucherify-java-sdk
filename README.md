@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>6.0.1</version>
+  <version>6.0.2</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:6.0.1'
+compile 'io.voucherify.client:voucherify-java-sdk:6.0.2'
 
 ```
 
@@ -651,6 +651,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-04-05 - 6.0.2 - Added support for `unitType` when creating `Discount` Voucher, removed obsolete `VoucherType` from validation response.
 * 2018-04-05 - 6.0.1 - Fix response class accessibility from `package` to `public`. `OrderItem` and `OrderItemResponse` classes now supports `price` field.
 * 2018-04-04 - 6.0.0 - Response from Publish Voucher method now includes additional fields and structure introduced when using `ApiVersion.V_2017_04_20`. `RollbackRedemptionResponse` object uses VoucherResponse as voucher field instead of `PublishVoucherResponse`.
 * 2018-04-03 - 5.3.2 - Add missing fields in Validation and Redeem responses, provide more examples related to percent discount voucher.
