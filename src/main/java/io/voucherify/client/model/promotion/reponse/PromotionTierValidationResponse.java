@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
 
 import java.util.Map;
@@ -28,6 +27,5 @@ public class PromotionTierValidationResponse {
     @JsonProperty("discount_amount")
     private Integer discountAmount;
 
-    @Singular("metadataEntry")
     private Map<String, Object> metadata;
 }
