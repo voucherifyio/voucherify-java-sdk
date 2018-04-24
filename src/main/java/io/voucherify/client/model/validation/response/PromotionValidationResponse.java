@@ -1,6 +1,7 @@
 package io.voucherify.client.model.validation.response;
 
-import io.voucherify.client.model.promotion.reponse.PromotionResponse;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.promotion.reponse.PromotionTierValidationResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +18,8 @@ public class PromotionValidationResponse {
 
   private Boolean valid;
 
-  private List<PromotionResponse> promotions;
+  private List<PromotionTierValidationResponse> promotions;
 
+  @JsonProperty("tracking_id")
   private String trackingId;
 }
