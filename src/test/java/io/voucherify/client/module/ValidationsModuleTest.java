@@ -9,6 +9,7 @@ import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.VoucherValidationResponse;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
+import io.voucherify.client.model.voucher.DiscountType;
 import org.junit.Test;
 import rx.Observable;
 
@@ -58,7 +59,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
                 .build()
         )
         .build();
-    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+    enqueueResponse("{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
 
     // when
     PromotionValidationResponse result = client.validations().validate(validation);
@@ -66,6 +67,16 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     assertThat(result.getValid()).isEqualTo(true);
+    assertThat(result.getTrackingId()).isEqualTo("track_test");
+    assertThat(result.getPromotions().size()).isEqualTo(1);
+    assertThat(result.getPromotions().get(0).getBanner()).isEqualTo("Test Banner");
+    assertThat(result.getPromotions().get(0).getDiscount().getType()).isEqualTo(DiscountType.AMOUNT);
+    assertThat(result.getPromotions().get(0).getDiscount().getAmountOff()).isEqualTo(1000);
+    assertThat(result.getPromotions().get(0).getDiscountAmount()).isEqualTo(1000);
+    assertThat(result.getPromotions().get(0).getId()).isEqualTo("promo_mock");
+    assertThat(result.getPromotions().get(0).getObject()).isEqualTo("promotion_tier");
+    assertThat(result.getPromotions().get(0).getMetadata().size()).isEqualTo(1);
+    assertThat(result.getPromotions().get(0).getMetadata().get("test")).isEqualTo(true);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -97,7 +108,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
                 .build()
         )
         .build();
-    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+    enqueueResponse("{\"valid\" : \"true\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
     VoucherifyCallback callback = createCallback();
 
 
@@ -137,7 +148,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
                 .build()
         )
         .build();
-    enqueueResponse("{\"valid\" : \"true\", \"promotions\": []}");
+    enqueueResponse("{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
 
     // when
     Observable<PromotionValidationResponse> observable = client.validations().rx().validate(validation);
@@ -146,6 +157,16 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     PromotionValidationResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     assertThat(result.getValid()).isEqualTo(true);
+    assertThat(result.getTrackingId()).isEqualTo("track_test");
+    assertThat(result.getPromotions().size()).isEqualTo(1);
+    assertThat(result.getPromotions().get(0).getBanner()).isEqualTo("Test Banner");
+    assertThat(result.getPromotions().get(0).getDiscount().getType()).isEqualTo(DiscountType.AMOUNT);
+    assertThat(result.getPromotions().get(0).getDiscount().getAmountOff()).isEqualTo(1000);
+    assertThat(result.getPromotions().get(0).getDiscountAmount()).isEqualTo(1000);
+    assertThat(result.getPromotions().get(0).getId()).isEqualTo("promo_mock");
+    assertThat(result.getPromotions().get(0).getObject()).isEqualTo("promotion_tier");
+    assertThat(result.getPromotions().get(0).getMetadata().size()).isEqualTo(1);
+    assertThat(result.getPromotions().get(0).getMetadata().get("test")).isEqualTo(true);
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
