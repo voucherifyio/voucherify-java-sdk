@@ -23,6 +23,8 @@ public class Product {
 
   private String name;
 
+  private Integer price;
+
   @JsonProperty("source_id")
   private String sourceId;
 
