@@ -1,4 +1,4 @@
-package io.voucherify.client.model.validation;
+package io.voucherify.client.model.validation.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.common.response.applicableTo.ApplicableToResponse;

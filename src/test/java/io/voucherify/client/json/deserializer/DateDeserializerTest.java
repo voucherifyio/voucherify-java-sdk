@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import io.voucherify.client.Constants;
 import io.voucherify.client.error.VoucherifyError;
-import io.voucherify.client.json.deserializer.DateDeserializer;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -21,16 +20,11 @@ import static org.mockito.BDDMockito.given;
 @RunWith(MockitoJUnitRunner.class)
 public class DateDeserializerTest {
 
+  @Rule public ExpectedException expectedException = ExpectedException.none();
   private DateDeserializer dateDeserializer = new DateDeserializer();
+  @Mock private JsonParser jsonParser;
 
-  @Rule
-  public ExpectedException expectedException = ExpectedException.none();
-
-  @Mock
-  private JsonParser jsonParser;
-
-  @Mock
-  private DeserializationContext deserializationContext;
+  @Mock private DeserializationContext deserializationContext;
 
   @Test
   public void shouldThrowExceptionWhenNoDateFormatsWereProvided() throws IOException {
@@ -80,5 +74,4 @@ public class DateDeserializerTest {
     // then
     assertThat(response).isNotNull();
   }
-
 }

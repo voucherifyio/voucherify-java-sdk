@@ -17,10 +17,11 @@ import java.util.Map;
 @ToString
 public class OrderItemProduct {
 
-    private String name;
+  private String name;
 
-    @Singular("metadataEntry")
-    private Map<String, Object> metadata;
+  @Singular("metadataEntry")
+  private Map<String, Object> metadata;
 
-    private boolean override = false;
+  @Builder.Default
+  private boolean override = false;
 }

@@ -1,6 +1,5 @@
 package io.voucherify.client.model.validationRules;
 
-
 import io.voucherify.client.model.Json;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,6 +19,5 @@ public class UpdateBusinessValidationRule {
 
   private String name;
 
-  @Builder.Default
-  private Json rules = Json.builder().build();
+  @Builder.Default private Json rules = Json.builder().build();
 }

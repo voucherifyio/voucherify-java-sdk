@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.order.CreateOrder;
@@ -11,7 +12,6 @@ import io.voucherify.client.model.order.response.ListOrdersResponse;
 import io.voucherify.client.module.OrdersModule.ExtAsync;
 import io.voucherify.client.module.OrdersModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -23,23 +23,23 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   public CreateOrderResponse create(CreateOrder createOrder) {
-    return api.createOrder(createOrder);
+    return executeSyncApiCall(api.createOrder(createOrder));
   }
 
   public GetOrderResponse get(String id) {
-    return api.getOrder(id);
+    return executeSyncApiCall(api.getOrder(id));
   }
 
   public GetOrderResponse update(String id, UpdateOrder updateOrder) {
-    return api.updateOrder(id, updateOrder);
+    return executeSyncApiCall(api.updateOrder(id, updateOrder));
   }
 
   public ListOrdersResponse list(OrdersFilter ordersFilter) {
-    return api.listOrders(ordersFilter.asMap());
+    return executeSyncApiCall(api.listOrders(ordersFilter.asMap()));
   }
 
   public ListOrdersResponse list() {
-    return api.listOrders(new HashMap<String, Object>());
+    return executeSyncApiCall(api.listOrders(new HashMap<>()));
   }
 
   @Override
@@ -72,7 +72,8 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().get(id), callback);
     }
 
-    public void update(String id, UpdateOrder updateOrder, VoucherifyCallback<GetOrderResponse> callback) {
+    public void update(
+        String id, UpdateOrder updateOrder, VoucherifyCallback<GetOrderResponse> callback) {
       RxUtils.subscribe(executor, rx().update(id, updateOrder), callback);
     }
 
@@ -88,53 +89,58 @@ public class OrdersModule extends AbsModule<ExtAsync, ExtRxJava> {
   public class ExtRxJava extends AbsModule.Rx {
 
     public Observable<CreateOrderResponse> create(final CreateOrder createOrder) {
-      return RxUtils.defer(new RxUtils.DefFunc<CreateOrderResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<CreateOrderResponse>() {
 
-        @Override
-        public CreateOrderResponse method() {
-          return OrdersModule.this.create(createOrder);
-        }
-      });
+            @Override
+            public CreateOrderResponse method() {
+              return OrdersModule.this.create(createOrder);
+            }
+          });
     }
 
     public Observable<GetOrderResponse> get(final String id) {
-      return RxUtils.defer(new RxUtils.DefFunc<GetOrderResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<GetOrderResponse>() {
 
-        @Override
-        public GetOrderResponse method() {
-          return OrdersModule.this.get(id);
-        }
-      });
+            @Override
+            public GetOrderResponse method() {
+              return OrdersModule.this.get(id);
+            }
+          });
     }
 
     public Observable<GetOrderResponse> update(final String id, final UpdateOrder updateOrder) {
-      return RxUtils.defer(new RxUtils.DefFunc<GetOrderResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<GetOrderResponse>() {
 
-        @Override
-        public GetOrderResponse method() {
-          return OrdersModule.this.update(id, updateOrder);
-        }
-      });
+            @Override
+            public GetOrderResponse method() {
+              return OrdersModule.this.update(id, updateOrder);
+            }
+          });
     }
 
     public Observable<ListOrdersResponse> list(final OrdersFilter ordersFilter) {
-      return RxUtils.defer(new RxUtils.DefFunc<ListOrdersResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<ListOrdersResponse>() {
 
-        @Override
-        public ListOrdersResponse method() {
-          return OrdersModule.this.list(ordersFilter);
-        }
-      });
+            @Override
+            public ListOrdersResponse method() {
+              return OrdersModule.this.list(ordersFilter);
+            }
+          });
     }
 
     public Observable<ListOrdersResponse> list() {
-      return RxUtils.defer(new RxUtils.DefFunc<ListOrdersResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<ListOrdersResponse>() {
 
-        @Override
-        public ListOrdersResponse method() {
-          return OrdersModule.this.list();
-        }
-      });
+            @Override
+            public ListOrdersResponse method() {
+              return OrdersModule.this.list();
+            }
+          });
     }
   }
 }

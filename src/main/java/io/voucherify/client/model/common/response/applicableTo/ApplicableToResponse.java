@@ -19,5 +19,4 @@ public class ApplicableToResponse {
   private Integer total;
 
   private List<DataEntryResponse> data;
-
 }

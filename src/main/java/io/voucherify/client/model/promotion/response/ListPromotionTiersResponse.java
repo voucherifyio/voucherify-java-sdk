@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class PromotionResponse {
+public class ListPromotionTiersResponse {
 
   private String object;
 

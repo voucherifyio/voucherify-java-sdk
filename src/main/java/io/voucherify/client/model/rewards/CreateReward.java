@@ -17,8 +17,8 @@ import java.util.Map;
 @ToString
 public class CreateReward {
 
-    private String name;
+  private String name;
 
-    @Singular("parameter")
-    private Map<String, Object> parameters;
+  @Singular("parameter")
+  private Map<String, Object> parameters;
 }

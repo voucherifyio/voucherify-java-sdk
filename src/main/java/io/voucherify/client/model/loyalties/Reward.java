@@ -15,10 +15,8 @@ import lombok.ToString;
 @ToString
 public class Reward {
 
-    private String id;
+  private String id;
 
-    @JsonProperty("assignment_id")
-    private String assignmentId;
-
+  @JsonProperty("assignment_id")
+  private String assignmentId;
 }
-

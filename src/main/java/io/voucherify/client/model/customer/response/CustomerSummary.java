@@ -15,5 +15,4 @@ public class CustomerSummary {
   private CustomerRedemptionSummary redemptions;
 
   private CustomerOrderSummary orders;
-
 }

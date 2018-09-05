@@ -18,17 +18,16 @@ import java.util.Map;
 @ToString
 public class RewardsAssignmentsFilter extends AbstractFilter<String, Object> {
 
-    private Integer limit;
+  private Integer limit;
 
-    private Integer page;
+  private Integer page;
 
-    @Override
-    public Map<String, Object> asMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("limit", limit);
-        map.put("page", page);
+  @Override
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
+    map.put("limit", limit);
+    map.put("page", page);
 
-        return map;
-    }
-
+    return map;
+  }
 }

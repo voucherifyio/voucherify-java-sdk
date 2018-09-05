@@ -37,5 +37,4 @@ public class CreateCampaign {
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
 }

@@ -29,5 +29,4 @@ public class SKUResponse {
   private Date createdAt;
 
   private String object;
-
 }

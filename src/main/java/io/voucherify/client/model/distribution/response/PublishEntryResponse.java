@@ -27,5 +27,4 @@ public class PublishEntryResponse {
   private Date publishedAt;
 
   private Map<String, Object> metadata;
-
 }

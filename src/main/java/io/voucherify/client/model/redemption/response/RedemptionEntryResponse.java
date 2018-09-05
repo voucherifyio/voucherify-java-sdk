@@ -1,13 +1,13 @@
 package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.order.response.OrderResponse;
+import io.voucherify.client.model.redemption.RedemptionStatus;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.model.order.response.OrderResponse;
-import io.voucherify.client.model.redemption.RedemptionStatus;
 
 import java.util.Date;
 import java.util.Map;

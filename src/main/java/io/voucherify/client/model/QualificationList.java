@@ -16,21 +16,20 @@ import java.util.List;
 @ToString
 public class QualificationList<T> {
 
-    private String id;
+  private String id;
 
-    @JsonProperty("created_at")
-    private Date createdAt;
+  @JsonProperty("created_at")
+  private Date createdAt;
 
-    private String object;
+  private String object;
 
-    @JsonProperty("data_ref")
-    private String dataRef;
+  @JsonProperty("data_ref")
+  private String dataRef;
 
-    private Long total;
+  private Long total;
 
-    @JsonProperty("has_more")
-    private Boolean hasMore;
+  @JsonProperty("has_more")
+  private Boolean hasMore;
 
-    private List<T> data;
-
+  private List<T> data;
 }

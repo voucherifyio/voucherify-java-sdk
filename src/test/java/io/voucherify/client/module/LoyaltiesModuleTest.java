@@ -1,10 +1,5 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Test;
-
 import io.voucherify.client.model.campaign.CampaignType;
 import io.voucherify.client.model.campaign.CampaignsFilter;
 import io.voucherify.client.model.campaign.CreateCampaign;
@@ -14,19 +9,22 @@ import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
 import io.voucherify.client.model.voucher.Voucher;
 import io.voucherify.client.model.voucher.VoucherType;
+import okhttp3.mockwebserver.RecordedRequest;
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoyaltiesModuleTest extends AbstractModuleTest {
 
   @Test
   public void shouldCreateLoyaltyCampaign() {
     // given
-    CreateCampaign createCampaign = CreateCampaign.builder()
-        .type(CampaignType.AUTO_UPDATE)
-        .voucher(Voucher.builder()
-            .type(VoucherType.LOYALTY_CARD)
-            .build())
-        .name("campaign")
-        .build();
+    CreateCampaign createCampaign =
+        CreateCampaign.builder()
+            .type(CampaignType.AUTO_UPDATE)
+            .voucher(Voucher.builder().type(VoucherType.LOYALTY_CARD).build())
+            .name("campaign")
+            .build();
 
     enqueueResponse("{\"name\" : \"campaign\"}");
 
@@ -88,14 +86,11 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldListLoyaltyCampaigns() throws Exception {
+  public void shouldListLoyaltyCampaigns() {
     // given
-    enqueueResponse("[{\"name\" : \"campaign\"}]");
+    enqueueResponse("{\"campaigns\": [{\"name\" : \"campaign\"}]}");
 
-    CampaignsFilter filter = CampaignsFilter.builder()
-            .limit(10)
-            .page(5)
-            .build();
+    CampaignsFilter filter = CampaignsFilter.builder().limit(10).page(5).build();
 
     // when
     CampaignsResponse list = client.loyalties().list(filter);

@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.common.response.applicableTo.ApplicableToResponse;
@@ -17,19 +17,19 @@ import java.util.Map;
 @ToString
 public class PromotionTierValidationResponse {
 
-    private String id;
+  private String id;
 
-    private String object;
+  private String object;
 
-    private String banner;
+  private String banner;
 
-    private Discount discount;
+  private Discount discount;
 
-    @JsonProperty("discount_amount")
-    private Integer discountAmount;
+  @JsonProperty("discount_amount")
+  private Integer discountAmount;
 
-    private Map<String, Object> metadata;
+  private Map<String, Object> metadata;
 
-    @JsonProperty("applicable_to")
-    private ApplicableToResponse applicableTo;
+  @JsonProperty("applicable_to")
+  private ApplicableToResponse applicableTo;
 }

@@ -1,7 +1,6 @@
 package io.voucherify.client.model.loyalties.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.voucherify.client.model.rewards.response.RewardAssignmentResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,12 +15,12 @@ import java.util.List;
 @ToString
 public class ListEarningRulesResponse {
 
-    private String object;
+  private String object;
 
-    private Integer total;
+  private Integer total;
 
-    @JsonProperty("data_ref")
-    private String dataRef;
+  @JsonProperty("data_ref")
+  private String dataRef;
 
-    private List<EarningRuleResponse> data;
+  private List<EarningRuleResponse> data;
 }

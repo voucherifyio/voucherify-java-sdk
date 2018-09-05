@@ -16,10 +16,8 @@ import lombok.ToString;
 @ToString
 public class CreateVoucher {
 
-  @JsonUnwrapped
-  private Voucher voucher;
+  @JsonUnwrapped private Voucher voucher;
 
   @JsonProperty("code_config")
   private CodeConfig codeConfig;
-
 }

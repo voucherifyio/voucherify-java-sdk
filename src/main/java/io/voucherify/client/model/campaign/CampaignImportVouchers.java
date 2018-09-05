@@ -22,5 +22,4 @@ public class CampaignImportVouchers {
 
   @Singular("voucher")
   private List<CampaignImportVoucher> vouchers;
-
 }

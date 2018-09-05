@@ -35,5 +35,4 @@ public class Customer {
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
 }

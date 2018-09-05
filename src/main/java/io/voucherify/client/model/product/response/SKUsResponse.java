@@ -19,5 +19,4 @@ public class SKUsResponse {
   private Integer total;
 
   private List<SKUResponse> skus;
-
 }

@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import retrofit.RetrofitError;
-
-import static retrofit.RetrofitError.*;
+import org.apache.commons.lang3.ObjectUtils;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,39 +19,31 @@ public class VoucherifyError extends RuntimeException {
 
   private String key;
 
-  private VoucherifyError(String message) {
-    super(message);
+  private VoucherifyError(WrappedError error) {
+    super(error != null ? error.getMessage() : "unknown");
+    this.code = error != null ? ObjectUtils.firstNonNull(error.getCode(), 500) : 500;
+    this.details =
+        error != null ? ObjectUtils.firstNonNull(error.getDetails(), "unknown") : "unknown";
+    this.key = error != null ? ObjectUtils.firstNonNull(error.getKey(), "unknown") : "unknown";
   }
 
-  private VoucherifyError(WrappedError wrapped, Throwable throwable) {
-    super(wrapped != null ? wrapped.getMessage() : "unknown", throwable);
-    this.code = wrapped != null ? wrapped.getCode() : null;
-    this.details = wrapped != null ? wrapped.getDetails() : throwable.getMessage();
-    this.key = wrapped != null ? wrapped.getKey() : null;
+  private VoucherifyError(
+      String message, Throwable throwable, Integer code, String details, String key) {
+    super(message, throwable);
+    this.code = ObjectUtils.firstNonNull(code, 500);
+    this.details = ObjectUtils.firstNonNull(details, "Internal SDK error");
+    this.key = ObjectUtils.firstNonNull(key, "internal-sdk-error");
   }
 
-  private VoucherifyError(Throwable throwable) {
-    super(throwable);
+  public static VoucherifyError from(WrappedError error) {
+    return new VoucherifyError(error);
   }
 
-  public static VoucherifyError from(Throwable throwable) {
-    if (throwable instanceof RetrofitError) {
-      RetrofitError retrofitError = (RetrofitError) throwable;
-      Kind kind = retrofitError.getKind();
-
-      if (kind == Kind.NETWORK || kind == Kind.UNEXPECTED || kind == Kind.CONVERSION) {
-        return new VoucherifyError(retrofitError.getMessage());
-      }
-
-      WrappedError wrapped = (WrappedError) retrofitError.getBodyAs(WrappedError.class);
-      return new VoucherifyError(wrapped, throwable);
-    }
-
-    return new VoucherifyError(throwable);
+  public static VoucherifyError from(String text, Integer code, String details, String key) {
+    return new VoucherifyError(text, null, code, details, key);
   }
 
-  public static VoucherifyError from(String message) {
-    return new VoucherifyError(message);
+  public static VoucherifyError from(String text) {
+    return new VoucherifyError(text, null, null, null, null);
   }
-
 }

@@ -1,6 +1,6 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.OrderItem;
@@ -8,8 +8,8 @@ import io.voucherify.client.model.order.UpdateOrder;
 import io.voucherify.client.model.order.response.CreateOrderResponse;
 import io.voucherify.client.model.order.response.GetOrderResponse;
 import io.voucherify.client.model.order.response.ListOrdersResponse;
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
-import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,14 +20,11 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreateOrder() {
     // given
-    CreateOrder createOrder = CreateOrder.builder()
-        .amount(10)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    CreateOrder createOrder =
+        CreateOrder.builder()
+            .amount(10)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
 
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 10}");
 
@@ -47,17 +44,14 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreateOrderWithItemWithPrice() {
     // given
-    CreateOrder createOrder = CreateOrder.builder()
+    CreateOrder createOrder =
+        CreateOrder.builder()
             .amount(10)
-            .item(OrderItem.builder()
-                    .productId("productId")
-                    .quantity(10)
-                    .price(1200)
-                    .build()
-            )
+            .item(OrderItem.builder().productId("productId").quantity(10).price(1200).build())
             .build();
 
-    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 1200} ], \"amount\": 10}");
+    enqueueResponse(
+        "{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 1200} ], \"amount\": 10}");
 
     // when
     CreateOrderResponse result = client.orders().create(createOrder);
@@ -95,7 +89,8 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldGetOrderWithItemWithPrice() {
     // given
-    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 1, \"price\" : 10000} ], \"amount\": 10}");
+    enqueueResponse(
+        "{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 1, \"price\" : 10000} ], \"amount\": 10}");
 
     // when
     GetOrderResponse result = client.orders().get("some-id");
@@ -116,14 +111,11 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateOrder() {
     // given
-    UpdateOrder updateOrder = UpdateOrder.builder()
-        .amount(100)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    UpdateOrder updateOrder =
+        UpdateOrder.builder()
+            .amount(100)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");
 
     // when
@@ -142,16 +134,13 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateOrderWithItemWithPrice() {
     // given
-    UpdateOrder updateOrder = UpdateOrder.builder()
+    UpdateOrder updateOrder =
+        UpdateOrder.builder()
             .amount(100)
-            .item(OrderItem.builder()
-                    .productId("productId")
-                    .quantity(10)
-                    .price(5000)
-                    .build()
-            )
+            .item(OrderItem.builder().productId("productId").quantity(10).price(5000).build())
             .build();
-    enqueueResponse("{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 5000} ], \"amount\": 100}");
+    enqueueResponse(
+        "{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 5000} ], \"amount\": 100}");
 
     // when
     GetOrderResponse result = client.orders().update("some-id", updateOrder);
@@ -188,14 +177,11 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreateOrderAsync() {
     // given
-    CreateOrder createOrder = CreateOrder.builder()
-        .amount(10)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    CreateOrder createOrder =
+        CreateOrder.builder()
+            .amount(10)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
 
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 10}");
     VoucherifyCallback callback = createCallback();
@@ -229,14 +215,11 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateOrderAsync() {
     // given
-    UpdateOrder updateOrder = UpdateOrder.builder()
-        .amount(100)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    UpdateOrder updateOrder =
+        UpdateOrder.builder()
+            .amount(100)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");
     VoucherifyCallback callback = createCallback();
 
@@ -269,14 +252,11 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreateOrderRxJava() {
     // given
-    CreateOrder createOrder = CreateOrder.builder()
-        .amount(10)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    CreateOrder createOrder =
+        CreateOrder.builder()
+            .amount(10)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
 
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 10}");
 
@@ -284,7 +264,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     Observable<CreateOrderResponse> observable = client.orders().rx().create(createOrder);
 
     // then
-    CreateOrderResponse result = observable.toBlocking().first();
+    CreateOrderResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     assertThat(result.getItems()).isEmpty();
@@ -303,7 +283,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     Observable<GetOrderResponse> observable = client.orders().rx().get("some-id");
 
     // then
-    GetOrderResponse result = observable.toBlocking().first();
+    GetOrderResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     assertThat(result.getItems()).isEmpty();
@@ -316,21 +296,18 @@ public class OrdersModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateOrderRxJava() {
     // given
-    UpdateOrder updateOrder = UpdateOrder.builder()
-        .amount(100)
-        .item(OrderItem.builder()
-            .productId("productId")
-            .quantity(10)
-            .build()
-        )
-        .build();
+    UpdateOrder updateOrder =
+        UpdateOrder.builder()
+            .amount(100)
+            .item(OrderItem.builder().productId("productId").quantity(10).build())
+            .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");
 
     // when
     Observable<GetOrderResponse> observable = client.orders().rx().update("some-id", updateOrder);
 
     // then
-    GetOrderResponse result = observable.toBlocking().first();
+    GetOrderResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     assertThat(result.getItems()).isEmpty();
@@ -349,7 +326,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     Observable<ListOrdersResponse> observable = client.orders().rx().list();
 
     // then
-    ListOrdersResponse result = observable.toBlocking().first();
+    ListOrdersResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getOrders()).isEmpty();
     RecordedRequest request = getRequest();

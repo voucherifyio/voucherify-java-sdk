@@ -34,5 +34,4 @@ public class Order {
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
 }

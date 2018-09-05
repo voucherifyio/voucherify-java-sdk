@@ -15,11 +15,11 @@ import lombok.ToString;
 @ToString
 public class Source {
 
-    private String banner;
+  private String banner;
 
-    @JsonProperty("object_id")
-    private String objectId;
+  @JsonProperty("object_id")
+  private String objectId;
 
-    @JsonProperty("object_type")
-    private String objectType;
+  @JsonProperty("object_type")
+  private String objectType;
 }

@@ -18,13 +18,14 @@ import java.util.Map;
 @ToString
 public class OrderItemSKU {
 
-    private String sku;
+  private String sku;
 
-    @JsonProperty("product_id")
-    private String productId;
+  @JsonProperty("product_id")
+  private String productId;
 
-    @Singular("metadataEntry")
-    private Map<String, Object> metadata;
+  @Singular("metadataEntry")
+  private Map<String, Object> metadata;
 
-    private boolean override = false;
+  @Builder.Default
+  private boolean override = false;
 }

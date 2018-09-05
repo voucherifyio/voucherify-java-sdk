@@ -15,5 +15,4 @@ import lombok.ToString;
 public class AddBalance {
 
   private Integer amount;
-
 }

@@ -17,5 +17,4 @@ public class CustomerCampaignLoyalty {
 
   @JsonProperty("referred_customers")
   private Integer referredCustomers;
-
 }

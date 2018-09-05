@@ -15,23 +15,18 @@ import static lombok.AccessLevel.PRIVATE;
 @ToString
 public class CodeConfig {
 
-  public final static char PATTERN_PLACEHOLDER = '#';
-  public final static int DEFAULT_LENGTH = 8;
+  public static final char PATTERN_PLACEHOLDER = '#';
+  public static final int DEFAULT_LENGTH = 8;
+  private Integer length;
+  private String charset;
+  private String prefix;
+  private String postfix;
+  private String pattern;
 
   public static class Charset {
     public static final String ALPHABETIC = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String ALPHANUMERIC = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String ALPHANUMERIC =
+        "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBERS = "0123456789";
   }
-
-  private Integer length;
-
-  private String charset;
-
-  private String prefix;
-
-  private String postfix;
-
-  private String pattern;
-
 }

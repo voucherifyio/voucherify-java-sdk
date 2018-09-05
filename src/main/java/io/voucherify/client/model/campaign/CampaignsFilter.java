@@ -23,8 +23,8 @@ public class CampaignsFilter extends AbstractFilter<String, Object> {
   private Integer page;
 
   @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
     map.put("limit", limit);
     map.put("page", page);
     return map;

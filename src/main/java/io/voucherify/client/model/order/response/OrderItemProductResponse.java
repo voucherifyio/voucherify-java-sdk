@@ -15,10 +15,10 @@ import java.util.Map;
 @ToString
 public class OrderItemProductResponse {
 
-    private String name;
+  private String name;
 
-    @Singular("metadataEntry")
-    private Map<String, Object> metadata;
+  @Singular("metadataEntry")
+  private Map<String, Object> metadata;
 
-    private boolean override = false;
+  private boolean override = false;
 }

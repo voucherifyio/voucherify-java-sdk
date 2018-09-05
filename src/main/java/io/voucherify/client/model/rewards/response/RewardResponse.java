@@ -16,14 +16,14 @@ import java.util.Map;
 @ToString
 public class RewardResponse {
 
-    private String id;
+  private String id;
 
-    private String name;
+  private String name;
 
-    @JsonProperty("created_at")
-    private Date createdAt;
+  @JsonProperty("created_at")
+  private Date createdAt;
 
-    private Map<String, Object> parameters;
+  private Map<String, Object> parameters;
 
-    private String object;
+  private String object;
 }

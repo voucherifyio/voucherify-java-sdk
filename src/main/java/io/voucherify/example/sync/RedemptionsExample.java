@@ -23,74 +23,78 @@ public class RedemptionsExample extends AbsExample {
     super(client);
   }
 
-
   public void example() {
     exampleGiftVoucherValidation();
     examplePercentDiscountValidation();
   }
 
   public void examplePercentDiscountValidation() {
-    Voucher percentDiscount = Voucher.builder()
+    Voucher percentDiscount =
+        Voucher.builder()
             .type(VoucherType.DISCOUNT_VOUCHER)
             .discount(Discount.percentOff(10, 300))
             .category("Java SDK Example")
             .redemption(VoucherRedemption.builder().quantity(1).build())
             .build();
 
-    CreateVoucher createVoucher = CreateVoucher.builder()
+    CreateVoucher createVoucher =
+        CreateVoucher.builder()
             .voucher(percentDiscount)
             .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
             .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
 
-    RedeemVoucher redeemVoucher = RedeemVoucher.builder()
-            .order(Order.builder()
-                    .amount(10000)
-                    .build()
-            )
-            .build();
+    RedeemVoucher redeemVoucher =
+        RedeemVoucher.builder().order(Order.builder().amount(10000).build()).build();
 
-    RedeemVoucherResponse redeemVoucherResponse = client.redemptions().redeem(result.getCode(), redeemVoucher);
+    RedeemVoucherResponse redeemVoucherResponse =
+        client.redemptions().redeem(result.getCode(), redeemVoucher);
 
     client.vouchers().delete(result.getCode(), true);
   }
 
   public void exampleGiftVoucherValidation() {
-    Voucher giftVoucher = Voucher.builder()
-        .type(VoucherType.GIFT_VOUCHER)
-        .gift(Gift.builder().amount(10000).build())
-        .category("Java SDK Example")
-        .redemption(VoucherRedemption.builder().quantity(1).build())
-        .build();
+    Voucher giftVoucher =
+        Voucher.builder()
+            .type(VoucherType.GIFT_VOUCHER)
+            .gift(Gift.builder().amount(10000).build())
+            .category("Java SDK Example")
+            .redemption(VoucherRedemption.builder().quantity(1).build())
+            .build();
 
-    CreateVoucher createVoucher = CreateVoucher.builder()
-        .voucher(giftVoucher)
-        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-        .build();
+    CreateVoucher createVoucher =
+        CreateVoucher.builder()
+            .voucher(giftVoucher)
+            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+            .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
     Customer customer = Customer.builder().name("Doe").email("some-email").build();
     CustomerResponse customerResponse = client.customers().create(customer);
 
-    Customer redeemCustomer = Customer.builder()
-        .id(customerResponse.getId())
-        .build();
+    Customer redeemCustomer = Customer.builder().id(customerResponse.getId()).build();
 
-    RedeemVoucher redeemVoucher = RedeemVoucher.builder()
-        .customer(redeemCustomer)
-        .order(Order.builder()
-            .amount(100)
-            .build()
-        )
-        .build();
+    RedeemVoucher redeemVoucher =
+        RedeemVoucher.builder()
+            .customer(redeemCustomer)
+            .order(Order.builder().amount(100).build())
+            .build();
 
-    RedeemVoucherResponse redeemVoucherResponse = client.redemptions().redeem(result.getCode(), redeemVoucher);
+    RedeemVoucherResponse redeemVoucherResponse =
+        client.redemptions().redeem(result.getCode(), redeemVoucher);
 
-    client.redemptions().list(RedemptionsFilter.builder().customer(customerResponse.getId()).build());
+    client
+        .redemptions()
+        .list(RedemptionsFilter.builder().customer(customerResponse.getId()).build());
 
     client.redemptions().getForVoucher(result.getCode());
-    client.redemptions().rollback(redeemVoucherResponse.getId(), "some reason", RollbackRedemption.builder().customer(redeemCustomer).build());
+    client
+        .redemptions()
+        .rollback(
+            redeemVoucherResponse.getId(),
+            "some reason",
+            RollbackRedemption.builder().customer(redeemCustomer).build());
 
     client.vouchers().delete(result.getCode(), true);
     client.customers().delete(customerResponse.getId());

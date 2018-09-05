@@ -1,14 +1,15 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.promotion.CreatePromotionCampaign;
 import io.voucherify.client.model.promotion.Tier;
-import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignResponse;
-import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
-import io.voucherify.client.model.promotion.reponse.TierResponse;
+import io.voucherify.client.model.promotion.response.CreatePromotionCampaignResponse;
+import io.voucherify.client.model.promotion.response.ListPromotionTiersResponse;
+import io.voucherify.client.model.promotion.response.TierResponse;
+import io.voucherify.client.utils.Irrelevant;
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
-import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,9 +20,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreatePromotionCampaign() {
     // given
-    CreatePromotionCampaign createPromotionCampaign = CreatePromotionCampaign.builder()
-        .name("some-name")
-        .build();
+    CreatePromotionCampaign createPromotionCampaign =
+        CreatePromotionCampaign.builder().name("some-name").build();
     enqueueResponse("{\"id\" : \"some-id\", \"promotion\": {\"object\": \"list\"} }");
 
     // when
@@ -55,7 +55,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldAddPromotionTierToCampaign() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
 
     // when
     TierResponse result = client.promotions().addPromotionTier("some-id", tier);
@@ -74,7 +75,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldUpdatePromotionTier() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
 
     // when
     TierResponse result = client.promotions().updatePromotionTier("some-id", tier);
@@ -106,9 +108,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreatePromotionCampaignAsync() {
     // given
-    CreatePromotionCampaign createPromotionCampaign = CreatePromotionCampaign.builder()
-        .name("some-name")
-        .build();
+    CreatePromotionCampaign createPromotionCampaign =
+        CreatePromotionCampaign.builder().name("some-name").build();
     enqueueResponse("{\"id\" : \"some-id\", \"promotion\": {\"object\": \"list\"} }");
     VoucherifyCallback callback = createCallback();
 
@@ -142,7 +143,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldAddPromotionTierToCampaignAsync() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
     VoucherifyCallback callback = createCallback();
 
     // when
@@ -159,7 +161,8 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldUpdatePromotionTierAsync() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
     VoucherifyCallback callback = createCallback();
 
     // when
@@ -191,16 +194,16 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreatePromotionCampaignRxJava() {
     // given
-    CreatePromotionCampaign createPromotionCampaign = CreatePromotionCampaign.builder()
-        .name("some-name")
-        .build();
+    CreatePromotionCampaign createPromotionCampaign =
+        CreatePromotionCampaign.builder().name("some-name").build();
     enqueueResponse("{\"id\" : \"some-id\", \"promotion\": {\"object\": \"list\"} }");
 
     // when
-    Observable<CreatePromotionCampaignResponse> observable = client.promotions().rx().create(createPromotionCampaign);
+    Observable<CreatePromotionCampaignResponse> observable =
+        client.promotions().rx().create(createPromotionCampaign);
 
     // then
-    CreatePromotionCampaignResponse result = observable.toBlocking().first();
+    CreatePromotionCampaignResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getPromotion()).isNotNull();
     RecordedRequest request = getRequest();
@@ -217,7 +220,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     Observable<ListPromotionTiersResponse> observable = client.promotions().rx().list("some-id");
 
     // then
-    ListPromotionTiersResponse result = observable.toBlocking().first();
+    ListPromotionTiersResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getTiers()).isEmpty();
     RecordedRequest request = getRequest();
@@ -229,13 +232,15 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldAddPromotionTierToCampaignRxJava() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
 
     // when
-    Observable<TierResponse> observable = client.promotions().rx().addPromotionTier("some-id", tier);
+    Observable<TierResponse> observable =
+        client.promotions().rx().addPromotionTier("some-id", tier);
 
     // then
-    TierResponse result = observable.toBlocking().first();
+    TierResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getCampaign()).isNotNull();
     assertThat(result.getAction()).isNotNull();
@@ -249,13 +254,15 @@ public class PromotionsModuleTest extends AbstractModuleTest {
   public void shouldUpdatePromotionTierRxJava() {
     // given
     Tier tier = Tier.builder().name("some-name").build();
-    enqueueResponse("{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
+    enqueueResponse(
+        "{\"object\": \"promotion_tier\", \"campaign\": {}, \"condition\": {}, \"action\": {}, \"metadata\": {}}");
 
     // when
-    Observable<TierResponse> observable = client.promotions().rx().updatePromotionTier("some-id", tier);
+    Observable<TierResponse> observable =
+        client.promotions().rx().updatePromotionTier("some-id", tier);
 
     // then
-    TierResponse result = observable.toBlocking().first();
+    TierResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getCampaign()).isNotNull();
     assertThat(result.getAction()).isNotNull();
@@ -271,10 +278,10 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     enqueueEmptyResponse();
 
     // when
-    Observable<Void> observable = client.promotions().rx().deletePromotionTier("some-id");
+    Observable<Irrelevant> observable = client.promotions().rx().deletePromotionTier("some-id");
 
     // then
-    observable.toBlocking().first();
+    observable.blockingFirst();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");

@@ -48,5 +48,4 @@ public class OrderResponse {
   private Map<String, Object> metadata;
 
   private Referrer referrer;
-
 }

@@ -1,6 +1,7 @@
 package io.voucherify.example.sync;
 
 import io.voucherify.client.VoucherifyClient;
+import io.voucherify.client.model.product.DeleteProductParams;
 import io.voucherify.client.model.product.DeleteSKUParams;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.ProductsFilter;
@@ -55,5 +56,7 @@ public class ProductsExample extends AbsExample {
         .products()
         .deleteSKU(
             result.getId(), skuResult.getId(), DeleteSKUParams.builder().force(true).build());
+
+    client.products().delete(result.getId(), DeleteProductParams.builder().force(true).build());
   }
 }

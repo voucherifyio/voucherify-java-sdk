@@ -17,5 +17,4 @@ public abstract class VoucherifyCallback<T> {
   public synchronized boolean isCancelled() {
     return cancelled;
   }
-
 }

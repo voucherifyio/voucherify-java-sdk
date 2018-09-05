@@ -15,12 +15,12 @@ import java.util.List;
 @ToString
 public class ListRewardAssignmentsResponse {
 
-    private String object;
+  private String object;
 
-    private Integer total;
+  private Integer total;
 
-    @JsonProperty("data_ref")
-    private String dataRef;
+  @JsonProperty("data_ref")
+  private String dataRef;
 
-    private List<RewardAssignmentResponse> data;
+  private List<RewardAssignmentResponse> data;
 }

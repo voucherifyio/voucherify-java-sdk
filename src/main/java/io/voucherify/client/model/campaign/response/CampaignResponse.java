@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.CampaignType;
 import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.GenerationStatus;
+import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.model.voucher.response.VoucherResponse;
 
 import java.util.Date;
 import java.util.Map;
@@ -50,5 +50,4 @@ public class CampaignResponse {
 
   @JsonProperty("validation_rules_assignments")
   private BusinessValidationRuleAssignmentList validationRuleAssignments;
-
 }

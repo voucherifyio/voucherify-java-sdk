@@ -15,8 +15,8 @@ import lombok.ToString;
 @ToString
 public class Referral {
 
-    private String code;
+  private String code;
 
-    @JsonProperty("referrer_id")
-    private String referrerId;
+  @JsonProperty("referrer_id")
+  private String referrerId;
 }

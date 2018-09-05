@@ -15,18 +15,18 @@ import lombok.ToString;
 @ToString
 public class CreateEarningRule {
 
-    @JsonProperty("validation_rule_id")
-    private String validationRuleId;
+  @JsonProperty("validation_rule_id")
+  private String validationRuleId;
 
-    private String event;
+  private String event;
 
-    @JsonProperty("custom_event")
-    private CustomEvent customEvent;
+  @JsonProperty("custom_event")
+  private CustomEvent customEvent;
 
-    @JsonProperty("segment")
-    private Segment segment;
+  @JsonProperty("segment")
+  private Segment segment;
 
-    private Source source;
+  private Source source;
 
-    private Loyalty loyalty;
+  private Loyalty loyalty;
 }

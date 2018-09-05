@@ -24,7 +24,8 @@ public class CampaignsResponse {
 
   private List<CampaignResponse> campaigns;
 
-  public static CampaignsResponse of(String object, Integer total, String dataRef, List<CampaignResponse> campaignResponses) {
+  public static CampaignsResponse of(
+      String object, Integer total, String dataRef, List<CampaignResponse> campaignResponses) {
     return new CampaignsResponse(object, total, dataRef, campaignResponses);
   }
 

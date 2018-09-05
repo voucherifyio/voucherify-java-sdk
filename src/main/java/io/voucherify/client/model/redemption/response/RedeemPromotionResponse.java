@@ -2,7 +2,7 @@ package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.order.response.OrderResponse;
-import io.voucherify.client.model.promotion.reponse.TierResponse;
+import io.voucherify.client.model.promotion.response.TierResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,23 +17,22 @@ import java.util.Date;
 @ToString
 public class RedeemPromotionResponse {
 
-    private String id;
+  private String id;
 
-    private String object;
+  private String object;
 
-    private Date date;
+  private Date date;
 
-    @JsonProperty("customer_id")
-    private String customerId;
+  @JsonProperty("customer_id")
+  private String customerId;
 
-    @JsonProperty("tracking_id")
-    private String trackingId;
+  @JsonProperty("tracking_id")
+  private String trackingId;
 
-    private OrderResponse order;
+  private OrderResponse order;
 
-    @JsonProperty("promotion_tier")
-    private TierResponse tier;
+  @JsonProperty("promotion_tier")
+  private TierResponse tier;
 
-    private String result;
-
+  private String result;
 }

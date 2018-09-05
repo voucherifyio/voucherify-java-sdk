@@ -1,7 +1,7 @@
 package io.voucherify.client.model.validation.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.voucherify.client.model.promotion.reponse.PromotionTierValidationResponse;
+import io.voucherify.client.model.promotion.response.PromotionTierValidationResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

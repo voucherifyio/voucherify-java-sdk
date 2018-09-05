@@ -17,8 +17,8 @@ import java.util.Map;
 @ToString
 public class UpdateRewardAssignment {
 
-    private String campaign;
+  private String campaign;
 
-    @Singular("parameter")
-    private Map<String, Object> parameters;
+  @Singular("parameter")
+  private Map<String, Object> parameters;
 }

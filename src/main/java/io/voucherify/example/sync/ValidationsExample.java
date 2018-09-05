@@ -26,25 +26,24 @@ public class ValidationsExample extends AbsExample {
   }
 
   public void examplePercentDiscountValidation() {
-    Voucher percentDiscount = Voucher.builder()
+    Voucher percentDiscount =
+        Voucher.builder()
             .type(VoucherType.DISCOUNT_VOUCHER)
             .discount(Discount.percentOff(10, 300))
             .category("Java SDK Example")
             .redemption(VoucherRedemption.builder().quantity(1).build())
             .build();
 
-    CreateVoucher createVoucher = CreateVoucher.builder()
+    CreateVoucher createVoucher =
+        CreateVoucher.builder()
             .voucher(percentDiscount)
             .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
             .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
 
-    VoucherValidation validation = VoucherValidation.builder()
-            .order(Order.builder()
-                    .amount(10000)
-                    .build()
-            ).build();
+    VoucherValidation validation =
+        VoucherValidation.builder().order(Order.builder().amount(10000).build()).build();
 
     client.validations().validate(result.getCode(), validation);
 
@@ -52,33 +51,32 @@ public class ValidationsExample extends AbsExample {
   }
 
   public void exampleGiftVoucherValidation() {
-    Voucher giftVoucher = Voucher.builder()
-        .type(VoucherType.GIFT_VOUCHER)
-        .gift(Gift.builder().amount(10000).build())
-        .category("Java SDK Example")
-        .redemption(VoucherRedemption.builder().quantity(1).build())
-        .build();
+    Voucher giftVoucher =
+        Voucher.builder()
+            .type(VoucherType.GIFT_VOUCHER)
+            .gift(Gift.builder().amount(10000).build())
+            .category("Java SDK Example")
+            .redemption(VoucherRedemption.builder().quantity(1).build())
+            .build();
 
-    CreateVoucher createVoucher = CreateVoucher.builder()
-        .voucher(giftVoucher)
-        .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
-        .build();
+    CreateVoucher createVoucher =
+        CreateVoucher.builder()
+            .voucher(giftVoucher)
+            .codeConfig(CodeConfig.builder().pattern("PROMO-#####-2017").build())
+            .build();
 
     VoucherResponse result = client.vouchers().create(createVoucher);
 
     Customer customer = Customer.builder().name("Doe").email("some-email").build();
     CustomerResponse customerResponse = client.customers().create(customer);
 
-    Customer custToValidate = Customer.builder()
-        .id(customerResponse.getId())
-        .build();
+    Customer custToValidate = Customer.builder().id(customerResponse.getId()).build();
 
-    VoucherValidation validation = VoucherValidation.builder()
-        .customer(custToValidate)
-        .order(Order.builder()
-            .amount(100)
-            .build()
-        ).build();
+    VoucherValidation validation =
+        VoucherValidation.builder()
+            .customer(custToValidate)
+            .order(Order.builder().amount(100).build())
+            .build();
 
     client.validations().validate(result.getCode(), validation);
     client.vouchers().delete(result.getCode(), true);

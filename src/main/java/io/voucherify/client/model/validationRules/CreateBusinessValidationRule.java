@@ -17,6 +17,5 @@ public class CreateBusinessValidationRule {
 
   private String name;
 
-  @Builder.Default
-  private Json rules = Json.builder().build();
+  @Builder.Default private Json rules = Json.builder().build();
 }

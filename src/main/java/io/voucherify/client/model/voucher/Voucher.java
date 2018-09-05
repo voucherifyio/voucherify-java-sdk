@@ -61,5 +61,4 @@ public class Voucher {
 
   @JsonProperty("updated_at")
   private Date updatedAt;
-
 }
