@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.QualificationContext;
@@ -15,8 +16,8 @@ import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.VoucherModule.ExtAsync;
 import io.voucherify.client.module.VoucherModule.ExtRxJava;
+import io.voucherify.client.utils.Irrelevant;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -29,45 +30,48 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public VoucherResponse create(CreateVoucher createVoucher) {
     if (createVoucher.getVoucher().getCode() != null) {
-      return api.createVoucher(createVoucher.getVoucher().getCode(), createVoucher);
+      return executeSyncApiCall(
+          api.createVoucher(createVoucher.getVoucher().getCode(), createVoucher));
     }
-    return api.createVoucher(createVoucher);
+    return executeSyncApiCall(api.createVoucher(createVoucher));
   }
 
   public VoucherResponse get(String code) {
-    return api.getVoucher(code);
+    return executeSyncApiCall(api.getVoucher(code));
   }
 
   public VoucherResponse update(String code, VoucherUpdate voucherUpdate) {
-    return api.updateVoucher(code, voucherUpdate);
+    return executeSyncApiCall(api.updateVoucher(code, voucherUpdate));
   }
 
   public void delete(String code, Boolean force) {
-    api.deleteVoucher(code, force);
+    executeSyncApiCall(api.deleteVoucher(code, force));
   }
 
   public VouchersResponse list(VouchersFilter vouchersFilter) {
-    return api.listVouchers(vouchersFilter.asMap());
+    return executeSyncApiCall(api.listVouchers(vouchersFilter.asMap()));
   }
 
   public VoucherResponse disable(String code) {
-    return api.disable(code);
+    return executeSyncApiCall(api.disable(code));
   }
 
   public VoucherResponse enable(String code) {
-    return api.enable(code);
+    return executeSyncApiCall(api.enable(code));
   }
 
   public AddBalanceResponse addBalance(String code, AddBalance addBalance) {
-    return api.addBalance(code, addBalance);
+    return executeSyncApiCall(api.addBalance(code, addBalance));
   }
 
   public void importVouchers(ImportVouchers vouchers) {
-    api.importVouchers(vouchers);
+    executeSyncApiCall(api.importVouchers(vouchers));
   }
 
-  public QualificationList<VoucherResponse> getQualified(QualificationContext context, QualifiedResourceFilter filter) {
-    return api.getQualifiedVouchers(context, filter != null ? filter.asMap() : new HashMap<String, Object>());
+  public QualificationList<VoucherResponse> getQualified(
+      QualificationContext context, QualifiedResourceFilter filter) {
+    return executeSyncApiCall(
+        api.getQualifiedVouchers(context, filter != null ? filter.asMap() : new HashMap<>()));
   }
 
   @Override
@@ -104,7 +108,8 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().create(createVoucher), callback);
     }
 
-    public void update(String code, VoucherUpdate voucherUpdate, VoucherifyCallback<VoucherResponse> callback) {
+    public void update(
+        String code, VoucherUpdate voucherUpdate, VoucherifyCallback<VoucherResponse> callback) {
       RxUtils.subscribe(executor, rx().update(code, voucherUpdate), callback);
     }
 
@@ -116,15 +121,20 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().enable(code), callback);
     }
 
-    public void addBalance(String code, AddBalance addBalance, VoucherifyCallback<AddBalanceResponse> callback) {
+    public void addBalance(
+        String code, AddBalance addBalance, VoucherifyCallback<AddBalanceResponse> callback) {
       RxUtils.subscribe(executor, rx().addBalance(code, addBalance), callback);
     }
 
-    public void importVouchers(ImportVouchers importVouchers, VoucherifyCallback<Void> callback) {
+    public void importVouchers(
+        ImportVouchers importVouchers, VoucherifyCallback<Irrelevant> callback) {
       RxUtils.subscribe(executor, rx().importVouchers(importVouchers), callback);
     }
 
-    public void getQualifiedVouchers(QualificationContext context, QualifiedResourceFilter filter, VoucherifyCallback<QualificationList<VoucherResponse>> callback) {
+    public void getQualifiedVouchers(
+        QualificationContext context,
+        QualifiedResourceFilter filter,
+        VoucherifyCallback<QualificationList<VoucherResponse>> callback) {
       RxUtils.subscribe(executor, rx().getQualified(context, filter), callback);
     }
   }
@@ -132,96 +142,117 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
   public class ExtRxJava extends AbsModule.Rx {
 
     public Observable<VoucherResponse> create(final CreateVoucher createVoucher) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherResponse>() {
-        @Override
-        public VoucherResponse method() {
-          return VoucherModule.this.create(createVoucher);
-        }
-      });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VoucherResponse>() {
+
+            @Override
+            public VoucherResponse method() {
+              return VoucherModule.this.create(createVoucher);
+            }
+          });
     }
 
     public Observable<VoucherResponse> get(final String code) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherResponse>() {
-        @Override
-        public VoucherResponse method() {
-          return VoucherModule.this.get(code);
-        }
-      });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VoucherResponse>() {
+
+            @Override
+            public VoucherResponse method() {
+              return VoucherModule.this.get(code);
+            }
+          });
     }
 
-    public Observable<VoucherResponse> update(final String code, final VoucherUpdate voucherUpdate) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherResponse>() {
-        @Override
-        public VoucherResponse method() {
-          return VoucherModule.this.update(code, voucherUpdate);
-        }
-      });
+    public Observable<VoucherResponse> update(
+        final String code, final VoucherUpdate voucherUpdate) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VoucherResponse>() {
+
+            @Override
+            public VoucherResponse method() {
+              return VoucherModule.this.update(code, voucherUpdate);
+            }
+          });
     }
 
-    public Observable<Void> delete(final String code, final Boolean force) {
-      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
-        @Override
-        public Void method() {
-          VoucherModule.this.delete(code, force);
-          return null;
-        }
-      });
+    public Observable<Irrelevant> delete(final String code, final Boolean force) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<Irrelevant>() {
+
+            @Override
+            public Irrelevant method() {
+              VoucherModule.this.delete(code, force);
+              return Irrelevant.NO_RESPONSE;
+            }
+          });
     }
 
     public Observable<VouchersResponse> list(final VouchersFilter vouchersFilter) {
-      return RxUtils.defer(new RxUtils.DefFunc<VouchersResponse>() {
-        @Override
-        public VouchersResponse method() {
-          return VoucherModule.this.list(vouchersFilter);
-        }
-      });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VouchersResponse>() {
+
+            @Override
+            public VouchersResponse method() {
+              return VoucherModule.this.list(vouchersFilter);
+            }
+          });
     }
 
     public Observable<VoucherResponse> disable(final String code) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherResponse>() {
-        @Override
-        public VoucherResponse method() {
-          return VoucherModule.this.disable(code);
-        }
-      });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VoucherResponse>() {
+
+            @Override
+            public VoucherResponse method() {
+              return VoucherModule.this.disable(code);
+            }
+          });
     }
 
     public Observable<VoucherResponse> enable(final String code) {
-      return RxUtils.defer(new RxUtils.DefFunc<VoucherResponse>() {
-        @Override
-        public VoucherResponse method() {
-          return VoucherModule.this.enable(code);
-        }
-      });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<VoucherResponse>() {
+
+            @Override
+            public VoucherResponse method() {
+              return VoucherModule.this.enable(code);
+            }
+          });
     }
 
-    public Observable<AddBalanceResponse> addBalance(final String code, final AddBalance addBalance) {
-      return RxUtils.defer(new RxUtils.DefFunc<AddBalanceResponse>() {
-        @Override
-        public AddBalanceResponse method() {
-          return VoucherModule.this.addBalance(code, addBalance);
-        }
-      });
+    public Observable<AddBalanceResponse> addBalance(
+        final String code, final AddBalance addBalance) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<AddBalanceResponse>() {
+
+            @Override
+            public AddBalanceResponse method() {
+              return VoucherModule.this.addBalance(code, addBalance);
+            }
+          });
     }
 
-    public Observable<Void> importVouchers(final ImportVouchers importVouchers) {
-      return RxUtils.defer(new RxUtils.DefFunc<Void>() {
-        @Override
-        public Void method() {
-          VoucherModule.this.importVouchers(importVouchers);
-          return null;
-        }
-      });
+    public Observable<Irrelevant> importVouchers(final ImportVouchers importVouchers) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<Irrelevant>() {
+
+            @Override
+            public Irrelevant method() {
+              VoucherModule.this.importVouchers(importVouchers);
+              return Irrelevant.NO_RESPONSE;
+            }
+          });
     }
 
-    public Observable<QualificationList<VoucherResponse>> getQualified(final QualificationContext context, final QualifiedResourceFilter filter) {
-      return RxUtils.defer(new RxUtils.DefFunc<QualificationList<VoucherResponse>>() {
-        @Override
-        public QualificationList<VoucherResponse> method() {
-          return VoucherModule.this.getQualified(context, filter);
-        }
-      });
+    public Observable<QualificationList<VoucherResponse>> getQualified(
+        final QualificationContext context, final QualifiedResourceFilter filter) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<QualificationList<VoucherResponse>>() {
+            @Override
+            public QualificationList<VoucherResponse> method() {
+              return VoucherModule.this.getQualified(context, filter);
+            }
+          });
     }
   }
-
 }

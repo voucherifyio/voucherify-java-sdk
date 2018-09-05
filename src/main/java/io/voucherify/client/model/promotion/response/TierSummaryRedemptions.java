@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -11,11 +11,8 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class TierSummaryOrders {
+public class TierSummaryRedemptions {
 
-  @JsonProperty("total_amount")
-  private Integer totalAmount;
-
-  @JsonProperty("total_discount_amount")
-  private Integer totalDiscountAmount;
+  @JsonProperty("total_redeemed")
+  private Integer totalRedeemed;
 }

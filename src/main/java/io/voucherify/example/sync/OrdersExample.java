@@ -17,19 +17,12 @@ public class OrdersExample extends AbsExample {
 
   @Override
   public void example() {
-    CreateOrder createOrder = CreateOrder.builder()
-        .item(OrderItem.builder()
-            .quantity(10)
-            .productId("id")
-            .build()
-        )
-        .amount(10)
-        .customer(Customer.builder()
-            .email("sth@sth.com")
-            .name("test")
-            .build()
-        )
-        .build();
+    CreateOrder createOrder =
+        CreateOrder.builder()
+            .item(OrderItem.builder().quantity(10).productId("id").build())
+            .amount(10)
+            .customer(Customer.builder().email("sth@sth.com").name("test").build())
+            .build();
 
     CreateOrderResponse createOrderResponse = client.orders().create(createOrder);
     System.out.print(createOrderResponse);
@@ -37,11 +30,10 @@ public class OrdersExample extends AbsExample {
     GetOrderResponse getOrderResponse = client.orders().get(createOrderResponse.getId());
     System.out.print(getOrderResponse);
 
-    UpdateOrder updateOrder = UpdateOrder.builder()
-        .amount(5)
-        .build();
+    UpdateOrder updateOrder = UpdateOrder.builder().amount(5).build();
 
-    GetOrderResponse updateOrderResponse = client.orders().update(getOrderResponse.getId(), updateOrder);
+    GetOrderResponse updateOrderResponse =
+        client.orders().update(getOrderResponse.getId(), updateOrder);
     System.out.print(updateOrderResponse);
 
     ListOrdersResponse list = client.orders().list();

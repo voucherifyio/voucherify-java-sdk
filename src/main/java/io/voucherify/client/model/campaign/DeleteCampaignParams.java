@@ -21,10 +21,9 @@ public class DeleteCampaignParams extends AbstractFilter<String, Object> {
   private Boolean force;
 
   @Override
-  public Map<String, Object> asMap() {
+  public Map<String, Object> getMap() {
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("force", force);
     return map;
   }
-
 }

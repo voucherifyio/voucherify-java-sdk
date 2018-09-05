@@ -2,9 +2,9 @@ package io.voucherify.client.model.loyalties.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.loyalties.CustomEvent;
+import io.voucherify.client.model.loyalties.Loyalty;
 import io.voucherify.client.model.loyalties.Segment;
 import io.voucherify.client.model.loyalties.Source;
-import io.voucherify.client.model.loyalties.Loyalty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,25 +19,25 @@ import java.util.Date;
 @ToString
 public class EarningRuleResponse {
 
-    private String id;
+  private String id;
 
-    private String object;
+  private String object;
 
-    @JsonProperty("validation_rule_id")
-    private String validationRuleId;
+  @JsonProperty("validation_rule_id")
+  private String validationRuleId;
 
-    @JsonProperty("created_at")
-    private Date createdAt;
+  @JsonProperty("created_at")
+  private Date createdAt;
 
-    private String event;
+  private String event;
 
-    @JsonProperty("custom_event")
-    private CustomEvent customEvent;
+  @JsonProperty("custom_event")
+  private CustomEvent customEvent;
 
-    @JsonProperty("segment")
-    private Segment segment;
+  @JsonProperty("segment")
+  private Segment segment;
 
-    private Source source;
+  private Source source;
 
-    private Loyalty loyalty;
+  private Loyalty loyalty;
 }

@@ -15,6 +15,6 @@ import lombok.ToString;
 @ToString
 public class CustomEvent {
 
-    @JsonProperty("schema_id")
-    private String schemaId;
+  @JsonProperty("schema_id")
+  private String schemaId;
 }

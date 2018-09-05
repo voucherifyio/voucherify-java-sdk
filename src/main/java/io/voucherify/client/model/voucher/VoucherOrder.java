@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 public class VoucherOrder {
 
+  @Builder.Default
   private SortingOrder order = SortingOrder.ASC;
 
   private String fieldName;
@@ -26,5 +27,4 @@ public class VoucherOrder {
 
     return this.order.getSorting() + this.fieldName.toLowerCase();
   }
-
 }

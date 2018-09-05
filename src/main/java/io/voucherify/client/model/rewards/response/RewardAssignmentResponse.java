@@ -16,22 +16,21 @@ import java.util.Map;
 @ToString
 public class RewardAssignmentResponse {
 
-    private String id;
+  private String id;
 
-    @JsonProperty("related_object_id")
-    private String relatedObjectId;
+  @JsonProperty("related_object_id")
+  private String relatedObjectId;
 
-    private String object;
+  private String object;
 
-    @JsonProperty("reward_id")
-    private String rewardId;
+  @JsonProperty("reward_id")
+  private String rewardId;
 
-    @JsonProperty("related_object_type")
-    private String relatedObjectType;
+  @JsonProperty("related_object_type")
+  private String relatedObjectType;
 
-    @JsonProperty("created_at")
-    private Date createdAt;
+  @JsonProperty("created_at")
+  private Date createdAt;
 
-    private Map<String, Object> parameters;
-
+  private Map<String, Object> parameters;
 }

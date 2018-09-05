@@ -1,11 +1,11 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.event.CustomEvent;
 import io.voucherify.client.model.event.response.CustomEventResponse;
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
-import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,9 +16,7 @@ public class EventsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldTrackCustomEvent() {
     // given
-    CustomEvent customEvent = CustomEvent.builder()
-        .event("some event")
-        .build();
+    CustomEvent customEvent = CustomEvent.builder().event("some event").build();
     enqueueResponse("{\"object\" : \"event\", \"type\": \"page_iew\"}");
 
     // when
@@ -35,9 +33,7 @@ public class EventsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldTrackCustomEventAsync() {
     // given
-    CustomEvent customEvent = CustomEvent.builder()
-        .event("some event")
-        .build();
+    CustomEvent customEvent = CustomEvent.builder().event("some event").build();
     enqueueResponse("{\"object\" : \"event\", \"type\": \"page_iew\"}");
     VoucherifyCallback callback = createCallback();
 
@@ -54,16 +50,14 @@ public class EventsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldTrackCustomEventRxJava() {
     // given
-    CustomEvent customEvent = CustomEvent.builder()
-        .event("some event")
-        .build();
+    CustomEvent customEvent = CustomEvent.builder().event("some event").build();
     enqueueResponse("{\"object\" : \"event\", \"type\": \"page_iew\"}");
 
     // when
     Observable<CustomEventResponse> observable = client.events().rx().track(customEvent);
 
     // then
-    CustomEventResponse result = observable.toBlocking().first();
+    CustomEventResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getObject()).isEqualTo("event");
     RecordedRequest request = getRequest();

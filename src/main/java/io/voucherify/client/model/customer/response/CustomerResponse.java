@@ -57,5 +57,4 @@ public class CustomerResponse {
   private Boolean emailUnsubscribed;
 
   private String object;
-
 }

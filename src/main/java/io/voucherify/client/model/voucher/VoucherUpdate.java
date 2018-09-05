@@ -37,5 +37,4 @@ public class VoucherUpdate {
   private Map<String, Object> metadata;
 
   private Gift gift;
-
 }

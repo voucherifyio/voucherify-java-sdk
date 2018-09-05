@@ -19,5 +19,4 @@ public class DataEntryResponse {
 
   @JsonProperty("source_id")
   private String sourceId;
-
 }

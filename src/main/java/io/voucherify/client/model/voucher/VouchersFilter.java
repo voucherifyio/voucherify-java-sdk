@@ -36,8 +36,8 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
   private List<Filter> filters;
 
   @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
     map.put("limit", limit);
     map.put("page", page);
     map.put("category", category);
@@ -72,6 +72,5 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
     String asKey() {
       return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
     }
-
   }
 }

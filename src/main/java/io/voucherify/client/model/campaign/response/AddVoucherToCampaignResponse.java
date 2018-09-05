@@ -57,5 +57,4 @@ public class AddVoucherToCampaignResponse {
 
   @JsonProperty("updated_at")
   private Date updatedAt;
-
 }

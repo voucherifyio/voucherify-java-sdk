@@ -25,4 +25,3 @@ public class BusinessValidationRule {
 
   private Date createdAt;
 }
-

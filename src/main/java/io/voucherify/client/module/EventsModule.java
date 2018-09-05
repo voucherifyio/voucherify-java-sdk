@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.event.CustomEvent;
@@ -7,7 +8,6 @@ import io.voucherify.client.model.event.response.CustomEventResponse;
 import io.voucherify.client.module.EventsModule.ExtAsync;
 import io.voucherify.client.module.EventsModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
-import rx.Observable;
 
 import java.util.concurrent.Executor;
 
@@ -18,7 +18,7 @@ public class EventsModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   public CustomEventResponse track(CustomEvent customEvent) {
-    return api.createCustomEvent(customEvent);
+    return executeSyncApiCall(api.createCustomEvent(customEvent));
   }
 
   @Override
@@ -51,13 +51,14 @@ public class EventsModule extends AbsModule<ExtAsync, ExtRxJava> {
   public class ExtRxJava extends AbsModule.Rx {
 
     public Observable<CustomEventResponse> track(final CustomEvent customEvent) {
-      return RxUtils.defer(new RxUtils.DefFunc<CustomEventResponse>() {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<CustomEventResponse>() {
 
-        @Override
-        public CustomEventResponse method() {
-          return EventsModule.this.track(customEvent);
-        }
-      });
+            @Override
+            public CustomEventResponse method() {
+              return EventsModule.this.track(customEvent);
+            }
+          });
     }
   }
 }

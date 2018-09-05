@@ -32,5 +32,4 @@ public class CustomerRedemptionSummary {
   private Integer totalRollbackSucceeded;
 
   private GiftRedemptionSummary gift;
-
 }

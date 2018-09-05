@@ -24,6 +24,16 @@ public class ListPublicationsFilters {
   private String value;
 
   public String buildFilterParam() {
-    return "filters" + "[" + fieldName + "]" + "[conditions]" + "[" + operator + "]" + "[" + index + "]";
+    return "filters"
+        + "["
+        + fieldName
+        + "]"
+        + "[conditions]"
+        + "["
+        + operator
+        + "]"
+        + "["
+        + index
+        + "]";
   }
 }

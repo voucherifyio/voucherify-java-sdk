@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
@@ -37,5 +37,4 @@ public class TierResponse {
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
 }

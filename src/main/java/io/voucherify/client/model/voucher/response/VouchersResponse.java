@@ -24,7 +24,8 @@ public class VouchersResponse {
 
   private List<VoucherResponse> vouchers;
 
-  public static VouchersResponse of(String object, Integer total, String dataRef, List<VoucherResponse> vouchers) {
+  public static VouchersResponse of(
+      String object, Integer total, String dataRef, List<VoucherResponse> vouchers) {
     return new VouchersResponse(object, total, dataRef, vouchers);
   }
 

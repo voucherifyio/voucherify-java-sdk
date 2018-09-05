@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 public class Segment {
 
-    private String id;
+  private String id;
 }

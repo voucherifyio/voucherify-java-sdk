@@ -29,5 +29,4 @@ public class Address {
 
   @JsonProperty("postal_code")
   private String postalCode;
-
 }

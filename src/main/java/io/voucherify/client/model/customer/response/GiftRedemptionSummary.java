@@ -18,5 +18,4 @@ public class GiftRedemptionSummary {
 
   @JsonProperty("amount_to_go")
   private int amountToGo;
-
 }

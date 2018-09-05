@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString
 public class Referrer {
 
-    private String id;
+  private String id;
 
-    private String object;
+  private String object;
 }

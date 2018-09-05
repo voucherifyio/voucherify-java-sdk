@@ -17,5 +17,4 @@ public class Gift {
   private Integer amount;
 
   private Integer balance;
-
 }

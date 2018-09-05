@@ -1,17 +1,17 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
+import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.order.Order;
 import io.voucherify.client.model.order.OrderItem;
 import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
-import io.voucherify.client.model.validation.VoucherValidationResponse;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
+import io.voucherify.client.model.validation.response.VoucherValidationResponse;
 import io.voucherify.client.model.voucher.DiscountType;
+import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
-import rx.Observable;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,17 +19,13 @@ import static org.awaitility.Awaitility.await;
 
 public class ValidationsModuleTest extends AbstractModuleTest {
 
-  private static final VoucherValidation VOUCHER_VALIDATION = VoucherValidation
-          .builder()
-          .customer(Customer.builder()
-                  .email("some-email")
-                  .build())
-          .order(Order.builder()
+  private static final VoucherValidation VOUCHER_VALIDATION =
+      VoucherValidation.builder()
+          .customer(Customer.builder().email("some-email").build())
+          .order(
+              Order.builder()
                   .amount(1000)
-                  .item(OrderItem.builder()
-                          .skuId("sku")
-                          .quantity(1)
-                          .build())
+                  .item(OrderItem.builder().skuId("sku").quantity(1).build())
                   .build())
           .build();
 
@@ -39,7 +35,8 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     enqueueResponse("{\"code\" : \"some-code\", \"valid\": true }");
 
     // when
-    VoucherValidationResponse result = client.validations().validate("some-code", VOUCHER_VALIDATION);
+    VoucherValidationResponse result =
+        client.validations().validate("some-code", VOUCHER_VALIDATION);
 
     // then
     assertThat(result).isNotNull();
@@ -52,14 +49,12 @@ public class ValidationsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldValidatePromotionCampaign() {
     // given
-    PromotionValidation validation = PromotionValidation.builder()
-        .customer(
-            Customer.builder()
-                .email("sth@sth.com")
-                .build()
-        )
-        .build();
-    enqueueResponse("{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
+    PromotionValidation validation =
+        PromotionValidation.builder()
+            .customer(Customer.builder().email("sth@sth.com").build())
+            .build();
+    enqueueResponse(
+        "{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
 
     // when
     PromotionValidationResponse result = client.validations().validate(validation);
@@ -70,7 +65,8 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(result.getTrackingId()).isEqualTo("track_test");
     assertThat(result.getPromotions().size()).isEqualTo(1);
     assertThat(result.getPromotions().get(0).getBanner()).isEqualTo("Test Banner");
-    assertThat(result.getPromotions().get(0).getDiscount().getType()).isEqualTo(DiscountType.AMOUNT);
+    assertThat(result.getPromotions().get(0).getDiscount().getType())
+        .isEqualTo(DiscountType.AMOUNT);
     assertThat(result.getPromotions().get(0).getDiscount().getAmountOff()).isEqualTo(1000);
     assertThat(result.getPromotions().get(0).getDiscountAmount()).isEqualTo(1000);
     assertThat(result.getPromotions().get(0).getId()).isEqualTo("promo_mock");
@@ -101,16 +97,13 @@ public class ValidationsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldValidatePromotionCampaignAsync() {
     // given
-    PromotionValidation validation = PromotionValidation.builder()
-        .customer(
-            Customer.builder()
-                .email("sth@sth.com")
-                .build()
-        )
-        .build();
-    enqueueResponse("{\"valid\" : \"true\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
+    PromotionValidation validation =
+        PromotionValidation.builder()
+            .customer(Customer.builder().email("sth@sth.com").build())
+            .build();
+    enqueueResponse(
+        "{\"valid\" : \"true\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
     VoucherifyCallback callback = createCallback();
-
 
     // when
     client.validations().async().validate(validation, callback);
@@ -128,10 +121,11 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     enqueueResponse("{\"code\" : \"some-code\", \"valid\": true }");
 
     // when
-    Observable<VoucherValidationResponse> observable = client.validations().rx().validate("some-code", VOUCHER_VALIDATION);
+    Observable<VoucherValidationResponse> observable =
+        client.validations().rx().validate("some-code", VOUCHER_VALIDATION);
 
     // then
-    VoucherValidationResponse result = observable.toBlocking().first();
+    VoucherValidationResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/validate");
@@ -141,26 +135,26 @@ public class ValidationsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldValidatePromotionCampaignRxJava() {
     // given
-    PromotionValidation validation = PromotionValidation.builder()
-        .customer(
-            Customer.builder()
-                .email("sth@sth.com")
-                .build()
-        )
-        .build();
-    enqueueResponse("{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
+    PromotionValidation validation =
+        PromotionValidation.builder()
+            .customer(Customer.builder().email("sth@sth.com").build())
+            .build();
+    enqueueResponse(
+        "{\"valid\" : \"true\", \"tracking_id\": \"track_test\", \"promotions\": [{ \"id\": \"promo_mock\", \"banner\": \"Test Banner\", \"object\": \"promotion_tier\", \"discount\": { \"type\": \"AMOUNT\", \"amount_off\": 1000 }, \"metadata\": { \"test\": true}, \"discount_amount\": 1000}]}");
 
     // when
-    Observable<PromotionValidationResponse> observable = client.validations().rx().validate(validation);
+    Observable<PromotionValidationResponse> observable =
+        client.validations().rx().validate(validation);
 
     // then
-    PromotionValidationResponse result = observable.toBlocking().first();
+    PromotionValidationResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getValid()).isEqualTo(true);
     assertThat(result.getTrackingId()).isEqualTo("track_test");
     assertThat(result.getPromotions().size()).isEqualTo(1);
     assertThat(result.getPromotions().get(0).getBanner()).isEqualTo("Test Banner");
-    assertThat(result.getPromotions().get(0).getDiscount().getType()).isEqualTo(DiscountType.AMOUNT);
+    assertThat(result.getPromotions().get(0).getDiscount().getType())
+        .isEqualTo(DiscountType.AMOUNT);
     assertThat(result.getPromotions().get(0).getDiscount().getAmountOff()).isEqualTo(1000);
     assertThat(result.getPromotions().get(0).getDiscountAmount()).isEqualTo(1000);
     assertThat(result.getPromotions().get(0).getId()).isEqualTo("promo_mock");
@@ -171,5 +165,4 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(request.getPath()).isEqualTo("/v1/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
-
 }

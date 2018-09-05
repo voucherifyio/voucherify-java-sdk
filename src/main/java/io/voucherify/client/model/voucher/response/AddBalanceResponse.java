@@ -22,5 +22,4 @@ public class AddBalanceResponse {
 
   @JsonProperty("related_object")
   private RelatedObject relatedObject;
-
 }

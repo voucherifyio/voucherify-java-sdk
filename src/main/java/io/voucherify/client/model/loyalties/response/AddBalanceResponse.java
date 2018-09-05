@@ -14,16 +14,16 @@ import lombok.ToString;
 @ToString
 public class AddBalanceResponse {
 
-    private Integer points;
+  private Integer points;
 
-    private Integer total;
+  private Integer total;
 
-    private Integer balance;
+  private Integer balance;
 
-    private String type;
+  private String type;
 
-    private String object;
+  private String object;
 
-    @JsonProperty("related_object")
-    private RelatedObject relatedObject;
+  @JsonProperty("related_object")
+  private RelatedObject relatedObject;
 }

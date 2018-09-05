@@ -15,5 +15,4 @@ import java.util.List;
 public class BusinessValidationRuleList {
 
   private List<BusinessValidationRule> data;
-
 }

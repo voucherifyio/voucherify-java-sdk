@@ -10,7 +10,8 @@ import java.util.List;
 public abstract class AbstractListSerializer<T, R> extends JsonSerializer<T> {
 
   @Override
-  public void serialize(T value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
+  public void serialize(T value, JsonGenerator jgen, SerializerProvider provider)
+      throws IOException {
     if (value == null) {
       return;
     }
@@ -29,7 +30,6 @@ public abstract class AbstractListSerializer<T, R> extends JsonSerializer<T> {
     }
 
     jgen.writeEndArray();
-
   }
 
   protected abstract List<R> getList(T value);

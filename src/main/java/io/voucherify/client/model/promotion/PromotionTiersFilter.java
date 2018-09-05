@@ -18,19 +18,19 @@ import java.util.Map;
 @ToString
 public class PromotionTiersFilter extends AbstractFilter<String, Object> {
 
-    private Integer limit;
+  private Integer limit;
 
-    private Integer page;
+  private Integer page;
 
-    private Boolean isAvailable;
+  private Boolean isAvailable;
 
-    @Override
-    public Map<String, Object> asMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("limit", limit);
-        map.put("page", page);
-        map.put("is_available", isAvailable);
+  @Override
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
+    map.put("limit", limit);
+    map.put("page", page);
+    map.put("is_available", isAvailable);
 
-        return map;
-    }
+    return map;
+  }
 }

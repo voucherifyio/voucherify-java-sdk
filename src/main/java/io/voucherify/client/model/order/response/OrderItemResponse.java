@@ -43,5 +43,4 @@ public class OrderItemResponse {
   private OrderItemSKUResponse orderItemSku;
 
   private Map<String, Object> metadata;
-
 }

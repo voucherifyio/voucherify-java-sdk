@@ -18,5 +18,4 @@ public class VoucherPublishResponse {
   private Integer count;
 
   private List<PublishEntryResponse> entries;
-
 }

@@ -26,5 +26,4 @@ public class CustomEvent {
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
-
 }

@@ -1,4 +1,4 @@
-package io.voucherify.client.model.promotion.reponse;
+package io.voucherify.client.model.promotion.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

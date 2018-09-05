@@ -21,5 +21,4 @@ public class CreateBusinessValidationRuleAssignment {
 
   @JsonProperty("promotion_tier")
   private String promotionTier;
-
 }

@@ -23,5 +23,4 @@ public class ListOrdersResponse {
   private String dataRef;
 
   private List<GetOrderResponse> orders;
-
 }

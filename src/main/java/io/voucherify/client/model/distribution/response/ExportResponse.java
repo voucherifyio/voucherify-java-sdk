@@ -33,6 +33,4 @@ public class ExportResponse {
   private Map<String, Object> parameters;
 
   private Map<String, Object> result;
-
 }
-

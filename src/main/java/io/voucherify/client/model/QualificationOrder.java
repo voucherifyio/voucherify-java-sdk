@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 public class QualificationOrder {
 
+  @Builder.Default
   private SortingOrder order = SortingOrder.ASC;
 
   private String fieldName;

@@ -21,14 +21,11 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class DateSerializerTest {
 
-  @Rule
-  public ExpectedException expectedException = ExpectedException.none();
+  @Rule public ExpectedException expectedException = ExpectedException.none();
 
-  @Mock
-  private JsonGenerator jsonGenerator;
+  @Mock private JsonGenerator jsonGenerator;
 
-  @Mock
-  private SerializerProvider serializers;
+  @Mock private SerializerProvider serializers;
 
   @Test
   public void shouldThrowExceptionWhenNoDateFormatWasProvided() {
@@ -74,5 +71,4 @@ public class DateSerializerTest {
     // then
     verify(jsonGenerator, never()).writeString(ArgumentMatchers.anyString());
   }
-
 }

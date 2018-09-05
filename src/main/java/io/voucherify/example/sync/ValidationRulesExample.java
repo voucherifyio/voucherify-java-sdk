@@ -34,8 +34,7 @@ public class ValidationRulesExample extends AbsExample {
                             .addEntry(
                                 "conditions",
                                 Json.builder()
-                                    .addEntry(
-                                        "$is", Arrays.asList("seg_n3vVcU5t0m3rs4rEPr3C1oU5"))
+                                    .addEntry("$is", Arrays.asList("seg_n3vVcU5t0m3rs4rEPr3C1oU5"))
                                     .build())
                             .build())
                     .addEntry(
@@ -59,47 +58,51 @@ public class ValidationRulesExample extends AbsExample {
             .list(BusinessValidationRuleFilter.builder().limit(10).page(1).build());
     System.out.println(rulesList);
 
-    BusinessValidationRule receivedRule = client.validationRules().get(businessValidationRule.getId());
+    BusinessValidationRule receivedRule =
+        client.validationRules().get(businessValidationRule.getId());
     System.out.println(receivedRule);
 
-
-    UpdateBusinessValidationRule update = UpdateBusinessValidationRule.builder()
-        .id(businessValidationRule.getId())
-        .name("new-name")
-        .rules(Json.builder()
-            .addEntry(
-                "1",
+    UpdateBusinessValidationRule update =
+        UpdateBusinessValidationRule.builder()
+            .id(businessValidationRule.getId())
+            .name("new-name")
+            .rules(
                 Json.builder()
-                    .addEntry("name", "customer.segment")
                     .addEntry(
-                        "conditions",
+                        "1",
                         Json.builder()
+                            .addEntry("name", "customer.segment")
                             .addEntry(
-                                "$is", Arrays.asList("seg_n3vVcU5t0m3rs4rEPr3C1oU5"))
+                                "conditions",
+                                Json.builder()
+                                    .addEntry("$is", Arrays.asList("seg_n3vVcU5t0m3rs4rEPr3C1oU5"))
+                                    .build())
                             .build())
                     .build())
-        .build())
-        .build();
+            .build();
 
     BusinessValidationRule updatedRule = client.validationRules().update(update);
     System.out.println(updatedRule);
 
-    CreateBusinessValidationRuleAssignment assignment = CreateBusinessValidationRuleAssignment.builder()
-        .campaign("test-campaign")
-        .build();
+    CreateBusinessValidationRuleAssignment assignment =
+        CreateBusinessValidationRuleAssignment.builder().campaign("test-campaign").build();
 
-    BusinessValidationRuleAssignment createdAssignment = client.validationRules().createAssignment(businessValidationRule.getId(), assignment);
-
+    BusinessValidationRuleAssignment createdAssignment =
+        client.validationRules().createAssignment(businessValidationRule.getId(), assignment);
     System.out.println(createdAssignment);
 
-    BusinessValidationRuleAssignmentList assigments = client.validationRules().listAssignments(businessValidationRule.getId(), BusinessValidationRuleAssignmentFilter.builder()
-        .limit(10)
-        .page(1)
-        .build());
+    BusinessValidationRuleAssignmentList assigments =
+        client
+            .validationRules()
+            .listAssignments(
+                businessValidationRule.getId(),
+                BusinessValidationRuleAssignmentFilter.builder().limit(10).page(1).build());
 
     System.out.println(assigments);
 
-    client.validationRules().deleteAssignment(businessValidationRule.getId(), createdAssignment.getId());
+    client
+        .validationRules()
+        .deleteAssignment(businessValidationRule.getId(), createdAssignment.getId());
     client.validationRules().delete(businessValidationRule.getId());
   }
 }

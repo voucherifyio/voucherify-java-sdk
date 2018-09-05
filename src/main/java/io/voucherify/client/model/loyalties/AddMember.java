@@ -18,10 +18,10 @@ import java.util.Map;
 @ToString
 public class AddMember {
 
-    private String voucher;
+  private String voucher;
 
-    private Customer customer;
+  private Customer customer;
 
-    @Singular("metadataEntry")
-    private Map<String, Object> metadata;
+  @Singular("metadataEntry")
+  private Map<String, Object> metadata;
 }

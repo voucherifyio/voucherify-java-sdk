@@ -22,7 +22,8 @@ public class VouchersResponseDeserializer extends JsonDeserializer<VouchersRespo
   }
 
   @Override
-  public VouchersResponse deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
+  public VouchersResponse deserialize(JsonParser jp, DeserializationContext ctxt)
+      throws IOException {
     if (apiVersion == null) {
       return getDefaultVouchersResponse(jp);
     }
@@ -37,9 +38,14 @@ public class VouchersResponseDeserializer extends JsonDeserializer<VouchersRespo
         JsonNode total = root.get("total");
         JsonNode dataRef = root.get("data_ref");
         JsonNode vouchersNode = root.get("vouchers");
-        VoucherResponse[] voucherResponses = mapper.convertValue(vouchersNode, VoucherResponse[].class);
+        VoucherResponse[] voucherResponses =
+            mapper.convertValue(vouchersNode, VoucherResponse[].class);
 
-        return VouchersResponse.of(object.asText(), total.asInt(0), dataRef.asText(), Arrays.asList(voucherResponses));
+        return VouchersResponse.of(
+            object != null ? object.asText() : "",
+            total != null ? total.asInt(0) : 0,
+            dataRef != null ? dataRef.asText() : "",
+            Arrays.asList(voucherResponses));
       default:
         return getDefaultVouchersResponse(jp);
     }
@@ -49,5 +55,4 @@ public class VouchersResponseDeserializer extends JsonDeserializer<VouchersRespo
     VoucherResponse[] array = jp.readValueAs(VoucherResponse[].class);
     return VouchersResponse.of(Arrays.asList(array));
   }
-
 }

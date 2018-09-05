@@ -28,5 +28,4 @@ public class VoucherRedemptionResponse {
   @JsonProperty("redemption_entries")
   @Singular("redemptionEntry")
   private List<RedemptionEntryResponse> redemptionEntries;
-
 }

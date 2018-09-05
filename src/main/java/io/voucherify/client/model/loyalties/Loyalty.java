@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 public class Loyalty {
 
-    private Integer points;
+  private Integer points;
 }

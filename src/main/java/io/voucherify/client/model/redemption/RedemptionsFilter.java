@@ -29,8 +29,8 @@ public class RedemptionsFilter extends AbstractFilter<String, Object> {
   private String campaign;
 
   @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
     map.put("limit", limit);
     map.put("page", page);
     map.put("result", result);
@@ -38,5 +38,4 @@ public class RedemptionsFilter extends AbstractFilter<String, Object> {
     map.put("campaign", campaign);
     return map;
   }
-
 }

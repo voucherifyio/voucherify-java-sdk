@@ -22,5 +22,4 @@ public class ImportVouchers {
 
   @Singular("voucher")
   private List<Voucher> vouchers;
-
 }

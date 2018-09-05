@@ -17,8 +17,8 @@ import java.util.Map;
 @ToString
 public class RedeemReward {
 
-    private Reward reward;
+  private Reward reward;
 
-    @Singular("metadataEntry")
-    private Map<String, Object> metadata;
+  @Singular("metadataEntry")
+  private Map<String, Object> metadata;
 }

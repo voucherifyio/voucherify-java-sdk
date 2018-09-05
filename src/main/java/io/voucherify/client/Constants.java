@@ -19,5 +19,5 @@ public final class Constants {
   public static final String ENDPOINT_VOUCHERIFY = "api.voucherify.io";
   public static final String ENDPOINT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssXXX";
   public static final String ENDPOINT_SECONDARY_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
-
+  public static final int CONNECTION_TIMEOUT = 60;
 }

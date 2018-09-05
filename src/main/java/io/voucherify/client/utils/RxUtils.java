@@ -1,46 +1,31 @@
 package io.voucherify.client.utils;
 
+import io.reactivex.Observable;
+import io.reactivex.schedulers.Schedulers;
 import io.voucherify.client.callback.VoucherifyCallback;
-import io.voucherify.client.error.VoucherifyError;
-import rx.Observable;
-import rx.functions.Action1;
-import rx.functions.Func0;
-import rx.schedulers.Schedulers;
+import io.voucherify.client.error.VoucherifyErrorHandler;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 
 public final class RxUtils {
 
-  public static <R> VoucherifyCallback<R> subscribe(final Executor executor, Observable<R> observable, final VoucherifyCallback<R> callback) {
-    observable
-            .subscribe(
-                    new Action1<R>() {
-                      @Override
-                      public void call(final R r) {
-                        executor.execute(new Runnable() {
-                          @Override
-                          public void run() {
-                            callback.onSuccess(r);
-                          }
-                        });
-                      }
-                    },
-                    new Action1<Throwable>() {
-                      @Override
-                      public void call(final Throwable throwable) {
-                        executor.execute(new Runnable() {
-                          @Override
-                          public void run() {
-                            callback.onFailure(VoucherifyError.from(throwable));
-                          }
-                        });
-                      }
-                    });
+  private static final VoucherifyErrorHandler HANDLER = new VoucherifyErrorHandler();
+
+  public static <R> VoucherifyCallback<R> subscribe(
+      final Executor executor, Observable<R> observable, final VoucherifyCallback<R> callback) {
+    observable.subscribe(
+        r -> executor.execute(() -> callback.onSuccess(r)),
+        throwable -> executor.execute(() -> callback.onFailure(HANDLER.from(throwable))));
 
     return callback;
   }
 
-  public abstract static class DefFunc<T> implements Func0<Observable<T>> {
+  public static <R> Observable<R> defer(DefFunc<R> func) {
+    return Observable.defer(func).subscribeOn(Schedulers.io());
+  }
+
+  public abstract static class DefFunc<T> implements Callable<Observable<T>> {
 
     @Override
     public final Observable<T> call() {
@@ -49,9 +34,4 @@ public final class RxUtils {
 
     public abstract T method();
   }
-
-  public static <R> Observable<R> defer(DefFunc<R> func) {
-    return Observable.defer(func).subscribeOn(Schedulers.io());
-  }
-
 }

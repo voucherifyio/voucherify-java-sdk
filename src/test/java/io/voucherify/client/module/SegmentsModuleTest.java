@@ -1,12 +1,13 @@
 package io.voucherify.client.module;
 
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
-import io.voucherify.client.model.segment.SegmentType;
-import org.junit.Test;
+import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.segment.Segment;
+import io.voucherify.client.model.segment.SegmentType;
 import io.voucherify.client.model.segment.response.SegmentResponse;
-import rx.Observable;
+import io.voucherify.client.utils.Irrelevant;
+import okhttp3.mockwebserver.RecordedRequest;
+import org.junit.Test;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -122,7 +123,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     Observable<SegmentResponse> observable = client.segments().rx().create(segment);
 
     // then
-    SegmentResponse result = observable.toBlocking().first();
+    SegmentResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getName()).isEqualTo("segment");
     RecordedRequest request = getRequest();
@@ -139,7 +140,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     Observable<SegmentResponse> observable = client.segments().rx().get("some-id");
 
     // then
-    SegmentResponse result = observable.toBlocking().first();
+    SegmentResponse result = observable.blockingFirst();
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     RecordedRequest request = getRequest();
@@ -153,10 +154,10 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     enqueueEmptyResponse();
 
     // when
-    Observable<Void> observable = client.segments().rx().delete("some-id");
+    Observable<Irrelevant> observable = client.segments().rx().delete("some-id");
 
     // then
-    observable.toBlocking().first();
+    observable.blockingFirst();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");

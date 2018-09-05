@@ -1,12 +1,12 @@
 package io.voucherify.client.model.product;
 
+import io.voucherify.client.utils.AbstractFilter;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import io.voucherify.client.utils.AbstractFilter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +23,8 @@ public class ProductsFilter extends AbstractFilter<String, Object> {
   private Integer page;
 
   @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
     map.put("limit", limit);
     map.put("page", page);
     return map;

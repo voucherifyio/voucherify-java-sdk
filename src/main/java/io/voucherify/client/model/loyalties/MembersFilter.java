@@ -20,46 +20,45 @@ import java.util.Map;
 @ToString
 public class MembersFilter extends AbstractFilter<String, Object> {
 
-    private Integer limit;
+  private Integer limit;
 
-    private Integer page;
+  private Integer page;
 
-    @Singular("filter")
-    private List<Filter> filters;
+  @Singular("filter")
+  private List<Filter> filters;
 
-    @Override
-    public Map<String, Object> asMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("limit", limit);
-        map.put("page", page);
+  @Override
+  public Map<String, Object> getMap() {
+    Map<String, Object> map = new HashMap<>();
+    map.put("limit", limit);
+    map.put("page", page);
 
-        if (filters != null) {
-            for (Filter filter : filters) {
-                if (filter != null) {
-                    map.put(filter.asKey(), filter.getValue());
-                }
-            }
+    if (filters != null) {
+      for (Filter filter : filters) {
+        if (filter != null) {
+          map.put(filter.asKey(), filter.getValue());
         }
-
-        return map;
+      }
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    @AllArgsConstructor(access = AccessLevel.PRIVATE)
-    @Getter
-    @Builder
-    @ToString
-    public static class Filter {
+    return map;
+  }
 
-        private String fieldName;
+  @NoArgsConstructor(access = AccessLevel.PRIVATE)
+  @AllArgsConstructor(access = AccessLevel.PRIVATE)
+  @Getter
+  @Builder
+  @ToString
+  public static class Filter {
 
-        private String condition;
+    private String fieldName;
 
-        private Object value;
+    private String condition;
 
-        String asKey() {
-            return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
-        }
+    private Object value;
 
+    String asKey() {
+      return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
     }
+  }
 }

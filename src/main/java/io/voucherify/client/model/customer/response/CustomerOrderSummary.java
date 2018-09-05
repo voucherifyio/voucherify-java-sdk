@@ -29,5 +29,4 @@ public class CustomerOrderSummary {
 
   @JsonProperty("last_order_date")
   private Date lastOrderDate;
-
 }

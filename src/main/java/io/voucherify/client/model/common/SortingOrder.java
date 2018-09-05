@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum SortingOrder {
-
-  ASC(""), DESC("-");
+  ASC(""),
+  DESC("-");
 
   private final String sorting;
 

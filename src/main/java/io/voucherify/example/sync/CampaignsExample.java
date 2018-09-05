@@ -19,18 +19,27 @@ public class CampaignsExample extends AbsExample {
   }
 
   public void example() {
-    Voucher campaignVoucher = Voucher.builder().active(false).type(VoucherType.DISCOUNT_VOUCHER).discount(Discount.amountOff(10)).build();
-    CreateCampaign createCampaign = CreateCampaign.builder().name("campaign-name").voucher(campaignVoucher).build();
+    Voucher campaignVoucher =
+        Voucher.builder()
+            .active(false)
+            .type(VoucherType.DISCOUNT_VOUCHER)
+            .discount(Discount.amountOff(10))
+            .build();
+    CreateCampaign createCampaign =
+        CreateCampaign.builder().name("campaign-name").voucher(campaignVoucher).build();
 
     CampaignResponse response = client.campaigns().create(createCampaign);
 
-    AddVoucherToCampaign addVoucherToCampaign = AddVoucherToCampaign.builder().category("new-category").build();
+    AddVoucherToCampaign addVoucherToCampaign =
+        AddVoucherToCampaign.builder().category("new-category").build();
 
     client.campaigns().addVoucher(response.getName(), addVoucherToCampaign);
     client.campaigns().addVoucherWithCode(response.getName(), "some-code1", addVoucherToCampaign);
 
-    CampaignImportVoucher campaignImportVoucher = CampaignImportVoucher.builder().active(false).code("test03").build();
-    CampaignImportVouchers importVouchers = CampaignImportVouchers.builder().voucher(campaignImportVoucher).build();
+    CampaignImportVoucher campaignImportVoucher =
+        CampaignImportVoucher.builder().active(false).code("test03").build();
+    CampaignImportVouchers importVouchers =
+        CampaignImportVouchers.builder().voucher(campaignImportVoucher).build();
 
     client.campaigns().importVouchers(response.getName(), importVouchers);
 

@@ -24,7 +24,7 @@ import java.util.Map;
 public class VoucherResponse {
 
   private String id;
-  
+
   private String code;
 
   private String campaign;
@@ -75,5 +75,4 @@ public class VoucherResponse {
 
   @JsonProperty("validation_rules_assignments")
   private BusinessValidationRuleAssignmentList validationRuleAssignments;
-
 }

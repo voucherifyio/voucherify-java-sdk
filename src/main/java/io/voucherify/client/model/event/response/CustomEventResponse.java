@@ -15,5 +15,4 @@ public class CustomEventResponse {
   private String object;
 
   private String type;
-
 }

@@ -15,10 +15,10 @@ import lombok.ToString;
 @ToString
 public class UpdateEarningRule {
 
-    @JsonProperty("validation_rule_id")
-    private String validationRuleId;
+  @JsonProperty("validation_rule_id")
+  private String validationRuleId;
 
-    private Source source;
+  private Source source;
 
-    private Loyalty loyalty;
+  private Loyalty loyalty;
 }

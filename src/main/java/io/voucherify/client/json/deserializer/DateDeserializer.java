@@ -45,5 +45,4 @@ public class DateDeserializer extends JsonDeserializer<Date> {
     }
     throw VoucherifyError.from("Invalid date format: " + str);
   }
-
 }
