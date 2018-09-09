@@ -26,6 +26,8 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
 
   private String campaign;
 
+  private String customer;
+
   @Override
   public Map<String, Object> asMap() {
     Map<String, Object> map = new HashMap<String, Object>();
@@ -33,6 +35,7 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
     map.put("page", page);
     map.put("category", category);
     map.put("campaign", campaign);
+    map.put("customer", customer);
     return map;
   }
 }

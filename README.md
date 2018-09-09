@@ -651,6 +651,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-09-09 - 6.0.4 - Added filtering vouchers by customer.
 * 2018-05-21 - 6.0.3 - Added support for `price` when creating `Price` model.
 * 2018-04-05 - 6.0.2 - Added support for `unitType` when creating `Discount` Voucher, removed obsolete `VoucherType` from validation response. Added class `PromotionTierValidationResponse` for proper promotion tier response mapping for promotion validation returned from `voucherify.validations().validate(PromotionValidation)` method.
 * 2018-04-05 - 6.0.1 - Fix response class accessibility from `package` to `public`. `OrderItem` and `OrderItemResponse` classes now supports `price` field.
