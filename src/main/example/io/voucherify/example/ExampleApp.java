@@ -15,11 +15,9 @@ import io.voucherify.example.sync.ValidationsExample;
 import io.voucherify.example.sync.VouchersExample;
 import retrofit.RestAdapter;
 
-import java.text.ParseException;
-
 public class ExampleApp {
 
-  public static void main(String[] args) throws ParseException, InterruptedException {
+  public static void main(String[] args) {
     ExampleApp exampleApp = new ExampleApp();
     exampleApp.start();
   }

@@ -1,6 +1,5 @@
 package io.voucherify.example.sync;
 
-import com.sun.tools.javac.util.List;
 import io.voucherify.client.VoucherifyClient;
 import io.voucherify.client.model.Operator;
 import io.voucherify.client.model.validationRules.IdPair;
@@ -43,7 +42,7 @@ public class ValidationRulesExample extends AbsExample {
         .userRules(UserValidationRules.builder()
             .junction(Junction.AND)
             .userLogin(UserLoginRules.builder()
-                .condition(Operator.$is, List.of("johndoe@johndoe.com"))
+                .condition(Operator.$is, Arrays.asList("johndoe@johndoe.com"))
                 .build()
             )
             .build()
@@ -58,10 +57,10 @@ public class ValidationRulesExample extends AbsExample {
   private void orderRulesExample() {
     ValidationRules orderValidationRules = ValidationRules.builder()
         .orderRules(OrderValidationRules.builder()
-            .totalAmountCondition(Operator.$less_than_or_equal, List.of(50000))
-            .productsCountCondition(Operator.$more_than, List.of(10000))
-            .allOrdersDiscountAmountCondition(Operator.$less_than_or_equal, List.of(30))
-            .allOrdersTotalAmountCondition(Operator.$is, List.of(100000))
+            .totalAmountCondition(Operator.$less_than_or_equal, Arrays.asList(50000))
+            .productsCountCondition(Operator.$more_than, Arrays.asList(10000))
+            .allOrdersDiscountAmountCondition(Operator.$less_than_or_equal, Arrays.asList(30))
+            .allOrdersTotalAmountCondition(Operator.$is, Arrays.asList(100000))
             .build()
         )
         .build();
@@ -74,7 +73,7 @@ public class ValidationRulesExample extends AbsExample {
   private void segmentRulesExample() {
     ValidationRules segmentValidationRules = ValidationRules.builder()
         .segmentRules(SegmentValidationRules.builder()
-            .condition(Operator.$is, List.of("a", "b"))
+            .condition(Operator.$is, Arrays.asList("a", "b"))
             .build()
         )
         .build();
@@ -87,7 +86,7 @@ public class ValidationRulesExample extends AbsExample {
   private void productRulesExample() {
     ValidationRules productValidationRules = ValidationRules.builder()
         .productRules(ProductValidationRules.builder()
-            .condition(Operator.$contains, List.of(IdPair.builder().id("id").sourceId("sourceId").build()))
+            .condition(Operator.$contains, Arrays.asList(IdPair.builder().id("id").sourceId("sourceId").build()))
             .build())
         .build();
 
@@ -100,27 +99,27 @@ public class ValidationRulesExample extends AbsExample {
     ValidationRules redemptionValidationRules = ValidationRules.builder()
         .redemptionRules(RedemptionValidationRules.builder()
             .countPerCampaign(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(10))
+                .condition(Operator.$contains, Arrays.asList(10))
                 .build()
             )
             .countPerCustomer(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(20))
+                .condition(Operator.$contains, Arrays.asList(20))
                 .build()
             )
             .countPerCustomerPerDay(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(30))
+                .condition(Operator.$contains, Arrays.asList(30))
                 .build()
             )
             .countPerUser(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(40))
+                .condition(Operator.$contains, Arrays.asList(40))
                 .build()
             )
             .countPerCustomerPerCampaign(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(50))
+                .condition(Operator.$contains, Arrays.asList(50))
                 .build()
             )
             .giftCardsAmount(RedemptionCountValidationRules.builder()
-                .condition(Operator.$contains, List.of(60))
+                .condition(Operator.$contains, Arrays.asList(60))
                 .build()
             )
             .metadata(MetadataValidationRules.builder()
