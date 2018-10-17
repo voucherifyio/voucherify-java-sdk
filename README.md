@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>6.0.5</version>
+  <version>6.0.6</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:6.0.5'
+compile 'io.voucherify.client:voucherify-java-sdk:6.0.6'
 
 ```
 
@@ -651,6 +651,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-10-17 - 6.0.6 - Added ApplicableTo object to response of redeem/validate methods for vouchers and promotions.
 * 2018-10-10 - 6.0.5 - Added ValidationRules in VoucherResponse object.
 * 2018-09-09 - 6.0.4 - Added filtering vouchers by customer.
 * 2018-05-21 - 6.0.3 - Added support for `price` when creating `Price` model.
