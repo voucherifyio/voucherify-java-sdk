@@ -1,10 +1,10 @@
 package io.voucherify.client.model.validation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.common.response.applicableTo.ApplicableToResponse;
 import io.voucherify.client.model.order.response.OrderResponse;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.Gift;
-import io.voucherify.client.model.voucher.VoucherType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,4 +36,6 @@ public class VoucherValidationResponse {
 
   private Map<String, Object> metadata;
 
+  @JsonProperty("applicable_to")
+  private ApplicableToResponse applicableTo;
 }

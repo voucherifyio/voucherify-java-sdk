@@ -31,6 +31,8 @@ public class TierResponse {
 
   private Map<String, Object> action;
 
+  private TierSummary summary;
+
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
 
