@@ -23,6 +23,9 @@ public class OrderItemResponse {
 
   private Integer price;
 
+  @JsonProperty("discount_amount")
+  private Integer discountAmount;
+
   private Integer amount;
 
 }
