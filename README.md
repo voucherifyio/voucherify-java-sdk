@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>6.0.7</version>
+  <version>6.0.8</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:6.0.7'
+compile 'io.voucherify.client:voucherify-java-sdk:6.0.8'
 
 ```
 
@@ -651,6 +651,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-10-24 - 6.0.8 - Add `discountAmount` to `OrderItemResponse`.
 * 2018-10-19 - 6.0.7 - Add amount to `OrderItem`.
 * 2018-10-17 - 6.0.6 - Added ApplicableTo object to response of redeem/validate methods for vouchers and promotions.
 * 2018-10-10 - 6.0.5 - Added ValidationRules in VoucherResponse object.
