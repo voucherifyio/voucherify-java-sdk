@@ -28,6 +28,6 @@ public class Segment {
   @Singular("filterEntry")
   private Map<String, Object> filter;
 
-  @Singular("metadataEntry§")
+  @Singular("metadataEntry")
   private Map<String, Object> metadata;
 }
