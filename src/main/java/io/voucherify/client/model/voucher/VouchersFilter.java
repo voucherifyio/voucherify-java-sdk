@@ -43,16 +43,20 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
     map.put("category", category);
     map.put("campaign", campaign);
     map.put("customer", customer);
-    for (Filter filter : filters) {
-      String key = "[filters][" + filter.getFieldName() + "][conditions][" + filter.getCondition() + "]";
-      List<Object> values = new ArrayList<Object>();
-      values.add(filter.getValue());
-      try {
-        map.put(key, URLEncoder.encode(String.valueOf(filter.getValue()), "UTF-8"));
-      } catch (UnsupportedEncodingException e) {
-        throw VoucherifyError.from("Filter value could not be encoded. Value: " + filter.getValue());
+
+    if (filters != null) {
+      for (Filter filter : filters) {
+        String key = "[filters][" + filter.getFieldName() + "][conditions][" + filter.getCondition() + "]";
+        List<Object> values = new ArrayList<Object>();
+        values.add(filter.getValue());
+        try {
+          map.put(key, URLEncoder.encode(String.valueOf(filter.getValue()), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+          throw VoucherifyError.from("Filter value could not be encoded. Value: " + filter.getValue());
+        }
       }
     }
+
     return map;
   }
 
