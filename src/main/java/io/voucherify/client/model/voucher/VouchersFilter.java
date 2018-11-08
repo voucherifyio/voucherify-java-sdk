@@ -1,17 +1,14 @@
 package io.voucherify.client.model.voucher;
 
-import io.voucherify.client.error.VoucherifyError;
 import io.voucherify.client.utils.AbstractFilter;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 import lombok.ToString;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +30,7 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
 
   private String customer;
 
+  @Singular("filter")
   private List<Filter> filters;
 
   @Override
@@ -46,13 +44,8 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
 
     if (filters != null) {
       for (Filter filter : filters) {
-        String key = "[filters][" + filter.getFieldName() + "][conditions][" + filter.getCondition() + "]";
-        List<Object> values = new ArrayList<Object>();
-        values.add(filter.getValue());
-        try {
-          map.put(key, URLEncoder.encode(String.valueOf(filter.getValue()), "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-          throw VoucherifyError.from("Filter value could not be encoded. Value: " + filter.getValue());
+        if (filter != null) {
+          map.put(filter.asKey(), filter.getValue());
         }
       }
     }
@@ -66,8 +59,16 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
   @Builder
   @ToString
   public static class Filter {
+
     private String fieldName;
+
     private String condition;
+
     private Object value;
+
+    String asKey() {
+      return "[filters][" + this.fieldName + "][conditions][" + this.condition + "]";
+    }
+
   }
 }

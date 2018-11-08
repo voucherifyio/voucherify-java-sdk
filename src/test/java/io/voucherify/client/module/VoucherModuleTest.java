@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.voucher.AddBalance;
@@ -8,17 +9,15 @@ import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.Voucher;
 import io.voucherify.client.model.voucher.VoucherType;
-import io.voucherify.client.model.voucher.response.AddBalanceResponse;
-import io.voucherify.client.model.voucher.response.VouchersResponse;
-import org.junit.Test;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
+import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
+import org.junit.Test;
 import rx.Observable;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -102,7 +101,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldFilterActiveVouchersWithMetadataListAsync() throws Exception {
+  public void shouldListVouchersByCustomFilters() throws Exception {
     // given
     Map<String, Object> metadata = new HashMap<String, Object>();
     metadata.put("some-key", 123);
@@ -117,18 +116,24 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
 
-
-    List<VouchersFilter.Filter> filters = new ArrayList<VouchersFilter.Filter>();
-
-    filters.add(VouchersFilter.Filter.builder().fieldName("active").condition("$active").value(true).build());
-    filters.add(VouchersFilter.Filter.builder().fieldName("metadata.some-key").condition("$is").value(123).build());
-
-    VouchersFilter filter = VouchersFilter.builder()
+    VouchersFilter filter =
+        VouchersFilter.builder()
             .limit(10)
             .page(5)
             .campaign("some-campaign")
             .category("some-category")
-            .filters(filters)
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
             .build();
 
     // when
@@ -333,6 +338,55 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldListVouchersByCustomFiltersAsync() throws JsonProcessingException {
+
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+        .code("some-code")
+        .active(true).category("category")
+        .campaign("my-campaign").isReferralCode(false)
+        .discount(Discount.unitOff(10.0))
+        .metadata(metadata)
+        .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+    VoucherifyCallback callback = createCallback();
+
+    VouchersFilter filter =
+        VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
+            .build();
+
+    // when
+    client.vouchers().async().list(filter, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
   public void shouldUpdateVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
@@ -528,7 +582,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
-  public void shouldFilterActiveVouchersWithMetadataListRxJava() throws Exception {
+  public void shouldListVouchersByCustomFiltersRxJava() throws Exception {
     // given
     Map<String, Object> metadata = new HashMap<String, Object>();
     metadata.put("some-key", 123);
@@ -543,18 +597,24 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
 
-
-    List<VouchersFilter.Filter> filters = new ArrayList<VouchersFilter.Filter>();
-
-    filters.add(VouchersFilter.Filter.builder().fieldName("active").condition("$active").value(true).build());
-    filters.add(VouchersFilter.Filter.builder().fieldName("metadata.some-key").condition("$is").value(123).build());
-
-    VouchersFilter filter = VouchersFilter.builder()
+    VouchersFilter filter =
+        VouchersFilter.builder()
             .limit(10)
             .page(5)
             .campaign("some-campaign")
             .category("some-category")
-            .filters(filters)
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
             .build();
 
     // when
