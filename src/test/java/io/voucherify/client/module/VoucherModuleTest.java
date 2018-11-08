@@ -16,7 +16,10 @@ import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import rx.Observable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -95,6 +98,46 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldFilterActiveVouchersWithMetadataListAsync() throws Exception {
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+            .code("some-code")
+            .active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .metadata(metadata)
+            .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+
+    List<VouchersFilter.Filter> filters = new ArrayList<VouchersFilter.Filter>();
+
+    filters.add(VouchersFilter.Filter.builder().fieldName("active").condition("$active").value(true).build());
+    filters.add(VouchersFilter.Filter.builder().fieldName("metadata.some-key").condition("$is").value(123).build());
+
+    VouchersFilter filter = VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filters(filters)
+            .build();
+
+    // when
+    VouchersResponse list = client.vouchers().list(filter);
+
+    // then
+    assertThat(list).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -481,6 +524,47 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldFilterActiveVouchersWithMetadataListRxJava() throws Exception {
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+            .code("some-code")
+            .active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .metadata(metadata)
+            .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+
+    List<VouchersFilter.Filter> filters = new ArrayList<VouchersFilter.Filter>();
+
+    filters.add(VouchersFilter.Filter.builder().fieldName("active").condition("$active").value(true).build());
+    filters.add(VouchersFilter.Filter.builder().fieldName("metadata.some-key").condition("$is").value(123).build());
+
+    VouchersFilter filter = VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filters(filters)
+            .build();
+
+    // when
+    Observable<VouchersResponse> observable = client.vouchers().rx().list(filter);
+
+    // then
+    VouchersResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
