@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>6.0.9</version>
+  <version>6.1.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:6.0.9'
+compile 'io.voucherify.client:voucherify-java-sdk:6.1.0'
 
 ```
 
@@ -651,6 +651,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-11-08 - 6.1.0 - Added support for `advanced filters` for Vouchers.
 * 2018-11-08 - 6.0.9 - Fix `Segment` metadata entry builder.
 * 2018-10-24 - 6.0.8 - Add `discountAmount` to `OrderItemResponse`.
 * 2018-10-19 - 6.0.7 - Add amount to `OrderItem`.
