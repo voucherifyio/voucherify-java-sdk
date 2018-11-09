@@ -1,5 +1,6 @@
 package io.voucherify.client.module;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.voucher.AddBalance;
@@ -8,15 +9,16 @@ import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.Voucher;
 import io.voucherify.client.model.voucher.VoucherType;
-import io.voucherify.client.model.voucher.response.AddBalanceResponse;
-import io.voucherify.client.model.voucher.response.VouchersResponse;
-import org.junit.Test;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
+import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
+import io.voucherify.client.model.voucher.response.VouchersResponse;
+import org.junit.Test;
 import rx.Observable;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -95,6 +97,52 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldListVouchersByCustomFilters() throws Exception {
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+            .code("some-code")
+            .active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .metadata(metadata)
+            .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+    VouchersFilter filter =
+        VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
+            .build();
+
+    // when
+    VouchersResponse list = client.vouchers().list(filter);
+
+    // then
+    assertThat(list).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -290,6 +338,55 @@ public class VoucherModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldListVouchersByCustomFiltersAsync() throws JsonProcessingException {
+
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+        .code("some-code")
+        .active(true).category("category")
+        .campaign("my-campaign").isReferralCode(false)
+        .discount(Discount.unitOff(10.0))
+        .metadata(metadata)
+        .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+    VoucherifyCallback callback = createCallback();
+
+    VouchersFilter filter =
+        VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
+            .build();
+
+    // when
+    client.vouchers().async().list(filter, callback);
+
+    // then
+    await().atMost(5, SECONDS).until(wasCallbackFired());
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
   public void shouldUpdateVoucherAsync() {
     // given
     Voucher voucher = Voucher.builder()
@@ -481,6 +578,53 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldListVouchersByCustomFiltersRxJava() throws Exception {
+    // given
+    Map<String, Object> metadata = new HashMap<String, Object>();
+    metadata.put("some-key", 123);
+
+    Voucher voucher = Voucher.builder()
+            .code("some-code")
+            .active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .metadata(metadata)
+            .build();
+
+    enqueueResponse("[" + mapper.writeValueAsString(voucher) + "]");
+
+    VouchersFilter filter =
+        VouchersFilter.builder()
+            .limit(10)
+            .page(5)
+            .campaign("some-campaign")
+            .category("some-category")
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("active")
+                    .condition("$active")
+                    .value(true)
+                    .build())
+            .filter(
+                VouchersFilter.Filter.builder()
+                    .fieldName("metadata.some-key")
+                    .condition("$is")
+                    .value(123)
+                    .build())
+            .build();
+
+    // when
+    Observable<VouchersResponse> observable = client.vouchers().rx().list(filter);
+
+    // then
+    VouchersResponse result = observable.toBlocking().first();
+    assertThat(result).isNotNull();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
