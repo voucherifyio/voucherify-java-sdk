@@ -3,11 +3,13 @@ package io.voucherify.client.module;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.common.SortingOrder;
 import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.Voucher;
+import io.voucherify.client.model.voucher.VoucherOrder;
 import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
@@ -86,6 +88,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VouchersFilter filter = VouchersFilter.builder()
             .limit(10)
             .page(5)
+            .order(VoucherOrder.builder().order(SortingOrder.DESC).fieldName("updated_at").build())
             .campaign("some-campaign")
             .category("some-category")
             .build();
@@ -96,7 +99,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category&order=-updated_at");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
