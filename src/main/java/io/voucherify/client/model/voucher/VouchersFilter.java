@@ -30,6 +30,8 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
 
   private String customer;
 
+  private VoucherOrder order;
+
   @Singular("filter")
   private List<Filter> filters;
 
@@ -41,6 +43,7 @@ public class VouchersFilter extends AbstractFilter<String, Object> {
     map.put("category", category);
     map.put("campaign", campaign);
     map.put("customer", customer);
+    map.put("order", order != null ? order.asQueryParam() : order);
 
     if (filters != null) {
       for (Filter filter : filters) {
