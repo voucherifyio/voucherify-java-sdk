@@ -1,6 +1,6 @@
 package io.voucherify.client.model.validationRules;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.Json;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,13 +10,13 @@ import lombok.ToString;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
 @Getter
+@Builder
 @ToString
-public class PublicationValidationRules {
+public class CreateBusinessValidationRule {
 
-  private Junction junction;
+  private String name;
 
-  @JsonProperty("published_for_redeeming_customer")
-  private PublishedForRedeemingCustomerRules publishedForRedeemingCustomer;
+  @Builder.Default
+  private Json rules = Json.builder().build();
 }
