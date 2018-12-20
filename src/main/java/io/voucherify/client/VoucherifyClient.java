@@ -13,6 +13,7 @@ import io.voucherify.client.json.deserializer.DateDeserializer;
 import io.voucherify.client.json.deserializer.VouchersResponseDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
@@ -194,7 +195,7 @@ public class VoucherifyClient {
         if (builder.apiVersion != null) {
           request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, builder.apiVersion.getValue());
         } else {
-          request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, ApiVersion.V_2017_04_20.getValue());
+          request.addHeader(Constants.HTTP_HEADER_VOUCHERIFY_API_VERSION, ApiVersion.V_2018_08_01.getValue());
         }
       }
     };

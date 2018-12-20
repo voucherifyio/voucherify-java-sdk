@@ -26,7 +26,7 @@ public class ExampleApp {
     return new VoucherifyClient.Builder()
         .setAppId("d6e63dde-3c08-4f0e-9046-09a12e66f4de")
         .setClientSecretKey("34b2e280-4678-4d1d-bc86-007737ab69de")
-        .apiVersion(ApiVersion.V_2017_04_05)
+        .apiVersion(ApiVersion.V_2018_08_01)
         .setLogLevel(RestAdapter.LogLevel.FULL)
         .build();
   }

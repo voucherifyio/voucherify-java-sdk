@@ -48,8 +48,14 @@ import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.VoucherValidationResponse;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
-import io.voucherify.client.model.validationRules.ValidationRules;
-import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
+import io.voucherify.client.model.validationRules.BusinessValidationRuleAssignmentFilter;
+import io.voucherify.client.model.validationRules.CreateBusinessValidationRule;
+import io.voucherify.client.model.validationRules.CreateBusinessValidationRuleAssignment;
+import io.voucherify.client.model.validationRules.UpdateBusinessValidationRule;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRule;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignment;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleList;
 import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.ImportVouchers;
@@ -238,16 +244,28 @@ public interface VoucherifyApi {
   // VALIDATION RULES
 
   @POST("/validation-rules")
-  ValidationRulesResponse createValidationRules(@Body ValidationRules validationRules);
+  BusinessValidationRule createValidationRules(@Body CreateBusinessValidationRule validationRule);
 
   @GET("/validation-rules/{id}")
-  ValidationRulesResponse getValidationRules(@Path("id") String id);
+  BusinessValidationRule getValidationRules(@Path("id") String id);
+
+  @GET("/validation-rules")
+  BusinessValidationRuleList listValidationRules(@QueryMap Map<String, Object> filter);
 
   @PUT("/validation-rules/{id}")
-  ValidationRulesResponse updateValidationRules(@Path("id") String id, @Body ValidationRules validationRules);
+  BusinessValidationRule updateValidationRules(@Path("id") String id, @Body UpdateBusinessValidationRule validationRule);
 
   @DELETE("/validation-rules/{id}")
   Void deleteValidationRules(@Path("id") String id);
+
+  @POST("/validation-rules/{id}/assignments")
+  BusinessValidationRuleAssignment createValidationRuleAssignment(@Path("id") String id, @Body CreateBusinessValidationRuleAssignment assignment);
+
+  @DELETE("/validation-rules/{validationRuleId}/assignments/{assignmentId}")
+  Void deleteValidationRuleAssignment(@Path("validationRuleId") String validationRuleId, @Path("assignmentId") String assignmentId);
+
+  @GET("/validation-rules/{id}/assignments")
+  BusinessValidationRuleAssignmentList listValidationRuleAssignments(@Path("id") String id, @QueryMap Map<String, Object> filter);
 
   // PROMOTIONS
 

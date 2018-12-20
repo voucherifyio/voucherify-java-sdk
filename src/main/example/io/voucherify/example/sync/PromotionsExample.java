@@ -9,8 +9,6 @@ import io.voucherify.client.model.promotion.Tier;
 import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignResponse;
 import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
 import io.voucherify.client.model.promotion.reponse.TierResponse;
-import io.voucherify.client.model.validationRules.OrderValidationRules;
-import io.voucherify.client.model.validationRules.ValidationRules;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -31,13 +29,6 @@ public class PromotionsExample extends AbsExample {
             .tier(Tier.builder()
                 .banner("banner")
                 .name("some name")
-                .condition(ValidationRules.builder()
-                    .orderRules(OrderValidationRules.builder()
-                        .totalAmountCondition(Operator.$more_than, Arrays.asList(10))
-                        .build()
-                    )
-                    .build()
-                )
                 .build()
             )
             .build()
@@ -49,13 +40,6 @@ public class PromotionsExample extends AbsExample {
 
     Tier tier = Tier.builder()
         .banner("other banner")
-        .condition(ValidationRules.builder()
-            .orderRules(OrderValidationRules.builder()
-                .totalAmountCondition(Operator.$more_than, Arrays.asList(10))
-                .build()
-            )
-            .build()
-        )
         .build();
 
     TierResponse tierResponse = client.promotions().addPromotionTier(response.getId(), tier);

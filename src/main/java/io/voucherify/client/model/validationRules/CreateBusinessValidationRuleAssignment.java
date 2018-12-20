@@ -1,26 +1,25 @@
 package io.voucherify.client.model.validationRules;
 
-import io.voucherify.client.model.Operator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
-
-import java.util.List;
-import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
 @Getter
+@Builder
 @ToString
-public class SegmentValidationRules {
+public class CreateBusinessValidationRuleAssignment {
 
-  private Junction junction;
+  private String campaign;
 
-  @Singular("condition")
-  private Map<Operator, List<String>> conditions;
+  private String voucher;
+
+  @JsonProperty("promotion_tier")
+  private String promotionTier;
+
 }

@@ -2,17 +2,13 @@ package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
-import io.voucherify.client.model.validationRules.IdPair;
-import io.voucherify.client.model.validationRules.Junction;
-import io.voucherify.client.model.Operator;
-import io.voucherify.client.model.validationRules.OrderValidationRules;
-import io.voucherify.client.model.validationRules.ProductValidationRules;
-import io.voucherify.client.model.validationRules.ValidationRules;
-import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
+import io.voucherify.client.model.Json;
+import io.voucherify.client.model.validationRules.CreateBusinessValidationRule;
+import io.voucherify.client.model.validationRules.CreateBusinessValidationRuleAssignment;
+import io.voucherify.client.model.validationRules.UpdateBusinessValidationRule;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRule;
 import org.junit.Test;
 import rx.Observable;
-
-import java.util.LinkedList;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,49 +16,48 @@ import static org.awaitility.Awaitility.await;
 
 public class ValidationRulesModuleTest extends AbstractModuleTest {
 
-  private static final ValidationRules RULES = ValidationRules.builder()
-          .junction(Junction.AND)
-          .id("some-id")
-          .campaignName("campaign")
-          .voucherCode("code")
-          .orderRules(OrderValidationRules.builder()
-                  .junction(Junction.AND)
-                  .productsCountCondition(Operator.$contains, new LinkedList<Integer>())
-                  .build())
-          .productRules(ProductValidationRules.builder()
-                  .condition(Operator.$is_not, new LinkedList<IdPair>())
-                  .build())
-          .build();
-
   @Test
-  public void shouldCreateValidationRules() {
+  public void shouldCreateBusinessValidationRules() {
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(rule);
 
     // when
-    ValidationRulesResponse result = client.validationRules().create(RULES);
+    BusinessValidationRule result = client.validationRules().create(rule);
 
     // then
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
+    assertThat(result.getRules().getEntry("field")).isEqualTo("value");
   }
 
   @Test
   public void shouldGetValidationRules() {
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(rule);
 
     // when
-    ValidationRulesResponse result = client.validationRules().get("some-id");
+    BusinessValidationRule result = client.validationRules().get("some-id");
 
     // then
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
@@ -70,16 +65,23 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
 
   @Test
   public void shouldUpdateValidationRules() {
+    UpdateBusinessValidationRule rule = UpdateBusinessValidationRule.builder().name("somename").id("some-id").build();
+    CreateBusinessValidationRule response = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(response);
 
     // when
-    ValidationRulesResponse result = client.validationRules().update(RULES);
+    BusinessValidationRule result = client.validationRules().update(rule);
 
     // then
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
@@ -102,11 +104,18 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
   @Test
   public void shouldCreateValidationRulesAsync() {
     // given
-    enqueueResponse(RULES);
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+    enqueueResponse(rule);
     VoucherifyCallback callback = createCallback();
 
     // when
-    client.validationRules().async().create(RULES, callback);
+    client.validationRules().async().create(rule, callback);
 
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
@@ -118,7 +127,15 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
   @Test
   public void shouldGetValidationRulesAsync() {
     // given
-    enqueueResponse(RULES);
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
+    enqueueResponse(rule);
     VoucherifyCallback callback = createCallback();
 
     // when
@@ -134,11 +151,20 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateValidationRulesAsync() {
     // given
-    enqueueResponse(RULES);
+    UpdateBusinessValidationRule rule = UpdateBusinessValidationRule.builder().name("somename").id("some-id").build();
+    CreateBusinessValidationRule response = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
+    enqueueResponse(response);
     VoucherifyCallback callback = createCallback();
 
     // when
-    client.validationRules().async().update(RULES, callback);
+    client.validationRules().async().update(rule, callback);
 
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
@@ -165,17 +191,22 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
 
   @Test
   public void shouldCreateValidationRulesRxJava() {
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(rule);
 
     // when
-    Observable<ValidationRulesResponse> observable = client.validationRules().rx().create(RULES);
+    Observable<BusinessValidationRule> observable = client.validationRules().rx().create(rule);
 
     // then
-    ValidationRulesResponse result = observable.toBlocking().first();
+    BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -183,17 +214,23 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
 
   @Test
   public void shouldGetValidationRulesRxJava() {
+    CreateBusinessValidationRule rule = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
+
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(rule);
 
     // when
-    Observable<ValidationRulesResponse> observable = client.validationRules().rx().get("some-id");
+    Observable<BusinessValidationRule> observable = client.validationRules().rx().get("some-id");
 
     // then
-    ValidationRulesResponse result = observable.toBlocking().first();
+    BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
@@ -201,17 +238,23 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
 
   @Test
   public void shouldUpdateValidationRulesRxJava() {
+    UpdateBusinessValidationRule rule = UpdateBusinessValidationRule.builder().name("somename").id("some-id").build();
+    CreateBusinessValidationRule response = CreateBusinessValidationRule.builder()
+        .name("some name")
+        .rules(Json.builder()
+            .addEntry("field", "value")
+            .addEntry("field2", Json.builder().addEntry("somefield3", true).build())
+            .build())
+        .build();
     // given
-    enqueueResponse(RULES);
+    enqueueResponse(response);
 
     // when
-    Observable<ValidationRulesResponse> observable = client.validationRules().rx().update(RULES);
+    Observable<BusinessValidationRule> observable = client.validationRules().rx().update(rule);
 
     // then
-    ValidationRulesResponse result = observable.toBlocking().first();
+    BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
-    assertThat(result.getProductRules().getConditions().containsKey(Operator.$is_not)).isTrue();
-    assertThat(result.getOrderRules().getProductsCount().containsKey(Operator.$contains)).isTrue();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");

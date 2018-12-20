@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>6.2.0</version>
+  <version>7.0.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:6.2.0'
+compile 'io.voucherify.client:voucherify-java-sdk:7.0.0'
 
 ```
 
@@ -79,7 +79,7 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
 You can also specify which API version you want to use. Simply specify it when creating client:
 ```java
 VoucherifyClient.Builder()
-            .apiVersion(ApiVersion.V_2017_04_05)
+            .apiVersion(ApiVersion.V_2018_08_01)
             .build();
 ```
 
@@ -436,26 +436,46 @@ voucherify.products().listSKU(String productId)
 ### Validation Rules API
 Methods are provided within `voucherify.validationRules().*` namespace.
 
-- [Create Validation Rules](#create-validation-rules)
-- [Get Validation Rules](#get-validation-rules)
-- [Update Validation Rules](#update-validation-rules)
-- [Delete Validation Rules](#delete-validation-rules)
+- [Create Validation Rule](#create-validation-rule)
+- [Get Validation Rule](#get-validation-rule)
+- [Update Validation Rule](#update-validation-rule)
+- [List Validation Rules](#list-validation-rules)
+- [Delete Validation Rule](#delete-validation-rule)
+- [Create Validation Rule Assignment](#create-validation-rule-assignment)
+- [List Validation Rule Assignments](#list-validation-rule-assignments)
+- [Delete Validation Assignment](#delete-validation-rule-assignment)
 
-#### [Create Validation Rules]
+#### [Create Validation Rule]
 ```java
-voucherify.validationRules().create(ValidationRules rules);
+voucherify.validationRules().create(CreateBusinessValidationRule rules);
 ```
-#### [Get Validation Rules]
+#### [Get Validation Rule]
 ```java
 voucherify.validationRules().get(String id);
 ```
-#### [Update Validation Rules]
+#### [Update Validation Rule]
 ```java
-voucherify.validationRules().update(ValidationRules rules);
+voucherify.validationRules().update(UpdateBusinessValidationRule rule);
 ```
-#### [Delete Validation Rules]
+#### [List Validation Rules]
+```java
+voucherify.validationRules().list(BusinessValidationRuleFilter filer);
+```
+#### [Delete Validation Rule]
 ```java
 voucherify.validationRules().delete(String id);
+```
+#### [Create Validation Rule Assignment]
+```java
+voucherify.validationRules().createAssignment(String ruleId, CreateBusinessValidationRuleAssignment assignment);
+```
+#### [List Validation Rule Assignments]
+```java
+voucherify.validationRules().listAssignments(String ruleId, BusinessValidationRuleAssignmentFilter filer);
+```
+#### [Delete Validation Rule Assignment]
+```java
+voucherify.validationRules().delete(String ruleId, String assignmentId);
 ```
 
 ---
@@ -651,6 +671,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2018-12-20 - 7.0.0 - Replaced Validation Rules with Business Validation Rules. Added API Verion v2018-08-01.
 * 2018-12-04 - 6.2.0 - Added support for `Order` when listing vouchers.
 * 2018-11-08 - 6.1.0 - Added support for `advanced filters` for Vouchers.
 * 2018-11-08 - 6.0.9 - Fix `Segment` metadata entry builder.
@@ -731,10 +752,10 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Delete SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-sku
 [List all product SKUs]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-skus
 
-[Create Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-validation-rules
-[Get Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-validation-rules
-[Update Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-validation-rules
-[Delete Validation Rules]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-validation-rules
+[Create Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-validation-rules
+[Get Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-validation-rules
+[Update Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-validation-rules
+[Delete Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-validation-rules
 
 [Create Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-segment
 [Get Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-segment

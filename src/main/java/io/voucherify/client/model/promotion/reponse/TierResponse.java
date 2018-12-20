@@ -1,7 +1,8 @@
 package io.voucherify.client.model.promotion.reponse;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
-import io.voucherify.client.model.validationRules.response.ValidationRulesResponse;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,11 +28,12 @@ public class TierResponse {
 
   private CampaignResponse campaign;
 
-  private ValidationRulesResponse condition;
-
   private Map<String, Object> action;
 
   private TierSummary summary;
+
+  @JsonProperty("validation_rule_assignments")
+  private BusinessValidationRuleAssignmentList assignments;
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
