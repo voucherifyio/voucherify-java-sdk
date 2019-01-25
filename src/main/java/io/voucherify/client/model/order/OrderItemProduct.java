@@ -1,6 +1,5 @@
 package io.voucherify.client.model.order;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Singular;
 import lombok.ToString;
 
-import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -17,22 +15,12 @@ import java.util.Map;
 @Getter
 @Builder
 @ToString
-public class Order {
+public class OrderItemProduct {
 
-  private String id;
+    private String name;
 
-  @JsonProperty("source_id")
-  private String sourceId;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
 
-  @JsonProperty("result")
-  private OrderStatus status;
-
-  private Integer amount;
-
-  @Singular("item")
-  private List<OrderItem> items;
-
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    private boolean override = false;
 }

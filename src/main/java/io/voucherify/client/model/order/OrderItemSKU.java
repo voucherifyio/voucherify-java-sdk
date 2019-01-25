@@ -16,33 +16,15 @@ import java.util.Map;
 @Getter
 @Builder
 @ToString
-public class OrderItem {
+public class OrderItemSKU {
+
+    private String sku;
 
     @JsonProperty("product_id")
     private String productId;
 
-    @JsonProperty("sku_id")
-    private String skuId;
-
-    @JsonProperty("related_object")
-    private String relatedObject;
-
-    @JsonProperty("source_id")
-    private String sourceId;
-
-    private Integer quantity;
-
-    private Integer amount;
-
-    private Integer price;
-
-    @JsonProperty("product")
-    private OrderItemProduct orderItemProduct;
-
-    @JsonProperty("sku")
-    private OrderItemSKU orderItemSku;
-
     @Singular("metadataEntry")
     private Map<String, Object> metadata;
 
+    private boolean override = false;
 }
