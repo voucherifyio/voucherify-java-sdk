@@ -287,7 +287,6 @@ public class VoucherifyClient {
       }
 
       this.endpoint = remoteUrl;
-      System.out.println(remoteUrl);
       return this;
     }
 

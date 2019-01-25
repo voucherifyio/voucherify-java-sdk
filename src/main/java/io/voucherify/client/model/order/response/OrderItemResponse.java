@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Map;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -27,5 +29,19 @@ public class OrderItemResponse {
   private Integer discountAmount;
 
   private Integer amount;
+
+  @JsonProperty("related_object")
+  private String relatedObject;
+
+  @JsonProperty("source_id")
+  private String sourceId;
+
+  @JsonProperty("product")
+  private OrderItemProductResponse orderItemProduct;
+
+  @JsonProperty("sku")
+  private OrderItemSKUResponse orderItemSku;
+
+  private Map<String, Object> metadata;
 
 }
