@@ -76,10 +76,11 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
             .build();
 ```
 
-You can also specify which API version you want to use. Simply specify it when creating client:
+You can also specify additional client options - like API version or a different endpoint:
 ```java
 VoucherifyClient.Builder()
             .apiVersion(ApiVersion.V_2018_08_01)
+            .setEndpoint("api.voucherify.io/v1/")
             .build();
 ```
 
