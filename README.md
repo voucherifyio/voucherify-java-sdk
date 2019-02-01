@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.1.1</version>
+  <version>7.1.2</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:7.1.1'
+compile 'io.voucherify.client:voucherify-java-sdk:7.1.2'
 
 ```
 
@@ -672,6 +672,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-02-01 - 7.1.2 - Fixed deserialisation of `VoucherResponse` for newest API version.
 * 2019-01-28 - 7.1.1 - Fixed release.
 * 2019-01-25 - 7.1.0 - Extended `OrderItem` and `OrderItemResponse` with `OrderItemProduct` and `OrderItemSKU`.
 * 2018-12-20 - 7.0.0 - Replaced Validation Rules with Business Validation Rules. Added API Verion v2018-08-01.

@@ -30,6 +30,7 @@ public class VouchersResponseDeserializer extends JsonDeserializer<VouchersRespo
     switch (apiVersion) {
       case V_2017_04_05:
       case V_2017_04_20:
+      case V_2018_08_01:
         ObjectMapper mapper = (ObjectMapper) jp.getCodec();
         ObjectNode root = mapper.readTree(jp);
         JsonNode object = root.get("object");
