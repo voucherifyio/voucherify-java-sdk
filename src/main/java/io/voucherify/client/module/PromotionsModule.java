@@ -3,6 +3,7 @@ package io.voucherify.client.module;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.promotion.CreatePromotionCampaign;
+import io.voucherify.client.model.promotion.PromotionTiersFilter;
 import io.voucherify.client.model.promotion.Tier;
 import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignResponse;
 import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
@@ -12,6 +13,7 @@ import io.voucherify.client.module.PromotionsModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
+import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public class PromotionsModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -38,6 +40,10 @@ public class PromotionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public Void deletePromotionTier(String tierId) {
     return api.deletePromotionTier(tierId);
+  }
+
+  public ListPromotionTiersResponse list(PromotionTiersFilter filter) {
+    return api.listPromotionTiers(filter != null ? filter.asMap() : new HashMap<String, Object>());
   }
 
   @Override
@@ -80,6 +86,10 @@ public class PromotionsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void deletePromotionTier(String tierId, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().deletePromotionTier(tierId), callback);
+    }
+
+    public void list(PromotionTiersFilter filter, VoucherifyCallback<ListPromotionTiersResponse> callback) {
+      RxUtils.subscribe(executor, rx().list(filter), callback);
     }
   }
 
@@ -132,6 +142,16 @@ public class PromotionsModule extends AbsModule<ExtAsync, ExtRxJava> {
         public Void method() {
           PromotionsModule.this.deletePromotionTier(tierId);
           return null;
+        }
+      });
+    }
+
+    public Observable<ListPromotionTiersResponse> list(final PromotionTiersFilter filter) {
+      return RxUtils.defer(new RxUtils.DefFunc<ListPromotionTiersResponse>() {
+
+        @Override
+        public ListPromotionTiersResponse method() {
+          return PromotionsModule.this.list(filter);
         }
       });
     }

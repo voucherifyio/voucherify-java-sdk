@@ -57,13 +57,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.1.3</version>
+  <version>7.2.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:7.1.3'
+compile 'io.voucherify.client:voucherify-java-sdk:7.2.0'
 
 ```
 
@@ -672,6 +672,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-03-21 - 7.2.0 - Added `ValidationRules assignments` property to `Voucher` and `Campaign` responses, added `Referral` to `CustomEvent`, updated `OrderResponse` object with new properties.
 * 2019-02-01 - 7.1.3 - Fixed deserialisation of `CampaignResponse` for newest API version.
 * 2019-02-01 - 7.1.2 - Fixed deserialisation of `VoucherResponse` for newest API version.
 * 2019-01-28 - 7.1.1 - Fixed release.
