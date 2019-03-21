@@ -2,6 +2,8 @@ package io.voucherify.client.model.campaign.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.CampaignType;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignment;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.GenerationStatus;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -44,5 +46,8 @@ public class CampaignResponse {
   private GenerationStatus generationStatus;
 
   private VoucherResponse voucher;
+
+  @JsonProperty("validation_rules_assignments")
+  private BusinessValidationRuleAssignmentList validationRuleAssignments;
 
 }

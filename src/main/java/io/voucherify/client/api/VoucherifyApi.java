@@ -284,6 +284,9 @@ public interface VoucherifyApi {
   @DELETE("/promotions/tiers/{id}")
   Void deletePromotionTier(@Path("id") String id);
 
+  @GET("/promotions/tiers")
+  ListPromotionTiersResponse listPromotionTiers(@QueryMap Map<String, Object> filter);
+
   // ORDERS
   @POST("/orders")
   CreateOrderResponse createOrder(@Body CreateOrder createOrder);

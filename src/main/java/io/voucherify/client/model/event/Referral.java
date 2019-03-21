@@ -1,30 +1,22 @@
 package io.voucherify.client.model.event;
 
-import io.voucherify.client.model.customer.Customer;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
-
-import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Builder
 @ToString
-public class CustomEvent {
+public class Referral {
 
-  private String event;
+    private String code;
 
-  private Customer customer;
-
-  private Referral referral;
-
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
-
+    @JsonProperty("referrer_id")
+    private String referrerId;
 }

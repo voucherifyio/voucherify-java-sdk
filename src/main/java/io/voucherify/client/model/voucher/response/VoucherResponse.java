@@ -2,6 +2,7 @@ package io.voucherify.client.model.voucher.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.common.response.applicableTo.ApplicableToResponse;
+import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.Gift;
 import io.voucherify.client.model.voucher.VoucherType;
@@ -65,5 +66,8 @@ public class VoucherResponse {
 
   @JsonProperty("applicable_to")
   private ApplicableToResponse applicableTo;
+
+  @JsonProperty("validation_rules_assignments")
+  private BusinessValidationRuleAssignmentList validationRuleAssignments;
 
 }

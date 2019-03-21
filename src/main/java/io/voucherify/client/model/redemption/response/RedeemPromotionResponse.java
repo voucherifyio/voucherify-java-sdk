@@ -17,22 +17,23 @@ import java.util.Date;
 @ToString
 public class RedeemPromotionResponse {
 
-  private String id;
+    private String id;
 
-  private String object;
+    private String object;
 
-  private Date date;
+    private Date date;
 
-  @JsonProperty("customer_id")
-  private String customerId;
+    @JsonProperty("customer_id")
+    private String customerId;
 
-  @JsonProperty("tracking_id")
-  private String trackingId;
+    @JsonProperty("tracking_id")
+    private String trackingId;
 
-  private OrderResponse order;
+    private OrderResponse order;
 
-  @JsonProperty("promotion_tier")
-  private TierResponse tier;
+    @JsonProperty("promotion_tier")
+    private TierResponse tier;
 
-  private String result;
+    private String result;
+
 }
