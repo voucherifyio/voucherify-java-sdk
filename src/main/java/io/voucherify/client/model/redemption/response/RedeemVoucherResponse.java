@@ -1,6 +1,7 @@
 package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.loyalties.Reward;
 import io.voucherify.client.model.order.response.OrderResponse;
 import io.voucherify.client.model.redemption.RedemptionStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
@@ -24,6 +25,9 @@ public class RedeemVoucherResponse {
 
   private Date date;
 
+  @JsonProperty("customer_id")
+  private String customerId;
+
   @JsonProperty("tracking_id")
   private String trackingId;
 
@@ -32,4 +36,6 @@ public class RedeemVoucherResponse {
   private RedemptionStatus result;
 
   private VoucherResponse voucher;
+
+  private Reward reward;
 }

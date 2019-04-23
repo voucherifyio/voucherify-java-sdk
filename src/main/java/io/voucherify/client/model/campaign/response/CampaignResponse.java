@@ -2,7 +2,6 @@ package io.voucherify.client.model.campaign.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.campaign.CampaignType;
-import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignment;
 import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.GenerationStatus;
 import lombok.AccessLevel;
@@ -20,6 +19,8 @@ import java.util.Map;
 @Getter
 @ToString
 public class CampaignResponse {
+
+  private String id;
 
   private String name;
 

@@ -19,10 +19,12 @@ import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
 import io.voucherify.client.module.EventsModule;
+import io.voucherify.client.module.LoyaltiesModule;
 import io.voucherify.client.module.OrdersModule;
 import io.voucherify.client.module.ProductsModule;
 import io.voucherify.client.module.PromotionsModule;
 import io.voucherify.client.module.RedemptionsModule;
+import io.voucherify.client.module.RewardsModule;
 import io.voucherify.client.module.SegmentsModule;
 import io.voucherify.client.module.ValidationRulesModule;
 import io.voucherify.client.module.ValidationsModule;
@@ -63,6 +65,10 @@ public class VoucherifyClient {
 
   private final EventsModule eventsModule;
 
+  private final RewardsModule rewardsModule;
+
+  private final LoyaltiesModule loyaltiesModule;
+
   private VoucherifyApi voucherifyApi;
 
   private Executor executor;
@@ -93,6 +99,8 @@ public class VoucherifyClient {
     this.promotionsModule = new PromotionsModule(voucherifyApi, executor);
     this.ordersModule = new OrdersModule(voucherifyApi, executor);
     this.eventsModule = new EventsModule(voucherifyApi, executor);
+    this.rewardsModule = new RewardsModule(voucherifyApi, executor);
+    this.loyaltiesModule = new LoyaltiesModule(voucherifyApi, executor);
   }
 
   public VoucherModule vouchers() {
@@ -141,6 +149,14 @@ public class VoucherifyClient {
 
   public EventsModule events() {
     return eventsModule;
+  }
+
+  public RewardsModule rewards() {
+    return rewardsModule;
+  }
+
+  public LoyaltiesModule loyalties() {
+    return loyaltiesModule;
   }
 
   private Executor createCallbackExecutor() {

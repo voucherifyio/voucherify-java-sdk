@@ -16,6 +16,7 @@ import io.voucherify.client.module.CampaignsModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
+import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -37,7 +38,7 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   public void delete(String campaignName, DeleteCampaignParams deleteCampaignParams) {
-    api.deleteCampaign(campaignName, deleteCampaignParams.getForce());
+    api.deleteCampaign(campaignName, deleteCampaignParams != null ? deleteCampaignParams.asMap() : new HashMap<String, Object>());
   }
 
   public AddVoucherToCampaignResponse addVoucher(String campaignName, AddVoucherToCampaign addVoucherToCampaign) {
