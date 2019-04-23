@@ -34,6 +34,10 @@ API:
 |
 <a href="#orders-api">Orders</a>
 |
+<a href="#loyalties-api">Loyalties</a>
+|
+<a href="#rewards-api">Rewards</a>
+|
 <a href="#products-api">Products</a>
 |
 <a href="#validation-rules-api">Validation Rules</a>
@@ -57,13 +61,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.2.0</version>
+  <version>7.3.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:7.2.0'
+compile 'io.voucherify.client:voucherify-java-sdk:7.3.0'
 
 ```
 
@@ -356,23 +360,144 @@ Methods are provided within `voucherify.orders.*` namespace.
 
 #### [Create Order]
 ```java
-voucherify.orders.create(CreateOrder order)
+voucherify.orders().create(CreateOrder order)
 ```
 Check [the order object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-order-object).
 #### [Get Order]
 ```java
-voucherify.orders.get(String orderId)
+voucherify.orders().get(String orderId)
 ```
 #### [Update Order]
 ```java
-voucherify.orders.update(UpdateOrder order)
+voucherify.orders().update(UpdateOrder order)
 ```
 #### [List Orders]
 ```java
-voucherify.orders.list()
-voucherify.orders.list(OrdersFilter filter)
+voucherify.orders().list()
+voucherify.orders().list(OrdersFilter filter)
 ```
 
+---
+
+
+### Rewards API
+
+ #### [Create Rewards]
+```java
+voucherify.rewards().create(reward);
+```
+#### [Get Reward]
+```java
+voucherify.rewards().get(id);
+```
+#### [Update Reward]
+```java
+voucherify.rewards().update(id, reward);
+```
+#### [List Rewards]
+```java
+voucherify.rewards().list(params);
+```
+#### [Delete Reward]
+```java
+voucherify.rewards().delete(id);
+```
+
+ #### [List Reward Assignments]
+```java
+voucherify.rewards().listAssignments(reward_id, query);
+```
+#### [Create Reward Assignment]
+```java
+voucherify.rewards().createAssignment(reward_id, assignment);
+```
+#### [Update Reward Assignment]
+```java
+voucherify.rewards().updateAssignment(reward_id, assignment_id, assignment);
+```
+#### [Delete Reward Assignment]
+```java
+voucherify.rewards().deleteAssignment(reward_id, assignment_id);
+```
+---
+
+ ### Loyalties API
+
+ #### [List Loyalties]
+```java
+voucherify.loyalties().list(filter);
+```
+#### [Create Loyalty]
+```java
+voucherify.loyalties().create(loyalty);
+```
+#### [Get Loyalty]
+```java
+voucherify.loyalties().get(id);
+```
+#### [Update Loyalty]
+```java
+voucherify.loyalties().update(id, loyalty);
+```
+#### [Delete Loyalty]
+```java
+voucherify.loyalties().delete(id, params);
+```
+
+ #### [List Loyalty Reward Assignments]
+```java
+voucherify.loyalties().listRewardAssignments(loyalty_id, query);
+```
+#### [Create Loyalty Reward Assignment]
+```java
+voucherify.loyalties().createRewardAssignment(loyalty_id, assignment);
+```
+#### [Update Loyalty Reward Assignment]
+```java
+voucherify.loyalties().updateRewardAssignment(loyalty_id, assignment_id, assignment);
+```
+#### [Delete Loyalty Reward Assignment]
+```java
+voucherify.loyalties().deleteRewardAssignment(loyalty_id, assignment_id);
+```
+
+ #### [List Loyalty Earning Rules]
+```java
+voucherify.loyalties().listEarningRules(loyalty_id, query);
+```
+#### [Create Loyalty Earning Rule]
+```java
+voucherify.loyalties().createEarningRules(loyalty_id, earning_rule);
+```
+#### [Update Loyalty Earning Rule]
+```java
+voucherify.loyalties().updateEarningRule(loyalty_id, earning_rule_id, earning_rule);
+```
+#### [Delete Loyalty Earning Rule]
+```java
+voucherify.loyalties().deleteEarningRule(loyalty_id, earning_rule_id);
+```
+
+ #### [List Loyalty Members]
+```java
+voucherify.loyalties().listMembers(loyalty_id, query);
+```
+#### [Add Loyalty Member]
+```java
+voucherify.loyalties().addMember(loyalty_id, member);
+```
+#### [Get Loyalty Member]
+```java
+voucherify.loyalties().getMember(loyalty_id, member_id);
+```
+#### [Add Loyalty Card Balance]
+```java
+voucherify.loyalties().redeemReward(loyalty_id, member_id, add_balance);
+```
+#### [Redeem Loyalty Reward]
+```java
+voucherify.loyalties().addLoyaltyCardBalance(loyalty_id, member_id, redeem_reward);
+```
 ---
 
 ### Products API
@@ -672,6 +797,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-04-23 - 7.3.0 - Loyalties API, Rewards API.
 * 2019-03-21 - 7.2.0 - Added `ValidationRules assignments` property to `Voucher` and `Campaign` responses, added `Referral` to `CustomEvent`, updated `OrderResponse` object with new properties.
 * 2019-02-01 - 7.1.3 - Fixed deserialisation of `CampaignResponse` for newest API version.
 * 2019-02-01 - 7.1.2 - Fixed deserialisation of `VoucherResponse` for newest API version.
@@ -781,3 +907,40 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [List Orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
 
 [Create Event]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-custom-event-object
+
+[Create Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-order
+[Get Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
+[Update Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-order
+[List orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
+
+[Create Rewards]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward
+[Get Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-reward
+[Update Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward
+[List Rewards]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-rewards
+[Delete Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward
+[List Reward Assignments]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-reward-assignments
+[Create Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward-assgnment
+[Update Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward-assignment
+[Delete Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward-assignment
+
+ [List Loyalties]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-loyalty-programs
+[Create Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-loyalty-program
+[Get Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-loyalty-program
+[Update Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-loyalty-program
+[Delete Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-loyalty-program
+
+[List Loyalty Reward Assignments]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-reward-assignments-1
+[Create Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward-assignment-1
+[Update Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward-assignment-1
+[Delete Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward-assignment-1
+
+[List Loyalty Earning Rules]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-earning-rules
+[Create Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-earning-rule
+[Update Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-earning-rule
+[Delete Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-earning-rule
+
+[List Loyalty Members]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-members
+[Add Loyalty Member]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-member
+[Get Loyalty Member]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-member
+[Add Loyalty Card Balance]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-loyalty-card-balance
+[Redeem Loyalty Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-loyalty-card

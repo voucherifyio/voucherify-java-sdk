@@ -5,6 +5,7 @@ import io.voucherify.client.model.common.response.applicableTo.ApplicableToRespo
 import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.Gift;
+import io.voucherify.client.model.voucher.LoyaltyCard;
 import io.voucherify.client.model.voucher.VoucherType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,9 @@ public class VoucherResponse {
   private Date expirationDate;
 
   private VoucherPublishResponse publish;
+
+  @JsonProperty("loyalty_card")
+  private LoyaltyCard loyaltyCard;
 
   private VoucherRedemptionResponse redemption;
 

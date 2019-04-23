@@ -1,4 +1,4 @@
-package io.voucherify.client.model.campaign;
+package io.voucherify.client.model.rewards;
 
 import io.voucherify.client.utils.AbstractFilter;
 import lombok.AccessLevel;
@@ -16,15 +16,19 @@ import java.util.Map;
 @Getter
 @Builder
 @ToString
-public class DeleteCampaignParams extends AbstractFilter<String, Object> {
+public class RewardsAssignmentsFilter extends AbstractFilter<String, Object> {
 
-  private Boolean force;
+    private Integer limit;
 
-  @Override
-  public Map<String, Object> asMap() {
-    Map<String, Object> map = new HashMap<String, Object>();
-    map.put("force", force);
-    return map;
-  }
+    private Integer page;
+
+    @Override
+    public Map<String, Object> asMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("limit", limit);
+        map.put("page", page);
+
+        return map;
+    }
 
 }

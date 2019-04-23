@@ -17,6 +17,12 @@ import io.voucherify.client.model.distribution.response.ListPublicationsResponse
 import io.voucherify.client.model.distribution.response.PublishVoucherResponse;
 import io.voucherify.client.model.event.CustomEvent;
 import io.voucherify.client.model.event.response.CustomEventResponse;
+import io.voucherify.client.model.loyalties.AddMember;
+import io.voucherify.client.model.loyalties.CreateEarningRule;
+import io.voucherify.client.model.loyalties.RedeemReward;
+import io.voucherify.client.model.loyalties.UpdateEarningRule;
+import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
+import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
 import io.voucherify.client.model.order.response.CreateOrderResponse;
@@ -42,6 +48,14 @@ import io.voucherify.client.model.redemption.response.RedemptionEntryResponse;
 import io.voucherify.client.model.redemption.response.RedemptionsResponse;
 import io.voucherify.client.model.redemption.response.RollbackRedemptionResponse;
 import io.voucherify.client.model.redemption.response.VoucherRedemptionsResponse;
+import io.voucherify.client.model.rewards.CreateReward;
+import io.voucherify.client.model.rewards.CreateRewardAssignment;
+import io.voucherify.client.model.rewards.UpdateReward;
+import io.voucherify.client.model.rewards.UpdateRewardAssignment;
+import io.voucherify.client.model.rewards.response.ListRewardAssignmentsResponse;
+import io.voucherify.client.model.rewards.response.ListRewardsResponse;
+import io.voucherify.client.model.rewards.response.RewardAssignmentResponse;
+import io.voucherify.client.model.rewards.response.RewardResponse;
 import io.voucherify.client.model.segment.Segment;
 import io.voucherify.client.model.segment.response.SegmentResponse;
 import io.voucherify.client.model.validation.PromotionValidation;
@@ -61,6 +75,7 @@ import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
+import io.voucherify.client.model.voucher.response.VoucherRedemptionResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import retrofit.http.Body;
@@ -72,6 +87,7 @@ import retrofit.http.Path;
 import retrofit.http.Query;
 import retrofit.http.QueryMap;
 
+import java.util.List;
 import java.util.Map;
 
 public interface VoucherifyApi {
@@ -97,7 +113,7 @@ public interface VoucherifyApi {
   AddVoucherToCampaignResponse addVoucherToCampaignWithCode(@Path("name") String campaignName, @Path("code") String voucherCode, @Body AddVoucherToCampaign addVoucherToCampaign);
 
   @DELETE("/campaigns/{name}")
-  Void deleteCampaign(@Path("name") String campaignName, @Query("force") Boolean force);
+  Void deleteCampaign(@Path("name") String campaignName, @QueryMap Map<String, Object> params);
 
   @POST("/campaigns/{name}/import")
   Void importVouchersToCampaign(@Path("name") String campaignName, @Body CampaignImportVouchers importVouchers);
@@ -303,4 +319,92 @@ public interface VoucherifyApi {
   // EVENTS
   @POST("/events")
   CustomEventResponse createCustomEvent(@Body CustomEvent event);
+
+  // REWARDS
+  @GET("/rewards")
+  ListRewardsResponse listRewards(@QueryMap Map<String, Object> filter);
+
+  @POST("/rewards")
+  RewardResponse createReward(@Body CreateReward createReward);
+
+  @PUT("/rewards/{id}")
+  RewardResponse updateReward(@Path("id") String id, @Body UpdateReward updateReward);
+
+  @GET("/rewards/{id}")
+  RewardResponse getReward(@Path("id") String id);
+
+  @DELETE("/rewards/{id}")
+  Void deleteReward(@Path("id") String id);
+
+
+  // REWARDS ASSIGNMENTS
+  @GET("/rewards/{id}/assignments")
+  ListRewardAssignmentsResponse listRewardAssignments(@Path("id") String id, @QueryMap Map<String, Object> filter);
+
+  @POST("/rewards/{id}/assignments")
+  RewardAssignmentResponse createRewardAssignment(@Path("id") String id, @Body CreateRewardAssignment createRewardAssignment);
+
+  @PUT("/rewards/{id}/assignments/{assignmentId}")
+  RewardAssignmentResponse updateRewardAssignment(@Path("id") String id, @Path("assignmentId") String assignmentId, @Body UpdateRewardAssignment updateRewardAssignment);
+
+  @DELETE("/rewards/{id}/assignments/{assignmentId}")
+  Void deleteRewardAssignment(@Path("id") String id,  @Path("assignmentId") String assignmentId);
+
+
+  // LOYALTIES
+
+  @GET("/loyalties")
+  CampaignsResponse listLoyaltyCampaigns(@QueryMap Map<String, Object> filter);
+
+  @POST("/loyalties")
+  CampaignResponse createLoyaltyCampaign(@Body CreateCampaign createCampaign);
+
+  @PUT("/loyalties/{id}")
+  CampaignResponse updateLoyaltyCampaign(@Path("id") String id, @Body UpdateCampaign updateCampaign);
+
+  @GET("/loyalties/{id}")
+  CampaignResponse getLoyaltyCampaign(@Path("id") String id);
+
+  @DELETE("/loyalties/{id}")
+  Void deleteLoyaltyCampaign(@Path("id") String id, @QueryMap Map<String, Object> params);
+
+  @GET("/loyalties/{id}/rewards")
+  ListRewardAssignmentsResponse listLoyaltyRewardAssignments(@Path("id") String id, @QueryMap Map<String, Object> filter);
+
+  @POST("/loyalties/{id}/rewards")
+  RewardAssignmentResponse createLoyaltyRewardAssignment(@Path("id") String id, @Body List<CreateRewardAssignment> createRewardAssignment);
+
+  @PUT("/loyalties/{id}/assignments/{assignmentId}")
+  RewardAssignmentResponse updateLoyaltyRewardAssignment(@Path("id") String id, @Path("assignmentId") String assignmentId, @Body UpdateRewardAssignment updateRewardAssignment);
+
+  @DELETE("/loyalties/{id}/rewards/{assignmentId}")
+  Void deleteLoyaltyRewardAssignment(@Path("id") String id,  @Path("assignmentId") String assignmentId);
+
+  @GET("/loyalties/{id}/earning-rules")
+  ListEarningRulesResponse listLoyaltyEarningRules(@Path("id") String id, @QueryMap Map<String, Object> filter);
+
+  @POST("/loyalties/{id}/earning-rules")
+  EarningRuleResponse createLoyaltyEarningRule(@Path("id") String id, @Body List<CreateEarningRule> create);
+
+  @PUT("/loyalties/{id}/earning-rules/{ruleId}")
+  EarningRuleResponse updateLoyaltyEarningRule(@Path("id") String id, @Path("ruleId") String ruleId, @Body UpdateEarningRule update);
+
+  @DELETE("/loyalties/{id}/earning-rules/{ruleId}")
+  Void deleteLoyaltyEarningRule(@Path("id") String id,  @Path("ruleId") String ruleId);
+
+  @GET("/loyalties/{id}/members")
+  VouchersResponse listLoyaltyMembers(@Path("id") String id, @QueryMap Map<String, Object> filter);
+
+  @POST("/loyalties/{id}/members")
+  VoucherResponse addLoyaltyMember(@Path("id") String id, @Body AddMember addMember);
+
+  @GET("/loyalties/{id}/members/{memberId}")
+  VoucherResponse getLoyaltyMember(@Path("id") String id, @Path("memberId") String memberId);
+
+  @POST("/loyalties/{id}/members/{memberId}/balance")
+  io.voucherify.client.model.loyalties.response.AddBalanceResponse addLoyaltyBalance(@Path("id") String id, @Path("memberId") String memberId, @Body io.voucherify.client.model.loyalties.AddBalance addBalance);
+
+  @POST("/loyalties/{id}/members/{memberId}/redemption")
+  RedeemVoucherResponse redeemLoyaltyReward(@Path("id") String id, @Path("memberId") String memberId, @Body RedeemReward redeemReward);
+
 }
