@@ -2,6 +2,9 @@ package io.voucherify.client.module;
 
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualificationList;
+import io.voucherify.client.model.QualifiedResourceFilter;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CampaignsFilter;
@@ -57,6 +60,10 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
     return api.listCampaigns(campaignsFilter.asMap());
   }
 
+  public QualificationList<CampaignResponse> getQualified(QualificationContext context, QualifiedResourceFilter filter) {
+    return api.getQualifiedCampaigns(context, filter != null ? filter.asMap() : new HashMap<String, Object>());
+  }
+
   @Override
   ExtAsync createAsyncExtension() {
     return new ExtAsync();
@@ -109,6 +116,10 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void update(String name, UpdateCampaign updateCampaign, VoucherifyCallback<CampaignResponse> callback) {
       RxUtils.subscribe(executor, rx().update(name, updateCampaign), callback);
+    }
+
+    public void getQualifiedCampaigns(QualificationContext context, QualifiedResourceFilter filter, VoucherifyCallback<QualificationList<CampaignResponse>> callback) {
+      RxUtils.subscribe(executor, rx().getQualified(context, filter), callback);
     }
   }
 
@@ -184,6 +195,15 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
         @Override
         public CampaignResponse method() {
           return CampaignsModule.this.update(name, updateCampaign);
+        }
+      });
+    }
+
+    public Observable<QualificationList<CampaignResponse>> getQualified(final QualificationContext context, final QualifiedResourceFilter filter) {
+      return RxUtils.defer(new RxUtils.DefFunc<QualificationList<CampaignResponse>>() {
+        @Override
+        public QualificationList<CampaignResponse> method() {
+          return CampaignsModule.this.getQualified(context, filter);
         }
       });
     }

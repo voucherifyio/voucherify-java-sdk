@@ -1,5 +1,7 @@
 package io.voucherify.client.api;
 
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualificationList;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
@@ -62,7 +64,6 @@ import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.VoucherValidationResponse;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
-import io.voucherify.client.model.validationRules.BusinessValidationRuleAssignmentFilter;
 import io.voucherify.client.model.validationRules.CreateBusinessValidationRule;
 import io.voucherify.client.model.validationRules.CreateBusinessValidationRuleAssignment;
 import io.voucherify.client.model.validationRules.UpdateBusinessValidationRule;
@@ -75,7 +76,6 @@ import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
-import io.voucherify.client.model.voucher.response.VoucherRedemptionResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import retrofit.http.Body;
@@ -117,6 +117,9 @@ public interface VoucherifyApi {
 
   @POST("/campaigns/{name}/import")
   Void importVouchersToCampaign(@Path("name") String campaignName, @Body CampaignImportVouchers importVouchers);
+
+  @POST("/campaigns/qualification")
+  QualificationList<CampaignResponse> getQualifiedCampaigns(@Body QualificationContext validationContext, @QueryMap Map<String, Object> params);
 
   // CUSTOMERS
 
@@ -203,6 +206,9 @@ public interface VoucherifyApi {
 
   @POST("/vouchers/import")
   Void importVouchers(@Body ImportVouchers vouchers);
+
+  @POST("/vouchers/qualification")
+  QualificationList<VoucherResponse> getQualifiedVouchers(@Body QualificationContext validationContext, @QueryMap Map<String, Object> params);
 
   // VALIDATIONS
 
