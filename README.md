@@ -61,13 +61,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.3.0</version>
+  <version>7.4.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:7.3.0'
+compile 'io.voucherify.client:voucherify-java-sdk:7.4.0'
 
 ```
 
@@ -192,7 +192,10 @@ voucherify.vouchers().addBalance(String code, AddBalance addBalance);
 ```java
 voucherify.vouchers().importVouchers(ImportVouchers importVouchers);
 ```
-
+#### [Get Qualified Vouchers]
+```java
+voucherify.vouchers().getQualified(QualificationContext context, QualifiedResourceFilter filter);
+```
 ---
 
 ### Campaigns API
@@ -224,7 +227,10 @@ voucherify.campaigns().update(String name, UpdateCampaign updateCampaign);
 ```java
 voucherify.campaigns().importVouchers(String campaignName, String campaignName, CampaignImportVouchers importVouchers);
 ```
-
+#### [Get Qualified Campaigns]
+```java
+voucherify.campaigns().getQualified(QualificationContext context, QualifiedResourceFilter filter);
+```
 ---
 
 ### Distributions API
@@ -797,6 +803,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-05-16 - 7.4.0 - API for getting qualified Vouchers and Campaigns;
 * 2019-04-23 - 7.3.0 - Loyalties API, Rewards API.
 * 2019-03-21 - 7.2.0 - Added `ValidationRules assignments` property to `Voucher` and `Campaign` responses, added `Referral` to `CustomEvent`, updated `OrderResponse` object with new properties.
 * 2019-02-01 - 7.1.3 - Fixed deserialisation of `CampaignResponse` for newest API version.

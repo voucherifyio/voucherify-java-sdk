@@ -3,7 +3,10 @@ package io.voucherify.client.module;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualifiedResourceFilter;
 import io.voucherify.client.model.common.SortingOrder;
+import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.Discount;
@@ -258,6 +261,36 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getMethod()).isEqualTo("POST");
+  }
+
+  @Test
+  public void shouldGetQualifiedCampaigns() throws Exception {
+    // given
+    QualificationContext context = QualificationContext.builder()
+            .customer(
+                    Customer.builder()
+                            .id("some_id")
+                            .build())
+            .build();
+    QualifiedResourceFilter filter = QualifiedResourceFilter.builder().audienceRulesOnly(true).limit(10).build();
+
+    Voucher voucher = Voucher.builder()
+            .code("some-code")
+            .active(true).category("category")
+            .campaign("my-campaign").isReferralCode(false)
+            .discount(Discount.unitOff(10.0))
+            .build();
+
+    enqueueResponse("{\"data\": [" + mapper.writeValueAsString(voucher) + "], \"id\": \"1234566\"}");
+
+
+    // when
+    client.vouchers().getQualified(context, filter);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/vouchers/qualification?audienceRulesOnly=true&limit=10");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 

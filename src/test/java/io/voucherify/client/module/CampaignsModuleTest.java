@@ -2,6 +2,8 @@ package io.voucherify.client.module;
 
 import com.squareup.okhttp.mockwebserver.RecordedRequest;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualifiedResourceFilter;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVoucher;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
@@ -11,6 +13,7 @@ import io.voucherify.client.model.campaign.DeleteCampaignParams;
 import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
+import io.voucherify.client.model.customer.Customer;
 import org.junit.Test;
 import rx.Observable;
 
@@ -128,6 +131,28 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
     assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
+  public void shouldGetQualifiedCampaigns() {
+    // given
+    QualificationContext context = QualificationContext.builder()
+            .customer(
+                    Customer.builder()
+                            .id("some_id")
+                            .build())
+            .build();
+    QualifiedResourceFilter filter = QualifiedResourceFilter.builder().audienceRulesOnly(true).limit(10).build();
+
+    enqueueResponse("{\"data\": [{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}], \"id\": \"1234566\"}");
+
+    // when
+    client.campaigns().getQualified(context, filter);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/campaigns/qualification?audienceRulesOnly=true&limit=10");
+    assertThat(request.getMethod()).isEqualTo("POST");
   }
 
   @Test

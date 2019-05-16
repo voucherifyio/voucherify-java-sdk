@@ -2,6 +2,9 @@ package io.voucherify.client.module;
 
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualificationList;
+import io.voucherify.client.model.QualifiedResourceFilter;
 import io.voucherify.client.model.voucher.AddBalance;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.ImportVouchers;
@@ -15,6 +18,7 @@ import io.voucherify.client.module.VoucherModule.ExtRxJava;
 import io.voucherify.client.utils.RxUtils;
 import rx.Observable;
 
+import java.util.HashMap;
 import java.util.concurrent.Executor;
 
 public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -60,6 +64,10 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public void importVouchers(ImportVouchers vouchers) {
     api.importVouchers(vouchers);
+  }
+
+  public QualificationList<VoucherResponse> getQualified(QualificationContext context, QualifiedResourceFilter filter) {
+    return api.getQualifiedVouchers(context, filter != null ? filter.asMap() : new HashMap<String, Object>());
   }
 
   @Override
@@ -114,6 +122,10 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void importVouchers(ImportVouchers importVouchers, VoucherifyCallback<Void> callback) {
       RxUtils.subscribe(executor, rx().importVouchers(importVouchers), callback);
+    }
+
+    public void getQualifiedVouchers(QualificationContext context, QualifiedResourceFilter filter, VoucherifyCallback<QualificationList<VoucherResponse>> callback) {
+      RxUtils.subscribe(executor, rx().getQualified(context, filter), callback);
     }
   }
 
@@ -198,6 +210,15 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         public Void method() {
           VoucherModule.this.importVouchers(importVouchers);
           return null;
+        }
+      });
+    }
+
+    public Observable<QualificationList<VoucherResponse>> getQualified(final QualificationContext context, final QualifiedResourceFilter filter) {
+      return RxUtils.defer(new RxUtils.DefFunc<QualificationList<VoucherResponse>>() {
+        @Override
+        public QualificationList<VoucherResponse> method() {
+          return VoucherModule.this.getQualified(context, filter);
         }
       });
     }
