@@ -80,6 +80,8 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
             .build();
 ```
 
+### API Endpoint
+
 You can also specify additional client options - like API version or a different endpoint:
 ```java
 VoucherifyClient.Builder()
