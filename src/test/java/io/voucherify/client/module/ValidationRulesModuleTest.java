@@ -35,7 +35,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
     assertThat(result.getRules().getEntry("field")).isEqualTo("value");
   }
@@ -59,7 +59,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -83,7 +83,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -97,7 +97,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -120,7 +120,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -144,7 +144,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -169,7 +169,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -185,7 +185,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -208,7 +208,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -232,7 +232,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -256,7 +256,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     BusinessValidationRule result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -271,7 +271,7 @@ public class ValidationRulesModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/validation-rules/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/validation-rules/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 }

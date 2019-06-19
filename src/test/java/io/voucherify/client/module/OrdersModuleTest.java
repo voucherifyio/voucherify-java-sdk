@@ -40,7 +40,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -70,7 +70,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems().get(0).getQuantity()).isEqualTo(10);
     assertThat(result.getItems().get(0).getPrice()).isEqualTo(1200);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -88,7 +88,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -109,7 +109,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems().get(0).getProductId()).isEqualTo("productId");
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -135,7 +135,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(100);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -165,7 +165,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems().get(0).getPrice()).isEqualTo(5000);
     assertThat(result.getAmount()).isEqualTo(100);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -181,7 +181,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getOrders()).isEmpty();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -206,7 +206,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -222,7 +222,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -246,7 +246,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -262,7 +262,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -290,7 +290,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -309,7 +309,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(10);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -336,7 +336,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result.getItems()).isEmpty();
     assertThat(result.getAmount()).isEqualTo(100);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/orders/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -353,7 +353,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getOrders()).isEmpty();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/orders");
+    assertThat(request.getPath()).isEqualTo("/v1/orders");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 }

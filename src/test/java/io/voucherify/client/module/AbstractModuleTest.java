@@ -31,7 +31,7 @@ public class AbstractModuleTest {
             .setAppId("some app id")
             .setLogLevel(RestAdapter.LogLevel.FULL)
             .withoutSSL()
-            .setEndpoint(server.getUrl("/").toString().replaceFirst("http://", ""))
+            .setEndpoint(server.getUrl("").toString().replaceFirst("http://", ""))
             .build();
   }
 

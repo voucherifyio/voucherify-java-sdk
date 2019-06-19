@@ -31,7 +31,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getPromotion()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -47,7 +47,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getTiers()).isEmpty();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -66,7 +66,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result.getAction()).isNotNull();
     assertThat(result.getMetadata()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -85,7 +85,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result.getAction()).isNotNull();
     assertThat(result.getMetadata()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -99,7 +99,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -118,7 +118,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -134,7 +134,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -151,7 +151,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -168,7 +168,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -184,7 +184,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -204,7 +204,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getPromotion()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -221,7 +221,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getTiers()).isEmpty();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -241,7 +241,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result.getAction()).isNotNull();
     assertThat(result.getMetadata()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/some-id/tiers");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/some-id/tiers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -261,7 +261,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     assertThat(result.getAction()).isNotNull();
     assertThat(result.getMetadata()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -276,7 +276,7 @@ public class PromotionsModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 }

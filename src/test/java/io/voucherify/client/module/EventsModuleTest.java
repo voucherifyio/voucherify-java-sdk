@@ -28,7 +28,7 @@ public class EventsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getObject()).isEqualTo("event");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/events");
+    assertThat(request.getPath()).isEqualTo("/v1/events");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -47,7 +47,7 @@ public class EventsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/events");
+    assertThat(request.getPath()).isEqualTo("/v1/events");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -67,7 +67,7 @@ public class EventsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getObject()).isEqualTo("event");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/events");
+    assertThat(request.getPath()).isEqualTo("/v1/events");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 }

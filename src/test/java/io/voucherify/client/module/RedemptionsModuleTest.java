@@ -52,7 +52,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -84,7 +84,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getTier()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -99,7 +99,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -121,7 +121,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -136,7 +136,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -160,7 +160,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -193,7 +193,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -226,7 +226,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -242,7 +242,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -266,7 +266,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -282,7 +282,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -308,7 +308,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -340,7 +340,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RedeemVoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -373,7 +373,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getTier()).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/tiers/id/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/tiers/id/redemption");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -389,7 +389,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RedemptionEntryResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20id");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -412,7 +412,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RedemptionsResponse list = observable.toBlocking().first();
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions?result=SUCCESS&limit=10&campaign=campaign&page=5&customer=customer");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -428,7 +428,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     VoucherRedemptionsResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some%20code/redemption");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some%20code/redemption");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -453,7 +453,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
     RollbackRedemptionResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/redemptions/some%20code/rollback?reason=reason");
+    assertThat(request.getPath()).isEqualTo("/v1/redemptions/some%20code/rollback?reason=reason");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 

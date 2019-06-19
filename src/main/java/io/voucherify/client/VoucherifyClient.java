@@ -191,7 +191,7 @@ public class VoucherifyClient {
         .setConverter(createConverter(builder))
         .setRequestInterceptor(createInterceptor(builder));
 
-    setEndPoint(builder, restBuilder);
+    setEndpoint(builder, restBuilder);
     setClientProvider(builder, restBuilder);
     setLogLevel(builder, restBuilder);
     setErrorHandler(restBuilder);
@@ -229,7 +229,7 @@ public class VoucherifyClient {
     }
   }
 
-  private void setEndPoint(Builder builder, RestAdapter.Builder restBuilder) {
+  private void setEndpoint(Builder builder, RestAdapter.Builder restBuilder) {
     String endpoint;
 
     if (builder.endpoint == null) {
@@ -238,7 +238,7 @@ public class VoucherifyClient {
       endpoint = builder.endpoint;
     }
 
-    restBuilder.setEndpoint(String.format("%s://%s", httpScheme, endpoint));
+    restBuilder.setEndpoint(String.format("%s://%s/v1/", httpScheme, endpoint));
   }
 
   private void setErrorHandler(RestAdapter.Builder restBuilder) {

@@ -43,7 +43,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo("some-code");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -63,7 +63,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result.getVoucher().getCode()).isEqualTo("some-code");
     assertThat(result.getVoucher().getCampaign()).isEqualTo("some-campaign");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -80,7 +80,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getPath()).isEqualTo("/v1/exports");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -97,7 +97,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
     assertThat(result.getId()).isEqualTo("1");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -111,7 +111,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -144,7 +144,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     assertThat(response).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getPath()).isEqualTo("/v1/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -160,7 +160,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -176,7 +176,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -193,7 +193,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getPath()).isEqualTo("/v1/exports");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -209,7 +209,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -225,7 +225,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -259,7 +259,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getPath()).isEqualTo("/v1/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -275,7 +275,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     PublishVoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -296,7 +296,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result.getVoucher().getCode()).isEqualTo("some-code");
     assertThat(result.getVoucher().getCampaign()).isEqualTo("some-campaign");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/publish");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/publish");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -314,7 +314,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports");
+    assertThat(request.getPath()).isEqualTo("/v1/exports");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -332,7 +332,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     assertThat(result.getStatus()).isEqualTo(ExportStatus.IN_PROGRESS);
     assertThat(result.getId()).isEqualTo("1");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -347,7 +347,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/exports/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/exports/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -381,7 +381,7 @@ public class DistributionsModuleTest extends AbstractModuleTest {
     ListPublicationsResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
+    assertThat(request.getPath()).isEqualTo("/v1/publications?filters[some_field][conditions][$has_value][0]=sth&filters[some_field][conditions][$has_value][1]=sth2");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 }
