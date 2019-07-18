@@ -37,7 +37,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getName()).isEqualTo(createCampaign.getName());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/loyalties");
+    assertThat(request.getPath()).isEqualTo("/v1/loyalties");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -52,7 +52,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/loyalties/campaignid?force=true");
+    assertThat(request.getPath()).isEqualTo("/v1/loyalties/campaignid?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -67,7 +67,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/loyalties/campaignid");
+    assertThat(request.getPath()).isEqualTo("/v1/loyalties/campaignid");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -83,7 +83,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("campaignId");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/loyalties/campaignId");
+    assertThat(request.getPath()).isEqualTo("/v1/loyalties/campaignId");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -103,7 +103,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
     // then
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/loyalties?limit=10&page=5");
+    assertThat(request.getPath()).isEqualTo("/v1/loyalties?limit=10&page=5");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 }

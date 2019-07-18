@@ -28,7 +28,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getName()).isEqualTo("segment");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments");
+    assertThat(request.getPath()).isEqualTo("/v1/segments");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -44,7 +44,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -58,7 +58,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -75,7 +75,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments");
+    assertThat(request.getPath()).isEqualTo("/v1/segments");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -91,7 +91,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -107,7 +107,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -126,7 +126,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getName()).isEqualTo("segment");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments");
+    assertThat(request.getPath()).isEqualTo("/v1/segments");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -143,7 +143,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getId()).isEqualTo("some-id");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -158,7 +158,7 @@ public class SegmentsModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/segments/some-id");
+    assertThat(request.getPath()).isEqualTo("/v1/segments/some-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 }

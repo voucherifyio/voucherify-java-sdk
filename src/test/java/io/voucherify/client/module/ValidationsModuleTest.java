@@ -45,7 +45,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo("some-code");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/validate");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/validate");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -78,7 +78,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(result.getPromotions().get(0).getMetadata().size()).isEqualTo(1);
     assertThat(result.getPromotions().get(0).getMetadata().get("test")).isEqualTo(true);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/validation");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -94,7 +94,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/validate");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/validate");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -118,7 +118,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/validation");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -134,7 +134,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     VoucherValidationResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/validate");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/validate");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -168,7 +168,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
     assertThat(result.getPromotions().get(0).getMetadata().size()).isEqualTo(1);
     assertThat(result.getPromotions().get(0).getMetadata().get("test")).isEqualTo(true);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/promotions/validation");
+    assertThat(request.getPath()).isEqualTo("/v1/promotions/validation");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 

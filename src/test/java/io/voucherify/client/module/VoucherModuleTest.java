@@ -49,7 +49,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -72,7 +72,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo(voucher.getCode());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -102,7 +102,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category&order=-updated_at");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category&order=-updated_at");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -148,7 +148,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(list).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -176,7 +176,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result.getCategory()).isEqualTo("some-category");
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -198,7 +198,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/disable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/disable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -220,7 +220,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     assertThat(result.getActive()).isEqualTo(true);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/enable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/enable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -239,7 +239,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(response.getObject()).isEqualTo("voucher");
     assertThat(response.getType()).isEqualTo(VoucherType.GIFT_VOUCHER);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/balance");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -260,7 +260,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -290,7 +290,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/qualification?audienceRulesOnly=true&limit=10");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/qualification?audienceRulesOnly=true&limit=10");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -314,7 +314,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -338,7 +338,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -369,7 +369,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -418,7 +418,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -447,7 +447,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -471,7 +471,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/disable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/disable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -495,7 +495,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/enable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/enable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -512,7 +512,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/balance");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -536,7 +536,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -559,7 +559,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VoucherResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -583,7 +583,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCode()).isEqualTo(voucher.getCode());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -613,7 +613,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VouchersResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&page=5&category=some-category");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -660,7 +660,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VouchersResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers?limit=10&campaign=some-campaign&[filters][metadata.some-key][conditions][$is]=123&page=5&category=some-category&[filters][active][conditions][$active]=true");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -689,7 +689,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(result.getCategory()).isEqualTo("some-category");
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -712,7 +712,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VoucherResponse result = observable.toBlocking().first();
     assertThat(result.getActive()).isEqualTo(false);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/disable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/disable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -735,7 +735,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     VoucherResponse result = observable.toBlocking().first();
     assertThat(result.getActive()).isEqualTo(true);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/enable");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/enable");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -755,7 +755,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     assertThat(response.getObject()).isEqualTo("voucher");
     assertThat(response.getType()).isEqualTo(VoucherType.GIFT_VOUCHER);
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/some-code/balance");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/some-code/balance");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -777,7 +777,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/vouchers/import");
+    assertThat(request.getPath()).isEqualTo("/v1/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 }

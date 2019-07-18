@@ -40,7 +40,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getName()).isEqualTo(createCampaign.getName());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -61,7 +61,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(result.getCampaign()).isEqualTo("campaign-name");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -83,7 +83,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     assertThat(result.getCampaign()).isEqualTo("campaign-name");
     assertThat(result.getCode()).isEqualTo("some-code");
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -98,7 +98,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -114,7 +114,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -129,7 +129,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -151,7 +151,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/qualification?audienceRulesOnly=true&limit=10");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/qualification?audienceRulesOnly=true&limit=10");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -173,7 +173,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -195,7 +195,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -217,7 +217,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -234,7 +234,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -252,7 +252,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -269,7 +269,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -290,7 +290,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     CampaignResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -311,7 +311,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     AddVoucherToCampaignResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -332,7 +332,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     AddVoucherToCampaignResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/vouchers/some-code");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/vouchers/some-code");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -348,7 +348,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name?force=true");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name?force=true");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -365,7 +365,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name/import");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -383,7 +383,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     CampaignResponse result = observable.toBlocking().first();
     RecordedRequest request = getRequest();
     assertThat(result).isNotNull();
-    assertThat(request.getPath()).isEqualTo("/campaigns/campaign-name");
+    assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 }

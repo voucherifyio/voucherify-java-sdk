@@ -32,7 +32,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers");
+    assertThat(request.getPath()).isEqualTo("/v1/customers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -53,7 +53,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -75,7 +75,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -91,7 +91,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
 
     // then
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -108,7 +108,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     RecordedRequest request = getRequest();
     assertThat(result).isNotNull();
-    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getPath()).isEqualTo("/v1/customers?limit=5&email=sth%40sth.com");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -131,7 +131,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers");
+    assertThat(request.getPath()).isEqualTo("/v1/customers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -154,7 +154,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -178,7 +178,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -197,7 +197,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     await().atMost(5, SECONDS).until(wasCallbackFired());
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -215,7 +215,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     RecordedRequest request = getRequest();
     await().atMost(5, SECONDS).until(wasCallbackFired());
-    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getPath()).isEqualTo("/v1/customers?limit=5&email=sth%40sth.com");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -237,7 +237,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers");
+    assertThat(request.getPath()).isEqualTo("/v1/customers");
     assertThat(request.getMethod()).isEqualTo("POST");
   }
 
@@ -259,7 +259,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 
@@ -282,7 +282,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     CustomerResponse result = observable.toBlocking().first();
     assertThat(result).isNotNull();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
@@ -298,7 +298,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     // then
     observable.toBlocking().first();
     RecordedRequest request = getRequest();
-    assertThat(request.getPath()).isEqualTo("/customers/customer-id");
+    assertThat(request.getPath()).isEqualTo("/v1/customers/customer-id");
     assertThat(request.getMethod()).isEqualTo("DELETE");
   }
 
@@ -316,7 +316,7 @@ public class CustomersModuleTest extends AbstractModuleTest {
     CustomersResponse result = observable.toBlocking().first();
     RecordedRequest request = getRequest();
     assertThat(result).isNotNull();
-    assertThat(request.getPath()).isEqualTo("/customers?limit=5&email=sth%40sth.com");
+    assertThat(request.getPath()).isEqualTo("/v1/customers?limit=5&email=sth%40sth.com");
     assertThat(request.getMethod()).isEqualTo("GET");
   }
 }

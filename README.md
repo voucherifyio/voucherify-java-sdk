@@ -61,7 +61,7 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>7.4.1</version>
+  <version>8.0.0</version>
 </dependency>
 ```
 
@@ -80,11 +80,13 @@ VoucherifyClient voucherify = new VoucherifyClient.Builder()
             .build();
 ```
 
+### API Endpoint
+
 You can also specify additional client options - like API version or a different endpoint:
 ```java
 VoucherifyClient.Builder()
             .apiVersion(ApiVersion.V_2018_08_01)
-            .setEndpoint("api.voucherify.io/v1/")
+            .setEndpoint("api.voucherify.io")
             .build();
 ```
 
@@ -803,6 +805,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-06-19 - 8.0.0 - Hide API versioning in setEndpoint method.
 * 2019-05-27 - 7.4.1 - Restore `discount_amount` for `OrderResponse`.
 * 2019-05-16 - 7.4.0 - API for getting qualified Vouchers and Campaigns.
 * 2019-04-23 - 7.3.0 - Loyalties API, Rewards API.
