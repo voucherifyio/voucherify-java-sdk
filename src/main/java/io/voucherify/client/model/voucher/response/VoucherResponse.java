@@ -23,6 +23,8 @@ import java.util.Map;
 @ToString
 public class VoucherResponse {
 
+  private String id;
+  
   private String code;
 
   private String campaign;
