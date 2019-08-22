@@ -805,6 +805,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-08-22 - 8.0.1 - Added missing `id` to VoucherResponse.
 * 2019-06-19 - 8.0.0 - Hide API versioning in setEndpoint method.
 * 2019-05-27 - 7.4.1 - Restore `discount_amount` for `OrderResponse`.
 * 2019-05-16 - 7.4.0 - API for getting qualified Vouchers and Campaigns.
