@@ -8,7 +8,6 @@ import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RedemptionsFilter;
 import io.voucherify.client.model.redemption.RollbackRedemption;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
-import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.voucher.CodeConfig;
 import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.Discount;

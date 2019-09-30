@@ -22,11 +22,18 @@ public class QualifiedResourceFilter extends AbstractFilter<String, Object> {
 
     private Boolean audienceRulesOnly;
 
+    private QualificationOrder qualificationOrder;
+
     @Override
     public Map<String, Object> asMap() {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("limit", limit);
         map.put("audienceRulesOnly", audienceRulesOnly);
+
+        if (qualificationOrder != null) {
+           map.put("order", qualificationOrder.asQueryParam());
+        }
+
         return map;
     }
 }

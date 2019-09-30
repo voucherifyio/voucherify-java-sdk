@@ -61,13 +61,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>8.0.1</version>
+  <version>8.1.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:8.0.1'
+compile 'io.voucherify.client:voucherify-java-sdk:8.1.0'
 
 ```
 
@@ -805,6 +805,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-09-30 - 8.1.0 - Extended `QualifiedResourceFilter` to support `order` query param.
 * 2019-08-22 - 8.0.1 - Added missing `id` to VoucherResponse.
 * 2019-06-19 - 8.0.0 - Hide API versioning in setEndpoint method.
 * 2019-05-27 - 7.4.1 - Restore `discount_amount` for `OrderResponse`.

@@ -1,7 +1,6 @@
 package io.voucherify.example.sync;
 
 import io.voucherify.client.VoucherifyClient;
-import io.voucherify.client.model.Operator;
 import io.voucherify.client.model.campaign.CampaignType;
 import io.voucherify.client.model.promotion.CreatePromotionCampaign;
 import io.voucherify.client.model.promotion.Promotion;
@@ -10,7 +9,6 @@ import io.voucherify.client.model.promotion.reponse.CreatePromotionCampaignRespo
 import io.voucherify.client.model.promotion.reponse.ListPromotionTiersResponse;
 import io.voucherify.client.model.promotion.reponse.TierResponse;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class PromotionsExample extends AbsExample {
