@@ -1,6 +1,9 @@
 package io.voucherify.example.sync;
 
 import io.voucherify.client.VoucherifyClient;
+import io.voucherify.client.model.QualificationContext;
+import io.voucherify.client.model.QualificationOrder;
+import io.voucherify.client.model.QualifiedResourceFilter;
 import io.voucherify.client.model.common.SortingOrder;
 import io.voucherify.client.model.voucher.CodeConfig;
 import io.voucherify.client.model.voucher.CreateVoucher;
