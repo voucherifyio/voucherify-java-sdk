@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>9.0.0</version>
+  <version>9.1.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:9.0.0'
+compile 'io.voucherify.client:voucherify-java-sdk:9.1.0'
 
 ```
 
@@ -810,45 +810,11 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2019-09-30 - 9.1.0 - Added possibility to specify points as reward when redeeming loyalty card, fixed UpdateOrder status field
 * 2019-09-30 - 9.0.0 - Updated retrofit and rxjava to version >= 2.x. Dropped support for JDK 1.6 and 1.7
 * 2019-09-30 - 8.1.0 - Extended `QualifiedResourceFilter` to support `order` query param.
 * 2019-08-22 - 8.0.1 - Added missing `id` to VoucherResponse.
 * 2019-06-19 - 8.0.0 - Hide API versioning in setEndpoint method.
-* 2019-05-27 - 7.4.1 - Restore `discount_amount` for `OrderResponse`.
-* 2019-05-16 - 7.4.0 - API for getting qualified Vouchers and Campaigns.
-* 2019-04-23 - 7.3.0 - Loyalties API, Rewards API.
-* 2019-03-21 - 7.2.0 - Added `ValidationRules assignments` property to `Voucher` and `Campaign` responses, added `Referral` to `CustomEvent`, updated `OrderResponse` object with new properties.
-* 2019-02-01 - 7.1.3 - Fixed deserialisation of `CampaignResponse` for newest API version.
-* 2019-02-01 - 7.1.2 - Fixed deserialisation of `VoucherResponse` for newest API version.
-* 2019-01-28 - 7.1.1 - Fixed release.
-* 2019-01-25 - 7.1.0 - Extended `OrderItem` and `OrderItemResponse` with `OrderItemProduct` and `OrderItemSKU`.
-* 2018-12-20 - 7.0.0 - Replaced Validation Rules with Business Validation Rules. Added API Verion v2018-08-01.
-* 2018-12-04 - 6.2.0 - Added support for `Order` when listing vouchers.
-* 2018-11-08 - 6.1.0 - Added support for `advanced filters` for Vouchers.
-* 2018-11-08 - 6.0.9 - Fix `Segment` metadata entry builder.
-* 2018-10-24 - 6.0.8 - Add `discountAmount` to `OrderItemResponse`.
-* 2018-10-19 - 6.0.7 - Add amount to `OrderItem`.
-* 2018-10-17 - 6.0.6 - Added ApplicableTo object to response of redeem/validate methods for vouchers and promotions.
-* 2018-10-10 - 6.0.5 - Added ValidationRules in VoucherResponse object.
-* 2018-09-09 - 6.0.4 - Added filtering vouchers by customer.
-* 2018-05-21 - 6.0.3 - Added support for `price` when creating `Price` model.
-* 2018-04-05 - 6.0.2 - Added support for `unitType` when creating `Discount` Voucher, removed obsolete `VoucherType` from validation response. Added class `PromotionTierValidationResponse` for proper promotion tier response mapping for promotion validation returned from `voucherify.validations().validate(PromotionValidation)` method.
-* 2018-04-05 - 6.0.1 - Fix response class accessibility from `package` to `public`. `OrderItem` and `OrderItemResponse` classes now supports `price` field.
-* 2018-04-04 - 6.0.0 - Response from Publish Voucher method now includes additional fields and structure introduced when using `ApiVersion.V_2017_04_20`. `RollbackRedemptionResponse` object uses VoucherResponse as voucher field instead of `PublishVoucherResponse`.
-* 2018-04-03 - 5.3.2 - Add missing fields in Validation and Redeem responses, provide more examples related to percent discount voucher.
-* 2018-04-03 - 5.3.1 - Add Order to Validation response.
-* 2018-01-14 - 5.3.0 - API Version set in header by default, Events API, Orders API, added missing methods to Customers, Distributions and Campaigns modules.
-* 2017-09-28 - 5.2.0 - Support for additional ValidationRules properties, additional examples, license info update.
-* 2017-09-19 - 5.1.2 - Fix creating VoucherifyError from Retrofit errors, fix typo in RedeemVoucherBuilder.
-* 2017-08-21 - 5.1.1 - Added metadata to VoucherValidationResponse.
-* 2017-08-21 - 5.1.0 - Added metadata to VoucherValidation.
-* 2017-08-18 - 5.0.1 - Fix for retrofit response body mapping.
-* 2017-05-10 - 5.0.0 - Separate modules, general refactoring, updated models.
-* 2017-04-21 - 4.2.0 - Moved validation to a separate module.
-* 2017-04-20 - 4.1.0 - Added method to validate voucher.
-* 2017-04-11 - 4.0.0 - Fixed redemptions list filter and response format.
-* 2016-12-02 - 3.6.1 - Added gift balance. Enhanced utils to support gift vouchers.
-* 2016-10-07 - 3.6.0 - Added a method to publish voucher.
 
 See more in [Changelog](CHANGELOG.md)
 
