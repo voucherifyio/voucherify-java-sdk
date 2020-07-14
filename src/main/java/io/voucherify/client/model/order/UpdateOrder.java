@@ -23,7 +23,7 @@ public class UpdateOrder {
 
   private Integer amount;
 
-  private OrderStatus orderStatus;
+  private OrderStatus status;
 
   @Singular("item")
   private List<OrderItem> items;

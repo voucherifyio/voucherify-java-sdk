@@ -6,7 +6,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'io.voucherify.client'
-version = '9.0.0'
+version = '9.1.0'
 
 repositories {
     mavenCentral()
@@ -41,12 +41,10 @@ dependencies {
     testCompile group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
 
     task javadocJar(type: Jar) {
-        classifier = 'javadoc'
         from javadoc
     }
 
     task sourcesJar(type: Jar) {
-        classifier = 'sources'
         from sourceSets.main.allSource
     }
 
