@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>9.1.0</version>
+  <version>9.1.1</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:9.1.0'
+compile 'io.voucherify.client:voucherify-java-sdk:9.1.1'
 
 ```
 
@@ -810,7 +810,8 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2019-09-30 - 9.1.0 - Added possibility to specify points as reward when redeeming loyalty card, fixed UpdateOrder status field
+* 2020-07-22 - 9.1.1 - Fixed previous release version and improved publishing artifacts
+* 2020-07-14 - 9.1.0 - Added possibility to specify points as reward when redeeming loyalty card, fixed UpdateOrder status field
 * 2019-09-30 - 9.0.0 - Updated retrofit and rxjava to version >= 2.x. Dropped support for JDK 1.6 and 1.7
 * 2019-09-30 - 8.1.0 - Extended `QualifiedResourceFilter` to support `order` query param.
 * 2019-08-22 - 8.0.1 - Added missing `id` to VoucherResponse.

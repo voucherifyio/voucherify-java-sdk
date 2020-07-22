@@ -1,19 +1,15 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 group = 'io.voucherify.client'
-version = '9.1.0'
+version = '9.1.1'
 
 repositories {
     mavenCentral()
     jcenter()
 }
 
-apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 sourceSets {
@@ -21,6 +17,67 @@ sourceSets {
         java {
             exclude 'io/voucherify/example/**'
         }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId group
+            artifactId 'voucherify-java-sdk'
+            version version
+            from components.java
+
+            pom {
+                name = System.getenv('POM_NAME') ?: POM_NAME
+                description = System.getenv('POM_DESCRIPTION') ?: POM_DESCRIPTION
+                url = System.getenv('POM_URL') ?: POM_URL
+                licenses {
+                    license {
+                        name = System.getenv('POM_LICENCE_NAME') ?: POM_LICENCE_NAME
+                        url = System.getenv('POM_LICENCE_URL') ?: POM_LICENCE_URL
+                        distribution = System.getenv('POM_LICENCE_DIST') ?: POM_LICENCE_DIST
+                    }
+                }
+                developers {
+                    developer {
+                        id = System.getenv('POM_DEVELOPER_ID') ?: POM_DEVELOPER_ID
+                        name = System.getenv('POM_DEVELOPER_NAME') ?: POM_DEVELOPER_NAME
+                    }
+                }
+                scm {
+                    connection = System.getenv('POM_SCM_CONNECTION') ?: POM_SCM_CONNECTION
+                    developerConnection = System.getenv('POM_SCM_DEV_CONNECTION') ?: POM_SCM_DEV_CONNECTION
+                    url = System.getenv('POM_SCM_URL') ?: POM_SCM_URL
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = System.getenv('RELEASE_REPOSITORY_URL') ?: RELEASE_REPOSITORY_URL
+            def snapshotsRepoUrl = System.getenv('SNAPSHOT_REPOSITORY_URL') ?: SNAPSHOT_REPOSITORY_URL
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username = System.getenv('NEXUS_USERNAME') ?: NEXUS_USERNAME
+                password = System.getenv('NEXUS_PASSWORD') ?: NEXUS_PASSWORD
+            }
+        }
+    }
+}
+
+if (project.hasProperty('sign')) {
+    signing {
+        sign publishing.publications.maven
     }
 }
 
@@ -39,69 +96,6 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
     testCompile group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '4.2.0'
     testCompile group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
-
-    task javadocJar(type: Jar) {
-        from javadoc
-    }
-
-    task sourcesJar(type: Jar) {
-        from sourceSets.main.allSource
-    }
-
-    artifacts {
-        archives javadocJar, sourcesJar
-    }
-
-    if (project.hasProperty('sign')) {
-        signing {
-            sign configurations.archives
-        }
-    }
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: System.getenv('RELEASE_REPOSITORY_URL') ?: RELEASE_REPOSITORY_URL) {
-                authentication(userName: System.getenv('NEXUS_USERNAME') ?: NEXUS_USERNAME, password: System.getenv('NEXUS_PASSWORD') ?: NEXUS_PASSWORD)
-            }
-
-            snapshotRepository(url: System.getenv('SNAPSHOT_REPOSITORY_URL') ?: SNAPSHOT_REPOSITORY_URL) {
-                authentication(userName: System.getenv('NEXUS_USERNAME') ?: NEXUS_USERNAME, password: System.getenv('NEXUS_PASSWORD') ?: NEXUS_PASSWORD)
-            }
-
-            pom.project {
-                name System.getenv('POM_NAME') ?: POM_NAME
-                artifactId 'voucherify-java-sdk'
-                packaging System.getenv('POM_PACKAGING') ?: POM_PACKAGING
-                description System.getenv('POM_DESCRIPTION') ?: POM_DESCRIPTION
-                url System.getenv('POM_URL') ?: POM_URL
-
-                scm {
-                    connection System.getenv('POM_SCM_CONNECTION') ?: POM_SCM_CONNECTION
-                    developerConnection System.getenv('POM_SCM_DEV_CONNECTION') ?: POM_SCM_DEV_CONNECTION
-                    url System.getenv('POM_SCM_URL') ?: POM_SCM_URL
-                }
-
-                licenses {
-                    license {
-                        name System.getenv('POM_LICENCE_NAME') ?: POM_LICENCE_NAME
-                        url System.getenv('POM_LICENCE_URL') ?: POM_LICENCE_URL
-                        distribution System.getenv('POM_LICENCE_DIST') ?: POM_LICENCE_DIST
-                    }
-                }
-
-                developers {
-                    developer {
-                        id System.getenv('POM_DEVELOPER_ID') ?: POM_DEVELOPER_ID
-                        name System.getenv('POM_DEVELOPER_NAME') ?: POM_DEVELOPER_NAME
-                    }
-                }
-            }
-        }
-    }
 }
 
 test {
