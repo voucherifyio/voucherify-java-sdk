@@ -23,12 +23,12 @@ public class OrderItemResponse {
 
   private Integer quantity;
 
-  private Integer price;
+  private Long price;
 
   @JsonProperty("discount_amount")
-  private Integer discountAmount;
+  private Long discountAmount;
 
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("related_object")
   private String relatedObject;

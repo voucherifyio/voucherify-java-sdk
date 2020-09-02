@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 public class AddBalance {
 
-  private Integer points;
+  private Long points;
 }

@@ -21,7 +21,7 @@ public class CreateOrder {
 
   private Customer customer;
 
-  private Integer amount;
+  private Long amount;
 
   @Singular("item")
   private List<OrderItem> items;

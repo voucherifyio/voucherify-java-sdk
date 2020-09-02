@@ -32,9 +32,9 @@ public class OrderItem {
 
   private Integer quantity;
 
-  private Integer amount;
+  private Long amount;
 
-  private Integer price;
+  private Long price;
 
   @JsonProperty("product")
   private OrderItemProduct orderItemProduct;

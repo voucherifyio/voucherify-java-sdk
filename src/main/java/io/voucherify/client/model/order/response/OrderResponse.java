@@ -38,7 +38,7 @@ public class OrderResponse {
   @JsonProperty("result")
   private OrderStatus status;
 
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("discount_amount")
   private Integer discountAmount;

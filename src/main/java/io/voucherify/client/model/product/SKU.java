@@ -25,6 +25,8 @@ public class SKU {
   @JsonProperty("source_id")
   private String sourceId;
 
+  private Long price;
+
   @Singular("attribute")
   private Map<String, Object> attributes;
 

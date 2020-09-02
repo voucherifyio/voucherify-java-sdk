@@ -14,8 +14,8 @@ import lombok.ToString;
 public class GiftRedemptionSummary {
 
   @JsonProperty("redeemed_amount")
-  private int redeemedAmount;
+  private long redeemedAmount;
 
   @JsonProperty("amount_to_go")
-  private int amountToGo;
+  private long amountToGo;
 }

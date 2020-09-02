@@ -28,7 +28,7 @@ public class VoucherRedemptionsResponse {
   private Integer redeemedQuantity;
 
   @JsonProperty("redeemed_amount")
-  private Integer redeemedAmount;
+  private Long redeemedAmount;
 
   @JsonProperty("redemption_entries")
   private List<RedemptionEntryResponse> redemptionEntries;

@@ -34,7 +34,7 @@ public class RedemptionEntryResponse {
 
   private String reason;
 
-  private Integer amount;
+  private Long amount;
 
   private OrderResponse order;
 

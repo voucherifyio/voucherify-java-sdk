@@ -22,7 +22,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     CreateOrder createOrder =
         CreateOrder.builder()
-            .amount(10)
+            .amount(10L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
 
@@ -46,8 +46,8 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     CreateOrder createOrder =
         CreateOrder.builder()
-            .amount(10)
-            .item(OrderItem.builder().productId("productId").quantity(10).price(1200).build())
+            .amount(10L)
+            .item(OrderItem.builder().productId("productId").quantity(10).price(1200L).build())
             .build();
 
     enqueueResponse(
@@ -113,7 +113,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     UpdateOrder updateOrder =
         UpdateOrder.builder()
-            .amount(100)
+            .amount(100L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");
@@ -136,8 +136,8 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     UpdateOrder updateOrder =
         UpdateOrder.builder()
-            .amount(100)
-            .item(OrderItem.builder().productId("productId").quantity(10).price(5000).build())
+            .amount(100L)
+            .item(OrderItem.builder().productId("productId").quantity(10).price(5000L).build())
             .build();
     enqueueResponse(
         "{\"id\" : \"some-id\", \"items\": [ { \"product_id\" : \"productId\", \"quantity\" : 10, \"price\" : 5000} ], \"amount\": 100}");
@@ -179,7 +179,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     CreateOrder createOrder =
         CreateOrder.builder()
-            .amount(10)
+            .amount(10L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
 
@@ -217,7 +217,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     UpdateOrder updateOrder =
         UpdateOrder.builder()
-            .amount(100)
+            .amount(100L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");
@@ -254,7 +254,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     CreateOrder createOrder =
         CreateOrder.builder()
-            .amount(10)
+            .amount(10L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
 
@@ -298,7 +298,7 @@ public class OrdersModuleTest extends AbstractModuleTest {
     // given
     UpdateOrder updateOrder =
         UpdateOrder.builder()
-            .amount(100)
+            .amount(100L)
             .item(OrderItem.builder().productId("productId").quantity(10).build())
             .build();
     enqueueResponse("{\"id\" : \"some-id\", \"items\": [], \"amount\": 100}");

@@ -13,8 +13,8 @@ import lombok.ToString;
 @ToString
 public class CustomerCampaignLoyalty {
 
-  private Integer points;
+  private Long points;
 
   @JsonProperty("referred_customers")
-  private Integer referredCustomers;
+  private Long referredCustomers;
 }
