@@ -1,5 +1,5 @@
 group = 'io.voucherify.client'
-version = '9.2.0'
+version = '10.0.0'
 
 repositories {
     mavenCentral()
@@ -91,11 +91,11 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
-    testCompile group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '4.2.0'
-    testCompile group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
+    testImplementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '4.2.0'
+    testImplementation group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
 }
 
 test {

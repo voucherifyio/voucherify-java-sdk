@@ -15,7 +15,7 @@ import java.util.Map;
 @ToString
 public class CustomerLoyalty {
 
-  private Integer points;
+  private Long points;
 
   @JsonProperty("referred_customers")
   private Integer referredCustomers;

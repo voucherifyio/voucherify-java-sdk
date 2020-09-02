@@ -17,7 +17,7 @@ public class Reward {
 
   private String id;
 
-  private Integer points;
+  private Long points;
 
   @JsonProperty("assignment_id")
   private String assignmentId;

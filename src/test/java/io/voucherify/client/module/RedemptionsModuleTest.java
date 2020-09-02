@@ -39,7 +39,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemVoucher redeemVoucher = RedeemVoucher.builder().customer(customer).order(order).build();
@@ -70,7 +70,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemPromotion redeemPromotion =
@@ -184,7 +184,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemVoucher redeemVoucher = RedeemVoucher.builder().customer(customer).order(order).build();
@@ -217,7 +217,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemPromotion redeemPromotion =
@@ -336,7 +336,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemVoucher redeemVoucher = RedeemVoucher.builder().customer(customer).order(order).build();
@@ -369,7 +369,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
         Order.builder()
             .item(OrderItem.builder().productId("productId").quantity(10).skuId("skuId").build())
             .item(OrderItem.builder().productId("productId2").quantity(20).skuId("skuId2").build())
-            .amount(25000)
+            .amount(25000L)
             .build();
 
     RedeemPromotion redeemPromotion =

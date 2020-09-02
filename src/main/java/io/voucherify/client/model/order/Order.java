@@ -27,7 +27,7 @@ public class Order {
   @JsonProperty("result")
   private OrderStatus status;
 
-  private Integer amount;
+  private Long amount;
 
   @Singular("item")
   private List<OrderItem> items;

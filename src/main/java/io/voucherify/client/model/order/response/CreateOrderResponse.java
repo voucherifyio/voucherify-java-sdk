@@ -25,7 +25,7 @@ public class CreateOrderResponse {
 
   private String object;
 
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("created_at")
   private Date createdAt;

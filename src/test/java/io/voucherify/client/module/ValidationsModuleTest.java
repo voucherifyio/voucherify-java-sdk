@@ -24,7 +24,7 @@ public class ValidationsModuleTest extends AbstractModuleTest {
           .customer(Customer.builder().email("some-email").build())
           .order(
               Order.builder()
-                  .amount(1000)
+                  .amount(1000L)
                   .item(OrderItem.builder().skuId("sku").quantity(1).build())
                   .build())
           .build();

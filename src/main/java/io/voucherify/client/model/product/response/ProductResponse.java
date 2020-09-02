@@ -33,5 +33,7 @@ public class ProductResponse {
   @JsonProperty("created_at")
   private Date createdAt;
 
+  private Long price;
+
   private ProductSKUs skus;
 }

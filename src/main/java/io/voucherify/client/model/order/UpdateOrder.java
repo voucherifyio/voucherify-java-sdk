@@ -21,7 +21,7 @@ public class UpdateOrder {
 
   private Customer customer;
 
-  private Integer amount;
+  private Long amount;
 
   private OrderStatus status;
 
