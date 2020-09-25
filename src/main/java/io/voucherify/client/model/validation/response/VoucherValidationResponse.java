@@ -21,6 +21,11 @@ public class VoucherValidationResponse {
 
   private String code;
 
+  private String campaign;
+
+  @JsonProperty("campaign_id")
+  private String campaignId;
+
   private boolean valid;
 
   private Discount discount;
