@@ -23,13 +23,4 @@ public class CampaignsResponse {
   private String dataRef;
 
   private List<CampaignResponse> campaigns;
-
-  public static CampaignsResponse of(
-      String object, Integer total, String dataRef, List<CampaignResponse> campaignResponses) {
-    return new CampaignsResponse(object, total, dataRef, campaignResponses);
-  }
-
-  public static CampaignsResponse of(List<CampaignResponse> campaignResponses) {
-    return new CampaignsResponse(null, null, null, campaignResponses);
-  }
 }

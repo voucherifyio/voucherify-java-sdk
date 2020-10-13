@@ -23,13 +23,4 @@ public class VouchersResponse {
   private String dataRef;
 
   private List<VoucherResponse> vouchers;
-
-  public static VouchersResponse of(
-      String object, Integer total, String dataRef, List<VoucherResponse> vouchers) {
-    return new VouchersResponse(object, total, dataRef, vouchers);
-  }
-
-  public static VouchersResponse of(List<VoucherResponse> vouchers) {
-    return new VouchersResponse(null, null, null, vouchers);
-  }
 }

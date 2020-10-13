@@ -1,5 +1,8 @@
 Voucherify Java SDK - Changelog
 ===============================
+- **2019-09-30** - `8.1.0` - Extended `QualifiedResourceFilter` to support `order` query param.
+- **2019-08-22** - `8.0.1` - Added missing `id` to VoucherResponse.
+- **2019-06-19** - `8.0.0` - Hide API versioning in setEndpoint method.
 - **2019-05-27** - `7.4.1` - Restore `discount_amount` for `OrderResponse`.
 - **2019-05-16** - `7.4.0` - API for getting qualified Vouchers and Campaigns.
 - **2019-04-23** - `7.3.0` - Loyalties API, Rewards API.
