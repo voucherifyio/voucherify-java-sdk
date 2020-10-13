@@ -7,12 +7,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.error.VoucherifyErrorHandler;
-import io.voucherify.client.json.deserializer.CampaignsResponseDeserializer;
 import io.voucherify.client.json.deserializer.DateDeserializer;
-import io.voucherify.client.json.deserializer.VouchersResponseDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
-import io.voucherify.client.model.campaign.response.CampaignsResponse;
-import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
@@ -168,15 +164,6 @@ public class VoucherifyClient {
         Date.class,
         new DateDeserializer(
             Constants.ENDPOINT_DATE_FORMAT, Constants.ENDPOINT_SECONDARY_DATE_FORMAT));
-    jsonParsingModule.addDeserializer(
-        CampaignsResponse.class,
-        new CampaignsResponseDeserializer(
-            ObjectUtils.firstNonNull(builder.apiVersion, ApiVersion.V_2018_08_01)));
-
-    jsonParsingModule.addDeserializer(
-        VouchersResponse.class,
-        new VouchersResponseDeserializer(
-            ObjectUtils.firstNonNull(builder.apiVersion, ApiVersion.V_2018_08_01)));
 
     mapper.registerModule(jsonParsingModule);
 
