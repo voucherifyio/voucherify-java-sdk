@@ -65,7 +65,7 @@ public class ExampleRxApp {
         .map(
             voucher -> {
               Customer customer = Customer.builder().sourceId("alice.morgan").build();
-              Order order = Order.builder().amount(7250).build();
+              Order order = Order.builder().amount(7250L).build();
               RedeemVoucher redeemVoucher =
                   RedeemVoucher.builder()
                       .customer(customer)

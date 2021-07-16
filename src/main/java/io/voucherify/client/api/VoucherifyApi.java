@@ -2,6 +2,8 @@ package io.voucherify.client.api;
 
 import io.voucherify.client.model.QualificationContext;
 import io.voucherify.client.model.QualificationList;
+import io.voucherify.client.model.async_actions.AsyncActionResponse;
+import io.voucherify.client.model.async_actions.AsyncActionsResponse;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
@@ -92,6 +94,14 @@ import java.util.List;
 import java.util.Map;
 
 public interface VoucherifyApi {
+
+  // ASYNC ACTIONS
+
+  @GET("async-actions/{id}")
+  Call<AsyncActionResponse> getAsyncAction(@Path("id") String id);
+
+  @GET("async-actions")
+  Call<AsyncActionsResponse> listAsyncActions(@QueryMap Map<String, Object> filter);
 
   // CAMPAIGNS
 

@@ -20,7 +20,7 @@ public class OrdersExample extends AbsExample {
     CreateOrder createOrder =
         CreateOrder.builder()
             .item(OrderItem.builder().quantity(10).productId("id").build())
-            .amount(10)
+            .amount(10L)
             .customer(Customer.builder().email("sth@sth.com").name("test").build())
             .build();
 
@@ -30,7 +30,7 @@ public class OrdersExample extends AbsExample {
     GetOrderResponse getOrderResponse = client.orders().get(createOrderResponse.getId());
     System.out.print(getOrderResponse);
 
-    UpdateOrder updateOrder = UpdateOrder.builder().amount(5).build();
+    UpdateOrder updateOrder = UpdateOrder.builder().amount(5L).build();
 
     GetOrderResponse updateOrderResponse =
         client.orders().update(getOrderResponse.getId(), updateOrder);

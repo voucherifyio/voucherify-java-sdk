@@ -9,6 +9,7 @@ import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.error.VoucherifyErrorHandler;
 import io.voucherify.client.json.deserializer.DateDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
+import io.voucherify.client.module.AsyncActionsModule;
 import io.voucherify.client.module.CampaignsModule;
 import io.voucherify.client.module.CustomersModule;
 import io.voucherify.client.module.DistributionsModule;
@@ -42,6 +43,7 @@ public class VoucherifyClient {
   private final String httpScheme;
   private final OrdersModule ordersModule;
   private final EventsModule eventsModule;
+  private final AsyncActionsModule asyncActionsModule;
   private final VoucherModule voucherModule;
   private final ValidationsModule validationsModule;
   private final CustomersModule customersModule;
@@ -76,6 +78,7 @@ public class VoucherifyClient {
 
     this.voucherifyApi = createRetrofitService(builder);
 
+    this.asyncActionsModule = new AsyncActionsModule(voucherifyApi, executor);
     this.voucherModule = new VoucherModule(voucherifyApi, executor);
     this.validationsModule = new ValidationsModule(voucherifyApi, executor);
     this.customersModule = new CustomersModule(voucherifyApi, executor);
@@ -90,6 +93,10 @@ public class VoucherifyClient {
     this.eventsModule = new EventsModule(voucherifyApi, executor);
     this.rewardsModule = new RewardsModule(voucherifyApi, executor);
     this.loyaltiesModule = new LoyaltiesModule(voucherifyApi, executor);
+  }
+
+  public AsyncActionsModule asyncActions() {
+    return asyncActionsModule;
   }
 
   public VoucherModule vouchers() {
