@@ -46,7 +46,7 @@ public class RedemptionsExample extends AbsExample {
     VoucherResponse result = client.vouchers().create(createVoucher);
 
     RedeemVoucher redeemVoucher =
-        RedeemVoucher.builder().order(Order.builder().amount(10000).build()).build();
+        RedeemVoucher.builder().order(Order.builder().amount(10000L).build()).build();
 
     RedeemVoucherResponse redeemVoucherResponse =
         client.redemptions().redeem(result.getCode(), redeemVoucher);
@@ -78,7 +78,7 @@ public class RedemptionsExample extends AbsExample {
     RedeemVoucher redeemVoucher =
         RedeemVoucher.builder()
             .customer(redeemCustomer)
-            .order(Order.builder().amount(100).build())
+            .order(Order.builder().amount(100L).build())
             .build();
 
     RedeemVoucherResponse redeemVoucherResponse =

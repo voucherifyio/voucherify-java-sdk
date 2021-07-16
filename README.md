@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>10.0.0</version>
+  <version>10.1.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:10.0.0'
+compile 'io.voucherify.client:voucherify-java-sdk:10.1.0'
 
 ```
 
@@ -684,6 +684,21 @@ Check [customer object](https://docs.voucherify.io/v1/reference#the-customer-obj
 voucherify.events.track(CustomEvent customEvent)
 ```
 
+### Async Actions API
+Methods are provided within `voucherify.asyncActions().*` namespace.
+- [Get Async Action](#get-async-action)
+- [List Async Actions](#list-async-actions)
+
+#### [Get Async Action]
+```java
+voucherify.asyncActions().get(String id);
+```
+
+#### [List Async Actions]
+```java
+voucherify.asyncActions().list(AsyncActionsFilter filter);
+```
+
 ---
 
 ### Migration to 6.0
@@ -810,6 +825,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2021-07-16 - 10.1.0 - Add support for Async Actions
 * 2020-10-14 - 10.0.0 - Drop old versions usage. Changed properties type from `Integer` to `Long` in some classes. Add `campaign` and `campaign_id` in Voucher validation response.
 * 2020-07-22 - 9.1.1 - Fixed previous release version and improved publishing artifacts
 * 2020-07-14 - 9.1.0 - Added possibility to specify points as reward when redeeming loyalty card, fixed UpdateOrder status field
@@ -820,6 +836,9 @@ See more in [Changelog](CHANGELOG.md)
 ## License
 
 The SDK is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+[Get Async Action]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-async-actions-1
+[List Async Actions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-async-actions
 
 [Create Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-voucher
 [Get Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-get

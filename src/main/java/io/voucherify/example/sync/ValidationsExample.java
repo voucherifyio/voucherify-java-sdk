@@ -43,7 +43,7 @@ public class ValidationsExample extends AbsExample {
     VoucherResponse result = client.vouchers().create(createVoucher);
 
     VoucherValidation validation =
-        VoucherValidation.builder().order(Order.builder().amount(10000).build()).build();
+        VoucherValidation.builder().order(Order.builder().amount(10000L).build()).build();
 
     client.validations().validate(result.getCode(), validation);
 
@@ -75,7 +75,7 @@ public class ValidationsExample extends AbsExample {
     VoucherValidation validation =
         VoucherValidation.builder()
             .customer(custToValidate)
-            .order(Order.builder().amount(100).build())
+            .order(Order.builder().amount(100L).build())
             .build();
 
     client.validations().validate(result.getCode(), validation);
