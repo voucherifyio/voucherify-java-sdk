@@ -78,6 +78,7 @@ import io.voucherify.client.model.voucher.CreateVoucher;
 import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import retrofit2.Call;
@@ -133,7 +134,7 @@ public interface VoucherifyApi {
       @Path("name") String campaignName, @QueryMap Map<String, Object> params);
 
   @POST("campaigns/{name}/import")
-  Call<Void> importVouchersToCampaign(
+  Call<ImportVouchersResponse> importVouchersToCampaign(
       @Path("name") String campaignName, @Body CampaignImportVouchers importVouchers);
 
   @POST("campaigns/qualification")
@@ -228,7 +229,7 @@ public interface VoucherifyApi {
   Call<AddBalanceResponse> addBalance(@Path("code") String code, @Body AddBalance addBalance);
 
   @POST("vouchers/import")
-  Call<Void> importVouchers(@Body ImportVouchers vouchers);
+  Call<ImportVouchersResponse> importVouchers(@Body ImportVouchers vouchers);
 
   @POST("vouchers/qualification")
   Call<QualificationList<VoucherResponse>> getQualifiedVouchers(

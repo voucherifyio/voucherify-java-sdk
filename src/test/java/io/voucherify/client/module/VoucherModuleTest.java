@@ -17,6 +17,7 @@ import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.utils.Irrelevant;
@@ -285,12 +286,14 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
 
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
-    client.vouchers().importVouchers(importVouchers);
+    ImportVouchersResponse response = client.vouchers().importVouchers(importVouchers);
 
     // then
+    assertThat(response).isNotNull();
+    assertThat(response.getAsyncActionId()).isNotBlank();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -591,7 +594,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     VoucherifyCallback callback = createCallback();
 
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
     client.vouchers().async().importVouchers(importVouchers, callback);
@@ -864,13 +867,15 @@ public class VoucherModuleTest extends AbstractModuleTest {
 
     ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
 
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
-    Observable<Irrelevant> observable = client.vouchers().rx().importVouchers(importVouchers);
+    Observable<ImportVouchersResponse> observable = client.vouchers().rx().importVouchers(importVouchers);
 
     // then
-    observable.blockingFirst();
+    ImportVouchersResponse response = observable.blockingFirst();
+    assertThat(response).isNotNull();
+    assertThat(response.getAsyncActionId()).isNotBlank();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/vouchers/import");
     assertThat(request.getMethod()).isEqualTo("POST");
