@@ -1,9 +1,7 @@
 package io.voucherify.example.sync;
 
 import io.voucherify.client.VoucherifyClient;
-import io.voucherify.client.model.QualificationContext;
-import io.voucherify.client.model.QualificationOrder;
-import io.voucherify.client.model.QualifiedResourceFilter;
+import io.voucherify.client.model.async_actions.AsyncActionResponse;
 import io.voucherify.client.model.common.SortingOrder;
 import io.voucherify.client.model.voucher.CodeConfig;
 import io.voucherify.client.model.voucher.CreateVoucher;
@@ -16,6 +14,7 @@ import io.voucherify.client.model.voucher.VoucherRedemption;
 import io.voucherify.client.model.voucher.VoucherType;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 
@@ -62,7 +61,23 @@ public class VouchersExample extends AbsExample {
             .build();
     ImportVouchers importVouchers = ImportVouchers.builder().voucher(voucher).build();
 
-    client.vouchers().importVouchers(importVouchers);
+    ImportVouchersResponse importVouchersResponse = client.vouchers().importVouchers(importVouchers);
+
+    for (int i = 0; i < 10; i++) {
+      AsyncActionResponse asyncActionResponse = client.asyncActions().get(importVouchersResponse.getAsyncActionId());
+
+      if ("DONE".equals(asyncActionResponse.getStatus())) {
+        System.out.println(asyncActionResponse.getResult().get("message"));
+        System.out.println(asyncActionResponse.getResult().get("failed"));
+        break;
+      }
+
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
 
     VouchersResponse vouchers =
         client

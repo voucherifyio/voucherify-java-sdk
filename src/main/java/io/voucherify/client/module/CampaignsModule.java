@@ -15,6 +15,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.module.CampaignsModule.ExtAsync;
 import io.voucherify.client.module.CampaignsModule.ExtRxJava;
 import io.voucherify.client.utils.Irrelevant;
@@ -59,8 +60,8 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
         api.addVoucherToCampaignWithCode(campaignName, code, addVoucherToCampaign));
   }
 
-  public void importVouchers(String campaignName, CampaignImportVouchers importVouchers) {
-    executeSyncApiCall(api.importVouchersToCampaign(campaignName, importVouchers));
+  public ImportVouchersResponse importVouchers(String campaignName, CampaignImportVouchers importVouchers) {
+    return executeSyncApiCall(api.importVouchersToCampaign(campaignName, importVouchers));
   }
 
   public CampaignsResponse list(CampaignsFilter campaignsFilter) {
@@ -126,7 +127,7 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
     public void importVouchers(
         String campaignName,
         CampaignImportVouchers importVouchers,
-        VoucherifyCallback<Irrelevant> callback) {
+        VoucherifyCallback<ImportVouchersResponse> callback) {
       RxUtils.subscribe(executor, rx().importVouchers(campaignName, importVouchers), callback);
     }
 
@@ -205,15 +206,14 @@ public final class CampaignsModule extends AbsModule<ExtAsync, ExtRxJava> {
           });
     }
 
-    public Observable<Irrelevant> importVouchers(
+    public Observable<ImportVouchersResponse> importVouchers(
         final String campaignName, final CampaignImportVouchers importVouchers) {
       return RxUtils.defer(
-          new RxUtils.DefFunc<Irrelevant>() {
+          new RxUtils.DefFunc<ImportVouchersResponse>() {
 
             @Override
-            public Irrelevant method() {
-              CampaignsModule.this.importVouchers(campaignName, importVouchers);
-              return Irrelevant.NO_RESPONSE;
+            public ImportVouchersResponse method() {
+              return CampaignsModule.this.importVouchers(campaignName, importVouchers);
             }
           });
     }

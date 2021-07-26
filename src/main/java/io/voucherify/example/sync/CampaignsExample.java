@@ -1,6 +1,7 @@
 package io.voucherify.example.sync;
 
 import io.voucherify.client.VoucherifyClient;
+import io.voucherify.client.model.async_actions.AsyncActionResponse;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVoucher;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
@@ -11,6 +12,7 @@ import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.voucher.Discount;
 import io.voucherify.client.model.voucher.Voucher;
 import io.voucherify.client.model.voucher.VoucherType;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 
 public class CampaignsExample extends AbsExample {
 
@@ -41,7 +43,23 @@ public class CampaignsExample extends AbsExample {
     CampaignImportVouchers importVouchers =
         CampaignImportVouchers.builder().voucher(campaignImportVoucher).build();
 
-    client.campaigns().importVouchers(response.getName(), importVouchers);
+    ImportVouchersResponse importVouchersResponse = client.campaigns().importVouchers(response.getName(), importVouchers);
+
+    for (int i = 0; i < 10; i++) {
+      AsyncActionResponse asyncActionResponse = client.asyncActions().get(importVouchersResponse.getAsyncActionId());
+
+      if ("DONE".equals(asyncActionResponse.getStatus())) {
+        System.out.println(asyncActionResponse.getResult().get("message"));
+        System.out.println(asyncActionResponse.getResult().get("failed"));
+        break;
+      }
+
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
 
     client.campaigns().get("campaign-name");
 

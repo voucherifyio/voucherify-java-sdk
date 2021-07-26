@@ -12,6 +12,7 @@ import io.voucherify.client.model.voucher.ImportVouchers;
 import io.voucherify.client.model.voucher.VoucherUpdate;
 import io.voucherify.client.model.voucher.VouchersFilter;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import io.voucherify.client.model.voucher.response.VouchersResponse;
 import io.voucherify.client.module.VoucherModule.ExtAsync;
@@ -64,8 +65,8 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.addBalance(code, addBalance));
   }
 
-  public void importVouchers(ImportVouchers vouchers) {
-    executeSyncApiCall(api.importVouchers(vouchers));
+  public ImportVouchersResponse importVouchers(ImportVouchers vouchers) {
+    return executeSyncApiCall(api.importVouchers(vouchers));
   }
 
   public QualificationList<VoucherResponse> getQualified(
@@ -127,7 +128,7 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     public void importVouchers(
-        ImportVouchers importVouchers, VoucherifyCallback<Irrelevant> callback) {
+        ImportVouchers importVouchers, VoucherifyCallback<ImportVouchersResponse> callback) {
       RxUtils.subscribe(executor, rx().importVouchers(importVouchers), callback);
     }
 
@@ -232,14 +233,13 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
           });
     }
 
-    public Observable<Irrelevant> importVouchers(final ImportVouchers importVouchers) {
+    public Observable<ImportVouchersResponse> importVouchers(final ImportVouchers importVouchers) {
       return RxUtils.defer(
-          new RxUtils.DefFunc<Irrelevant>() {
+          new RxUtils.DefFunc<ImportVouchersResponse>() {
 
             @Override
-            public Irrelevant method() {
-              VoucherModule.this.importVouchers(importVouchers);
-              return Irrelevant.NO_RESPONSE;
+            public ImportVouchersResponse method() {
+              return VoucherModule.this.importVouchers(importVouchers);
             }
           });
     }

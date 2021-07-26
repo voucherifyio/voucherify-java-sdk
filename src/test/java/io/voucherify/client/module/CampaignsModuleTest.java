@@ -14,6 +14,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.customer.Customer;
+import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.utils.Irrelevant;
 import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
@@ -103,12 +104,14 @@ public class CampaignsModuleTest extends AbstractModuleTest {
         CampaignImportVoucher.builder().active(true).code("some-code").build();
     CampaignImportVouchers campaignImportVouchers =
         CampaignImportVouchers.builder().voucher(voucher).build();
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
-    client.campaigns().importVouchers("campaign-name", campaignImportVouchers);
+    ImportVouchersResponse response = client.campaigns().importVouchers("campaign-name", campaignImportVouchers);
 
     // then
+    assertThat(response).isNotNull();
+    assertThat(response.getAsyncActionId()).isNotBlank();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
@@ -235,7 +238,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
     CampaignImportVouchers campaignImportVouchers =
         CampaignImportVouchers.builder().voucher(voucher).build();
     VoucherifyCallback callback = createCallback();
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
     client.campaigns().async().importVouchers("campaign-name", campaignImportVouchers, callback);
@@ -343,14 +346,16 @@ public class CampaignsModuleTest extends AbstractModuleTest {
         CampaignImportVoucher.builder().active(true).code("some-code").build();
     CampaignImportVouchers campaignImportVouchers =
         CampaignImportVouchers.builder().voucher(voucher).build();
-    enqueueEmptyResponse();
+    enqueueResponse("{\"async_action_id\": \"aa_123\"}");
 
     // when
-    Observable<Irrelevant> observable =
+    Observable<ImportVouchersResponse> observable =
         client.campaigns().rx().importVouchers("campaign-name", campaignImportVouchers);
 
     // then
-    observable.blockingFirst();
+    ImportVouchersResponse response = observable.blockingFirst();
+    assertThat(response).isNotNull();
+    assertThat(response.getAsyncActionId()).isNotBlank();
     RecordedRequest request = getRequest();
     assertThat(request.getPath()).isEqualTo("/v1/campaigns/campaign-name/import");
     assertThat(request.getMethod()).isEqualTo("POST");
