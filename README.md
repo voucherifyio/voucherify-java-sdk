@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>10.1.0</version>
+  <version>10.2.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:10.1.0'
+compile 'io.voucherify.client:voucherify-java-sdk:10.2.0'
 
 ```
 
@@ -825,6 +825,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2021-07-27 - 10.2.0 - Add support for Async Actions in vouchers import.
 * 2021-07-16 - 10.1.0 - Add support for Async Actions
 * 2020-10-14 - 10.0.0 - Drop old versions usage. Changed properties type from `Integer` to `Long` in some classes. Add `campaign` and `campaign_id` in Voucher validation response.
 * 2020-07-22 - 9.1.1 - Fixed previous release version and improved publishing artifacts
