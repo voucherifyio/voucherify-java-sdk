@@ -28,7 +28,7 @@ public class UpdateCampaign {
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
 
-  private CampaignType type;
+  private CampaignExtensionType type;
 
   private String description;
 }

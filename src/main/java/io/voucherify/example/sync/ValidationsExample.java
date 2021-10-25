@@ -29,7 +29,7 @@ public class ValidationsExample extends AbsExample {
     Voucher percentDiscount =
         Voucher.builder()
             .type(VoucherType.DISCOUNT_VOUCHER)
-            .discount(Discount.percentOff(10, 300))
+            .discount(Discount.percentOff(10, 300L))
             .category("Java SDK Example")
             .redemption(VoucherRedemption.builder().quantity(1).build())
             .build();
@@ -54,7 +54,7 @@ public class ValidationsExample extends AbsExample {
     Voucher giftVoucher =
         Voucher.builder()
             .type(VoucherType.GIFT_VOUCHER)
-            .gift(Gift.builder().amount(10000).build())
+            .gift(Gift.builder().amount(10000L).build())
             .category("Java SDK Example")
             .redemption(VoucherRedemption.builder().quantity(1).build())
             .build();

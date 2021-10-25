@@ -256,7 +256,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   @Test
   public void shouldAddBalance() {
     // given
-    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    AddBalance addBalance = AddBalance.builder().amount(1000L).build();
     enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
 
     // when
@@ -564,7 +564,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   @Test
   public void shouldAddBalanceAsync() {
     // given
-    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    AddBalance addBalance = AddBalance.builder().amount(1000L).build();
     enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
     VoucherifyCallback callback = createCallback();
 
@@ -835,7 +835,7 @@ public class VoucherModuleTest extends AbstractModuleTest {
   @Test
   public void shouldAddBalanceRxJava() {
     // given
-    AddBalance addBalance = AddBalance.builder().amount(1000).build();
+    AddBalance addBalance = AddBalance.builder().amount(1000L).build();
     enqueueResponse("{\"amount\": 1000, \"object\": \"voucher\", \"type\": \"GIFT_VOUCHER\"}");
 
     // when

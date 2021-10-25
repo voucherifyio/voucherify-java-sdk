@@ -28,10 +28,10 @@ public class CreateCampaign {
   @JsonProperty("expiration_date")
   private Date expirationDate;
 
-  private CampaignType type;
+  private CampaignExtensionType type;
 
   @JsonProperty("vouchers_count")
-  private Integer vouchersCount;
+  private Long vouchersCount;
 
   private Voucher voucher;
 

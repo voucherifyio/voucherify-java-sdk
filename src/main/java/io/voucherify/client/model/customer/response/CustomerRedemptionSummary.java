@@ -14,22 +14,22 @@ import lombok.ToString;
 public class CustomerRedemptionSummary {
 
   @JsonProperty("total_redemeed")
-  private Integer totalRedeemed;
+  private Long totalRedeemed;
 
   @JsonProperty("total_failed")
-  private Integer totalFailed;
+  private Long totalFailed;
 
   @JsonProperty("total_succeeded")
-  private Integer totalSucceeded;
+  private Long totalSucceeded;
 
   @JsonProperty("total_rolled_back")
-  private Integer totalRolledBack;
+  private Long totalRolledBack;
 
   @JsonProperty("total_rollback_failed")
-  private Integer totalRollbackFailed;
+  private Long totalRollbackFailed;
 
   @JsonProperty("total_rollback_succeeded")
-  private Integer totalRollbackSucceeded;
+  private Long totalRollbackSucceeded;
 
   private GiftRedemptionSummary gift;
 }

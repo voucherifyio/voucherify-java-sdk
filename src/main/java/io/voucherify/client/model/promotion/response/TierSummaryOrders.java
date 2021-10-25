@@ -14,8 +14,8 @@ import lombok.ToString;
 public class TierSummaryOrders {
 
   @JsonProperty("total_amount")
-  private Integer totalAmount;
+  private Long totalAmount;
 
   @JsonProperty("total_discount_amount")
-  private Integer totalDiscountAmount;
+  private Long totalDiscountAmount;
 }

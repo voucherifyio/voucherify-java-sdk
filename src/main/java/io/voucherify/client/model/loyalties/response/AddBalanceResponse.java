@@ -14,11 +14,11 @@ import lombok.ToString;
 @ToString
 public class AddBalanceResponse {
 
-  private Integer points;
+  private Long points;
 
-  private Integer total;
+  private Long total;
 
-  private Integer balance;
+  private Long balance;
 
   private String type;
 

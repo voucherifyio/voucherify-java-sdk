@@ -4,13 +4,7 @@ import io.reactivex.Observable;
 import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.QualificationContext;
 import io.voucherify.client.model.QualifiedResourceFilter;
-import io.voucherify.client.model.campaign.AddVoucherToCampaign;
-import io.voucherify.client.model.campaign.CampaignImportVoucher;
-import io.voucherify.client.model.campaign.CampaignImportVouchers;
-import io.voucherify.client.model.campaign.CampaignType;
-import io.voucherify.client.model.campaign.CreateCampaign;
-import io.voucherify.client.model.campaign.DeleteCampaignParams;
-import io.voucherify.client.model.campaign.UpdateCampaign;
+import io.voucherify.client.model.campaign.*;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.customer.Customer;
@@ -120,7 +114,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateCampaign() {
     // given
-    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignExtensionType.AUTO_UPDATE).build();
     enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
 
     // when
@@ -253,7 +247,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateCampaignAsync() {
     // given
-    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignExtensionType.AUTO_UPDATE).build();
     VoucherifyCallback callback = createCallback();
     enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
 
@@ -364,7 +358,7 @@ public class CampaignsModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateCampaignRxJava() {
     // given
-    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignExtensionType.AUTO_UPDATE).build();
     VoucherifyCallback callback = createCallback();
     enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
 

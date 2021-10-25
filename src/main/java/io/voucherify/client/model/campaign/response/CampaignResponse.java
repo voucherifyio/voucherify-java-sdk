@@ -1,6 +1,7 @@
 package io.voucherify.client.model.campaign.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.campaign.CampaignExtensionType;
 import io.voucherify.client.model.campaign.CampaignType;
 import io.voucherify.client.model.validationRules.response.BusinessValidationRuleAssignmentList;
 import io.voucherify.client.model.voucher.GenerationStatus;
@@ -26,7 +27,10 @@ public class CampaignResponse {
 
   private String object;
 
-  private CampaignType type;
+  private CampaignExtensionType type;
+
+  @JsonProperty("campaign_type")
+  private CampaignType campaignType;
 
   private String description;
 
