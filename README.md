@@ -2,7 +2,7 @@
   <img src="./voucherify-java-sdk.png"/>
 </p>
 
-<h3 align="center">Official <a href="https://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
+<h3 align="center">Official <a href="https://voucherify.io">Voucherify</a> SDK for Java</h3>
 
 <p align="center">
 <b><a href="#migration-to-5-x">Migration to 5.x</a></b>
@@ -76,7 +76,7 @@ compile 'io.voucherify.client:voucherify-java-sdk:11.0.0'
 
 ```
 
-[Log-in](https://app.voucherify.io///login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io///app/configuration):
+[Log-in](https://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/core/projects/current/general):
 
 ```java
 VoucherifyClient voucherify = new VoucherifyClient.Builder()
