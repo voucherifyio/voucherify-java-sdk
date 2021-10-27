@@ -2,7 +2,7 @@
   <img src="./voucherify-java-sdk.png"/>
 </p>
 
-<h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
+<h3 align="center">Official <a href="https://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
 
 <p align="center">
 <b><a href="#migration-to-5-x">Migration to 5.x</a></b>
@@ -76,7 +76,7 @@ compile 'io.voucherify.client:voucherify-java-sdk:11.0.0'
 
 ```
 
-[Log-in](http://app.voucherify.io///login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io///app/configuration):
+[Log-in](https://app.voucherify.io///login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io///app/configuration):
 
 ```java
 VoucherifyClient voucherify = new VoucherifyClient.Builder()
@@ -825,7 +825,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2021-10-25 - 11.0.0 - Dropped `VoucherifyUtils`. Changed `Integer` to `Long` for amount/quantity/total alike fields. Added discount/gift effects. Aligned OkHttp3 version.
+* 2021-10-25 - 11.0.0 - Dropped `VoucherifyUtils`. Changed `Integer` to `Long` for amount/quantity/total alike fields. Added missing `FIXED` discount type. Added discount/gift effects. Changed `CampaignType` -> `CampaignExtenstionType`, `CampaginType` now contains actual campaign types like `REFERRAL_PROGRAM`. Aligned OkHttp3 version.
 * 2021-07-27 - 10.2.0 - Add support for Async Actions in vouchers import.
 * 2021-07-16 - 10.1.0 - Add support for Async Actions
 * 2020-10-14 - 10.0.0 - Drop old versions usage. Changed properties type from `Integer` to `Long` in some classes. Add `campaign` and `campaign_id` in Voucher validation response.
@@ -837,7 +837,7 @@ See more in [Changelog](CHANGELOG.md)
 
 ## License
 
-The SDK is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The SDK is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 [Get Async Action]: https://docs.voucherify.io/reference/get-async-actions-1
 [List Async Actions]: https://docs.voucherify.io/reference/list-async-actions
@@ -898,20 +898,20 @@ The SDK is available as open source under the terms of the [MIT License](http://
 [Get Segment]: https://docs.voucherify.io/reference/get-segment
 [Delete Segment]: https://docs.voucherify.io/reference/delete-segment
 
-[Create Promotion Campaign]: http://docs.voucherify.io/reference/create-promotion-campaign
-[Validate Promotion Campaign]: http://docs.voucherify.io/reference/validate-promotions-1
-[List Promotion Tiers]: http://docs.voucherify.io/reference/get-promotions
-[Add Promotion Tier]: http://docs.voucherify.io/reference/add-promotion-tier-to-campaign
-[Redeem Promotion]: http://docs.voucherify.io/reference/redeem-promotion
-[Update Promotion Tier]: http://docs.voucherify.io/reference/update-promotion
-[Delete Promotion Tier]: http://docs.voucherify.io/reference/delete-promotion
+[Create Promotion Campaign]: https://docs.voucherify.io/reference/create-promotion-campaign
+[Validate Promotion Campaign]: https://docs.voucherify.io/reference/validate-promotions-1
+[List Promotion Tiers]: https://docs.voucherify.io/reference/get-promotions
+[Add Promotion Tier]: https://docs.voucherify.io/reference/add-promotion-tier-to-campaign
+[Redeem Promotion]: https://docs.voucherify.io/reference/redeem-promotion
+[Update Promotion Tier]: https://docs.voucherify.io/reference/update-promotion
+[Delete Promotion Tier]: https://docs.voucherify.io/reference/delete-promotion
 
 [Create Order]: https://docs.voucherify.io/reference/create-order
 [Get Order]: https://docs.voucherify.io/reference/get-order
 [Update Order]: https://docs.voucherify.io/reference/update-order
 [List Orders]: https://docs.voucherify.io/reference/list-orders
 
-[Create Event]: http://docs.voucherify.io/reference/the-custom-event-object
+[Create Event]: https://docs.voucherify.io/reference/the-custom-event-object
 
 [Create Order]: https://docs.voucherify.io/reference/create-order
 [Get Order]: https://docs.voucherify.io/reference/get-order
