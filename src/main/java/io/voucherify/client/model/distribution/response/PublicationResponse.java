@@ -22,7 +22,7 @@ public class PublicationResponse {
 
   private String object;
 
-  private Integer total;
+  private Long total;
 
   @JsonProperty("created_at")
   private Date createdAt;

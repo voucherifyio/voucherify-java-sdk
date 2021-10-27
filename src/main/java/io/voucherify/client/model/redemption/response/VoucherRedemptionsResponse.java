@@ -22,10 +22,10 @@ public class VoucherRedemptionsResponse {
   @JsonProperty("data_ref")
   private String dataRef;
 
-  private Integer quantity;
+  private Long quantity;
 
   @JsonProperty("redeemed_quantity")
-  private Integer redeemedQuantity;
+  private Long redeemedQuantity;
 
   @JsonProperty("redeemed_amount")
   private Long redeemedAmount;

@@ -242,7 +242,7 @@ public class VoucherifyClient {
         TimeUnit.SECONDS);
 
     HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-    httpLoggingInterceptor.level(
+    httpLoggingInterceptor.setLevel(
         ObjectUtils.firstNonNull(builder.logLevel, LogLevel.NONE).getValue());
     httpClient.addInterceptor(httpLoggingInterceptor);
 

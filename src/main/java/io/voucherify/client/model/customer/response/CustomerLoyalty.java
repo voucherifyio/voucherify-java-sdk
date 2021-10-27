@@ -18,7 +18,7 @@ public class CustomerLoyalty {
   private Long points;
 
   @JsonProperty("referred_customers")
-  private Integer referredCustomers;
+  private Long referredCustomers;
 
   private Map<String, CustomerCampaignLoyalty> campaigns;
 }

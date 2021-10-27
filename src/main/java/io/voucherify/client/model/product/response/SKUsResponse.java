@@ -16,7 +16,7 @@ public class SKUsResponse {
 
   private String object;
 
-  private Integer total;
+  private Long total;
 
   private List<SKUResponse> skus;
 }

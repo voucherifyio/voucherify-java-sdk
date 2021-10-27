@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString
 public class LoyaltyCard {
 
-  private Integer points;
+  private Long points;
 
-  private Integer balance;
+  private Long balance;
 }

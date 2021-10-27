@@ -17,7 +17,7 @@ public class ListRewardsResponse {
 
   private String object;
 
-  private Integer total;
+  private Long total;
 
   @JsonProperty("data_ref")
   private String dataRef;

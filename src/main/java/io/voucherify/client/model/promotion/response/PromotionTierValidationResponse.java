@@ -26,7 +26,7 @@ public class PromotionTierValidationResponse {
   private Discount discount;
 
   @JsonProperty("discount_amount")
-  private Integer discountAmount;
+  private Long discountAmount;
 
   private Map<String, Object> metadata;
 

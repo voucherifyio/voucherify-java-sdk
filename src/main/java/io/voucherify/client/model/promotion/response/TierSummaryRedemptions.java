@@ -14,5 +14,5 @@ import lombok.ToString;
 public class TierSummaryRedemptions {
 
   @JsonProperty("total_redeemed")
-  private Integer totalRedeemed;
+  private Long totalRedeemed;
 }

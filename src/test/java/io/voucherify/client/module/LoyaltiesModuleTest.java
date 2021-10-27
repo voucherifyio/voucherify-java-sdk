@@ -1,10 +1,6 @@
 package io.voucherify.client.module;
 
-import io.voucherify.client.model.campaign.CampaignType;
-import io.voucherify.client.model.campaign.CampaignsFilter;
-import io.voucherify.client.model.campaign.CreateCampaign;
-import io.voucherify.client.model.campaign.DeleteCampaignParams;
-import io.voucherify.client.model.campaign.UpdateCampaign;
+import io.voucherify.client.model.campaign.*;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
 import io.voucherify.client.model.voucher.Voucher;
@@ -21,7 +17,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
     // given
     CreateCampaign createCampaign =
         CreateCampaign.builder()
-            .type(CampaignType.AUTO_UPDATE)
+            .type(CampaignExtensionType.AUTO_UPDATE)
             .voucher(Voucher.builder().type(VoucherType.LOYALTY_CARD).build())
             .name("campaign")
             .build();
@@ -57,7 +53,7 @@ public class LoyaltiesModuleTest extends AbstractModuleTest {
   @Test
   public void shouldUpdateLoyaltyCampaign() {
     // given
-    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignType.AUTO_UPDATE).build();
+    UpdateCampaign updateCampaign = UpdateCampaign.builder().type(CampaignExtensionType.AUTO_UPDATE).build();
     enqueueResponse("{\"campaign\": \"campaign-name\", \"type\": \"AUTO_UPDATE\"}");
 
     // when

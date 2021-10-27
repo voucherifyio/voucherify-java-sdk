@@ -1,5 +1,5 @@
 group = 'io.voucherify.client'
-version = '10.2.0'
+version = '11.0.0'
 
 repositories {
     mavenCentral()
@@ -85,7 +85,7 @@ dependencies {
     compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.1'
     compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.6.1'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
-    compile group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '4.2.0'
+    compile group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.12.0'
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.2'
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
@@ -94,7 +94,7 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
-    testImplementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '4.2.0'
+    testImplementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '3.12.0'
     testImplementation group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
 }
 

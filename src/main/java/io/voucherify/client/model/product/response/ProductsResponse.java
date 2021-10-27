@@ -16,7 +16,7 @@ public class ProductsResponse {
 
   private String object;
 
-  private Integer total;
+  private Long total;
 
   private List<ProductResponse> products;
 }

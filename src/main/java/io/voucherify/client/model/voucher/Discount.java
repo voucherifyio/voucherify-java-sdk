@@ -16,13 +16,13 @@ public class Discount {
   private DiscountType type;
 
   @JsonProperty("amount_off")
-  private Integer amountOff;
+  private Long amountOff;
 
   @JsonProperty("percent_off")
   private Double percentOff;
 
   @JsonProperty("amount_limit")
-  private Integer amountLimit;
+  private Long amountLimit;
 
   @JsonProperty("unit_off")
   private Double unitOff;
@@ -30,29 +30,23 @@ public class Discount {
   @JsonProperty("unit_type")
   private String unitType;
 
-  public static Discount from(DiscountType type, int value) {
-    Discount discount = new Discount();
-    discount.type = type;
-    switch (type) {
-      case AMOUNT:
-        discount.amountOff = value;
-        break;
-      case PERCENT:
-        discount.percentOff = value / 100.0;
-        break;
-      case UNIT:
-        discount.unitOff = value / 100.0;
-        break;
-      default:
-        throw new IllegalArgumentException("Unsupported discount type: " + type);
-    }
-    return discount;
-  }
+  @JsonProperty("effect")
+  private DiscountEffect effect;
 
-  public static Discount amountOff(int amountOff) {
+  @JsonProperty("fixed_amount")
+  private Long fixedAmount;
+
+  public static Discount amountOff(long amountOff) {
     Discount discount = new Discount();
     discount.type = DiscountType.AMOUNT;
     discount.amountOff = amountOff;
+    return discount;
+  }
+
+  public static Discount fixed(long fixedAmount) {
+    Discount discount = new Discount();
+    discount.type = DiscountType.FIXED;
+    discount.fixedAmount = fixedAmount;
     return discount;
   }
 
@@ -60,7 +54,7 @@ public class Discount {
     return percentOff(percentOff, null);
   }
 
-  public static Discount percentOff(double percentOff, Integer amountLimit) {
+  public static Discount percentOff(double percentOff, Long amountLimit) {
     Discount discount = new Discount();
     discount.type = DiscountType.PERCENT;
     discount.percentOff = percentOff;

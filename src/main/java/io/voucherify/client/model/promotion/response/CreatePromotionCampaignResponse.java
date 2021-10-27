@@ -40,7 +40,7 @@ public class CreatePromotionCampaignResponse {
 
   private Map<String, Object> metadata;
 
-  private Integer vouchersCount;
+  private Long vouchersCount;
 
   @JsonProperty("vouchers_generation_status")
   private GenerationStatus generationStatus;

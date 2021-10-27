@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 public class VoucherRedemption {
 
-  private Integer quantity;
+  private Long quantity;
 }

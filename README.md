@@ -2,7 +2,7 @@
   <img src="./voucherify-java-sdk.png"/>
 </p>
 
-<h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for Java</h3>
+<h3 align="center">Official <a href="https://voucherify.io">Voucherify</a> SDK for Java</h3>
 
 <p align="center">
 <b><a href="#migration-to-5-x">Migration to 5.x</a></b>
@@ -66,17 +66,17 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>10.2.0</version>
+  <version>11.0.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:10.2.0'
+compile 'io.voucherify.client:voucherify-java-sdk:11.0.0'
 
 ```
 
-[Log-in](http://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/?utm_source=github&utm_medium=sdk&utm_campaign=acq#/app/configuration):
+[Log-in](https://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/core/projects/current/general):
 
 ```java
 VoucherifyClient voucherify = new VoucherifyClient.Builder()
@@ -166,7 +166,7 @@ Methods are provided within `voucherify.vouchers().*` namespace.
 ```java
 voucherify.vouchers().create(CreateVoucher createVoucher);
 ```
-Check [voucher object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-voucher-object).
+Check [voucher object](https://docs.voucherify.io/reference/the-voucher-object).
 #### [Get Voucher]
 ```java
 voucherify.vouchers().get(String code);
@@ -325,7 +325,7 @@ voucherify.redemptions().get(String id);
 ```java
 voucherify.redemptions().rollback(String id, String reason, RollbackRedemption rollbackRedemption);
 ```
-Check [redemption rollback object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-redemption-rollback-object).
+Check [redemption rollback object](https://docs.voucherify.io/reference/the-redemption-rollback-object).
 
 ---
 
@@ -342,7 +342,7 @@ Methods are provided within `voucherify.customers().*` namespace.
 ```java
 voucherify.customers().create(Customer customer);
 ```
-Check [customer object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-customer-object).
+Check [customer object](https://docs.voucherify.io/reference/the-customer-object).
 #### [Get Customer]
 ```java
 voucherify.customers().get(String id);
@@ -375,7 +375,7 @@ Methods are provided within `voucherify.orders.*` namespace.
 ```java
 voucherify.orders().create(CreateOrder order)
 ```
-Check [the order object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-order-object).
+Check [the order object](https://docs.voucherify.io/reference/the-order-object).
 #### [Get Order]
 ```java
 voucherify.orders().get(String orderId)
@@ -531,7 +531,7 @@ Methods are provided within `voucherify.products().*` namespace.
 ```java
 voucherify.products().create(Product product);
 ```
-Check [product object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-product-object).
+Check [product object](https://docs.voucherify.io/reference/the-product-object).
 #### [Get Product]
 ```java
 voucherify.products().get(String id);
@@ -552,7 +552,7 @@ voucherify.products().list(ProductsFilter filter);
 ```java
 voucherify.products().createSKU(String productId, SKU sku);
 ```
-Check [SKU object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-sku-object).
+Check [SKU object](https://docs.voucherify.io/reference/the-sku-object).
 #### [Get SKU]
 ```java
 voucherify.products().getSKU(String productId, String skuId);
@@ -825,6 +825,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2021-10-25 - 11.0.0 - Dropped `VoucherifyUtils`. Changed `Integer` to `Long` for amount/quantity/total alike fields. Added missing `FIXED` discount type. Added discount/gift effects. Changed `CampaignType` -> `CampaignExtenstionType`, `CampaginType` now contains actual campaign types like `REFERRAL_PROGRAM`. Aligned OkHttp3 version.
 * 2021-07-27 - 10.2.0 - Add support for Async Actions in vouchers import.
 * 2021-07-16 - 10.1.0 - Add support for Async Actions
 * 2020-10-14 - 10.0.0 - Drop old versions usage. Changed properties type from `Integer` to `Long` in some classes. Add `campaign` and `campaign_id` in Voucher validation response.
@@ -836,115 +837,115 @@ See more in [Changelog](CHANGELOG.md)
 
 ## License
 
-The SDK is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The SDK is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-[Get Async Action]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-async-actions-1
-[List Async Actions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-async-actions
+[Get Async Action]: https://docs.voucherify.io/reference/get-async-actions-1
+[List Async Actions]: https://docs.voucherify.io/reference/list-async-actions
 
-[Create Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-voucher
-[Get Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-get
-[Update Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-voucher
-[Delete Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-voucher
-[List Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-vouchers
-[Enable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#enable-voucher
-[Disable Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#disable-voucher
-[Add Gift Voucher Balance]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-gift-voucher-balance
-[Import Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers-1
+[Create Voucher]: https://docs.voucherify.io/reference/create-voucher
+[Get Voucher]: https://docs.voucherify.io/reference/vouchers-get
+[Update Voucher]: https://docs.voucherify.io/reference/update-voucher
+[Delete Voucher]: https://docs.voucherify.io/reference/delete-voucher
+[List Vouchers]: https://docs.voucherify.io/reference/list-vouchers
+[Enable Voucher]: https://docs.voucherify.io/reference/enable-voucher
+[Disable Voucher]: https://docs.voucherify.io/reference/disable-voucher
+[Add Gift Voucher Balance]: https://docs.voucherify.io/reference/add-gift-voucher-balance
+[Import Vouchers]: https://docs.voucherify.io/reference/import-vouchers-1
 
-[Create Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-campaign
-[Delete Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-campaign
-[Add Voucher to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-voucher-to-campaign
-[Update Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-campaign
-[Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
+[Create Campaign]: https://docs.voucherify.io/reference/create-campaign
+[Delete Campaign]: https://docs.voucherify.io/reference/delete-campaign
+[Add Voucher to Campaign]: https://docs.voucherify.io/reference/add-voucher-to-campaign
+[Update Campaign]: https://docs.voucherify.io/reference/update-campaign
+[Import Vouchers to Campaign]: https://docs.voucherify.io/reference/import-vouchers
 
-[Publish Vouchers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
-[Create Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-export
-[Get Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-export
-[Delete Export]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#elete-export
-[List publications]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-publications
+[Publish Vouchers]: https://docs.voucherify.io/reference/publish-voucher
+[Create Export]: https://docs.voucherify.io/reference/create-export
+[Get Export]: https://docs.voucherify.io/reference/get-export
+[Delete Export]: https://docs.voucherify.io/reference/elete-export
+[List publications]: https://docs.voucherify.io/reference/list-publications
 
-[Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
+[Validate Voucher]: https://docs.voucherify.io/reference/validate-voucher
 
-[Redeem Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-voucher
-[List Redemptions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-redemptions
-[Get Voucher's Redemptions]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#vouchers-redemptions
-[Get Redemption]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-redemption
-[Rollback Redemption]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#rollback-redemption
+[Redeem Voucher]: https://docs.voucherify.io/reference/redeem-voucher
+[List Redemptions]: https://docs.voucherify.io/reference/list-redemptions
+[Get Voucher's Redemptions]: https://docs.voucherify.io/reference/vouchers-redemptions
+[Get Redemption]: https://docs.voucherify.io/reference/get-redemption
+[Rollback Redemption]: https://docs.voucherify.io/reference/rollback-redemption
 
-[Create Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-customer
-[Get Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#read-customer
-[Update Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-customer
-[Delete Customer]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-customer
-[List Customers]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-customers
+[Create Customer]: https://docs.voucherify.io/reference/create-customer
+[Get Customer]: https://docs.voucherify.io/reference/read-customer
+[Update Customer]: https://docs.voucherify.io/reference/update-customer
+[Delete Customer]: https://docs.voucherify.io/reference/delete-customer
+[List Customers]: https://docs.voucherify.io/reference/list-customers
 
-[Create Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-product
-[Get Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-product
-[Update Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-product
-[Delete Product]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-product
-[List Products]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-products
-[Create SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-sku
-[Get SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-sku
-[Update SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-sku
-[Delete SKU]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-sku
-[List all product SKUs]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-skus
+[Create Product]: https://docs.voucherify.io/reference/create-product
+[Get Product]: https://docs.voucherify.io/reference/get-product
+[Update Product]: https://docs.voucherify.io/reference/update-product
+[Delete Product]: https://docs.voucherify.io/reference/delete-product
+[List Products]: https://docs.voucherify.io/reference/list-products
+[Create SKU]: https://docs.voucherify.io/reference/create-sku
+[Get SKU]: https://docs.voucherify.io/reference/get-sku
+[Update SKU]: https://docs.voucherify.io/reference/update-sku
+[Delete SKU]: https://docs.voucherify.io/reference/delete-sku
+[List all product SKUs]: https://docs.voucherify.io/reference/list-skus
 
-[Create Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-validation-rules
-[Get Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-validation-rules
-[Update Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-validation-rules
-[Delete Validation Rule]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-validation-rules
+[Create Validation Rule]: https://docs.voucherify.io/reference/create-validation-rules
+[Get Validation Rule]: https://docs.voucherify.io/reference/get-validation-rules
+[Update Validation Rule]: https://docs.voucherify.io/reference/update-validation-rules
+[Delete Validation Rule]: https://docs.voucherify.io/reference/delete-validation-rules
 
-[Create Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-segment
-[Get Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-segment
-[Delete Segment]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-segment
+[Create Segment]: https://docs.voucherify.io/reference/create-segment
+[Get Segment]: https://docs.voucherify.io/reference/get-segment
+[Delete Segment]: https://docs.voucherify.io/reference/delete-segment
 
-[Create Promotion Campaign]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-promotion-campaign
-[Validate Promotion Campaign]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-promotions-1
-[List Promotion Tiers]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-promotions
-[Add Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-promotion-tier-to-campaign
-[Redeem Promotion]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-promotion
-[Update Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-promotion
-[Delete Promotion Tier]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-promotion
+[Create Promotion Campaign]: https://docs.voucherify.io/reference/create-promotion-campaign
+[Validate Promotion Campaign]: https://docs.voucherify.io/reference/validate-promotions-1
+[List Promotion Tiers]: https://docs.voucherify.io/reference/get-promotions
+[Add Promotion Tier]: https://docs.voucherify.io/reference/add-promotion-tier-to-campaign
+[Redeem Promotion]: https://docs.voucherify.io/reference/redeem-promotion
+[Update Promotion Tier]: https://docs.voucherify.io/reference/update-promotion
+[Delete Promotion Tier]: https://docs.voucherify.io/reference/delete-promotion
 
-[Create Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-order
-[Get Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
-[Update Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-order
-[List Orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
+[Create Order]: https://docs.voucherify.io/reference/create-order
+[Get Order]: https://docs.voucherify.io/reference/get-order
+[Update Order]: https://docs.voucherify.io/reference/update-order
+[List Orders]: https://docs.voucherify.io/reference/list-orders
 
-[Create Event]: http://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-custom-event-object
+[Create Event]: https://docs.voucherify.io/reference/the-custom-event-object
 
-[Create Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-order
-[Get Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-order
-[Update Order]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-order
-[List orders]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-orders
+[Create Order]: https://docs.voucherify.io/reference/create-order
+[Get Order]: https://docs.voucherify.io/reference/get-order
+[Update Order]: https://docs.voucherify.io/reference/update-order
+[List orders]: https://docs.voucherify.io/reference/list-orders
 
-[Create Rewards]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward
-[Get Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-reward
-[Update Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward
-[List Rewards]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-rewards
-[Delete Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward
-[List Reward Assignments]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-reward-assignments
-[Create Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward-assgnment
-[Update Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward-assignment
-[Delete Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward-assignment
+[Create Rewards]:https://docs.voucherify.io/reference/create-reward
+[Get Reward]:https://docs.voucherify.io/reference/get-reward
+[Update Reward]:https://docs.voucherify.io/reference/update-reward
+[List Rewards]:https://docs.voucherify.io/reference/list-rewards
+[Delete Reward]:https://docs.voucherify.io/reference/delete-reward
+[List Reward Assignments]:https://docs.voucherify.io/reference/list-reward-assignments
+[Create Reward Assignment]:https://docs.voucherify.io/reference/create-reward-assgnment
+[Update Reward Assignment]:https://docs.voucherify.io/reference/update-reward-assignment
+[Delete Reward Assignment]:https://docs.voucherify.io/reference/delete-reward-assignment
 
- [List Loyalties]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-loyalty-programs
-[Create Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-loyalty-program
-[Get Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-loyalty-program
-[Update Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-loyalty-program
-[Delete Loyalty]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-loyalty-program
+ [List Loyalties]:https://docs.voucherify.io/reference/list-loyalty-programs
+[Create Loyalty]:https://docs.voucherify.io/reference/create-loyalty-program
+[Get Loyalty]:https://docs.voucherify.io/reference/get-loyalty-program
+[Update Loyalty]:https://docs.voucherify.io/reference/update-loyalty-program
+[Delete Loyalty]:https://docs.voucherify.io/reference/delete-loyalty-program
 
-[List Loyalty Reward Assignments]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-reward-assignments-1
-[Create Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-reward-assignment-1
-[Update Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-reward-assignment-1
-[Delete Loyalty Reward Assignment]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-reward-assignment-1
+[List Loyalty Reward Assignments]:https://docs.voucherify.io/reference/list-reward-assignments-1
+[Create Loyalty Reward Assignment]:https://docs.voucherify.io/reference/create-reward-assignment-1
+[Update Loyalty Reward Assignment]:https://docs.voucherify.io/reference/update-reward-assignment-1
+[Delete Loyalty Reward Assignment]:https://docs.voucherify.io/reference/delete-reward-assignment-1
 
-[List Loyalty Earning Rules]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-earning-rules
-[Create Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-earning-rule
-[Update Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#update-earning-rule
-[Delete Loyalty Earning Rule]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#delete-earning-rule
+[List Loyalty Earning Rules]:https://docs.voucherify.io/reference/list-earning-rules
+[Create Loyalty Earning Rule]:https://docs.voucherify.io/reference/create-earning-rule
+[Update Loyalty Earning Rule]:https://docs.voucherify.io/reference/update-earning-rule
+[Delete Loyalty Earning Rule]:https://docs.voucherify.io/reference/delete-earning-rule
 
-[List Loyalty Members]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#list-members
-[Add Loyalty Member]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-member
-[Get Loyalty Member]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#get-member
-[Add Loyalty Card Balance]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#add-loyalty-card-balance
-[Redeem Loyalty Reward]:https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#redeem-loyalty-card
+[List Loyalty Members]:https://docs.voucherify.io/reference/list-members
+[Add Loyalty Member]:https://docs.voucherify.io/reference/create-member
+[Get Loyalty Member]:https://docs.voucherify.io/reference/get-member
+[Add Loyalty Card Balance]:https://docs.voucherify.io/reference/add-loyalty-card-balance
+[Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card

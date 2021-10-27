@@ -15,7 +15,7 @@ import java.util.List;
 @ToString
 public class VoucherPublishResponse {
 
-  private Integer count;
+  private Long count;
 
   private List<PublishEntryResponse> entries;
 }

@@ -14,7 +14,9 @@ import lombok.ToString;
 @ToString
 public class Gift {
 
-  private Integer amount;
+  private Long amount;
 
-  private Integer balance;
+  private Long balance;
+
+  private GiftEffect effect;
 }

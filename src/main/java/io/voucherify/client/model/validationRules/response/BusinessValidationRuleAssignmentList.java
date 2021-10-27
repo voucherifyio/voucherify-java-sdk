@@ -18,7 +18,7 @@ public class BusinessValidationRuleAssignmentList {
 
   private List<BusinessValidationRuleAssignment> data;
 
-  private Integer total;
+  private Long total;
 
   private String object;
 
