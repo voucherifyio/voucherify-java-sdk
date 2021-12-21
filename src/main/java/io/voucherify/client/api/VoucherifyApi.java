@@ -235,6 +235,9 @@ public interface VoucherifyApi {
   Call<QualificationList<VoucherResponse>> getQualifiedVouchers(
       @Body QualificationContext validationContext, @QueryMap Map<String, Object> params);
 
+  @DELETE("vouchers/{code}/sessions/{session_key")
+  Call<Void> releaseSession(@Path("code") String code, @Query("session_key") String sessionKey);
+
   // VALIDATIONS
 
   @POST("vouchers/{code}/validate")
