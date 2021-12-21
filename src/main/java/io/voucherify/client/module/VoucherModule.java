@@ -6,11 +6,7 @@ import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.model.QualificationContext;
 import io.voucherify.client.model.QualificationList;
 import io.voucherify.client.model.QualifiedResourceFilter;
-import io.voucherify.client.model.voucher.AddBalance;
-import io.voucherify.client.model.voucher.CreateVoucher;
-import io.voucherify.client.model.voucher.ImportVouchers;
-import io.voucherify.client.model.voucher.VoucherUpdate;
-import io.voucherify.client.model.voucher.VouchersFilter;
+import io.voucherify.client.model.voucher.*;
 import io.voucherify.client.model.voucher.response.AddBalanceResponse;
 import io.voucherify.client.model.voucher.response.ImportVouchersResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
@@ -73,6 +69,10 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
       QualificationContext context, QualifiedResourceFilter filter) {
     return executeSyncApiCall(
         api.getQualifiedVouchers(context, filter != null ? filter.asMap() : new HashMap<>()));
+  }
+
+  public void releaseSession(String code, String sessionKey) {
+    executeSyncApiCall(api.releaseSession(code, sessionKey));
   }
 
   @Override
@@ -254,5 +254,17 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
             }
           });
     }
+
+    public Observable<Irrelevant> releaseSession(final String code, final String sessionKey) {
+        return RxUtils.defer(
+            new RxUtils.DefFunc<Irrelevant>() {
+
+              @Override
+              public Irrelevant method() {
+                VoucherModule.this.releaseSession(code, sessionKey);
+                return Irrelevant.NO_RESPONSE;
+              }
+          });
+      }
   }
 }

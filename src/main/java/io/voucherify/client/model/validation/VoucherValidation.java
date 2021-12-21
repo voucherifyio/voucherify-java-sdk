@@ -2,6 +2,7 @@ package io.voucherify.client.model.validation;
 
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.order.Order;
+import io.voucherify.client.model.session.Session;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,10 +20,12 @@ import java.util.Map;
 @ToString
 public class VoucherValidation {
 
-  private Customer customer;
+    private Customer customer;
 
-  private Order order;
+    private Order order;
 
-  @Singular("metadataEntry")
-  private Map<String, Object> metadata;
+    @Singular("metadataEntry")
+    private Map<String, Object> metadata;
+
+    private Session session;
 }

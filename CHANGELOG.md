@@ -1,5 +1,6 @@
 Voucherify Java SDK - Changelog
 ===============================
+- **2021-12-21** - `8.1.0` - Add support for Session on Voucher validation & redemption as well as session release
 - **2019-09-30** - `8.1.0` - Extended `QualifiedResourceFilter` to support `order` query param.
 - **2019-08-22** - `8.0.1` - Added missing `id` to VoucherResponse.
 - **2019-06-19** - `8.0.0` - Hide API versioning in setEndpoint method.
