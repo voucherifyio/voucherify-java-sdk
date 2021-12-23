@@ -43,6 +43,9 @@ public class OrderResponse {
   @JsonProperty("discount_amount")
   private Integer discountAmount;
 
+  @JsonProperty("total_amount")
+  private Integer totalAmount;
+
   private List<OrderItemResponse> items;
 
   private Map<String, Object> metadata;
