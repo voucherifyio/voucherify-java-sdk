@@ -114,6 +114,11 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().update(code, voucherUpdate), callback);
     }
 
+    public void delete(
+            String code, Boolean force, VoucherifyCallback<Irrelevant> callback) {
+        RxUtils.subscribe(executor, rx().delete(code, force), callback);
+    }
+
     public void disable(String code, VoucherifyCallback<VoucherResponse> callback) {
       RxUtils.subscribe(executor, rx().disable(code), callback);
     }
@@ -137,6 +142,11 @@ public final class VoucherModule extends AbsModule<ExtAsync, ExtRxJava> {
         QualifiedResourceFilter filter,
         VoucherifyCallback<QualificationList<VoucherResponse>> callback) {
       RxUtils.subscribe(executor, rx().getQualified(context, filter), callback);
+    }
+
+    public void releaseSession(
+            String code, final String sessionKey, VoucherifyCallback<Irrelevant> callback) {
+        RxUtils.subscribe(executor, rx().releaseSession(code, sessionKey), callback);
     }
   }
 
