@@ -161,6 +161,8 @@ Methods are provided within `voucherify.vouchers().*` namespace.
 - [Disable Voucher](#disable-voucher)
 - [Add Gift Voucher Balance](#add-gift-voucher-balance)
 - [Import Vouchers](#import-vouchers)
+- [Get Qualified Vouchers](#get-qualified-vouchers)
+- [Release Session](#release-session)
 
 #### [Create Voucher]
 ```java
@@ -202,6 +204,10 @@ voucherify.vouchers().importVouchers(ImportVouchers importVouchers);
 #### [Get Qualified Vouchers]
 ```java
 voucherify.vouchers().getQualified(QualificationContext context, QualifiedResourceFilter filter);
+```
+#### [Release Session]
+```java
+voucherify.vouchers().releaseSession(String code, String sessionKey);
 ```
 ---
 
@@ -852,6 +858,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Disable Voucher]: https://docs.voucherify.io/reference/disable-voucher
 [Add Gift Voucher Balance]: https://docs.voucherify.io/reference/add-gift-voucher-balance
 [Import Vouchers]: https://docs.voucherify.io/reference/import-vouchers-1
+[Release Session]: https://docs.voucherify.io/reference/release-validation-session
 
 [Create Campaign]: https://docs.voucherify.io/reference/create-campaign
 [Delete Campaign]: https://docs.voucherify.io/reference/delete-campaign
