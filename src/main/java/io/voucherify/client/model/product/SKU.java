@@ -26,6 +26,9 @@ public class SKU {
   private String sourceId;
 
   private Long price;
+  
+  @JsonProperty("image_url")
+  private String imageUrl;
 
   @Singular("attribute")
   private Map<String, Object> attributes;
