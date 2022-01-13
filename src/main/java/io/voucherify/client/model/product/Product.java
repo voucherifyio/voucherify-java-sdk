@@ -30,6 +30,9 @@ public class Product {
 
   @Singular("attribute")
   private List<String> attributes;
+  
+  @JsonProperty("image_url")
+  private String imageUrl;
 
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
