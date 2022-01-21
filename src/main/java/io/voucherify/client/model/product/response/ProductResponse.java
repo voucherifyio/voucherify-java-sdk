@@ -33,6 +33,9 @@ public class ProductResponse {
   @JsonProperty("created_at")
   private Date createdAt;
 
+  @JsonProperty("image_url")
+  private String imageUrl;
+
   private Long price;
 
   private ProductSKUs skus;
