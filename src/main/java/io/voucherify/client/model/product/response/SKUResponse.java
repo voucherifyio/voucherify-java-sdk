@@ -28,5 +28,14 @@ public class SKUResponse {
   @JsonProperty("created_at")
   private Date createdAt;
 
+  @JsonProperty("image_url")
+  private String imageUrl;
+
+  private String currency;
+
+  private String price;
+
+  private Map<String, Object> metadata;
+
   private String object;
 }
