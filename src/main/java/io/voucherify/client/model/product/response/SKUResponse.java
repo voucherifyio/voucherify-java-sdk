@@ -33,7 +33,7 @@ public class SKUResponse {
 
   private String currency;
 
-  private String price;
+  private Long price;
 
   private Map<String, Object> metadata;
 
