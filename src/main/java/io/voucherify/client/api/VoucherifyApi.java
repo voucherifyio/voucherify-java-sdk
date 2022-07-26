@@ -152,6 +152,9 @@ public interface VoucherifyApi {
   @PUT("customers/{id}")
   Call<CustomerResponse> updateCustomer(@Path("id") String customerId, @Body Customer customer);
 
+  @POST("customers/bulk/async")
+  Call<Void> bulkUpdateCustomer(@Body List<Customer> customers);
+
   @DELETE("customers/{id}")
   Call<Void> deleteCustomer(@Path("id") String customerId);
 
