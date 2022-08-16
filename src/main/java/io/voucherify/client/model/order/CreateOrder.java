@@ -19,6 +19,9 @@ import java.util.Map;
 @ToString
 public class CreateOrder {
 
+  @JsonProperty("source_id")
+  private String sourceId;
+
   private Customer customer;
 
   private Long amount;
