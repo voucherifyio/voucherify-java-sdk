@@ -15,4 +15,6 @@ import lombok.ToString;
 public class AddBalance {
 
   private Long points;
+  private String expiration_date;
+  private String expiration_type;
 }
