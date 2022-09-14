@@ -6,6 +6,7 @@ import io.voucherify.client.callback.VoucherifyCallback;
 import io.voucherify.client.error.VoucherifyError;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.CustomersFilter;
+import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.customer.response.CustomersResponse;
 import io.voucherify.client.module.CustomersModule.ExtAsync;
@@ -35,11 +36,11 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.updateCustomer(customer.getId(), customer));
   }
 
-  public void update(List<Customer> customers) {
+  public CustomerBulkUpdateResponse update(List<Customer> customers) {
       if (customers.size() > 100){
           throw VoucherifyError.from("Bulk update can't exceed 100 customers.");
       }
-      executeSyncApiCall(api.bulkUpdateCustomer(customers));
+      return executeSyncApiCall(api.bulkUpdateCustomer(customers));
   }
 
   public void delete(String customerId) {
