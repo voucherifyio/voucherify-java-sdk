@@ -123,10 +123,10 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.addLoyaltyBalance(id, memberId, addBalance));
   }
 
-    public AddBalanceResponse addLoyaltyCardBalance(
-            String memberId, AddBalance addBalance) {
-        return executeSyncApiCall(api.addLoyaltyBalance(memberId, addBalance));
-    }
+  public AddBalanceResponse addLoyaltyCardBalance(
+      String memberId, AddBalance addBalance) {
+    return executeSyncApiCall(api.addLoyaltyBalance(memberId, addBalance));
+  }
 
   @Override
   ExtAsync createAsyncExtension() {
