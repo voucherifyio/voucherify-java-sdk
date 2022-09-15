@@ -29,6 +29,4 @@ public class LoyaltyCard {
 
   @JsonProperty("expiration_rules")
   private LoyaltyCardPointsExpirationRules loyaltyCardPointsExpirationRules;
-
-
 }

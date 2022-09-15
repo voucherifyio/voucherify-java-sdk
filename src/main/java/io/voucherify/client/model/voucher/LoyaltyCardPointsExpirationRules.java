@@ -1,5 +1,6 @@
 package io.voucherify.client.model.voucher;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -9,7 +10,9 @@ import lombok.*;
 @ToString
 public class LoyaltyCardPointsExpirationRules {
 
-    private String period_type;
+    @JsonProperty("period_type")
+    private String periodType;
 
-    private Integer period_value;
+    @JsonProperty("period_value")
+    private Integer periodValue;
 }
