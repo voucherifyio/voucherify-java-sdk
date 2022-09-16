@@ -341,7 +341,7 @@ Methods are provided within `voucherify.customers().*` namespace.
 - [Create Customer](#create-customer)
 - [Get Customer](#get-customer)
 - [Update Customer](#update-customer)
-- [Bulk update](#bulk-update)
+- [Update Customers in bulk](#update-customers-in-bulk)
 - [Delete Customer](#delete-customer)
 - [List Customers](#list-customers)
 
@@ -358,7 +358,7 @@ voucherify.customers().get(String id);
 ```java
 voucherify.customers().update(Customer customer);
 ```
-#### [Bulk update]
+#### [Update Customers in bulk]
 ```java
 voucherify.customers().update(List<Customer> customers);
 ```
@@ -890,6 +890,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Create Customer]: https://docs.voucherify.io/reference/create-customer
 [Get Customer]: https://docs.voucherify.io/reference/read-customer
 [Update Customer]: https://docs.voucherify.io/reference/update-customer
+[Update Customers in bulk]: https://docs.voucherify.io/reference/post-customers-in-bulk
 [Delete Customer]: https://docs.voucherify.io/reference/delete-customer
 [List Customers]: https://docs.voucherify.io/reference/list-customers
 
