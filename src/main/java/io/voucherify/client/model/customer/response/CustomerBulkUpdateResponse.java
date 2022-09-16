@@ -11,5 +11,4 @@ public class CustomerBulkUpdateResponse {
 
   @JsonProperty("async_action_id")
   private String asyncActionId;
-
 }
