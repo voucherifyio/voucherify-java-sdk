@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Date;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -22,7 +20,7 @@ public class LoyaltyCard {
   private Long balance;
 
   @JsonProperty("next_expiration_date")
-  private Date nextExpirationDate;
+  private String nextExpirationDate;
 
   @JsonProperty("next_expiration_points")
   private Long nextExpirationPoints;
