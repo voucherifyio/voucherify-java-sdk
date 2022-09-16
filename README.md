@@ -514,13 +514,17 @@ voucherify.loyalties().addMember(loyalty_id, member);
 ```java
 voucherify.loyalties().getMember(loyalty_id, member_id);
 ```
-#### [Add Loyalty Card Balance]
+#### [Redeem Loyalty Reward]
 ```java
 voucherify.loyalties().redeemReward(loyalty_id, member_id, add_balance);
 ```
-#### [Redeem Loyalty Reward]
+#### [Add Loyalty Card Balance]
 ```java
 voucherify.loyalties().addLoyaltyCardBalance(loyalty_id, member_id, redeem_reward);
+```
+#### [Add or Remove Loyalty Card Balance]
+```java
+voucherify.loyalties().addLoyaltyCardBalance(member_id, redeem_reward);
 ```
 ---
 
@@ -965,3 +969,4 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Get Loyalty Member]:https://docs.voucherify.io/reference/get-member
 [Add Loyalty Card Balance]:https://docs.voucherify.io/reference/add-loyalty-card-balance
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
+[Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
