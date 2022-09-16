@@ -36,7 +36,7 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
   }
 
   public CustomerBulkUpdateResponse update(List<Customer> customers) {
-      return executeSyncApiCall(api.bulkUpdateCustomer(customers));
+    return executeSyncApiCall(api.bulkUpdateCustomer(customers));
   }
 
   public void delete(String customerId) {
