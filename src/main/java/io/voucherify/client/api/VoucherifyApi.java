@@ -472,6 +472,11 @@ public interface VoucherifyApi {
       @Path("memberId") String memberId,
       @Body io.voucherify.client.model.loyalties.AddBalance addBalance);
 
+  @POST("loyalties/members/{memberId}/balance")
+  Call<io.voucherify.client.model.loyalties.response.AddBalanceResponse> addLoyaltyBalance(
+      @Path("memberId") String memberId,
+      @Body io.voucherify.client.model.loyalties.AddBalance addBalance);
+
   @POST("loyalties/{id}/members/{memberId}/redemption")
   Call<RedeemVoucherResponse> redeemLoyaltyReward(
       @Path("id") String id, @Path("memberId") String memberId, @Body RedeemReward redeemReward);
