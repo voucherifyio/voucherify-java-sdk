@@ -21,5 +21,5 @@ public class AddBalance {
   private String expirationDate;
 
   @JsonProperty("expiration_type")
-  private String expirationType;
+  private BalanceExpirationType expirationType;
 }
