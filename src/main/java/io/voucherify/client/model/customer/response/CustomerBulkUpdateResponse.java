@@ -1,4 +1,4 @@
-package io.voucherify.client.model.voucher.response;
+package io.voucherify.client.model.customer.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ImportVouchersResponse {
+public class CustomerBulkUpdateResponse {
 
   @JsonProperty("async_action_id")
   private String asyncActionId;

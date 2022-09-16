@@ -12,6 +12,7 @@ import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
 import io.voucherify.client.model.customer.Customer;
+import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.customer.response.CustomersResponse;
 import io.voucherify.client.model.distribution.CreateExport;
@@ -151,6 +152,9 @@ public interface VoucherifyApi {
 
   @PUT("customers/{id}")
   Call<CustomerResponse> updateCustomer(@Path("id") String customerId, @Body Customer customer);
+
+  @POST("customers/bulk/async")
+  Call<CustomerBulkUpdateResponse> bulkUpdateCustomer(@Body List<Customer> customers);
 
   @DELETE("customers/{id}")
   Call<Void> deleteCustomer(@Path("id") String customerId);
@@ -465,6 +469,11 @@ public interface VoucherifyApi {
   @POST("loyalties/{id}/members/{memberId}/balance")
   Call<io.voucherify.client.model.loyalties.response.AddBalanceResponse> addLoyaltyBalance(
       @Path("id") String id,
+      @Path("memberId") String memberId,
+      @Body io.voucherify.client.model.loyalties.AddBalance addBalance);
+
+  @POST("loyalties/members/{memberId}/balance")
+  Call<io.voucherify.client.model.loyalties.response.AddBalanceResponse> addLoyaltyBalance(
       @Path("memberId") String memberId,
       @Body io.voucherify.client.model.loyalties.AddBalance addBalance);
 

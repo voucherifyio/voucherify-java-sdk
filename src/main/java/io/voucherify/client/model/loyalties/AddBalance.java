@@ -1,5 +1,6 @@
 package io.voucherify.client.model.loyalties;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,4 +16,10 @@ import lombok.ToString;
 public class AddBalance {
 
   private Long points;
+
+  @JsonProperty("expiration_date")
+  private String expirationDate;
+
+  @JsonProperty("expiration_type")
+  private BalanceExpirationType expirationType;
 }
