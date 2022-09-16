@@ -341,6 +341,7 @@ Methods are provided within `voucherify.customers().*` namespace.
 - [Create Customer](#create-customer)
 - [Get Customer](#get-customer)
 - [Update Customer](#update-customer)
+- [Bulk update](#bulk-update)
 - [Delete Customer](#delete-customer)
 - [List Customers](#list-customers)
 
@@ -356,6 +357,10 @@ voucherify.customers().get(String id);
 #### [Update Customer]
 ```java
 voucherify.customers().update(Customer customer);
+```
+#### [Bulk update]
+```java
+voucherify.customers().update(List<Customer> customers);
 ```
 #### [Delete Customer]
 ```java
@@ -831,6 +836,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2022-09-16 - 11.1.2 - Customer bulk update
 * 2022-09-07 - 11.1.1 - Add `source_id` field to `CreateOrder` model
 * 2021-12-21 - 11.1.0 - Add support for Session on Voucher validation & redemption as well as session release
 * 2021-10-25 - 11.0.0 - Dropped `VoucherifyUtils`. Changed `Integer` to `Long` for amount/quantity/total alike fields. Added missing `FIXED` discount type. Added discount/gift effects. Changed `CampaignType` -> `CampaignExtenstionType`, `CampaginType` now contains actual campaign types like `REFERRAL_PROGRAM`. Aligned OkHttp3 version.
