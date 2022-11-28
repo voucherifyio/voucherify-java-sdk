@@ -27,6 +27,8 @@ import io.voucherify.client.model.loyalties.RedeemReward;
 import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
+import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
+import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
 import io.voucherify.client.model.order.response.CreateOrderResponse;
@@ -462,6 +464,9 @@ public interface VoucherifyApi {
   @GET("loyalties/{id}/members/{memberId}")
   Call<VoucherResponse> getLoyaltyMember(@Path("id") String id, @Path("memberId") String memberId);
 
+  @GET("loyalties/members/{memberId}")
+  Call<VoucherResponse> getLoyaltyMember(@Path("memberId") String memberId);
+
   @POST("loyalties/{id}/members/{memberId}/balance")
   Call<io.voucherify.client.model.loyalties.response.AddBalanceResponse> addLoyaltyBalance(
       @Path("id") String id,
@@ -471,4 +476,8 @@ public interface VoucherifyApi {
   @POST("loyalties/{id}/members/{memberId}/redemption")
   Call<RedeemVoucherResponse> redeemLoyaltyReward(
       @Path("id") String id, @Path("memberId") String memberId, @Body RedeemReward redeemReward);
+
+  @GET("loyalties/members/{memberId}/tiers")
+  Call<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
+          @Path("memberId") String memberId);
 }

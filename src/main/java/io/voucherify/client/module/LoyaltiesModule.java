@@ -19,6 +19,8 @@ import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.AddBalanceResponse;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
+import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
+import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.redemption.response.RedeemVoucherResponse;
 import io.voucherify.client.model.rewards.CreateRewardAssignment;
 import io.voucherify.client.model.rewards.RewardsAssignmentsFilter;
@@ -114,6 +116,10 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.getLoyaltyMember(id, memberId));
   }
 
+    public VoucherResponse getMember(String memberId) {
+        return executeSyncApiCall(api.getLoyaltyMember(memberId));
+    }
+
   public RedeemVoucherResponse redeemReward(String id, String memberId, RedeemReward redeemReward) {
     return executeSyncApiCall(api.redeemLoyaltyReward(id, memberId, redeemReward));
   }
@@ -121,6 +127,10 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
   public AddBalanceResponse addLoyaltyCardBalance(
       String id, String memberId, AddBalance addBalance) {
     return executeSyncApiCall(api.addLoyaltyBalance(id, memberId, addBalance));
+  }
+
+  public MembersLoyaltyTierResponse getMembersLoyaltyTier(String memberId) {
+    return executeSyncApiCall(api.getMembersLoyaltyTier(memberId));
   }
 
   @Override
@@ -251,6 +261,12 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
         AddBalance addBalance,
         VoucherifyCallback<AddBalanceResponse> callback) {
       RxUtils.subscribe(executor, rx().addLoyaltyCardBalance(id, memberId, addBalance), callback);
+    }
+
+    public void getMembersLoyaltyTier(
+        String memberId,
+        VoucherifyCallback<MembersLoyaltyTierResponse> callback) {
+      RxUtils.subscribe(executor, rx().getMembersLoyaltyTier(memberId), callback);
     }
   }
 
@@ -450,6 +466,18 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
               return LoyaltiesModule.this.addLoyaltyCardBalance(id, memberId, addBalance);
             }
           });
+    }
+
+    public Observable<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
+        final String memberId) {
+
+        return RxUtils.defer(
+                new RxUtils.DefFunc<MembersLoyaltyTierResponse>() {
+                    @Override
+                    public MembersLoyaltyTierResponse method() {
+                        return LoyaltiesModule.this.getMembersLoyaltyTier(memberId);
+                    }
+                });
     }
   }
 }
