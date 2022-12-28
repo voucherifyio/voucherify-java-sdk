@@ -129,7 +129,6 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.addLoyaltyBalance(id, memberId, addBalance));
   }
 
-
   public MembersLoyaltyTierResponse getMembersLoyaltyTier(String memberId) {
     return executeSyncApiCall(api.getMembersLoyaltyTier(memberId));
   }
