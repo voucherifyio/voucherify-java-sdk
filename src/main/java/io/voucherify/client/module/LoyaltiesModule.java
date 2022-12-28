@@ -116,9 +116,9 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.getLoyaltyMember(id, memberId));
   }
 
-    public VoucherResponse getMember(String memberId) {
-        return executeSyncApiCall(api.getLoyaltyMember(memberId));
-    }
+  public VoucherResponse getMember(String memberId) {
+    return executeSyncApiCall(api.getLoyaltyMember(memberId));
+  }
 
   public RedeemVoucherResponse redeemReward(String id, String memberId, RedeemReward redeemReward) {
     return executeSyncApiCall(api.redeemLoyaltyReward(id, memberId, redeemReward));
