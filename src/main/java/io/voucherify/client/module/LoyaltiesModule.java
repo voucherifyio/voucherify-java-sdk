@@ -475,14 +475,13 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public Observable<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
         final String memberId) {
-
-        return RxUtils.defer(
-                new RxUtils.DefFunc<MembersLoyaltyTierResponse>() {
-                    @Override
-                    public MembersLoyaltyTierResponse method() {
-                        return LoyaltiesModule.this.getMembersLoyaltyTier(memberId);
-                    }
-                });
+      return RxUtils.defer(
+          new RxUtils.DefFunc<MembersLoyaltyTierResponse>() {
+            @Override
+            public MembersLoyaltyTierResponse method() {
+              return LoyaltiesModule.this.getMembersLoyaltyTier(memberId);
+            }
+          });
     }
   }
 }
