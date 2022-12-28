@@ -1,5 +1,6 @@
 package io.voucherify.client.model.order;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.customer.Customer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
