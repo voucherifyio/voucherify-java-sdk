@@ -27,5 +27,7 @@ public class MembersLoyaltyTier {
 
   @JsonProperty("updated_at")
   private Date updatedAt;
+  
+  private String object;
 
 }
