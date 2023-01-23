@@ -25,3 +25,4 @@ build/
 .idea/
 .vscode/
 .DS_Store
+gradle.properties
