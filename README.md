@@ -66,7 +66,7 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.1.3</version>
+  <version>11.1.4</version>
 </dependency>
 ```
 
@@ -848,6 +848,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2023-03-xx - 11.1.4 - 
 * 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
 * 2022-09-16 - 11.1.2 - Customer bulk update. Added function [Add or Remove Loyalty Card Balance]. Added information about Loyalty Card potins expiration. Thanks to [@mabdullah12](https://github.com/mabdullah12) for Your contribution!
 * 2022-09-07 - 11.1.1 - Add `source_id` field to `CreateOrder` model
