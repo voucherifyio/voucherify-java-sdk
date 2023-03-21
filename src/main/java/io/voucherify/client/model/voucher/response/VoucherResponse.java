@@ -70,6 +70,9 @@ public class VoucherResponse {
   @JsonProperty("updated_at")
   private Date updatedAt;
 
+  @JsonProperty("holder_id")
+  private String holderId;
+
   @JsonProperty("applicable_to")
   private ApplicableToResponse applicableTo;
 
