@@ -29,6 +29,9 @@ public class VoucherResponse {
 
   private String campaign;
 
+  @JsonProperty("campaign_id")
+  private String campaignId;
+
   private String category;
 
   private VoucherType type;
