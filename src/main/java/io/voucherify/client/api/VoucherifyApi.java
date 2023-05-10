@@ -4,6 +4,7 @@ import io.voucherify.client.model.QualificationContext;
 import io.voucherify.client.model.QualificationList;
 import io.voucherify.client.model.async_actions.AsyncActionResponse;
 import io.voucherify.client.model.async_actions.AsyncActionsResponse;
+import io.voucherify.client.model.bulk.BulkAsyncResponse;
 import io.voucherify.client.model.campaign.AddVoucherToCampaign;
 import io.voucherify.client.model.campaign.CampaignImportVouchers;
 import io.voucherify.client.model.campaign.CreateCampaign;
@@ -291,6 +292,9 @@ public interface VoucherifyApi {
       @Path("id") String productId,
       @Path("skuId") String skuId,
       @QueryMap Map<String, Object> params);
+
+  @POST("products/bulk/async")
+  Call<BulkAsyncResponse> updateProductsBulkAsync(@Body List<Product> products);
 
   // SEGMENTS
 
