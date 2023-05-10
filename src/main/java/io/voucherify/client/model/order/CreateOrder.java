@@ -30,6 +30,8 @@ public class CreateOrder {
   @Singular("item")
   private List<OrderItem> items;
 
+  private OrderStatus status;
+
   @Singular("metadataEntry")
   private Map<String, Object> metadata;
 }

@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.1.2</version>
+  <version>11.1.4</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.1.2'
+compile 'io.voucherify.client:voucherify-java-sdk:11.1.3'
 
 ```
 
@@ -514,6 +514,10 @@ voucherify.loyalties().addMember(loyalty_id, member);
 ```java
 voucherify.loyalties().getMember(loyalty_id, member_id);
 ```
+#### [Get Loyalty Member By Id]
+```java
+voucherify.loyalties().getMember(member_id);
+```
 #### [Redeem Loyalty Reward]
 ```java
 voucherify.loyalties().redeemReward(loyalty_id, member_id, add_balance);
@@ -525,6 +529,10 @@ voucherify.loyalties().addLoyaltyCardBalance(loyalty_id, member_id, redeem_rewar
 #### [Add or Remove Loyalty Card Balance]
 ```java
 voucherify.loyalties().addLoyaltyCardBalance(member_id, redeem_reward);
+```
+#### [Get Members Loyalty Tier]
+```java
+voucherify.loyalties().getMembersLoyaltyTier(member_id);
 ```
 ---
 
@@ -840,6 +848,8 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2023-03-xx - 11.1.4 - Added `holder_id` to VoucherResponse. Added `status` to CreateOrder.  Thanks to [@viglu](https://github.com/viglu) for contribution and [@markonieczny](https://github.com/markonieczny) for issue request! 
+* 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
 * 2022-09-16 - 11.1.2 - Customer bulk update. Added function [Add or Remove Loyalty Card Balance]. Added information about Loyalty Card potins expiration. Thanks to [@mabdullah12](https://github.com/mabdullah12) for Your contribution!
 * 2022-09-07 - 11.1.1 - Add `source_id` field to `CreateOrder` model
 * 2021-12-21 - 11.1.0 - Add support for Session on Voucher validation & redemption as well as session release
@@ -967,6 +977,8 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [List Loyalty Members]:https://docs.voucherify.io/reference/list-members
 [Add Loyalty Member]:https://docs.voucherify.io/reference/create-member
 [Get Loyalty Member]:https://docs.voucherify.io/reference/get-member
+[Get Loyalty Member By Id]:https://docs.voucherify.io/reference/get-member-1
 [Add Loyalty Card Balance]:https://docs.voucherify.io/reference/add-loyalty-card-balance
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
+[Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
