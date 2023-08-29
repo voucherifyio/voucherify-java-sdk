@@ -3,6 +3,7 @@ package io.voucherify.client.module;
 import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
+import io.voucherify.client.model.bulk.BulkAsyncResponse;
 import io.voucherify.client.model.product.DeleteProductParams;
 import io.voucherify.client.model.product.DeleteSKUParams;
 import io.voucherify.client.model.product.Product;
@@ -17,6 +18,7 @@ import io.voucherify.client.module.ProductsModule.ExtRxJava;
 import io.voucherify.client.utils.Irrelevant;
 import io.voucherify.client.utils.RxUtils;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -63,6 +65,10 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public void deleteSKU(String productId, String skuId, DeleteSKUParams params) {
     executeSyncApiCall(api.deleteSKU(productId, skuId, params.asMap()));
+  }
+
+  public BulkAsyncResponse bulkAsync(List<Product> products) {
+    return executeSyncApiCall(api.updateProductsBulkAsync(products));
   }
 
   @Override
