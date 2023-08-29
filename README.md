@@ -542,6 +542,7 @@ Methods are provided within `voucherify.products().*` namespace.
 - [Create Product](#create-product)
 - [Get Product](#get-product)
 - [Update Product](#update-product)
+- [Update Products in bulk](#update-products-in-bulk)
 - [Delete Product](#delete-product)
 - [List Products](#list-products)
 - [Create SKU](#create-sku)
@@ -562,6 +563,10 @@ voucherify.products().get(String id);
 #### [Update Product]
 ```java
 voucherify.products().update(Product product);
+```
+#### [Update Products in bulk]
+```java
+voucherify.products().update(List<Product> products);
 ```
 #### [Delete Product]
 ```java
@@ -848,7 +853,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2023-08-xx - 11.x.x - 
+* 2023-08-xx - 11.x.x - Added `APPLY_TO_ITEMS_BY_QUANTITY` discount type. Added [Update Products in bulk] method. Thanks to [@viglu](https://github.com/viglu) for contribution!
 * 2023-03-21 - 11.1.4 - Added `holder_id` to VoucherResponse. Added `status` to CreateOrder.  Thanks to [@viglu](https://github.com/viglu) for contribution and [@markonieczny](https://github.com/markonieczny) for issue request! 
 * 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
 * 2022-09-16 - 11.1.2 - Customer bulk update. Added function [Add or Remove Loyalty Card Balance]. Added information about Loyalty Card potins expiration. Thanks to [@mabdullah12](https://github.com/mabdullah12) for Your contribution!
@@ -912,6 +917,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Create Product]: https://docs.voucherify.io/reference/create-product
 [Get Product]: https://docs.voucherify.io/reference/get-product
 [Update Product]: https://docs.voucherify.io/reference/update-product
+[Update Products in bulk]: https://docs.voucherify.io/reference/update-products-in-bulk
 [Delete Product]: https://docs.voucherify.io/reference/delete-product
 [List Products]: https://docs.voucherify.io/reference/list-products
 [Create SKU]: https://docs.voucherify.io/reference/create-sku
