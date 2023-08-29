@@ -3,12 +3,12 @@ package io.voucherify.client.module;
 import io.reactivex.Observable;
 import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.callback.VoucherifyCallback;
-import io.voucherify.client.model.bulk.BulkAsyncResponse;
 import io.voucherify.client.model.product.DeleteProductParams;
 import io.voucherify.client.model.product.DeleteSKUParams;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.ProductsFilter;
 import io.voucherify.client.model.product.SKU;
+import io.voucherify.client.model.product.response.ProductsBulkUpdateResponse;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
@@ -38,6 +38,10 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
   public ProductResponse update(Product product) {
     return executeSyncApiCall(api.updateProduct(product.getId(), product));
   }
+  
+  public ProductsBulkUpdateResponse update(List<Product> products) {
+    return executeSyncApiCall(api.bulkUpdateProducts(products));
+  }
 
   public ProductsResponse list(ProductsFilter filter) {
     return executeSyncApiCall(api.getProducts(filter.asMap()));
@@ -65,10 +69,6 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public void deleteSKU(String productId, String skuId, DeleteSKUParams params) {
     executeSyncApiCall(api.deleteSKU(productId, skuId, params.asMap()));
-  }
-
-  public BulkAsyncResponse bulkAsync(List<Product> products) {
-    return executeSyncApiCall(api.updateProductsBulkAsync(products));
   }
 
   @Override
