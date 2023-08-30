@@ -19,4 +19,10 @@ public class VoucherValidationError {
 
     @JsonProperty("request_id")
     private String requestId;
+
+    @JsonProperty("resource_id")
+    private String resource_id;
+
+    @JsonProperty("resource_type")
+    private String resource_type;
 }
