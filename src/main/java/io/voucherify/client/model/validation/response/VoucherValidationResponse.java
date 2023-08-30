@@ -45,5 +45,5 @@ public class VoucherValidationResponse {
   private ApplicableToResponse applicableTo;
 
   @JsonProperty("error")
-  private VoucherValidationError voucherValidationError;
+  private VoucherValidationErrorResponse voucherValidationError;
 }

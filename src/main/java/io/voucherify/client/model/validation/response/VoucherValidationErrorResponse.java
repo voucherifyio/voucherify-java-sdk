@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class VoucherValidationError {
+public class VoucherValidationErrorResponse {
     private String code;
 
     private String key;
