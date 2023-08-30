@@ -44,5 +44,6 @@ public class VoucherValidationResponse {
   @JsonProperty("applicable_to")
   private ApplicableToResponse applicableTo;
 
-  private VoucherValidationError error;
+  @JsonProperty("error")
+  private VoucherValidationError voucherValidationError;
 }
