@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>9.0.0</version>
+  <version>9.0.1</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:9.0.0'
+compile 'io.voucherify.client:voucherify-java-sdk:9.0.1'
 
 ```
 
@@ -810,6 +810,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2023-08-30 - 9.0.1 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2019-09-30 - 9.0.0 - Updated retrofit and rxjava to version >= 2.x. Dropped support for JDK 1.6 and 1.7
 * 2019-09-30 - 8.1.0 - Extended `QualifiedResourceFilter` to support `order` query param.
 * 2019-08-22 - 8.0.1 - Added missing `id` to VoucherResponse.
