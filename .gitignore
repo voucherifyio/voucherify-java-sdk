@@ -24,3 +24,4 @@ build/
 *.iml
 .idea/
 .vscode/
+gradle.properties
