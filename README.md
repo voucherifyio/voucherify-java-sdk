@@ -848,7 +848,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2023-08-xx - 11.x.x -
+* 2023-08-xx - 11.x.x - Created proper enums `RollbackResult` and `RollbackStatus` for `RollbackRedemptionResponse`.
 * 2023-08-30 - 10.1.5 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2023-03-21 - 11.1.4 - Added `holder_id` to VoucherResponse. Added `status` to CreateOrder.  Thanks to [@viglu](https://github.com/viglu) for contribution and [@markonieczny](https://github.com/markonieczny) for issue request! 
 * 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
