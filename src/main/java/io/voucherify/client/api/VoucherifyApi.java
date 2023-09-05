@@ -65,6 +65,11 @@ import io.voucherify.client.model.rewards.response.RewardAssignmentResponse;
 import io.voucherify.client.model.rewards.response.RewardResponse;
 import io.voucherify.client.model.segment.Segment;
 import io.voucherify.client.model.segment.response.SegmentResponse;
+import io.voucherify.client.model.stackable.RedeemStackableDiscount;
+import io.voucherify.client.model.stackable.ValidateStackableDiscount;
+import io.voucherify.client.model.stackable.response.RedeemStackableDiscountResponse;
+import io.voucherify.client.model.stackable.response.RollbackRedemptionStackableResponse;
+import io.voucherify.client.model.stackable.response.ValidateStackableDiscountResponse;
 import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
@@ -188,6 +193,12 @@ public interface VoucherifyApi {
   @GET("redemptions/{id}")
   Call<RedemptionEntryResponse> getRedemption(@Path("id") String redemptionId);
 
+  @POST("redemptions")
+  Call<RedeemStackableDiscountResponse> redeem(@Body RedeemStackableDiscount redeemStackableDiscount);
+
+  @POST("redemptions/{id}/rollbacks")
+  Call<RollbackRedemptionStackableResponse> rollbackRedemption(@Path("id") String parentRedemptionId);
+
   // DISTRIBUTIONS
 
   @POST("vouchers/publish")
@@ -253,6 +264,9 @@ public interface VoucherifyApi {
   @POST("promotions/validation")
   Call<PromotionValidationResponse> validatePromotion(
       @Body PromotionValidation promotionValidation);
+
+  @POST("validations")
+  Call<ValidateStackableDiscountResponse> validate(@Body ValidateStackableDiscount validateStackableDiscount);
 
   // PRODUCTS
 

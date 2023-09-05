@@ -1,4 +1,4 @@
-package io.voucherify.client.model.common.response.applicableTo;
+package io.voucherify.client.model.stackable.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -7,20 +7,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ApplicableToResponse {
+public class DiscountResponse {
 
-  private String object;
+  private String type;
+  private String effect;
 
-  private Integer total;
+  @JsonProperty("amount_off")
+  private Long amountOff;
 
-  private List<DataEntryResponse> data;
-
-  @JsonProperty("data_ref")
-  private String dataRef;
+  @JsonProperty("is_dynamic")
+  private Boolean isDynamic;
 }
