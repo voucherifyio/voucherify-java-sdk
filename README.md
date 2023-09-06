@@ -344,6 +344,7 @@ Methods are provided within `voucherify.customers().*` namespace.
 - [Update Customers in bulk](#update-customers-in-bulk)
 - [Delete Customer](#delete-customer)
 - [List Customers](#list-customers)
+- [Update Customer's Consents](#update-customers-consents)
 
 #### [Create Customer]
 ```java
@@ -370,6 +371,11 @@ voucherify.customers().delete(String id);
 ```java
 voucherify.customers.list()
 voucherify.customers.list(CustomersFilter filter)
+```
+
+#### [Update Customer's Consents]
+```java
+voucherify.customers().updateCustomerConsents(String customerId, Map<String, Boolean> consents);
 ```
 
 ---
@@ -724,6 +730,18 @@ voucherify.asyncActions().list(AsyncActionsFilter filter);
 
 ---
 
+### Consents API
+Methods are provided within `voucherify.consents().*` namespace.
+
+- [List Consents](#list-consents)
+
+#### [List Consents]
+```java
+voucherify.consents().list();
+```
+
+---
+
 ### Migration to 6.0
 
 Version 6.0 of the SDK is not backwards compatible with previous version
@@ -914,6 +932,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Update Customers in bulk]: https://docs.voucherify.io/reference/post-customers-in-bulk
 [Delete Customer]: https://docs.voucherify.io/reference/delete-customer
 [List Customers]: https://docs.voucherify.io/reference/list-customers
+[Update Customer's Consents]: https://docs.voucherify.io/reference/update-customers-consents
 
 [Create Product]: https://docs.voucherify.io/reference/create-product
 [Get Product]: https://docs.voucherify.io/reference/get-product
@@ -989,3 +1008,5 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
 [Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
+
+[List Consents]: https://docs.voucherify.io/reference/list-consents
