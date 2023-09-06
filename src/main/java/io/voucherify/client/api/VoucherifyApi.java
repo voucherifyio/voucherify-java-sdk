@@ -11,6 +11,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.consents.response.ListConsentsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
@@ -489,4 +490,9 @@ public interface VoucherifyApi {
   @GET("loyalties/members/{memberId}/tiers")
   Call<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
           @Path("memberId") String memberId);
+
+  // CONSENTS
+
+  @GET("consents")
+  Call<ListConsentsResponse> listConsents();
 }
