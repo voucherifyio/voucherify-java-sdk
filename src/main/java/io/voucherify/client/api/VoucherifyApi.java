@@ -29,7 +29,6 @@ import io.voucherify.client.model.loyalties.RedeemReward;
 import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
-import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
 import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
@@ -164,6 +163,10 @@ public interface VoucherifyApi {
 
   @GET("customers")
   Call<CustomersResponse> listCustomers(@QueryMap Map<String, Object> filter);
+
+  @PUT("customers/{id}/consents")
+  Call<Void> updateCustomerConsents(
+      @Path("id") String customerId, @Body Map<String, Boolean> consents);
 
   // REDEMPTIONS
 
