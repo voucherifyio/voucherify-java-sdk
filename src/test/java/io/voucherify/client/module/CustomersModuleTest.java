@@ -10,6 +10,9 @@ import io.voucherify.client.utils.Irrelevant;
 import okhttp3.mockwebserver.RecordedRequest;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
@@ -106,6 +109,23 @@ public class CustomersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(request.getPath()).isEqualTo("/v1/customers?limit=5&email=sth%40sth.com");
     assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldUpdateCustomerConsents() {
+    // given
+    enqueueResponse("{}");
+    Map<String, Boolean> consents = new HashMap<>();
+    consents.put("cnst_1", true);
+    consents.put("unsubscribed", true);
+
+    // when
+    client.customers().updateCustomerConsents("cust_1", consents);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/v1/customers/cust_1/consents");
+    assertThat(request.getMethod()).isEqualTo("PUT");
   }
 
   @Test
@@ -211,6 +231,24 @@ public class CustomersModuleTest extends AbstractModuleTest {
   }
 
   @Test
+  public void shouldUpdateCustomerConsentsAsync() {
+    // given
+    enqueueResponse("{}");
+    VoucherifyCallback callback = createCallback();
+
+    Map<String, Boolean> consents = new HashMap<>();
+    consents.put("cnst_1", true);
+    consents.put("unsubscribed", true);
+    // when
+    client.customers().async().updateCustomerConsents("cust_1", consents, callback);
+
+    // then
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/v1/customers/cust_1/consents");
+    assertThat(request.getMethod()).isEqualTo("PUT");
+  }
+
+  @Test
   public void shouldCreateCustomerRxJava() {
     // given
     Customer customer =
@@ -304,5 +342,24 @@ public class CustomersModuleTest extends AbstractModuleTest {
     assertThat(result).isNotNull();
     assertThat(request.getPath()).isEqualTo("/v1/customers?limit=5&email=sth%40sth.com");
     assertThat(request.getMethod()).isEqualTo("GET");
+  }
+
+  @Test
+  public void shouldUpdateCustomerConsentsRxJava() {
+    // given
+    enqueueResponse("{}");
+
+    Map<String, Boolean> consents = new HashMap<>();
+    consents.put("cnst_1", true);
+    consents.put("unsubscribed", true);
+
+    // when
+    Observable<Irrelevant> observable = client.customers().rx().updateCustomerConsents("cust_1", consents);
+
+    // then
+    observable.blockingFirst();
+    RecordedRequest request = getRequest();
+    assertThat(request.getPath()).isEqualTo("/v1/customers/cust_1/consents");
+    assertThat(request.getMethod()).isEqualTo("PUT");
   }
 }
