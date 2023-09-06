@@ -52,8 +52,8 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.listCustomers(new HashMap<>()));
   }
 
-  public Void updateCustomerConsents(String customerId, Map<String, Boolean> consents) {
-    return executeSyncApiCall(api.updateCustomerConsents(customerId, consents));
+  public void updateCustomerConsents(String customerId, Map<String, Boolean> consents) {
+      executeSyncApiCall(api.updateCustomerConsents(customerId, consents));
   }
 
   @Override
@@ -103,7 +103,7 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
     }
 
     public void updateCustomerConsents(
-        String customerId, Map<String, Boolean> consents, VoucherifyCallback<Void> callback) {
+        String customerId, Map<String, Boolean> consents, VoucherifyCallback<Irrelevant> callback) {
       RxUtils.subscribe(executor, rx().updateCustomerConsents(customerId, consents), callback);
     }
   }
@@ -177,14 +177,15 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
           });
     }
 
-    public Observable<Void> updateCustomerConsents(
+    public Observable<Irrelevant> updateCustomerConsents(
         final String customerId, final Map<String, Boolean> consents) {
       return RxUtils.defer(
-          new RxUtils.DefFunc<Void>() {
+          new RxUtils.DefFunc<Irrelevant>() {
 
             @Override
-            public Void method() {
-              return CustomersModule.this.updateCustomerConsents(customerId, consents);
+            public Irrelevant method() {
+              CustomersModule.this.updateCustomerConsents(customerId, consents);
+              return Irrelevant.NO_RESPONSE;
             }
           });
     }
