@@ -30,7 +30,5 @@ public class ExamineQualifications {
   private String mode;
 
   private Scenario scenario;
-
-
 }
 
