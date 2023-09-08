@@ -1,6 +1,7 @@
 package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.redemption.RollbackResult;
 import io.voucherify.client.model.redemption.RollbackStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
@@ -31,7 +32,8 @@ public class RollbackRedemptionResponse {
 
   private String redemption;
 
-  @JsonProperty("result")
+  private RollbackResult result;
+
   private RollbackStatus status;
 
   private VoucherResponse voucher;
