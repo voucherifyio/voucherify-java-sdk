@@ -12,4 +12,5 @@ import lombok.ToString;
 //@Getter
 //@ToString
 public class RedeemableDataResponse {
+  //TODO ADD FIELDS AFTER STACKABLE DISCOUNT MERGED
 }
