@@ -25,27 +25,8 @@ public class RedeemStackableDiscountResponse {
   private RedemptionResponse parentRedemption;
 
   @JsonProperty("inapplicable_redeemables")
-  private List<Object> inapplicableRedeemables;
+  private List<InapplicableRedeemableResponse> inapplicableRedeemables;
 
   @JsonProperty("skipped_redeemables")
-  private List<Object> skippedRedeemables;
-
-  //ERROR RESPONSE
-
-  private String code;
-
-  private String key;
-
-  private String message;
-
-  private String details;
-
-  @JsonProperty("request_id")
-  private String requestId;
-
-  @JsonProperty("resource_id")
-  private String resourceId;
-
-  @JsonProperty("resource_type")
-  private String resourceType;
+  private List<SkippedRedeemableResponse> skippedRedeemables;
 }
