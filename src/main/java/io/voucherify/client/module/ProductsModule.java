@@ -105,6 +105,10 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().update(product), callback);
     }
 
+    public void update(List<Product> products, VoucherifyCallback<ProductsBulkUpdateResponse> callback) {
+      RxUtils.subscribe(executor, rx().update(products), callback);
+    }
+
     public void list(ProductsFilter filter, VoucherifyCallback<ProductsResponse> callback) {
       RxUtils.subscribe(executor, rx().list(filter), callback);
     }
@@ -170,6 +174,17 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
             @Override
             public ProductResponse method() {
               return ProductsModule.this.update(product);
+            }
+          });
+    }
+
+    public Observable<ProductsBulkUpdateResponse> update(final List<Product> products) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<ProductsBulkUpdateResponse>() {
+
+            @Override
+            public ProductsBulkUpdateResponse method() {
+              return ProductsModule.this.update(products);
             }
           });
     }
