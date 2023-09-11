@@ -21,5 +21,5 @@ public class RedeemVoucher {
     @Singular("metadataEntry")
     private Map<String, Object> metadata;
 
-    private Session session;
+    private RedeemSession session;
 }

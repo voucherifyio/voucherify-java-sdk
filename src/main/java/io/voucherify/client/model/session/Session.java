@@ -2,11 +2,12 @@ package io.voucherify.client.model.session;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Builder
+@SuperBuilder
 @ToString
 public class Session {
 
