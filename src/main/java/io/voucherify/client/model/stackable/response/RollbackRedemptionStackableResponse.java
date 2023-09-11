@@ -22,23 +22,4 @@ public class RollbackRedemptionStackableResponse {
   private RollbackRedemptionResponse parentRollback;
 
   private OrderResponse order;
-
-  //ERROR RESPONSE
-
-  private String code;
-
-  private String key;
-
-  private String message;
-
-  private String details;
-
-  @JsonProperty("request_id")
-  private String requestId;
-
-  @JsonProperty("resource_id")
-  private String resourceId;
-
-  @JsonProperty("resource_type")
-  private String resourceType;
 }
