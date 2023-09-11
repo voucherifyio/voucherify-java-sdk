@@ -1,6 +1,5 @@
 package io.voucherify.client.model.qualifications.filters;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +13,6 @@ import lombok.ToString;
 @Builder
 @ToString
 public class ResourceType {
-  @JsonProperty("conditions")
-  private Condition condition;
+
+  private Conditions conditions;
 }

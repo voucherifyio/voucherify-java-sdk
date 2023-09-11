@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class CategoryId {
+public class VoucherType {
 
   private Conditions conditions;
 }

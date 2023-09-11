@@ -14,13 +14,10 @@ import java.util.List;
 @Getter
 @Builder
 @ToString
-public class Condition {
+public class Conditions {
 
   @JsonProperty("$in")
   private List<String> in;
-
-  @JsonProperty("$not_in")
-  private List<String> notIn;
 
   @JsonProperty("$is")
   private String is;
@@ -33,10 +30,4 @@ public class Condition {
 
   @JsonProperty("$is_unknown")
   private String isUnknown;
-
-  @JsonProperty("$starts_with")
-  private String startsWith;
-
-  @JsonProperty("$ends_with")
-  private String endsWith;
 }

@@ -15,11 +15,17 @@ import lombok.ToString;
 @ToString
 public class Filter {
 
+  @JsonProperty("category_id")
+  private CategoryId categoryId;
+
+  @JsonProperty("campaign_id")
+  private CampaignId campaignId;
+
   @JsonProperty("resource_type")
   private ResourceType resourceType;
 
-  @JsonProperty("category_id")
-  private CategoryId categoryId;
+  @JsonProperty("voucher_type")
+  private VoucherType voucherType;
 
   private Junction junction;
 }
