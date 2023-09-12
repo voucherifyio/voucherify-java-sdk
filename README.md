@@ -724,8 +724,11 @@ voucherify.asyncActions().list(AsyncActionsFilter filter);
 
 ---
 
-### Stackable API 
+### Stackable Discounts API 
 Methods are provided within `voucherify.stackables().*` namespace.
+- [Redeem Stackable Discounts](#redeem-stackable-discounts)
+- [Validate Stackable Discounts](#validate-stackable-discounts)
+- [Rollback Stackable Redemptions](#rollback-stackable-redemptions)
 
 #### [Redeem Stackable Discounts]
 ```java
