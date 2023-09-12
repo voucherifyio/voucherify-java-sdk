@@ -724,6 +724,20 @@ voucherify.asyncActions().list(AsyncActionsFilter filter);
 
 ---
 
+### Qualifications API
+
+Methods are provided within `voucherify.qualifications.*` namespace.
+- [Examine Qualification](#examine-qualification)
+
+#### [Examine Qualification]
+
+```java
+voucherify.qualifications().examineQualification(ExamineQualifications examineQualifications) 
+```
+
+
+---
+
 ### Migration to 6.0
 
 Version 6.0 of the SDK is not backwards compatible with previous version
@@ -989,3 +1003,5 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
 [Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
+
+[Examine Qualification]: https://docs.voucherify.io/reference/examine-qualification
