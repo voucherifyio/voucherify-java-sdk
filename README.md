@@ -534,6 +534,16 @@ voucherify.loyalties().addLoyaltyCardBalance(member_id, redeem_reward);
 ```java
 voucherify.loyalties().getMembersLoyaltyTier(member_id);
 ```
+
+#### [Get Member Activities For Loyalty]
+```java
+voucherify.loyalties().getLoyaltyActivities(loyalty_id, member_id);
+```
+#### [Get Member Activities]
+```java
+voucherify.loyalties().getLoyaltyActivities(member_id);
+```
+
 ---
 
 ### Products API
@@ -989,3 +999,5 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
 [Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
+[Get Member Activities For Loyalty]: https://docs.voucherify.io/reference/get-member-activities-1
+[Get Member Activities]: https://docs.voucherify.io/reference/get-member-activities
