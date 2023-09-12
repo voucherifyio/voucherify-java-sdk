@@ -537,11 +537,11 @@ voucherify.loyalties().getMembersLoyaltyTier(member_id);
 
 #### [Get Member Activities For Loyalty]
 ```java
-voucherify.loyalties().getLoyaltyActivities(loyalty_id, member_id);
+voucherify.loyalties().getLoyaltyActivities(String loyalty_id, String member_id);
 ```
 #### [Get Member Activities]
 ```java
-voucherify.loyalties().getLoyaltyActivities(member_id);
+voucherify.loyalties().getLoyaltyActivities(String member_id);
 ```
 
 ---
