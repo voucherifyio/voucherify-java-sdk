@@ -724,6 +724,26 @@ voucherify.asyncActions().list(AsyncActionsFilter filter);
 
 ---
 
+### Stackable API 
+Methods are provided within `voucherify.stackables().*` namespace.
+
+#### [Redeem Stackable Discounts]
+```java
+voucherify.stackables().redeem(RedeemStackableDiscount redeemStackableDiscount);
+```
+
+#### [Validate Stackable Discounts]
+```java
+voucherify.stackables().validate(ValidateStackableDiscount validateStackableDiscount);
+```
+
+#### [Rollback Stackable Redemptions]
+```java
+voucherify.stackables().rollbackRedemption(String parentRedemptionId);
+```
+
+---
+
 ### Migration to 6.0
 
 Version 6.0 of the SDK is not backwards compatible with previous version
@@ -983,3 +1003,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
 [Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
+
+[Redeem Stackable Discounts]: https://docs.voucherify.io/reference/redeem-stacked-discounts
+[Validate Stackable Discounts]: https://docs.voucherify.io/reference/validate-stacked-discounts
+[Rollback Stackable Redemptions]: https://docs.voucherify.io/reference/rollback-stacked-redemptions
