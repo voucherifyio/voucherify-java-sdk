@@ -39,6 +39,7 @@ public class RollbackRedemptionResponse {
   private String redemption;
 
   //TODO: FIX result and status after merge
+  @JsonProperty("result")
   private RollbackStatus status;
 
   private OrderResponse order;

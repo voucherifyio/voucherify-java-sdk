@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.1.4</version>
+  <version>11.1.5</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.1.3'
+compile 'io.voucherify.client:voucherify-java-sdk:11.1.5'
 
 ```
 
@@ -868,16 +868,22 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2023-08-xx - 11.x.x - 
+* 2023-08-xx - 11.x.x -
+* 2023-08-30 - 10.1.5 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2023-03-21 - 11.1.4 - Added `holder_id` to VoucherResponse. Added `status` to CreateOrder.  Thanks to [@viglu](https://github.com/viglu) for contribution and [@markonieczny](https://github.com/markonieczny) for issue request! 
 * 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
 * 2022-09-16 - 11.1.2 - Customer bulk update. Added function [Add or Remove Loyalty Card Balance]. Added information about Loyalty Card potins expiration. Thanks to [@mabdullah12](https://github.com/mabdullah12) for Your contribution!
 * 2022-09-07 - 11.1.1 - Add `source_id` field to `CreateOrder` model
 * 2021-12-21 - 11.1.0 - Add support for Session on Voucher validation & redemption as well as session release
+* 2023-08-30 - 11.0.1 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2021-10-25 - 11.0.0 - Dropped `VoucherifyUtils`. Changed `Integer` to `Long` for amount/quantity/total alike fields. Added missing `FIXED` discount type. Added discount/gift effects. Changed `CampaignType` -> `CampaignExtenstionType`, `CampaginType` now contains actual campaign types like `REFERRAL_PROGRAM`. Aligned OkHttp3 version.
+* 2023-08-30 - 10.2.1 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2021-07-27 - 10.2.0 - Add support for Async Actions in vouchers import.
+* 2023-08-30 - 10.1.1 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2021-07-16 - 10.1.0 - Add support for Async Actions
+* 2023-08-30 - 10.0.1 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2020-10-14 - 10.0.0 - Drop old versions usage. Changed properties type from `Integer` to `Long` in some classes. Add `campaign` and `campaign_id` in Voucher validation response.
+* 2023-08-30 - 9.1.2 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2020-07-22 - 9.1.1 - Fixed previous release version and improved publishing artifacts
 * 2020-07-14 - 9.1.0 - Added possibility to specify points as reward when redeeming loyalty card, fixed UpdateOrder status field
 * 2019-09-30 - 9.0.0 - Updated retrofit and rxjava to version >= 2.x. Dropped support for JDK 1.6 and 1.7
