@@ -1,13 +1,11 @@
 package io.voucherify.client.model.redemption;
 
-import lombok.*;
+import io.voucherify.client.model.session.Session;
+import lombok.Getter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Builder
 @ToString
-public class RedeemSession {
-
-    private String key;
-}
+@SuperBuilder
+public class RedeemSession extends Session { }
