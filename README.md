@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.1.5</version>
+  <version>11.1.6</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.1.5'
+compile 'io.voucherify.client:voucherify-java-sdk:11.1.6'
 
 ```
 
