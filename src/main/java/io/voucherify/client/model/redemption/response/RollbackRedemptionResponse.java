@@ -31,6 +31,7 @@ public class RollbackRedemptionResponse {
 
   private String redemption;
 
+  @JsonProperty("result")
   private RollbackStatus status;
 
   private VoucherResponse voucher;
