@@ -15,6 +15,7 @@ import io.voucherify.client.utils.RxUtils;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -49,6 +50,10 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public CustomersResponse list() {
     return executeSyncApiCall(api.listCustomers(new HashMap<>()));
+  }
+
+  public void updateCustomerConsents(String customerId, Map<String, Boolean> consents) {
+      executeSyncApiCall(api.updateCustomerConsents(customerId, consents));
   }
 
   @Override
@@ -95,6 +100,11 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void list(VoucherifyCallback<CustomersResponse> callback) {
       RxUtils.subscribe(executor, rx().list(), callback);
+    }
+
+    public void updateCustomerConsents(
+        String customerId, Map<String, Boolean> consents, VoucherifyCallback<Irrelevant> callback) {
+      RxUtils.subscribe(executor, rx().updateCustomerConsents(customerId, consents), callback);
     }
   }
 
@@ -163,6 +173,19 @@ public final class CustomersModule extends AbsModule<ExtAsync, ExtRxJava> {
             @Override
             public CustomersResponse method() {
               return CustomersModule.this.list();
+            }
+          });
+    }
+
+    public Observable<Irrelevant> updateCustomerConsents(
+        final String customerId, final Map<String, Boolean> consents) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<Irrelevant>() {
+
+            @Override
+            public Irrelevant method() {
+              CustomersModule.this.updateCustomerConsents(customerId, consents);
+              return Irrelevant.NO_RESPONSE;
             }
           });
     }

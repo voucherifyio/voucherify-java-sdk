@@ -11,6 +11,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.consents.response.ListConsentsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
@@ -27,8 +28,8 @@ import io.voucherify.client.model.loyalties.CreateEarningRule;
 import io.voucherify.client.model.loyalties.RedeemReward;
 import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
+import io.voucherify.client.model.loyalties.response.GetMemberActivitiesResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
-import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
 import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
@@ -37,6 +38,7 @@ import io.voucherify.client.model.order.response.GetOrderResponse;
 import io.voucherify.client.model.order.response.ListOrdersResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
+import io.voucherify.client.model.product.response.ProductsBulkUpdateResponse;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
@@ -169,6 +171,10 @@ public interface VoucherifyApi {
   @GET("customers")
   Call<CustomersResponse> listCustomers(@QueryMap Map<String, Object> filter);
 
+  @PUT("customers/{id}/consents")
+  Call<Void> updateCustomerConsents(
+      @Path("id") String customerId, @Body Map<String, Boolean> consents);
+
   // REDEMPTIONS
 
   @POST("vouchers/{code}/redemption")
@@ -278,6 +284,9 @@ public interface VoucherifyApi {
 
   @PUT("products/{id}")
   Call<ProductResponse> updateProduct(@Path("id") String id, @Body Product product);
+
+  @POST("products/bulk/async")
+  Call<ProductsBulkUpdateResponse> bulkUpdateProducts(@Body List<Product> products);
 
   @GET("products")
   Call<ProductsResponse> getProducts(@QueryMap Map<String, Object> filter);
@@ -503,4 +512,15 @@ public interface VoucherifyApi {
   @GET("loyalties/members/{memberId}/tiers")
   Call<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
           @Path("memberId") String memberId);
+
+  @GET("loyalties/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("memberId") String memberId);
+
+  @GET("loyalties/{id}/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("id") String id, @Path("memberId") String memberId);
+
+  // CONSENTS
+
+  @GET("consents")
+  Call<ListConsentsResponse> listConsents();
 }

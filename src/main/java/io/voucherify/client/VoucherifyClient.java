@@ -42,6 +42,7 @@ public class VoucherifyClient {
   private final PromotionsModule promotionsModule;
   private final RewardsModule rewardsModule;
   private final LoyaltiesModule loyaltiesModule;
+  private final ConsentsModule consentsModule;
   private final StackableModule stackableModule;
 
   private VoucherifyApi voucherifyApi;
@@ -80,6 +81,7 @@ public class VoucherifyClient {
     this.eventsModule = new EventsModule(voucherifyApi, executor);
     this.rewardsModule = new RewardsModule(voucherifyApi, executor);
     this.loyaltiesModule = new LoyaltiesModule(voucherifyApi, executor);
+    this.consentsModule = new ConsentsModule(voucherifyApi, executor);
     this.stackableModule = new StackableModule(voucherifyApi, executor);
   }
 
@@ -141,6 +143,10 @@ public class VoucherifyClient {
 
   public LoyaltiesModule loyalties() {
     return loyaltiesModule;
+  }
+
+  public ConsentsModule consents() {
+    return consentsModule;
   }
 
   public StackableModule stackables() {
