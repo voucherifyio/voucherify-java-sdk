@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class GetActivitiesResponse {
+public class GetMemberActivitiesResponse {
 
   private String object;
 

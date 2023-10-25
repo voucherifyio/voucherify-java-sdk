@@ -135,14 +135,14 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
     return executeSyncApiCall(api.addLoyaltyBalance(memberId, addBalance));
   }
 
-  public GetActivitiesResponse getLoyaltyActivities(
+  public GetMemberActivitiesResponse getMemberActivities(
       String memberId) {
-    return executeSyncApiCall(api.getLoyaltyActivities(memberId));
+    return executeSyncApiCall(api.getMemberActivities(memberId));
   }
 
-  public GetActivitiesResponse getLoyaltyActivities(
+  public GetMemberActivitiesResponse getMemberActivities(
       String id, String memberId) {
-    return executeSyncApiCall(api.getLoyaltyActivities(id, memberId));
+    return executeSyncApiCall(api.getMemberActivities(id, memberId));
   }
 
   @Override
@@ -275,17 +275,17 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
       RxUtils.subscribe(executor, rx().addLoyaltyCardBalance(id, memberId, addBalance), callback);
     }
 
-    public void getLoyaltyActivities(
+    public void getMemberActivities(
         String memberId,
-        VoucherifyCallback<GetActivitiesResponse> callback) {
-      RxUtils.subscribe(executor, rx().getLoyaltyActivities(memberId), callback);
+        VoucherifyCallback<GetMemberActivitiesResponse> callback) {
+      RxUtils.subscribe(executor, rx().getMemberActivities(memberId), callback);
     }
 
-    public void getLoyaltyActivities(
+    public void getMemberActivities(
         String id,
         String memberId,
-        VoucherifyCallback<GetActivitiesResponse> callback) {
-      RxUtils.subscribe(executor, rx().getLoyaltyActivities(id, memberId), callback);
+        VoucherifyCallback<GetMemberActivitiesResponse> callback) {
+      RxUtils.subscribe(executor, rx().getMemberActivities(id, memberId), callback);
     }
   }
 
@@ -498,25 +498,25 @@ public class LoyaltiesModule extends AbsModule<ExtAsync, ExtRxJava> {
           });
     }
 
-    public Observable<GetActivitiesResponse> getLoyaltyActivities(
+    public Observable<GetMemberActivitiesResponse> getMemberActivities(
         final String memberId) {
       return RxUtils.defer(
-          new RxUtils.DefFunc<GetActivitiesResponse>() {
+          new RxUtils.DefFunc<GetMemberActivitiesResponse>() {
             @Override
-            public GetActivitiesResponse method() {
-              return LoyaltiesModule.this.getLoyaltyActivities(memberId);
+            public GetMemberActivitiesResponse method() {
+              return LoyaltiesModule.this.getMemberActivities(memberId);
             }
           });
     }
 
-    public Observable<GetActivitiesResponse> getLoyaltyActivities(
+    public Observable<GetMemberActivitiesResponse> getMemberActivities(
         final String id,
         final String memberId) {
       return RxUtils.defer(
-          new RxUtils.DefFunc<GetActivitiesResponse>() {
+          new RxUtils.DefFunc<GetMemberActivitiesResponse>() {
             @Override
-            public GetActivitiesResponse method() {
-              return LoyaltiesModule.this.getLoyaltyActivities(id, memberId);
+            public GetMemberActivitiesResponse method() {
+              return LoyaltiesModule.this.getMemberActivities(id, memberId);
             }
           });
     }
