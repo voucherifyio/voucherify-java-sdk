@@ -27,6 +27,7 @@ import io.voucherify.client.model.loyalties.CreateEarningRule;
 import io.voucherify.client.model.loyalties.RedeemReward;
 import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
+import io.voucherify.client.model.loyalties.response.GetMemberActivitiesResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
 import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
 import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
@@ -493,4 +494,10 @@ public interface VoucherifyApi {
   @GET("loyalties/members/{memberId}/tiers")
   Call<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
           @Path("memberId") String memberId);
+
+  @GET("loyalties/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("memberId") String memberId);
+
+  @GET("loyalties/{id}/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("id") String id, @Path("memberId") String memberId);
 }
