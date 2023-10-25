@@ -9,21 +9,7 @@ import io.voucherify.client.api.VoucherifyApi;
 import io.voucherify.client.error.VoucherifyErrorHandler;
 import io.voucherify.client.json.deserializer.DateDeserializer;
 import io.voucherify.client.json.serializer.DateSerializer;
-import io.voucherify.client.module.AsyncActionsModule;
-import io.voucherify.client.module.CampaignsModule;
-import io.voucherify.client.module.CustomersModule;
-import io.voucherify.client.module.DistributionsModule;
-import io.voucherify.client.module.EventsModule;
-import io.voucherify.client.module.LoyaltiesModule;
-import io.voucherify.client.module.OrdersModule;
-import io.voucherify.client.module.ProductsModule;
-import io.voucherify.client.module.PromotionsModule;
-import io.voucherify.client.module.RedemptionsModule;
-import io.voucherify.client.module.RewardsModule;
-import io.voucherify.client.module.SegmentsModule;
-import io.voucherify.client.module.ValidationRulesModule;
-import io.voucherify.client.module.ValidationsModule;
-import io.voucherify.client.module.VoucherModule;
+import io.voucherify.client.module.*;
 import io.voucherify.client.utils.Platform;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -56,6 +42,7 @@ public class VoucherifyClient {
   private final PromotionsModule promotionsModule;
   private final RewardsModule rewardsModule;
   private final LoyaltiesModule loyaltiesModule;
+  private final ConsentsModule consentsModule;
 
   private VoucherifyApi voucherifyApi;
 
@@ -93,6 +80,7 @@ public class VoucherifyClient {
     this.eventsModule = new EventsModule(voucherifyApi, executor);
     this.rewardsModule = new RewardsModule(voucherifyApi, executor);
     this.loyaltiesModule = new LoyaltiesModule(voucherifyApi, executor);
+    this.consentsModule = new ConsentsModule(voucherifyApi, executor);
   }
 
   public AsyncActionsModule asyncActions() {
@@ -153,6 +141,10 @@ public class VoucherifyClient {
 
   public LoyaltiesModule loyalties() {
     return loyaltiesModule;
+  }
+
+  public ConsentsModule consents() {
+    return consentsModule;
   }
 
   private Executor createCallbackExecutor() {

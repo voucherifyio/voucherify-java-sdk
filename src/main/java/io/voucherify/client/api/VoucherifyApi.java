@@ -11,6 +11,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.consents.response.ListConsentsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
@@ -29,7 +30,6 @@ import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
 import io.voucherify.client.model.loyalties.response.GetMemberActivitiesResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
-import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
 import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
@@ -166,6 +166,10 @@ public interface VoucherifyApi {
   @GET("customers")
   Call<CustomersResponse> listCustomers(@QueryMap Map<String, Object> filter);
 
+  @PUT("customers/{id}/consents")
+  Call<Void> updateCustomerConsents(
+      @Path("id") String customerId, @Body Map<String, Boolean> consents);
+
   // REDEMPTIONS
 
   @POST("vouchers/{code}/redemption")
@@ -269,13 +273,13 @@ public interface VoucherifyApi {
 
   @POST("products/bulk/async")
   Call<ProductsBulkUpdateResponse> bulkUpdateProducts(@Body List<Product> products);
-  
+
   @GET("products")
   Call<ProductsResponse> getProducts(@QueryMap Map<String, Object> filter);
 
   @DELETE("products/{id}")
   Call<Void> deleteProduct(@Path("id") String id, @QueryMap Map<String, Object> params);
-  
+
   // SKU
 
   @POST("products/{id}/skus")
@@ -298,7 +302,7 @@ public interface VoucherifyApi {
       @QueryMap Map<String, Object> params);
 
   // SEGMENTS
-  
+
   @POST("segments")
   Call<SegmentResponse> createSegment(@Body Segment segment);
 
@@ -500,4 +504,9 @@ public interface VoucherifyApi {
 
   @GET("loyalties/{id}/members/{memberId}/activities")
   Call<GetMemberActivitiesResponse> getMemberActivities(@Path("id") String id, @Path("memberId") String memberId);
+
+  // CONSENTS
+
+  @GET("consents")
+  Call<ListConsentsResponse> listConsents();
 }
