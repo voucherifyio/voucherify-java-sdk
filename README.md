@@ -542,6 +542,7 @@ Methods are provided within `voucherify.products().*` namespace.
 - [Create Product](#create-product)
 - [Get Product](#get-product)
 - [Update Product](#update-product)
+- [Update Products in bulk](#update-products-in-bulk)
 - [Delete Product](#delete-product)
 - [List Products](#list-products)
 - [Create SKU](#create-sku)
@@ -562,6 +563,10 @@ voucherify.products().get(String id);
 #### [Update Product]
 ```java
 voucherify.products().update(Product product);
+```
+#### [Update Products in bulk]
+```java
+voucherify.products().update(List<Product> products);
 ```
 #### [Delete Product]
 ```java
@@ -927,6 +932,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Create Product]: https://docs.voucherify.io/reference/create-product
 [Get Product]: https://docs.voucherify.io/reference/get-product
 [Update Product]: https://docs.voucherify.io/reference/update-product
+[Update Products in bulk]: https://docs.voucherify.io/reference/update-products-in-bulk
 [Delete Product]: https://docs.voucherify.io/reference/delete-product
 [List Products]: https://docs.voucherify.io/reference/list-products
 [Create SKU]: https://docs.voucherify.io/reference/create-sku

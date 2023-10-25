@@ -37,6 +37,7 @@ import io.voucherify.client.model.order.response.GetOrderResponse;
 import io.voucherify.client.model.order.response.ListOrdersResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
+import io.voucherify.client.model.product.response.ProductsBulkUpdateResponse;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
@@ -265,12 +266,15 @@ public interface VoucherifyApi {
   @PUT("products/{id}")
   Call<ProductResponse> updateProduct(@Path("id") String id, @Body Product product);
 
+  @POST("products/bulk/async")
+  Call<ProductsBulkUpdateResponse> bulkUpdateProducts(@Body List<Product> products);
+  
   @GET("products")
   Call<ProductsResponse> getProducts(@QueryMap Map<String, Object> filter);
 
   @DELETE("products/{id}")
   Call<Void> deleteProduct(@Path("id") String id, @QueryMap Map<String, Object> params);
-
+  
   // SKU
 
   @POST("products/{id}/skus")
@@ -293,7 +297,7 @@ public interface VoucherifyApi {
       @QueryMap Map<String, Object> params);
 
   // SEGMENTS
-
+  
   @POST("segments")
   Call<SegmentResponse> createSegment(@Body Segment segment);
 
