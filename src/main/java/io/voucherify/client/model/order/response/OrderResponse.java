@@ -35,6 +35,9 @@ public class OrderResponse {
 
   private CustomerResponse customer;
 
+  @JsonProperty("customer_id")
+  private String customerId;
+
   @JsonProperty("result")
   private OrderStatus status;
 
@@ -51,4 +54,19 @@ public class OrderResponse {
   private Map<String, Object> metadata;
 
   private Referrer referrer;
+
+  @JsonProperty("referrer_id")
+  private String referrerId;
+
+  @JsonProperty("items_discount_amount")
+  private Long itemsDiscountAmount;
+
+  @JsonProperty("total_discount_amount")
+  private Long totalDiscountAmount;
+
+  @JsonProperty("items_applied_discount_amount")
+  private Long itemsAppliedDiscountAmount;
+
+  @JsonProperty("total_applied_discount_amount")
+  private Long totalAppliedDiscountAmount;
 }

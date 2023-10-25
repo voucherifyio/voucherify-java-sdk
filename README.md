@@ -540,6 +540,16 @@ voucherify.loyalties().addLoyaltyCardBalance(member_id, redeem_reward);
 ```java
 voucherify.loyalties().getMembersLoyaltyTier(member_id);
 ```
+
+#### [Get Member Activities For Loyalty]
+```java
+voucherify.loyalties().getMemberActivities(String loyalty_id, String member_id);
+```
+#### [Get Member Activities]
+```java
+voucherify.loyalties().getMemberActivities(String member_id);
+```
+
 ---
 
 ### Products API
@@ -548,6 +558,7 @@ Methods are provided within `voucherify.products().*` namespace.
 - [Create Product](#create-product)
 - [Get Product](#get-product)
 - [Update Product](#update-product)
+- [Update Products in bulk](#update-products-in-bulk)
 - [Delete Product](#delete-product)
 - [List Products](#list-products)
 - [Create SKU](#create-sku)
@@ -568,6 +579,10 @@ voucherify.products().get(String id);
 #### [Update Product]
 ```java
 voucherify.products().update(Product product);
+```
+#### [Update Products in bulk]
+```java
+voucherify.products().update(List<Product> products);
 ```
 #### [Delete Product]
 ```java
@@ -866,7 +881,16 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2023-08-xx - 11.x.x -
+* 2023-09-xx - 1x.x.x - 
+  * Added `APPLY_TO_ITEMS_BY_QUANTITY` discount type. Added [Update Products in bulk] method. Thanks to [@viglu](https://github.com/viglu) for contribution!
+  * Added `VoucherValidationErrorResponse` to `VoucherValidationResponse`. Thanks to [tcalvoarroyo](https://github.com/tcalvoarroyo) for issue request!
+  * Added missing properties to OrderResponse and OrderItemResponse models. Thanks to [@petro-dutchak-infopulse](https://github.com/petro-dutchak-infopulse) for issue request!
+  * Created proper enums `RollbackResult` and `RollbackStatus` for `RollbackRedemptionResponse`.
+  * Added support for Stackable Discounts API. Thanks to [prenner-voucherify](https://github.com/prenner-voucherify) for issue request.
+  * Added missing properties to Session objects. Thanks to [jfougere](https://github.com/jfougere) for issue request.
+  * Added basic implementation for GetMemberActivities.
+  * Added support for consents API.
+  * Added support for Qualifications API.
 * 2023-08-30 - 10.1.5 - Added mapping for `status` to `result` in `RollbackRedemptionResponse` to correctly catch data returned by api in the new version where `status` property was added.
 * 2023-03-21 - 11.1.4 - Added `holder_id` to VoucherResponse. Added `status` to CreateOrder.  Thanks to [@viglu](https://github.com/viglu) for contribution and [@markonieczny](https://github.com/markonieczny) for issue request! 
 * 2023-01-23 - 11.1.3 - Added functions [Get Loyalty Member By Id] and [Get Members Loyalty Tier]. Thanks to [@viglu](https://github.com/viglu) for Your contribution!
@@ -937,6 +961,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Create Product]: https://docs.voucherify.io/reference/create-product
 [Get Product]: https://docs.voucherify.io/reference/get-product
 [Update Product]: https://docs.voucherify.io/reference/update-product
+[Update Products in bulk]: https://docs.voucherify.io/reference/update-products-in-bulk
 [Delete Product]: https://docs.voucherify.io/reference/delete-product
 [List Products]: https://docs.voucherify.io/reference/list-products
 [Create SKU]: https://docs.voucherify.io/reference/create-sku
@@ -1008,5 +1033,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Loyalty Reward]:https://docs.voucherify.io/reference/redeem-loyalty-card
 [Add or Remove Loyalty Card Balance]:https://docs.voucherify.io/reference/add-remove-loyalty-card-balance
 [Get Members Loyalty Tier]:https://docs.voucherify.io/reference/get-member-loyalty-tier
+[Get Member Activities For Loyalty]: https://docs.voucherify.io/reference/get-member-activities-1
+[Get Member Activities]: https://docs.voucherify.io/reference/get-member-activities
 
 [List Consents]: https://docs.voucherify.io/reference/list-consents
