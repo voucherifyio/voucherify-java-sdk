@@ -18,7 +18,7 @@ public class RedeemableResponse {
   @JsonProperty("data_ref")
   private String dataRef;
 
-  private List<Object> data;
+  private List<RedeemableDataResponse> data;
 
   private Long total;
 
