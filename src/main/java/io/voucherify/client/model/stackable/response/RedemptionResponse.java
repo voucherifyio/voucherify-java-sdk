@@ -37,7 +37,7 @@ public class RedemptionResponse {
 
   private String redemption;
 
-  //TODO: FIX result and status after merge
+  //TODO: FIX result and status in next major version
 
   private RedemptionStatus result;
 
