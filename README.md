@@ -780,6 +780,20 @@ voucherify.stackables().rollbackRedemption(String parentRedemptionId);
 
 ---
 
+### Qualifications API
+
+Methods are provided within `voucherify.qualifications.*` namespace.
+- [Examine Qualification](#examine-qualification)
+
+#### [Examine Qualification]
+
+```java
+voucherify.qualifications().examineQualification(ExamineQualifications examineQualifications) 
+```
+
+
+---
+
 ### Migration to 6.0
 
 Version 6.0 of the SDK is not backwards compatible with previous version
@@ -1065,3 +1079,5 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Redeem Stackable Discounts]: https://docs.voucherify.io/reference/redeem-stacked-discounts
 [Validate Stackable Discounts]: https://docs.voucherify.io/reference/validate-stacked-discounts
 [Rollback Stackable Redemptions]: https://docs.voucherify.io/reference/rollback-stacked-redemptions
+
+[Examine Qualification]: https://docs.voucherify.io/reference/examine-qualification
