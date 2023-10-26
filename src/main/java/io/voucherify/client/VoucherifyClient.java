@@ -42,6 +42,8 @@ public class VoucherifyClient {
   private final PromotionsModule promotionsModule;
   private final RewardsModule rewardsModule;
   private final LoyaltiesModule loyaltiesModule;
+  private final ConsentsModule consentsModule;
+  private final StackableModule stackableModule;
   private final QualificationModule qualificationModule;
 
   private VoucherifyApi voucherifyApi;
@@ -80,6 +82,8 @@ public class VoucherifyClient {
     this.eventsModule = new EventsModule(voucherifyApi, executor);
     this.rewardsModule = new RewardsModule(voucherifyApi, executor);
     this.loyaltiesModule = new LoyaltiesModule(voucherifyApi, executor);
+    this.consentsModule = new ConsentsModule(voucherifyApi, executor);
+    this.stackableModule = new StackableModule(voucherifyApi, executor);
     this.qualificationModule = new QualificationModule(voucherifyApi, executor);
   }
 
@@ -143,7 +147,17 @@ public class VoucherifyClient {
     return loyaltiesModule;
   }
 
-  public QualificationModule qualifications() { return qualificationModule; }
+  public ConsentsModule consents() {
+    return consentsModule;
+  }
+
+  public StackableModule stackables() {
+    return stackableModule;
+  }
+
+  public QualificationModule qualifications() {
+    return qualificationModule;
+  }
 
   private Executor createCallbackExecutor() {
     return Platform.get().callbackExecutor();

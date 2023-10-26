@@ -15,6 +15,8 @@ import java.util.Map;
 @ToString
 public class OrderItemResponse {
 
+  private String object;
+
   @JsonProperty("product_id")
   private String productId;
 
@@ -23,12 +25,18 @@ public class OrderItemResponse {
 
   private Integer quantity;
 
-  private Long price;
+  private Long amount;
 
   @JsonProperty("discount_amount")
   private Long discountAmount;
 
-  private Long amount;
+  @JsonProperty("applied_discount_amount")
+  private Long appliedDiscountAmount;
+
+  private Long price;
+
+  @JsonProperty("subtotal_amount")
+  private Long subtotalAmount;
 
   @JsonProperty("related_object")
   private String relatedObject;

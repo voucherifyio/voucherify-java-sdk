@@ -1,4 +1,4 @@
-package io.voucherify.client.model.common.response.applicableTo;
+package io.voucherify.client.model.loyalties.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -6,21 +6,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.util.List;
+import java.util.Date;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ApplicableToResponse {
+public class ActivityResponse {
+  private String id;
 
   private String object;
 
-  private Integer total;
+  @JsonProperty("created_at")
+  private Date createdAt;
 
-  private List<DataEntryResponse> data;
+  private String type;
 
-  @JsonProperty("data_ref")
-  private String dataRef;
+  private Object data;
 }

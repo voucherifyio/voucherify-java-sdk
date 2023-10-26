@@ -1,6 +1,7 @@
-package io.voucherify.client.model.common.response.applicableTo;
+package io.voucherify.client.model.stackable.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.voucherify.client.model.order.response.OrderResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,14 +14,12 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ApplicableToResponse {
+public class ValidateStackableDiscountResponse {
 
-  private String object;
+  private Boolean valid;
 
-  private Integer total;
+  @JsonProperty("redeemables")
+  private List<RedeemableResponse> redeemables;
 
-  private List<DataEntryResponse> data;
-
-  @JsonProperty("data_ref")
-  private String dataRef;
+  private OrderResponse order;
 }
