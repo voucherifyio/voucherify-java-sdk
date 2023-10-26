@@ -757,6 +757,29 @@ voucherify.consents().list();
 
 ---
 
+### Stackable Discounts API 
+Methods are provided within `voucherify.stackables().*` namespace.
+- [Redeem Stackable Discounts](#redeem-stackable-discounts)
+- [Validate Stackable Discounts](#validate-stackable-discounts)
+- [Rollback Stackable Redemptions](#rollback-stackable-redemptions)
+
+#### [Redeem Stackable Discounts]
+```java
+voucherify.stackables().redeem(RedeemStackableDiscount redeemStackableDiscount);
+```
+
+#### [Validate Stackable Discounts]
+```java
+voucherify.stackables().validate(ValidateStackableDiscount validateStackableDiscount);
+```
+
+#### [Rollback Stackable Redemptions]
+```java
+voucherify.stackables().rollbackRedemption(String parentRedemptionId);
+```
+
+---
+
 ### Migration to 6.0
 
 Version 6.0 of the SDK is not backwards compatible with previous version
@@ -1038,3 +1061,7 @@ The SDK is available as open source under the terms of the [MIT License](https:/
 [Get Member Activities]: https://docs.voucherify.io/reference/get-member-activities
 
 [List Consents]: https://docs.voucherify.io/reference/list-consents
+
+[Redeem Stackable Discounts]: https://docs.voucherify.io/reference/redeem-stacked-discounts
+[Validate Stackable Discounts]: https://docs.voucherify.io/reference/validate-stacked-discounts
+[Rollback Stackable Redemptions]: https://docs.voucherify.io/reference/rollback-stacked-redemptions

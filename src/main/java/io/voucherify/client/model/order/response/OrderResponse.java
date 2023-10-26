@@ -69,4 +69,6 @@ public class OrderResponse {
 
   @JsonProperty("total_applied_discount_amount")
   private Long totalAppliedDiscountAmount;
+
+  private Map<String, OrderRedemptionResponse> redemptions;
 }
