@@ -8,6 +8,7 @@ import io.voucherify.client.model.product.DeleteSKUParams;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.ProductsFilter;
 import io.voucherify.client.model.product.SKU;
+import io.voucherify.client.model.product.response.ProductsBulkUpdateResponse;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
@@ -17,6 +18,7 @@ import io.voucherify.client.module.ProductsModule.ExtRxJava;
 import io.voucherify.client.utils.Irrelevant;
 import io.voucherify.client.utils.RxUtils;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
@@ -35,6 +37,10 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
   public ProductResponse update(Product product) {
     return executeSyncApiCall(api.updateProduct(product.getId(), product));
+  }
+  
+  public ProductsBulkUpdateResponse update(List<Product> products) {
+    return executeSyncApiCall(api.bulkUpdateProducts(products));
   }
 
   public ProductsResponse list(ProductsFilter filter) {
@@ -97,6 +103,10 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
 
     public void update(Product product, VoucherifyCallback<ProductResponse> callback) {
       RxUtils.subscribe(executor, rx().update(product), callback);
+    }
+
+    public void update(List<Product> products, VoucherifyCallback<ProductsBulkUpdateResponse> callback) {
+      RxUtils.subscribe(executor, rx().update(products), callback);
     }
 
     public void list(ProductsFilter filter, VoucherifyCallback<ProductsResponse> callback) {
@@ -164,6 +174,17 @@ public class ProductsModule extends AbsModule<ExtAsync, ExtRxJava> {
             @Override
             public ProductResponse method() {
               return ProductsModule.this.update(product);
+            }
+          });
+    }
+
+    public Observable<ProductsBulkUpdateResponse> update(final List<Product> products) {
+      return RxUtils.defer(
+          new RxUtils.DefFunc<ProductsBulkUpdateResponse>() {
+
+            @Override
+            public ProductsBulkUpdateResponse method() {
+              return ProductsModule.this.update(products);
             }
           });
     }

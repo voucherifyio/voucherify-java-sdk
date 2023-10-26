@@ -11,6 +11,7 @@ import io.voucherify.client.model.campaign.UpdateCampaign;
 import io.voucherify.client.model.campaign.response.AddVoucherToCampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignResponse;
 import io.voucherify.client.model.campaign.response.CampaignsResponse;
+import io.voucherify.client.model.consents.response.ListConsentsResponse;
 import io.voucherify.client.model.customer.Customer;
 import io.voucherify.client.model.customer.response.CustomerBulkUpdateResponse;
 import io.voucherify.client.model.customer.response.CustomerResponse;
@@ -27,8 +28,8 @@ import io.voucherify.client.model.loyalties.CreateEarningRule;
 import io.voucherify.client.model.loyalties.RedeemReward;
 import io.voucherify.client.model.loyalties.UpdateEarningRule;
 import io.voucherify.client.model.loyalties.response.EarningRuleResponse;
+import io.voucherify.client.model.loyalties.response.GetMemberActivitiesResponse;
 import io.voucherify.client.model.loyalties.response.ListEarningRulesResponse;
-import io.voucherify.client.model.loyalties.MembersLoyaltyTier;
 import io.voucherify.client.model.loyalties.response.MembersLoyaltyTierResponse;
 import io.voucherify.client.model.order.CreateOrder;
 import io.voucherify.client.model.order.UpdateOrder;
@@ -37,6 +38,7 @@ import io.voucherify.client.model.order.response.GetOrderResponse;
 import io.voucherify.client.model.order.response.ListOrdersResponse;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
+import io.voucherify.client.model.product.response.ProductsBulkUpdateResponse;
 import io.voucherify.client.model.product.response.ProductResponse;
 import io.voucherify.client.model.product.response.ProductsResponse;
 import io.voucherify.client.model.product.response.SKUResponse;
@@ -46,6 +48,8 @@ import io.voucherify.client.model.promotion.Tier;
 import io.voucherify.client.model.promotion.response.CreatePromotionCampaignResponse;
 import io.voucherify.client.model.promotion.response.ListPromotionTiersResponse;
 import io.voucherify.client.model.promotion.response.TierResponse;
+import io.voucherify.client.model.qualifications.CheckEligibility;
+import io.voucherify.client.model.qualifications.response.CheckEligibilityResponse;
 import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
@@ -65,6 +69,11 @@ import io.voucherify.client.model.rewards.response.RewardAssignmentResponse;
 import io.voucherify.client.model.rewards.response.RewardResponse;
 import io.voucherify.client.model.segment.Segment;
 import io.voucherify.client.model.segment.response.SegmentResponse;
+import io.voucherify.client.model.stackable.RedeemStackableDiscount;
+import io.voucherify.client.model.stackable.ValidateStackableDiscount;
+import io.voucherify.client.model.stackable.response.RedeemStackableDiscountResponse;
+import io.voucherify.client.model.stackable.response.RollbackRedemptionStackableResponse;
+import io.voucherify.client.model.stackable.response.ValidateStackableDiscountResponse;
 import io.voucherify.client.model.validation.PromotionValidation;
 import io.voucherify.client.model.validation.VoucherValidation;
 import io.voucherify.client.model.validation.response.PromotionValidationResponse;
@@ -164,6 +173,10 @@ public interface VoucherifyApi {
   @GET("customers")
   Call<CustomersResponse> listCustomers(@QueryMap Map<String, Object> filter);
 
+  @PUT("customers/{id}/consents")
+  Call<Void> updateCustomerConsents(
+      @Path("id") String customerId, @Body Map<String, Boolean> consents);
+
   // REDEMPTIONS
 
   @POST("vouchers/{code}/redemption")
@@ -187,6 +200,12 @@ public interface VoucherifyApi {
 
   @GET("redemptions/{id}")
   Call<RedemptionEntryResponse> getRedemption(@Path("id") String redemptionId);
+
+  @POST("redemptions")
+  Call<RedeemStackableDiscountResponse> redeem(@Body RedeemStackableDiscount redeemStackableDiscount);
+
+  @POST("redemptions/{id}/rollbacks")
+  Call<RollbackRedemptionStackableResponse> rollbackRedemption(@Path("id") String parentRedemptionId);
 
   // DISTRIBUTIONS
 
@@ -254,6 +273,9 @@ public interface VoucherifyApi {
   Call<PromotionValidationResponse> validatePromotion(
       @Body PromotionValidation promotionValidation);
 
+  @POST("validations")
+  Call<ValidateStackableDiscountResponse> validate(@Body ValidateStackableDiscount validateStackableDiscount);
+
   // PRODUCTS
 
   @POST("products")
@@ -264,6 +286,9 @@ public interface VoucherifyApi {
 
   @PUT("products/{id}")
   Call<ProductResponse> updateProduct(@Path("id") String id, @Body Product product);
+
+  @POST("products/bulk/async")
+  Call<ProductsBulkUpdateResponse> bulkUpdateProducts(@Body List<Product> products);
 
   @GET("products")
   Call<ProductsResponse> getProducts(@QueryMap Map<String, Object> filter);
@@ -489,4 +514,21 @@ public interface VoucherifyApi {
   @GET("loyalties/members/{memberId}/tiers")
   Call<MembersLoyaltyTierResponse> getMembersLoyaltyTier(
           @Path("memberId") String memberId);
+
+  @GET("loyalties/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("memberId") String memberId);
+
+  @GET("loyalties/{id}/members/{memberId}/activities")
+  Call<GetMemberActivitiesResponse> getMemberActivities(@Path("id") String id, @Path("memberId") String memberId);
+
+  // CONSENTS
+
+  @GET("consents")
+  Call<ListConsentsResponse> listConsents();
+
+  // QUALIFICATION
+
+  @POST("qualifications")
+  Call<CheckEligibilityResponse> checkEligibility(
+      @Body CheckEligibility checkEligibility);
 }

@@ -1,4 +1,4 @@
-package io.voucherify.client.model.common.response.applicableTo;
+package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -7,20 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ApplicableToResponse {
+public class ChannelResponse {
 
-  private String object;
+  @JsonProperty("channel_id")
+  private String channelId;
 
-  private Integer total;
-
-  private List<DataEntryResponse> data;
-
-  @JsonProperty("data_ref")
-  private String dataRef;
+  @JsonProperty("channel_type")
+  private String channelType;
 }

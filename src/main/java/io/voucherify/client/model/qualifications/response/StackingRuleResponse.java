@@ -1,4 +1,4 @@
-package io.voucherify.client.model.common.response.applicableTo;
+package io.voucherify.client.model.qualifications.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -7,20 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ApplicableToResponse {
+public class StackingRuleResponse {
 
-  private String object;
+  @JsonProperty("redeemables_limit")
+  private Long redeemablesLimit;
 
-  private Integer total;
-
-  private List<DataEntryResponse> data;
-
-  @JsonProperty("data_ref")
-  private String dataRef;
+  @JsonProperty("applicable_redeemables_limit")
+  private Long applicableRedeemablesLimit;
 }
