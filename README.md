@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.1.6</version>
+  <version>11.2.0</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.1.6'
+compile 'io.voucherify.client:voucherify-java-sdk:11.2.0'
 
 ```
 
@@ -918,13 +918,10 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2023-09-xx - 1x.x.x -
+* 2023-10-26 - 11.2.0 -
   * Added `APPLY_TO_ITEMS_BY_QUANTITY` discount type. Added [Update Products in bulk] method. Thanks to [@viglu](https://github.com/viglu) for contribution!
-  * Added `VoucherValidationErrorResponse` to `VoucherValidationResponse`. Thanks to [tcalvoarroyo](https://github.com/tcalvoarroyo) for issue request!
   * Added missing properties to OrderResponse and OrderItemResponse models. Thanks to [@petro-dutchak-infopulse](https://github.com/petro-dutchak-infopulse) for issue request!
-  * Created proper enums `RollbackResult` and `RollbackStatus` for `RollbackRedemptionResponse`.
   * Added support for Stackable Discounts API. Thanks to [prenner-voucherify](https://github.com/prenner-voucherify) for issue request.
-  * Added missing properties to Session objects. Thanks to [jfougere](https://github.com/jfougere) for issue request.
   * Added basic implementation for GetMemberActivities.
   * Added support for consents API.
   * Added support for Qualifications API.
