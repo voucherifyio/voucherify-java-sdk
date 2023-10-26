@@ -1,7 +1,9 @@
 package io.voucherify.client.model.stackable.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.redemption.response.GiftResponse;
 import io.voucherify.client.model.redemption.response.LoyaltyCardResponse;
+import io.voucherify.client.model.validation.response.VoucherValidationErrorResponse;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,5 +21,6 @@ public class RedeemableResultResponse {
 
   private LoyaltyCardResponse loyaltyCard;
 
-  //TODO: Add VoucherValidationErrorResponse after merge
+  @JsonProperty("error")
+  private VoucherValidationErrorResponse voucherValidationError;
 }
