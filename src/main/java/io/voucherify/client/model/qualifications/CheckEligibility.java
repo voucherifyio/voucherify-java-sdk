@@ -16,7 +16,7 @@ import java.util.Map;
 @Getter
 @Builder
 @ToString
-public class ExamineQualifications {
+public class CheckEligibility {
 
   private Customer customer;
 
