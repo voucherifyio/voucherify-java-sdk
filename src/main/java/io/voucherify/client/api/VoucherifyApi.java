@@ -48,8 +48,8 @@ import io.voucherify.client.model.promotion.Tier;
 import io.voucherify.client.model.promotion.response.CreatePromotionCampaignResponse;
 import io.voucherify.client.model.promotion.response.ListPromotionTiersResponse;
 import io.voucherify.client.model.promotion.response.TierResponse;
-import io.voucherify.client.model.qualifications.ExamineQualifications;
-import io.voucherify.client.model.qualifications.response.ExamineQualificationResponse;
+import io.voucherify.client.model.qualifications.CheckEligibility;
+import io.voucherify.client.model.qualifications.response.CheckEligibilityResponse;
 import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RedeemVoucher;
 import io.voucherify.client.model.redemption.RollbackRedemption;
@@ -529,6 +529,6 @@ public interface VoucherifyApi {
   // QUALIFICATION
 
   @POST("qualifications")
-  Call<ExamineQualificationResponse> examineQualification(
-      @Body ExamineQualifications examineQualifications);
+  Call<CheckEligibilityResponse> checkEligibility(
+      @Body CheckEligibility checkEligibility);
 }

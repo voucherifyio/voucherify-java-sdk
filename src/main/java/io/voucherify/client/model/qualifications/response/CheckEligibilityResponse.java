@@ -12,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @ToString
-public class ExamineQualificationResponse {
+public class CheckEligibilityResponse {
 
   @JsonProperty("redeemables")
   private RedeemableResponse redeemable;
