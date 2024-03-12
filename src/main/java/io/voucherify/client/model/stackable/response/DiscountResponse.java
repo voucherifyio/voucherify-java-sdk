@@ -30,29 +30,29 @@ public class DiscountResponse {
   @JsonProperty("fixed_amount")
   private Double fixedAmount;
 
-  @JsonProperty("fixed_amount_formula")
-  private String fixedAmountFormula;
+  @JsonProperty("unit_off")
+  private Long unitOff;
 
-  @JsonProperty("percent_off_formula")
-  private String percentOffFormula;
+  @JsonProperty("unit_type")
+  private String unitType;
 
   @JsonProperty("amount_limit")
   private Double amountLimit;
 
-  @JsonProperty("amount_off_formula")
-  private String amountOffFormula;
-
   @JsonProperty("aggregated_amount_limit")
   private Long aggregatedAmountLimit;
 
-  @JsonProperty("unit_off")
-  private Long unitOff;
+  @JsonProperty("amount_off_formula")
+  private String amountOffFormula;
+
+  @JsonProperty("percent_off_formula")
+  private String percentOffFormula;
+
+  @JsonProperty("fixed_amount_formula")
+  private String fixedAmountFormula;
 
   @JsonProperty("unit_off_formula")
   private String unitOffFormula;
-
-  @JsonProperty("unit_type")
-  private String unitType;
 
   private Product product;
 
