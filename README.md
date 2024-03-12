@@ -918,7 +918,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
-* 2024-03-12 - 11.3.0 - Added all supported fields to `DiscountResponse`. Changed `effect` from `String` to `DiscountEffect` type.
+* 2024-03-12 - 11.3.0 - Added all supported fields to `DiscountResponse`. Changed `effect` from `String` to `DiscountEffect` type. Thanks to [mariaivanova-git](https://github.com/mariaivanova-git) for issue request
 * 2023-10-26 - 11.2.0 -
   * Added `APPLY_TO_ITEMS_BY_QUANTITY` discount type. Added [Update Products in bulk] method. Thanks to [@viglu](https://github.com/viglu) for contribution!
   * Added missing properties to OrderResponse and OrderItemResponse models. Thanks to [@petro-dutchak-infopulse](https://github.com/petro-dutchak-infopulse) for issue request!
