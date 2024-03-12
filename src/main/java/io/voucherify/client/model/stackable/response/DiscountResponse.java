@@ -19,7 +19,7 @@ public class DiscountResponse {
   private String type;
 
   @JsonProperty("effect")
-  private DiscountEffect effect;
+  private String effect;
 
   @JsonProperty("amount_off")
   private Long amountOff;
