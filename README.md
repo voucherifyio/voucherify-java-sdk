@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.2.0</version>
+  <version>11.2.1</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.2.0'
+compile 'io.voucherify.client:voucherify-java-sdk:11.2.1'
 
 ```
 
@@ -918,6 +918,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2024-03-12 - 11.2.1 - Added all supported fields to `DiscountResponse`. Thanks to [mariaivanova-git](https://github.com/mariaivanova-git) for issue request
 * 2023-10-26 - 11.2.0 -
   * Added `APPLY_TO_ITEMS_BY_QUANTITY` discount type. Added [Update Products in bulk] method. Thanks to [@viglu](https://github.com/viglu) for contribution!
   * Added missing properties to OrderResponse and OrderItemResponse models. Thanks to [@petro-dutchak-infopulse](https://github.com/petro-dutchak-infopulse) for issue request!
