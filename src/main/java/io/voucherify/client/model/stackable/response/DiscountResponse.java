@@ -3,7 +3,6 @@ package io.voucherify.client.model.stackable.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.product.Product;
 import io.voucherify.client.model.product.SKU;
-import io.voucherify.client.model.voucher.DiscountEffect;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
