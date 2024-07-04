@@ -1,5 +1,7 @@
 package io.voucherify.client.model.qualifications;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Expand {
 
   REDEEMABLE("redeemable"),
@@ -9,5 +11,10 @@ public enum Expand {
 
   Expand(String value) {
     this.value = value;
+  }
+
+  @JsonValue
+  public String getValue() {
+    return value;
   }
 }

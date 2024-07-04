@@ -1,5 +1,7 @@
 package io.voucherify.client.model.stackable;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Expand {
 
   ORDER("order"),
@@ -11,5 +13,10 @@ public enum Expand {
 
   Expand(String value) {
     this.value = value;
+  }
+
+  @JsonValue
+  public String getValue() {
+    return value;
   }
 }
