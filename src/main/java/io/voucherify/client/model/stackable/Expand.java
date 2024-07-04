@@ -7,7 +7,8 @@ public enum Expand {
   ORDER("order"),
   REDEMPTION("redemption"),
   REDEEMABLE("redeemable"),
-  CATEGORY("category");
+  CATEGORY("category"),
+  VALIDATION_RULES("validation_rules");
 
   private final String value;
 
