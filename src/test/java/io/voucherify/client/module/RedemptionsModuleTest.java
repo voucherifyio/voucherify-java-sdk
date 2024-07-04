@@ -7,7 +7,7 @@ import io.voucherify.client.model.order.Order;
 import io.voucherify.client.model.order.OrderItem;
 import io.voucherify.client.model.redemption.RedeemPromotion;
 import io.voucherify.client.model.redemption.RedeemVoucher;
-import io.voucherify.client.model.redemption.RedemptionStatus;
+import io.voucherify.client.model.redemption.RedemptionResult;
 import io.voucherify.client.model.redemption.RedemptionsFilter;
 import io.voucherify.client.model.redemption.RollbackRedemption;
 import io.voucherify.client.model.redemption.response.RedeemPromotionResponse;
@@ -112,7 +112,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
             .campaign("campaign")
             .limit(10)
             .page(5)
-            .result(RedemptionStatus.SUCCESS)
+            .result(RedemptionResult.SUCCESS)
             .build();
 
     enqueueResponse("{}");
@@ -261,7 +261,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
             .campaign("campaign")
             .limit(10)
             .page(5)
-            .result(RedemptionStatus.SUCCESS)
+            .result(RedemptionResult.SUCCESS)
             .build();
 
     enqueueResponse("{}");
@@ -414,7 +414,7 @@ public class RedemptionsModuleTest extends AbstractModuleTest {
             .campaign("campaign")
             .limit(10)
             .page(5)
-            .result(RedemptionStatus.SUCCESS)
+            .result(RedemptionResult.SUCCESS)
             .build();
 
     enqueueResponse("{}");

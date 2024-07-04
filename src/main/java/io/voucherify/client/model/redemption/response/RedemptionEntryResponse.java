@@ -2,6 +2,7 @@ package io.voucherify.client.model.redemption.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.order.response.OrderResponse;
+import io.voucherify.client.model.redemption.RedemptionResult;
 import io.voucherify.client.model.redemption.RedemptionStatus;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -40,7 +41,9 @@ public class RedemptionEntryResponse {
 
   private Map<String, Object> metadata;
 
-  private RedemptionStatus result;
+  private RedemptionResult result;
+
+  private RedemptionStatus status;
 
   @JsonProperty("failure_code")
   private String failureCode;

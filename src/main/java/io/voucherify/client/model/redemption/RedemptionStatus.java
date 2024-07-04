@@ -1,6 +1,7 @@
 package io.voucherify.client.model.redemption;
 
 public enum RedemptionStatus {
-  SUCCESS,
-  FAILURE
+  SUCCEEDED,
+  FAILED,
+  ROLLED_BACK
 }

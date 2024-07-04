@@ -3,6 +3,7 @@ package io.voucherify.client.model.stackable.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.order.response.OrderResponse;
+import io.voucherify.client.model.redemption.RedemptionResult;
 import io.voucherify.client.model.redemption.RedemptionStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 
@@ -37,9 +38,9 @@ public class RedemptionResponse {
 
   private String redemption;
 
-  //TODO: FIX result and status in next major version
+  private RedemptionResult result;
 
-  private RedemptionStatus result;
+  private RedemptionStatus status;
 
   private OrderResponse order;
 

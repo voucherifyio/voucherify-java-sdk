@@ -1,5 +1,5 @@
 group = 'io.voucherify.client'
-version = '11.2.1'
+version = '12.0.0'
 
 repositories {
     mavenCentral()

@@ -1,6 +1,8 @@
 package io.voucherify.client.model.validationRules.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.Json;
+import io.voucherify.client.model.validationRules.ApplicationRules;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +26,7 @@ public class BusinessValidationRule {
   private String object;
 
   private Date createdAt;
+
+  @JsonProperty("applicable_to")
+  private ApplicationRules applicableTo;
 }

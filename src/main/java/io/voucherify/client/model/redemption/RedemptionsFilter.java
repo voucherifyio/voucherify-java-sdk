@@ -22,7 +22,7 @@ public class RedemptionsFilter extends AbstractFilter<String, Object> {
 
   private Integer page;
 
-  private RedemptionStatus result;
+  private RedemptionResult result;
 
   private String customer;
 

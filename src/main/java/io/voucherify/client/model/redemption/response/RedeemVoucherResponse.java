@@ -3,6 +3,7 @@ package io.voucherify.client.model.redemption.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.loyalties.Reward;
 import io.voucherify.client.model.order.response.OrderResponse;
+import io.voucherify.client.model.redemption.RedemptionResult;
 import io.voucherify.client.model.redemption.RedemptionStatus;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
 import lombok.AccessLevel;
@@ -33,7 +34,9 @@ public class RedeemVoucherResponse {
 
   private OrderResponse order;
 
-  private RedemptionStatus result;
+  private RedemptionResult result;
+
+  private RedemptionStatus status;
 
   private VoucherResponse voucher;
 

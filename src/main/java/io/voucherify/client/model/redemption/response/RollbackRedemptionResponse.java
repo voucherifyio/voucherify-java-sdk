@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.voucherify.client.model.customer.response.CustomerResponse;
 import io.voucherify.client.model.order.response.OrderResponse;
 import io.voucherify.client.model.promotion.response.TierResponse;
+import io.voucherify.client.model.redemption.RollbackResult;
 import io.voucherify.client.model.redemption.RollbackStatus;
 import io.voucherify.client.model.rewards.response.RewardResponse;
 import io.voucherify.client.model.voucher.response.VoucherResponse;
@@ -38,8 +39,8 @@ public class RollbackRedemptionResponse {
 
   private String redemption;
 
-  //TODO: FIX result and status in next major version
-  @JsonProperty("result")
+  private RollbackResult result;
+
   private RollbackStatus status;
 
   private OrderResponse order;
