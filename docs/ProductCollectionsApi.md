@@ -272,8 +272,8 @@ public class Example {
 
     ProductCollectionsApi apiInstance = new ProductCollectionsApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
-    ParameterOrder order = ParameterOrder.fromValue("created_at"); // ParameterOrder | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrder order = ParameterOrder.fromValue("created_at"); // ParameterOrder | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
     try {
       ProductCollectionsListResponseBody result = apiInstance.listProductCollections(limit, page, order);
       System.out.println(result);
@@ -293,8 +293,8 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
-| **order** | [**ParameterOrder**](.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrder**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
 
 ### Return type
 
@@ -352,8 +352,8 @@ public class Example {
     ProductCollectionsApi apiInstance = new ProductCollectionsApi(defaultClient);
     String productCollectionId = "productCollectionId_example"; // String | Unique product collection ID.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
-    ParameterOrder order = ParameterOrder.fromValue("created_at"); // ParameterOrder | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrder order = ParameterOrder.fromValue("created_at"); // ParameterOrder | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
     OffsetDateTime startingAfter = OffsetDateTime.now(); // OffsetDateTime | Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format.
     try {
       ProductCollectionsProductsListResponseBody result = apiInstance.listProductsInCollection(productCollectionId, limit, page, order, startingAfter);
@@ -375,8 +375,8 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **productCollectionId** | **String**| Unique product collection ID. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
-| **order** | [**ParameterOrder**](.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrder**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
 | **startingAfter** | **OffsetDateTime**| Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. |
 
 ### Return type

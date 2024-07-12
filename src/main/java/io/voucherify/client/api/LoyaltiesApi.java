@@ -227,7 +227,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for deleteEarningRule
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -302,7 +302,7 @@ public class LoyaltiesApi {
     /**
      * Delete Earning Rule
      * This method deletes an earning rule for a specific loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -318,7 +318,7 @@ public class LoyaltiesApi {
     /**
      * Delete Earning Rule
      * This method deletes an earning rule for a specific loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -336,7 +336,7 @@ public class LoyaltiesApi {
     /**
      * Delete Earning Rule (asynchronously)
      * This method deletes an earning rule for a specific loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -355,8 +355,8 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for deleteLoyaltyProgram
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
-     * @param force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. If it is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -428,9 +428,9 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.  If the &#x60;force&#x60; parameter is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](ref:list-bin-entries).
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
-     * @param force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. If it is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return LoyaltiesDeleteResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -446,9 +446,9 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.  If the &#x60;force&#x60; parameter is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](ref:list-bin-entries).
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
-     * @param force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. If it is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return ApiResponse&lt;LoyaltiesDeleteResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -465,9 +465,9 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign (asynchronously)
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.  If the &#x60;force&#x60; parameter is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](ref:list-bin-entries).
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
-     * @param force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. If it is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -486,7 +486,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for deleteRewardAssignment1
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -561,7 +561,7 @@ public class LoyaltiesApi {
     /**
      * Delete Reward Assignment
      * This method deletes a reward assignment for a particular loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -577,7 +577,7 @@ public class LoyaltiesApi {
     /**
      * Delete Reward Assignment
      * This method deletes a reward assignment for a particular loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -595,7 +595,7 @@ public class LoyaltiesApi {
     /**
      * Delete Reward Assignment (asynchronously)
      * This method deletes a reward assignment for a particular loyalty campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -950,7 +950,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return LoyaltiesMembersTransactionsExportCreateResponseBody
@@ -968,7 +968,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsExportCreateResponseBody&gt;
@@ -987,7 +987,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions (asynchronously)
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1085,7 +1085,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
@@ -1104,7 +1104,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
@@ -1124,7 +1124,7 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions (asynchronously)
-     * Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+     * Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
@@ -1146,7 +1146,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for getEarningRule
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1222,7 +1222,7 @@ public class LoyaltiesApi {
     /**
      * Get Earning Rule
      * Retrieves an earning rule assigned to a campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return LoyaltiesEarningRulesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1240,7 +1240,7 @@ public class LoyaltiesApi {
     /**
      * Get Earning Rule
      * Retrieves an earning rule assigned to a campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1259,7 +1259,7 @@ public class LoyaltiesApi {
     /**
      * Get Earning Rule (asynchronously)
      * Retrieves an earning rule assigned to a campaign.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1412,7 +1412,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for getRewardAssignment1
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1488,7 +1488,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Assignment
      * Retrieve specific reward assignment.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1506,7 +1506,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Assignment
      * Retrieve specific reward assignment.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1525,7 +1525,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Assignment (asynchronously)
      * Retrieve specific reward assignment.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1545,7 +1545,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for getRewardAssignment2
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1620,8 +1620,8 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Assignment
-     * Retrieve specific reward assignment.  &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2). 
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. 
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return LoyaltiesRewardsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1638,8 +1638,8 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Assignment
-     * Retrieve specific reward assignment.  &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2). 
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. 
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1657,8 +1657,8 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Assignment (asynchronously)
-     * Retrieve specific reward assignment.  &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2). 
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. 
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1678,7 +1678,7 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for getRewardDetails
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1754,7 +1754,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Details
      * Get reward details in the context of a loyalty campaign and reward assignment ID.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsRewardGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1772,7 +1772,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Details
      * Get reward details in the context of a loyalty campaign and reward assignment ID.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsRewardGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1791,7 +1791,7 @@ public class LoyaltiesApi {
     /**
      * Get Reward Details (asynchronously)
      * Get reward details in the context of a loyalty campaign and reward assignment ID.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1813,7 +1813,7 @@ public class LoyaltiesApi {
      * Build call for listLoyaltyCardTransactions
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1892,7 +1892,7 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1911,7 +1911,7 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1931,7 +1931,7 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1953,7 +1953,7 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2039,7 +2039,7 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2059,7 +2059,7 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2080,7 +2080,7 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2102,7 +2102,7 @@ public class LoyaltiesApi {
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2188,7 +2188,7 @@ public class LoyaltiesApi {
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesTiersEarningRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2208,7 +2208,7 @@ public class LoyaltiesApi {
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesTiersEarningRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2229,7 +2229,7 @@ public class LoyaltiesApi {
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2644,7 +2644,7 @@ public class LoyaltiesApi {
     /**
      * Build call for listMemberRewards
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
-     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2716,9 +2716,9 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards
-     * Retrieves the list of rewards that the given customer (identified by &#x60;member_id&#x60;, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.    You can use the &#x60;affordable_only&#x60; parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).    Please note that rewards that are disabled (i.e. set to &#x60;Not Available&#x60; in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
-     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return LoyaltiesMembersRewardsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2734,9 +2734,9 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards
-     * Retrieves the list of rewards that the given customer (identified by &#x60;member_id&#x60;, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.    You can use the &#x60;affordable_only&#x60; parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).    Please note that rewards that are disabled (i.e. set to &#x60;Not Available&#x60; in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
-     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRewardsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2753,9 +2753,9 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards (asynchronously)
-     * Retrieves the list of rewards that the given customer (identified by &#x60;member_id&#x60;, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.    You can use the &#x60;affordable_only&#x60; parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).    Please note that rewards that are disabled (i.e. set to &#x60;Not Available&#x60; in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
-     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2774,10 +2774,10 @@ public class LoyaltiesApi {
     }
     /**
      * Build call for listPointsExpiration
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2859,11 +2859,11 @@ public class LoyaltiesApi {
 
     /**
      * Get Points Expiration
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](ref:create-export) to retrieve a list of both &#x60;ACTIVE&#x60; and &#x60;EXPIRED&#x60; point buckets.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersPointsExpirationListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2879,11 +2879,11 @@ public class LoyaltiesApi {
 
     /**
      * Get Points Expiration
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](ref:create-export) to retrieve a list of both &#x60;ACTIVE&#x60; and &#x60;EXPIRED&#x60; point buckets.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPointsExpirationListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2900,11 +2900,11 @@ public class LoyaltiesApi {
 
     /**
      * Get Points Expiration (asynchronously)
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](ref:create-export) to retrieve a list of both &#x60;ACTIVE&#x60; and &#x60;EXPIRED&#x60; point buckets.
-     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  (required)
+     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2993,7 +2993,7 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward
-     * &lt;!-- theme: info --&gt; &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) --&gt;[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return LoyaltiesMembersRedemptionRedeemResponseBody
@@ -3011,7 +3011,7 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward
-     * &lt;!-- theme: info --&gt; &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) --&gt;[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRedemptionRedeemResponseBody&gt;
@@ -3030,7 +3030,7 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward (asynchronously)
-     * &lt;!-- theme: info --&gt; &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) --&gt;[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3397,7 +3397,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance
-     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &lt;!-- theme: info --&gt;   &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.   &gt; 📘 Alternative endpoint &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance) --&gt;[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return LoyaltiesMembersBalanceUpdateResponseBody
@@ -3415,7 +3415,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance
-     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &lt;!-- theme: info --&gt;   &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.   &gt; 📘 Alternative endpoint &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance) --&gt;[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersBalanceUpdateResponseBody&gt;
@@ -3434,7 +3434,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance (asynchronously)
-     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &lt;!-- theme: info --&gt;   &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.   &gt; 📘 Alternative endpoint &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance) --&gt;[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the &#x60;campaignId&#x60; as a path parameter.
+     * This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3532,7 +3532,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance
-     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.    &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
@@ -3551,7 +3551,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance
-     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.    &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
@@ -3571,7 +3571,7 @@ public class LoyaltiesApi {
 
     /**
      * Add or Remove Loyalty Card Balance (asynchronously)
-     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.    &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)

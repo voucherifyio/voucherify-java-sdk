@@ -113,8 +113,6 @@ public class CampaignsTest {
         try {
             Integer vouchersCount = 1; // Integer | Number of vouchers that should be added.
             CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody();
-            // CampaignsVouchersCreateInBulkRequestBody | Specify the voucher parameters
-            // that you would like to overwrite.
 
             CampaignsVouchersCreateCombinedResponseBody result = campaigns.addVouchersToCampaign(loyaltyProgramId,
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);

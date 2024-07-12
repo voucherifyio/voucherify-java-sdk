@@ -440,8 +440,8 @@ public class ProductCollectionsApi {
     /**
      * Build call for listProductCollections
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -517,8 +517,8 @@ public class ProductCollectionsApi {
      * List Product Collections
      * This method returns a list of product collections.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ProductCollectionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -536,8 +536,8 @@ public class ProductCollectionsApi {
      * List Product Collections
      * This method returns a list of product collections.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;ProductCollectionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -556,8 +556,8 @@ public class ProductCollectionsApi {
      * List Product Collections (asynchronously)
      * This method returns a list of product collections.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -578,8 +578,8 @@ public class ProductCollectionsApi {
      * Build call for listProductsInCollection
      * @param productCollectionId Unique product collection ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -667,8 +667,8 @@ public class ProductCollectionsApi {
      * Retrieves list of products from a product collection; works for both dynamic and static product collections.
      * @param productCollectionId Unique product collection ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @return ProductCollectionsProductsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -688,8 +688,8 @@ public class ProductCollectionsApi {
      * Retrieves list of products from a product collection; works for both dynamic and static product collections.
      * @param productCollectionId Unique product collection ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @return ApiResponse&lt;ProductCollectionsProductsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -710,8 +710,8 @@ public class ProductCollectionsApi {
      * Retrieves list of products from a product collection; works for both dynamic and static product collections.
      * @param productCollectionId Unique product collection ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

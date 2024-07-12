@@ -130,7 +130,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty Campaign`. 
+    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. 
     String stackId = "stackId_example"; // String | Promotion stack ID.
     try {
       apiInstance.deletePromotionStack(campaignId, stackId);
@@ -149,7 +149,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  |
+| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  |
 | **stackId** | **String**| Promotion stack ID. |
 
 ### Return type
@@ -250,7 +250,7 @@ null (empty response body)
 
 Disable Promotion Tier
 
-This method disables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;false&#x60;.
+This method disables a promotion tier, i.e. makes the active parameter   false.
 
 ### Example
 ```java
@@ -325,7 +325,7 @@ public class Example {
 
 Enable Promotion Tier
 
-This method enables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;true&#x60;.
+This method enables a promotion tier, i.e. makes the active parameter   true.
 
 ### Example
 ```java
@@ -430,7 +430,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty Campaign`. 
+    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. 
     String stackId = "stackId_example"; // String | Promotion stack ID.
     try {
       PromotionsStacksGetResponseBody result = apiInstance.getPromotionStack(campaignId, stackId);
@@ -450,7 +450,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  |
+| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  |
 | **stackId** | **String**| Promotion stack ID. |
 
 ### Return type
@@ -552,7 +552,7 @@ public class Example {
 
 List Promotion Stacks
 
-This method enables you to list promotion stacks irrespective of the campaign they are associated with.   You can use filters in the query parameters to specify the stacks to be returned in the response.  ## Advanced filters for fetching promotion stacks  | **Filters** | **Examples** | | :--- | :--- | | Created Before | - &#x60;[created_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Created After | - &#x60;[created_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated Before | - &#x60;[updated_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated After | - &#x60;[updated_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; |
+This method enables you to list promotion stacks irrespective of the campaign they are associated with.  You can use filters in the query parameters to specify the stacks to be returned in the response. # Advanced filters for fetching promotion stacks  
 
 ### Example
 ```java
@@ -583,10 +583,10 @@ public class Example {
 
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
-    ParameterOrderListAllPromotionStacks order = ParameterOrderListAllPromotionStacks.fromValue("created_at"); // ParameterOrderListAllPromotionStacks | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
-    ParameterCreatedBeforeAfter createdAt = new ParameterCreatedBeforeAfter(); // ParameterCreatedBeforeAfter | A filter on the list based on the object `created_at` field. The value is a dictionary with the following options: `before`, `after`. A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z` or `2016-11-16`). An example: `[created_at][before]=2017-09-08T13:52:18.227Z`
-    ParameterUpdatedBeforeAfter updatedAt = new ParameterUpdatedBeforeAfter(); // ParameterUpdatedBeforeAfter | A filter on the list based on the object `updated_at` field. The value is a dictionary with the following options: `before`, `after`. A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z` or `2016-11-16`). An example: `[updated_at][before]=2017-09-08T13:52:18.227Z`
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrderListAllPromotionStacks order = ParameterOrderListAllPromotionStacks.fromValue("created_at"); // ParameterOrderListAllPromotionStacks | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterCreatedBeforeAfter createdAt = new ParameterCreatedBeforeAfter(); // ParameterCreatedBeforeAfter | A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z
+    ParameterUpdatedBeforeAfter updatedAt = new ParameterUpdatedBeforeAfter(); // ParameterUpdatedBeforeAfter | A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z
     try {
       PromotionsStacksListResponseBody result = apiInstance.listAllPromotionStacks(limit, page, order, createdAt, updatedAt);
       System.out.println(result);
@@ -606,10 +606,10 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
-| **order** | [**ParameterOrderListAllPromotionStacks**](.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. |
-| **createdAt** | [**ParameterCreatedBeforeAfter**](.md)| A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; |
-| **updatedAt** | [**ParameterUpdatedBeforeAfter**](.md)| A filter on the list based on the object &#x60;updated_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[updated_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrderListAllPromotionStacks**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **createdAt** | [**ParameterCreatedBeforeAfter**](.md)| A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z |
+| **updatedAt** | [**ParameterUpdatedBeforeAfter**](.md)| A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z |
 
 ### Return type
 
@@ -815,7 +815,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     PromotionsApi apiInstance = new PromotionsApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty Campaign`. 
+    String campaignId = "campaignId_example"; // String | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. 
     String stackId = "stackId_example"; // String | Promotion stack ID.
     PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = new PromotionsStacksUpdateRequestBody(); // PromotionsStacksUpdateRequestBody | Specify the promotion stack parameters that you would like to update.
     try {
@@ -836,7 +836,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  |
+| **campaignId** | **String**| ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  |
 | **stackId** | **String**| Promotion stack ID. |
 | **promotionsStacksUpdateRequestBody** | [**PromotionsStacksUpdateRequestBody**](PromotionsStacksUpdateRequestBody.md)| Specify the promotion stack parameters that you would like to update. |
 

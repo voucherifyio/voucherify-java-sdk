@@ -354,7 +354,7 @@ public class Example {
     RewardsApi apiInstance = new RewardsApi(defaultClient);
     String rewardId = "rewardId_example"; // String | A unique reward ID.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
       RewardsAssignmentsListResponseBody result = apiInstance.listRewardAssignments(rewardId, limit, page);
       System.out.println(result);
@@ -375,7 +375,7 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **rewardId** | **String**| A unique reward ID. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 

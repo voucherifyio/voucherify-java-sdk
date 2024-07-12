@@ -6,13 +6,13 @@ The primary reason for this approach is to ensure that the most critical aspects
 
 ## Running tests
 
-We strongly recommend running the tests using the `Dockerfile` provided in the root directory.
-If you prefer to run tests locally, here are the steps you need to follow.
+We strongly recommend running the tests using the `Dockerfile` provided in [main README.md](../README.md).
+If you prefer to run tests locally, [here are the steps you need to follow](#running-locally).
 
 ### Requirements
 
 - all elements described in [main README.md](../README.md) like Java and Maven
-- Voucherify SDK built locally
+- filled up `.env` file
 
 ### Running locally
 
@@ -23,7 +23,7 @@ If you prefer to run tests locally, here are the steps you need to follow.
 5. Run `mvn -f ./__tests__ clean install` command for install dependencies
 6. Run `mvn -f ./__tests__ test` for start the test suit
 
-**Note that running tests will affect your Voucherify project data. Run tests only on development projects.**
+**!!! Note that running tests will affect your Voucherify project data. Run tests only on development projects. !!!**
 
 ## Contributing
 

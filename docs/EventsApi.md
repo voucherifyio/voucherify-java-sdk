@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Track Custom Event
 
-To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn&#39;t exist in Voucherify, the customer will be created.
+To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
 
 ### Example
 ```java

@@ -33,8 +33,10 @@ public class CustomersTest {
     @Order(1)
     public void createCustomersTest() {
         try {
-            CustomersCreateResponseBody customersCreateResponseBody = customers.createCustomer(new CustomersCreateRequestBody());
-            CustomersCreateResponseBody customersCreateResponseBody2 = customers.createCustomer(new CustomersCreateRequestBody());
+            CustomersCreateResponseBody customersCreateResponseBody = customers
+                    .createCustomer(new CustomersCreateRequestBody());
+            CustomersCreateResponseBody customersCreateResponseBody2 = customers
+                    .createCustomer(new CustomersCreateRequestBody());
 
             assertNotNull(customersCreateResponseBody.getId());
             assertNotNull(customersCreateResponseBody2.getId());
@@ -61,7 +63,8 @@ public class CustomersTest {
             customersUpdateInBulkRequestBody.add(customer1);
             customersUpdateInBulkRequestBody.add(customer2);
 
-            CustomersUpdateInBulkResponseBody responseBody = customers.updateCustomersInBulk(customersUpdateInBulkRequestBody);
+            CustomersUpdateInBulkResponseBody responseBody = customers
+                    .updateCustomersInBulk(customersUpdateInBulkRequestBody);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
@@ -74,19 +77,18 @@ public class CustomersTest {
     public void getCustomersTest() {
         try {
             CustomersListResponseBody responseBody = customers.listCustomers(
-                15,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-            );
+                    15,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {

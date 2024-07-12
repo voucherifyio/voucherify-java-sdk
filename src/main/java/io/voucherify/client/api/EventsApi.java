@@ -138,7 +138,7 @@ public class EventsApi {
 
     /**
      * Track Custom Event
-     * To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn&#39;t exist in Voucherify, the customer will be created.
+     * To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
      * @param eventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return EventsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -155,7 +155,7 @@ public class EventsApi {
 
     /**
      * Track Custom Event
-     * To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn&#39;t exist in Voucherify, the customer will be created.
+     * To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
      * @param eventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return ApiResponse&lt;EventsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -173,7 +173,7 @@ public class EventsApi {
 
     /**
      * Track Custom Event (asynchronously)
-     * To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn&#39;t exist in Voucherify, the customer will be created.
+     * To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
      * @param eventsCreateRequestBody Specify the details of the custom event. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -82,27 +82,23 @@ paths:
   /v1/publications/create:
     get:
       description: "This method selects vouchers that are suitable for publication,\
-        \ adds a publish entry and returns the publication.\n\nA voucher is suitable\
-        \ for publication when it's active and hasn't been published yet.\n> ❗️ Limited\
-        \ access\n>\n> Access to this endpoint is limited. This endpoint is designed\
-        \ for specific integrations and the API keys need to be configured to access\
-        \ this endpoint. Navigate to the **Dashboard** &rarr; **Project Settings**\
-        \ &rarr; **General** &rarr; **Integration Keys** to set up a pair of API keys\
-        \ and use them to send the request.  \n\n<!-- theme: warning -->\n> 🚧 Clearly\
-        \ define the source of the voucher\n>\n> You must clearly define which source\
-        \ you want to publish the voucher code from. It can either be a code from\
-        \ a campaign or a specific voucher identified by a code.  \n<!-- theme: warning\
-        \ -->\n> 🚧 Publish multiple vouchers\n> This endpoint does not support the\
-        \ publishing of multiple vouchers from a single campaign. In case you want\
-        \ to publish multiple vouchers within a single publication, you need to use\
-        \ a [dedicated endpoint](ref:create-publication).  \n\n<!-- theme: info -->\n\
-        \n> 📘 Auto-update campaign\n>\n> In case you want to ensure the number of\
-        \ publishable codes increases automatically with the number of customers,\
-        \ you should use an **auto-update** campaign.  \n\n## Example Request \n```markdown\
-        \ Publication Query \n/publications/create?campaign[name]=BlackFriday&customer[source_id]=Customer_Source_ID\
-        \ \n```  \n\n<!-- theme: danger -->\n> ❗️ Required  \n>\n> Query param `voucher`\
-        \ OR `campaign` MUST be filled out. If you provide both, `campaign` param\
-        \ will be skipped."
+        \ adds a publish entry and returns the publication.\nA voucher is suitable\
+        \ for publication when its active and hasnt been published yet.\n ❗️ Limited\
+        \ access\n Access to this endpoint is limited. This endpoint is designed for\
+        \ specific integrations and the API keys need to be configured to access this\
+        \ endpoint. Navigate to the **Dashboard** &rarr; **Project Settings** &rarr;\
+        \ **General** &rarr; **Integration Keys** to set up a pair of API keys and\
+        \ use them to send the request.  \n 🚧 Clearly define the source of the voucher\n\
+        \ You must clearly define which source you want to publish the voucher code\
+        \ from. It can either be a code from a campaign or a specific voucher identified\
+        \ by a code.  \n 🚧 Publish multiple vouchers\n This endpoint does not support\
+        \ the publishing of multiple vouchers from a single campaign. In case you\
+        \ want to publish multiple vouchers within a single publication, you need\
+        \ to use a dedicated endpoint.  \n 📘 Auto-update campaign\n In case you want\
+        \ to ensure the number of publishable codes increases automatically with the\
+        \ number of customers, you should use an **auto-update** campaign.  \n# Example\
+        \ Request \n  \n ❗️ Required  \n Query param voucher OR campaign MUST be filled\
+        \ out. If you provide both, campaign param will be skipped."
       operationId: create-publication-1
       parameters:
       - description: "Through this flag, you can control if a particular person gets\
@@ -134,8 +130,8 @@ paths:
           $ref: '#/components/schemas/CreatePublicationCampaign'
         style: deepObject
       - description: |-
-          The merchant’s publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
-          If `source_id` is provided only 1 voucher can be published per request.
+          The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+          If source_id is provided only 1 voucher can be published per request.
         explode: true
         in: query
         name: source_id
@@ -245,33 +241,31 @@ paths:
       x-accepts: application/json
   /v1/qualifications:
     post:
-      description: "<!-- theme: warning -->\n> 🚧 The Qualifications endpoint ignores\
-        \ the rules checking:\n> \n> - Limit of total redeemed discount amount per\
-        \ campaign\n> - Limit of total redemptions count per campaign\n> - Redemptions\
-        \ per customer\n> - Redemptions per customer in a campaign \n\nGenerate a\
-        \ list of redeemables that are applicable in the context of the customer and\
-        \ order.\n\nThe new qualifications method is an improved version of [Campaign\
-        \ Qualifications](ref:examine-campaigns-qualification), [Voucher Qualifications](ref:examine-vouchers-qualification),\
-        \ and [Promotions Validation](ref:validate-promotions) API requests. The new\
-        \ qualification method introduces the following improvements:\n\n- Qualification\
-        \ results are returned faster\n- No limit on the number of returned redeemables\n\
-        - Introduces new qualification scenarios, not available in the previous version\n\
-        \n> 👍 Scenario Guide\n>\n> Read [the dedicated guide](doc:checking-eligibility)\
-        \ to learn about some use cases this endpoint can cover.\n\n## Paging \n\n\
-        The Voucherify Qualifications API request will return to you all of the redeemables\
-        \ available for the customer in batches of up to 50 redeemables. To get the\
-        \ next batch of redeemables, you need to use the `starting_after` cursor.\n\
-        \nTo process of paging the redeemables works in the following manner:\n\n\
-        - You send the first API request for Qualifications without the `starting_after`\
-        \ parameter.\n- The response will contain a parameter named `has_more`. If\
-        \ the parameter's value is set to `true`, then more redeemables are available.\n\
-        - Get the value of the `created_at` parameter of the last returned redeemable.\
+      description: "\n 🚧 The Qualifications endpoint ignores the rules checking:\n\
+        \ \n - Limit of total redeemed discount amount per campaign\n - Limit of total\
+        \ redemptions count per campaign\n - Redemptions per customer\n - Redemptions\
+        \ per customer in a campaign \nGenerate a list of redeemables that are applicable\
+        \ in the context of the customer and order.\nThe new qualifications method\
+        \ is an improved version of Campaign Qualifications, Voucher Qualifications,\
+        \ and Promotions Validation API requests. The new qualification method introduces\
+        \ the following improvements:\n- Qualification results are returned faster\n\
+        - No limit on the number of returned redeemables\n- Introduces new qualification\
+        \ scenarios, not available in the previous version\n 👍 Scenario Guide\n Read\
+        \ the dedicated guide to learn about some use cases this endpoint can cover.\n\
+        # Paging \nThe Voucherify Qualifications API request will return to you all\
+        \ of the redeemables available for the customer in batches of up to 50 redeemables.\
+        \ To get the next batch of redeemables, you need to use the starting_after\
+        \ cursor.\nTo process of paging the redeemables works in the following manner:\n\
+        - You send the first API request for Qualifications without the starting_after\
+        \ parameter.\n- The response will contain a parameter named has_more. If the\
+        \ parameters value is set to true, then more redeemables are available.\n\
+        - Get the value of the created_at parameter of the last returned redeemable.\
         \ The value of this parameter will be used as a cursor to retrieve the next\
         \ page of redeemables.\n- Send another API request for Qualification with\
-        \ the `starting_after` parameter set to the value taken from the `created_at`\
+        \ the starting_after parameter set to the value taken from the created_at\
         \ parameter from the last returned redeemable.\n- Voucherify will return the\
-        \ next page of redeemables.\n- If the `has_more` parameter is set to `true`,\
-        \ apply steps 3-5 to get the next page of redeemables."
+        \ next page of redeemables.\n- If the has_more parameter is set to true, apply\
+        \ steps 3-5 to get the next page of redeemables."
       operationId: check-eligibility
       parameters: []
       requestBody:
@@ -827,27 +821,26 @@ paths:
     get:
       description: "Returns a list of redemptions previously created. The redemptions\
         \ are returned in a sorted order, with the most recent redemptions appearing\
-        \ first. The response returns a list of redemptions of all vouchers. \n\n\
-        ## Filtering results\nThe result can be narrowed according to specified (or\
-        \ default) filters, for example, you can sort redemptions by date:\n`https://api.voucherify.io/v1/redemptions?limit=3&[created_at][before]=2017-09-08T13:52:18.227Z`.\
-        \ A filter based on the object `created_at` field narrows down the results\
-        \ and lists redemptions done before or after a particular date time. You can\
-        \ use the following options: `[created_at][after]`, `[created_at][before]`.\
-        \ A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z`\
-        \ or `2016-11-16`). An example: `[created_at][before]=2017-09-08T13:52:18.227Z`.\n\
-        \n## Failed Redemptions\n\nA redemption may fail for various reasons. You\
-        \ can figure out an exact reason from the `failure_code`:\n- `resource_not_found`\
-        \ - voucher with given code does not exist\n- `voucher_not_active` - voucher\
-        \ is not active yet (before start date)\n- `voucher_expired` - voucher has\
-        \ already expired (after expiration date)\n- `voucher_disabled` -  voucher\
-        \ has been disabled (`active: false`)\n- `quantity_exceeded` - voucher's redemptions\
-        \ limit has been exceeded\n- `gift_amount_exceeded` - gift amount has been\
-        \ exceeded\n- `customer_rules_violated` - customer did not match the segment\n\
-        - `order_rules_violated` - order did not match validation rules\n- `invalid_order`\
-        \ - order was specified incorrectly\n- `invalid_amount` - order amount was\
-        \ specified incorrectly\n- `missing_amount` - order amount was not specified\n\
-        - `missing_order_items` - order items were not specified\n- `missing_customer`\
-        \ - customer was not specified"
+        \ first. The response returns a list of redemptions of all vouchers. \n# Filtering\
+        \ results\nThe result can be narrowed according to specified (or default)\
+        \ filters, for example, you can sort redemptions by date:\nhttps://api.voucherify.io/v1/redemptions?limit\
+        \ 3&[created_at][before] 2017-09-08T13:52:18.227Z. A filter based on the object\
+        \ created_at field narrows down the results and lists redemptions done before\
+        \ or after a particular date time. You can use the following options: [created_at][after],\
+        \ [created_at][before]. A date value must be presented in ISO 8601 format\
+        \ (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z.\n\
+        # Failed Redemptions\nA redemption may fail for various reasons. You can figure\
+        \ out an exact reason from the failure_code:\n- resource_not_found - voucher\
+        \ with given code does not exist\n- voucher_not_active - voucher is not active\
+        \ yet (before start date)\n- voucher_expired - voucher has already expired\
+        \ (after expiration date)\n- voucher_disabled -  voucher has been disabled\
+        \ (active: false)\n- quantity_exceeded - vouchers redemptions limit has been\
+        \ exceeded\n- gift_amount_exceeded - gift amount has been exceeded\n- customer_rules_violated\
+        \ - customer did not match the segment\n- order_rules_violated - order did\
+        \ not match validation rules\n- invalid_order - order was specified incorrectly\n\
+        - invalid_amount - order amount was specified incorrectly\n- missing_amount\
+        \ - order amount was not specified\n- missing_order_items - order items were\
+        \ not specified\n- missing_customer - customer was not specified"
       operationId: list-redemptions
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -859,7 +852,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -868,8 +861,8 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "A filter on the list based on the redemption result. Available\
-          \ options are: `SUCCESS`, `FAILURE`. You can provide multiple values by\
-          \ repeating the param."
+          \ options are: SUCCESS, FAILURE. You can provide multiple values by repeating\
+          \ the param."
         explode: true
         in: query
         name: result
@@ -886,8 +879,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterString'
         style: form
-      - description: Return redemptions performed by the customer with given `id`
-          or `source_id`.
+      - description: Return redemptions performed by the customer with given id or
+          source_id.
         explode: true
         in: query
         name: customer
@@ -904,10 +897,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterOrderListRedemptions'
         style: form
-      - description: "A filter on the list based on the object `created_at` field.\
-          \ The value is a dictionary with the following options: `before`, `after`.\
-          \ A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z`\
-          \ or `2016-11-16`). An example: `[created_at][before]=2017-09-08T13:52:18.227Z`"
+      - description: "A filter on the list based on the object created_at field. The\
+          \ value is a dictionary with the following options: before, after. A date\
+          \ value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16).\
+          \ An example: [created_at][before] 2017-09-08T13:52:18.227Z"
         explode: true
         in: query
         name: created_at
@@ -1279,37 +1272,17 @@ paths:
       - Redemptions
       x-accepts: application/json
     post:
-      description: "## How API returns calculated discounts and order amounts in the\
-        \ response\n\nIn the table below, you can see the logic the API follows to\
-        \ calculate discounts and amounts:\n\n| **Field** | **Calculation** | **Description**\
-        \ |\n|:---|:---|:---|\n| amount | N/A | This field shows the order amount\
-        \ before applying any discount |\n| total_amount | `total_amount` = `amount`\
-        \ - `total_discount_amount` | This field shows the order amount after applying\
-        \ all the discounts |\n| discount_amount | `discount_amount` = `previous_discount_amount`\
-        \ + `applied_discount_amount` | This field sums up all order-level discounts\
-        \ up to and including the specific discount being calculated for the stacked\
-        \ redemption. |\n| items_discount_amount | sum(items, i => i.discount_amount)\
-        \ | This field sums up all product-specific discounts |\n| total_discount_amount\
-        \ | `total_discount_amount` = `discount_amount` + `items_discount_amount`\
-        \ | This field sums up all order-level and all product-specific discounts\
-        \ |\n| applied_discount_amount | N/A | This field shows the order-level discount\
-        \ applied in a particular request |\n| items_applied_discount_amount | sum(items,\
-        \ i => i.applied_discount_amount) | This field sums up all product-specific\
-        \ discounts applied in a particular request |\n| total_applied_discount_amount\
-        \ | `total_applied_discount_amount` = `applied_discount_amount` + `items_applied_discount_amount`\
-        \ | This field sums up all order-level and all product-specific discounts\
-        \ applied in a particular request |\n\n<!-- theme: info -->\n> 📘 Rollbacks\n\
-        >\n> You can't roll back a child redemption. When you call rollback on a stacked\
-        \ redemption, all child redemptions will be rolled back. You need to refer\
-        \ to a parent redemption ID in your <!-- [rollback request](OpenAPI.json/paths/~1redemptions~1{parentRedemptionId}~1rollbacks/post)\
-        \ -->[rollback request](ref:rollback-stacked-redemptions).    \n\n<!-- theme:\
-        \ info -->\n> 📘 Also available on client-side\n>\n> This method is also accessible\
+      description: "# How API returns calculated discounts and order amounts in the\
+        \ response\nIn the table below, you can see the logic the API follows to calculate\
+        \ discounts and amounts:\n\n\n 📘 Rollbacks\n You cant roll back a child redemption.\
+        \ When you call rollback on a stacked redemption, all child redemptions will\
+        \ be rolled back. You need to refer to a parent redemption ID in your rollback\
+        \ request.    \n 📘 Also available on client-side\n This method is also accessible\
         \ through public keys which you can use in client-side​ apps: mobile and web\
-        \ browser apps. Go to the dedicated [endpoint](ref:redeem-stacked-discounts-client-side)\
-        \ to learn more.\n> - Use `X-Client-Application-Id` as the application ID\
-        \ header.\n> - Use `X-Client-Token` as the appliction secret key header.\n\
-        > - Use client-side base URL.\n> - Use an `origin` header for your custom\
-        \ domain."
+        \ browser apps. Go to the dedicated endpoint to learn more.\n - Use X-Client-Application-Id\
+        \ as the application ID header.\n - Use X-Client-Token as the appliction secret\
+        \ key header.\n - Use client-side base URL.\n - Use an origin header for your\
+        \ custom domain."
       operationId: redeem-stacked-discounts
       parameters: []
       requestBody:
@@ -1375,8 +1348,7 @@ paths:
     delete:
       description: |-
         Deletes a voucher. This operation cannot be undone. Additionally, this operation removes any redemptions on the voucher.
-
-        If the `force` parameter is set to `false` or not set at all, the voucher will be moved to [the bin](ref:list-bin-entries).
+        If the force parameter is set to false or not set at all, the voucher will be moved to the bin.
       operationId: delete-voucher
       parameters:
       - description: A unique **code** that identifies the voucher.
@@ -1387,8 +1359,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterCode'
         style: simple
-      - description: "If this flag is set to `true`, the voucher will be removed permanently.\
-          \ If it is set to `false` or not set at all, the voucher will be moved to\
+      - description: "If this flag is set to true, the voucher will be removed permanently.\
+          \ If it is set to false or not set at all, the voucher will be moved to\
           \ the bin. Going forward, the user will be able to create another voucher\
           \ with exactly the same code."
         explode: true
@@ -1409,10 +1381,10 @@ paths:
       - Vouchers
       x-accepts: application/json
     get:
-      description: "Retrieves the voucher with the given `code` or unique Voucherify\
+      description: "Retrieves the voucher with the given code or unique Voucherify\
         \ ID. You can either pass the voucher ID which was assigned by Voucherify,\
-        \ e.g., `v_7HxHkf4VAkMuc8u4lZs78lyRwhRze5UE`, or the `code` of the voucher\
-        \ as the path parameter value, e.g., `7fjWdr`."
+        \ e.g., v_7HxHkf4VAkMuc8u4lZs78lyRwhRze5UE, or the code of the voucher as\
+        \ the path parameter value, e.g., 7fjWdr."
       operationId: get-voucher
       parameters:
       - description: A unique **code** that identifies the voucher.
@@ -1873,15 +1845,15 @@ paths:
       x-accepts: application/json
   /v1/vouchers/{code}/enable:
     post:
-      description: "There are various times when you'll want to manage a voucher's\
-        \ accessibility. This can be done by two API methods for managing the voucher\
-        \ state - *enable* and *disable*.  \n___\nThe method sets the voucher state\
-        \ to **active**. The voucher can be redeemed - only if the redemption occurs\
-        \ after the start date and the voucher is not expired."
+      description: "There are various times when youll want to manage a vouchers accessibility.\
+        \ This can be done by two API methods for managing the voucher state - *enable*\
+        \ and *disable*.  \n___\nThe method sets the voucher state to **active**.\
+        \ The voucher can be redeemed - only if the redemption occurs after the start\
+        \ date and the voucher is not expired."
       operationId: enable-voucher
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
-          \ assigned by Voucherify, i.e. `v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u`."
+          \ assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u."
         explode: false
         in: path
         name: code
@@ -1959,14 +1931,14 @@ paths:
       x-accepts: application/json
   /v1/vouchers/{code}/disable:
     post:
-      description: "There are various times when you'll want to manage a voucher's\
-        \ accessibility. This can be done by two API methods for managing the voucher\
-        \ state - *enable* and *disable*.  \n___\nThis method sets the voucher state\
-        \ to **inactive**. The voucher cannot be redeemed."
+      description: "There are various times when youll want to manage a vouchers accessibility.\
+        \ This can be done by two API methods for managing the voucher state - *enable*\
+        \ and *disable*.  \n___\nThis method sets the voucher state to **inactive**.\
+        \ The voucher cannot be redeemed."
       operationId: disable-voucher
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
-          \ assigned by Voucherify, i.e. `v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u`."
+          \ assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u."
         explode: false
         in: path
         name: code
@@ -2048,7 +2020,7 @@ paths:
       operationId: update-voucher-balance
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
-          \ assigned by Voucherify, i.e. `v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u`."
+          \ assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u."
         explode: false
         in: path
         name: code
@@ -2100,7 +2072,7 @@ paths:
       operationId: list-voucher-transactions
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
-          \ assigned by Voucherify, i.e. `v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u`."
+          \ assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u."
         explode: false
         in: path
         name: code
@@ -2117,7 +2089,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -2317,27 +2289,14 @@ paths:
       x-accepts: application/json
   /v1/vouchers/{code}/transactions/export:
     post:
-      description: |-
+      description: |+
         Export transactions that are associated with credit movements on a gift card or loyalty card.
 
-        | **Field** | **Definition** | **Example Export** |
-        |:---|:---|:---|
-        | id | Unique transaction ID. | vtx_0cb7811f1c07765800 |
-        | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_CANCELLATION` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
-        | source_id | Unique transaction source ID. | 8638 |
-        | reason | Contains the reason for the transaction if one was included originally. |  |
-        | balance | The gift card or loyalty card balance after the transaction. |  |
-        | amount | The amount of gift card or loyalty card credits being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  |
-        | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  |
-        | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp |
-        | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV |
-        | source|  Channel through which the transaction was initiated. | API |
-        | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. |
-        | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+
       operationId: export-voucher-transactions
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
-          \ assigned by Voucherify, i.e. `v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u`."
+          \ assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u."
         example: GIFT-CARD-1
         explode: false
         in: path
@@ -2434,39 +2393,33 @@ paths:
   /v1/vouchers/importCSV:
     post:
       description: "Import standalone vouchers into the repository using a CSV file.\n\
-        \nThe CSV file has to include headers in the first line. All properties listed\
+        The CSV file has to include headers in the first line. All properties listed\
         \ in the file headers that cannot be mapped to standard voucher fields will\
-        \ be added to the metadata object.  \n\nYou can find an example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons).\n\
-        ___\n<!--\ntitle: \"cURL Example Request\"\nlineNumbers: true\n-->\n```cURL\
-        \ cURL example\ncurl -X POST \\\n  https://api.voucherify.io/v1/vouchers/importCSV\
-        \ \\\n  -F file=@/path/to/vouchers.csv \\\n  -H \"X-App-Id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"\
-        \ \\\n  -H \"X-App-Token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"\n```\n\n\
-        <!-- theme: info -->\n\n> 📘 Standard voucher fields mapping\n>\n> - Go to\
-        \ the <!-- [import vouchers](OpenAPI.json/paths/~1vouchers~1import) -->[import\
-        \ vouchers](ref:import-vouchers) endpoint to see all standard CSV fields description\
-        \ (body params section).\n> - Supported CSV file headers: Code,Voucher Type,Value,Discount\
-        \ Type,Category,Start Date,Expiration Date,Redemption Limit,Redeemed Quantity,\
-        \ Redeemed Amount,Active,Additional Info,Custom Metadata Property Name\n>-\
-        \ **Start and expiration dates** need to be provided in compliance with the\
-        \ ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  \n>    - `YYYY-MM-DD`\n\
-        >    - `YYYY-MM-DDTHH`\n>    - `YYYY-MM-DDTHH:mm`\n>    - `YYYY-MM-DDTHH:mm:ss`\n\
-        >    - `YYYY-MM-DDTHH:mm:ssZ`\n>    - `YYYY-MM-DDTHH:mm:ssZ`\n>    - `YYYY-MM-DDTHH:mm:ss.SSSZ`\n\
-        > - Custom code attributes (not supported by-default) need to be added as\
-        \ code **metadata**.\n> - You **cannot import the same codes** to a single\
-        \ Voucherify Project.\n\n<!-- theme: info -->\n\n> 📘 Categories\n>\n> In\
-        \ the structure representing your data, you can define a category that the\
-        \ voucher belongs to. You can later use the category of a voucher to group\
-        \ and search by specific criteria in the Dashboard and using the [List Vouchers](ref:list-vouchers)\
-        \ endpoint.\n\nThis API request starts a process that affects Voucherify data\
-        \ in bulk. \n\nIn case of small jobs (like bulk update) the request is put\
-        \ into a queue and processed once every other bulk request placed in the queue\
-        \ prior to this request is finished. However, when the job takes a longer\
-        \ time (like vouchers generation) then it is processed in small portions in\
-        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
-        \ then they will all have the `IN_PROGRESS` status shortly. This way, small\
-        \ jobs added just after scheduling big jobs of the same type will be processed\
-        \ in a short time window. \n\nThe result will return the async ID. You can\
-        \ verify the status of your request via this [API request](ref:get-async-action)."
+        \ be added to the metadata object.  \nYou can find an example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons).\n\
+        ___\n 📘 Standard voucher fields mapping\n - Go to the import vouchers endpoint\
+        \ to see all standard CSV fields description (body params section).\n - Supported\
+        \ CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start Date,Expiration\
+        \ Date,Redemption Limit,Redeemed Quantity, Redeemed Amount,Active,Additional\
+        \ Info,Custom Metadata Property Name\n- **Start and expiration dates** need\
+        \ to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.\
+        \  \n    - YYYY-MM-DD\n    - YYYY-MM-DDTHH\n    - YYYY-MM-DDTHH:mm\n    -\
+        \ YYYY-MM-DDTHH:mm:ss\n    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ssZ\n\
+        \    - YYYY-MM-DDTHH:mm:ss.SSSZ\n - Custom code attributes (not supported\
+        \ by-default) need to be added as code **metadata**.\n - You **cannot import\
+        \ the same codes** to a single Voucherify Project.\n 📘 Categories\n In the\
+        \ structure representing your data, you can define a category that the voucher\
+        \ belongs to. You can later use the category of a voucher to group and search\
+        \ by specific criteria in the Dashboard and using the List Vouchers endpoint.\n\
+        This API request starts a process that affects Voucherify data in bulk. \n\
+        In case of small jobs (like bulk update) the request is put into a queue and\
+        \ processed once every other bulk request placed in the queue prior to this\
+        \ request is finished. However, when the job takes a longer time (like vouchers\
+        \ generation) then it is processed in small portions in a round-robin fashion.\
+        \ When there is a list of vouchers generation scheduled, then they will all\
+        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
+        \ scheduling big jobs of the same type will be processed in a short time window.\
+        \ \nThe result will return the async ID. You can verify the status of your\
+        \ request via this API request."
       operationId: import-vouchers-using-csv
       parameters: []
       requestBody:
@@ -2474,7 +2427,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/VouchersImportCSVRequestBody'
-        description: The file path is stored in the form `file` header.
+        description: The file path is stored in the form file header.
       responses:
         "202":
           content:
@@ -2503,9 +2456,9 @@ paths:
     delete:
       description: "Manually release a validation session that has been set up for\
         \ the voucher. This method undos the actions that are explained in our guide\
-        \ on how a validation session was established, you can read more [here](doc:locking-validation-session).\
-        \ \n\n> 📘 Release Session using Dashboard\n>\n> You can also use the Validations\
-        \ Manager in the Dashboard to unlock sessions. [Read more](https://support.voucherify.io/article/16-dashboard-sections#validations)."
+        \ on how a validation session was established, you can read more here. \n\
+        \ 📘 Release Session using Dashboard\n You can also use the Validations Manager\
+        \ in the Dashboard to unlock sessions. [Read more](https://support.voucherify.io/article/16-dashboard-sections#validations)."
       operationId: release-validation-session
       parameters:
       - description: A **code** that identifies the voucher or a unique voucher ID
@@ -2538,14 +2491,14 @@ paths:
       x-accepts: application/json
   /v1/campaigns:
     get:
-      description: "Retrieve a list of campaigns in a project. \n\nThe campaigns are\
+      description: "Retrieve a list of campaigns in a project. \nThe campaigns are\
         \ returned sorted by creation date, with the most recent campaigns appearing\
-        \ first.  \n\nWhen you get a list of campaigns, you can optionally specify\
-        \ query parameters to customize the amount of campaigns returned per call\
-        \ using `limit`, which page of campaigns to return using `page`, sort the\
-        \ campaigns using the `order` query parameter and filter the results by the\
-        \ `campaign_type`.\n\nThis method will return an error when trying to return\
-        \ a limit of more than 100 campaigns."
+        \ first.  \nWhen you get a list of campaigns, you can optionally specify query\
+        \ parameters to customize the amount of campaigns returned per call using\
+        \ limit, which page of campaigns to return using page, sort the campaigns\
+        \ using the order query parameter and filter the results by the campaign_type.\n\
+        This method will return an error when trying to return a limit of more than\
+        \ 100 campaigns."
       operationId: list-campaigns
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -2557,7 +2510,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -2573,7 +2526,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterCampaignType'
         style: form
-      - description: Include an expanded `categories` object in the response.
+      - description: Include an expanded categories object in the response.
         explode: true
         in: query
         name: expand
@@ -2582,8 +2535,7 @@ paths:
           $ref: '#/components/schemas/ParameterExpandListCampaigns'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -2825,13 +2777,11 @@ paths:
     post:
       description: "Method to create a batch of vouchers aggregated in one campaign.\
         \ You can choose a variety of voucher types and define a unique pattern for\
-        \ generating codes.  \n<!-- theme: info -->\n\n> 📘 Global uniqueness\n>\n\
-        > All campaign codes are unique across the whole project. Voucherify will\
-        \ not allow you to generate 2 campaigns with the same coupon code.  \n<!--\
-        \ theme: warning -->\n> 🚧 Code generation status\n>\n> This is an asynchronous\
-        \ action; you can't read or modify a newly created campaign until the code\
-        \ generation is completed. See the `creation_status` field in the <!-- [campaign\
-        \ object](OpenAPI.json/components/schemas/Campaign) -->[campaign object](ref:get-campaign)\
+        \ generating codes.  \n 📘 Global uniqueness\n All campaign codes are unique\
+        \ across the whole project. Voucherify will not allow you to generate 2 campaigns\
+        \ with the same coupon code.  \n 🚧 Code generation status\n This is an asynchronous\
+        \ action; you cant read or modify a newly created campaign until the code\
+        \ generation is completed. See the creation_status field in the campaign object\
         \ description."
       operationId: create-campaign
       parameters: []
@@ -3451,18 +3401,18 @@ paths:
     delete:
       description: "Deletes a campaign and all related vouchers. This action cannot\
         \ be undone. Also, this method immediately removes any redemptions on the\
-        \ voucher.\n\nIf the `force` parameter is set to `false` or not set at all,\
-        \ the campaign and all related vouchers will be moved to [the bin](ref:list-bin-entries).\n\
-        \nThis API request starts a process that affects Voucherify data in bulk.\
-        \ \n\nIn case of small jobs (like bulk update) the request is put into a queue\
-        \ and processed once every other bulk request placed in the queue prior to\
-        \ this request is finished. However, when the job takes a longer time (like\
-        \ vouchers generation) then it is processed in small portions in a round-robin\
-        \ fashion. When there is a list of vouchers generation scheduled, then they\
-        \ will all have the `IN_PROGRESS` status shortly. This way, small jobs added\
-        \ just after scheduling big jobs of the same type will be processed in a short\
-        \ time window. \n\nThe result will return the async ID. You can verify the\
-        \ status of your request via this [API request](ref:get-async-action)."
+        \ voucher.\nIf the force parameter is set to false or not set at all, the\
+        \ campaign and all related vouchers will be moved to the bin.\nThis API request\
+        \ starts a process that affects Voucherify data in bulk. \nIn case of small\
+        \ jobs (like bulk update) the request is put into a queue and processed once\
+        \ every other bulk request placed in the queue prior to this request is finished.\
+        \ However, when the job takes a longer time (like vouchers generation) then\
+        \ it is processed in small portions in a round-robin fashion. When there is\
+        \ a list of vouchers generation scheduled, then they will all have the IN_PROGRESS\
+        \ status shortly. This way, small jobs added just after scheduling big jobs\
+        \ of the same type will be processed in a short time window. \nThe result\
+        \ will return the async ID. You can verify the status of your request via\
+        \ this API request."
       operationId: delete-campaign
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -3474,8 +3424,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterCampaignId'
         style: simple
-      - description: "If this flag is set to `true`, the campaign and related vouchers\
-          \ will be removed permanently. If it is set to `false` or not set at all,\
+      - description: "If this flag is set to true, the campaign and related vouchers\
+          \ will be removed permanently. If it is set to false or not set at all,\
           \ the campaign and related vouchers will be moved to the bin. Going forward,\
           \ the user will be able to create the next campaign with exactly the same\
           \ name."
@@ -3573,11 +3523,11 @@ paths:
     put:
       description: "Updates the specified campaign by setting the values of the parameters\
         \ passed in the request body. Any parameters not provided in the payload will\
-        \ be left unchanged. \n\nFields other than the ones listed in the request\
-        \ body won't be modified. Even if provided, they will be silently skipped.\
-        \   \n<!-- theme: warning -->\n> #### Vouchers will be affected\n>\n> This\
-        \ method will update vouchers aggregated in the campaign. It will affect all\
-        \ vouchers that are not published or redeemed yet."
+        \ be left unchanged. \nFields other than the ones listed in the request body\
+        \ wont be modified. Even if provided, they will be silently skipped.   \n\
+        \ ## Vouchers will be affected\n This method will update vouchers aggregated\
+        \ in the campaign. It will affect all vouchers that are not published or redeemed\
+        \ yet."
       operationId: update-campaign
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -3683,19 +3633,19 @@ paths:
       description: "This method gives the possibility to push new vouchers to an existing\
         \ campaign. New vouchers will inherit properties from the campaign profile.\
         \ However, it is possible to overwrite some of them in the request body. If\
-        \ you provide an optional `code_config` parameter with a voucher code configuration,\
+        \ you provide an optional code_config parameter with a voucher code configuration,\
         \ then it will be used to generate new voucher codes. Otherwise, the voucher\
-        \ code configuration from the campaign will be used.\n\nThis API request starts\
-        \ a process that affects Voucherify data in bulk. \n\nIn case of small jobs\
+        \ code configuration from the campaign will be used.\nThis API request starts\
+        \ a process that affects Voucherify data in bulk. \nIn case of small jobs\
         \ (like bulk update) the request is put into a queue and processed once every\
         \ other bulk request placed in the queue prior to this request is finished.\
         \ However, when the job takes a longer time (like vouchers generation) then\
         \ it is processed in small portions in a round-robin fashion. When there is\
-        \ a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS`\
+        \ a list of vouchers generation scheduled, then they will all have the IN_PROGRESS\
         \ status shortly. This way, small jobs added just after scheduling big jobs\
-        \ of the same type will be processed in a short time window. \n\nThe result\
+        \ of the same type will be processed in a short time window. \nThe result\
         \ will return the async ID. You can verify the status of your request via\
-        \ this [API request](ref:get-async-action)."
+        \ this API request."
       operationId: add-vouchers-to-campaign
       parameters:
       - description: "The campaign ID or name of the campaign to which voucher(s)\
@@ -3855,20 +3805,20 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/import:
     post:
-      description: "Imports vouchers to an **existing** campaign.\n\nThis API request\
-        \ starts a process that affects Voucherify data in bulk. \n\nIn case of small\
+      description: "Imports vouchers to an **existing** campaign.\nThis API request\
+        \ starts a process that affects Voucherify data in bulk. \nIn case of small\
         \ jobs (like bulk update) the request is put into a queue and processed once\
         \ every other bulk request placed in the queue prior to this request is finished.\
         \ However, when the job takes a longer time (like vouchers generation) then\
         \ it is processed in small portions in a round-robin fashion. When there is\
-        \ a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS`\
+        \ a list of vouchers generation scheduled, then they will all have the IN_PROGRESS\
         \ status shortly. This way, small jobs added just after scheduling big jobs\
-        \ of the same type will be processed in a short time window. \n\nThe result\
+        \ of the same type will be processed in a short time window. \nThe result\
         \ will return the async ID. You can verify the status of your request via\
-        \ this [API request](ref:get-async-action)."
+        \ this API request."
       operationId: import-vouchers-to-campaign
       parameters:
-      - description: "The ID of an existing campaign to which you're importing the\
+      - description: "The ID of an existing campaign to which youre importing the\
           \ codes. You can either pass the campaign ID, which was assigned by Voucherify,\
           \ or the name of the campaign as the path parameter value."
         explode: false
@@ -3971,8 +3921,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsImportCreateRequestBody'
         description: "Discount type, expiration date and the remaining attributes\
-          \ will be taken from the <!-- [Campaign](OpenAPI.json/components/schemas/Campaign)\
-          \ -->[Campaign](ref:get-campaign) settings."
+          \ will be taken from the Campaign settings."
       responses:
         "202":
           content:
@@ -3995,48 +3944,17 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/importCSV:
     post:
-      description: "Imports vouchers to an **existing** campaign.  \n\n\nThe CSV file\
-        \ has to include headers in the first line. \n\nCurl Example\n<!--\ntitle:\
-        \ \"Example Request\"\nlineNumbers: true\n-->\n```cURL\ncurl -X POST \\\n\
-        \  https://api.voucherify.io/v1/campaigns/TEST-CAMPAIGN/importCSV \\\n  -F\
-        \ file=@/path/to/campaigns.csv \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\"\
-        \ \\\n  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\"\n```\n\n\
-        You can import values for the following fields: `Code` (**required**), `Category`,\
-        \ `Active`. In a gift cards import, you can also include the current card\
-        \ balance using the `Gift Amount` header and the amount that was redeemed\
-        \ using the `Redeemed Amount` header. In a loyalty cards import, you can also\
-        \ include the current loyalty card score in points using the `Loyalty Points`\
-        \ header. Remaining CSV columns will be mapped to metadata properties. \n\n\
-        Discount type, time limits, and validation rules will be taken from the <!--\
-        \ [campaign object](OpenAPI.json/components/schemas/Campaign) -->[campaign\
-        \ object](ref:get-campaign) settings. \n\n\n| **Active** | **Code** | **Loyalty\
-        \ Points** | **Gift Amount** | **Redeemed Amount** | **Redeemed Quantity**\
-        \ | **Category** | **Custom_metadata_property** |\n|---|---|---|---|---|---|---|---|\n\
-        | Use `true` or `false` to enable or disable the voucher; this flag can be\
-        \ used to turn off the ability to redeem a voucher even though it is within\
-        \ the campaign's start/end validity timeframe. | The unique voucher code.\
-        \ | The number of points to be added to the loyalty card. If you leave this\
-        \ undefined, then the initial number of points will be set according to the\
-        \ campaign settings.<br>Context: `LOYALTY_PROGRAM` | The initial gift card\
-        \ balance.<br>Context: `GIFT_VOUCHERS` | The amount that was redeemed from\
-        \ the available balance on a gift card. | The number of times the voucher\
-        \ has been redeemed. | A custom tag for the voucher to help you filter codes;\
-        \ you can either import the category name or a unique Voucherify-assigned\
-        \ category ID. | Any additional data that you would like to store for the\
-        \ given loyalty card as a Custom attribute. Remember to define the metadata\
-        \ schema in the Dashboard prior to importing codes. |\n|<!-- theme: info -->\n\
-        \n> 📘 Active\n>\n> The CSV file is allowed in two versions; either with or\
-        \ without a column titled `Active`. It indicates whether the voucher is enabled\
-        \ after the import event.  \n\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \n\nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
+      description: "Imports vouchers to an **existing** campaign.  \nThe CSV file\
+        \ has to include headers in the first line. \nThis API request starts a process\
+        \ that affects Voucherify data in bulk. \nIn case of small jobs (like bulk\
+        \ update) the request is put into a queue and processed once every other bulk\
+        \ request placed in the queue prior to this request is finished. However,\
+        \ when the job takes a longer time (like vouchers generation) then it is processed\
         \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the `IN_PROGRESS` status shortly.\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
         \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \n\nThe result will return the\
-        \ async ID. You can verify the status of your request via this [API request](ref:get-async-action)."
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request via this API request."
       operationId: import-vouchers-to-campaign-using-csv
       parameters:
       - description: "The campaign ID or name of the campaign being enabled. You can\
@@ -4054,7 +3972,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/CampaignsVouchersImportCSVRequestBody'
-        description: The file path is stored in the form `file` header.
+        description: The file path is stored in the form file header.
       responses:
         "200":
           content:
@@ -4080,10 +3998,10 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/enable:
     post:
-      description: "There are various times when you'll want to manage a campaign's\
+      description: "There are various times when youll want to manage a campaigns\
         \ accessibility. This can be done by two API methods for managing the campaign\
-        \ state - *enable* and *disable*.  \n\nSets campaign state to **active**.\
-        \ The vouchers in this campaign can be redeemed - only if the redemption occurs\
+        \ state - *enable* and *disable*.  \nSets campaign state to **active**. The\
+        \ vouchers in this campaign can be redeemed - only if the redemption occurs\
         \ after the start date of the campaign and voucher and the voucher and campaign\
         \ are not expired."
       operationId: enable-campaign
@@ -4117,9 +4035,9 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/disable:
     post:
-      description: "There are various times when you'll want to manage a campaign's\
+      description: "There are various times when youll want to manage a campaigns\
         \ accessibility. This can be done by two API methods for managing the campaign\
-        \ state - *enable* and *disable*.  \n\nSets campaign state to **inactive**.\
+        \ state - *enable* and *disable*.  \nSets campaign state to **inactive**.\
         \ The vouchers in this campaign can no longer be redeemed."
       operationId: disable-campaign
       parameters:
@@ -4298,8 +4216,8 @@ paths:
       x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}/enable:
     post:
-      description: "This method enables a promotion tier, i.e. makes the `active`\
-        \ parameter = `true`."
+      description: "This method enables a promotion tier, i.e. makes the active parameter\
+        \   true."
       operationId: enable-promotion-tier
       parameters:
       - description: Unique promotion tier ID.
@@ -4372,8 +4290,8 @@ paths:
       x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}/disable:
     post:
-      description: "This method disables a promotion tier, i.e. makes the `active`\
-        \ parameter = `false`."
+      description: "This method disables a promotion tier, i.e. makes the active parameter\
+        \   false."
       operationId: disable-promotion-tier
       parameters:
       - description: Unique promotion tier ID.
@@ -4447,18 +4365,9 @@ paths:
   /v1/promotions/stacks:
     get:
       description: "This method enables you to list promotion stacks irrespective\
-        \ of the campaign they are associated with. \n\nYou can use filters in the\
-        \ query parameters to specify the stacks to be returned in the response.\n\
-        \n## Advanced filters for fetching promotion stacks\n\n| **Filters** | **Examples**\
-        \ |\n| :--- | :--- |\n| Created Before | - `[created_at][before]=2021-12-30T13:52:18.227Z`<br>-\
-        \ `[filters][created_at][conditions][$before][0]=2021-12-30T13:52:18.227Z`\
-        \ |\n| Created After | - `[created_at][after]=2021-12-30T13:52:18.227Z`<br>-\
-        \ `[filters][created_at][conditions][$after][0]=2021-12-30T13:52:18.227Z`\
-        \ |\n| Updated Before | - `[updated_at][before]=2021-12-30T13:52:18.227Z`<br>-\
-        \ `[filters][updated_at][conditions][$before][0]=2021-12-30T13:52:18.227Z`\
-        \ |\n| Updated After | - `[updated_at][after]=2021-12-30T13:52:18.227Z`<br>-\
-        \ `[filters][updated_at][conditions][$after][0]=2021-12-30T13:52:18.227Z`\
-        \ |"
+        \ of the campaign they are associated with. \nYou can use filters in the query\
+        \ parameters to specify the stacks to be returned in the response.\n# Advanced\
+        \ filters for fetching promotion stacks\n\n"
       operationId: list-all-promotion-stacks
       parameters:
       - description: Limits the number of objects to be returned. The limit can range
@@ -4470,7 +4379,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -4479,8 +4388,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -4488,10 +4396,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterOrderListAllPromotionStacks'
         style: form
-      - description: "A filter on the list based on the object `created_at` field.\
-          \ The value is a dictionary with the following options: `before`, `after`.\
-          \ A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z`\
-          \ or `2016-11-16`). An example: `[created_at][before]=2017-09-08T13:52:18.227Z`"
+      - description: "A filter on the list based on the object created_at field. The\
+          \ value is a dictionary with the following options: before, after. A date\
+          \ value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16).\
+          \ An example: [created_at][before] 2017-09-08T13:52:18.227Z"
         explode: true
         in: query
         name: created_at
@@ -4499,10 +4407,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterCreatedBeforeAfter'
         style: deepObject
-      - description: "A filter on the list based on the object `updated_at` field.\
-          \ The value is a dictionary with the following options: `before`, `after`.\
-          \ A date value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z`\
-          \ or `2016-11-16`). An example: `[updated_at][before]=2017-09-08T13:52:18.227Z`"
+      - description: "A filter on the list based on the object updated_at field. The\
+          \ value is a dictionary with the following options: before, after. A date\
+          \ value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16).\
+          \ An example: [updated_at][before] 2017-09-08T13:52:18.227Z"
         explode: true
         in: query
         name: updated_at
@@ -4751,8 +4659,8 @@ paths:
       operationId: delete-promotion-stack
       parameters:
       - description: "ID of the promotion campaign. You can either pass the campaign\
-          \ ID, which was assigned by Voucherify, or the `name` of the campaign as\
-          \ the path parameter value, e.g., `Loyalty Campaign`. "
+          \ ID, which was assigned by Voucherify, or the name of the campaign as the\
+          \ path parameter value, e.g., Loyalty Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -4784,8 +4692,8 @@ paths:
       operationId: get-promotion-stack
       parameters:
       - description: "ID of the promotion campaign. You can either pass the campaign\
-          \ ID, which was assigned by Voucherify, or the `name` of the campaign as\
-          \ the path parameter value, e.g., `Loyalty Campaign`. "
+          \ ID, which was assigned by Voucherify, or the name of the campaign as the\
+          \ path parameter value, e.g., Loyalty Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -4834,8 +4742,8 @@ paths:
       operationId: update-promotion-stack
       parameters:
       - description: "ID of the promotion campaign. You can either pass the campaign\
-          \ ID, which was assigned by Voucherify, or the `name` of the campaign as\
-          \ the path parameter value, e.g., `Loyalty Campaign`. "
+          \ ID, which was assigned by Voucherify, or the name of the campaign as the\
+          \ path parameter value, e.g., Loyalty Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -4942,7 +4850,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -5174,68 +5082,18 @@ paths:
       x-accepts: application/json
   /v1/publications:
     get:
-      description: |-
-        Retrieve a list of publications. To return a **particular** publication, you can use the `source_id` query parameter and provide the `source_id` of the publication you are looking for specifically.
+      description: |+
+        Retrieve a list of publications. To return a **particular** publication, you can use the source_id query parameter and provide the source_id of the publication you are looking for specifically.
+        # Pagination
+         🚧 Important!
+         If you want to scroll through a huge set of records, it is recommended to use the Exports API. This API will return an error page_over_limit if you reach a page above 1000.
+        # Filter Query
+        The filters query parameter allows for joining multiple parameters with logical operators. The syntax looks as follows:
 
-        ## Pagination
+        ## Operators:
 
-        <!-- theme: warning -->
-        > 🚧 Important!
-        >
-        > If you want to scroll through a huge set of records, it is recommended to use the <!-- [Exports API](OpenAPI.json/components/schemas/16_obj_export_object) -->[Exports API](ref:create-export). This API will return an error `page_over_limit` if you reach a page above 1000.
+        ## Examples
 
-        ## Filter Query
-
-        The `filters` query parameter allows for joining multiple parameters with logical operators. The syntax looks as follows:
-
-        <!--
-        title: "Filter template"
-        -->
-        ```url
-        filters[<field_name>][conditions][<operator>][<index>]=<value>
-        ```
-
-        ### Operators:
-
-        <!--
-        title: "Operators"
-        -->
-        ```
-            "$in"
-            "$not_in"
-            "$is"
-            "$is_not"
-            "$has_value"
-            "$is_unknown"
-            "$contains"
-            "$starts_with"
-            "$ends_with"
-            "$more_than"
-            "$less_than"
-            "$more_than_equal"
-            "$less_than_equal"
-        ```
-
-        ### Examples
-
-        <!--
-        title: "Example 1 - List publications of a given customer"
-        -->
-        ```url
-        GET /v1/publications?filters[customer_id][conditions][$is][0]=cust_lUET6gRpO5Wxlg5p2j2gRCgL
-        ```
-        <!--
-        title: "Example 2 - List publications of 2 customers"
-        -->
-        ```url
-        GET /v1/publications?filters[customer_id][conditions][$in][0]=cust_lUET6gRpO5Wxlg5p2j2gRCgL&filters[customer_id][conditions][$in][1]=cust_aR7NfHusxT7PdTMAKMfWDXnc
-        ```
-        <!--
-        title: "Example 3 - List publications of 2 customers using junction operator"
-        -->
-        ```url
-        GET /v1/publications?filters[customer_id][conditions][$is][0]=cust_lUET6gRpO5Wxlg5p2j2gRCgL&filters[customer_id][conditions][$is][1]=cust_aR7NfHusxT7PdTMAKMfWDXnc&filters[junction]=OR
-        ```
       operationId: list-publications
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -5247,7 +5105,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -5256,8 +5114,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -5305,7 +5162,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterVoucherTypeListPublications'
         style: form
-      - description: "This filter works only for the `true` option. If set to `true`,\
+      - description: "This filter works only for the true option. If set to true,\
           \ the query returns only publications of codes from referral campaigns. "
         explode: true
         in: query
@@ -5322,12 +5179,12 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterString'
         style: form
-      - description: "Using this endpoint with a particular publication `source_id`,\
+      - description: "Using this endpoint with a particular publication source_id,\
           \ which was sent with the original request to create a publication, returns\
           \ in the response, exactly the same code published initially because the\
           \ code was assigned to the given publication. As a result, you can use this\
           \ endpoint as a reference and return a code that was assigned in a publication\
-          \ by using a particular `source_id`."
+          \ by using a particular source_id."
         explode: true
         in: query
         name: source_id
@@ -5448,17 +5305,16 @@ paths:
       x-accepts: application/json
     post:
       description: "This method selects vouchers that are suitable for publication,\
-        \ adds a publish entry and returns the publication.\n\nA voucher is suitable\
-        \ for publication when it's active and hasn't been published yet.  \n\n<!--\
-        \ theme: warning -->\n> 🚧 Clearly define the source of the voucher\n>\n>\
-        \ You must clearly define which source you want to publish the voucher code\
-        \ from. It can either be a code from a campaign or a specific voucher identified\
-        \ by a code.  \n<!-- theme: warning -->\n> 🚧 Publish multiple vouchers\n\
-        > In case you want to publish multiple vouchers within a single publication,\
-        \ you need to specify the campaign name and number of vouchers you want to\
-        \ publish.  \n<!-- theme: info -->\n\n> 📘 Auto-update campaign\n>\n> In case\
-        \ you want to ensure the number of publishable codes increases automatically\
-        \ with the number of customers, you should use an **auto-update** campaign."
+        \ adds a publish entry and returns the publication.\nA voucher is suitable\
+        \ for publication when its active and hasnt been published yet.  \n 🚧 Clearly\
+        \ define the source of the voucher\n You must clearly define which source\
+        \ you want to publish the voucher code from. It can either be a code from\
+        \ a campaign or a specific voucher identified by a code.  \n 🚧 Publish multiple\
+        \ vouchers\n In case you want to publish multiple vouchers within a single\
+        \ publication, you need to specify the campaign name and number of vouchers\
+        \ you want to publish.  \n 📘 Auto-update campaign\n In case you want to ensure\
+        \ the number of publishable codes increases automatically with the number\
+        \ of customers, you should use an **auto-update** campaign."
       operationId: create-publication
       parameters:
       - description: "Through this flag, you can control if a particular person gets\
@@ -7225,13 +7081,13 @@ paths:
     post:
       description: "Your business logic may include a case when you need to undo a\
         \ redemption. You can revert a redemption by calling this API endpoint. \n\
-        >🚧 \n>You can roll back a redemption up to 3 months back. \n\n ## Effect\
-        \ \nThe operation \n- creates a rollback entry in voucher's redemption history\
-        \ (`redemption.redemption_entries`) and \n- gives 1 redemption back to the\
-        \ pool (decreases `redeemed_quantity` by 1). \n## Returned funds \nIn case\
-        \ of *gift card vouchers*, this method returns funds back according to the\
-        \ source redemption. In case of *loyalty card vouchers*, this method returns\
-        \ points back according to the source redemption."
+        🚧 \nYou can roll back a redemption up to 3 months back. \n # Effect \nThe\
+        \ operation \n- creates a rollback entry in vouchers redemption history (redemption.redemption_entries)\
+        \ and \n- gives 1 redemption back to the pool (decreases redeemed_quantity\
+        \ by 1). \n# Returned funds \nIn case of *gift card vouchers*, this method\
+        \ returns funds back according to the source redemption. In case of *loyalty\
+        \ card vouchers*, this method returns points back according to the source\
+        \ redemption."
       operationId: rollback-redemption
       parameters:
       - description: The original redemption ID to be rolled back (undone).
@@ -7250,7 +7106,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterString'
         style: form
-      - description: Customer's `source_id`.
+      - description: Customers source_id.
         explode: true
         in: query
         name: tracking_id
@@ -7793,11 +7649,11 @@ paths:
     post:
       description: "Rollback a stackable redemption. When you rollback a stacked redemption,\
         \ all child redemptions will be rolled back. Provide the parent redemption\
-        \ ID as the path parameter. \n>🚧 \n> You can roll back a redemption up to\
-        \ 3 months back."
+        \ ID as the path parameter. \n🚧 \n You can roll back a redemption up to 3\
+        \ months back."
       operationId: rollback-stacked-redemptions
       parameters:
-      - description: "Unique identifier of a parent redemption, e.g. `r_JQfm73zWSJFQxs3bGxweYjgm`."
+      - description: "Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm."
         explode: false
         in: path
         name: parentRedemptionId
@@ -7813,7 +7669,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterString'
         style: form
-      - description: Customer's `source_id`.
+      - description: Customers source_id.
         explode: true
         in: query
         name: tracking_id
@@ -7873,13 +7729,12 @@ paths:
     delete:
       description: |-
         Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.
-
-        If the `force` parameter is set to `false` or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](ref:list-bin-entries).
+        If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
       operationId: delete-loyalty-program
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -7887,8 +7742,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterCampaignId'
         style: simple
-      - description: "If this flag is set to `true`, the campaign and related vouchers\
-          \ will be removed permanently. If it is set to `false` or not set at all,\
+      - description: "If this flag is set to true, the campaign and related vouchers\
+          \ will be removed permanently. If it is set to false or not set at all,\
           \ the loyalty campaign and all related loyalty cards will be moved to the\
           \ bin. Going forward, the user will be able to create the next campaign\
           \ with the same name."
@@ -7926,9 +7781,9 @@ paths:
     post:
       description: "This method adds or removes balance to an existing loyalty card.\
         \ The removal of points will consume the points that expire the soonest. \n\
-        \n >🚧 Async Action\n> \n> This is an async action. If you want to perform\
-        \ several add or remove loyalty card balance actions in a short time and their\
-        \ order matters, set up sufficient time-out between the calls."
+        \ >🚧 Async Action\n \n This is an async action. If you want to perform several\
+        \ add or remove loyalty card balance actions in a short time and their order\
+        \ matters, set up sufficient time-out between the calls."
       operationId: update-loyalty-card-balance-1
       parameters:
       - description: Unique campaign ID.
@@ -8002,14 +7857,12 @@ paths:
     post:
       description: "This method gives adds or removes balance to an existing loyalty\
         \ card. The removal of points will consume the points that expire the soonest.\
-        \ \n\n<!-- theme: info -->\n\n >🚧 Async Action\n> \n> This is an async action.\
-        \ If you want to perform several add or remove loyalty card balance actions\
-        \ in a short time and their order matters, set up sufficient time-out between\
-        \ the calls.\n\n\n> 📘 Alternative endpoint\n> This endpoint is an alternative\
-        \ to this <!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance)\
-        \ -->[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed\
-        \ to allow you to add or remove loyalty card balance without having to provide\
-        \ the `campaignId` as a path parameter."
+        \ \n >🚧 Async Action\n \n This is an async action. If you want to perform\
+        \ several add or remove loyalty card balance actions in a short time and their\
+        \ order matters, set up sufficient time-out between the calls.\n 📘 Alternative\
+        \ endpoint\n This endpoint is an alternative to this endpoint. The URL was\
+        \ re-designed to allow you to add or remove loyalty card balance without having\
+        \ to provide the campaignId as a path parameter."
       operationId: update-loyalty-card-balance
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -8198,7 +8051,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -8474,7 +8327,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -8728,23 +8581,10 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/transactions/export:
     post:
-      description: |-
+      description: |+
         Export transactions that are associated with point movements on a loyalty card.
 
-        | **Field** | **Definition** | **Example Export** |
-        |:---|:---|:---|
-        | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 |
-        | type | Transaction type. | - `POINTS_EXPIRATION` <br> - `POINTS_ADDITION` <br> - `POINTS_REMOVAL` <br> - `POINTS_TRANSFER_OUT` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REFUND` <br> - `POINTS_REDEMPTION` |
-        | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom |
-        | reason | Contains the reason for the transaction if one was included originally. |  |
-        | balance | The loyalty card balance after the transaction. |  |
-        | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  |
-        | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  |
-        | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp |
-        | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV |
-        | source|  Channel through which the transaction was initiated. | - `API` <br> - `voucherify-web-ui` <br> - `Automation` |
-        | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. |
-        | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+
       operationId: export-loyalty-card-transactions
       parameters:
       - description: A unique code identifying the loyalty card that you are looking
@@ -8842,23 +8682,10 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/transactions/export:
     post:
-      description: |-
+      description: |+
         Export transactions that are associated with point movements on a loyalty card.
 
-        | **Field** | **Definition** | **Example Export** |
-        |:---|:---|:---|
-        | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 |
-        | type | Transaction type. | - `POINTS_EXPIRATION` <br> - `POINTS_ADDITION` <br> - `POINTS_REMOVAL` <br> - `POINTS_TRANSFER_OUT` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REFUND` <br> - `POINTS_REDEMPTION` |
-        | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom |
-        | reason | Contains the reason for the transaction if one was included originally. |  |
-        | balance | The loyalty card balance after the transaction. |  |
-        | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  |
-        | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  |
-        | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp |
-        | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV |
-        | source|  Channel through which the transaction was initiated. | - `API` <br> - `voucherify-web-ui` <br> - `Automation` |
-        | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. |
-        | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+
       operationId: export-loyalty-card-transactions-1
       parameters:
       - description: A unique identifier of the loyalty campaign containing the voucher
@@ -8965,15 +8792,14 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/points-expiration:
     get:
-      description: "Retrieve loyalty point expiration buckets for a given loyalty\
-        \ card. Expired point buckets are not returned in this endpoint. You can use\
-        \ the [Exports API](ref:create-export) to retrieve a list of both `ACTIVE`\
-        \ and `EXPIRED` point buckets."
+      description: Retrieve loyalty point expiration buckets for a given loyalty card.
+        Expired point buckets are not returned in this endpoint. You can use the Exports
+        API to retrieve a list of both ACTIVE and EXPIRED point buckets.
       operationId: list-points-expiration
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -8998,7 +8824,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -9072,8 +8898,8 @@ paths:
       operationId: delete-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -9104,8 +8930,8 @@ paths:
       operationId: get-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -9455,12 +9281,12 @@ paths:
   /v1/loyalties/members/{memberId}/rewards:
     get:
       description: "Retrieves the list of rewards that the given customer (identified\
-        \ by `member_id`, which is a loyalty card assigned to a particular customer)\
-        \ **can get in exchange for loyalty points**.  \n\nYou can use the `affordable_only`\
+        \ by member_id, which is a loyalty card assigned to a particular customer)\
+        \ **can get in exchange for loyalty points**.  \nYou can use the affordable_only\
         \ parameter to limit the results to rewards that the customer can actually\
         \ afford (only rewards whose price in points is not higher than the loyalty\
-        \ points balance on a loyalty card).  \n\nPlease note that rewards that are\
-        \ disabled (i.e. set to `Not Available` in the Dashboard) for a given loyalty\
+        \ points balance on a loyalty card).  \nPlease note that rewards that are\
+        \ disabled (i.e. set to Not Available in the Dashboard) for a given loyalty\
         \ tier reward mapping will not be returned in this endpoint."
       operationId: list-member-rewards
       parameters:
@@ -9474,7 +9300,7 @@ paths:
         style: simple
       - description: Limit the results to rewards that the customer can actually afford
           (only rewards whose price in points is not higher than the loyalty points
-          balance on a loyalty card). Set this flag to `true` to return rewards which
+          balance on a loyalty card). Set this flag to true to return rewards which
           the customer can actually afford.
         explode: true
         in: query
@@ -9649,8 +9475,8 @@ paths:
       operationId: get-reward-details
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -9737,8 +9563,8 @@ paths:
       operationId: get-reward-assignment-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -9788,8 +9614,8 @@ paths:
       operationId: delete-reward-assignment-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -9816,13 +9642,13 @@ paths:
       - Loyalties
       x-accepts: application/json
     get:
-      description: "Retrieve specific reward assignment.\n\n> 📘 Alternative endpoint\n\
-        >\n> This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2). "
+      description: "Retrieve specific reward assignment.\n 📘 Alternative endpoint\n\
+        \ This endpoint is an alternative to this endpoint. "
       operationId: get-reward-assignment-2
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
-          \ pass the campaign ID, which was assigned by Voucherify, or the `name`\
-          \ of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. "
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
         explode: false
         in: path
         name: campaignId
@@ -11080,11 +10906,10 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/redemption:
     post:
-      description: |-
-        <!-- theme: info -->
-        > 📘 Alternative endpoint
-        >
-        > This endpoint is an alternative to this <!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) -->[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the `campaignId` as a path parameter.
+      description: |2-
+
+         📘 Alternative endpoint
+         This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
       operationId: redeem-reward
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -11642,7 +11467,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -12229,7 +12054,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -12305,7 +12130,7 @@ paths:
         style: form
       - description: "This is a property that controls the sorting direction of the\
           \ results. Sort the results using one of the filtering options, where the\
-          \ dash `-` preceding a sorting option means sorting in a descending order."
+          \ dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -12314,19 +12139,11 @@ paths:
           $ref: '#/components/schemas/ParameterOrderListCustomers'
         style: form
       - description: "A cursor for pagination. This is a date-time value that defines\
-          \ your place in the list based on `created_at` property from the customer\
+          \ your place in the list based on created_at property from the customer\
           \ object. For instance, if you make a list request and receive 100 objects,\
-          \ ending with an object created at `2020-05-24T13:43:09.024Z`, your subsequent\
-          \ call can include `starting_after=2020-05-24T13:43:09.024Z` in order to\
-          \ fetch the next page of the list. \n<!-- title: Options -->\n| **Option**\
-          \ | **Format** | **Sorting** |\n|:---|:---|:---|\n| Return customers **before**\
-          \ a specific creation date  | - set `starting_after` parameter to the breakpoint\
-          \ date | Sorting order is **descending**; the most recent dates first and\
-          \ least recent dates last. |\n| Return customers **after** a specific create\
-          \ or update date | - include the `order` parameter set to `created_at` or\
-          \ `updated_at`<br>- set `starting_after` to the breakpoint date | Sorting\
-          \ order is **ascending**; the least recent dates first and the most recent\
-          \ dates last. |\n"
+          \ ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent\
+          \ call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch\
+          \ the next page of the list. \n"
         explode: true
         in: query
         name: starting_after
@@ -12501,12 +12318,8 @@ paths:
     post:
       description: |-
         Creates a customer object.
-
-        <!-- theme: info -->
-
-        > 📘 Upsert Mode
-        >
-        > If you pass an `id` or a `source_id` that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+         📘 Upsert Mode
+         If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
       operationId: create-customer
       parameters: []
       requestBody:
@@ -12603,7 +12416,7 @@ paths:
       description: This method deletes a customer.
       operationId: delete-customer
       parameters:
-      - description: A Voucherify customer's `id` or `source_id`.
+      - description: A Voucherify customers id or source_id.
         explode: false
         in: path
         name: customerId
@@ -12625,7 +12438,7 @@ paths:
       description: Retrieve customer details.
       operationId: get-customer
       parameters:
-      - description: A Voucherify customer's `id` or `source_id`.
+      - description: A Voucherify customers id or source_id.
         explode: false
         in: path
         name: customerId
@@ -12697,7 +12510,7 @@ paths:
         be left unchanged.
       operationId: update-customer
       parameters:
-      - description: A Voucherify customer's `id` or `source_id`.
+      - description: A Voucherify customers id or source_id.
         explode: false
         in: path
         name: customerId
@@ -12816,7 +12629,7 @@ paths:
         and connected resources. It makes the customer profile forgotten by Voucherify.
       operationId: customer-permanently-deletion
       parameters:
-      - description: A Voucherify customer's `id` or `source_id`.
+      - description: A Voucherify customers id or source_id.
         explode: false
         in: path
         name: customerId
@@ -12859,29 +12672,25 @@ paths:
     post:
       description: "This API method lets you import or update customer data. To get\
         \ a proper and valid response, please send a CSV file with data separated\
-        \ by commas.  \n\n## Request Example\n<!--\ntitle: \"Example Request\"\nlineNumbers:\
-        \ true\n-->\n```cURL\ncurl -X POST \\\n  https://api.voucherify.io/v1/customers/importCSV\
-        \ \\\n  -F file=@/path/to/customers.csv \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\"\
-        \ \\\n  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\"\n```\n##\
-        \ CSV File Format\n\nThe CSV file has to include headers in the first line.\
-        \ All properties which cannot be mapped to standard customer fields will be\
-        \ added to the metadata object.\n\n<!-- theme: info -->\n> 📘 Standard customer\
-        \ fields mapping\n>\n> **No spaces allowed in field names**  \n> Id, Name,\
+        \ by commas.  \n# Request Example\n# CSV File Format\nThe CSV file has to\
+        \ include headers in the first line. All properties which cannot be mapped\
+        \ to standard customer fields will be added to the metadata object.\n 📘 Standard\
+        \ customer fields mapping\n **No spaces allowed in field names**  \n Id, Name,\
         \ Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code,\
         \ Address_City, Address_State, Address_Country, Description, Metadata_name_1,\
-        \ Metadata_name_2\n\n## Update Customers using CSV\n\nIf you would like to\
-        \ update customer's data, you can do it using the CSV file with new data.\
-        \ However, remember to include a `source_id` in your CSV file to manage the\
-        \ update successfully.\n\nThis API request starts a process that affects Voucherify\
-        \ data in bulk. \n\nIn case of small jobs (like bulk update) the request is\
-        \ put into a queue and processed once every other bulk request placed in the\
-        \ queue prior to this request is finished. However, when the job takes a longer\
-        \ time (like vouchers generation) then it is processed in small portions in\
-        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
-        \ then they will all have the `IN_PROGRESS` status shortly. This way, small\
-        \ jobs added just after scheduling big jobs of the same type will be processed\
-        \ in a short time window. \n\nThe result will return the async ID. You can\
-        \ verify the status of your request via this [API request](ref:get-async-action)."
+        \ Metadata_name_2\n# Update Customers using CSV\nIf you would like to update\
+        \ customers data, you can do it using the CSV file with new data. However,\
+        \ remember to include a source_id in your CSV file to manage the update successfully.\n\
+        This API request starts a process that affects Voucherify data in bulk. \n\
+        In case of small jobs (like bulk update) the request is put into a queue and\
+        \ processed once every other bulk request placed in the queue prior to this\
+        \ request is finished. However, when the job takes a longer time (like vouchers\
+        \ generation) then it is processed in small portions in a round-robin fashion.\
+        \ When there is a list of vouchers generation scheduled, then they will all\
+        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
+        \ scheduling big jobs of the same type will be processed in a short time window.\
+        \ \nThe result will return the async ID. You can verify the status of your\
+        \ request via this API request."
       operationId: import-customers-using-csv
       parameters: []
       requestBody:
@@ -12890,7 +12699,7 @@ paths:
             examples: {}
             schema:
               $ref: '#/components/schemas/CustomersImportCSVRequestBody'
-        description: The file path is stored in the form `file` header.
+        description: The file path is stored in the form file header.
       responses:
         "202":
           content:
@@ -12917,23 +12726,20 @@ paths:
       x-accepts: application/json
   /v1/customers/bulk/async:
     post:
-      description: "Update several customers in one asynchronous operation. \n\nIn\
-        \ one request, it is possible to update a maximum of **100** records. In the\
-        \ response body, you get a unique async action identifier.  \n\nIf a requested\
-        \ customer object is not found, then an **upsert** occurs. This is reflected\
-        \ in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-        \ -->[Get Async Action](ref:get-async-action) endpoint as follows:  \n\n<!--\n\
-        title: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"found\": false,\n\
-        \    \"updated\": true\n}\n```\n\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \n\nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
+      description: "Update several customers in one asynchronous operation. \nIn one\
+        \ request, it is possible to update a maximum of **100** records. In the response\
+        \ body, you get a unique async action identifier.  \nIf a requested customer\
+        \ object is not found, then an **upsert** occurs. This is reflected in the\
+        \ Get Async Action endpoint as follows:  \n\nThis API request starts a process\
+        \ that affects Voucherify data in bulk. \nIn case of small jobs (like bulk\
+        \ update) the request is put into a queue and processed once every other bulk\
+        \ request placed in the queue prior to this request is finished. However,\
+        \ when the job takes a longer time (like vouchers generation) then it is processed\
         \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the `IN_PROGRESS` status shortly.\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
         \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \n\nThe result will return the\
-        \ async ID. You can verify the status of your request via this [API request](ref:get-async-action)."
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request via this API request."
       operationId: update-customers-in-bulk
       parameters: []
       requestBody:
@@ -13021,22 +12827,20 @@ paths:
   /v1/customers/metadata/async:
     post:
       description: "Update several customers metadata properties in one asynchronous\
-        \ operation. \n\nIn one request, it is possible to update a maximum of **100**\
+        \ operation. \nIn one request, it is possible to update a maximum of **100**\
         \ records. In the response body, you get a unique async action identifier.\
-        \  \n\nIf a requested customer object is not found, then an **upsert** occurs.\
-        \ This is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-        \ -->[Get Async Action](ref:get-async-action) endpoint as follows:  \n\n<!--\n\
-        title: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"found\": false,\n\
-        \    \"updated\": true\n}\n```\n\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \n\nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
-        \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the `IN_PROGRESS` status shortly.\
-        \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \n\nThe result will return the\
-        \ async ID. You can verify the status of your request via this [API request](ref:get-async-action)."
+        \  \nIf a requested customer object is not found, then an **upsert** occurs.\
+        \ This is reflected in the Get Async Action endpoint as follows:  \n\nThis\
+        \ API request starts a process that affects Voucherify data in bulk. \nIn\
+        \ case of small jobs (like bulk update) the request is put into a queue and\
+        \ processed once every other bulk request placed in the queue prior to this\
+        \ request is finished. However, when the job takes a longer time (like vouchers\
+        \ generation) then it is processed in small portions in a round-robin fashion.\
+        \ When there is a list of vouchers generation scheduled, then they will all\
+        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
+        \ scheduling big jobs of the same type will be processed in a short time window.\
+        \ \nThe result will return the async ID. You can verify the status of your\
+        \ request via this API request."
       operationId: update-customers-metadata-in-bulk
       parameters: []
       requestBody:
@@ -13053,7 +12857,7 @@ paths:
                     test: false
             schema:
               $ref: '#/components/schemas/CustomersMetadataUpdateInBulkRequestBody'
-        description: List the `source_ids` of the customer's you would like to update
+        description: List the source_ids of the customers you would like to update
           along with the metadata key value pairs.
       responses:
         "202":
@@ -13107,12 +12911,8 @@ paths:
               $ref: '#/components/schemas/CustomersConsentsUpdateRequestBody'
         description: "Key-value pairs where the key is the consent identifier and\
           \ value is a boolean that identifies if a customer has given the consent\
-          \ or not. To deny all consents use \"unsubscribed\" as a consent identifier\
-          \ and \"true\" as its value.  \n\n#### Examples\n\n<!--\ntitle: \"Request\
-          \ Body\"\nlineNumbers: true\n-->\n```json\n{\n    \"cnst_aIdUulAh0SCsOCaS3005y7yS\"\
-          : true,\n    \"cnst_aIdUulAhwewqaS31213fdsfds\": false\n}\n```\n\nOpt-out\
-          \ from all communication:\n\n<!--\ntitle: \"Request Body\"\nlineNumbers:\
-          \ true\n-->\n```json\n{\n    \"unsubscribed\": true\n}\n```"
+          \ or not. To deny all consents use unsubscribed as a consent identifier\
+          \ and true as its value.  \n## Examples\n\nOpt-out from all communication:\n"
       responses:
         "204":
           description: Returns no content if the consents were updated successfully.
@@ -13127,10 +12927,10 @@ paths:
   /v1/customers/{customerId}/segments:
     get:
       description: "Returns the list of segments IDs to which the customer belongs\
-        \ to.  \n\nIf you pass a `customerId` which is not stored and recognized by\
-        \ Voucherify as an existing customer in the system, the response will generate\
-        \ a list of segments that the customer would potentialy qualify for if they\
-        \ were to become a customer tracked in the system."
+        \ to.  \nIf you pass a customerId which is not stored and recognized by Voucherify\
+        \ as an existing customer in the system, the response will generate a list\
+        \ of segments that the customer would potentialy qualify for if they were\
+        \ to become a customer tracked in the system."
       operationId: list-customer-segments
       parameters:
       - description: Unique identifier of a customer represented by an internal customer
@@ -13181,9 +12981,8 @@ paths:
       x-accepts: application/json
   /v1/orders:
     get:
-      description: |+
+      description: |
         Returns a list of orders.
-
       operationId: list-orders
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -13195,7 +12994,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -13205,7 +13004,7 @@ paths:
         style: form
       - description: "This is a property that controls the sorting direction of the\
           \ results. Sort the results using one of the filtering options, where the\
-          \ dash `-` preceding a sorting option means sorting in a descending order."
+          \ dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -13733,12 +13532,8 @@ paths:
     post:
       description: |-
         Creates an order object and triggers an order creation event.
-
-        <!-- theme: info -->
-
-        > 📘 Upsert Mode
-        >
-        > If you pass an `id` or a `source_id` that already exists in the order database, Voucherify will return a related order object with updated fields.
+         📘 Upsert Mode
+         If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
       operationId: create-order
       parameters: []
       requestBody:
@@ -14060,45 +13855,42 @@ paths:
       x-accepts: application/json
   /v1/orders/import:
     post:
-      description: "<!-- theme: info -->\n\n> 🚧 Historical orders\n>\n> This endpoint\
-        \ should only be used to import historical orders into Voucherify. For on-going\
-        \ synchronization, the <!-- [create order](OpenAPI.json/paths/~1orders/post)\
-        \ -->[create order](ref:create-order) and <!-- [update order](OpenAPI.json/paths/~1orders~1{orderId}/put)\
-        \ -->[update order](ref:update-order) endpoints should be used. This is critical\
-        \ because this endpoint does not store events or launch distributions.\n\n\
-        ## Limitations\n\n### Import volume\n\nThere can be only a single on-going\
-        \ order import per tenant per project at a given time. The user can schedule\
-        \ more imports but those extra imports will be scheduled to run in sequence\
-        \ one by one.  \n\n### Maximum count of orders in single import\n\nThere is\
-        \ a `2000` limit but we might decide to change it to a lower / higher value\
-        \ at any given time depending if we find this value is too high or too low\
-        \ with time.\n\n## Notifications\n\nThere are no notifications on the Dashboard\
-        \ because this import is launched via the API.\n\n## Triggered actions\n \
-        \ \nIf you import orders with customers, then a logic will be scheduled responsible\
-        \ for placing these customers into segments and refreshing the segment's summary.\
-        \ Consequently, this update will trigger \n- **customers entering into segments**\
-        \ \n- **distributions** based on any rules tied to customer entering segment(s)\n\
-        - **earning rules** based on the customer entering segment(s)\n\n## What is\
-        \ not triggered\n\n1. No webhooks are triggered during the import of orders\
-        \ - for both orders and upserted products / skus.  \n\n2. Distributions based\
-        \ on Order Update, Order Paid, Order Created and Order Cancelled. In other\
-        \ words if you have a distribution based on Order Paid and you import an order\
-        \ with a PAID status, the distribution is not going to be triggered.    \n\
-        \n3. No events are created during the import of orders - for both orders and\
-        \ upserted products / skus. In other words you won't see any events in the\
-        \ Activity tab in the Dashboard such as Order created or Order paid. If you\
-        \ are additionally upserting products / skus, then you won't see the Product\
-        \ created events listed, etc.   \n\n4. Earning rules based on Order Paid won't\
-        \ be triggered.\n\nThis API request starts a process that affects Voucherify\
-        \ data in bulk. \n\nIn case of small jobs (like bulk update) the request is\
-        \ put into a queue and processed once every other bulk request placed in the\
-        \ queue prior to this request is finished. However, when the job takes a longer\
-        \ time (like vouchers generation) then it is processed in small portions in\
-        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
-        \ then they will all have the IN_PROGRESS status shortly. This way, small\
-        \ jobs added just after scheduling big jobs of the same type will be processed\
-        \ in a short time window. \n\nThe result will return the async ID. You can\
-        \ verify the status of your request via this [API request](ref:get-async-action)."
+      description: "\n 🚧 Historical orders\n This endpoint should only be used to\
+        \ import historical orders into Voucherify. For on-going synchronization,\
+        \ the create order and update order endpoints should be used. This is critical\
+        \ because this endpoint does not store events or launch distributions.\n#\
+        \ Limitations\n## Import volume\nThere can be only a single on-going order\
+        \ import per tenant per project at a given time. The user can schedule more\
+        \ imports but those extra imports will be scheduled to run in sequence one\
+        \ by one.  \n## Maximum count of orders in single import\nThere is a 2000\
+        \ limit but we might decide to change it to a lower / higher value at any\
+        \ given time depending if we find this value is too high or too low with time.\n\
+        # Notifications\nThere are no notifications on the Dashboard because this\
+        \ import is launched via the API.\n# Triggered actions\n  \nIf you import\
+        \ orders with customers, then a logic will be scheduled responsible for placing\
+        \ these customers into segments and refreshing the segments summary. Consequently,\
+        \ this update will trigger \n- **customers entering into segments** \n- **distributions**\
+        \ based on any rules tied to customer entering segment(s)\n- **earning rules**\
+        \ based on the customer entering segment(s)\n# What is not triggered\n1. No\
+        \ webhooks are triggered during the import of orders - for both orders and\
+        \ upserted products / skus.  \n2. Distributions based on Order Update, Order\
+        \ Paid, Order Created and Order Cancelled. In other words if you have a distribution\
+        \ based on Order Paid and you import an order with a PAID status, the distribution\
+        \ is not going to be triggered.    \n3. No events are created during the import\
+        \ of orders - for both orders and upserted products / skus. In other words\
+        \ you wont see any events in the Activity tab in the Dashboard such as Order\
+        \ created or Order paid. If you are additionally upserting products / skus,\
+        \ then you wont see the Product created events listed, etc.   \n4. Earning\
+        \ rules based on Order Paid wont be triggered.\nThis API request starts a\
+        \ process that affects Voucherify data in bulk. \nIn case of small jobs (like\
+        \ bulk update) the request is put into a queue and processed once every other\
+        \ bulk request placed in the queue prior to this request is finished. However,\
+        \ when the job takes a longer time (like vouchers generation) then it is processed\
+        \ in small portions in a round-robin fashion. When there is a list of vouchers\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
+        \ This way, small jobs added just after scheduling big jobs of the same type\
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request via this API request."
       operationId: import-orders
       parameters: []
       requestBody:
@@ -14294,33 +14086,15 @@ paths:
       x-accepts: application/json
   /v1/orders/export:
     post:
-      description: |-
+      description: |+
         Creates a downloadable CSV file containing a list of orders.
-
-        The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the `parameters.fields` object in the request body.
-
-        The available filters are all <!-- [order object](OpenAPI.json/components/schemas/OrdersUpdateResponseBody) -->[order object](ref:get-order) attributes. Additionally, any metadata defined in the metadata schema can be exported.
-
-        Passing an empty JSON will generate a file containing three default fields: `id`, `source_id`, and `status`.
-
+        The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body.
+        The available filters are all order object attributes. Additionally, any metadata defined in the metadata schema can be exported.
+        Passing an empty JSON will generate a file containing three default fields: id, source_id, and status.
         The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:
 
-        | **Field** | **Definition** | **Example Export** |
-        |:---|:---|:---|
-        | id | Unique order ID. | ord_A69RIxEdRsPuC6i8gFGVHUft |
-        | source_id | Unique order source ID. | 8638 |
-        | created_at | Timestamp in ISO 8601 format representing the date and time when the order was created. | 2022-03-09T09:16:32.521Z |
-        | updated_at | Timestamp in ISO 8601 format representing the date and time when the order was last updated. | 2022-03-09T09:16:33.331Z |
-        | status | Order status. | `PAID`, `CREATED`, `FULFILLED`, `CANCELED` |
-        | amount | Total amount of order items. | 7700 |
-        | discount_amount | Represents total amount of the discount applied to whole cart. | 500 |
-        | items_discount_amount | Represents total amount of the discount applied to order line items. | 100 |
-        | total_discount_amount | All discounts applied to the order including discounts applied to particular order line items and discounts applied to the whole cart. | 600 |
-        | total_amount | Total order amount after applying all discounts. | 7100 |
-        | customer_id | Customer unique ID. | cust_2G4fUQdCXUqp35nXNleav7bO |
-        | referrer_id | Referrer unique ID. | cust_IkrTR674vvQvr9a4rDMiqglY |
-        | metadata | Returns all order metadata. | Response will include all order metadata. |
-        | metadata.X | Where X is the name of a particular order metadata property. | The returned value will depend on the type of data defined in the Dashboard > Project Settings > Metdata Schemas > Order. |
+
+
       operationId: create-order-export
       parameters: []
       requestBody:
@@ -14430,7 +14204,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -14439,8 +14213,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -14583,12 +14356,8 @@ paths:
     post:
       description: |-
         Creates a product object.
-
-        <!-- theme: info -->
-
-        > 📘 Upsert Mode
-        >
-        > If you pass an `id` or a `source_id` that already exists in the product database, Voucherify will return a related product object with updated fields.
+         📘 Upsert Mode
+         If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
       operationId: create-product
       parameters: []
       requestBody:
@@ -14647,8 +14416,8 @@ paths:
   /v1/products/{productId}:
     delete:
       description: "Deletes a product and all related SKUs. This operation cannot\
-        \ be undone. \n\nIf the `force` parameter is set to `false` or not set at\
-        \ all, the product and all related SKUs will be moved to [the bin](ref:list-bin-entries)."
+        \ be undone. \nIf the force parameter is set to false or not set at all, the\
+        \ product and all related SKUs will be moved to the bin."
       operationId: delete-product
       parameters:
       - description: A Voucherify product ID or source ID.
@@ -14659,11 +14428,11 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterProductId'
         style: simple
-      - description: "If this flag is set to `true`, the product and all related SKUs\
-          \ will be removed permanently. If it is set to `false` or not set at all,\
+      - description: "If this flag is set to true, the product and all related SKUs\
+          \ will be removed permanently. If it is set to false or not set at all,\
           \ the product and all related SKUs will be moved to the bin. Going forward,\
           \ the user will be able to create another product with exactly the same\
-          \ `source_id`."
+          \ source_id."
         explode: true
         in: query
         name: force
@@ -14816,23 +14585,20 @@ paths:
       x-accepts: application/json
   /v1/products/bulk/async:
     post:
-      description: "Update several products in one asynchronous operation. \n\nIn\
-        \ one request, it is possible to update a maximum of **100** records. In the\
-        \ response body, you get a unique async action identifier. If a requested\
-        \ product object is not found, then an **upsert** occurs. This is reflected\
-        \ in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-        \ -->[Get Async Action](ref:get-async-action) endpoint as follows:  \n\n<!--\n\
-        title: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"found\": false,\n\
-        \    \"updated\": true\n}\n```\n\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \n\nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
+      description: "Update several products in one asynchronous operation. \nIn one\
+        \ request, it is possible to update a maximum of **100** records. In the response\
+        \ body, you get a unique async action identifier. If a requested product object\
+        \ is not found, then an **upsert** occurs. This is reflected in the Get Async\
+        \ Action endpoint as follows:  \n\nThis API request starts a process that\
+        \ affects Voucherify data in bulk. \nIn case of small jobs (like bulk update)\
+        \ the request is put into a queue and processed once every other bulk request\
         \ placed in the queue prior to this request is finished. However, when the\
         \ job takes a longer time (like vouchers generation) then it is processed\
         \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the `IN_PROGRESS` status shortly.\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
         \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \n\nThe result will return the\
-        \ async ID. You can verify the status of your request via this [API request](ref:get-async-action)."
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request via this API request."
       operationId: update-products-in-bulk
       parameters: []
       requestBody:
@@ -14896,22 +14662,20 @@ paths:
   /v1/products/metadata/async:
     post:
       description: "Update several product metadata properties in one asynchronous\
-        \ operation. \n\nIn one request, it is possible to update a maximum of **100**\
+        \ operation. \nIn one request, it is possible to update a maximum of **100**\
         \ records. In the response body, you get a unique async action identifier.\
         \ If a requested product object is not found, then an **upsert** occurs. This\
-        \ is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-        \ -->[Get Async Action](ref:get-async-action) endpoint as follows:  \n\n<!--\n\
-        title: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"found\": false,\n\
-        \    \"updated\": true\n}\n```\n\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \n\nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
-        \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the `IN_PROGRESS` status shortly.\
-        \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \n\nThe result will return the\
-        \ async ID. You can verify the status of your request via this [API request](ref:get-async-action)."
+        \ is reflected in the Get Async Action endpoint as follows:  \n\nThis API\
+        \ request starts a process that affects Voucherify data in bulk. \nIn case\
+        \ of small jobs (like bulk update) the request is put into a queue and processed\
+        \ once every other bulk request placed in the queue prior to this request\
+        \ is finished. However, when the job takes a longer time (like vouchers generation)\
+        \ then it is processed in small portions in a round-robin fashion. When there\
+        \ is a list of vouchers generation scheduled, then they will all have the\
+        \ IN_PROGRESS status shortly. This way, small jobs added just after scheduling\
+        \ big jobs of the same type will be processed in a short time window. \nThe\
+        \ result will return the async ID. You can verify the status of your request\
+        \ via this API request."
       operationId: update-products-metadata-in-bulk
       parameters: []
       requestBody:
@@ -15004,8 +14768,7 @@ paths:
       description: Retrieve all SKUs for a given product.
       operationId: list-skus-in-product
       parameters:
-      - description: "A Voucherify <!-- [product](OpenAPI.json/components/schemas/Product)\
-          \ -->[product](ref:get-product) ID or product source ID."
+      - description: A Voucherify product ID or product source ID.
         explode: false
         in: path
         name: productId
@@ -15022,7 +14785,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -15031,8 +14794,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -15140,15 +14902,12 @@ paths:
       - Products
       x-accepts: application/json
     post:
-      description: "This method adds product variants to a <!-- [created product](OpenAPI.json/paths/~1products/post)\
-        \ -->[created product](ref:create-product). \n\n<!-- theme: info -->\n\n>\
-        \ 📘 Upsert Mode\n>\n> If you pass an `id` or a `source_id` that already exists\
-        \ in the sku database, Voucherify will return a related sku object with updated\
-        \ fields."
+      description: "This method adds product variants to a created product. \n 📘\
+        \ Upsert Mode\n If you pass an id or a source_id that already exists in the\
+        \ sku database, Voucherify will return a related sku object with updated fields."
       operationId: create-sku
       parameters:
-      - description: "A Voucherify <!-- [product](OpenAPI.json/components/schemas/Product)\
-          \ -->[product](ref:get-product) ID or product source ID."
+      - description: A Voucherify product ID or product source ID.
         explode: false
         in: path
         name: productId
@@ -15212,13 +14971,12 @@ paths:
       x-accepts: application/json
   /v1/products/{productId}/skus/{skuId}:
     delete:
-      description: "Deletes a product SKU. This operation cannot be undone. \n\nIf\
-        \ the `force` parameter is set to `false` or not set at all, the SKU will\
-        \ be moved to [the bin](ref:list-bin-entries)."
+      description: "Deletes a product SKU. This operation cannot be undone. \nIf the\
+        \ force parameter is set to false or not set at all, the SKU will be moved\
+        \ to the bin."
       operationId: delete-sku
       parameters:
-      - description: "A unique Voucherify <!-- [product](OpenAPI.json/components/schemas/Product)\
-          \ -->[product](ref:get-product) ID or product source ID."
+      - description: A unique Voucherify product ID or product source ID.
         explode: false
         in: path
         name: productId
@@ -15226,8 +14984,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterProductId'
         style: simple
-      - description: "A Voucherify <!-- [SKU](OpenAPI.json/components/schemas/Sku)\
-          \ -->[SKU ID](ref:get-sku) or SKU source ID."
+      - description: A Voucherify SKU ID or SKU source ID.
         explode: false
         in: path
         name: skuId
@@ -15235,10 +14992,10 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterSkuId'
         style: simple
-      - description: "If this flag is set to `true`, the SKU will be removed permanently.\
-          \ If it is set to `false` or not set at all, the SKU will be moved to the\
+      - description: "If this flag is set to true, the SKU will be removed permanently.\
+          \ If it is set to false or not set at all, the SKU will be moved to the\
           \ bin. Going forward, the user will be able to create another SKU with exactly\
-          \ the same `source_id`."
+          \ the same source_id."
         explode: true
         in: query
         name: force
@@ -15259,12 +15016,10 @@ paths:
     put:
       description: |-
         Updates the specified SKU by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.
-
-        Fields other than the ones listed in the request body schema won't be modified. Even if provided, they will be silently skipped.
+        Fields other than the ones listed in the request body schema wont be modified. Even if provided, they will be silently skipped.
       operationId: update-sku
       parameters:
-      - description: "A unique Voucherify <!-- [product](OpenAPI.json/components/schemas/Product)\
-          \ -->[product](ref:get-product) ID or product source ID."
+      - description: A unique Voucherify product ID or product source ID.
         explode: false
         in: path
         name: productId
@@ -15272,8 +15027,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterProductId'
         style: simple
-      - description: "A Voucherify <!-- [SKU](OpenAPI.json/components/schemas/Sku)\
-          \ -->[SKU ID](ref:get-sku) or SKU source ID."
+      - description: A Voucherify SKU ID or SKU source ID.
         explode: false
         in: path
         name: skuId
@@ -15328,47 +15082,17 @@ paths:
       x-accepts: application/json
   /v1/products/importCSV:
     post:
-      description: "Import products into the repository using a CSV file.  \n\nCurl\
-        \ Example\n<!--\ntitle: \"Example Request\"\nlineNumbers: true\n-->\n```cURL\n\
-        curl -X POST \\\n  https://api.voucherify.io/v1/products/importCSV \\\n  -F\
-        \ file=@/path/to/products.csv \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\"\
-        \ \\\n  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\"\n```\n\n\
-        The CSV file has to include headers in the first line.\n\n<!-- theme: info\
-        \ -->\n\n> 📘 Standard product fields mapping\n>\n> - Create a **comma separated\
-        \ value (CSV) file** or download our CSV import template. You can find an\
-        \ example template [here](https://s3.amazonaws.com/helpscout.net/docs/assets/5902f1c12c7d3a057f88a36d/attachments/627b82ed68d51e779443f550/Import_products_template.csv).\n\
-        > - Supported CSV file headers: `name,source_id,price,attributes,image_url,Metadata_property_name`\n\
-        > - **Name** is a **required** field. The remaining fields in the CSV template\
-        \ are optional.\n> - Override/Update products' **names** in Voucherify using\
-        \ this method. Data will be updated for each product included in the CSV file\
-        \ whose **source_id** matches a source ID in Voucherify. No other data can\
-        \ be updated other than the product name.\n> - Note that dates and date-time\
-        \ attributes need to be provided in compliance with the **ISO 8601 norms**.\
-        \ For example, 2022-03-11T09:00:00.000Z or 2022-03-11\n>    - `YYYY-MM-DD`\n\
-        >    - `YYYY-MM-DDTHH`\n>    - `YYYY-MM-DDTHH:mm`\n>    - `YYYY-MM-DDTHH:mm:ss`\n\
-        >    - `YYYY-MM-DDTHH:mm:ssZ`\n>    - `YYYY-MM-DDTHH:mm:ssZ`\n>    - `YYYY-MM-DDTHH:mm:ss.SSSZ`\n\
-        > - Columns that cannot be mapped to standard fields, will be mapped to **Custom\
-        \ attributes** and added as **products' metadata**. There is no limit on the\
-        \ number of custom attributes that you can import as metadata. \n> - To provide\
-        \ the proper data type, you need to add all custom attributes to the metadata\
-        \ schema **before importing the file**. Read more [here](https://support.voucherify.io/article/99-schema-validation-metadata#add-metadata).\n\
-        > - **Product attributes** (not custom attributes) need to be separated by\
-        \ a comma and enclosed in double quotes, i.e \"attribute1,attribute2\".\n\
-        > - Headers with metadata names **can't contain white-space characters**.\n\
-        > - If you import metadata defined in the schema as **arrays (multiple)**,\
-        \ you need to separate each value using a comma, for example:  \n>    - array\
-        \ of strings: \"subscribed,premium\"  \n>    - array of numbers: \"123,234\"\
-        . \n>    - array of dates: \"2000-01-01,2000-01-02\"\n\nThis API request starts\
-        \ a process that affects Voucherify data in bulk. \n\nIn case of small jobs\
-        \ (like bulk update) the request is put into a queue and processed once every\
-        \ other bulk request placed in the queue prior to this request is finished.\
-        \ However, when the job takes a longer time (like vouchers generation) then\
-        \ it is processed in small portions in a round-robin fashion. When there is\
-        \ a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS`\
-        \ status shortly. This way, small jobs added just after scheduling big jobs\
-        \ of the same type will be processed in a short time window. \n\nThe result\
-        \ will return the async ID. You can verify the status of your request via\
-        \ this [API request](ref:get-async-action)."
+      description: "Import products into the repository using a CSV file.  \nThis\
+        \ API request starts a process that affects Voucherify data in bulk. \nIn\
+        \ case of small jobs (like bulk update) the request is put into a queue and\
+        \ processed once every other bulk request placed in the queue prior to this\
+        \ request is finished. However, when the job takes a longer time (like vouchers\
+        \ generation) then it is processed in small portions in a round-robin fashion.\
+        \ When there is a list of vouchers generation scheduled, then they will all\
+        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
+        \ scheduling big jobs of the same type will be processed in a short time window.\
+        \ \nThe result will return the async ID. You can verify the status of your\
+        \ request via this API request."
       operationId: import-products-using-csv
       parameters: []
       requestBody:
@@ -15376,7 +15100,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/ProductsImportCSVRequestBody'
-        description: The file path is stored in the form `file` header.
+        description: The file path is stored in the form file header.
       responses:
         "200":
           content:
@@ -15403,37 +15127,20 @@ paths:
       x-accepts: application/json
   /v1/skus/importCSV:
     post:
-      description: "Import SKUs into the repository using a CSV file.\n\nThe CSV file\
+      description: "Import SKUs into the repository using a CSV file.\nThe CSV file\
         \ has to include headers in the first line. All properties which cannot be\
         \ mapped to standard SKU fields will be added to the metadata object. You\
         \ can find an example template [here](https://s3.amazonaws.com/helpscout.net/docs/assets/5902f1c12c7d3a057f88a36d/attachments/627b98d08c9b585083488a4c/Import_SKUS_template.csv).\
-        \ \n\nCurl Example\n<!--\ntitle: \"Example Request\"\nlineNumbers: true\n\
-        -->\n```cURL\ncurl -X POST \\\n  https://api.voucherify.io/v1/skus/importCSV\
-        \ \\\n  -F file=@/path/to/skus.csv \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\"\
-        \ \\\n  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\"\n```\n> 🚧\
-        \ Import sequence\n>\n> First import products using the [dedicated endpoint](ref:import-products-using-csv),\
-        \ then import SKUs using this endpoint to properly match SKUs to products.\n\
-        \n<!-- theme: info -->\n\n> 📘 Standard SKU fields mapping\n>\n> - **Required**\
-        \ fields are `source_id` and `product_id`.\n> - Supported CSV file headers:\
-        \ `product_id,sku,source_id,price,image_url,attributes`\n> - SKU **source_id**\
-        \ must be unique in the entire product catalog, no duplicates are allowed.\n\
-        > - SKU attributes need to be in the form of a stringy-fied json, i.e.`\"\
-        {'color':'blue'}\"`. These attributes must be defined in the **product** beforehand\
-        \ so you can import them to the SKU.\n> - You can use this method to update\
-        \ the following parameters in bulk: **sku** and the sku **price**.\n> - Columns\
-        \ that cannot be mapped to standard fields will be mapped to Custom attributes\
-        \ and added as product metadata. There is no limit on the number of custom\
-        \ attributes that you can import as metadata.\n\nThis API request starts a\
-        \ process that affects Voucherify data in bulk. \n\nIn case of small jobs\
-        \ (like bulk update) the request is put into a queue and processed once every\
-        \ other bulk request placed in the queue prior to this request is finished.\
-        \ However, when the job takes a longer time (like vouchers generation) then\
-        \ it is processed in small portions in a round-robin fashion. When there is\
-        \ a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS`\
-        \ status shortly. This way, small jobs added just after scheduling big jobs\
-        \ of the same type will be processed in a short time window. \n\nThe result\
-        \ will return the async ID. You can verify the status of your request via\
-        \ this [API request](ref:get-async-action)."
+        \ \nThis API request starts a process that affects Voucherify data in bulk.\
+        \ \nIn case of small jobs (like bulk update) the request is put into a queue\
+        \ and processed once every other bulk request placed in the queue prior to\
+        \ this request is finished. However, when the job takes a longer time (like\
+        \ vouchers generation) then it is processed in small portions in a round-robin\
+        \ fashion. When there is a list of vouchers generation scheduled, then they\
+        \ will all have the IN_PROGRESS status shortly. This way, small jobs added\
+        \ just after scheduling big jobs of the same type will be processed in a short\
+        \ time window. \nThe result will return the async ID. You can verify the status\
+        \ of your request via this API request."
       operationId: import-skus-using-csv
       parameters: []
       requestBody:
@@ -15441,7 +15148,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SkusImportCSVRequestBody'
-        description: The file path is stored in the form `file` header.
+        description: The file path is stored in the form file header.
       responses:
         "200":
           content:
@@ -15480,7 +15187,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -15489,8 +15196,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -15742,7 +15448,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -15751,8 +15457,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -15908,7 +15613,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -15918,7 +15623,7 @@ paths:
         style: form
       - description: "This is a property that controls the sorting direction of the\
           \ results. Sort the results using one of the filtering options, where the\
-          \ dash `-` preceding a sorting option means sorting in a descending order."
+          \ dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -16446,44 +16151,14 @@ paths:
       x-accepts: application/json
   /v1/validation-rules-assignments:
     get:
-      description: "List all validation rules' assignments or filter the results using\
-        \ the related object ID or the validation rule ID query parameters. \n\n##\
-        \ How to retrieve specific validation rule assignments(s)\n\n### Related object\
-        \ ID\n\nTo find an assignment for a particular resource, you can use the ID\
-        \ of the object to which the validation rule was assigned. This could be,\
-        \ for example, an ID of a: voucher, campaign, distribution, reward assignment,\
-        \ earning rule, promotion tier.  \n\n\n<!--\ntitle: \"Request\"\nlineNumbers:\
-        \ true\n-->\n```curl\ncurl -X GET \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\"\
-        \ \\\n  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\" \\\n  -H\
-        \ \"Content-Type: application/json\" \\\n  https://api.voucherify.io/v1/validation-rules-assignments?related_object_id=promo_kJliy076IuJYtuYWSHE9fSuT\n\
-        ```\n<!--\ntitle: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"\
-        object\": \"list\",\n    \"data_ref\": \"data\",\n    \"data\": [\n      \
-        \  {\n            \"id\": \"asgm_tZaqxeO8gP4q91jG\",\n            \"rule_id\"\
-        : \"val_WB6ETAiFztw5\",\n            \"related_object_id\": \"promo_kJliy076IuJYtuYWSHE9fSuT\"\
-        ,\n            \"related_object_type\": \"promotion_tier\",\n            \"\
-        created_at\": \"2022-08-10T10:30:39.986Z\",\n            \"object\": \"validation_rules_assignment\"\
-        \n        }\n    ],\n    \"total\": 1\n}\n```\n\n### Validation rule ID\n\n\
-        You can use the validation rule ID to find assignment(s) for a specific validation\
-        \ rule.\n\n\n<!--\ntitle: \"Request\"\nlineNumbers: true\n-->\n```curl\ncurl\
-        \ -X GET \\\n  -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\" \\\n\
-        \  -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\" \\\n  -H \"Content-Type:\
-        \ application/json\" \\\n  https://api.voucherify.io/v1/validation-rules-assignments?rule=val_ZEZmA9oit8aU\n\
-        ```\n<!--\ntitle: \"Response\"\nlineNumbers: true\n-->\n```json\n{\n    \"\
-        object\": \"list\",\n    \"data_ref\": \"data\",\n    \"data\": [\n      \
-        \  {\n            \"id\": \"asgm_vef0G6d9Al0rABxq\",\n            \"rule_id\"\
-        : \"val_ZEZmA9oit8aU\",\n            \"related_object_id\": \"camp_rRsfatlwN7unSeUIJDCYedal\"\
-        ,\n            \"related_object_type\": \"campaign\",\n            \"created_at\"\
-        : \"2022-06-29T11:43:52.953Z\",\n            \"object\": \"validation_rules_assignment\"\
-        \n        },\n        {\n            \"id\": \"asgm_sFV4wEFvldwIvgfb\",\n\
-        \            \"rule_id\": \"val_ZEZmA9oit8aU\",\n            \"related_object_id\"\
-        : \"distr_9QKI02wqgjWyvZXeQkFEPmkkYe\",\n            \"related_object_type\"\
-        : \"distribution\",\n            \"created_at\": \"2022-06-29T11:41:07.680Z\"\
-        ,\n            \"object\": \"validation_rules_assignment\"\n        },\n \
-        \       {\n            \"id\": \"asgm_69Qifyv6UZynFIIQ\",\n            \"\
-        rule_id\": \"val_ZEZmA9oit8aU\",\n            \"related_object_id\": \"promo_g83qUzYZpfX0OMAFOVoQuOYG\"\
-        ,\n            \"related_object_type\": \"promotion_tier\",\n            \"\
-        created_at\": \"2022-06-29T11:29:41.906Z\",\n            \"object\": \"validation_rules_assignment\"\
-        \n        }\n    ],\n    \"total\": 3\n}\n```\n"
+      description: "List all validation rules assignments or filter the results using\
+        \ the related object ID or the validation rule ID query parameters. \n# How\
+        \ to retrieve specific validation rule assignments(s)\n## Related object ID\n\
+        To find an assignment for a particular resource, you can use the ID of the\
+        \ object to which the validation rule was assigned. This could be, for example,\
+        \ an ID of a: voucher, campaign, distribution, reward assignment, earning\
+        \ rule, promotion tier.  \n\n## Validation rule ID\nYou can use the validation\
+        \ rule ID to find assignment(s) for a specific validation rule.\n\n"
       operationId: list-validation-rules-assignments
       parameters:
       - description: "The resource ID to which the validation rule was assigned; this\
@@ -16504,7 +16179,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterValidationRuleId'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -16521,8 +16196,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: "Sorts the results using one of the filtering options: `-created_at`,\
-          \ `created_at`, where the dash `-` preceding a sorting option means sorting\
+      - description: "Sorts the results using one of the filtering options: -created_at,\
+          \ created_at, where the dash - preceding a sorting option means sorting\
           \ in a descending order."
         explode: true
         in: query
@@ -16621,7 +16296,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -16631,7 +16306,7 @@ paths:
         style: form
       - description: "This is a property that controls the sorting direction of the\
           \ results. Sort the results using one of the filtering options, where the\
-          \ dash `-` preceding a sorting option means sorting in a descending order."
+          \ dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -16699,8 +16374,8 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterValidationRuleId'
         style: simple
-      - description: "If this flag is set to `true`, the previous assignment with\
-          \ the same data will be deleted and a new one will be added."
+      - description: "If this flag is set to true, the previous assignment with the\
+          \ same data will be deleted and a new one will be added."
         explode: true
         in: query
         name: force
@@ -16805,9 +16480,9 @@ paths:
       x-accepts: application/json
   /v1/events:
     post:
-      description: "To track a custom event, you create an event object.  \n\nThe\
-        \ event object must be linked to the customer who performs the action. If\
-        \ a customer doesn't exist in Voucherify, the customer will be created."
+      description: "To track a custom event, you create an event object.  \nThe event\
+        \ object must be linked to the customer who performs the action. If a customer\
+        \ doesnt exist in Voucherify, the customer will be created."
       operationId: track-custom-event
       parameters: []
       requestBody:
@@ -16894,7 +16569,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is `1`.
+      - description: Which page of results to return. The lowest value is 1.
         explode: true
         in: query
         name: page
@@ -16903,8 +16578,7 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Sorts the results using one of the filtering options, where\
-          \ the dash `-` preceding a sorting option means sorting in a descending\
-          \ order."
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
         name: order
@@ -16998,190 +16672,17 @@ paths:
       x-accepts: application/json
     post:
       description: "Create export object. The export can be any of the following types:\
-        \ `voucher`, `redemption`, `publication`, `customer`, `order`, `points_expiration`,\
-        \ or `voucher_transactions`.  \n\n## Defaults\n\nIf you only specify the object\
-        \ type in the request body without specifying the fields, the API will return\
-        \ the following fields per export object:\n\n| **Export Object** | **Default\
-        \ fields returned** |\n|:---|:---|\n| order | `id`, `source_id`, `status`\
-        \ |\n| voucher | `code`, `voucher_type`, `value`, `discount_type` |\n| publication\
-        \ | `code`, `customer_id`, `date`, `channel` |\n| redemption | `id`, `object`,\
-        \ `voucher_code`, `customer_id`, `date`, `result` |\n| customer | `name`,\
-        \ `source_id` |\n| points_expiration | `id`, `campaign_id`, `voucher_id`,\
-        \ `status`, `expires_at`, `points` |\n| voucher_transactions | `id`, `type`,\
-        \ `source_id`, `status`, `reason`, `source`, `balance`, `amount`, `created_at`\
-        \ |\n\n\n## Fetching particular data sets\n\nUsing the `parameters` body parameter,\
-        \ you can narrow down which fields to export and how to filter the results.\
-        \ The fields are an array of strings containing the data that you would like\
-        \ to export. These fields define the headers in the CSV file. The array can\
-        \ be a combination of any of the following available fields:\n\n## Orders\
-        \  \n\n| **Field** | **Definition** | **Example Export** |\n|:---|:---|:---|\n\
-        | id | Unique order ID. | ord_A69RIxEdRsPuC6i8gFGVHUft |\n| source_id | Unique\
-        \ order source ID. | 8638 |\n| created_at | Timestamp in ISO 8601 format representing\
-        \ the date and time when the order was created. | 2022-03-09T09:16:32.521Z\
-        \ |\n| updated_at | Timestamp in ISO 8601 format representing the date and\
-        \ time when the order was last updated. | 2022-03-09T09:16:33.331Z |\n| status\
-        \ | Order status. | `PAID`, `CREATED`, `FULFILLED`, `CANCELED` |\n| amount\
-        \ | Total amount of order items. | 7700 |\n| discount_amount | Represents\
-        \ total amount of the discount applied to whole cart. | 500 |\n| items_discount_amount\
-        \ | Represents total amount of the discount applied to order line items. |\
-        \ 100 |\n| total_discount_amount | All discounts applied to the order including\
-        \ discounts applied to particular order line items and discounts applied to\
-        \ the whole cart. | 600 |\n| total_amount | Total order amount after applying\
-        \ all discounts. | 7100 |\n| customer_id | Customer unique ID. | cust_2G4fUQdCXUqp35nXNleav7bO\
-        \ |\n| referrer_id | Referrer unique ID. | cust_IkrTR674vvQvr9a4rDMiqglY |\n\
-        | metadata | Order metadata; expressed as metadata.X, where X is the name\
-        \ of the custom metadata property. | 1 |\n\n## Vouchers  \n\n| **Field** |\
-        \ **Definition** | **Example Export** |\n|:---|:---|:---|\n| id | Unique voucher\
-        \ ID. | v_HSnGD2vNIHYighTQxwcB4dtVAv8VOmZD |\n| code | Unique voucher code.\
-        \ | WELCOME100 |\n| voucher_type | Type of voucher. | `DISCOUNT_VOUCHER`,\
-        \ `GIFT_VOUCHER`, `LOYALTY_CARD` |\n| value | Value of voucher. | `DISCOUNT_VOUCHER`\
-        \ : amount, percent, unit<br>`GIFT_VOUCHER`: amount left to spend<br>`LOYALTY_CARD`:\
-        \ available usable points |\n| discount_type | The type of discount for a\
-        \ `DISCOUNT_VOUCHER`. | `AMOUNT`, `PERCENT`, `UNIT`, `FIXED` |\n| campaign\
-        \ | Unique campaign name. | Summer Discounts 20% off |\n| category | Tag defining\
-        \ the category that this voucher belongs to. |  |\n| start_date | Start date\
-        \ defines when the code starts to be active. Activation timestamp is presented\
-        \ in the ISO 8601 format. Voucher is _inactive_ before this date. | 2020-12-10T23:00:00.000Z\
-        \ |\n| expiration_date | Expiration date defines when the code expires. Expiration\
-        \ timestamp is presented in the ISO 8601 format. Voucher is _inactive_ after\
-        \ this date. | 2023-12-31T23:00:00.000Z |\n| gift_balance | Amount left to\
-        \ spend. | 1000 |\n| loyalty_balance | Available usable points. | 2000 |\n\
-        | redemption_quantity | Maximum number of times a voucher can be redeemed.\
-        \ | 2 |\n| redemption_count | Total redemptions. | 59 |\n| active | Boolean\
-        \ indicating whether the voucher is available for use. | `true`, `false` |\n\
-        | qr_code | URL to QR representation of encrypted code. |  |\n| bar_code |\
-        \ URL to barcode representation of encrypted code. |  |\n| metadata | Custom\
-        \ voucher metadata. |  |\n| is_referral_code | Boolean indicating whether\
-        \ the voucher is a referral code. | `true`, `false` |\n| created_at | Timestamp\
-        \ in ISO 8601 format representing the date and time when the voucher was created.\
-        \ | 2022-04-14T09:55:46.814Z |\n| updated_at | Timestamp in ISO 8601 format\
-        \ representing the date and time when the voucher was last updated. | 2022-04-14T10:02:18.036Z\
-        \ |\n| validity_timeframe_interval | Defines the intervening time between\
-        \ two time points in ISO 8601 format, expressed as a duration. For example,\
-        \ a voucher with an interval of `P2D` will be active every other day. | P2D\
-        \ |\n| validity_timeframe_duration | Defines the amount of time the voucher\
-        \ will be active in ISO 8601 format. For example, a voucher with a duration\
-        \ of `PT1H` will be valid for a duration of one hour. | PT1H |\n| validity_day_of_week\
-        \ | Array corresponding to the particular days of the week in which the voucher\
-        \ is valid. | \"1,2,3,4,5\" |\n| discount_amount_limit | For `PERCENT` discount\
-        \ type, this is the maximum threshold allowed to be deducted. | 50 |\n| campaign_id\
-        \ | Parent campaign ID. | camp_7s3uXI44aKfIk5IhmeOPr6ic |\n| additional_info\
-        \ | An optional field to keep any extra textual information about the code\
-        \ such as a code description and details. |  |\n| customer_id | Unique customer\
-        \ ID of the assigned owner to whom the voucher was published. | cust_7iUa6ICKyU6gH40dBU25kQU1\
-        \ |\n| discount_unit_type | For `UNIT` discount type, either a shipping or\
-        \ product ID for a `UNIT` discount with one product. | prod_5h1pp1ng, prod_0a9f9aeddb019a42db\
-        \ |\n| discount_unit_effect | `UNIT` discount effect. | `ADD_MANY_ITEMS`,\
-        \ `ADD_MISSING_ITEMS`,`ADD_NEW_ITEMS` |\n| customer_source_id | Unique customer\
-        \ source id of the assigned owner to whom the voucher was published. | name.lastname@email.com\
-        \ |\n\n\n## Publications\n\n| **Field** | **Definition** | **Example Export**\
-        \ |\n|:---|:---|:---|\n| voucher_code | Unique voucher code. | WELCOME100\
-        \ |\n| customer_id | Customer unique ID. | cust_7iUa6ICKyU6gH40dBU25kQU1 |\n\
-        | customer_source_id | Unique customer source id of the assigned owner to\
-        \ whom the voucher was published. | name.lastname@email.com |\n| date | Timestamp\
-        \ in ISO 8601 format representing the date and time when the voucher was published.\
-        \ | 2022-04-28T10:19:30.792Z |\n| channel | Publication channel. | voucherify-website\
-        \ |\n| campaign | Unique campaign name. | Summer Discounts 20% off |\n| is_winner\
-        \ |  |  |\n| metadata | Custom publication metadata. |  |\n\n## Redemptions\n\
-        \n| **Field** | **Definition** | **Example Export** |\n|:---|:---|:---|\n\
-        | id | Unique redemption ID. | r_0acf3a6dae00e679c8, rf_0acf3a495740e679b8\
-        \ |\n| object | Object being exported; by default `redemption`. | redemption\
-        \ |\n| date | Timestamp in ISO 8601 format representing the date and time\
-        \ when the voucher was redeemed. | 2022-03-23T08:52:24.867Z |\n| voucher_code\
-        \ | Unique voucher code redeemed. | WELCOME100 |\n| campaign | Parent campaign\
-        \ name of voucher if applicable. | Summer Discounts 20% off |\n| promotion_tier_id\
-        \ |  | promo_Mwy9XpA0TLctSGriM5kum0qp |\n| customer_id | Unique customer ID\
-        \ of redeeming customer. | cust_nk0N1uNQ1YnupAoJGOgvsODC |\n| customer_source_id\
-        \ | Unique source ID of redeeming customer. | name.lastname@email.com |\n\
-        | customer_name | Customer name. | John Smith |\n| tracking_id |  | track_Pw6r3ejnml43kIwNS4Zj09KZ67xOfLUy\
-        \ |\n| order_amount | Total order amount before applying all discounts. |\
-        \ 1000 |\n| gift_amount | Gift credits used for redemption. | 10 |\n| loyalty_points\
-        \ |  | 12 |\n| result | Tells you whether the redemption succeeded. | `SUCCESS`,\
-        \ `FAILURE` |\n| failure_code | Internal Voucherify code for reason why redemption\
-        \ failed. | invalid_customer |\n| failure_message | A human-readable message\
-        \ providing a short description explaining why the redemption failed. | Customer\
-        \ must be a holder of a loyalty card. |\n| metadata | Custom redemption metadata.\
-        \ |  |\n\n## Customers\n\n| **Field** | **Definition** | **Example Export**\
-        \ |\n|:---|:---|:---|\n| name | Customer name. | John Smith |\n| id | Unique\
-        \ customer ID. | cust_J1CDUdbqn5Exva8ASWk1Fq0j |\n| description | An arbitrary\
-        \ string that you can attach to a customer object. | Customer requesting to\
-        \ be added to VIP tier. |\n| email | Customer's email. | name.lastname@email.com\
-        \ |\n| source_id | Unique custom customer identifier. | name.lastname@email.com\
-        \ |\n| created_at | Timestamp in ISO 8601 format representing the date and\
-        \ time when the customer was created. | 2022-02-03T13:10:11.928Z |\n| address_city\
-        \ | City | Houston |\n| address_state | State | TX |\n| address_line_1 | First\
-        \ line of customer's address. | 72738 Main St |\n| address_line_2 | Second\
-        \ line of customer's address. | Bld 2, Apt 4 |\n| address_country | Country\
-        \ | United States of America |\n| address_postal_code | Postal code (ZIP code)\
-        \ | 77042-4143 |\n| redemptions_total_redeemed | Total customer redemptions.\
-        \ | 5 |\n| redemptions_total_failed | Total customer failed redemptions. |\
-        \ 2 |\n| redemptions_total_succeeded | Total customer succeeded redemptions.\
-        \ | 3 |\n| redemptions_total_rolled_back | Total customer redemptions that\
-        \ were rolled back. | 3 |\n| redemptions_total_rollback_failed | Total customer\
-        \ redemptions that were unsuccessfully rolled back. | 2 |\n| redemptions_total_rollback_succeeded\
-        \ | Total customer redemptions that were successfully rolled back. | 1 |\n\
-        | orders_total_amount | Total sum of order amounts over customer lifetime.\
-        \ Value is multiplied by 100 to precisely represent 2 decimal places. | 10000\
-        \ (represents $100) |\n| orders_total_count | Total number of customer orders.\
-        \ | 2 |\n| orders_average_amount | Average amount spent on orders. Value is\
-        \ multiplied by 100 to precisely represent 2 decimal places. | 5000 (represents\
-        \ $50) |\n| orders_last_order_amount | How much did the customer spend on\
-        \ their last order. Value is multiplied by 100 to precisely represent 2 decimal\
-        \ places. | 5000 (represents $50) |\n| orders_last_order_date | When was the\
-        \ last customer order; timestamp in ISO 8601 format representing the date\
-        \ and time. | 2022-02-03T13:17:30.630Z |\n| loyalty_points | Sum of customer's\
-        \ loyalty points to go across all loyalty cards. | 2000 |\n| loyalty_referred_customers\
-        \ | How many customers were referred by this customer. | 3 |\n| updated_at\
-        \ | Timestamp in ISO 8601 format representing the date and time when the customer\
-        \ was updated. | 2022-02-14T14:10:14.305Z |\n| phone | Customer's phone number.\
-        \ | +1 (294) 752-1846 |\n| birthday | `Deprecated`. ~~Customer's birthday~~.\
-        \ | 2022-01-01 |\n| metadata | Customer metadata. | All metadata fields defined\
-        \ in Metadata Schema for the Customer object. |\n| birthdate | Customer's\
-        \ birthdate. | 2022-01-01 |\n\n## Points Expirations\n\n| **Field** | **Definition**\
-        \ | **Example Export** |\n|:---|:---|:---|\n| id | Loyalty points bucket ID.\
-        \ | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n |\n| campaign_id | Campaign ID of the parent\
-        \ loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic |\n| voucher_id | Voucher\
-        \ ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 |\n\
-        | status | Status of the loyalty points bucket. | `ACTIVE` or `INACTIVE` |\n\
-        | expires_at | Timestamp in ISO 8601 format representing the date when the\
-        \ points expire. | 2022-06-30 |\n| points | Number of points. | 1000 |\n\n\
-        \ ## Gift Card Transactions\n\n| **Field** | **Definition** | **Example Export**\
-        \ |\n|:---|:---|:---|\n| id | Unique transaction ID. | vtx_0cb7811f1c07765800\
-        \ |\n| type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION`\
-        \ <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` |\n| source_id | Unique\
-        \ transaction source ID. | 8638 |\n| reason | Contains the reason for the\
-        \ transaction if one was included originally. |  |\n| balance | The gift card\
-        \ or loyalty card balance after the transaction. |  |\n| amount | The amount\
-        \ of gift card or loyalty card credits being allocated during the transaction.\
-        \ This value can either be negative or positive depending on the nature of\
-        \ the transaction. |  |\n| created_at | Timestamp in ISO 8601 format representing\
-        \ the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z\
-        \  |\n| voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp\
-        \ |\n| campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV |\n\
-        | source|  Channel through which the transaction was initiated. | API |\n\
-        | details | More detailed information stored in the form of a JSON. | Provides\
-        \ more details related to the transaction in the form of an object. |\n\n\
-        \ ## Loyalty Card Transactions\n\n| **Field** | **Definition** | **Example\
-        \ Export** |\n|:---|:---|:---|\n| id | Unique transaction ID assigned by Voucherify.\
-        \ | vtx_0cb7811f1c07765800 |\n| type | Transaction type. | - `POINTS_EXPIRATION`\
-        \ <br> - `POINTS_ADDITION` <br> - `POINTS_REMOVAL` <br> - `POINTS_TRANSFER_OUT`\
-        \ <br> - `POINTS_ACCRUAL` <br> - `POINTS_REFUND` <br> - `POINTS_REDEMPTION`\
-        \ |\n| source_id | Custom source ID of the transaction if one was included\
-        \ originally. | source_id_custom |\n| reason | Contains the reason for the\
-        \ transaction if one was included originally. |  |\n| balance | The loyalty\
-        \ card balance after the transaction. |  |\n| amount | The amount of loyalty\
-        \ points being allocated during the transaction. This value can either be\
-        \ negative or positive depending on the nature of the transaction. |  |\n\
-        | created_at | Timestamp in ISO 8601 format representing the date and time\
-        \ when the transaction was created. | 2022-03-09T09:16:32.521Z  |\n| voucher_id\
-        \ | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp |\n| campaign_id\
-        \ | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV |\n| source|  Channel\
-        \ through which the transaction was initiated. | - `API` <br> - `voucherify-web-ui`\
-        \ <br> - `Automation` |\n| details | More detailed information stored in the\
-        \ form of a JSON. | Provides more details related to the transaction in the\
-        \ form of an object. |\n| related_transaction_id | Unique transaction ID related\
-        \ to a receiver/donor card in the case of a points transfer from/to another\
-        \ card. | vtx_0c9afe802593b34b80 |"
+        \ voucher, redemption, publication, customer, order, points_expiration, or\
+        \ voucher_transactions.  \n# Defaults\nIf you only specify the object type\
+        \ in the request body without specifying the fields, the API will return the\
+        \ following fields per export object:\n\n\n# Fetching particular data sets\n\
+        Using the parameters body parameter, you can narrow down which fields to export\
+        \ and how to filter the results. The fields are an array of strings containing\
+        \ the data that you would like to export. These fields define the headers\
+        \ in the CSV file. The array can be a combination of any of the following\
+        \ available fields:\n# Orders  \n\n\n# Vouchers  \n\n\n\n\n\n# Publications\n\
+        \n\n# Redemptions\n\n\n\n# Customers\n\n\n\n\n\n\n# Points Expirations\n\n\
+        \n # Gift Card Transactions\n\n\n # Loyalty Card Transactions\n\n\n"
       operationId: create-export
       parameters: []
       requestBody:
@@ -17211,8 +16712,8 @@ paths:
       operationId: delete-export
       parameters:
       - description: "Unique export object ID of previously created export. This object\
-          \ can be a: `voucher`, `redemption`, `publication`, `customer`, `order`,\
-          \ `points_expiration`, or `voucher_transactions`."
+          \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
+          \ or voucher_transactions."
         explode: false
         in: path
         name: exportId
@@ -17232,13 +16733,12 @@ paths:
       x-accepts: application/json
     get:
       description: "Retrieves the URL of the downloadable file, which was generated\
-        \ via the <!-- [Create Export](OpenAPI.json/paths/~1exports/post) -->[Create\
-        \ Export](ref:create-export) method."
+        \ via the Create Export method."
       operationId: get-export
       parameters:
       - description: "Unique export object ID of previously created export. This object\
-          \ can be a: `voucher`, `redemption`, `publication`, `customer`, `order`,\
-          \ `points_expiration`, or `voucher_transactions`."
+          \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
+          \ or voucher_transactions."
         explode: false
         in: path
         name: exportId
@@ -17286,12 +16786,11 @@ paths:
       x-accepts: application/json
   /v1/exports/{export_Id}:
     get:
-      description: "Download the contents of the exported CSV file. \n\n<!-- theme:\
-        \ info -->\n\n> 📘 Important notes\n>\n> **Base URL:** \n> - `https://download.voucherify.io`\
-        \ (Europe) \n> - `https://us1.download.voucherify.io` (US) \n> - `https://as1.download.voucherify.io`\
-        \ (Asia) \n>\n> **Token:** Can be found within the `result` parameter of the\
-        \ <!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) -->[Get\
-        \ Export](ref:get-export) method response."
+      description: "Download the contents of the exported CSV file. \n 📘 Important\
+        \ notes\n **Base URL:** \n - https://download.voucherify.io (Europe) \n -\
+        \ https://us1.download.voucherify.io (US) \n - https://as1.download.voucherify.io\
+        \ (Asia) \n **Token:** Can be found within the result parameter of the Get\
+        \ Export method response."
       operationId: download-export
       parameters:
       - description: Unique export object ID.
@@ -17533,29 +17032,27 @@ paths:
   /client/v1/qualifications:
     post:
       description: "Generate a list of redeemables that are applicable in the context\
-        \ of the customer and order.\n\nThe new qualifications method is an improved\
-        \ version of [Campaign Qualifications](ref:examine-campaigns-qualification),\
-        \ [Voucher Qualifications](ref:examine-vouchers-qualification), and [Promotions\
-        \ Validation](ref:validate-promotions) API requests. The new qualification\
-        \ method introduces the following improvements:\n\n- Qualification results\
-        \ are returned faster\n- No limit on the number of returned redeemables\n\
-        - Introduces new qualification scenarios, not available in the previous version\n\
-        \n> 👍 Scenario Guide\n>\n> Read our dedicated guide to learn about some use\
-        \ cases this endpoint can cover [here](doc:checking-eligibility).\n\n## Paging\
-        \ \n\nThe Voucherify Qualifications API request will return to you all of\
-        \ the redeemables available for the customer in batches of up to 50 redeemables.\
-        \ To get the next batch of redeemables, you need to use the `starting_after`\
-        \ cursor.\n\nTo process of paging the redeemables works in the following manner:\n\
-        \n- You send the first API request for Qualifications without the `starting_after`\
-        \ parameter.\n- The response will contain a parameter named `has_more`. If\
-        \ the parameter's value is set to `true`, then more redeemables are available.\n\
-        - Get the value of the `created_at` parameter of the last returned redeemable.\
+        \ of the customer and order.\nThe new qualifications method is an improved\
+        \ version of Campaign Qualifications, Voucher Qualifications, and Promotions\
+        \ Validation API requests. The new qualification method introduces the following\
+        \ improvements:\n- Qualification results are returned faster\n- No limit on\
+        \ the number of returned redeemables\n- Introduces new qualification scenarios,\
+        \ not available in the previous version\n 👍 Scenario Guide\n Read our dedicated\
+        \ guide to learn about some use cases this endpoint can cover here.\n# Paging\
+        \ \nThe Voucherify Qualifications API request will return to you all of the\
+        \ redeemables available for the customer in batches of up to 50 redeemables.\
+        \ To get the next batch of redeemables, you need to use the starting_after\
+        \ cursor.\nTo process of paging the redeemables works in the following manner:\n\
+        - You send the first API request for Qualifications without the starting_after\
+        \ parameter.\n- The response will contain a parameter named has_more. If the\
+        \ parameters value is set to true, then more redeemables are available.\n\
+        - Get the value of the created_at parameter of the last returned redeemable.\
         \ The value of this parameter will be used as a cursor to retrieve the next\
         \ page of redeemables.\n- Send another API request for Qualification with\
-        \ the `starting_after` parameter set to the value taken from the `created_at`\
+        \ the starting_after parameter set to the value taken from the created_at\
         \ parameter from the last returned redeemable.\n- Voucherify will return the\
-        \ next page of redeemables.\n- If the `has_more` parameter is set to `true`,\
-        \ apply steps 3-5 to get the next page of redeemables."
+        \ next page of redeemables.\n- If the has_more parameter is set to true, apply\
+        \ steps 3-5 to get the next page of redeemables."
       operationId: check-eligibility-client-side
       parameters: []
       requestBody:
@@ -17583,26 +17080,12 @@ paths:
     post:
       description: |-
         This method is accessible through public keys which you can use in client side requests coming from mobile and web browser applications.
-
-        ## How API returns calculated discounts and order amounts in the response
-
+        # How API returns calculated discounts and order amounts in the response
         In the table below, you can see the logic the API follows to calculate discounts and amounts:
 
-        | **Field** | **Calculation** | **Description** |
-        |:---|:---|:---|
-        | amount | N/A | This field shows the order amount before applying any discount |
-        | total_amount | `total_amount` = `amount` - `total_discount_amount` | This field shows the order amount after applying all the discounts |
-        | discount_amount | `discount_amount` = `previous_discount_amount` + `applied_discount_amount` | This field sums up all order-level discounts up to and including the specific discount being calculated for the stacked redemption. |
-        | items_discount_amount | sum(items, i => i.discount_amount) | This field sums up all product-specific discounts |
-        | total_discount_amount | `total_discount_amount` = `discount_amount` + `items_discount_amount` | This field sums up all order-level and all product-specific discounts |
-        | applied_discount_amount | N/A | This field shows the order-level discount applied in a particular request |
-        | items_applied_discount_amount | sum(items, i => i.applied_discount_amount) | This field sums up all product-specific discounts applied in a particular request |
-        | total_applied_discount_amount | `total_applied_discount_amount` = `applied_discount_amount` + `items_applied_discount_amount` | This field sums up all order-level and all product-specific discounts applied in a particular request |
 
-        <!-- theme: info -->
-        > 📘 Rollbacks
-        >
-        > You can't roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your <!-- [rollback request](OpenAPI.json/paths/~1redemptions~1{parentRedemptionId}~1rollbacks/post) -->[rollback request](ref:rollback-stacked-redemptions).
+         📘 Rollbacks
+         You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your rollback request.
       operationId: redeem-stacked-discounts-client-side
       parameters:
       - description: "Indicates the origin (scheme, hostname, and port)."
@@ -17782,7 +17265,7 @@ paths:
       description: Update marketing permissions for the specified customer.
       operationId: update-customers-consents-client-side
       parameters:
-      - description: A Voucherify customer identifier or `source_id`
+      - description: A Voucherify customer identifier or source_id
         explode: false
         in: path
         name: customerId
@@ -17805,12 +17288,8 @@ paths:
               $ref: '#/components/schemas/ClientCustomersConsentsUpdateRequestBody'
         description: "Key-value pairs where the key is the consent identifier and\
           \ value is a boolean that identifies if a customer has given the consent\
-          \ or not. To deny all consents use \"unsubscribed\" as a consent identifier\
-          \ and \"true\" as its value.  \n\n#### Examples\n\n<!--\ntitle: \"Request\
-          \ Body\"\nlineNumbers: true\n-->\n```json\n{\n    \"cnst_aIdUulAh0SCsOCaS3005y7yS\"\
-          : true,\n    \"cnst_aIdUulAhwewqaS31213fdsfds\": false\n}\n```\n\nOpt-out\
-          \ from all communication:\n\n<!--\ntitle: \"Request Body\"\nlineNumbers:\
-          \ true\n-->\n```json\n{\n    \"unsubscribed\": true\n}\n```"
+          \ or not. To deny all consents use unsubscribed as a consent identifier\
+          \ and true as its value.  \n## Examples\n\nOpt-out from all communication:\n"
       responses:
         "204":
           description: Returns no content if the consents were updated successfully.
@@ -17824,9 +17303,9 @@ paths:
       x-accepts: application/json
   /client/v1/events:
     post:
-      description: "To track a custom event, you create an event object.  \n\nThe\
-        \ event object must be linked to the customer who performs the action. If\
-        \ a customer doesn't exist in Voucherify, the customer will be created."
+      description: "To track a custom event, you create an event object.  \nThe event\
+        \ object must be linked to the customer who performs the action. If a customer\
+        \ doesnt exist in Voucherify, the customer will be created."
       operationId: track-custom-event-client-side
       parameters:
       - description: "Indicates the origin (scheme, hostname, and port)."
@@ -17941,10 +17420,10 @@ components:
         $ref: '#/components/schemas/ParameterCode'
       style: simple
     created_at:
-      description: "A filter on the list based on the object `created_at` field. The\
-        \ value is a dictionary with the following options: `before`, `after`. A date\
-        \ value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z` or `2016-11-16`).\
-        \ An example: `[created_at][before]=2017-09-08T13:52:18.227Z`"
+      description: "A filter on the list based on the object created_at field. The\
+        \ value is a dictionary with the following options: before, after. A date\
+        \ value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16).\
+        \ An example: [created_at][before] 2017-09-08T13:52:18.227Z"
       explode: true
       in: query
       name: created_at
@@ -17974,7 +17453,7 @@ components:
       style: form
     order:
       description: "Sorts the results using one of the filtering options, where the\
-        \ dash `-` preceding a sorting option means sorting in a descending order."
+        \ dash - preceding a sorting option means sorting in a descending order."
       explode: true
       in: query
       name: order
@@ -17992,7 +17471,7 @@ components:
         $ref: '#/components/schemas/ParameterOrigin'
       style: simple
     page:
-      description: Which page of results to return. The lowest value is `1`.
+      description: Which page of results to return. The lowest value is 1.
       explode: true
       in: query
       name: page
@@ -18021,10 +17500,10 @@ components:
         $ref: '#/components/schemas/ParameterDate'
       style: form
     updated_at:
-      description: "A filter on the list based on the object `updated_at` field. The\
-        \ value is a dictionary with the following options: `before`, `after`. A date\
-        \ value must be presented in ISO 8601 format (`2016-11-16T14:14:31Z` or `2016-11-16`).\
-        \ An example: `[updated_at][before]=2017-09-08T13:52:18.227Z`"
+      description: "A filter on the list based on the object updated_at field. The\
+        \ value is a dictionary with the following options: before, after. A date\
+        \ value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16).\
+        \ An example: [updated_at][before] 2017-09-08T13:52:18.227Z"
       explode: true
       in: query
       name: updated_at

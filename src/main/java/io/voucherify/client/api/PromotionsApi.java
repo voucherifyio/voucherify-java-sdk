@@ -214,7 +214,7 @@ public class PromotionsApi {
     }
     /**
      * Build call for deletePromotionStack
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -289,7 +289,7 @@ public class PromotionsApi {
     /**
      * Delete Promotion Stack
      * This method deletes a promotion stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -305,7 +305,7 @@ public class PromotionsApi {
     /**
      * Delete Promotion Stack
      * This method deletes a promotion stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -323,7 +323,7 @@ public class PromotionsApi {
     /**
      * Delete Promotion Stack (asynchronously)
      * This method deletes a promotion stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -528,7 +528,7 @@ public class PromotionsApi {
 
     /**
      * Disable Promotion Tier
-     * This method disables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;false&#x60;.
+     * This method disables a promotion tier, i.e. makes the active parameter   false.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return PromotionsTiersDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -545,7 +545,7 @@ public class PromotionsApi {
 
     /**
      * Disable Promotion Tier
-     * This method disables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;false&#x60;.
+     * This method disables a promotion tier, i.e. makes the active parameter   false.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;PromotionsTiersDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -563,7 +563,7 @@ public class PromotionsApi {
 
     /**
      * Disable Promotion Tier (asynchronously)
-     * This method disables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;false&#x60;.
+     * This method disables a promotion tier, i.e. makes the active parameter   false.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -651,7 +651,7 @@ public class PromotionsApi {
 
     /**
      * Enable Promotion Tier
-     * This method enables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;true&#x60;.
+     * This method enables a promotion tier, i.e. makes the active parameter   true.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return PromotionsTiersEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -668,7 +668,7 @@ public class PromotionsApi {
 
     /**
      * Enable Promotion Tier
-     * This method enables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;true&#x60;.
+     * This method enables a promotion tier, i.e. makes the active parameter   true.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;PromotionsTiersEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -686,7 +686,7 @@ public class PromotionsApi {
 
     /**
      * Enable Promotion Tier (asynchronously)
-     * This method enables a promotion tier, i.e. makes the &#x60;active&#x60; parameter &#x3D; &#x60;true&#x60;.
+     * This method enables a promotion tier, i.e. makes the active parameter   true.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -706,7 +706,7 @@ public class PromotionsApi {
     }
     /**
      * Build call for getPromotionStack
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -782,7 +782,7 @@ public class PromotionsApi {
     /**
      * Get Promotion Stack
      * This method returns the details of a promotion stack, including the promotion tiers grouped within the stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @return PromotionsStacksGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -800,7 +800,7 @@ public class PromotionsApi {
     /**
      * Get Promotion Stack
      * This method returns the details of a promotion stack, including the promotion tiers grouped within the stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @return ApiResponse&lt;PromotionsStacksGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -819,7 +819,7 @@ public class PromotionsApi {
     /**
      * Get Promotion Stack (asynchronously)
      * This method returns the details of a promotion stack, including the promotion tiers grouped within the stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -963,10 +963,10 @@ public class PromotionsApi {
     /**
      * Build call for listAllPromotionStacks
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param createdAt A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
-     * @param updatedAt A filter on the list based on the object &#x60;updated_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[updated_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1048,12 +1048,12 @@ public class PromotionsApi {
 
     /**
      * List Promotion Stacks
-     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.   You can use filters in the query parameters to specify the stacks to be returned in the response.  ## Advanced filters for fetching promotion stacks  | **Filters** | **Examples** | | :--- | :--- | | Created Before | - &#x60;[created_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Created After | - &#x60;[created_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated Before | - &#x60;[updated_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated After | - &#x60;[updated_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; |
+     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.  You can use filters in the query parameters to specify the stacks to be returned in the response. # Advanced filters for fetching promotion stacks  
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param createdAt A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
-     * @param updatedAt A filter on the list based on the object &#x60;updated_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[updated_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @return PromotionsStacksListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1069,12 +1069,12 @@ public class PromotionsApi {
 
     /**
      * List Promotion Stacks
-     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.   You can use filters in the query parameters to specify the stacks to be returned in the response.  ## Advanced filters for fetching promotion stacks  | **Filters** | **Examples** | | :--- | :--- | | Created Before | - &#x60;[created_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Created After | - &#x60;[created_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated Before | - &#x60;[updated_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated After | - &#x60;[updated_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; |
+     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.  You can use filters in the query parameters to specify the stacks to be returned in the response. # Advanced filters for fetching promotion stacks  
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param createdAt A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
-     * @param updatedAt A filter on the list based on the object &#x60;updated_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[updated_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @return ApiResponse&lt;PromotionsStacksListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1091,12 +1091,12 @@ public class PromotionsApi {
 
     /**
      * List Promotion Stacks (asynchronously)
-     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.   You can use filters in the query parameters to specify the stacks to be returned in the response.  ## Advanced filters for fetching promotion stacks  | **Filters** | **Examples** | | :--- | :--- | | Created Before | - &#x60;[created_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Created After | - &#x60;[created_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][created_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated Before | - &#x60;[updated_at][before]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$before][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; | | Updated After | - &#x60;[updated_at][after]&#x3D;2021-12-30T13:52:18.227Z&#x60;&lt;br&gt;- &#x60;[filters][updated_at][conditions][$after][0]&#x3D;2021-12-30T13:52:18.227Z&#x60; |
+     * This method enables you to list promotion stacks irrespective of the campaign they are associated with.  You can use filters in the query parameters to specify the stacks to be returned in the response. # Advanced filters for fetching promotion stacks  
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
-     * @param page Which page of results to return. The lowest value is &#x60;1&#x60;. (optional)
-     * @param order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param createdAt A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
-     * @param updatedAt A filter on the list based on the object &#x60;updated_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[updated_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1361,7 +1361,7 @@ public class PromotionsApi {
     }
     /**
      * Build call for updatePromotionStack
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @param _callback Callback for upload/download progress
@@ -1439,7 +1439,7 @@ public class PromotionsApi {
     /**
      * Update Promotion Stack
      * This methods allows for editing an existing stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @return PromotionsStacksUpdateResponseBody
@@ -1458,7 +1458,7 @@ public class PromotionsApi {
     /**
      * Update Promotion Stack
      * This methods allows for editing an existing stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @return ApiResponse&lt;PromotionsStacksUpdateResponseBody&gt;
@@ -1478,7 +1478,7 @@ public class PromotionsApi {
     /**
      * Update Promotion Stack (asynchronously)
      * This methods allows for editing an existing stack.
-     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty Campaign&#x60;.  (required)
+     * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @param _callback The callback to be executed when the API call finishes

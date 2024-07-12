@@ -145,7 +145,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String earningRuleId = "earningRuleId_example"; // String | A unique earning rule ID.
     try {
       apiInstance.deleteEarningRule(campaignId, earningRuleId);
@@ -164,7 +164,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **earningRuleId** | **String**| A unique earning rule ID. |
 
 ### Return type
@@ -191,7 +191,7 @@ null (empty response body)
 
 Delete Loyalty Campaign
 
-Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.  If the &#x60;force&#x60; parameter is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](ref:list-bin-entries).
+Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
 
 ### Example
 ```java
@@ -221,8 +221,8 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
-    Boolean force = true; // Boolean | If this flag is set to `true`, the campaign and related vouchers will be removed permanently. If it is set to `false` or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name.
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
+    Boolean force = true; // Boolean | If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name.
     try {
       LoyaltiesDeleteResponseBody result = apiInstance.deleteLoyaltyProgram(campaignId, force);
       System.out.println(result);
@@ -241,8 +241,8 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
-| **force** | **Boolean**| If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. If it is set to &#x60;false&#x60; or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
+| **force** | **Boolean**| If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. |
 
 ### Return type
 
@@ -298,7 +298,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String assignmentId = "assignmentId_example"; // String | A unique reward assignment ID.
     try {
       apiInstance.deleteRewardAssignment1(campaignId, assignmentId);
@@ -317,7 +317,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **assignmentId** | **String**| A unique reward assignment ID. |
 
 ### Return type
@@ -498,7 +498,7 @@ public class Example {
 
 Export Loyalty Card Transactions
 
-Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+Export transactions that are associated with point movements on a loyalty card.   
 
 ### Example
 ```java
@@ -575,7 +575,7 @@ public class Example {
 
 Export Loyalty Card Transactions
 
-Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;POINTS_EXPIRATION&#x60; &lt;br&gt; - &#x60;POINTS_ADDITION&#x60; &lt;br&gt; - &#x60;POINTS_REMOVAL&#x60; &lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_REFUND&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60; | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - &#x60;API&#x60; &lt;br&gt; - &#x60;voucherify-web-ui&#x60; &lt;br&gt; - &#x60;Automation&#x60; | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+Export transactions that are associated with point movements on a loyalty card.   
 
 ### Example
 ```java
@@ -684,7 +684,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String earningRuleId = "earningRuleId_example"; // String | A unique earning rule ID.
     try {
       LoyaltiesEarningRulesGetResponseBody result = apiInstance.getEarningRule(campaignId, earningRuleId);
@@ -704,7 +704,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **earningRuleId** | **String**| A unique earning rule ID. |
 
 ### Return type
@@ -838,7 +838,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String assignmentId = "assignmentId_example"; // String | Unique reward assignment ID.
     try {
       LoyaltiesRewardAssignmentsGetResponseBody result = apiInstance.getRewardAssignment1(campaignId, assignmentId);
@@ -858,7 +858,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **assignmentId** | **String**| Unique reward assignment ID. |
 
 ### Return type
@@ -885,7 +885,7 @@ public class Example {
 
 Get Reward Assignment
 
-Retrieve specific reward assignment.  &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2). 
+Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. 
 
 ### Example
 ```java
@@ -915,7 +915,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String assignmentId = "assignmentId_example"; // String | A unique reward assignment ID.
     try {
       LoyaltiesRewardsGetResponseBody result = apiInstance.getRewardAssignment2(campaignId, assignmentId);
@@ -935,7 +935,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **assignmentId** | **String**| A unique reward assignment ID. |
 
 ### Return type
@@ -992,7 +992,7 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String assignmentId = "assignmentId_example"; // String | Unique reward assignment ID.
     try {
       LoyaltiesRewardAssignmentsRewardGetResponseBody result = apiInstance.getRewardDetails(campaignId, assignmentId);
@@ -1012,7 +1012,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **assignmentId** | **String**| Unique reward assignment ID. |
 
 ### Return type
@@ -1071,7 +1071,7 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
       LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, page);
       System.out.println(result);
@@ -1092,7 +1092,7 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 
@@ -1151,7 +1151,7 @@ public class Example {
     String campaignId = "campaignId_example"; // String | A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
       LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, page);
       System.out.println(result);
@@ -1173,7 +1173,7 @@ public class Example {
 | **campaignId** | **String**| A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 
@@ -1232,7 +1232,7 @@ public class Example {
     String campaignId = "campaignId_example"; // String | Unique campaign ID or name.
     String loyaltyTierId = "loyaltyTierId_example"; // String | Unique loyalty tier ID.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
       LoyaltiesTiersEarningRulesListResponseBody result = apiInstance.listLoyaltyTierEarningRules(campaignId, loyaltyTierId, limit, page);
       System.out.println(result);
@@ -1254,7 +1254,7 @@ public class Example {
 | **campaignId** | **String**| Unique campaign ID or name. |
 | **loyaltyTierId** | **String**| Unique loyalty tier ID. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 
@@ -1511,7 +1511,7 @@ public class Example {
 
 List Member Rewards
 
-Retrieves the list of rewards that the given customer (identified by &#x60;member_id&#x60;, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.    You can use the &#x60;affordable_only&#x60; parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).    Please note that rewards that are disabled (i.e. set to &#x60;Not Available&#x60; in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
 
 ### Example
 ```java
@@ -1542,7 +1542,7 @@ public class Example {
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String memberId = "memberId_example"; // String | Unique loyalty card assigned to a particular customer.
-    Boolean affordableOnly = true; // Boolean | Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to `true` to return rewards which the customer can actually afford.
+    Boolean affordableOnly = true; // Boolean | Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford.
     try {
       LoyaltiesMembersRewardsListResponseBody result = apiInstance.listMemberRewards(memberId, affordableOnly);
       System.out.println(result);
@@ -1562,7 +1562,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **memberId** | **String**| Unique loyalty card assigned to a particular customer. |
-| **affordableOnly** | **Boolean**| Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. |
+| **affordableOnly** | **Boolean**| Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. |
 
 ### Return type
 
@@ -1588,7 +1588,7 @@ public class Example {
 
 Get Points Expiration
 
-Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](ref:create-export) to retrieve a list of both &#x60;ACTIVE&#x60; and &#x60;EXPIRED&#x60; point buckets.
+Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
 
 ### Example
 ```java
@@ -1618,10 +1618,10 @@ public class Example {
     //X-App-Token.setApiKeyPrefix("Token");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`. 
+    String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
     String memberId = "memberId_example"; // String | Loyalty card code.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is `1`.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
       LoyaltiesMembersPointsExpirationListResponseBody result = apiInstance.listPointsExpiration(campaignId, memberId, limit, page);
       System.out.println(result);
@@ -1640,10 +1640,10 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;.  |
+| **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
 | **memberId** | **String**| Loyalty card code. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is &#x60;1&#x60;. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 
@@ -1669,7 +1669,7 @@ public class Example {
 
 Redeem Reward
 
-&lt;!-- theme: info --&gt; &gt; 📘 Alternative endpoint &gt; &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) --&gt;[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the &#x60;campaignId&#x60; as a path parameter.
+  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
 
 ### Example
 ```java
@@ -1904,7 +1904,7 @@ public class Example {
 
 Add or Remove Loyalty Card Balance
 
-This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &lt;!-- theme: info --&gt;   &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.   &gt; 📘 Alternative endpoint &gt; This endpoint is an alternative to this &lt;!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance) --&gt;[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the &#x60;campaignId&#x60; as a path parameter.
+This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
 
 ### Example
 ```java
@@ -1981,7 +1981,7 @@ public class Example {
 
 Add or Remove Loyalty Card Balance
 
-This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.    &gt;🚧 Async Action &gt;  &gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
 
 ### Example
 ```java

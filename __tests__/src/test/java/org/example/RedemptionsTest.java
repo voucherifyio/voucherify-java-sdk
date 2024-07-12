@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -76,8 +78,10 @@ public class RedemptionsTest {
     private void redeemStackedDiscounts(RedemptionsRedeemRequestBody requestBody, String snapshotPath) {
         try {
             RedemptionsRedeemResponseBody responseBody = redemptions.redeemStackedDiscounts(requestBody);
+
             String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(responseBody);
             String snapshot = JsonHelper.readJsonFile(snapshotPath);
+
             assertNotNull(responseBody);
             JSONAssert.assertEquals(snapshot, responseBodyJson, false);
         } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
@@ -86,29 +90,26 @@ public class RedemptionsTest {
     }
 
     @NotNull
-    private static RedemptionsRedeemRequestBody getRedemptionsRequestBody(int multipleVouchers) {
+    private static RedemptionsRedeemRequestBody getRedemptionsRequestBody(int voucherCount) {
         Order order = getOrder();
         RedemptionsRedeemRequestBody redeemRequestBody = new RedemptionsRedeemRequestBody();
         redeemRequestBody.setOrder(order);
-        List<StackableValidateRedeemBaseRedeemablesItem> newRedeemables = new ArrayList<>();
         CampaignsCreateResponseBody campaign = createDiscountTypeCampaign();
-        for (int i = 0; i < multipleVouchers; i++) {
-            newRedeemables = addVouchersToRedeemablesArray(newRedeemables, campaign);
-        }
-        redeemRequestBody.setRedeemables(newRedeemables);
+        List<StackableValidateRedeemBaseRedeemablesItem> redeemables = Stream
+                .generate(() -> createVoucherForRedeemable(campaign)).limit(voucherCount)
+                .collect(Collectors.toCollection(ArrayList::new));
+        redeemRequestBody.setRedeemables(redeemables);
         return redeemRequestBody;
     }
 
     @NotNull
-    private static List<StackableValidateRedeemBaseRedeemablesItem> addVouchersToRedeemablesArray(
-            List<StackableValidateRedeemBaseRedeemablesItem> newRedeemables,
+    private static StackableValidateRedeemBaseRedeemablesItem createVoucherForRedeemable(
             CampaignsCreateResponseBody campaign) {
         try {
             CampaignsVouchersCreateCombinedResponseBody voucher = campaigns.addVouchersToCampaign(campaign.getId(), 1,
                     null);
             StackableValidateRedeemBaseRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
-            newRedeemables.add(redeemablesItem);
-            return newRedeemables;
+            return redeemablesItem;
         } catch (ApiException | JsonSyntaxException e) {
             fail();
             return null;

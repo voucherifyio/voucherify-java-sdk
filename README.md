@@ -91,7 +91,6 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-
 // Import classes:
 import voucherify.client.ApiClient;
 import voucherify.client.ApiException;
@@ -101,42 +100,41 @@ import voucherify.client.models.*;
 import voucherify.client.api.CampaignsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.voucherify.io");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.voucherify.io");
+        
+        // Configure API key authorization: X-App-Id
+        ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
+        X-App-Id.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //X-App-Id.setApiKeyPrefix("Token");
     
-    // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
-
-    CampaignsApi apiInstance = new CampaignsApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-    String code = "code_example"; // String | A custom **code** that identifies the voucher.
-    CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = new CampaignsVouchersCreateRequestBody(); // CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite.
-    try {
-      CampaignsVouchersCreateResponseBody result = apiInstance.addVoucherWithSpecificCodeToCampaign(campaignId, code, campaignsVouchersCreateRequestBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CampaignsApi#addVoucherWithSpecificCodeToCampaign");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        // Configure API key authorization: X-App-Token
+        ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
+        X-App-Token.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //X-App-Token.setApiKeyPrefix("Token");
+    
+        CampaignsApi apiInstance = new CampaignsApi(defaultClient);
+        String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
+        String code = "code_example"; // String | A custom **code** that identifies the voucher.
+        CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = new CampaignsVouchersCreateRequestBody(); // CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite.
+        try {
+            CampaignsVouchersCreateResponseBody result = apiInstance.addVoucherWithSpecificCodeToCampaign(campaignId, code, campaignsVouchersCreateRequestBody);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CampaignsApi#addVoucherWithSpecificCodeToCampaign");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
-You may find helpfull to check our tests implementation in folder [__tests__](./__tests__)
+It may be useful to check the test implementation in the folder [__tests__](./__tests__)
 
 ## 🐳 Running local tests with docker
 
@@ -157,6 +155,31 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 *Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*
 
 *Changelog for previous versions could be found in the [CHANGELOG.md file](./CHANGELOG.md)*
+
+## 🔐 Documentation for Authorization
+
+```java
+// Setup ApiClient Authorization:
+
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.ApiKeyAuth;
+
+public class Main {
+    public static ApiClient getClient() {}
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.voucherify.io");
+
+        ApiKeyAuth id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
+        id.setApiKey("YOUR_X_APP_ID");
+
+        ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
+        token.setApiKey("YOUR_X_APP_TOKEN");
+
+        return defaultClient;
+    }
+}
+```
 
 ## Documentation for API Endpoints
 
