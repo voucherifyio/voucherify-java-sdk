@@ -22,12 +22,12 @@ Create export object. The export can be any of the following types: &#x60;vouche
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ExportsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ExportsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -97,12 +97,12 @@ This method deletes a previously created export object.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ExportsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ExportsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -171,11 +171,11 @@ Download the contents of the exported CSV file.   &lt;!-- theme: info --&gt;  &g
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.models.*;
-import voucherify.client.api.ExportsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ExportsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -235,12 +235,12 @@ Retrieves the URL of the downloadable file, which was generated via the &lt;!-- 
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ExportsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ExportsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -310,12 +310,12 @@ List all exports.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ExportsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ExportsApi;
 
 public class Example {
   public static void main(String[] args) {

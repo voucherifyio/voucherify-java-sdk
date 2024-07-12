@@ -1,8 +1,8 @@
 package org.example;
 
-import voucherify.client.ApiClient;
-import voucherify.client.Configuration;
-import voucherify.client.auth.ApiKeyAuth;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.ApiKeyAuth;
 
 import java.io.FileInputStream;
 import java.io.IOException;

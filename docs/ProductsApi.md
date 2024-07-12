@@ -31,12 +31,12 @@ Creates a product object.  &lt;!-- theme: info --&gt;  &gt; 📘 Upsert Mode &gt
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -106,12 +106,12 @@ This method adds product variants to a &lt;!-- [created product](OpenAPI.json/pa
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -183,12 +183,12 @@ Deletes a product and all related SKUs. This operation cannot be undone.   If th
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -259,12 +259,12 @@ Deletes a product SKU. This operation cannot be undone.   If the &#x60;force&#x6
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -337,12 +337,12 @@ Retrieve product details.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -412,12 +412,12 @@ Retrieve details of a SKU.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -487,12 +487,12 @@ Import products into the repository using a CSV file.    Curl Example &lt;!-- ti
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -562,12 +562,12 @@ Import SKUs into the repository using a CSV file.  The CSV file has to include h
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -637,12 +637,12 @@ Retrieve a list of products.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -720,12 +720,12 @@ Retrieve all SKUs for a given product.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -805,12 +805,12 @@ Updates the specified product by setting the values of the parameters passed in 
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -882,12 +882,12 @@ Update several products in one asynchronous operation.   In one request, it is p
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -957,12 +957,12 @@ Update several product metadata properties in one asynchronous operation.   In o
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1032,12 +1032,12 @@ Updates the specified SKU by setting the values of the parameters passed in the 
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ProductsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ProductsApi;
 
 public class Example {
   public static void main(String[] args) {

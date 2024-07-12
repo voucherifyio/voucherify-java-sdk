@@ -23,12 +23,12 @@ Return a redemption or redemption rollback object. This object can either be a s
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -98,12 +98,12 @@ Retrieve the number of times a voucher was redeemed and each of the redemption d
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -173,12 +173,12 @@ Returns a list of redemptions previously created. The redemptions are returned i
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -262,12 +262,12 @@ Redeem Stackable Discounts
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -337,12 +337,12 @@ Your business logic may include a case when you need to undo a redemption. You c
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -418,12 +418,12 @@ Rollback a stackable redemption. When you rollback a stacked redemption, all chi
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.RedemptionsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RedemptionsApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -26,12 +26,12 @@ Assign validation rule to either one of the following objects: voucher, campaign
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -105,12 +105,12 @@ Create validation rules.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -180,12 +180,12 @@ This method deletes a validation rule assignment.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -256,12 +256,12 @@ This method deletes a validation rule.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -330,12 +330,12 @@ Retrieve the details of a validation rule.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -405,12 +405,12 @@ Retrieve validation rule assignments for a specific validation rule.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -486,12 +486,12 @@ Retrieve validation rules.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -569,12 +569,12 @@ List all validation rules&#39; assignments or filter the results using the relat
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -652,12 +652,12 @@ Update validation rule parameters.
 ### Example
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ValidationRulesApi;
 
 public class Example {
   public static void main(String[] args) {

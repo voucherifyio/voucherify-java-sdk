@@ -5,12 +5,12 @@ import com.google.gson.JsonSyntaxException;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.api.CampaignsApi;
-import voucherify.client.api.ValidationsApi;
-import voucherify.client.api.VouchersApi;
-import voucherify.client.model.*;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.api.CampaignsApi;
+import io.voucherify.client.api.ValidationsApi;
+import io.voucherify.client.api.VouchersApi;
+import io.voucherify.client.model.*;
 
 import java.util.ArrayList;
 import java.util.List;

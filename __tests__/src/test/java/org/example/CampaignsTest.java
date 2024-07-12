@@ -4,10 +4,10 @@ import com.google.gson.JsonSyntaxException;
 import org.example.data.Voucherify;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.api.CampaignsApi;
-import voucherify.client.model.*;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.api.CampaignsApi;
+import io.voucherify.client.model.*;
 
 import java.math.BigDecimal;
 

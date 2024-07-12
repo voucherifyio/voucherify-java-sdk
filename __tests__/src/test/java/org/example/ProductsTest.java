@@ -6,11 +6,11 @@ import org.example.data.Voucherify;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.api.ProductsApi;
-import voucherify.client.model.ProductsCreateRequestBody;
-import voucherify.client.model.ProductsCreateResponseBody;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.api.ProductsApi;
+import io.voucherify.client.model.ProductsCreateRequestBody;
+import io.voucherify.client.model.ProductsCreateResponseBody;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;

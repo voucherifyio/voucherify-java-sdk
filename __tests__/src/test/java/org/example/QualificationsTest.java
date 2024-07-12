@@ -4,10 +4,10 @@ import com.google.gson.JsonSyntaxException;
 import org.example.data.Voucherify;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.api.QualificationsApi;
-import voucherify.client.model.*;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.api.QualificationsApi;
+import io.voucherify.client.model.*;
 
 import java.util.ArrayList;
 

@@ -5,10 +5,10 @@ import org.example.data.Voucherify;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.api.ValidationRulesApi;
-import voucherify.client.model.*;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.api.ValidationRulesApi;
+import io.voucherify.client.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
