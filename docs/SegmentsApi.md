@@ -31,16 +31,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     SegmentsApi apiInstance = new SegmentsApi(defaultClient);
     String segmentId = "segmentId_example"; // String | A unique customer segment ID.

@@ -35,16 +35,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
     ExportsCreateRequestBody exportsCreateRequestBody = new ExportsCreateRequestBody(); // ExportsCreateRequestBody | Specify the details of the export that you would like to create.
@@ -110,16 +104,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
     String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.
@@ -248,16 +236,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
     String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.
@@ -323,16 +305,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.

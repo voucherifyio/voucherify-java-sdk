@@ -39,16 +39,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A unique **code** that identifies the voucher.
@@ -115,16 +109,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
@@ -190,16 +178,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
@@ -265,16 +247,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "GIFT-CARD-1"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
@@ -342,16 +318,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A unique **code** that identifies the voucher.
@@ -417,16 +387,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     File _file = new File("/path/to/file"); // File | File path.
@@ -492,16 +456,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
@@ -571,16 +529,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify.
@@ -647,16 +599,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.

@@ -41,16 +41,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     CustomersCreateRequestBody customersCreateRequestBody = new CustomersCreateRequestBody(); // CustomersCreateRequestBody | Create a customer with specified parameters.
@@ -116,16 +110,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | A Voucherify customers id or source_id.
@@ -191,16 +179,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | A Voucherify customers id or source_id.
@@ -265,16 +247,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | A Voucherify customers id or source_id.
@@ -340,16 +316,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     File _file = new File("/path/to/file"); // File | File path.
@@ -415,16 +385,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | Unique identifier of a customer represented by an internal customer ID or customer source ID.
@@ -490,16 +454,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
@@ -587,16 +545,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | A Voucherify customers id or source_id.
@@ -664,16 +616,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     String customerId = "customerId_example"; // String | A Voucherify unique customer identifier or source ID.
@@ -740,16 +686,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = Arrays.asList(); // List<CustomersUpdateInBulkRequestBody> | Specify the customer fields that you would like to update in each customer object.
@@ -815,16 +755,10 @@ public class Example {
     defaultClient.setBasePath("https://api.voucherify.io");
     
     // Configure API key authorization: X-App-Id
-    ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-    X-App-Id.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Id.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
 
     // Configure API key authorization: X-App-Token
-    ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-    X-App-Token.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-App-Token.setApiKeyPrefix("Token");
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = new CustomersMetadataUpdateInBulkRequestBody(); // CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update along with the metadata key value pairs.
