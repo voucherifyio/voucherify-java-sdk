@@ -1,4 +1,4 @@
-package org.example.data;
+package io.voucherify.data;
 
 import java.util.ArrayList;
 

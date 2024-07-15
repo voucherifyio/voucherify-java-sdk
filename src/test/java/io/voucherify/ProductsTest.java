@@ -1,8 +1,8 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Product;
-import org.example.data.Voucherify;
+import io.voucherify.data.Product;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ public class ProductsTest {
 
             assertNotNull(productId);
 
-            Voucherify.getInstance().getProducts().add(
+            VoucherifyStore.getInstance().getProducts().add(
                 new Product(productId, productName, productSourceId)
             );
         } catch (ApiException | JsonSyntaxException e) {

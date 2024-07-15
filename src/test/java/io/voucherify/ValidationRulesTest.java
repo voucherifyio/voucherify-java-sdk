@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -36,10 +36,10 @@ public class ValidationRulesTest {
             ValidationRulesCreateRequestBody validationRulesCreateRequestBody = new ValidationRulesCreateRequestBody();
 
             Map<String, Object> condition = new HashMap<>();
-            condition.put("id", Voucherify.getInstance().getProducts().get(0).getId());
+            condition.put("id", VoucherifyStore.getInstance().getProducts().get(0).getId());
             condition.put("type", "product_or_sku");
             condition.put("object", "product");
-            condition.put("source_id", Voucherify.getInstance().getProducts().get(0).getSourceId());
+            condition.put("source_id", VoucherifyStore.getInstance().getProducts().get(0).getSourceId());
 
             ArrayList<Object> isConditions = new ArrayList<>();
             isConditions.add(condition);
@@ -67,8 +67,8 @@ public class ValidationRulesTest {
 
             ApplicableTo applicableTo = new ApplicableTo();
             applicableTo.setObject(ApplicableTo.ObjectEnum.PRODUCT);
-            applicableTo.setId(Voucherify.getInstance().getProducts().get(0).getId());
-            applicableTo.setSourceId(Voucherify.getInstance().getProducts().get(0).getSourceId());
+            applicableTo.setId(VoucherifyStore.getInstance().getProducts().get(0).getId());
+            applicableTo.setSourceId(VoucherifyStore.getInstance().getProducts().get(0).getSourceId());
             applicableTo.setStrict(false);
             applicableTo.effect(ApplicableToEffect.EVERY);
 
@@ -86,7 +86,7 @@ public class ValidationRulesTest {
 
             assertNotNull(validationRulesCreateResponseBody);
 
-            Voucherify.getInstance().getCouponCampaign().getValidationRuleIds().add(validationRulesCreateResponseBody.getId());
+            VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds().add(validationRulesCreateResponseBody.getId());
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

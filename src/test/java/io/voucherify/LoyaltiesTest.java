@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance(
-                    Voucherify.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -54,8 +54,8 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance1(
-                    Voucherify.getInstance().getLoyaltyCampaign().getId(),
-                    Voucherify.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -68,7 +68,7 @@ public class LoyaltiesTest {
     public void loyaltiesMembersTransactionsListTest() {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
-                    Voucherify.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     10,
                     1);
 
@@ -89,7 +89,7 @@ public class LoyaltiesTest {
             loyaltyTierBasePoints.setTo(1000);
 
             List<LoyaltyTier> loyaltyTiers = loyalties.createInBulkLoyaltyTiers(
-                    Voucherify.getInstance().getLoyaltyCampaign().getId(),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
                     tiers);
 
             assertNotNull(loyaltyTiers);

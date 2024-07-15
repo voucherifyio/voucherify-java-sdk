@@ -1,4 +1,4 @@
-package org.example.helpers;
+package io.voucherify.helpers;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

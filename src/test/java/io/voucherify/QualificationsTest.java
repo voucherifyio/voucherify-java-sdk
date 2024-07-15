@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.voucherify.client.ApiClient;
@@ -30,11 +30,11 @@ public class QualificationsTest {
             QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody = new QualificationsCheckEligibilityRequestBody();
 
             Customer customer = new Customer();
-            customer.setId(Voucherify.getInstance().getCustomer().getId());
+            customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
             qualificationsCheckEligibilityRequestBody.setCustomer(customer);
 
             OrderItem orderItem = new OrderItem();
-            orderItem.setProductId(Voucherify.getInstance().getProducts().get(0).getId());
+            orderItem.setProductId(VoucherifyStore.getInstance().getProducts().get(0).getId());
             orderItem.setQuantity(1);
             orderItem.setAmount(100);
 

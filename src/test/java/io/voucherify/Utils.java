@@ -1,4 +1,4 @@
-package org.example;
+package io.voucherify;
 
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.Configuration;
@@ -35,7 +35,7 @@ public class Utils {
 
         try {
             String dir = System.getProperty("user.dir");
-            input = new FileInputStream(dir + "/../.env");
+            input = new FileInputStream(dir + "/.env");
             properties.load(input);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -51,7 +51,6 @@ public class Utils {
 
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath(properties.getProperty("VOUCHERIFY_HOST"));
-
         defaultClient.setAuthentication("X-App-Id", properties.getProperty("X_APP_ID"));
         defaultClient.setAuthentication("X-App-Token", properties.getProperty("X_APP_TOKEN"));
 

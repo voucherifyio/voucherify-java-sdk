@@ -1,4 +1,4 @@
-package org.example.data;
+package io.voucherify.data;
 
 public class Product {
     String id;

@@ -414,7 +414,7 @@ public class ApiClient {
       * Set authentication for the given name.
       *
       * @param authName The authentication name
-      * @param authName The authentication value
+      * @param authValue The authentication value
       * @return The authentication, null if not found
       */
     public Authentication setAuthentication(String authName, String authValue) {

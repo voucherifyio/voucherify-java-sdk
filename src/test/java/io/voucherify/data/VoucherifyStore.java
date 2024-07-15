@@ -1,16 +1,16 @@
-package org.example.data;
+package io.voucherify.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Voucherify {
+public class VoucherifyStore {
     private final Campaign couponCampaign;
     private final Campaign loyaltyCampaign;
     private final Customer customer;
     private final List<Product> products;
     private final Order order;
 
-    private Voucherify() {
+    private VoucherifyStore() {
         couponCampaign = new Campaign();
         loyaltyCampaign = new Campaign();
         customer = new Customer();
@@ -19,10 +19,10 @@ public class Voucherify {
     }
 
     private static class SingletonHolder {
-        private static final Voucherify INSTANCE = new Voucherify();
+        private static final VoucherifyStore INSTANCE = new VoucherifyStore();
     }
 
-    public static Voucherify getInstance() {
+    public static VoucherifyStore getInstance() {
         return SingletonHolder.INSTANCE;
     }
 

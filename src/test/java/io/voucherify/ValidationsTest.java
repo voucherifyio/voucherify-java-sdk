@@ -1,6 +1,6 @@
-package org.example;
+package io.voucherify;
 
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import com.google.gson.JsonSyntaxException;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
-import org.example.helpers.JsonHelper;
+import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(7) // Multiple Order type
 public class ValidationsTest {
@@ -46,21 +46,21 @@ public class ValidationsTest {
     @Test
     @org.junit.jupiter.api.Order(1)
     public void validateStackedInapplicableDiscountsTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Validations/InaplicableValidation.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Validations/InaplicableValidation.snapshot.json";
         validateStackedDiscounts(getValidationsValidateInapplicableVouchersRequestBody(), snapshotPath);
     }
 
     @Test
     @org.junit.jupiter.api.Order(2)
     public void validateStackedApplicableDiscountsTest() {
-        String snaphsotPath = "src/test/java/org/example/snapshots/Validations/ApplicableValidation.snapshot.json";
+        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/ApplicableValidation.snapshot.json";
         validateStackedDiscounts(getValidationsValidateApplicableVouchersRequestBody(), snaphsotPath);
     }
 
     @Test
     @org.junit.jupiter.api.Order(3)
     public void validateStackedSkippedDiscountsTest() {
-        String snaphsotPath = "src/test/java/org/example/snapshots/Validations/SkippedValidation.snapshot.json";
+        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/SkippedValidation.snapshot.json";
         ValidationsValidateRequestBody requestBody = getValidationsValidateApplicableVouchersRequestBody();
         addRedeemablesItemToBeginning(requestBody);
         validateStackedDiscounts(requestBody, snaphsotPath);

@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
@@ -41,7 +41,7 @@ public class CustomersTest {
             assertNotNull(customersCreateResponseBody.getId());
             assertNotNull(customersCreateResponseBody2.getId());
 
-            Voucherify.getInstance().getCustomer().setId(customersCreateResponseBody.getId());
+            VoucherifyStore.getInstance().getCustomer().setId(customersCreateResponseBody.getId());
             this.sourceIdToDelete = customersCreateResponseBody2.getId();
         } catch (ApiException | JsonSyntaxException e) {
             fail();

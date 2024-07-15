@@ -1,8 +1,8 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
-import org.example.helpers.JsonHelper;
+import io.voucherify.helpers.JsonHelper;
 
 public class OrdersTest {
     public static ApiClient defaultClient = null;
@@ -36,12 +36,12 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(1)
     public void createOrderTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Orders/CreatedOrder.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/CreatedOrder.snapshot.json";
         OrdersCreateRequestBody createdOrder = createOrderRequestBody();
 
         try {
             OrdersCreateResponseBody createdOrderResponseBody = ordersApi.createOrder(createdOrder);
-            Voucherify.getInstance().getOrder().setId(createdOrderResponseBody.getId());
+            VoucherifyStore.getInstance().getOrder().setId(createdOrderResponseBody.getId());
 
             String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(createdOrderResponseBody);
             String snapshot = JsonHelper.readJsonFile(snapshotPath);
@@ -56,9 +56,9 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void getOrderTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Orders/GetOrder.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/GetOrder.snapshot.json";
         try {
-            OrdersGetResponseBody orderResponseBody = ordersApi.getOrder(Voucherify.getInstance().getOrder().getId());
+            OrdersGetResponseBody orderResponseBody = ordersApi.getOrder(VoucherifyStore.getInstance().getOrder().getId());
 
             String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(orderResponseBody);
             String snapshot = JsonHelper.readJsonFile(snapshotPath);
@@ -74,12 +74,12 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void updatePaidStatusOrderTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Orders/UpdatedOrder.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/UpdatedOrder.snapshot.json";
         OrdersUpdateRequestBody updatedOrderRequestBody = updateOrderRequestBody();
 
         try {
             OrdersUpdateResponseBody updatedOrderResponseBody = ordersApi
-                    .updateOrder(Voucherify.getInstance().getOrder().getId(), updatedOrderRequestBody);
+                    .updateOrder(VoucherifyStore.getInstance().getOrder().getId(), updatedOrderRequestBody);
             String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(updatedOrderResponseBody);
             String snapshot = JsonHelper.readJsonFile(snapshotPath);
 

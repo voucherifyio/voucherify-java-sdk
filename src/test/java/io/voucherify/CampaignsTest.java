@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
@@ -54,8 +54,8 @@ public class CampaignsTest {
             assertNotNull(loyaltyProgramId);
             assertNotNull(campaignName);
 
-            Voucherify.getInstance().getLoyaltyCampaign().setId(loyaltyProgramId);
-            Voucherify.getInstance().getLoyaltyCampaign().setName(campaignName);
+            VoucherifyStore.getInstance().getLoyaltyCampaign().setId(loyaltyProgramId);
+            VoucherifyStore.getInstance().getLoyaltyCampaign().setName(campaignName);
 
             this.loyaltyProgramId = loyaltyProgramId;
         } catch (ApiException | JsonSyntaxException e) {
@@ -88,8 +88,8 @@ public class CampaignsTest {
             assertNotNull(discountCampaignId);
             assertNotNull(campaignName);
 
-            Voucherify.getInstance().getCouponCampaign().setId(discountCampaignId);
-            Voucherify.getInstance().getCouponCampaign().setName(campaignName);
+            VoucherifyStore.getInstance().getCouponCampaign().setId(discountCampaignId);
+            VoucherifyStore.getInstance().getCouponCampaign().setName(campaignName);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }
@@ -118,7 +118,7 @@ public class CampaignsTest {
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             assertNotNull(result);
-            Voucherify.getInstance().getLoyaltyCampaign().addVoucherId(
+            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
                 result.getId()
             );
 
@@ -126,7 +126,7 @@ public class CampaignsTest {
             CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             assertNotNull(result2);
-            Voucherify.getInstance().getLoyaltyCampaign().addVoucherId(
+            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
                 result2.getId()
             );
 

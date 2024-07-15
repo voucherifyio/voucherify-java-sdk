@@ -1,7 +1,7 @@
-package org.example;
+package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
-import org.example.data.Voucherify;
+import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
@@ -54,9 +54,9 @@ public class PublicationsTest {
             PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
             PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
 
-            customer.setId(Voucherify.getInstance().getCustomer().getId());
+            customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
             publicationsCreateRequestBody.setCustomer(customer);
-            publicationsCreateRequestBody.setVoucher(Voucherify.getInstance().getLoyaltyCampaign().getVoucherIds().get(0));
+            publicationsCreateRequestBody.setVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0));
 
             PublicationsCreateResponseBody responseBody = publications.createPublication(false, publicationsCreateRequestBody);
 
@@ -72,10 +72,10 @@ public class PublicationsTest {
         try {
             CreatePublicationCampaign createPublicationCampaign = new CreatePublicationCampaign();
             PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
-            createPublicationCampaign.setName(Voucherify.getInstance().getLoyaltyCampaign().getName());
+            createPublicationCampaign.setName(VoucherifyStore.getInstance().getLoyaltyCampaign().getName());
             createPublicationCampaign.setCount(2);
 
-            customer.setId(Voucherify.getInstance().getCustomer().getId());
+            customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
 
             PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
             publicationsCreateRequestBody.setCampaign(createPublicationCampaign);
