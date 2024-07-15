@@ -52,11 +52,8 @@ public class Utils {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath(properties.getProperty("VOUCHERIFY_HOST"));
 
-        ApiKeyAuth id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-        id.setApiKey(properties.getProperty("X_APP_ID"));
-
-        ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-        token.setApiKey(properties.getProperty("X_APP_TOKEN"));
+        defaultClient.setAuthentication("X-App-Id", properties.getProperty("X_APP_ID"));
+        defaultClient.setAuthentication("X-App-Token", properties.getProperty("X_APP_TOKEN"));
 
         return defaultClient;
     }

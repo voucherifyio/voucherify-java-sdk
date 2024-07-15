@@ -165,8 +165,8 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/12.0.0/java");
-        addDefaultHeader("X-Voucherify-Channel", "Java-SDK-12.0.0");
+        setUserAgent("OpenAPI-Java-SDK/12.0.0");
+        addDefaultHeader("X-Voucherify-Channel", "Java-SDK");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -410,35 +410,19 @@ public class ApiClient {
         return authentications.get(authName);
     }
 
-
     /**
-     * Helper method to set username for the first HTTP basic authentication.
-     *
-     * @param username Username
-     */
-    public void setUsername(String username) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof HttpBasicAuth) {
-                ((HttpBasicAuth) auth).setUsername(username);
-                return;
-            }
+      * Set authentication for the given name.
+      *
+      * @param authName The authentication name
+      * @param authName The authentication value
+      * @return The authentication, null if not found
+      */
+    public Authentication setAuthentication(String authName, String authValue) {
+        ApiKeyAuth auth = this.getAuthentication(authName);
+        if(auth){
+            auth.setApiKey(authValue);
         }
-        throw new RuntimeException("No HTTP basic authentication configured!");
-    }
-
-    /**
-     * Helper method to set password for the first HTTP basic authentication.
-     *
-     * @param password Password
-     */
-    public void setPassword(String password) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof HttpBasicAuth) {
-                ((HttpBasicAuth) auth).setPassword(password);
-                return;
-            }
-        }
-        throw new RuntimeException("No HTTP basic authentication configured!");
+        return auth
     }
 
     /**
@@ -454,42 +438,6 @@ public class ApiClient {
             }
         }
         throw new RuntimeException("No API key authentication configured!");
-    }
-
-    /**
-     * Helper method to set API key prefix for the first API key authentication.
-     *
-     * @param apiKeyPrefix API key prefix
-     */
-    public void setApiKeyPrefix(String apiKeyPrefix) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof ApiKeyAuth) {
-                ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
-                return;
-            }
-        }
-        throw new RuntimeException("No API key authentication configured!");
-    }
-
-    /**
-     * Helper method to set access token for the first OAuth2 authentication.
-     *
-     * @param accessToken Access token
-     */
-    public void setAccessToken(String accessToken) {
-        throw new RuntimeException("No OAuth2 authentication configured!");
-    }
-
-    /**
-     * Helper method to set credentials for AWSV4 Signature
-     *
-     * @param accessKey Access Key
-     * @param secretKey Secret Key
-     * @param region Region
-     * @param service Service to access to
-     */
-    public void setAWS4Configuration(String accessKey, String secretKey, String region, String service) {
-        throw new RuntimeException("No AWS4 authentication configured!");
     }
 
     /**

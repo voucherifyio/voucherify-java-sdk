@@ -30,7 +30,7 @@ Building the API client library requires:
 1. Java 1.8+
 2. Maven (3.8.3+)/Gradle (7.2+)
 
-## ⚙️ Installation
+## Installation
 
 To install the API client library to your local Maven repository, simply execute:
 
@@ -102,19 +102,15 @@ import voucherify.client.api.CampaignsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.voucherify.io");
+        defaultClient.setBasePath("https://us1.api.voucherify.io"); //(defaults to "https://api.voucherify.io")
         
         // Configure API key authorization: X-App-Id
         ApiKeyAuth X-App-Id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
         X-App-Id.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //X-App-Id.setApiKeyPrefix("Token");
     
         // Configure API key authorization: X-App-Token
         ApiKeyAuth X-App-Token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
         X-App-Token.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //X-App-Token.setApiKeyPrefix("Token");
     
         CampaignsApi apiInstance = new CampaignsApi(defaultClient);
         String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
@@ -144,7 +140,7 @@ It may be useful to check the test implementation in the folder [__tests__](./__
 
 ## 🛠️ Contributing
 
-Read more about how to Contribute to Voucherify Ruby SDK by visiting main repo [GENERATING-SDKS.md](https://github.com/voucherifyio/voucherify-openapi/blob/master/GENERATING-SDKS.md)
+Read more about how to Contribute to Voucherify Java SDK by visiting main repo [GENERATING-SDKS.md](https://github.com/voucherifyio/voucherify-openapi/blob/master/GENERATING-SDKS.md)
 
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
@@ -168,14 +164,11 @@ import io.voucherify.client.auth.ApiKeyAuth;
 public class Main {
     public static ApiClient getClient() {}
         ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
         defaultClient.setBasePath("https://api.voucherify.io");
-
-        ApiKeyAuth id = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Id");
-        id.setApiKey("YOUR_X_APP_ID");
-
-        ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("X-App-Token");
-        token.setApiKey("YOUR_X_APP_TOKEN");
-
+        defaultClient.setAuthentication("X-App-Id", "YOUR_X_APP_ID");
+        defaultClient.setAuthentication("X-App-Token", "YOUR_X_APP_TOKEN");
+        
         return defaultClient;
     }
 }
