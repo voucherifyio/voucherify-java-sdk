@@ -128,7 +128,7 @@ public class Example {
 }
 ```
 
-It may be useful to check the test implementation in the folder [__tests__](./__tests__)
+It may be useful to check the test implementation in the folder **test** `(./src/test)`
 
 ## 🐳 Running local tests with docker
 
