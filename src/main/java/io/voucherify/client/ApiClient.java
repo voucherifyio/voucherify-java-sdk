@@ -418,11 +418,11 @@ public class ApiClient {
       * @return The authentication, null if not found
       */
     public Authentication setAuthentication(String authName, String authValue) {
-        ApiKeyAuth auth = this.getAuthentication(authName);
-        if(auth){
-            auth.setApiKey(authValue);
+        ApiKeyAuth apiKeyAuth = (ApiKeyAuth) this.getAuthentication(authName);
+        if (apiKeyAuth != null) {
+            apiKeyAuth.setApiKey(authValue);
         }
-        return auth
+        return apiKeyAuth;
     }
 
     /**
