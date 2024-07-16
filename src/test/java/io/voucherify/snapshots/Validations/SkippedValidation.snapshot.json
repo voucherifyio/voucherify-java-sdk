@@ -1,0 +1,114 @@
+{
+  "valid": false,
+  "redeemables": [
+    {
+      "status": "INAPPLICABLE",
+      "order": null,
+      "applicableTo": null,
+      "inapplicableTo": null,
+      "result": {
+        "discount": null,
+        "gift": null,
+        "loyaltyCard": null,
+        "error": {
+          "code": 404,
+          "key": "not_found",
+          "message": "Resource not found",
+          "resourceId": null,
+          "resourceType": null,
+          "additionalProperties": null
+        },
+        "details": {
+          "key": "not_found",
+          "message": "Resource not found",
+          "additionalProperties": null
+        },
+        "additionalProperties": null
+      },
+      "metadata": null,
+      "categories": null,
+      "additionalProperties": null,
+      "object": "VOUCHER"
+    },
+    {
+      "status": "SKIPPED",
+      "order": null,
+      "applicableTo": null,
+      "inapplicableTo": null,
+      "result": {
+        "discount": null,
+        "gift": null,
+        "loyaltyCard": null,
+        "error": null,
+        "details": {
+          "key": "preceding_validation_failed",
+          "message": "Redeemable cannot be applied due to preceding validation failure",
+          "additionalProperties": null
+        },
+        "additionalProperties": null
+      },
+      "metadata": {},
+      "categories": null,
+      "additionalProperties": null,
+      "object": "VOUCHER"
+    }
+  ],
+  "skippedRedeemables": [
+    {
+      "status": "SKIPPED",
+      "result": {
+        "details": {
+          "key": "PRECEDING_VALIDATION_FAILED",
+          "message": "Redeemable cannot be applied due to preceding validation failure",
+          "additionalProperties": null
+        },
+        "additionalProperties": null
+      },
+      "metadata": {},
+      "categories": null,
+      "additionalProperties": null,
+      "object": "VOUCHER"
+    }
+  ],
+  "inapplicableRedeemables": [
+    {
+      "status": "INAPPLICABLE",
+      "result": {
+        "error": {
+          "code": 404,
+          "key": "not_found",
+          "message": "Resource not found",
+          "resourceId": null,
+          "resourceType": null,
+          "additionalProperties": null
+        },
+        "details": {
+          "message": "Resource not found",
+          "key": "not_found",
+          "additionalProperties": null
+        },
+        "additionalProperties": null
+      },
+      "metadata": null,
+      "categories": null,
+      "additionalProperties": null,
+      "object": "VOUCHER"
+    }
+  ],
+  "order": null,
+  "trackingId": null,
+  "session": null,
+  "stackingRules": {
+    "redeemablesLimit": 30,
+    "applicableRedeemablesLimit": 5,
+    "applicableRedeemablesPerCategoryLimit": 1,
+    "applicableExclusiveRedeemablesLimit": 1,
+    "applicableExclusiveRedeemablesPerCategoryLimit": 1,
+    "exclusiveCategories": [],
+    "jointCategories": [],
+    "redeemablesApplicationMode": "ALL",
+    "redeemablesSortingRule": "REQUESTED_ORDER",
+    "additionalProperties": null
+  },
+  "additionalProperties": null
+}

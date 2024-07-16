@@ -1,23 +1,26 @@
-group = 'io.voucherify.client'
-version = '11.2.2'
-
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-sourceSets {
-    main {
-        java {
-            exclude 'io/voucherify/example/**'
-        }
+group = 'io.voucherify.client'
+version = '12.0.0'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.+'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
 }
 
 java {
@@ -28,12 +31,12 @@ java {
     withSourcesJar()
 }
 
+
+
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId group
-            artifactId 'voucherify-java-sdk'
-            version version
+            artifactId = 'voucherify-java-sdk'
             from components.java
 
             pom {
@@ -81,25 +84,29 @@ if (project.hasProperty('sign')) {
     }
 }
 
-dependencies {
-    compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.1'
-    compile group: 'com.squareup.retrofit2', name: 'converter-jackson', version: '2.6.1'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
-    compile group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.12.0'
-    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.2'
-
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
-
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
-    testImplementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '3.12.0'
-    testImplementation group: 'org.awaitility', name: 'awaitility', version: '4.0.1'
+task execute(type:JavaExec) {
+   main = System.getProperty('mainClass')
+   classpath = sourceSets.main.runtimeClasspath
 }
 
-test {
-    testLogging {
-        events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-    }
+ext {
+    jakarta_annotation_version = "1.3.5"
+}
+
+dependencies {
+    implementation 'io.swagger:swagger-annotations:1.6.8'
+    implementation "com.google.code.findbugs:jsr305:3.0.2"
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'io.gsonfire:gson-fire:1.8.5'
+    implementation 'javax.ws.rs:jsr311-api:1.1.1'
+    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
+    testImplementation group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.3'
+    testImplementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.5'
 }

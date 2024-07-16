@@ -5,24 +5,28 @@
 
 # Package Files #
 *.jar
-!gradle-wrapper.jar
 *.war
 *.ear
+
+# exclude jar for gradle wrapper
+!gradle/wrapper/*.jar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# Eclipse
-/bin/
-.classpath
-.project
-.settings/
+# build files
+**/target
+target
+.gradle
+build
 
-# Gradle
-.gradle/
-build/
-*.iml
-.idea/
-.vscode/
-.DS_Store
+
+# Other
+/.github/
+/.openapi-generator/
+/.openapi-generator-ignore
+/.travis.yml
+/git_push.sh
+/.env
+/.idea
 gradle.properties
