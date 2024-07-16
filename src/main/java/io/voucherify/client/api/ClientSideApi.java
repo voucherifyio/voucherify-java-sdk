@@ -85,11 +85,6 @@ public class ClientSideApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call checkEligibilityClientSideCall(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -148,11 +143,6 @@ public class ClientSideApi {
      * @param clientQualificationsCheckEligibilityRequestBody Define order and customer context. (optional)
      * @return ClientQualificationsCheckEligibilityResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public ClientQualificationsCheckEligibilityResponseBody checkEligibilityClientSide(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody) throws ApiException {
         ApiResponse<ClientQualificationsCheckEligibilityResponseBody> localVarResp = checkEligibilityClientSideWithHttpInfo(clientQualificationsCheckEligibilityRequestBody);
@@ -165,11 +155,6 @@ public class ClientSideApi {
      * @param clientQualificationsCheckEligibilityRequestBody Define order and customer context. (optional)
      * @return ApiResponse&lt;ClientQualificationsCheckEligibilityResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ClientQualificationsCheckEligibilityResponseBody> checkEligibilityClientSideWithHttpInfo(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody) throws ApiException {
         okhttp3.Call localVarCall = checkEligibilityClientSideValidateBeforeCall(clientQualificationsCheckEligibilityRequestBody, null);
@@ -184,11 +169,6 @@ public class ClientSideApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call checkEligibilityClientSideAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, final ApiCallback<ClientQualificationsCheckEligibilityResponseBody> _callback) throws ApiException {
 
@@ -204,11 +184,6 @@ public class ClientSideApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemStackedDiscountsClientSideCall(String origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -277,11 +252,6 @@ public class ClientSideApi {
      * @param clientRedemptionsRedeemRequestBody  (optional)
      * @return ClientRedemptionsRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ClientRedemptionsRedeemResponseBody redeemStackedDiscountsClientSide(String origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody) throws ApiException {
         ApiResponse<ClientRedemptionsRedeemResponseBody> localVarResp = redeemStackedDiscountsClientSideWithHttpInfo(origin, clientRedemptionsRedeemRequestBody);
@@ -295,11 +265,6 @@ public class ClientSideApi {
      * @param clientRedemptionsRedeemRequestBody  (optional)
      * @return ApiResponse&lt;ClientRedemptionsRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ClientRedemptionsRedeemResponseBody> redeemStackedDiscountsClientSideWithHttpInfo(String origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemStackedDiscountsClientSideValidateBeforeCall(origin, clientRedemptionsRedeemRequestBody, null);
@@ -315,11 +280,6 @@ public class ClientSideApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemStackedDiscountsClientSideAsync(String origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, final ApiCallback<ClientRedemptionsRedeemResponseBody> _callback) throws ApiException {
 
@@ -335,11 +295,6 @@ public class ClientSideApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call trackCustomEventClientSideCall(String origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -408,11 +363,6 @@ public class ClientSideApi {
      * @param clientEventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return ClientEventsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public ClientEventsCreateResponseBody trackCustomEventClientSide(String origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody) throws ApiException {
         ApiResponse<ClientEventsCreateResponseBody> localVarResp = trackCustomEventClientSideWithHttpInfo(origin, clientEventsCreateRequestBody);
@@ -426,11 +376,6 @@ public class ClientSideApi {
      * @param clientEventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return ApiResponse&lt;ClientEventsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ClientEventsCreateResponseBody> trackCustomEventClientSideWithHttpInfo(String origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = trackCustomEventClientSideValidateBeforeCall(origin, clientEventsCreateRequestBody, null);
@@ -446,11 +391,6 @@ public class ClientSideApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call trackCustomEventClientSideAsync(String origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, final ApiCallback<ClientEventsCreateResponseBody> _callback) throws ApiException {
 
@@ -466,11 +406,6 @@ public class ClientSideApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersConsentsClientSideCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -534,11 +469,6 @@ public class ClientSideApi {
      * @param customerId A Voucherify customer identifier or source_id (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public void updateCustomersConsentsClientSide(String customerId, Object body) throws ApiException {
         updateCustomersConsentsClientSideWithHttpInfo(customerId, body);
@@ -551,11 +481,6 @@ public class ClientSideApi {
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> updateCustomersConsentsClientSideWithHttpInfo(String customerId, Object body) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersConsentsClientSideValidateBeforeCall(customerId, body, null);
@@ -570,11 +495,6 @@ public class ClientSideApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersConsentsClientSideAsync(String customerId, Object body, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -589,11 +509,6 @@ public class ClientSideApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call validateStackedDiscountsClientSideCall(String origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -662,11 +577,6 @@ public class ClientSideApi {
      * @param clientValidationsValidateRequestBody  (optional)
      * @return ClientValidationsValidateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ClientValidationsValidateResponseBody validateStackedDiscountsClientSide(String origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody) throws ApiException {
         ApiResponse<ClientValidationsValidateResponseBody> localVarResp = validateStackedDiscountsClientSideWithHttpInfo(origin, clientValidationsValidateRequestBody);
@@ -680,11 +590,6 @@ public class ClientSideApi {
      * @param clientValidationsValidateRequestBody  (optional)
      * @return ApiResponse&lt;ClientValidationsValidateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ClientValidationsValidateResponseBody> validateStackedDiscountsClientSideWithHttpInfo(String origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = validateStackedDiscountsClientSideValidateBeforeCall(origin, clientValidationsValidateRequestBody, null);
@@ -700,11 +605,6 @@ public class ClientSideApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call validateStackedDiscountsClientSideAsync(String origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, final ApiCallback<ClientValidationsValidateResponseBody> _callback) throws ApiException {
 

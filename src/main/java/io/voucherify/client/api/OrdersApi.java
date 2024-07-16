@@ -88,11 +88,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createOrderCall(OrdersCreateRequestBody ordersCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -151,11 +146,6 @@ public class OrdersApi {
      * @param ordersCreateRequestBody Specify the order parameters. (optional)
      * @return OrdersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersCreateResponseBody createOrder(OrdersCreateRequestBody ordersCreateRequestBody) throws ApiException {
         ApiResponse<OrdersCreateResponseBody> localVarResp = createOrderWithHttpInfo(ordersCreateRequestBody);
@@ -168,11 +158,6 @@ public class OrdersApi {
      * @param ordersCreateRequestBody Specify the order parameters. (optional)
      * @return ApiResponse&lt;OrdersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersCreateResponseBody> createOrderWithHttpInfo(OrdersCreateRequestBody ordersCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createOrderValidateBeforeCall(ordersCreateRequestBody, null);
@@ -187,11 +172,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createOrderAsync(OrdersCreateRequestBody ordersCreateRequestBody, final ApiCallback<OrdersCreateResponseBody> _callback) throws ApiException {
 
@@ -206,11 +186,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the &#x60;id&#x60; of the export object and &#x60;status&#x60; of the file generation process. The &#x60;id&#x60; is used in the &lt;!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) --&gt;[Get Export](ref:get-export) method to generate the url for the downloadable CSV file or in the &lt;!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) --&gt;[Download Export](ref:download-export) method to return the contents of the CSV file. The status indicates whether the file has been scheduled for creation. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createOrderExportCall(OrdersExportCreateRequestBody ordersExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -269,11 +244,6 @@ public class OrdersApi {
      * @param ordersExportCreateRequestBody Specify which order parameters you would like to export. (optional)
      * @return OrdersExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the &#x60;id&#x60; of the export object and &#x60;status&#x60; of the file generation process. The &#x60;id&#x60; is used in the &lt;!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) --&gt;[Get Export](ref:get-export) method to generate the url for the downloadable CSV file or in the &lt;!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) --&gt;[Download Export](ref:download-export) method to return the contents of the CSV file. The status indicates whether the file has been scheduled for creation. </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersExportCreateResponseBody createOrderExport(OrdersExportCreateRequestBody ordersExportCreateRequestBody) throws ApiException {
         ApiResponse<OrdersExportCreateResponseBody> localVarResp = createOrderExportWithHttpInfo(ordersExportCreateRequestBody);
@@ -286,11 +256,6 @@ public class OrdersApi {
      * @param ordersExportCreateRequestBody Specify which order parameters you would like to export. (optional)
      * @return ApiResponse&lt;OrdersExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the &#x60;id&#x60; of the export object and &#x60;status&#x60; of the file generation process. The &#x60;id&#x60; is used in the &lt;!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) --&gt;[Get Export](ref:get-export) method to generate the url for the downloadable CSV file or in the &lt;!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) --&gt;[Download Export](ref:download-export) method to return the contents of the CSV file. The status indicates whether the file has been scheduled for creation. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersExportCreateResponseBody> createOrderExportWithHttpInfo(OrdersExportCreateRequestBody ordersExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createOrderExportValidateBeforeCall(ordersExportCreateRequestBody, null);
@@ -305,11 +270,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the &#x60;id&#x60; of the export object and &#x60;status&#x60; of the file generation process. The &#x60;id&#x60; is used in the &lt;!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) --&gt;[Get Export](ref:get-export) method to generate the url for the downloadable CSV file or in the &lt;!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) --&gt;[Download Export](ref:download-export) method to return the contents of the CSV file. The status indicates whether the file has been scheduled for creation. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createOrderExportAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody, final ApiCallback<OrdersExportCreateResponseBody> _callback) throws ApiException {
 
@@ -324,11 +284,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if a valid identifier was provided.  </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -392,11 +347,6 @@ public class OrdersApi {
      * @param orderId Unique Voucherify order ID or order source ID. (required)
      * @return OrdersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if a valid identifier was provided.  </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersGetResponseBody getOrder(String orderId) throws ApiException {
         ApiResponse<OrdersGetResponseBody> localVarResp = getOrderWithHttpInfo(orderId);
@@ -409,11 +359,6 @@ public class OrdersApi {
      * @param orderId Unique Voucherify order ID or order source ID. (required)
      * @return ApiResponse&lt;OrdersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if a valid identifier was provided.  </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersGetResponseBody> getOrderWithHttpInfo(String orderId) throws ApiException {
         okhttp3.Call localVarCall = getOrderValidateBeforeCall(orderId, null);
@@ -428,11 +373,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an order object if a valid identifier was provided.  </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getOrderAsync(String orderId, final ApiCallback<OrdersGetResponseBody> _callback) throws ApiException {
 
@@ -447,11 +387,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the order(s) will be added to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importOrdersCall(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -510,11 +445,6 @@ public class OrdersApi {
      * @param ordersImportCreateRequestBodyItem The request body is sent in the form of an array of order objects. (optional)
      * @return OrdersImportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the order(s) will be added to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersImportCreateResponseBody importOrders(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem) throws ApiException {
         ApiResponse<OrdersImportCreateResponseBody> localVarResp = importOrdersWithHttpInfo(ordersImportCreateRequestBodyItem);
@@ -527,11 +457,6 @@ public class OrdersApi {
      * @param ordersImportCreateRequestBodyItem The request body is sent in the form of an array of order objects. (optional)
      * @return ApiResponse&lt;OrdersImportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the order(s) will be added to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersImportCreateResponseBody> importOrdersWithHttpInfo(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem) throws ApiException {
         okhttp3.Call localVarCall = importOrdersValidateBeforeCall(ordersImportCreateRequestBodyItem, null);
@@ -546,11 +471,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the order(s) will be added to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importOrdersAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, final ApiCallback<OrdersImportCreateResponseBody> _callback) throws ApiException {
 
@@ -567,11 +487,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with order objects. The orders are returned sorted by creation date by default, with the most recent orders appearing last, unless you specify another sequence using the order query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listOrdersCall(Integer limit, Integer page, ParameterOrderListOrders order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -643,11 +558,6 @@ public class OrdersApi {
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return OrdersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with order objects. The orders are returned sorted by creation date by default, with the most recent orders appearing last, unless you specify another sequence using the order query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersListResponseBody listOrders(Integer limit, Integer page, ParameterOrderListOrders order) throws ApiException {
         ApiResponse<OrdersListResponseBody> localVarResp = listOrdersWithHttpInfo(limit, page, order);
@@ -662,11 +572,6 @@ public class OrdersApi {
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;OrdersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with order objects. The orders are returned sorted by creation date by default, with the most recent orders appearing last, unless you specify another sequence using the order query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersListResponseBody> listOrdersWithHttpInfo(Integer limit, Integer page, ParameterOrderListOrders order) throws ApiException {
         okhttp3.Call localVarCall = listOrdersValidateBeforeCall(limit, page, order, null);
@@ -683,11 +588,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with order objects. The orders are returned sorted by creation date by default, with the most recent orders appearing last, unless you specify another sequence using the order query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listOrdersAsync(Integer limit, Integer page, ParameterOrderListOrders order, final ApiCallback<OrdersListResponseBody> _callback) throws ApiException {
 
@@ -703,11 +603,6 @@ public class OrdersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the order object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateOrderCall(String orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -773,11 +668,6 @@ public class OrdersApi {
      * @param ordersUpdateRequestBody Specify the parameters of the order that are to be updated. (optional)
      * @return OrdersUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the order object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public OrdersUpdateResponseBody updateOrder(String orderId, OrdersUpdateRequestBody ordersUpdateRequestBody) throws ApiException {
         ApiResponse<OrdersUpdateResponseBody> localVarResp = updateOrderWithHttpInfo(orderId, ordersUpdateRequestBody);
@@ -791,11 +681,6 @@ public class OrdersApi {
      * @param ordersUpdateRequestBody Specify the parameters of the order that are to be updated. (optional)
      * @return ApiResponse&lt;OrdersUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the order object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<OrdersUpdateResponseBody> updateOrderWithHttpInfo(String orderId, OrdersUpdateRequestBody ordersUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, ordersUpdateRequestBody, null);
@@ -811,11 +696,6 @@ public class OrdersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the order object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateOrderAsync(String orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, final ApiCallback<OrdersUpdateResponseBody> _callback) throws ApiException {
 

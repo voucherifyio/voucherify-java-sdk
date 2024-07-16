@@ -91,11 +91,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a new stack object if a valid promotion campaign identifier was provided in the path and available promotion IDs in the payload. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPromotionStackCall(String campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -161,11 +156,6 @@ public class PromotionsApi {
      * @param promotionsStacksCreateRequestBody Specify the order of promotion tiers for the promotion stack. (optional)
      * @return PromotionsStacksCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a new stack object if a valid promotion campaign identifier was provided in the path and available promotion IDs in the payload. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsStacksCreateResponseBody createPromotionStack(String campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody) throws ApiException {
         ApiResponse<PromotionsStacksCreateResponseBody> localVarResp = createPromotionStackWithHttpInfo(campaignId, promotionsStacksCreateRequestBody);
@@ -179,11 +169,6 @@ public class PromotionsApi {
      * @param promotionsStacksCreateRequestBody Specify the order of promotion tiers for the promotion stack. (optional)
      * @return ApiResponse&lt;PromotionsStacksCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a new stack object if a valid promotion campaign identifier was provided in the path and available promotion IDs in the payload. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsStacksCreateResponseBody> createPromotionStackWithHttpInfo(String campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createPromotionStackValidateBeforeCall(campaignId, promotionsStacksCreateRequestBody, null);
@@ -199,11 +184,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a new stack object if a valid promotion campaign identifier was provided in the path and available promotion IDs in the payload. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPromotionStackAsync(String campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, final ApiCallback<PromotionsStacksCreateResponseBody> _callback) throws ApiException {
 
@@ -219,11 +199,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deletePromotionStackCall(String campaignId, String stackId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -292,11 +267,6 @@ public class PromotionsApi {
      * @param campaignId ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  (required)
      * @param stackId Promotion stack ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deletePromotionStack(String campaignId, String stackId) throws ApiException {
         deletePromotionStackWithHttpInfo(campaignId, stackId);
@@ -309,11 +279,6 @@ public class PromotionsApi {
      * @param stackId Promotion stack ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deletePromotionStackWithHttpInfo(String campaignId, String stackId) throws ApiException {
         okhttp3.Call localVarCall = deletePromotionStackValidateBeforeCall(campaignId, stackId, null);
@@ -328,11 +293,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deletePromotionStackAsync(String campaignId, String stackId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -346,11 +306,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deletePromotionTierCall(String promotionTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -412,11 +367,6 @@ public class PromotionsApi {
      * This method deletes a promotion tier.
      * @param promotionTierId Unique promotion tier ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deletePromotionTier(String promotionTierId) throws ApiException {
         deletePromotionTierWithHttpInfo(promotionTierId);
@@ -428,11 +378,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deletePromotionTierWithHttpInfo(String promotionTierId) throws ApiException {
         okhttp3.Call localVarCall = deletePromotionTierValidateBeforeCall(promotionTierId, null);
@@ -446,11 +391,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deletePromotionTierAsync(String promotionTierId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -464,11 +404,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disablePromotionTierCall(String promotionTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -532,11 +467,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return PromotionsTiersDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsTiersDisableResponseBody disablePromotionTier(String promotionTierId) throws ApiException {
         ApiResponse<PromotionsTiersDisableResponseBody> localVarResp = disablePromotionTierWithHttpInfo(promotionTierId);
@@ -549,11 +479,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;PromotionsTiersDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsTiersDisableResponseBody> disablePromotionTierWithHttpInfo(String promotionTierId) throws ApiException {
         okhttp3.Call localVarCall = disablePromotionTierValidateBeforeCall(promotionTierId, null);
@@ -568,11 +493,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disablePromotionTierAsync(String promotionTierId, final ApiCallback<PromotionsTiersDisableResponseBody> _callback) throws ApiException {
 
@@ -587,11 +507,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enablePromotionTierCall(String promotionTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -655,11 +570,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return PromotionsTiersEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsTiersEnableResponseBody enablePromotionTier(String promotionTierId) throws ApiException {
         ApiResponse<PromotionsTiersEnableResponseBody> localVarResp = enablePromotionTierWithHttpInfo(promotionTierId);
@@ -672,11 +582,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;PromotionsTiersEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsTiersEnableResponseBody> enablePromotionTierWithHttpInfo(String promotionTierId) throws ApiException {
         okhttp3.Call localVarCall = enablePromotionTierValidateBeforeCall(promotionTierId, null);
@@ -691,11 +596,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the promotion tier object with an updated &#x60;active&#x60; parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enablePromotionTierAsync(String promotionTierId, final ApiCallback<PromotionsTiersEnableResponseBody> _callback) throws ApiException {
 
@@ -711,11 +611,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a stack object if valid identifiers were provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getPromotionStackCall(String campaignId, String stackId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -786,11 +681,6 @@ public class PromotionsApi {
      * @param stackId Promotion stack ID. (required)
      * @return PromotionsStacksGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a stack object if valid identifiers were provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsStacksGetResponseBody getPromotionStack(String campaignId, String stackId) throws ApiException {
         ApiResponse<PromotionsStacksGetResponseBody> localVarResp = getPromotionStackWithHttpInfo(campaignId, stackId);
@@ -804,11 +694,6 @@ public class PromotionsApi {
      * @param stackId Promotion stack ID. (required)
      * @return ApiResponse&lt;PromotionsStacksGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a stack object if valid identifiers were provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsStacksGetResponseBody> getPromotionStackWithHttpInfo(String campaignId, String stackId) throws ApiException {
         okhttp3.Call localVarCall = getPromotionStackValidateBeforeCall(campaignId, stackId, null);
@@ -824,11 +709,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a stack object if valid identifiers were provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getPromotionStackAsync(String campaignId, String stackId, final ApiCallback<PromotionsStacksGetResponseBody> _callback) throws ApiException {
 
@@ -843,11 +723,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getPromotionTierCall(String promotionTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -911,11 +786,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return PromotionsTiersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsTiersGetResponseBody getPromotionTier(String promotionTierId) throws ApiException {
         ApiResponse<PromotionsTiersGetResponseBody> localVarResp = getPromotionTierWithHttpInfo(promotionTierId);
@@ -928,11 +798,6 @@ public class PromotionsApi {
      * @param promotionTierId Unique promotion tier ID. (required)
      * @return ApiResponse&lt;PromotionsTiersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsTiersGetResponseBody> getPromotionTierWithHttpInfo(String promotionTierId) throws ApiException {
         okhttp3.Call localVarCall = getPromotionTierValidateBeforeCall(promotionTierId, null);
@@ -947,11 +812,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getPromotionTierAsync(String promotionTierId, final ApiCallback<PromotionsTiersGetResponseBody> _callback) throws ApiException {
 
@@ -970,11 +830,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;data&#x60; property that contains an array of promotion stacks across all your campaigns. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listAllPromotionStacksCall(Integer limit, Integer page, ParameterOrderListAllPromotionStacks order, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1056,11 +911,6 @@ public class PromotionsApi {
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @return PromotionsStacksListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;data&#x60; property that contains an array of promotion stacks across all your campaigns. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsStacksListResponseBody listAllPromotionStacks(Integer limit, Integer page, ParameterOrderListAllPromotionStacks order, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt) throws ApiException {
         ApiResponse<PromotionsStacksListResponseBody> localVarResp = listAllPromotionStacksWithHttpInfo(limit, page, order, createdAt, updatedAt);
@@ -1077,11 +927,6 @@ public class PromotionsApi {
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @return ApiResponse&lt;PromotionsStacksListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;data&#x60; property that contains an array of promotion stacks across all your campaigns. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsStacksListResponseBody> listAllPromotionStacksWithHttpInfo(Integer limit, Integer page, ParameterOrderListAllPromotionStacks order, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt) throws ApiException {
         okhttp3.Call localVarCall = listAllPromotionStacksValidateBeforeCall(limit, page, order, createdAt, updatedAt, null);
@@ -1100,11 +945,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;data&#x60; property that contains an array of promotion stacks across all your campaigns. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listAllPromotionStacksAsync(Integer limit, Integer page, ParameterOrderListAllPromotionStacks order, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, final ApiCallback<PromotionsStacksListResponseBody> _callback) throws ApiException {
 
@@ -1119,11 +959,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of promotion stack objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPromotionStacksInCampaignCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1187,11 +1022,6 @@ public class PromotionsApi {
      * @param campaignId Unique campaign ID. (required)
      * @return PromotionsStacksListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of promotion stack objects. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsStacksListResponseBody listPromotionStacksInCampaign(String campaignId) throws ApiException {
         ApiResponse<PromotionsStacksListResponseBody> localVarResp = listPromotionStacksInCampaignWithHttpInfo(campaignId);
@@ -1204,11 +1034,6 @@ public class PromotionsApi {
      * @param campaignId Unique campaign ID. (required)
      * @return ApiResponse&lt;PromotionsStacksListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of promotion stack objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsStacksListResponseBody> listPromotionStacksInCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = listPromotionStacksInCampaignValidateBeforeCall(campaignId, null);
@@ -1223,11 +1048,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of promotion stack objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPromotionStacksInCampaignAsync(String campaignId, final ApiCallback<PromotionsStacksListResponseBody> _callback) throws ApiException {
 
@@ -1242,11 +1062,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPromotionTiersFromCampaignCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1310,11 +1125,6 @@ public class PromotionsApi {
      * @param campaignId Unique campaign ID assigned by Voucherify. (required)
      * @return PromotionsTiersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsTiersListResponseBody listPromotionTiersFromCampaign(String campaignId) throws ApiException {
         ApiResponse<PromotionsTiersListResponseBody> localVarResp = listPromotionTiersFromCampaignWithHttpInfo(campaignId);
@@ -1327,11 +1137,6 @@ public class PromotionsApi {
      * @param campaignId Unique campaign ID assigned by Voucherify. (required)
      * @return ApiResponse&lt;PromotionsTiersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsTiersListResponseBody> listPromotionTiersFromCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = listPromotionTiersFromCampaignValidateBeforeCall(campaignId, null);
@@ -1346,11 +1151,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPromotionTiersFromCampaignAsync(String campaignId, final ApiCallback<PromotionsTiersListResponseBody> _callback) throws ApiException {
 
@@ -1367,11 +1167,6 @@ public class PromotionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion stack with updated parameters if the update was successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updatePromotionStackCall(String campaignId, String stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1444,11 +1239,6 @@ public class PromotionsApi {
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @return PromotionsStacksUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion stack with updated parameters if the update was successful. </td><td>  -  </td></tr>
-     </table>
      */
     public PromotionsStacksUpdateResponseBody updatePromotionStack(String campaignId, String stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody) throws ApiException {
         ApiResponse<PromotionsStacksUpdateResponseBody> localVarResp = updatePromotionStackWithHttpInfo(campaignId, stackId, promotionsStacksUpdateRequestBody);
@@ -1463,11 +1253,6 @@ public class PromotionsApi {
      * @param promotionsStacksUpdateRequestBody Specify the promotion stack parameters that you would like to update. (optional)
      * @return ApiResponse&lt;PromotionsStacksUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion stack with updated parameters if the update was successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PromotionsStacksUpdateResponseBody> updatePromotionStackWithHttpInfo(String campaignId, String stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updatePromotionStackValidateBeforeCall(campaignId, stackId, promotionsStacksUpdateRequestBody, null);
@@ -1484,11 +1269,6 @@ public class PromotionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a promotion stack with updated parameters if the update was successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updatePromotionStackAsync(String campaignId, String stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, final ApiCallback<PromotionsStacksUpdateResponseBody> _callback) throws ApiException {
 

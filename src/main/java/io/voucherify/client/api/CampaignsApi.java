@@ -99,11 +99,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call addVoucherWithSpecificCodeToCampaignCall(String campaignId, String code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -176,11 +171,6 @@ public class CampaignsApi {
      * @param campaignsVouchersCreateRequestBody Specify the voucher parameters that you would like to overwrite. (optional)
      * @return CampaignsVouchersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsVouchersCreateResponseBody addVoucherWithSpecificCodeToCampaign(String campaignId, String code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody) throws ApiException {
         ApiResponse<CampaignsVouchersCreateResponseBody> localVarResp = addVoucherWithSpecificCodeToCampaignWithHttpInfo(campaignId, code, campaignsVouchersCreateRequestBody);
@@ -195,11 +185,6 @@ public class CampaignsApi {
      * @param campaignsVouchersCreateRequestBody Specify the voucher parameters that you would like to overwrite. (optional)
      * @return ApiResponse&lt;CampaignsVouchersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsVouchersCreateResponseBody> addVoucherWithSpecificCodeToCampaignWithHttpInfo(String campaignId, String code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = addVoucherWithSpecificCodeToCampaignValidateBeforeCall(campaignId, code, campaignsVouchersCreateRequestBody, null);
@@ -216,11 +201,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call addVoucherWithSpecificCodeToCampaignAsync(String campaignId, String code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, final ApiCallback<CampaignsVouchersCreateResponseBody> _callback) throws ApiException {
 
@@ -237,11 +217,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded for a voucher count of 1. and Returns an &#x60;async_action_id&#x60; if the request was made to create more than 1 voucher. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call addVouchersToCampaignCall(String campaignId, Integer vouchersCount, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -312,11 +287,6 @@ public class CampaignsApi {
      * @param campaignsVouchersCreateInBulkRequestBody Specify the voucher parameters that you would like to overwrite. (optional)
      * @return CampaignsVouchersCreateCombinedResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded for a voucher count of 1. and Returns an &#x60;async_action_id&#x60; if the request was made to create more than 1 voucher. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsVouchersCreateCombinedResponseBody addVouchersToCampaign(String campaignId, Integer vouchersCount, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody) throws ApiException {
         ApiResponse<CampaignsVouchersCreateCombinedResponseBody> localVarResp = addVouchersToCampaignWithHttpInfo(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
@@ -331,11 +301,6 @@ public class CampaignsApi {
      * @param campaignsVouchersCreateInBulkRequestBody Specify the voucher parameters that you would like to overwrite. (optional)
      * @return ApiResponse&lt;CampaignsVouchersCreateCombinedResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded for a voucher count of 1. and Returns an &#x60;async_action_id&#x60; if the request was made to create more than 1 voucher. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsVouchersCreateCombinedResponseBody> addVouchersToCampaignWithHttpInfo(String campaignId, Integer vouchersCount, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody) throws ApiException {
         okhttp3.Call localVarCall = addVouchersToCampaignValidateBeforeCall(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody, null);
@@ -352,11 +317,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if the call succeeded for a voucher count of 1. and Returns an &#x60;async_action_id&#x60; if the request was made to create more than 1 voucher. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call addVouchersToCampaignAsync(String campaignId, Integer vouchersCount, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, final ApiCallback<CampaignsVouchersCreateCombinedResponseBody> _callback) throws ApiException {
 
@@ -371,11 +331,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCampaignCall(CampaignsCreateRequestBody campaignsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -434,11 +389,6 @@ public class CampaignsApi {
      * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
      * @return CampaignsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsCreateResponseBody createCampaign(CampaignsCreateRequestBody campaignsCreateRequestBody) throws ApiException {
         ApiResponse<CampaignsCreateResponseBody> localVarResp = createCampaignWithHttpInfo(campaignsCreateRequestBody);
@@ -451,11 +401,6 @@ public class CampaignsApi {
      * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
      * @return ApiResponse&lt;CampaignsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsCreateResponseBody> createCampaignWithHttpInfo(CampaignsCreateRequestBody campaignsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createCampaignValidateBeforeCall(campaignsCreateRequestBody, null);
@@ -470,11 +415,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if the call succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCampaignAsync(CampaignsCreateRequestBody campaignsCreateRequestBody, final ApiCallback<CampaignsCreateResponseBody> _callback) throws ApiException {
 
@@ -490,11 +430,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCampaignCall(String campaignId, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -563,11 +498,6 @@ public class CampaignsApi {
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @return CampaignsDeleteResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsDeleteResponseBody deleteCampaign(String campaignId, Boolean force) throws ApiException {
         ApiResponse<CampaignsDeleteResponseBody> localVarResp = deleteCampaignWithHttpInfo(campaignId, force);
@@ -581,11 +511,6 @@ public class CampaignsApi {
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @return ApiResponse&lt;CampaignsDeleteResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsDeleteResponseBody> deleteCampaignWithHttpInfo(String campaignId, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteCampaignValidateBeforeCall(campaignId, force, null);
@@ -601,11 +526,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCampaignAsync(String campaignId, Boolean force, final ApiCallback<CampaignsDeleteResponseBody> _callback) throws ApiException {
 
@@ -620,11 +540,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableCampaignCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -688,11 +603,6 @@ public class CampaignsApi {
      * @param campaignId The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @return CampaignsDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsDisableResponseBody disableCampaign(String campaignId) throws ApiException {
         ApiResponse<CampaignsDisableResponseBody> localVarResp = disableCampaignWithHttpInfo(campaignId);
@@ -705,11 +615,6 @@ public class CampaignsApi {
      * @param campaignId The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @return ApiResponse&lt;CampaignsDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsDisableResponseBody> disableCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = disableCampaignValidateBeforeCall(campaignId, null);
@@ -724,11 +629,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableCampaignAsync(String campaignId, final ApiCallback<CampaignsDisableResponseBody> _callback) throws ApiException {
 
@@ -743,11 +643,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableCampaignCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -811,11 +706,6 @@ public class CampaignsApi {
      * @param campaignId The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
      * @return CampaignsEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsEnableResponseBody enableCampaign(String campaignId) throws ApiException {
         ApiResponse<CampaignsEnableResponseBody> localVarResp = enableCampaignWithHttpInfo(campaignId);
@@ -828,11 +718,6 @@ public class CampaignsApi {
      * @param campaignId The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
      * @return ApiResponse&lt;CampaignsEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsEnableResponseBody> enableCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = enableCampaignValidateBeforeCall(campaignId, null);
@@ -847,11 +732,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an empty json &#x60;{}&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableCampaignAsync(String campaignId, final ApiCallback<CampaignsEnableResponseBody> _callback) throws ApiException {
 
@@ -866,11 +746,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCampaignCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -934,11 +809,6 @@ public class CampaignsApi {
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @return CampaignsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsGetResponseBody getCampaign(String campaignId) throws ApiException {
         ApiResponse<CampaignsGetResponseBody> localVarResp = getCampaignWithHttpInfo(campaignId);
@@ -951,11 +821,6 @@ public class CampaignsApi {
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @return ApiResponse&lt;CampaignsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsGetResponseBody> getCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = getCampaignValidateBeforeCall(campaignId, null);
@@ -970,11 +835,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a campaign object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCampaignAsync(String campaignId, final ApiCallback<CampaignsGetResponseBody> _callback) throws ApiException {
 
@@ -990,11 +850,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersToCampaignCall(String campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1060,11 +915,6 @@ public class CampaignsApi {
      * @param campaignsImportVoucherItem Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @return CampaignsImportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsImportCreateResponseBody importVouchersToCampaign(String campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem) throws ApiException {
         ApiResponse<CampaignsImportCreateResponseBody> localVarResp = importVouchersToCampaignWithHttpInfo(campaignId, campaignsImportVoucherItem);
@@ -1078,11 +928,6 @@ public class CampaignsApi {
      * @param campaignsImportVoucherItem Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @return ApiResponse&lt;CampaignsImportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsImportCreateResponseBody> importVouchersToCampaignWithHttpInfo(String campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem) throws ApiException {
         okhttp3.Call localVarCall = importVouchersToCampaignValidateBeforeCall(campaignId, campaignsImportVoucherItem, null);
@@ -1098,11 +943,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersToCampaignAsync(String campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, final ApiCallback<CampaignsImportCreateResponseBody> _callback) throws ApiException {
 
@@ -1118,11 +958,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersToCampaignUsingCsvCall(String campaignId, File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1192,11 +1027,6 @@ public class CampaignsApi {
      * @param _file File path. (optional)
      * @return CampaignsImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsImportCsvCreateResponseBody importVouchersToCampaignUsingCsv(String campaignId, File _file) throws ApiException {
         ApiResponse<CampaignsImportCsvCreateResponseBody> localVarResp = importVouchersToCampaignUsingCsvWithHttpInfo(campaignId, _file);
@@ -1210,11 +1040,6 @@ public class CampaignsApi {
      * @param _file File path. (optional)
      * @return ApiResponse&lt;CampaignsImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsImportCsvCreateResponseBody> importVouchersToCampaignUsingCsvWithHttpInfo(String campaignId, File _file) throws ApiException {
         okhttp3.Call localVarCall = importVouchersToCampaignUsingCsvValidateBeforeCall(campaignId, _file, null);
@@ -1230,11 +1055,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the vouchers will be imported to the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersToCampaignUsingCsvAsync(String campaignId, File _file, final ApiCallback<CampaignsImportCsvCreateResponseBody> _callback) throws ApiException {
 
@@ -1253,11 +1073,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;campaign&#x60; property that contains an array of campaigns. The maximum number of campaigns returned is determined by the &#x60;limit&#x60; query parameter. Each entry in the array is a separate campaign object. If no more campaigns are available, the resulting array on a given page will be empty. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1339,11 +1154,6 @@ public class CampaignsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return CampaignsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;campaign&#x60; property that contains an array of campaigns. The maximum number of campaigns returned is determined by the &#x60;limit&#x60; query parameter. Each entry in the array is a separate campaign object. If no more campaigns are available, the resulting array on a given page will be empty. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
         ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, order);
@@ -1360,11 +1170,6 @@ public class CampaignsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;CampaignsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;campaign&#x60; property that contains an array of campaigns. The maximum number of campaigns returned is determined by the &#x60;limit&#x60; query parameter. Each entry in the array is a separate campaign object. If no more campaigns are available, the resulting array on a given page will be empty. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
         okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, null);
@@ -1383,11 +1188,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a &#x60;campaign&#x60; property that contains an array of campaigns. The maximum number of campaigns returned is determined by the &#x60;limit&#x60; query parameter. Each entry in the array is a separate campaign object. If no more campaigns are available, the resulting array on a given page will be empty. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
 
@@ -1403,11 +1203,6 @@ public class CampaignsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the campaign object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCampaignCall(String campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1473,11 +1268,6 @@ public class CampaignsApi {
      * @param campaignsUpdateRequestBody Specify the campaign parameters to be updated. (optional)
      * @return CampaignsUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the campaign object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public CampaignsUpdateResponseBody updateCampaign(String campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody) throws ApiException {
         ApiResponse<CampaignsUpdateResponseBody> localVarResp = updateCampaignWithHttpInfo(campaignId, campaignsUpdateRequestBody);
@@ -1491,11 +1281,6 @@ public class CampaignsApi {
      * @param campaignsUpdateRequestBody Specify the campaign parameters to be updated. (optional)
      * @return ApiResponse&lt;CampaignsUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the campaign object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CampaignsUpdateResponseBody> updateCampaignWithHttpInfo(String campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateCampaignValidateBeforeCall(campaignId, campaignsUpdateRequestBody, null);
@@ -1511,11 +1296,6 @@ public class CampaignsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the campaign object if the update succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCampaignAsync(String campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, final ApiCallback<CampaignsUpdateResponseBody> _callback) throws ApiException {
 

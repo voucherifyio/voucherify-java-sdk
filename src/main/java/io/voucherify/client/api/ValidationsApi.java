@@ -79,11 +79,6 @@ public class ValidationsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call validateStackedDiscountsCall(ValidationsValidateRequestBody validationsValidateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -142,11 +137,6 @@ public class ValidationsApi {
      * @param validationsValidateRequestBody  (optional)
      * @return ValidationsValidateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationsValidateResponseBody validateStackedDiscounts(ValidationsValidateRequestBody validationsValidateRequestBody) throws ApiException {
         ApiResponse<ValidationsValidateResponseBody> localVarResp = validateStackedDiscountsWithHttpInfo(validationsValidateRequestBody);
@@ -159,11 +149,6 @@ public class ValidationsApi {
      * @param validationsValidateRequestBody  (optional)
      * @return ApiResponse&lt;ValidationsValidateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationsValidateResponseBody> validateStackedDiscountsWithHttpInfo(ValidationsValidateRequestBody validationsValidateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = validateStackedDiscountsValidateBeforeCall(validationsValidateRequestBody, null);
@@ -178,11 +163,6 @@ public class ValidationsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid validation. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call validateStackedDiscountsAsync(ValidationsValidateRequestBody validationsValidateRequestBody, final ApiCallback<ValidationsValidateResponseBody> _callback) throws ApiException {
 

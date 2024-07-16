@@ -82,11 +82,6 @@ public class ExportsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns export object and URL of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createExportCall(ExportsCreateRequestBody exportsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -145,11 +140,6 @@ public class ExportsApi {
      * @param exportsCreateRequestBody Specify the details of the export that you would like to create. (optional)
      * @return ExportsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns export object and URL of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public ExportsCreateResponseBody createExport(ExportsCreateRequestBody exportsCreateRequestBody) throws ApiException {
         ApiResponse<ExportsCreateResponseBody> localVarResp = createExportWithHttpInfo(exportsCreateRequestBody);
@@ -162,11 +152,6 @@ public class ExportsApi {
      * @param exportsCreateRequestBody Specify the details of the export that you would like to create. (optional)
      * @return ApiResponse&lt;ExportsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns export object and URL of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ExportsCreateResponseBody> createExportWithHttpInfo(ExportsCreateRequestBody exportsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createExportValidateBeforeCall(exportsCreateRequestBody, null);
@@ -181,11 +166,6 @@ public class ExportsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns export object and URL of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createExportAsync(ExportsCreateRequestBody exportsCreateRequestBody, final ApiCallback<ExportsCreateResponseBody> _callback) throws ApiException {
 
@@ -200,11 +180,6 @@ public class ExportsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteExportCall(String exportId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -266,11 +241,6 @@ public class ExportsApi {
      * This method deletes a previously created export object.
      * @param exportId Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteExport(String exportId) throws ApiException {
         deleteExportWithHttpInfo(exportId);
@@ -282,11 +252,6 @@ public class ExportsApi {
      * @param exportId Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteExportWithHttpInfo(String exportId) throws ApiException {
         okhttp3.Call localVarCall = deleteExportValidateBeforeCall(exportId, null);
@@ -300,11 +265,6 @@ public class ExportsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteExportAsync(String exportId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -319,11 +279,6 @@ public class ExportsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns contents of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call downloadExportCall(String exportId, String token, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -392,11 +347,6 @@ public class ExportsApi {
      * @param token Token that was issued to the export, to get this token, get the export first (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns contents of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public String downloadExport(String exportId, String token) throws ApiException {
         ApiResponse<String> localVarResp = downloadExportWithHttpInfo(exportId, token);
@@ -410,11 +360,6 @@ public class ExportsApi {
      * @param token Token that was issued to the export, to get this token, get the export first (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns contents of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<String> downloadExportWithHttpInfo(String exportId, String token) throws ApiException {
         okhttp3.Call localVarCall = downloadExportValidateBeforeCall(exportId, token, null);
@@ -430,11 +375,6 @@ public class ExportsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns contents of CSV file. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call downloadExportAsync(String exportId, String token, final ApiCallback<String> _callback) throws ApiException {
 
@@ -449,11 +389,6 @@ public class ExportsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the export object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getExportCall(String exportId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -517,11 +452,6 @@ public class ExportsApi {
      * @param exportId Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @return ExportsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the export object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public ExportsGetResponseBody getExport(String exportId) throws ApiException {
         ApiResponse<ExportsGetResponseBody> localVarResp = getExportWithHttpInfo(exportId);
@@ -534,11 +464,6 @@ public class ExportsApi {
      * @param exportId Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @return ApiResponse&lt;ExportsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the export object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ExportsGetResponseBody> getExportWithHttpInfo(String exportId) throws ApiException {
         okhttp3.Call localVarCall = getExportValidateBeforeCall(exportId, null);
@@ -553,11 +478,6 @@ public class ExportsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the export object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getExportAsync(String exportId, final ApiCallback<ExportsGetResponseBody> _callback) throws ApiException {
 
@@ -574,11 +494,6 @@ public class ExportsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listExportsCall(Integer limit, Integer page, ParameterOrderListExports order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -650,11 +565,6 @@ public class ExportsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ExportsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ExportsListResponseBody listExports(Integer limit, Integer page, ParameterOrderListExports order) throws ApiException {
         ApiResponse<ExportsListResponseBody> localVarResp = listExportsWithHttpInfo(limit, page, order);
@@ -669,11 +579,6 @@ public class ExportsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;ExportsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ExportsListResponseBody> listExportsWithHttpInfo(Integer limit, Integer page, ParameterOrderListExports order) throws ApiException {
         okhttp3.Call localVarCall = listExportsValidateBeforeCall(limit, page, order, null);
@@ -690,11 +595,6 @@ public class ExportsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listExportsAsync(Integer limit, Integer page, ParameterOrderListExports order, final ApiCallback<ExportsListResponseBody> _callback) throws ApiException {
 

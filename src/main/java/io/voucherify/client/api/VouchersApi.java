@@ -88,11 +88,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteVoucherCall(String code, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -159,11 +154,6 @@ public class VouchersApi {
      * @param code A unique **code** that identifies the voucher. (required)
      * @param force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteVoucher(String code, Boolean force) throws ApiException {
         deleteVoucherWithHttpInfo(code, force);
@@ -176,11 +166,6 @@ public class VouchersApi {
      * @param force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteVoucherWithHttpInfo(String code, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteVoucherValidateBeforeCall(code, force, null);
@@ -195,11 +180,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteVoucherAsync(String code, Boolean force, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -213,11 +193,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableVoucherCall(String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -281,11 +256,6 @@ public class VouchersApi {
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @return VouchersDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersDisableResponseBody disableVoucher(String code) throws ApiException {
         ApiResponse<VouchersDisableResponseBody> localVarResp = disableVoucherWithHttpInfo(code);
@@ -298,11 +268,6 @@ public class VouchersApi {
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @return ApiResponse&lt;VouchersDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersDisableResponseBody> disableVoucherWithHttpInfo(String code) throws ApiException {
         okhttp3.Call localVarCall = disableVoucherValidateBeforeCall(code, null);
@@ -317,11 +282,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableVoucherAsync(String code, final ApiCallback<VouchersDisableResponseBody> _callback) throws ApiException {
 
@@ -336,11 +296,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableVoucherCall(String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -404,11 +359,6 @@ public class VouchersApi {
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @return VouchersEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersEnableResponseBody enableVoucher(String code) throws ApiException {
         ApiResponse<VouchersEnableResponseBody> localVarResp = enableVoucherWithHttpInfo(code);
@@ -421,11 +371,6 @@ public class VouchersApi {
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @return ApiResponse&lt;VouchersEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersEnableResponseBody> enableVoucherWithHttpInfo(String code) throws ApiException {
         okhttp3.Call localVarCall = enableVoucherValidateBeforeCall(code, null);
@@ -440,11 +385,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableVoucherAsync(String code, final ApiCallback<VouchersEnableResponseBody> _callback) throws ApiException {
 
@@ -460,11 +400,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportVoucherTransactionsCall(String code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -530,11 +465,6 @@ public class VouchersApi {
      * @param vouchersTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return VouchersTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersTransactionsExportCreateResponseBody exportVoucherTransactions(String code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<VouchersTransactionsExportCreateResponseBody> localVarResp = exportVoucherTransactionsWithHttpInfo(code, vouchersTransactionsExportCreateRequestBody);
@@ -548,11 +478,6 @@ public class VouchersApi {
      * @param vouchersTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return ApiResponse&lt;VouchersTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersTransactionsExportCreateResponseBody> exportVoucherTransactionsWithHttpInfo(String code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportVoucherTransactionsValidateBeforeCall(code, vouchersTransactionsExportCreateRequestBody, null);
@@ -568,11 +493,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportVoucherTransactionsAsync(String code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody, final ApiCallback<VouchersTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
@@ -587,11 +507,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if a valid identifier was provided.   Additionally, the response returns validation rules related to the voucher object. They can be inherited from a campaign. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getVoucherCall(String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -655,11 +570,6 @@ public class VouchersApi {
      * @param code A unique **code** that identifies the voucher. (required)
      * @return VouchersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if a valid identifier was provided.   Additionally, the response returns validation rules related to the voucher object. They can be inherited from a campaign. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersGetResponseBody getVoucher(String code) throws ApiException {
         ApiResponse<VouchersGetResponseBody> localVarResp = getVoucherWithHttpInfo(code);
@@ -672,11 +582,6 @@ public class VouchersApi {
      * @param code A unique **code** that identifies the voucher. (required)
      * @return ApiResponse&lt;VouchersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if a valid identifier was provided.   Additionally, the response returns validation rules related to the voucher object. They can be inherited from a campaign. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersGetResponseBody> getVoucherWithHttpInfo(String code) throws ApiException {
         okhttp3.Call localVarCall = getVoucherValidateBeforeCall(code, null);
@@ -691,11 +596,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a voucher object if a valid identifier was provided.   Additionally, the response returns validation rules related to the voucher object. They can be inherited from a campaign. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getVoucherAsync(String code, final ApiCallback<VouchersGetResponseBody> _callback) throws ApiException {
 
@@ -710,11 +610,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and vouchers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the **response** and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersUsingCsvCall(File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -777,11 +672,6 @@ public class VouchersApi {
      * @param _file File path. (optional)
      * @return VouchersImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and vouchers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the **response** and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersImportCsvCreateResponseBody importVouchersUsingCsv(File _file) throws ApiException {
         ApiResponse<VouchersImportCsvCreateResponseBody> localVarResp = importVouchersUsingCsvWithHttpInfo(_file);
@@ -794,11 +684,6 @@ public class VouchersApi {
      * @param _file File path. (optional)
      * @return ApiResponse&lt;VouchersImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and vouchers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the **response** and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersImportCsvCreateResponseBody> importVouchersUsingCsvWithHttpInfo(File _file) throws ApiException {
         okhttp3.Call localVarCall = importVouchersUsingCsvValidateBeforeCall(_file, null);
@@ -813,11 +698,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and vouchers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the **response** and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importVouchersUsingCsvAsync(File _file, final ApiCallback<VouchersImportCsvCreateResponseBody> _callback) throws ApiException {
 
@@ -834,11 +714,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of transaction objects </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listVoucherTransactionsCall(String code, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -912,11 +787,6 @@ public class VouchersApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return VouchersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of transaction objects </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersTransactionsListResponseBody listVoucherTransactions(String code, Integer limit, Integer page) throws ApiException {
         ApiResponse<VouchersTransactionsListResponseBody> localVarResp = listVoucherTransactionsWithHttpInfo(code, limit, page);
@@ -931,11 +801,6 @@ public class VouchersApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;VouchersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of transaction objects </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersTransactionsListResponseBody> listVoucherTransactionsWithHttpInfo(String code, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listVoucherTransactionsValidateBeforeCall(code, limit, page, null);
@@ -952,11 +817,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of transaction objects </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listVoucherTransactionsAsync(String code, Integer limit, Integer page, final ApiCallback<VouchersTransactionsListResponseBody> _callback) throws ApiException {
 
@@ -972,11 +832,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the validation session was released successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call releaseValidationSessionCall(String code, String sessionKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1045,11 +900,6 @@ public class VouchersApi {
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify. (required)
      * @param sessionKey A unique session identifier. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the validation session was released successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public void releaseValidationSession(String code, String sessionKey) throws ApiException {
         releaseValidationSessionWithHttpInfo(code, sessionKey);
@@ -1062,11 +912,6 @@ public class VouchersApi {
      * @param sessionKey A unique session identifier. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the validation session was released successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> releaseValidationSessionWithHttpInfo(String code, String sessionKey) throws ApiException {
         okhttp3.Call localVarCall = releaseValidationSessionValidateBeforeCall(code, sessionKey, null);
@@ -1081,11 +926,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the validation session was released successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call releaseValidationSessionAsync(String code, String sessionKey, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1100,11 +940,6 @@ public class VouchersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateVoucherBalanceCall(String code, VouchersBalanceUpdateRequestBody vouchersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1175,11 +1010,6 @@ public class VouchersApi {
      * @param vouchersBalanceUpdateRequestBody Provide the amount to be added to/subtracted from the voucher. (required)
      * @return VouchersBalanceUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersBalanceUpdateResponseBody updateVoucherBalance(String code, VouchersBalanceUpdateRequestBody vouchersBalanceUpdateRequestBody) throws ApiException {
         ApiResponse<VouchersBalanceUpdateResponseBody> localVarResp = updateVoucherBalanceWithHttpInfo(code, vouchersBalanceUpdateRequestBody);
@@ -1193,11 +1023,6 @@ public class VouchersApi {
      * @param vouchersBalanceUpdateRequestBody Provide the amount to be added to/subtracted from the voucher. (required)
      * @return ApiResponse&lt;VouchersBalanceUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersBalanceUpdateResponseBody> updateVoucherBalanceWithHttpInfo(String code, VouchersBalanceUpdateRequestBody vouchersBalanceUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateVoucherBalanceValidateBeforeCall(code, vouchersBalanceUpdateRequestBody, null);
@@ -1213,11 +1038,6 @@ public class VouchersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateVoucherBalanceAsync(String code, VouchersBalanceUpdateRequestBody vouchersBalanceUpdateRequestBody, final ApiCallback<VouchersBalanceUpdateResponseBody> _callback) throws ApiException {
 

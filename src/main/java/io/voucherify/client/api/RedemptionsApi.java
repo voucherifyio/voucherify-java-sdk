@@ -89,11 +89,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRedemptionCall(String redemptionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -157,11 +152,6 @@ public class RedemptionsApi {
      * @param redemptionId ID of previously created redemption. (required)
      * @return RedemptionsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public RedemptionsGetResponseBody getRedemption(String redemptionId) throws ApiException {
         ApiResponse<RedemptionsGetResponseBody> localVarResp = getRedemptionWithHttpInfo(redemptionId);
@@ -174,11 +164,6 @@ public class RedemptionsApi {
      * @param redemptionId ID of previously created redemption. (required)
      * @return ApiResponse&lt;RedemptionsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RedemptionsGetResponseBody> getRedemptionWithHttpInfo(String redemptionId) throws ApiException {
         okhttp3.Call localVarCall = getRedemptionValidateBeforeCall(redemptionId, null);
@@ -193,11 +178,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRedemptionAsync(String redemptionId, final ApiCallback<RedemptionsGetResponseBody> _callback) throws ApiException {
 
@@ -212,11 +192,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with a &#x60;redemption_entries&#x60; property that contains an array of voucher&#39;s redemptions. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getVoucherRedemptionsCall(String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -280,11 +255,6 @@ public class RedemptionsApi {
      * @param code A **code** that identifies the voucher. (required)
      * @return VouchersRedemptionGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with a &#x60;redemption_entries&#x60; property that contains an array of voucher&#39;s redemptions. </td><td>  -  </td></tr>
-     </table>
      */
     public VouchersRedemptionGetResponseBody getVoucherRedemptions(String code) throws ApiException {
         ApiResponse<VouchersRedemptionGetResponseBody> localVarResp = getVoucherRedemptionsWithHttpInfo(code);
@@ -297,11 +267,6 @@ public class RedemptionsApi {
      * @param code A **code** that identifies the voucher. (required)
      * @return ApiResponse&lt;VouchersRedemptionGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with a &#x60;redemption_entries&#x60; property that contains an array of voucher&#39;s redemptions. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<VouchersRedemptionGetResponseBody> getVoucherRedemptionsWithHttpInfo(String code) throws ApiException {
         okhttp3.Call localVarCall = getVoucherRedemptionsValidateBeforeCall(code, null);
@@ -316,11 +281,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> A dictionary with a &#x60;redemption_entries&#x60; property that contains an array of voucher&#39;s redemptions. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getVoucherRedemptionsAsync(String code, final ApiCallback<VouchersRedemptionGetResponseBody> _callback) throws ApiException {
 
@@ -342,11 +302,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of redemption objects. Each entry in the array is a separate redemption object. If no more redemptions are available, the resulting array will be empty. If you provide a non-existent customer ID, this call returns an empty object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listRedemptionsCall(Integer limit, Integer page, String result, String campaign, String customer, ParameterOrderListRedemptions order, ParameterCreatedBeforeAfter createdAt, ParameterFiltersListRedemptions filters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -443,11 +398,6 @@ public class RedemptionsApi {
      * @param filters Filters for listing responses. (optional)
      * @return RedemptionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of redemption objects. Each entry in the array is a separate redemption object. If no more redemptions are available, the resulting array will be empty. If you provide a non-existent customer ID, this call returns an empty object. </td><td>  -  </td></tr>
-     </table>
      */
     public RedemptionsListResponseBody listRedemptions(Integer limit, Integer page, String result, String campaign, String customer, ParameterOrderListRedemptions order, ParameterCreatedBeforeAfter createdAt, ParameterFiltersListRedemptions filters) throws ApiException {
         ApiResponse<RedemptionsListResponseBody> localVarResp = listRedemptionsWithHttpInfo(limit, page, result, campaign, customer, order, createdAt, filters);
@@ -467,11 +417,6 @@ public class RedemptionsApi {
      * @param filters Filters for listing responses. (optional)
      * @return ApiResponse&lt;RedemptionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of redemption objects. Each entry in the array is a separate redemption object. If no more redemptions are available, the resulting array will be empty. If you provide a non-existent customer ID, this call returns an empty object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RedemptionsListResponseBody> listRedemptionsWithHttpInfo(Integer limit, Integer page, String result, String campaign, String customer, ParameterOrderListRedemptions order, ParameterCreatedBeforeAfter createdAt, ParameterFiltersListRedemptions filters) throws ApiException {
         okhttp3.Call localVarCall = listRedemptionsValidateBeforeCall(limit, page, result, campaign, customer, order, createdAt, filters, null);
@@ -493,11 +438,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of redemption objects. Each entry in the array is a separate redemption object. If no more redemptions are available, the resulting array will be empty. If you provide a non-existent customer ID, this call returns an empty object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listRedemptionsAsync(Integer limit, Integer page, String result, String campaign, String customer, ParameterOrderListRedemptions order, ParameterCreatedBeforeAfter createdAt, ParameterFiltersListRedemptions filters, final ApiCallback<RedemptionsListResponseBody> _callback) throws ApiException {
 
@@ -512,11 +452,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemStackedDiscountsCall(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -575,11 +510,6 @@ public class RedemptionsApi {
      * @param redemptionsRedeemRequestBody  (optional)
      * @return RedemptionsRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public RedemptionsRedeemResponseBody redeemStackedDiscounts(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody) throws ApiException {
         ApiResponse<RedemptionsRedeemResponseBody> localVarResp = redeemStackedDiscountsWithHttpInfo(redemptionsRedeemRequestBody);
@@ -592,11 +522,6 @@ public class RedemptionsApi {
      * @param redemptionsRedeemRequestBody  (optional)
      * @return ApiResponse&lt;RedemptionsRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RedemptionsRedeemResponseBody> redeemStackedDiscountsWithHttpInfo(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemStackedDiscountsValidateBeforeCall(redemptionsRedeemRequestBody, null);
@@ -611,11 +536,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depending on your project settings: all redeemables must be valid or just one must be valid to result as valid redemption. See https://support.voucherify.io/article/604-stacking-rules#application-rules </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemStackedDiscountsAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, final ApiCallback<RedemptionsRedeemResponseBody> _callback) throws ApiException {
 
@@ -633,11 +553,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption rollback object indicating the result of the rollback. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call rollbackRedemptionCall(String redemptionId, String reason, String trackingId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -713,11 +628,6 @@ public class RedemptionsApi {
      * @param redemptionsRollbackCreateRequestBody Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @return RedemptionsRollbackCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption rollback object indicating the result of the rollback. </td><td>  -  </td></tr>
-     </table>
      */
     public RedemptionsRollbackCreateResponseBody rollbackRedemption(String redemptionId, String reason, String trackingId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody) throws ApiException {
         ApiResponse<RedemptionsRollbackCreateResponseBody> localVarResp = rollbackRedemptionWithHttpInfo(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody);
@@ -733,11 +643,6 @@ public class RedemptionsApi {
      * @param redemptionsRollbackCreateRequestBody Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @return ApiResponse&lt;RedemptionsRollbackCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption rollback object indicating the result of the rollback. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RedemptionsRollbackCreateResponseBody> rollbackRedemptionWithHttpInfo(String redemptionId, String reason, String trackingId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = rollbackRedemptionValidateBeforeCall(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody, null);
@@ -755,11 +660,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption rollback object indicating the result of the rollback. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call rollbackRedemptionAsync(String redemptionId, String reason, String trackingId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, final ApiCallback<RedemptionsRollbackCreateResponseBody> _callback) throws ApiException {
 
@@ -777,11 +677,6 @@ public class RedemptionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an array with the individual redemption rollback results along with the parent rollback result and related order. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call rollbackStackedRedemptionsCall(String parentRedemptionId, String reason, String trackingId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -857,11 +752,6 @@ public class RedemptionsApi {
      * @param redemptionsRollbacksCreateRequestBody Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @return RedemptionsRollbacksCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an array with the individual redemption rollback results along with the parent rollback result and related order. </td><td>  -  </td></tr>
-     </table>
      */
     public RedemptionsRollbacksCreateResponseBody rollbackStackedRedemptions(String parentRedemptionId, String reason, String trackingId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody) throws ApiException {
         ApiResponse<RedemptionsRollbacksCreateResponseBody> localVarResp = rollbackStackedRedemptionsWithHttpInfo(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody);
@@ -877,11 +767,6 @@ public class RedemptionsApi {
      * @param redemptionsRollbacksCreateRequestBody Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @return ApiResponse&lt;RedemptionsRollbacksCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an array with the individual redemption rollback results along with the parent rollback result and related order. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RedemptionsRollbacksCreateResponseBody> rollbackStackedRedemptionsWithHttpInfo(String parentRedemptionId, String reason, String trackingId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = rollbackStackedRedemptionsValidateBeforeCall(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody, null);
@@ -899,11 +784,6 @@ public class RedemptionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an array with the individual redemption rollback results along with the parent rollback result and related order. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call rollbackStackedRedemptionsAsync(String parentRedemptionId, String reason, String trackingId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, final ApiCallback<RedemptionsRollbacksCreateResponseBody> _callback) throws ApiException {
 

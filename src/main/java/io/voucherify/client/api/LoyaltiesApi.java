@@ -104,11 +104,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns created loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createInBulkLoyaltyTiersCall(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -174,11 +169,6 @@ public class LoyaltiesApi {
      * @param loyaltiesTiersCreateInBulkRequestBodyItem Provide tier definitions you want to add to existing loyalty campaign. (optional)
      * @return List&lt;LoyaltyTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns created loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public List<LoyaltyTier> createInBulkLoyaltyTiers(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem) throws ApiException {
         ApiResponse<List<LoyaltyTier>> localVarResp = createInBulkLoyaltyTiersWithHttpInfo(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem);
@@ -192,11 +182,6 @@ public class LoyaltiesApi {
      * @param loyaltiesTiersCreateInBulkRequestBodyItem Provide tier definitions you want to add to existing loyalty campaign. (optional)
      * @return ApiResponse&lt;List&lt;LoyaltyTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns created loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<List<LoyaltyTier>> createInBulkLoyaltyTiersWithHttpInfo(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem) throws ApiException {
         okhttp3.Call localVarCall = createInBulkLoyaltyTiersValidateBeforeCall(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, null);
@@ -212,11 +197,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns created loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createInBulkLoyaltyTiersAsync(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, final ApiCallback<List<LoyaltyTier>> _callback) throws ApiException {
 
@@ -232,11 +212,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -305,11 +280,6 @@ public class LoyaltiesApi {
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteEarningRule(String campaignId, String earningRuleId) throws ApiException {
         deleteEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -322,11 +292,6 @@ public class LoyaltiesApi {
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = deleteEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
@@ -341,11 +306,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -360,11 +320,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteLoyaltyProgramCall(String campaignId, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -433,11 +388,6 @@ public class LoyaltiesApi {
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return LoyaltiesDeleteResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesDeleteResponseBody deleteLoyaltyProgram(String campaignId, Boolean force) throws ApiException {
         ApiResponse<LoyaltiesDeleteResponseBody> localVarResp = deleteLoyaltyProgramWithHttpInfo(campaignId, force);
@@ -451,11 +401,6 @@ public class LoyaltiesApi {
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return ApiResponse&lt;LoyaltiesDeleteResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesDeleteResponseBody> deleteLoyaltyProgramWithHttpInfo(String campaignId, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteLoyaltyProgramValidateBeforeCall(campaignId, force, null);
@@ -471,11 +416,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteLoyaltyProgramAsync(String campaignId, Boolean force, final ApiCallback<LoyaltiesDeleteResponseBody> _callback) throws ApiException {
 
@@ -491,11 +431,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardAssignment1Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -564,11 +499,6 @@ public class LoyaltiesApi {
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteRewardAssignment1(String campaignId, String assignmentId) throws ApiException {
         deleteRewardAssignment1WithHttpInfo(campaignId, assignmentId);
@@ -581,11 +511,6 @@ public class LoyaltiesApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteRewardAssignment1WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, null);
@@ -600,11 +525,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardAssignment1Async(String campaignId, String assignmentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -619,11 +539,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;false&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -694,11 +609,6 @@ public class LoyaltiesApi {
      * @param earningRuleId Unique earning rule ID. (required)
      * @return LoyaltiesEarningRulesDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;false&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesEarningRulesDisableResponseBody disableEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesDisableResponseBody> localVarResp = disableEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -712,11 +622,6 @@ public class LoyaltiesApi {
      * @param earningRuleId Unique earning rule ID. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;false&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesEarningRulesDisableResponseBody> disableEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = disableEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
@@ -732,11 +637,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;false&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call disableEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesDisableResponseBody> _callback) throws ApiException {
 
@@ -752,11 +652,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -827,11 +722,6 @@ public class LoyaltiesApi {
      * @param earningRuleId Unique earning rule ID. (required)
      * @return LoyaltiesEarningRulesEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesEarningRulesEnableResponseBody enableEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesEnableResponseBody> localVarResp = enableEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -845,11 +735,6 @@ public class LoyaltiesApi {
      * @param earningRuleId Unique earning rule ID. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesEarningRulesEnableResponseBody> enableEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = enableEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
@@ -865,11 +750,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call enableEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesEnableResponseBody> _callback) throws ApiException {
 
@@ -885,11 +765,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportLoyaltyCardTransactionsCall(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -955,11 +830,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return LoyaltiesMembersTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTransactionsExportCreateResponseBody exportLoyaltyCardTransactions(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResp = exportLoyaltyCardTransactionsWithHttpInfo(memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
@@ -973,11 +843,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> exportLoyaltyCardTransactionsWithHttpInfo(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardTransactionsValidateBeforeCall(memberId, loyaltiesMembersTransactionsExportCreateRequestBody, null);
@@ -993,11 +858,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportLoyaltyCardTransactionsAsync(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback<LoyaltiesMembersTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
@@ -1014,11 +874,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportLoyaltyCardTransactions1Call(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1091,11 +946,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return LoyaltiesMembersTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTransactionsExportCreateResponseBody exportLoyaltyCardTransactions1(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResp = exportLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
@@ -1110,11 +960,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> exportLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody, null);
@@ -1131,11 +976,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an export object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call exportLoyaltyCardTransactions1Async(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback<LoyaltiesMembersTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
@@ -1151,11 +991,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the earning rule details. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1226,11 +1061,6 @@ public class LoyaltiesApi {
      * @param earningRuleId A unique earning rule ID. (required)
      * @return LoyaltiesEarningRulesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the earning rule details. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesEarningRulesGetResponseBody getEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesGetResponseBody> localVarResp = getEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -1244,11 +1074,6 @@ public class LoyaltiesApi {
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the earning rule details. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesEarningRulesGetResponseBody> getEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = getEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
@@ -1264,11 +1089,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an earning rule object with the earning rule details. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesGetResponseBody> _callback) throws ApiException {
 
@@ -1284,11 +1104,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getLoyaltyTierCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1359,11 +1174,6 @@ public class LoyaltiesApi {
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return LoyaltiesTiersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesTiersGetResponseBody getLoyaltyTier(String campaignId, String loyaltyTierId) throws ApiException {
         ApiResponse<LoyaltiesTiersGetResponseBody> localVarResp = getLoyaltyTierWithHttpInfo(campaignId, loyaltyTierId);
@@ -1377,11 +1187,6 @@ public class LoyaltiesApi {
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return ApiResponse&lt;LoyaltiesTiersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesTiersGetResponseBody> getLoyaltyTierWithHttpInfo(String campaignId, String loyaltyTierId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyTierValidateBeforeCall(campaignId, loyaltyTierId, null);
@@ -1397,11 +1202,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty tier object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getLoyaltyTierAsync(String campaignId, String loyaltyTierId, final ApiCallback<LoyaltiesTiersGetResponseBody> _callback) throws ApiException {
 
@@ -1417,11 +1217,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignment1Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1492,11 +1287,6 @@ public class LoyaltiesApi {
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesRewardAssignmentsGetResponseBody getRewardAssignment1(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> localVarResp = getRewardAssignment1WithHttpInfo(campaignId, assignmentId);
@@ -1510,11 +1300,6 @@ public class LoyaltiesApi {
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> getRewardAssignment1WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, null);
@@ -1530,11 +1315,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignment1Async(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsGetResponseBody> _callback) throws ApiException {
 
@@ -1550,11 +1330,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignment2Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1625,11 +1400,6 @@ public class LoyaltiesApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return LoyaltiesRewardsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesRewardsGetResponseBody getRewardAssignment2(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardsGetResponseBody> localVarResp = getRewardAssignment2WithHttpInfo(campaignId, assignmentId);
@@ -1643,11 +1413,6 @@ public class LoyaltiesApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesRewardsGetResponseBody> getRewardAssignment2WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardAssignment2ValidateBeforeCall(campaignId, assignmentId, null);
@@ -1663,11 +1428,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns specific reward assignment. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignment2Async(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardsGetResponseBody> _callback) throws ApiException {
 
@@ -1683,11 +1443,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns reward details in the context of a loyalty *campaign* and reward assignment ID. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardDetailsCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1758,11 +1513,6 @@ public class LoyaltiesApi {
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsRewardGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns reward details in the context of a loyalty *campaign* and reward assignment ID. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesRewardAssignmentsRewardGetResponseBody getRewardDetails(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> localVarResp = getRewardDetailsWithHttpInfo(campaignId, assignmentId);
@@ -1776,11 +1526,6 @@ public class LoyaltiesApi {
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsRewardGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns reward details in the context of a loyalty *campaign* and reward assignment ID. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> getRewardDetailsWithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardDetailsValidateBeforeCall(campaignId, assignmentId, null);
@@ -1796,11 +1541,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns reward details in the context of a loyalty *campaign* and reward assignment ID. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardDetailsAsync(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsRewardGetResponseBody> _callback) throws ApiException {
 
@@ -1817,11 +1557,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1895,11 +1630,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, page);
@@ -1914,11 +1644,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, page, null);
@@ -1935,11 +1660,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
@@ -1957,11 +1677,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2042,11 +1757,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, page);
@@ -2062,11 +1772,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, page, null);
@@ -2084,11 +1789,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty card transaction objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
@@ -2106,11 +1806,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of earning rules for a given tier. The object for each earning rule also contains information about how the points are calculated; this includes mapping. If a specific multiplier was used to calculate points for a given tier, then the &#x60;loyalty.points&#x60; parameter will account for this calculation. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTierEarningRulesCall(String campaignId, String loyaltyTierId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2191,11 +1886,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesTiersEarningRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of earning rules for a given tier. The object for each earning rule also contains information about how the points are calculated; this includes mapping. If a specific multiplier was used to calculate points for a given tier, then the &#x60;loyalty.points&#x60; parameter will account for this calculation. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesTiersEarningRulesListResponseBody listLoyaltyTierEarningRules(String campaignId, String loyaltyTierId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> localVarResp = listLoyaltyTierEarningRulesWithHttpInfo(campaignId, loyaltyTierId, limit, page);
@@ -2211,11 +1901,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesTiersEarningRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of earning rules for a given tier. The object for each earning rule also contains information about how the points are calculated; this includes mapping. If a specific multiplier was used to calculate points for a given tier, then the &#x60;loyalty.points&#x60; parameter will account for this calculation. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> listLoyaltyTierEarningRulesWithHttpInfo(String campaignId, String loyaltyTierId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTierEarningRulesValidateBeforeCall(campaignId, loyaltyTierId, limit, page, null);
@@ -2233,11 +1918,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of earning rules for a given tier. The object for each earning rule also contains information about how the points are calculated; this includes mapping. If a specific multiplier was used to calculate points for a given tier, then the &#x60;loyalty.points&#x60; parameter will account for this calculation. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTierEarningRulesAsync(String campaignId, String loyaltyTierId, Integer limit, Integer page, final ApiCallback<LoyaltiesTiersEarningRulesListResponseBody> _callback) throws ApiException {
 
@@ -2253,11 +1933,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty tier reward objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTierRewardsCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2328,11 +2003,6 @@ public class LoyaltiesApi {
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return LoyaltiesTiersRewardsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty tier reward objects. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesTiersRewardsListResponseBody listLoyaltyTierRewards(String campaignId, String loyaltyTierId) throws ApiException {
         ApiResponse<LoyaltiesTiersRewardsListResponseBody> localVarResp = listLoyaltyTierRewardsWithHttpInfo(campaignId, loyaltyTierId);
@@ -2346,11 +2016,6 @@ public class LoyaltiesApi {
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return ApiResponse&lt;LoyaltiesTiersRewardsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty tier reward objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesTiersRewardsListResponseBody> listLoyaltyTierRewardsWithHttpInfo(String campaignId, String loyaltyTierId) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTierRewardsValidateBeforeCall(campaignId, loyaltyTierId, null);
@@ -2366,11 +2031,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of loyalty tier reward objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTierRewardsAsync(String campaignId, String loyaltyTierId, final ApiCallback<LoyaltiesTiersRewardsListResponseBody> _callback) throws ApiException {
 
@@ -2387,11 +2047,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty tier objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTiersCall(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2465,11 +2120,6 @@ public class LoyaltiesApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return LoyaltiesTiersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty tier objects. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesTiersListResponseBody listLoyaltyTiers(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order) throws ApiException {
         ApiResponse<LoyaltiesTiersListResponseBody> localVarResp = listLoyaltyTiersWithHttpInfo(campaignId, limit, order);
@@ -2484,11 +2134,6 @@ public class LoyaltiesApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;LoyaltiesTiersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty tier objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesTiersListResponseBody> listLoyaltyTiersWithHttpInfo(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTiersValidateBeforeCall(campaignId, limit, order, null);
@@ -2505,11 +2150,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty tier objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listLoyaltyTiersAsync(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order, final ApiCallback<LoyaltiesTiersListResponseBody> _callback) throws ApiException {
 
@@ -2524,11 +2164,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a data array containing the member&#39;s loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listMemberLoyaltyTierCall(String memberId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2592,11 +2227,6 @@ public class LoyaltiesApi {
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @return LoyaltiesMembersTiersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a data array containing the member&#39;s loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTiersListResponseBody listMemberLoyaltyTier(String memberId) throws ApiException {
         ApiResponse<LoyaltiesMembersTiersListResponseBody> localVarResp = listMemberLoyaltyTierWithHttpInfo(memberId);
@@ -2609,11 +2239,6 @@ public class LoyaltiesApi {
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @return ApiResponse&lt;LoyaltiesMembersTiersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a data array containing the member&#39;s loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTiersListResponseBody> listMemberLoyaltyTierWithHttpInfo(String memberId) throws ApiException {
         okhttp3.Call localVarCall = listMemberLoyaltyTierValidateBeforeCall(memberId, null);
@@ -2628,11 +2253,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a data array containing the member&#39;s loyalty tiers. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listMemberLoyaltyTierAsync(String memberId, final ApiCallback<LoyaltiesMembersTiersListResponseBody> _callback) throws ApiException {
 
@@ -2648,11 +2268,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of rewards for the given &#x60;member_id&#x60;. Returns a filtered list if the query parameter &#x60;affordable_only&#x60; is set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listMemberRewardsCall(String memberId, Boolean affordableOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2721,11 +2336,6 @@ public class LoyaltiesApi {
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return LoyaltiesMembersRewardsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of rewards for the given &#x60;member_id&#x60;. Returns a filtered list if the query parameter &#x60;affordable_only&#x60; is set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersRewardsListResponseBody listMemberRewards(String memberId, Boolean affordableOnly) throws ApiException {
         ApiResponse<LoyaltiesMembersRewardsListResponseBody> localVarResp = listMemberRewardsWithHttpInfo(memberId, affordableOnly);
@@ -2739,11 +2349,6 @@ public class LoyaltiesApi {
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRewardsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of rewards for the given &#x60;member_id&#x60;. Returns a filtered list if the query parameter &#x60;affordable_only&#x60; is set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersRewardsListResponseBody> listMemberRewardsWithHttpInfo(String memberId, Boolean affordableOnly) throws ApiException {
         okhttp3.Call localVarCall = listMemberRewardsValidateBeforeCall(memberId, affordableOnly, null);
@@ -2759,11 +2364,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of rewards for the given &#x60;member_id&#x60;. Returns a filtered list if the query parameter &#x60;affordable_only&#x60; is set to &#x60;true&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listMemberRewardsAsync(String memberId, Boolean affordableOnly, final ApiCallback<LoyaltiesMembersRewardsListResponseBody> _callback) throws ApiException {
 
@@ -2781,11 +2381,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty points expiration buckets along with an expiration date if the points are due to expire. No expiration date parameter is returned if the loyalty points bucket does not expire. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPointsExpirationCall(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2866,11 +2461,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersPointsExpirationListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty points expiration buckets along with an expiration date if the points are due to expire. No expiration date parameter is returned if the loyalty points bucket does not expire. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersPointsExpirationListResponseBody listPointsExpiration(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> localVarResp = listPointsExpirationWithHttpInfo(campaignId, memberId, limit, page);
@@ -2886,11 +2476,6 @@ public class LoyaltiesApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPointsExpirationListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty points expiration buckets along with an expiration date if the points are due to expire. No expiration date parameter is returned if the loyalty points bucket does not expire. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> listPointsExpirationWithHttpInfo(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listPointsExpirationValidateBeforeCall(campaignId, memberId, limit, page, null);
@@ -2908,11 +2493,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of loyalty points expiration buckets along with an expiration date if the points are due to expire. No expiration date parameter is returned if the loyalty points bucket does not expire. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPointsExpirationAsync(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersPointsExpirationListResponseBody> _callback) throws ApiException {
 
@@ -2928,11 +2508,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemRewardCall(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -2998,11 +2573,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return LoyaltiesMembersRedemptionRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersRedemptionRedeemResponseBody redeemReward(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResp = redeemRewardWithHttpInfo(memberId, loyaltiesMembersRedemptionRedeemRequestBody);
@@ -3016,11 +2586,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRedemptionRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> redeemRewardWithHttpInfo(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemRewardValidateBeforeCall(memberId, loyaltiesMembersRedemptionRedeemRequestBody, null);
@@ -3036,11 +2601,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemRewardAsync(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback<LoyaltiesMembersRedemptionRedeemResponseBody> _callback) throws ApiException {
 
@@ -3057,11 +2617,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemReward1Call(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3134,11 +2689,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return LoyaltiesMembersRedemptionRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersRedemptionRedeemResponseBody redeemReward1(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResp = redeemReward1WithHttpInfo(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
@@ -3153,11 +2703,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRedemptionRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> redeemReward1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemReward1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody, null);
@@ -3174,11 +2719,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a redemption object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call redeemReward1Async(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback<LoyaltiesMembersRedemptionRedeemResponseBody> _callback) throws ApiException {
 
@@ -3195,11 +2735,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty card object for the loaded loyalty card, ie. the one that that points were transferred to from the other cards(s). </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call transferPointsCall(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3272,11 +2807,6 @@ public class LoyaltiesApi {
      * @param loyaltiesTransferPoints Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)
      * @return LoyaltiesMembersTransfersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty card object for the loaded loyalty card, ie. the one that that points were transferred to from the other cards(s). </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersTransfersCreateResponseBody transferPoints(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints) throws ApiException {
         ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResp = transferPointsWithHttpInfo(campaignId, memberId, loyaltiesTransferPoints);
@@ -3291,11 +2821,6 @@ public class LoyaltiesApi {
      * @param loyaltiesTransferPoints Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransfersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty card object for the loaded loyalty card, ie. the one that that points were transferred to from the other cards(s). </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> transferPointsWithHttpInfo(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints) throws ApiException {
         okhttp3.Call localVarCall = transferPointsValidateBeforeCall(campaignId, memberId, loyaltiesTransferPoints, null);
@@ -3312,11 +2837,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a loyalty card object for the loaded loyalty card, ie. the one that that points were transferred to from the other cards(s). </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call transferPointsAsync(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, final ApiCallback<LoyaltiesMembersTransfersCreateResponseBody> _callback) throws ApiException {
 
@@ -3332,11 +2852,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateLoyaltyCardBalanceCall(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3402,11 +2917,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return LoyaltiesMembersBalanceUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResp = updateLoyaltyCardBalanceWithHttpInfo(memberId, loyaltiesMembersBalanceUpdateRequestBody);
@@ -3420,11 +2930,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersBalanceUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> updateLoyaltyCardBalanceWithHttpInfo(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyCardBalanceValidateBeforeCall(memberId, loyaltiesMembersBalanceUpdateRequestBody, null);
@@ -3440,11 +2945,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateLoyaltyCardBalanceAsync(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback<LoyaltiesMembersBalanceUpdateResponseBody> _callback) throws ApiException {
 
@@ -3461,11 +2961,6 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateLoyaltyCardBalance1Call(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3538,11 +3033,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return LoyaltiesMembersBalanceUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance1(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResp = updateLoyaltyCardBalance1WithHttpInfo(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
@@ -3557,11 +3047,6 @@ public class LoyaltiesApi {
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersBalanceUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> updateLoyaltyCardBalance1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyCardBalance1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, null);
@@ -3578,11 +3063,6 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a balance object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateLoyaltyCardBalance1Async(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback<LoyaltiesMembersBalanceUpdateResponseBody> _callback) throws ApiException {
 

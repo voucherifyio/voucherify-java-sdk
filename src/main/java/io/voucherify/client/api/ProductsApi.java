@@ -98,11 +98,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createProductCall(ProductsCreateRequestBody productsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -161,11 +156,6 @@ public class ProductsApi {
      * @param productsCreateRequestBody Specify the product parameters. (optional)
      * @return ProductsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsCreateResponseBody createProduct(ProductsCreateRequestBody productsCreateRequestBody) throws ApiException {
         ApiResponse<ProductsCreateResponseBody> localVarResp = createProductWithHttpInfo(productsCreateRequestBody);
@@ -178,11 +168,6 @@ public class ProductsApi {
      * @param productsCreateRequestBody Specify the product parameters. (optional)
      * @return ApiResponse&lt;ProductsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsCreateResponseBody> createProductWithHttpInfo(ProductsCreateRequestBody productsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createProductValidateBeforeCall(productsCreateRequestBody, null);
@@ -197,11 +182,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if the operation succeeded. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createProductAsync(ProductsCreateRequestBody productsCreateRequestBody, final ApiCallback<ProductsCreateResponseBody> _callback) throws ApiException {
 
@@ -217,11 +197,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the created SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createSkuCall(String productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -287,11 +262,6 @@ public class ProductsApi {
      * @param productsSkusCreateRequestBody Specify the SKU parameters to be created. (optional)
      * @return ProductsSkusCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the created SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsSkusCreateResponseBody createSku(String productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody) throws ApiException {
         ApiResponse<ProductsSkusCreateResponseBody> localVarResp = createSkuWithHttpInfo(productId, productsSkusCreateRequestBody);
@@ -305,11 +275,6 @@ public class ProductsApi {
      * @param productsSkusCreateRequestBody Specify the SKU parameters to be created. (optional)
      * @return ApiResponse&lt;ProductsSkusCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the created SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsSkusCreateResponseBody> createSkuWithHttpInfo(String productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createSkuValidateBeforeCall(productId, productsSkusCreateRequestBody, null);
@@ -325,11 +290,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the created SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createSkuAsync(String productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, final ApiCallback<ProductsSkusCreateResponseBody> _callback) throws ApiException {
 
@@ -345,11 +305,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteProductCall(String productId, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -416,11 +371,6 @@ public class ProductsApi {
      * @param productId A Voucherify product ID or source ID. (required)
      * @param force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteProduct(String productId, Boolean force) throws ApiException {
         deleteProductWithHttpInfo(productId, force);
@@ -433,11 +383,6 @@ public class ProductsApi {
      * @param force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteProductWithHttpInfo(String productId, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteProductValidateBeforeCall(productId, force, null);
@@ -452,11 +397,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteProductAsync(String productId, Boolean force, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -472,11 +412,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteSkuCall(String productId, String skuId, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -550,11 +485,6 @@ public class ProductsApi {
      * @param skuId A Voucherify SKU ID or SKU source ID. (required)
      * @param force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteSku(String productId, String skuId, Boolean force) throws ApiException {
         deleteSkuWithHttpInfo(productId, skuId, force);
@@ -568,11 +498,6 @@ public class ProductsApi {
      * @param force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteSkuWithHttpInfo(String productId, String skuId, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteSkuValidateBeforeCall(productId, skuId, force, null);
@@ -588,11 +513,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteSkuAsync(String productId, String skuId, Boolean force, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -606,11 +526,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getProductCall(String productId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -674,11 +589,6 @@ public class ProductsApi {
      * @param productId A Voucherify product ID or source ID. (required)
      * @return ProductsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsGetResponseBody getProduct(String productId) throws ApiException {
         ApiResponse<ProductsGetResponseBody> localVarResp = getProductWithHttpInfo(productId);
@@ -691,11 +601,6 @@ public class ProductsApi {
      * @param productId A Voucherify product ID or source ID. (required)
      * @return ApiResponse&lt;ProductsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsGetResponseBody> getProductWithHttpInfo(String productId) throws ApiException {
         okhttp3.Call localVarCall = getProductValidateBeforeCall(productId, null);
@@ -710,11 +615,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getProductAsync(String productId, final ApiCallback<ProductsGetResponseBody> _callback) throws ApiException {
 
@@ -729,11 +629,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns requested SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getSkuCall(String skuId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -797,11 +692,6 @@ public class ProductsApi {
      * @param skuId A Voucherify SKU identifier or SKU source ID. (required)
      * @return SkusGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns requested SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public SkusGetResponseBody getSku(String skuId) throws ApiException {
         ApiResponse<SkusGetResponseBody> localVarResp = getSkuWithHttpInfo(skuId);
@@ -814,11 +704,6 @@ public class ProductsApi {
      * @param skuId A Voucherify SKU identifier or SKU source ID. (required)
      * @return ApiResponse&lt;SkusGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns requested SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<SkusGetResponseBody> getSkuWithHttpInfo(String skuId) throws ApiException {
         okhttp3.Call localVarCall = getSkuValidateBeforeCall(skuId, null);
@@ -833,11 +718,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns requested SKU object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getSkuAsync(String skuId, final ApiCallback<SkusGetResponseBody> _callback) throws ApiException {
 
@@ -852,11 +732,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and products will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importProductsUsingCsvCall(File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -919,11 +794,6 @@ public class ProductsApi {
      * @param _file File path. (optional)
      * @return ProductsImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and products will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsImportCsvCreateResponseBody importProductsUsingCsv(File _file) throws ApiException {
         ApiResponse<ProductsImportCsvCreateResponseBody> localVarResp = importProductsUsingCsvWithHttpInfo(_file);
@@ -936,11 +806,6 @@ public class ProductsApi {
      * @param _file File path. (optional)
      * @return ApiResponse&lt;ProductsImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and products will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsImportCsvCreateResponseBody> importProductsUsingCsvWithHttpInfo(File _file) throws ApiException {
         okhttp3.Call localVarCall = importProductsUsingCsvValidateBeforeCall(_file, null);
@@ -955,11 +820,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and products will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importProductsUsingCsvAsync(File _file, final ApiCallback<ProductsImportCsvCreateResponseBody> _callback) throws ApiException {
 
@@ -974,11 +834,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and SKUs will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importSkusUsingCsvCall(File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1041,11 +896,6 @@ public class ProductsApi {
      * @param _file File path. (optional)
      * @return SkusImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and SKUs will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public SkusImportCsvCreateResponseBody importSkusUsingCsv(File _file) throws ApiException {
         ApiResponse<SkusImportCsvCreateResponseBody> localVarResp = importSkusUsingCsvWithHttpInfo(_file);
@@ -1058,11 +908,6 @@ public class ProductsApi {
      * @param _file File path. (optional)
      * @return ApiResponse&lt;SkusImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and SKUs will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<SkusImportCsvCreateResponseBody> importSkusUsingCsvWithHttpInfo(File _file) throws ApiException {
         okhttp3.Call localVarCall = importSkusUsingCsvValidateBeforeCall(_file, null);
@@ -1077,11 +922,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and SKUs will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importSkusUsingCsvAsync(File _file, final ApiCallback<SkusImportCsvCreateResponseBody> _callback) throws ApiException {
 
@@ -1100,11 +940,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with product objects. The products are returned sorted by creation date by default, with the most recent products appearing last, unless you specify another sequence using the &#x60;order&#x60; query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductsCall(Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1186,11 +1021,6 @@ public class ProductsApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ProductsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with product objects. The products are returned sorted by creation date by default, with the most recent products appearing last, unless you specify another sequence using the &#x60;order&#x60; query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsListResponseBody listProducts(Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         ApiResponse<ProductsListResponseBody> localVarResp = listProductsWithHttpInfo(limit, page, order, startDate, endDate);
@@ -1207,11 +1037,6 @@ public class ProductsApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ApiResponse&lt;ProductsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with product objects. The products are returned sorted by creation date by default, with the most recent products appearing last, unless you specify another sequence using the &#x60;order&#x60; query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsListResponseBody> listProductsWithHttpInfo(Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = listProductsValidateBeforeCall(limit, page, order, startDate, endDate, null);
@@ -1230,11 +1055,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with product objects. The products are returned sorted by creation date by default, with the most recent products appearing last, unless you specify another sequence using the &#x60;order&#x60; query parameter. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductsAsync(Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback<ProductsListResponseBody> _callback) throws ApiException {
 
@@ -1254,11 +1074,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of SKUs. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listSkusInProductCall(String productId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1347,11 +1162,6 @@ public class ProductsApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ProductsSkusListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of SKUs. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsSkusListResponseBody listSkusInProduct(String productId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         ApiResponse<ProductsSkusListResponseBody> localVarResp = listSkusInProductWithHttpInfo(productId, limit, page, order, startDate, endDate);
@@ -1369,11 +1179,6 @@ public class ProductsApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ApiResponse&lt;ProductsSkusListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of SKUs. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsSkusListResponseBody> listSkusInProductWithHttpInfo(String productId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = listSkusInProductValidateBeforeCall(productId, limit, page, order, startDate, endDate, null);
@@ -1393,11 +1198,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of SKUs. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listSkusInProductAsync(String productId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback<ProductsSkusListResponseBody> _callback) throws ApiException {
 
@@ -1413,11 +1213,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an updated product object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductCall(String productId, ProductsUpdateRequestBody productsUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1483,11 +1278,6 @@ public class ProductsApi {
      * @param productsUpdateRequestBody Specify the parameters of the product that are to be updated. (optional)
      * @return ProductsUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an updated product object. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsUpdateResponseBody updateProduct(String productId, ProductsUpdateRequestBody productsUpdateRequestBody) throws ApiException {
         ApiResponse<ProductsUpdateResponseBody> localVarResp = updateProductWithHttpInfo(productId, productsUpdateRequestBody);
@@ -1501,11 +1291,6 @@ public class ProductsApi {
      * @param productsUpdateRequestBody Specify the parameters of the product that are to be updated. (optional)
      * @return ApiResponse&lt;ProductsUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an updated product object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsUpdateResponseBody> updateProductWithHttpInfo(String productId, ProductsUpdateRequestBody productsUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateProductValidateBeforeCall(productId, productsUpdateRequestBody, null);
@@ -1521,11 +1306,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns an updated product object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductAsync(String productId, ProductsUpdateRequestBody productsUpdateRequestBody, final ApiCallback<ProductsUpdateResponseBody> _callback) throws ApiException {
 
@@ -1540,11 +1320,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductsInBulkCall(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1603,11 +1378,6 @@ public class ProductsApi {
      * @param productsUpdateInBulkRequestBody Create an array of product objects, each with the parameters which you want to update. (optional)
      * @return ProductsUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsUpdateInBulkResponseBody updateProductsInBulk(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody) throws ApiException {
         ApiResponse<ProductsUpdateInBulkResponseBody> localVarResp = updateProductsInBulkWithHttpInfo(productsUpdateInBulkRequestBody);
@@ -1620,11 +1390,6 @@ public class ProductsApi {
      * @param productsUpdateInBulkRequestBody Create an array of product objects, each with the parameters which you want to update. (optional)
      * @return ApiResponse&lt;ProductsUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsUpdateInBulkResponseBody> updateProductsInBulkWithHttpInfo(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateProductsInBulkValidateBeforeCall(productsUpdateInBulkRequestBody, null);
@@ -1639,11 +1404,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductsInBulkAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, final ApiCallback<ProductsUpdateInBulkResponseBody> _callback) throws ApiException {
 
@@ -1658,11 +1418,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductsMetadataInBulkCall(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1721,11 +1476,6 @@ public class ProductsApi {
      * @param productsMetadataUpdateInBulkRequestBody Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
      * @return ProductsMetadataUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsMetadataUpdateInBulkResponseBody updateProductsMetadataInBulk(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody) throws ApiException {
         ApiResponse<ProductsMetadataUpdateInBulkResponseBody> localVarResp = updateProductsMetadataInBulkWithHttpInfo(productsMetadataUpdateInBulkRequestBody);
@@ -1738,11 +1488,6 @@ public class ProductsApi {
      * @param productsMetadataUpdateInBulkRequestBody Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
      * @return ApiResponse&lt;ProductsMetadataUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsMetadataUpdateInBulkResponseBody> updateProductsMetadataInBulkWithHttpInfo(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateProductsMetadataInBulkValidateBeforeCall(productsMetadataUpdateInBulkRequestBody, null);
@@ -1757,11 +1502,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and updates will be added to the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateProductsMetadataInBulkAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, final ApiCallback<ProductsMetadataUpdateInBulkResponseBody> _callback) throws ApiException {
 
@@ -1778,11 +1518,6 @@ public class ProductsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the SKU object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateSkuCall(String productId, String skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1855,11 +1590,6 @@ public class ProductsApi {
      * @param productsSkusUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ProductsSkusUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the SKU object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductsSkusUpdateResponseBody updateSku(String productId, String skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody) throws ApiException {
         ApiResponse<ProductsSkusUpdateResponseBody> localVarResp = updateSkuWithHttpInfo(productId, skuId, productsSkusUpdateRequestBody);
@@ -1874,11 +1604,6 @@ public class ProductsApi {
      * @param productsSkusUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ApiResponse&lt;ProductsSkusUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the SKU object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductsSkusUpdateResponseBody> updateSkuWithHttpInfo(String productId, String skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateSkuValidateBeforeCall(productId, skuId, productsSkusUpdateRequestBody, null);
@@ -1895,11 +1620,6 @@ public class ProductsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the SKU object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateSkuAsync(String productId, String skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, final ApiCallback<ProductsSkusUpdateResponseBody> _callback) throws ApiException {
 

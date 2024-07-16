@@ -84,11 +84,6 @@ public class ProductCollectionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns information about the newly created collection, as well as an array containing the products. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createProductCollectionCall(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -147,11 +142,6 @@ public class ProductCollectionsApi {
      * @param productCollectionsCreateRequestBody  (optional)
      * @return ProductCollectionsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns information about the newly created collection, as well as an array containing the products. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductCollectionsCreateResponseBody createProductCollection(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody) throws ApiException {
         ApiResponse<ProductCollectionsCreateResponseBody> localVarResp = createProductCollectionWithHttpInfo(productCollectionsCreateRequestBody);
@@ -164,11 +154,6 @@ public class ProductCollectionsApi {
      * @param productCollectionsCreateRequestBody  (optional)
      * @return ApiResponse&lt;ProductCollectionsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns information about the newly created collection, as well as an array containing the products. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductCollectionsCreateResponseBody> createProductCollectionWithHttpInfo(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createProductCollectionValidateBeforeCall(productCollectionsCreateRequestBody, null);
@@ -183,11 +168,6 @@ public class ProductCollectionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns information about the newly created collection, as well as an array containing the products. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createProductCollectionAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, final ApiCallback<ProductCollectionsCreateResponseBody> _callback) throws ApiException {
 
@@ -202,11 +182,6 @@ public class ProductCollectionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteProductCollectionCall(String productCollectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -268,11 +243,6 @@ public class ProductCollectionsApi {
      * This method deletes a product collection.
      * @param productCollectionId A unique product collection ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteProductCollection(String productCollectionId) throws ApiException {
         deleteProductCollectionWithHttpInfo(productCollectionId);
@@ -284,11 +254,6 @@ public class ProductCollectionsApi {
      * @param productCollectionId A unique product collection ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteProductCollectionWithHttpInfo(String productCollectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteProductCollectionValidateBeforeCall(productCollectionId, null);
@@ -302,11 +267,6 @@ public class ProductCollectionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteProductCollectionAsync(String productCollectionId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -320,11 +280,6 @@ public class ProductCollectionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product collection object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getProductCollectionCall(String productCollectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -388,11 +343,6 @@ public class ProductCollectionsApi {
      * @param productCollectionId A unique product collection ID. (required)
      * @return ProductCollectionsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product collection object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductCollectionsGetResponseBody getProductCollection(String productCollectionId) throws ApiException {
         ApiResponse<ProductCollectionsGetResponseBody> localVarResp = getProductCollectionWithHttpInfo(productCollectionId);
@@ -405,11 +355,6 @@ public class ProductCollectionsApi {
      * @param productCollectionId A unique product collection ID. (required)
      * @return ApiResponse&lt;ProductCollectionsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product collection object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductCollectionsGetResponseBody> getProductCollectionWithHttpInfo(String productCollectionId) throws ApiException {
         okhttp3.Call localVarCall = getProductCollectionValidateBeforeCall(productCollectionId, null);
@@ -424,11 +369,6 @@ public class ProductCollectionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a product collection object if a valid identifier was provided in the path. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getProductCollectionAsync(String productCollectionId, final ApiCallback<ProductCollectionsGetResponseBody> _callback) throws ApiException {
 
@@ -445,11 +385,6 @@ public class ProductCollectionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary containing a list of product collections and details about each product collection. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductCollectionsCall(Integer limit, Integer page, ParameterOrder order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -521,11 +456,6 @@ public class ProductCollectionsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ProductCollectionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary containing a list of product collections and details about each product collection. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductCollectionsListResponseBody listProductCollections(Integer limit, Integer page, ParameterOrder order) throws ApiException {
         ApiResponse<ProductCollectionsListResponseBody> localVarResp = listProductCollectionsWithHttpInfo(limit, page, order);
@@ -540,11 +470,6 @@ public class ProductCollectionsApi {
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;ProductCollectionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary containing a list of product collections and details about each product collection. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductCollectionsListResponseBody> listProductCollectionsWithHttpInfo(Integer limit, Integer page, ParameterOrder order) throws ApiException {
         okhttp3.Call localVarCall = listProductCollectionsValidateBeforeCall(limit, page, order, null);
@@ -561,11 +486,6 @@ public class ProductCollectionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary containing a list of product collections and details about each product collection. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductCollectionsAsync(Integer limit, Integer page, ParameterOrder order, final ApiCallback<ProductCollectionsListResponseBody> _callback) throws ApiException {
 
@@ -584,11 +504,6 @@ public class ProductCollectionsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of products and/or SKUs grouped in the collection with each product&#39;s/SKU&#39;s details. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductsInCollectionCall(String productCollectionId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startingAfter, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -672,11 +587,6 @@ public class ProductCollectionsApi {
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @return ProductCollectionsProductsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of products and/or SKUs grouped in the collection with each product&#39;s/SKU&#39;s details. </td><td>  -  </td></tr>
-     </table>
      */
     public ProductCollectionsProductsListResponseBody listProductsInCollection(String productCollectionId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startingAfter) throws ApiException {
         ApiResponse<ProductCollectionsProductsListResponseBody> localVarResp = listProductsInCollectionWithHttpInfo(productCollectionId, limit, page, order, startingAfter);
@@ -693,11 +603,6 @@ public class ProductCollectionsApi {
      * @param startingAfter Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. (optional)
      * @return ApiResponse&lt;ProductCollectionsProductsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of products and/or SKUs grouped in the collection with each product&#39;s/SKU&#39;s details. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ProductCollectionsProductsListResponseBody> listProductsInCollectionWithHttpInfo(String productCollectionId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startingAfter) throws ApiException {
         okhttp3.Call localVarCall = listProductsInCollectionValidateBeforeCall(productCollectionId, limit, page, order, startingAfter, null);
@@ -716,11 +621,6 @@ public class ProductCollectionsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of products and/or SKUs grouped in the collection with each product&#39;s/SKU&#39;s details. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listProductsInCollectionAsync(String productCollectionId, Integer limit, Integer page, ParameterOrder order, OffsetDateTime startingAfter, final ApiCallback<ProductCollectionsProductsListResponseBody> _callback) throws ApiException {
 

@@ -79,11 +79,6 @@ public class QualificationsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call checkEligibilityCall(QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -142,11 +137,6 @@ public class QualificationsApi {
      * @param qualificationsCheckEligibilityRequestBody Define order and customer context. (optional)
      * @return QualificationsCheckEligibilityResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public QualificationsCheckEligibilityResponseBody checkEligibility(QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody) throws ApiException {
         ApiResponse<QualificationsCheckEligibilityResponseBody> localVarResp = checkEligibilityWithHttpInfo(qualificationsCheckEligibilityRequestBody);
@@ -159,11 +149,6 @@ public class QualificationsApi {
      * @param qualificationsCheckEligibilityRequestBody Define order and customer context. (optional)
      * @return ApiResponse&lt;QualificationsCheckEligibilityResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<QualificationsCheckEligibilityResponseBody> checkEligibilityWithHttpInfo(QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody) throws ApiException {
         okhttp3.Call localVarCall = checkEligibilityValidateBeforeCall(qualificationsCheckEligibilityRequestBody, null);
@@ -178,11 +163,6 @@ public class QualificationsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a qualifications object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call checkEligibilityAsync(QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody, final ApiCallback<QualificationsCheckEligibilityResponseBody> _callback) throws ApiException {
 

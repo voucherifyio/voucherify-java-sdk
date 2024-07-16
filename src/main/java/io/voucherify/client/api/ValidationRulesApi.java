@@ -91,11 +91,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rules assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createValidationRuleAssignmentCall(String validationRuleId, Boolean force, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -166,11 +161,6 @@ public class ValidationRulesApi {
      * @param validationRulesAssignmentsCreateRequestBody Specify the resource that you would like to assign the validation rule to. (optional)
      * @return ValidationRulesAssignmentsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rules assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesAssignmentsCreateResponseBody createValidationRuleAssignment(String validationRuleId, Boolean force, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody) throws ApiException {
         ApiResponse<ValidationRulesAssignmentsCreateResponseBody> localVarResp = createValidationRuleAssignmentWithHttpInfo(validationRuleId, force, validationRulesAssignmentsCreateRequestBody);
@@ -185,11 +175,6 @@ public class ValidationRulesApi {
      * @param validationRulesAssignmentsCreateRequestBody Specify the resource that you would like to assign the validation rule to. (optional)
      * @return ApiResponse&lt;ValidationRulesAssignmentsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rules assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesAssignmentsCreateResponseBody> createValidationRuleAssignmentWithHttpInfo(String validationRuleId, Boolean force, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createValidationRuleAssignmentValidateBeforeCall(validationRuleId, force, validationRulesAssignmentsCreateRequestBody, null);
@@ -206,11 +191,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rules assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createValidationRuleAssignmentAsync(String validationRuleId, Boolean force, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, final ApiCallback<ValidationRulesAssignmentsCreateResponseBody> _callback) throws ApiException {
 
@@ -225,11 +205,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createValidationRulesCall(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -288,11 +263,6 @@ public class ValidationRulesApi {
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ValidationRulesCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesCreateResponseBody createValidationRules(ValidationRulesCreateRequestBody validationRulesCreateRequestBody) throws ApiException {
         ApiResponse<ValidationRulesCreateResponseBody> localVarResp = createValidationRulesWithHttpInfo(validationRulesCreateRequestBody);
@@ -305,11 +275,6 @@ public class ValidationRulesApi {
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ApiResponse&lt;ValidationRulesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesCreateResponseBody> createValidationRulesWithHttpInfo(ValidationRulesCreateRequestBody validationRulesCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createValidationRulesValidateBeforeCall(validationRulesCreateRequestBody, null);
@@ -324,11 +289,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createValidationRulesAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, final ApiCallback<ValidationRulesCreateResponseBody> _callback) throws ApiException {
 
@@ -344,11 +304,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteValidationRuleAssignmentCall(String validationRuleId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -417,11 +372,6 @@ public class ValidationRulesApi {
      * @param validationRuleId A unique validation rule ID. (required)
      * @param assignmentId A unique validation rule assignment ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteValidationRuleAssignment(String validationRuleId, String assignmentId) throws ApiException {
         deleteValidationRuleAssignmentWithHttpInfo(validationRuleId, assignmentId);
@@ -434,11 +384,6 @@ public class ValidationRulesApi {
      * @param assignmentId A unique validation rule assignment ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteValidationRuleAssignmentWithHttpInfo(String validationRuleId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteValidationRuleAssignmentValidateBeforeCall(validationRuleId, assignmentId, null);
@@ -453,11 +398,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteValidationRuleAssignmentAsync(String validationRuleId, String assignmentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -471,11 +411,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteValidationRulesCall(String validationRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -537,11 +472,6 @@ public class ValidationRulesApi {
      * This method deletes a validation rule.
      * @param validationRuleId A unique validation rule ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteValidationRules(String validationRuleId) throws ApiException {
         deleteValidationRulesWithHttpInfo(validationRuleId);
@@ -553,11 +483,6 @@ public class ValidationRulesApi {
      * @param validationRuleId A unique validation rule ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteValidationRulesWithHttpInfo(String validationRuleId) throws ApiException {
         okhttp3.Call localVarCall = deleteValidationRulesValidateBeforeCall(validationRuleId, null);
@@ -571,11 +496,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteValidationRulesAsync(String validationRuleId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -589,11 +509,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getValidationRuleCall(String validationRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -657,11 +572,6 @@ public class ValidationRulesApi {
      * @param validationRuleId A unique validation rule ID. (required)
      * @return ValidationRulesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesGetResponseBody getValidationRule(String validationRuleId) throws ApiException {
         ApiResponse<ValidationRulesGetResponseBody> localVarResp = getValidationRuleWithHttpInfo(validationRuleId);
@@ -674,11 +584,6 @@ public class ValidationRulesApi {
      * @param validationRuleId A unique validation rule ID. (required)
      * @return ApiResponse&lt;ValidationRulesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesGetResponseBody> getValidationRuleWithHttpInfo(String validationRuleId) throws ApiException {
         okhttp3.Call localVarCall = getValidationRuleValidateBeforeCall(validationRuleId, null);
@@ -693,11 +598,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getValidationRuleAsync(String validationRuleId, final ApiCallback<ValidationRulesGetResponseBody> _callback) throws ApiException {
 
@@ -715,11 +615,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rule assignments.  If the validation rule ID provided in the path parameter cannot be found, the endpoint will return an empty &#x60;data&#x60; array and a total of &#x60;0&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRuleAssignmentsCall(String validationRuleId, Integer limit, Integer page, ParameterOrderListValidationRuleAssignments order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -798,11 +693,6 @@ public class ValidationRulesApi {
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ValidationRulesAssignmentsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rule assignments.  If the validation rule ID provided in the path parameter cannot be found, the endpoint will return an empty &#x60;data&#x60; array and a total of &#x60;0&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesAssignmentsListResponseBody listValidationRuleAssignments(String validationRuleId, Integer limit, Integer page, ParameterOrderListValidationRuleAssignments order) throws ApiException {
         ApiResponse<ValidationRulesAssignmentsListResponseBody> localVarResp = listValidationRuleAssignmentsWithHttpInfo(validationRuleId, limit, page, order);
@@ -818,11 +708,6 @@ public class ValidationRulesApi {
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;ValidationRulesAssignmentsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rule assignments.  If the validation rule ID provided in the path parameter cannot be found, the endpoint will return an empty &#x60;data&#x60; array and a total of &#x60;0&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesAssignmentsListResponseBody> listValidationRuleAssignmentsWithHttpInfo(String validationRuleId, Integer limit, Integer page, ParameterOrderListValidationRuleAssignments order) throws ApiException {
         okhttp3.Call localVarCall = listValidationRuleAssignmentsValidateBeforeCall(validationRuleId, limit, page, order, null);
@@ -840,11 +725,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rule assignments.  If the validation rule ID provided in the path parameter cannot be found, the endpoint will return an empty &#x60;data&#x60; array and a total of &#x60;0&#x60;. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRuleAssignmentsAsync(String validationRuleId, Integer limit, Integer page, ParameterOrderListValidationRuleAssignments order, final ApiCallback<ValidationRulesAssignmentsListResponseBody> _callback) throws ApiException {
 
@@ -863,11 +743,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rules. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRulesCall(Integer limit, Integer page, ParameterOrderListValidationRules order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -949,11 +824,6 @@ public class ValidationRulesApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ValidationRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rules. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesListResponseBody listValidationRules(Integer limit, Integer page, ParameterOrderListValidationRules order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         ApiResponse<ValidationRulesListResponseBody> localVarResp = listValidationRulesWithHttpInfo(limit, page, order, startDate, endDate);
@@ -970,11 +840,6 @@ public class ValidationRulesApi {
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @return ApiResponse&lt;ValidationRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rules. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesListResponseBody> listValidationRulesWithHttpInfo(Integer limit, Integer page, ParameterOrderListValidationRules order, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
         okhttp3.Call localVarCall = listValidationRulesValidateBeforeCall(limit, page, order, startDate, endDate, null);
@@ -993,11 +858,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of validation rules. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRulesAsync(Integer limit, Integer page, ParameterOrderListValidationRules order, OffsetDateTime startDate, OffsetDateTime endDate, final ApiCallback<ValidationRulesListResponseBody> _callback) throws ApiException {
 
@@ -1016,11 +876,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a data property that contains an array of validation rule assignments. Each entry in the array is a separate object. If no more validation rule assignments are available, the resulting array will be empty. The result can be narrowed down according to default filters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRulesAssignmentsCall(String relatedObjectId, String rule, Integer page, Integer limit, String order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1102,11 +957,6 @@ public class ValidationRulesApi {
      * @param order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ValidationRulesAssignmentsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a data property that contains an array of validation rule assignments. Each entry in the array is a separate object. If no more validation rule assignments are available, the resulting array will be empty. The result can be narrowed down according to default filters. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesAssignmentsListResponseBody listValidationRulesAssignments(String relatedObjectId, String rule, Integer page, Integer limit, String order) throws ApiException {
         ApiResponse<ValidationRulesAssignmentsListResponseBody> localVarResp = listValidationRulesAssignmentsWithHttpInfo(relatedObjectId, rule, page, limit, order);
@@ -1123,11 +973,6 @@ public class ValidationRulesApi {
      * @param order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;ValidationRulesAssignmentsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a data property that contains an array of validation rule assignments. Each entry in the array is a separate object. If no more validation rule assignments are available, the resulting array will be empty. The result can be narrowed down according to default filters. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesAssignmentsListResponseBody> listValidationRulesAssignmentsWithHttpInfo(String relatedObjectId, String rule, Integer page, Integer limit, String order) throws ApiException {
         okhttp3.Call localVarCall = listValidationRulesAssignmentsValidateBeforeCall(relatedObjectId, rule, page, limit, order, null);
@@ -1146,11 +991,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with a data property that contains an array of validation rule assignments. Each entry in the array is a separate object. If no more validation rule assignments are available, the resulting array will be empty. The result can be narrowed down according to default filters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listValidationRulesAssignmentsAsync(String relatedObjectId, String rule, Integer page, Integer limit, String order, final ApiCallback<ValidationRulesAssignmentsListResponseBody> _callback) throws ApiException {
 
@@ -1166,11 +1006,6 @@ public class ValidationRulesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateValidationRuleCall(String validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1236,11 +1071,6 @@ public class ValidationRulesApi {
      * @param validationRulesUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ValidationRulesUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public ValidationRulesUpdateResponseBody updateValidationRule(String validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody) throws ApiException {
         ApiResponse<ValidationRulesUpdateResponseBody> localVarResp = updateValidationRuleWithHttpInfo(validationRuleId, validationRulesUpdateRequestBody);
@@ -1254,11 +1084,6 @@ public class ValidationRulesApi {
      * @param validationRulesUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ApiResponse&lt;ValidationRulesUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<ValidationRulesUpdateResponseBody> updateValidationRuleWithHttpInfo(String validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateValidationRuleValidateBeforeCall(validationRuleId, validationRulesUpdateRequestBody, null);
@@ -1274,11 +1099,6 @@ public class ValidationRulesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the validation rule object with the updated parameters. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateValidationRuleAsync(String validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, final ApiCallback<ValidationRulesUpdateResponseBody> _callback) throws ApiException {
 

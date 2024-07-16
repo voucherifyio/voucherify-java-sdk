@@ -84,11 +84,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createRewardAssignmentCall(String rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -154,11 +149,6 @@ public class RewardsApi {
      * @param rewardsAssignmentsCreateRequestBody Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)
      * @return RewardsAssignmentsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public RewardsAssignmentsCreateResponseBody createRewardAssignment(String rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody) throws ApiException {
         ApiResponse<RewardsAssignmentsCreateResponseBody> localVarResp = createRewardAssignmentWithHttpInfo(rewardId, rewardsAssignmentsCreateRequestBody);
@@ -172,11 +162,6 @@ public class RewardsApi {
      * @param rewardsAssignmentsCreateRequestBody Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)
      * @return ApiResponse&lt;RewardsAssignmentsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RewardsAssignmentsCreateResponseBody> createRewardAssignmentWithHttpInfo(String rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createRewardAssignmentValidateBeforeCall(rewardId, rewardsAssignmentsCreateRequestBody, null);
@@ -192,11 +177,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createRewardAssignmentAsync(String rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, final ApiCallback<RewardsAssignmentsCreateResponseBody> _callback) throws ApiException {
 
@@ -211,11 +191,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardCall(String rewardId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -277,11 +252,6 @@ public class RewardsApi {
      * Delete a reward.
      * @param rewardId A unique reward ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteReward(String rewardId) throws ApiException {
         deleteRewardWithHttpInfo(rewardId);
@@ -293,11 +263,6 @@ public class RewardsApi {
      * @param rewardId A unique reward ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteRewardWithHttpInfo(String rewardId) throws ApiException {
         okhttp3.Call localVarCall = deleteRewardValidateBeforeCall(rewardId, null);
@@ -311,11 +276,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardAsync(String rewardId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -330,11 +290,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardAssignmentCall(String rewardId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -403,11 +358,6 @@ public class RewardsApi {
      * @param rewardId A unique reward ID. (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteRewardAssignment(String rewardId, String assignmentId) throws ApiException {
         deleteRewardAssignmentWithHttpInfo(rewardId, assignmentId);
@@ -420,11 +370,6 @@ public class RewardsApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteRewardAssignmentWithHttpInfo(String rewardId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteRewardAssignmentValidateBeforeCall(rewardId, assignmentId, null);
@@ -439,11 +384,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteRewardAssignmentAsync(String rewardId, String assignmentId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -458,11 +398,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignmentCall(String rewardId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -533,11 +468,6 @@ public class RewardsApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return RewardsAssignmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public RewardsAssignmentsGetResponseBody getRewardAssignment(String rewardId, String assignmentId) throws ApiException {
         ApiResponse<RewardsAssignmentsGetResponseBody> localVarResp = getRewardAssignmentWithHttpInfo(rewardId, assignmentId);
@@ -551,11 +481,6 @@ public class RewardsApi {
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;RewardsAssignmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RewardsAssignmentsGetResponseBody> getRewardAssignmentWithHttpInfo(String rewardId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardAssignmentValidateBeforeCall(rewardId, assignmentId, null);
@@ -571,11 +496,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getRewardAssignmentAsync(String rewardId, String assignmentId, final ApiCallback<RewardsAssignmentsGetResponseBody> _callback) throws ApiException {
 
@@ -592,11 +512,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listRewardAssignmentsCall(String rewardId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -670,11 +585,6 @@ public class RewardsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return RewardsAssignmentsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. </td><td>  -  </td></tr>
-     </table>
      */
     public RewardsAssignmentsListResponseBody listRewardAssignments(String rewardId, Integer limit, Integer page) throws ApiException {
         ApiResponse<RewardsAssignmentsListResponseBody> localVarResp = listRewardAssignmentsWithHttpInfo(rewardId, limit, page);
@@ -689,11 +599,6 @@ public class RewardsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;RewardsAssignmentsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RewardsAssignmentsListResponseBody> listRewardAssignmentsWithHttpInfo(String rewardId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listRewardAssignmentsValidateBeforeCall(rewardId, limit, page, null);
@@ -710,11 +615,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listRewardAssignmentsAsync(String rewardId, Integer limit, Integer page, final ApiCallback<RewardsAssignmentsListResponseBody> _callback) throws ApiException {
 
@@ -731,11 +631,6 @@ public class RewardsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the updated reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateRewardAssignmentCall(String rewardId, String assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -808,11 +703,6 @@ public class RewardsApi {
      * @param rewardsAssignmentsUpdateRequestBody Define the number of points required to exchange for the reward. (optional)
      * @return RewardsAssignmentsUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the updated reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public RewardsAssignmentsUpdateResponseBody updateRewardAssignment(String rewardId, String assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody) throws ApiException {
         ApiResponse<RewardsAssignmentsUpdateResponseBody> localVarResp = updateRewardAssignmentWithHttpInfo(rewardId, assignmentId, rewardsAssignmentsUpdateRequestBody);
@@ -827,11 +717,6 @@ public class RewardsApi {
      * @param rewardsAssignmentsUpdateRequestBody Define the number of points required to exchange for the reward. (optional)
      * @return ApiResponse&lt;RewardsAssignmentsUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the updated reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<RewardsAssignmentsUpdateResponseBody> updateRewardAssignmentWithHttpInfo(String rewardId, String assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateRewardAssignmentValidateBeforeCall(rewardId, assignmentId, rewardsAssignmentsUpdateRequestBody, null);
@@ -848,11 +733,6 @@ public class RewardsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the updated reward assignment object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateRewardAssignmentAsync(String rewardId, String assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, final ApiCallback<RewardsAssignmentsUpdateResponseBody> _callback) throws ApiException {
 

@@ -93,11 +93,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCustomerCall(CustomersCreateRequestBody customersCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -156,11 +151,6 @@ public class CustomersApi {
      * @param customersCreateRequestBody Create a customer with specified parameters. (optional)
      * @return CustomersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersCreateResponseBody createCustomer(CustomersCreateRequestBody customersCreateRequestBody) throws ApiException {
         ApiResponse<CustomersCreateResponseBody> localVarResp = createCustomerWithHttpInfo(customersCreateRequestBody);
@@ -173,11 +163,6 @@ public class CustomersApi {
      * @param customersCreateRequestBody Create a customer with specified parameters. (optional)
      * @return ApiResponse&lt;CustomersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersCreateResponseBody> createCustomerWithHttpInfo(CustomersCreateRequestBody customersCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createCustomerValidateBeforeCall(customersCreateRequestBody, null);
@@ -192,11 +177,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCustomerAsync(CustomersCreateRequestBody customersCreateRequestBody, final ApiCallback<CustomersCreateResponseBody> _callback) throws ApiException {
 
@@ -211,11 +191,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a permanent deletion object and status of the deletion. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call customerPermanentlyDeletionCall(String customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -279,11 +254,6 @@ public class CustomersApi {
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return CustomersPermanentDeletionCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a permanent deletion object and status of the deletion. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersPermanentDeletionCreateResponseBody customerPermanentlyDeletion(String customerId) throws ApiException {
         ApiResponse<CustomersPermanentDeletionCreateResponseBody> localVarResp = customerPermanentlyDeletionWithHttpInfo(customerId);
@@ -296,11 +266,6 @@ public class CustomersApi {
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return ApiResponse&lt;CustomersPermanentDeletionCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a permanent deletion object and status of the deletion. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersPermanentDeletionCreateResponseBody> customerPermanentlyDeletionWithHttpInfo(String customerId) throws ApiException {
         okhttp3.Call localVarCall = customerPermanentlyDeletionValidateBeforeCall(customerId, null);
@@ -315,11 +280,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a permanent deletion object and status of the deletion. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call customerPermanentlyDeletionAsync(String customerId, final ApiCallback<CustomersPermanentDeletionCreateResponseBody> _callback) throws ApiException {
 
@@ -334,11 +294,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCustomerCall(String customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -400,11 +355,6 @@ public class CustomersApi {
      * This method deletes a customer.
      * @param customerId A Voucherify customers id or source_id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteCustomer(String customerId) throws ApiException {
         deleteCustomerWithHttpInfo(customerId);
@@ -416,11 +366,6 @@ public class CustomersApi {
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteCustomerWithHttpInfo(String customerId) throws ApiException {
         okhttp3.Call localVarCall = deleteCustomerValidateBeforeCall(customerId, null);
@@ -434,11 +379,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if deletion is successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCustomerAsync(String customerId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -452,11 +392,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCustomerCall(String customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -520,11 +455,6 @@ public class CustomersApi {
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return CustomersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersGetResponseBody getCustomer(String customerId) throws ApiException {
         ApiResponse<CustomersGetResponseBody> localVarResp = getCustomerWithHttpInfo(customerId);
@@ -537,11 +467,6 @@ public class CustomersApi {
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return ApiResponse&lt;CustomersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersGetResponseBody> getCustomerWithHttpInfo(String customerId) throws ApiException {
         okhttp3.Call localVarCall = getCustomerValidateBeforeCall(customerId, null);
@@ -556,11 +481,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCustomerAsync(String customerId, final ApiCallback<CustomersGetResponseBody> _callback) throws ApiException {
 
@@ -575,11 +495,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importCustomersUsingCsvCall(File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -642,11 +557,6 @@ public class CustomersApi {
      * @param _file File path. (optional)
      * @return CustomersImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersImportCsvCreateResponseBody importCustomersUsingCsv(File _file) throws ApiException {
         ApiResponse<CustomersImportCsvCreateResponseBody> localVarResp = importCustomersUsingCsvWithHttpInfo(_file);
@@ -659,11 +569,6 @@ public class CustomersApi {
      * @param _file File path. (optional)
      * @return ApiResponse&lt;CustomersImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersImportCsvCreateResponseBody> importCustomersUsingCsvWithHttpInfo(File _file) throws ApiException {
         okhttp3.Call localVarCall = importCustomersUsingCsvValidateBeforeCall(_file, null);
@@ -678,11 +583,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call importCustomersUsingCsvAsync(File _file, final ApiCallback<CustomersImportCsvCreateResponseBody> _callback) throws ApiException {
 
@@ -697,11 +597,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The method returns segment(s) to which the given customer belongs to. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCustomerSegmentsCall(String customerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -765,11 +660,6 @@ public class CustomersApi {
      * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
      * @return CustomersSegmentsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The method returns segment(s) to which the given customer belongs to. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersSegmentsListResponseBody listCustomerSegments(String customerId) throws ApiException {
         ApiResponse<CustomersSegmentsListResponseBody> localVarResp = listCustomerSegmentsWithHttpInfo(customerId);
@@ -782,11 +672,6 @@ public class CustomersApi {
      * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
      * @return ApiResponse&lt;CustomersSegmentsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The method returns segment(s) to which the given customer belongs to. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersSegmentsListResponseBody> listCustomerSegmentsWithHttpInfo(String customerId) throws ApiException {
         okhttp3.Call localVarCall = listCustomerSegmentsValidateBeforeCall(customerId, null);
@@ -801,11 +686,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The method returns segment(s) to which the given customer belongs to. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCustomerSegmentsAsync(String customerId, final ApiCallback<CustomersSegmentsListResponseBody> _callback) throws ApiException {
 
@@ -831,11 +711,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with customer objects. The customers are returned sorted by creation date, with the most recent customers appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCustomersCall(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -952,11 +827,6 @@ public class CustomersApi {
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
      * @return CustomersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with customer objects. The customers are returned sorted by creation date, with the most recent customers appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersListResponseBody listCustomers(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter) throws ApiException {
         ApiResponse<CustomersListResponseBody> localVarResp = listCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter);
@@ -980,11 +850,6 @@ public class CustomersApi {
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
      * @return ApiResponse&lt;CustomersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with customer objects. The customers are returned sorted by creation date, with the most recent customers appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersListResponseBody> listCustomersWithHttpInfo(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter) throws ApiException {
         okhttp3.Call localVarCall = listCustomersValidateBeforeCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, null);
@@ -1010,11 +875,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary with customer objects. The customers are returned sorted by creation date, with the most recent customers appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCustomersAsync(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, final ApiCallback<CustomersListResponseBody> _callback) throws ApiException {
 
@@ -1030,11 +890,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if updates were successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomerCall(String customerId, CustomersUpdateRequestBody customersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1100,11 +955,6 @@ public class CustomersApi {
      * @param customersUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return CustomersUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if updates were successful. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersUpdateResponseBody updateCustomer(String customerId, CustomersUpdateRequestBody customersUpdateRequestBody) throws ApiException {
         ApiResponse<CustomersUpdateResponseBody> localVarResp = updateCustomerWithHttpInfo(customerId, customersUpdateRequestBody);
@@ -1118,11 +968,6 @@ public class CustomersApi {
      * @param customersUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ApiResponse&lt;CustomersUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if updates were successful. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersUpdateResponseBody> updateCustomerWithHttpInfo(String customerId, CustomersUpdateRequestBody customersUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateCustomerValidateBeforeCall(customerId, customersUpdateRequestBody, null);
@@ -1138,11 +983,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a customer object if updates were successful. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomerAsync(String customerId, CustomersUpdateRequestBody customersUpdateRequestBody, final ApiCallback<CustomersUpdateResponseBody> _callback) throws ApiException {
 
@@ -1158,11 +998,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersConsentsCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1226,11 +1061,6 @@ public class CustomersApi {
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public void updateCustomersConsents(String customerId, Object body) throws ApiException {
         updateCustomersConsentsWithHttpInfo(customerId, body);
@@ -1243,11 +1073,6 @@ public class CustomersApi {
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> updateCustomersConsentsWithHttpInfo(String customerId, Object body) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersConsentsValidateBeforeCall(customerId, body, null);
@@ -1262,11 +1087,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Returns no content if the consents were updated successfully. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersConsentsAsync(String customerId, Object body, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1280,11 +1100,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersInBulkCall(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1343,11 +1158,6 @@ public class CustomersApi {
      * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
      * @return CustomersUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersUpdateInBulkResponseBody updateCustomersInBulk(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody) throws ApiException {
         ApiResponse<CustomersUpdateInBulkResponseBody> localVarResp = updateCustomersInBulkWithHttpInfo(customersUpdateInBulkRequestBody);
@@ -1360,11 +1170,6 @@ public class CustomersApi {
      * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
      * @return ApiResponse&lt;CustomersUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersUpdateInBulkResponseBody> updateCustomersInBulkWithHttpInfo(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersInBulkValidateBeforeCall(customersUpdateInBulkRequestBody, null);
@@ -1379,11 +1184,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersInBulkAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, final ApiCallback<CustomersUpdateInBulkResponseBody> _callback) throws ApiException {
 
@@ -1398,11 +1198,6 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersMetadataInBulkCall(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1461,11 +1256,6 @@ public class CustomersApi {
      * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @return CustomersMetadataUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public CustomersMetadataUpdateInBulkResponseBody updateCustomersMetadataInBulk(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody) throws ApiException {
         ApiResponse<CustomersMetadataUpdateInBulkResponseBody> localVarResp = updateCustomersMetadataInBulkWithHttpInfo(customersMetadataUpdateInBulkRequestBody);
@@ -1478,11 +1268,6 @@ public class CustomersApi {
      * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @return ApiResponse&lt;CustomersMetadataUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CustomersMetadataUpdateInBulkResponseBody> updateCustomersMetadataInBulkWithHttpInfo(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersMetadataInBulkValidateBeforeCall(customersMetadataUpdateInBulkRequestBody, null);
@@ -1497,11 +1282,6 @@ public class CustomersApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCustomersMetadataInBulkAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, final ApiCallback<CustomersMetadataUpdateInBulkResponseBody> _callback) throws ApiException {
 

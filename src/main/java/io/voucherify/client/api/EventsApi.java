@@ -79,11 +79,6 @@ public class EventsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call trackCustomEventCall(EventsCreateRequestBody eventsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -142,11 +137,6 @@ public class EventsApi {
      * @param eventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return EventsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public EventsCreateResponseBody trackCustomEvent(EventsCreateRequestBody eventsCreateRequestBody) throws ApiException {
         ApiResponse<EventsCreateResponseBody> localVarResp = trackCustomEventWithHttpInfo(eventsCreateRequestBody);
@@ -159,11 +149,6 @@ public class EventsApi {
      * @param eventsCreateRequestBody Specify the details of the custom event. (optional)
      * @return ApiResponse&lt;EventsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<EventsCreateResponseBody> trackCustomEventWithHttpInfo(EventsCreateRequestBody eventsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = trackCustomEventValidateBeforeCall(eventsCreateRequestBody, null);
@@ -178,11 +163,6 @@ public class EventsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns the event type if the event was received by the application. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call trackCustomEventAsync(EventsCreateRequestBody eventsCreateRequestBody, final ApiCallback<EventsCreateResponseBody> _callback) throws ApiException {
 

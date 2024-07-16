@@ -83,11 +83,6 @@ public class CategoriesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a newly created category object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCategoryCall(CategoriesCreateRequestBody categoriesCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -146,11 +141,6 @@ public class CategoriesApi {
      * @param categoriesCreateRequestBody Specify the details of the category that you would like to create. (optional)
      * @return CategoriesCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a newly created category object. </td><td>  -  </td></tr>
-     </table>
      */
     public CategoriesCreateResponseBody createCategory(CategoriesCreateRequestBody categoriesCreateRequestBody) throws ApiException {
         ApiResponse<CategoriesCreateResponseBody> localVarResp = createCategoryWithHttpInfo(categoriesCreateRequestBody);
@@ -163,11 +153,6 @@ public class CategoriesApi {
      * @param categoriesCreateRequestBody Specify the details of the category that you would like to create. (optional)
      * @return ApiResponse&lt;CategoriesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a newly created category object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CategoriesCreateResponseBody> createCategoryWithHttpInfo(CategoriesCreateRequestBody categoriesCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createCategoryValidateBeforeCall(categoriesCreateRequestBody, null);
@@ -182,11 +167,6 @@ public class CategoriesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a newly created category object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createCategoryAsync(CategoriesCreateRequestBody categoriesCreateRequestBody, final ApiCallback<CategoriesCreateResponseBody> _callback) throws ApiException {
 
@@ -201,11 +181,6 @@ public class CategoriesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No content is returned. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCategoryCall(String categoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -267,11 +242,6 @@ public class CategoriesApi {
      * Delete a category by the category ID.
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No content is returned. </td><td>  -  </td></tr>
-     </table>
      */
     public void deleteCategory(String categoryId) throws ApiException {
         deleteCategoryWithHttpInfo(categoryId);
@@ -283,11 +253,6 @@ public class CategoriesApi {
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No content is returned. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<Void> deleteCategoryWithHttpInfo(String categoryId) throws ApiException {
         okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(categoryId, null);
@@ -301,11 +266,6 @@ public class CategoriesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No content is returned. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call deleteCategoryAsync(String categoryId, final ApiCallback<Void> _callback) throws ApiException {
 
@@ -319,11 +279,6 @@ public class CategoriesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCategoryCall(String categoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -387,11 +342,6 @@ public class CategoriesApi {
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @return CategoriesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object. </td><td>  -  </td></tr>
-     </table>
      */
     public CategoriesGetResponseBody getCategory(String categoryId) throws ApiException {
         ApiResponse<CategoriesGetResponseBody> localVarResp = getCategoryWithHttpInfo(categoryId);
@@ -404,11 +354,6 @@ public class CategoriesApi {
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @return ApiResponse&lt;CategoriesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CategoriesGetResponseBody> getCategoryWithHttpInfo(String categoryId) throws ApiException {
         okhttp3.Call localVarCall = getCategoryValidateBeforeCall(categoryId, null);
@@ -423,11 +368,6 @@ public class CategoriesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call getCategoryAsync(String categoryId, final ApiCallback<CategoriesGetResponseBody> _callback) throws ApiException {
 
@@ -441,11 +381,6 @@ public class CategoriesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of category objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCategoriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -502,11 +437,6 @@ public class CategoriesApi {
      * List all categories.
      * @return CategoriesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of category objects. </td><td>  -  </td></tr>
-     </table>
      */
     public CategoriesListResponseBody listCategories() throws ApiException {
         ApiResponse<CategoriesListResponseBody> localVarResp = listCategoriesWithHttpInfo();
@@ -518,11 +448,6 @@ public class CategoriesApi {
      * List all categories.
      * @return ApiResponse&lt;CategoriesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of category objects. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CategoriesListResponseBody> listCategoriesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listCategoriesValidateBeforeCall(null);
@@ -536,11 +461,6 @@ public class CategoriesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a dictionary of category objects. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listCategoriesAsync(final ApiCallback<CategoriesListResponseBody> _callback) throws ApiException {
 
@@ -556,11 +476,6 @@ public class CategoriesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object with a refreshed &#x60;updated_at&#x60; property. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCategoryCall(String categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -626,11 +541,6 @@ public class CategoriesApi {
      * @param categoriesUpdateRequestBody Specify the details of the category that you would like to update. (optional)
      * @return CategoriesUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object with a refreshed &#x60;updated_at&#x60; property. </td><td>  -  </td></tr>
-     </table>
      */
     public CategoriesUpdateResponseBody updateCategory(String categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody) throws ApiException {
         ApiResponse<CategoriesUpdateResponseBody> localVarResp = updateCategoryWithHttpInfo(categoryId, categoriesUpdateRequestBody);
@@ -644,11 +554,6 @@ public class CategoriesApi {
      * @param categoriesUpdateRequestBody Specify the details of the category that you would like to update. (optional)
      * @return ApiResponse&lt;CategoriesUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object with a refreshed &#x60;updated_at&#x60; property. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<CategoriesUpdateResponseBody> updateCategoryWithHttpInfo(String categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(categoryId, categoriesUpdateRequestBody, null);
@@ -664,11 +569,6 @@ public class CategoriesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a category object with a refreshed &#x60;updated_at&#x60; property. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call updateCategoryAsync(String categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, final ApiCallback<CategoriesUpdateResponseBody> _callback) throws ApiException {
 

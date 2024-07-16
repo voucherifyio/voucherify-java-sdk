@@ -86,11 +86,6 @@ public class PublicationsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPublicationCall(Boolean joinOnce, PublicationsCreateRequestBody publicationsCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -154,11 +149,6 @@ public class PublicationsApi {
      * @param publicationsCreateRequestBody Specify the publication parameters. (optional)
      * @return PublicationsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public PublicationsCreateResponseBody createPublication(Boolean joinOnce, PublicationsCreateRequestBody publicationsCreateRequestBody) throws ApiException {
         ApiResponse<PublicationsCreateResponseBody> localVarResp = createPublicationWithHttpInfo(joinOnce, publicationsCreateRequestBody);
@@ -172,11 +162,6 @@ public class PublicationsApi {
      * @param publicationsCreateRequestBody Specify the publication parameters. (optional)
      * @return ApiResponse&lt;PublicationsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PublicationsCreateResponseBody> createPublicationWithHttpInfo(Boolean joinOnce, PublicationsCreateRequestBody publicationsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createPublicationValidateBeforeCall(joinOnce, publicationsCreateRequestBody, null);
@@ -192,11 +177,6 @@ public class PublicationsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object if a valid identifier was provided. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPublicationAsync(Boolean joinOnce, PublicationsCreateRequestBody publicationsCreateRequestBody, final ApiCallback<PublicationsCreateResponseBody> _callback) throws ApiException {
 
@@ -216,11 +196,6 @@ public class PublicationsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPublication1Call(Customer customer, Boolean joinOnce, String voucher, CreatePublicationCampaign campaign, String sourceId, Object metadata, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -312,11 +287,6 @@ public class PublicationsApi {
      * @param metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @return PublicationsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object. </td><td>  -  </td></tr>
-     </table>
      */
     public PublicationsCreateResponseBody createPublication1(Customer customer, Boolean joinOnce, String voucher, CreatePublicationCampaign campaign, String sourceId, Object metadata) throws ApiException {
         ApiResponse<PublicationsCreateResponseBody> localVarResp = createPublication1WithHttpInfo(customer, joinOnce, voucher, campaign, sourceId, metadata);
@@ -334,11 +304,6 @@ public class PublicationsApi {
      * @param metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @return ApiResponse&lt;PublicationsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PublicationsCreateResponseBody> createPublication1WithHttpInfo(Customer customer, Boolean joinOnce, String voucher, CreatePublicationCampaign campaign, String sourceId, Object metadata) throws ApiException {
         okhttp3.Call localVarCall = createPublication1ValidateBeforeCall(customer, joinOnce, voucher, campaign, sourceId, metadata, null);
@@ -358,11 +323,6 @@ public class PublicationsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a publication object. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call createPublication1Async(Customer customer, Boolean joinOnce, String voucher, CreatePublicationCampaign campaign, String sourceId, Object metadata, final ApiCallback<PublicationsCreateResponseBody> _callback) throws ApiException {
 
@@ -387,11 +347,6 @@ public class PublicationsApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of publications you’ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPublicationsCall(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -503,11 +458,6 @@ public class PublicationsApi {
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return PublicationsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of publications you’ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public PublicationsListResponseBody listPublications(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId) throws ApiException {
         ApiResponse<PublicationsListResponseBody> localVarResp = listPublicationsWithHttpInfo(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId);
@@ -530,11 +480,6 @@ public class PublicationsApi {
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return ApiResponse&lt;PublicationsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of publications you’ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public ApiResponse<PublicationsListResponseBody> listPublicationsWithHttpInfo(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId) throws ApiException {
         okhttp3.Call localVarCall = listPublicationsValidateBeforeCall(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId, null);
@@ -559,11 +504,6 @@ public class PublicationsApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Returns a list of publications you’ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. </td><td>  -  </td></tr>
-     </table>
      */
     public okhttp3.Call listPublicationsAsync(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId, final ApiCallback<PublicationsListResponseBody> _callback) throws ApiException {
 
