@@ -92,12 +92,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 // Import classes:
-import voucherify.client.ApiClient;
-import voucherify.client.ApiException;
-import voucherify.client.Configuration;
-import voucherify.client.auth.*;
-import voucherify.client.models.*;
-import voucherify.client.api.CampaignsApi;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.CampaignsApi;
 
 public class Example {
     public static void main(String[] args) {
