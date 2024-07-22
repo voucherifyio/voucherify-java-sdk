@@ -27839,13 +27839,6 @@ components:
             \ in the order defined in the hierarchy."
           nullable: true
           type: integer
-        active:
-          description: "A flag to toggle the promotion tier on or off. You can disable\
-            \ a promotion tier even though it's within the active period defined by\
-            \ the `start_date` and `expiration_date`.  \n\n- `true` indicates an *active*\
-            \ promotion tier\n- `false` indicates an *inactive* promotion tier"
-          nullable: true
-          type: boolean
         start_date:
           description: 'Activation timestamp defines when the promotion tier starts
             to be active in ISO 8601 format. Promotion tier is *inactive before* this

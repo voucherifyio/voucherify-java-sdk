@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CampaignsApi;
+import io.voucherify.client.api.PromotionsApi;
 import io.voucherify.client.model.*;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(1)
@@ -20,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class CampaignsTest {
     public static ApiClient defaultClient = null;
     public static CampaignsApi campaigns;
+    public static PromotionsApi promotions;
 
     public String loyaltyProgramId = null;
 
@@ -27,6 +30,7 @@ public class CampaignsTest {
     public static void beforeAll() {
         defaultClient = Utils.getClient();
         campaigns = new CampaignsApi(defaultClient);
+        promotions = new PromotionsApi(defaultClient);
     }
 
     @Test
@@ -145,6 +149,68 @@ public class CampaignsTest {
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             assertNotNull(responseBody);
+        } catch (ApiException | JsonSyntaxException e) {
+            fail();
+        }
+    }
+
+
+    @Test
+    @Order(6)
+    public void createPromotionCampaignWithSinglePromotionTier() {
+        CampaignsCreateRequestBody campaign = new CampaignsCreateRequestBody();
+        campaign.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.PROMOTION);
+        campaign.setName(Utils.getAlphaNumericString(20));
+        String campaignId = "";
+        CampaignsCreateResponseBody campaignResult;
+        try {
+            campaignResult = campaigns.createCampaign(campaign);
+            campaignId = campaignResult.getId();
+            String campaignName = campaignResult.getName();
+
+            assertNotNull(campaignId);
+            assertNotNull(campaignName);
+
+
+        } catch (ApiException | JsonSyntaxException e) {
+            fail();
+        }
+
+        PromotionsTiersCreateRequestBody promotionTierCreate = new PromotionsTiersCreateRequestBody();
+        promotionTierCreate.setActive(true);
+        String promotionTierCreateName = Utils.getAlphaNumericString(20);
+        promotionTierCreate.setName(promotionTierCreateName);
+        String promotionTierCreateId = "";
+
+        Discount discount = new Discount();
+        discount.setType(Discount.TypeEnum.AMOUNT);
+        discount.setAmountOff(BigDecimal.valueOf(1));
+
+        PromotionTierAction promotionTierAction = new PromotionTierAction();
+        promotionTierAction.setDiscount(discount);
+        promotionTierCreate.setAction(promotionTierAction);
+        
+        try {
+            PromotionsTiersCreateResponseBody promotionTierCreateResult = promotions.addPromotionTierToCampaign(campaignId, promotionTierCreate);
+            promotionTierCreateId = promotionTierCreateResult.getId();
+
+            assertNotNull(promotionTierCreateId);
+            assertEquals(promotionTierCreateResult.getName(), promotionTierCreateName);
+            assertEquals(promotionTierCreateResult.getActive(), true);
+        } catch (ApiException | JsonSyntaxException e) {
+            fail();
+        }
+
+        PromotionsTiersUpdateRequestBody promotionTierUpdate = new PromotionsTiersUpdateRequestBody();
+        String promotionTierUpdateBanner = Utils.getAlphaNumericString(20);
+        promotionTierUpdate.setBanner(promotionTierUpdateBanner);
+        
+        try {
+            PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions.updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
+
+            assertEquals(promotionTierUpdateResult.getBanner(), promotionTierUpdateBanner);
+            assertNotNull(promotionTierUpdateResult);
+            assertNotNull(promotionTierUpdateResult.getName());
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

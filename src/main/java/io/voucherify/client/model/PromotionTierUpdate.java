@@ -80,10 +80,6 @@ public class PromotionTierUpdate {
   @SerializedName(SERIALIZED_NAME_HIERARCHY)
   private Integer hierarchy;
 
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private Boolean active;
-
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
@@ -278,27 +274,6 @@ public class PromotionTierUpdate {
 
   public void setHierarchy(Integer hierarchy) {
     this.hierarchy = hierarchy;
-  }
-
-
-  public PromotionTierUpdate active(Boolean active) {
-    
-    this.active = active;
-    return this;
-  }
-
-   /**
-   * A flag to toggle the promotion tier on or off. You can disable a promotion tier even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* promotion tier - &#x60;false&#x60; indicates an *inactive* promotion tier
-   * @return active
-  **/
-  @javax.annotation.Nullable
-  public Boolean getActive() {
-    return active;
-  }
-
-
-  public void setActive(Boolean active) {
-    this.active = active;
   }
 
 
@@ -537,7 +512,6 @@ public class PromotionTierUpdate {
         Objects.equals(this.action, promotionTierUpdate.action) &&
         Objects.equals(this.metadata, promotionTierUpdate.metadata) &&
         Objects.equals(this.hierarchy, promotionTierUpdate.hierarchy) &&
-        Objects.equals(this.active, promotionTierUpdate.active) &&
         Objects.equals(this.startDate, promotionTierUpdate.startDate) &&
         Objects.equals(this.expirationDate, promotionTierUpdate.expirationDate) &&
         Objects.equals(this.validityTimeframe, promotionTierUpdate.validityTimeframe) &&
@@ -555,7 +529,7 @@ public class PromotionTierUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, banner, action, metadata, hierarchy, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, validationRuleAssignments, category, categoryId, additionalProperties);
+    return Objects.hash(name, banner, action, metadata, hierarchy, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, validationRuleAssignments, category, categoryId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -574,7 +548,6 @@ public class PromotionTierUpdate {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
@@ -611,7 +584,6 @@ public class PromotionTierUpdate {
     openapiFields.add("action");
     openapiFields.add("metadata");
     openapiFields.add("hierarchy");
-    openapiFields.add("active");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
     openapiFields.add("validity_timeframe");
