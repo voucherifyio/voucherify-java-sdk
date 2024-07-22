@@ -144,10 +144,13 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 ## 📅 Changelog
 
-- **2024-07-22** - `12.1.0` - Fix Session class `src/main/java/io/voucherify/client/model/Session.java` - Session.key shall not be Enum, shall be String.
-- **2024-07-12** - `12.0.0` - The new version of the SKD includes coverage for all the most commonly used Voucherify endpoints and supports typed models.
+- **2024-07-22** - `12.1.0`
+  - Fix Session class `src/main/java/io/voucherify/client/model/Session.java` - Session.key shall not be Enum, shall be String.
+  - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
+- **2024-07-12** - `12.0.0`
+  -  The new version of the SKD includes coverage for all the most commonly used Voucherify endpoints and supports typed models.
 
-*Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*
+*Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.1.0, which is now designated as Long-Term Support (LTS).*
 
 *Changelog for previous versions could be found in the [CHANGELOG.md file](./CHANGELOG.md)*
 

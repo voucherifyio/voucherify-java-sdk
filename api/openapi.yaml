@@ -4165,6 +4165,122 @@ paths:
       tags:
       - Promotions
       x-accepts: application/json
+    post:
+      description: This method allows you to add a new promotion tier to an existing
+        campaign. The tier hierarchy will be set as the next consequtive integer following
+        the lowest ranking tier.
+      operationId: add-promotion-tier-to-campaign
+      parameters:
+      - description: Unique campaign ID assigned by Voucherify.
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  name: Order more than $100
+                  banner: Order more than $100
+                  action:
+                    discount:
+                      type: AMOUNT
+                      amount_off: 3000
+                      effect: APPLY_TO_ORDER
+                  metadata: {}
+                  active: true
+                  start_date: 2022-09-21T00:00:00.000Z
+                  expiration_date: 2022-09-30T00:00:00.000Z
+                  validity_timeframe:
+                    interval: P2D
+                    duration: P1D
+                  validity_day_of_week:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  validation_rules:
+                  - val_q8qUBMOh5qIQ
+            schema:
+              $ref: '#/components/schemas/PromotionsTiersCreateRequestBody'
+        description: Specify the promotion tier parameters.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: promo_JcYGIKJsnv0SpZcx2njZm69x
+                    created_at: 2022-09-22T11:21:57.808Z
+                    name: Order more than $100
+                    banner: Order more than $100
+                    action:
+                      discount:
+                        type: AMOUNT
+                        amount_off: 3000
+                        effect: APPLY_TO_ORDER
+                    metadata: {}
+                    hierarchy: 6
+                    campaign:
+                      id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      active: true
+                      object: campaign
+                    campaign_id: null
+                    active: true
+                    start_date: 2022-09-21T00:00:00.000Z
+                    expiration_date: 2022-09-30T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P2D
+                      duration: P1D
+                    validity_day_of_week:
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    summary:
+                      redemptions:
+                        total_redeemed: 0
+                      orders:
+                        total_amount: 0
+                        total_discount_amount: 0
+                    object: promotion_tier
+                    validation_rule_assignments:
+                      object: list
+                      data_ref: data
+                      data:
+                      - id: asgm_AmeYPmiLZKaIxq01
+                        rule_id: val_q8qUBMOh5qIQ
+                        related_object_id: promo_JcYGIKJsnv0SpZcx2njZm69x
+                        related_object_type: promotion_tier
+                        created_at: 2022-09-22T11:21:57.808Z
+                        object: validation_rules_assignment
+                      total: 1
+              schema:
+                $ref: '#/components/schemas/PromotionsTiersCreateResponseBody'
+          description: Returns a promotion tier object if the promotion tier was successfully
+            added to the campaign.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Add Promotion Tier to Campaign
+      tags:
+      - Promotions
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}:
     delete:
       description: This method deletes a promotion tier.
@@ -4213,6 +4329,119 @@ paths:
       summary: Get Promotion Tier
       tags:
       - Promotions
+      x-accepts: application/json
+    put:
+      description: This method updates a promotion tier.
+      operationId: update-promotion-tier
+      parameters:
+      - description: Unique promotion tier ID.
+        explode: false
+        in: path
+        name: promotionTierId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterPromotionTierId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  name: Order more than $100 USD
+                  banner: Order more than $100 USD
+                  action:
+                    discount:
+                      type: PERCENT
+                      percent_off: 25
+                      effect: APPLY_TO_ORDER
+                  metadata:
+                    level: A-21
+                  hierarchy: 1
+                  start_date: 2022-09-22T00:00:00.000Z
+                  expiration_date: 2022-09-29T00:00:00.000Z
+                  validity_timeframe:
+                    interval: P3D
+                    duration: P2D
+                  validity_day_of_week:
+                  - 1
+                  - 2
+                  - 3
+            schema:
+              $ref: '#/components/schemas/PromotionsTiersUpdateRequestBody'
+        description: Specify the promotion tier parameters that you would like to
+          update.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: promo_hINAfBAVhmFuSAzi3vptfyxW
+                    created_at: 2022-09-22T12:40:23.286Z
+                    updated_at: 2022-09-22T12:40:58.626Z
+                    name: Order more than $100 USD
+                    banner: Order more than $100 USD
+                    action:
+                      discount:
+                        type: PERCENT
+                        percent_off: 25
+                        effect: APPLY_TO_ORDER
+                    metadata:
+                      level: A-21
+                    hierarchy: 1
+                    campaign:
+                      id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      active: true
+                      object: campaign
+                    campaign_id: null
+                    active: false
+                    start_date: 2022-09-22T00:00:00.000Z
+                    expiration_date: 2022-09-29T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P3D
+                      duration: P2D
+                    validity_day_of_week:
+                    - 1
+                    - 2
+                    - 3
+                    summary:
+                      redemptions:
+                        total_redeemed: 0
+                      orders:
+                        total_amount: 0
+                        total_discount_amount: 0
+                    object: promotion_tier
+                    validation_rule_assignments:
+                      object: list
+                      data_ref: data
+                      data:
+                      - id: asgm_8e3e53ZgDNcoRGAI
+                        rule_id: val_q8qUBMOh5qIQ
+                        related_object_id: promo_hINAfBAVhmFuSAzi3vptfyxW
+                        related_object_type: promotion_tier
+                        created_at: 2022-09-22T12:40:23.286Z
+                        object: validation_rules_assignment
+                      total: 1
+              schema:
+                $ref: '#/components/schemas/PromotionsTiersUpdateResponseBody'
+          description: Returns a promotion tier object if the update was successful.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Promotion Tier
+      tags:
+      - Promotions
+      x-content-type: application/json
       x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}/enable:
     post:
@@ -21621,6 +21850,16 @@ components:
         type: object
       description: "Response body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`."
       title: Promotions Stacks Update Response Body
+    PromotionsTiersCreateRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTierCreate'
+      description: "Request body schema for **post** `/v1/promotions/{campaignId}/tiers`."
+      title: Promotions Tiers Create Request Body
+    PromotionsTiersCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTier'
+      description: "Response body schema for **post** `/promotions/{campaignId}/tiers`."
+      title: Promotions Tiers Create Response Body
     PromotionsTiersDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
@@ -21645,6 +21884,16 @@ components:
       description: "Response body schema for **GET** `/promotions/{campaignId}/tiers`."
       title: Promotions Tiers List Response Body
       type: object
+    PromotionsTiersUpdateRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTierUpdate'
+      description: "Request body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      title: Promotions Tiers Update Request Body
+    PromotionsTiersUpdateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTier'
+      description: "Response body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      title: Promotions Tiers Update Response Body
     PublicationsCreateRequestBody:
       example:
         metadata: "{}"
@@ -27307,6 +27556,99 @@ components:
           type: array
       title: Promotion Tier
       type: object
+    PromotionTierCreate:
+      description: This is an object representing a promotion tier. Promotion tiers
+        are always assigned to a campaign and cannot be used standalone.
+      properties:
+        name:
+          description: Name of the promotion tier.
+          nullable: true
+          type: string
+        banner:
+          description: Text to be displayed to your customers on your website.
+          nullable: true
+          type: string
+        action:
+          $ref: '#/components/schemas/PromotionTier_action'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the promotion tier. A set of key/value pairs that you can attach to a
+            promotion tier object. It can be useful for storing additional information
+            about the promotion tier in a structured format.
+          nullable: true
+          type: object
+        hierarchy:
+          description: "The promotions hierarchy defines the order in which the discounts\
+            \ from different tiers will be applied to a customer's order. If a customer\
+            \ qualifies for discounts from more than one tier, discounts will be applied\
+            \ in the order defined in the hierarchy."
+          nullable: true
+          type: integer
+        active:
+          description: "A flag to toggle the promotion tier on or off. You can disable\
+            \ a promotion tier even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date`.  \n\n- `true` indicates an *active*\
+            \ promotion tier\n- `false` indicates an *inactive* promotion tier"
+          nullable: true
+          type: boolean
+        start_date:
+          description: 'Activation timestamp defines when the promotion tier starts
+            to be active in ISO 8601 format. Promotion tier is *inactive before* this
+            date. '
+          example: 2022-09-23T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: 'Activation timestamp defines when the promotion tier expires
+            in ISO 8601 format. Promotion tier is *inactive after* this date. '
+          example: 2022-09-26T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        validation_rule_assignments:
+          $ref: '#/components/schemas/ValidationRuleAssignmentsList'
+        category:
+          description: Assign a new or update the promotion tier's category using
+            name.
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+        category_id:
+          description: Assign a new or update the promotion tier's category using
+            id
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+      title: Promotion Tier Create
+      type: object
     PromotionTierCreateParams:
       description: This is an object representing a promotion tier create params.
         Promotion tiers are always assigned to a campaign and cannot be used standalone.
@@ -27468,6 +27810,99 @@ components:
           nullable: true
           type: string
       title: Promotion Tier Create Params
+      type: object
+    PromotionTierUpdate:
+      description: This is an object representing a promotion tier. Promotion tiers
+        are always assigned to a campaign and cannot be used standalone.
+      properties:
+        name:
+          description: Name of the promotion tier.
+          nullable: true
+          type: string
+        banner:
+          description: Text to be displayed to your customers on your website.
+          nullable: true
+          type: string
+        action:
+          $ref: '#/components/schemas/PromotionTier_action'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the promotion tier. A set of key/value pairs that you can attach to a
+            promotion tier object. It can be useful for storing additional information
+            about the promotion tier in a structured format.
+          nullable: true
+          type: object
+        hierarchy:
+          description: "The promotions hierarchy defines the order in which the discounts\
+            \ from different tiers will be applied to a customer's order. If a customer\
+            \ qualifies for discounts from more than one tier, discounts will be applied\
+            \ in the order defined in the hierarchy."
+          nullable: true
+          type: integer
+        active:
+          description: "A flag to toggle the promotion tier on or off. You can disable\
+            \ a promotion tier even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date`.  \n\n- `true` indicates an *active*\
+            \ promotion tier\n- `false` indicates an *inactive* promotion tier"
+          nullable: true
+          type: boolean
+        start_date:
+          description: 'Activation timestamp defines when the promotion tier starts
+            to be active in ISO 8601 format. Promotion tier is *inactive before* this
+            date. '
+          example: 2022-09-23T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: 'Activation timestamp defines when the promotion tier expires
+            in ISO 8601 format. Promotion tier is *inactive after* this date. '
+          example: 2022-09-26T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        validation_rule_assignments:
+          $ref: '#/components/schemas/ValidationRuleAssignmentsList'
+        category:
+          description: Assign a new or update the promotion tier's category using
+            name.
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+        category_id:
+          description: Assign a new or update the promotion tier's category using
+            id
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+      title: Promotion Tier Update
       type: object
     PromotionTiersList:
       description: Promotion Tiers

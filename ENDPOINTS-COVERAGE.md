@@ -98,9 +98,9 @@
 | ---------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
 | /v1/promotions/tiers                           | get    | List Promotion Tiers               |                                      |               |
 | /v1/promotions/{campaignId}/tiers              | get    | List Promotion Tiers from Campaign | <font color='green'>supported</font> |               |
-| /v1/promotions/{campaignId}/tiers              | post   | Add Promotion Tier to Campaign     |                                      |               |
+| /v1/promotions/{campaignId}/tiers              | post   | Add Promotion Tier to Campaign     | <font color='green'>supported</font> |               |
 | /v1/promotions/tiers/{promotionTierId}         | get    | Get Promotion Tier                 | <font color='green'>supported</font> |               |
-| /v1/promotions/tiers/{promotionTierId}         | put    | Update Promotion Tier              |                                      |               |
+| /v1/promotions/tiers/{promotionTierId}         | put    | Update Promotion Tier              | <font color='green'>supported</font> |               |
 | /v1/promotions/tiers/{promotionTierId}         | delete | Delete Promotion Tier              | <font color='green'>supported</font> |               |
 | /v1/promotions/tiers/{promotionTierId}/enable  | post   | Enable Promotion Tier              | <font color='green'>supported</font> |               |
 | /v1/promotions/tiers/{promotionTierId}/disable | post   | Disable Promotion Tier             | <font color='green'>supported</font> |               |
