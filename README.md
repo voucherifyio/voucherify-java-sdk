@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>12.0.0</version>
+  <version>12.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:12.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:12.0.1"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-12.0.0.jar`
+* `target/voucherify-java-sdk-12.0.1.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -144,6 +144,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 ## 📅 Changelog
 
+- **2024-07-22** - `12.0.1` - Fix Session class `src/main/java/io/voucherify/client/model/Session.java` - Session.key shall not be Enum, shall be String.
 - **2024-07-12** - `12.0.0` - The new version of the SKD includes coverage for all the most commonly used Voucherify endpoints and supports typed models.
 
 *Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*

@@ -24644,7 +24644,7 @@ components:
         session:
           type: LOCK
           ttl: 4.965218492984954
-          key: LOCK
+          key: key
           ttl_unit: DAYS
         tracking_id: track_VAVo1/z+G2GI2LPw==
         order: null
@@ -28273,22 +28273,18 @@ components:
       example:
         type: LOCK
         ttl: 4.965218492984954
-        key: LOCK
+        key: key
         ttl_unit: DAYS
       properties:
         key:
-          default: LOCK
           description: "The session unique ID assigned by Voucherify or your own unique\
             \ session ID. Sending an existing ID will result in overwriting an existing\
             \ session. If no session key is provided, then a new ID will be generated."
-          enum:
-          - LOCK
           nullable: true
           type: string
         type:
           default: LOCK
-          description: This parameter is required to establish a new session. The
-            session locks the redemption quantity by 1.
+          description: This parameter is required to establish a new session.
           enum:
           - LOCK
           nullable: true
