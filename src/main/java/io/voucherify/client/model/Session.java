@@ -54,57 +54,12 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class Session {
-  /**
-   * The session unique ID assigned by Voucherify or your own unique session ID. Sending an existing ID will result in overwriting an existing session. If no session key is provided, then a new ID will be generated.
-   */
-  @JsonAdapter(KeyEnum.Adapter.class)
-  public enum KeyEnum {
-    LOCK("LOCK");
-
-    private String value;
-
-    KeyEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static KeyEnum fromValue(String value) {
-      for (KeyEnum b : KeyEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<KeyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final KeyEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public KeyEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return KeyEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
-  private KeyEnum key = KeyEnum.LOCK;
+  private String key;
 
   /**
-   * This parameter is required to establish a new session. The session locks the redemption quantity by 1.
+   * This parameter is required to establish a new session.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -220,7 +175,7 @@ public class Session {
   public Session() {
   }
 
-  public Session key(KeyEnum key) {
+  public Session key(String key) {
     
     this.key = key;
     return this;
@@ -231,12 +186,12 @@ public class Session {
    * @return key
   **/
   @javax.annotation.Nullable
-  public KeyEnum getKey() {
+  public String getKey() {
     return key;
   }
 
 
-  public void setKey(KeyEnum key) {
+  public void setKey(String key) {
     this.key = key;
   }
 
@@ -248,7 +203,7 @@ public class Session {
   }
 
    /**
-   * This parameter is required to establish a new session. The session locks the redemption quantity by 1.
+   * This parameter is required to establish a new session.
    * @return type
   **/
   @javax.annotation.Nullable

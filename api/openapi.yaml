@@ -4165,6 +4165,122 @@ paths:
       tags:
       - Promotions
       x-accepts: application/json
+    post:
+      description: This method allows you to add a new promotion tier to an existing
+        campaign. The tier hierarchy will be set as the next consequtive integer following
+        the lowest ranking tier.
+      operationId: add-promotion-tier-to-campaign
+      parameters:
+      - description: Unique campaign ID assigned by Voucherify.
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  name: Order more than $100
+                  banner: Order more than $100
+                  action:
+                    discount:
+                      type: AMOUNT
+                      amount_off: 3000
+                      effect: APPLY_TO_ORDER
+                  metadata: {}
+                  active: true
+                  start_date: 2022-09-21T00:00:00.000Z
+                  expiration_date: 2022-09-30T00:00:00.000Z
+                  validity_timeframe:
+                    interval: P2D
+                    duration: P1D
+                  validity_day_of_week:
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  validation_rules:
+                  - val_q8qUBMOh5qIQ
+            schema:
+              $ref: '#/components/schemas/PromotionsTiersCreateRequestBody'
+        description: Specify the promotion tier parameters.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: promo_JcYGIKJsnv0SpZcx2njZm69x
+                    created_at: 2022-09-22T11:21:57.808Z
+                    name: Order more than $100
+                    banner: Order more than $100
+                    action:
+                      discount:
+                        type: AMOUNT
+                        amount_off: 3000
+                        effect: APPLY_TO_ORDER
+                    metadata: {}
+                    hierarchy: 6
+                    campaign:
+                      id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      active: true
+                      object: campaign
+                    campaign_id: null
+                    active: true
+                    start_date: 2022-09-21T00:00:00.000Z
+                    expiration_date: 2022-09-30T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P2D
+                      duration: P1D
+                    validity_day_of_week:
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    summary:
+                      redemptions:
+                        total_redeemed: 0
+                      orders:
+                        total_amount: 0
+                        total_discount_amount: 0
+                    object: promotion_tier
+                    validation_rule_assignments:
+                      object: list
+                      data_ref: data
+                      data:
+                      - id: asgm_AmeYPmiLZKaIxq01
+                        rule_id: val_q8qUBMOh5qIQ
+                        related_object_id: promo_JcYGIKJsnv0SpZcx2njZm69x
+                        related_object_type: promotion_tier
+                        created_at: 2022-09-22T11:21:57.808Z
+                        object: validation_rules_assignment
+                      total: 1
+              schema:
+                $ref: '#/components/schemas/PromotionsTiersCreateResponseBody'
+          description: Returns a promotion tier object if the promotion tier was successfully
+            added to the campaign.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Add Promotion Tier to Campaign
+      tags:
+      - Promotions
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}:
     delete:
       description: This method deletes a promotion tier.
@@ -4213,6 +4329,119 @@ paths:
       summary: Get Promotion Tier
       tags:
       - Promotions
+      x-accepts: application/json
+    put:
+      description: This method updates a promotion tier.
+      operationId: update-promotion-tier
+      parameters:
+      - description: Unique promotion tier ID.
+        explode: false
+        in: path
+        name: promotionTierId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterPromotionTierId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  name: Order more than $100 USD
+                  banner: Order more than $100 USD
+                  action:
+                    discount:
+                      type: PERCENT
+                      percent_off: 25
+                      effect: APPLY_TO_ORDER
+                  metadata:
+                    level: A-21
+                  hierarchy: 1
+                  start_date: 2022-09-22T00:00:00.000Z
+                  expiration_date: 2022-09-29T00:00:00.000Z
+                  validity_timeframe:
+                    interval: P3D
+                    duration: P2D
+                  validity_day_of_week:
+                  - 1
+                  - 2
+                  - 3
+            schema:
+              $ref: '#/components/schemas/PromotionsTiersUpdateRequestBody'
+        description: Specify the promotion tier parameters that you would like to
+          update.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: promo_hINAfBAVhmFuSAzi3vptfyxW
+                    created_at: 2022-09-22T12:40:23.286Z
+                    updated_at: 2022-09-22T12:40:58.626Z
+                    name: Order more than $100 USD
+                    banner: Order more than $100 USD
+                    action:
+                      discount:
+                        type: PERCENT
+                        percent_off: 25
+                        effect: APPLY_TO_ORDER
+                    metadata:
+                      level: A-21
+                    hierarchy: 1
+                    campaign:
+                      id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      active: true
+                      object: campaign
+                    campaign_id: null
+                    active: false
+                    start_date: 2022-09-22T00:00:00.000Z
+                    expiration_date: 2022-09-29T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P3D
+                      duration: P2D
+                    validity_day_of_week:
+                    - 1
+                    - 2
+                    - 3
+                    summary:
+                      redemptions:
+                        total_redeemed: 0
+                      orders:
+                        total_amount: 0
+                        total_discount_amount: 0
+                    object: promotion_tier
+                    validation_rule_assignments:
+                      object: list
+                      data_ref: data
+                      data:
+                      - id: asgm_8e3e53ZgDNcoRGAI
+                        rule_id: val_q8qUBMOh5qIQ
+                        related_object_id: promo_hINAfBAVhmFuSAzi3vptfyxW
+                        related_object_type: promotion_tier
+                        created_at: 2022-09-22T12:40:23.286Z
+                        object: validation_rules_assignment
+                      total: 1
+              schema:
+                $ref: '#/components/schemas/PromotionsTiersUpdateResponseBody'
+          description: Returns a promotion tier object if the update was successful.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Promotion Tier
+      tags:
+      - Promotions
+      x-content-type: application/json
       x-accepts: application/json
   /v1/promotions/tiers/{promotionTierId}/enable:
     post:
@@ -4805,6 +5034,233 @@ paths:
       - Promotions
       x-content-type: application/json
       x-accepts: application/json
+  /v1/rewards:
+    get:
+      description: Retrieve rewards.
+      operationId: list-rewards
+      parameters:
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterPage'
+        style: form
+      - description: A unique reward assignment ID. Use this parameter to get the
+          reward details in the context of an assignment ID.
+        explode: true
+        in: query
+        name: assignment_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterRewardAssignmentId'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: data
+                    data:
+                    - id: rew_3e7IqghVtTR7L3xQMSCxjFu2
+                      name: Get $10
+                      type: CAMPAIGN
+                      parameters:
+                        campaign:
+                          id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+                          balance: 1000
+                          type: GIFT_VOUCHERS
+                      stock: null
+                      redeemed: null
+                      attributes: {}
+                      created_at: 2022-03-10T08:40:20.917Z
+                      updated_at: 2022-08-17T07:52:56.965Z
+                      metadata: null
+                      object: reward
+                    - id: rew_nIy4gHpQHle2c3pNMwuj7G6j
+                      name: Get 100 Points
+                      type: CAMPAIGN
+                      parameters:
+                        campaign:
+                          id: camp_E87CubZLZ8eoQt3c4kAEZsx0
+                          balance: 100
+                          type: LOYALTY_PROGRAM
+                      stock: null
+                      redeemed: null
+                      attributes: {}
+                      created_at: 2022-02-28T11:56:13.764Z
+                      updated_at: null
+                      metadata: null
+                      object: reward
+                    - id: rew_BNZ3van6AF2AiquWp8Lfw0xq
+                      name: 30% discount
+                      type: CAMPAIGN
+                      parameters:
+                        campaign:
+                          id: camp_ZtHLATYVpItqmuSqmaz1rZ2Y
+                          type: DISCOUNT_COUPONS
+                      stock: null
+                      redeemed: null
+                      attributes: {}
+                      created_at: 2022-08-11T09:48:50.609Z
+                      updated_at: null
+                      metadata: {}
+                      object: reward
+                    - id: rew_nlV8bgWU1jNO9YWQ7CdZmzq7
+                      name: 1 point = $0.01
+                      type: COIN
+                      parameters:
+                        coin:
+                          exchange_ratio: 0.01
+                          points_ratio: 1
+                      stock: null
+                      redeemed: null
+                      attributes: {}
+                      created_at: 2022-08-11T16:45:21.582Z
+                      updated_at: null
+                      metadata:
+                        Type: "0.01"
+                      object: reward
+                    - id: rew_x6FmF1KFdDs06hYPr9lK6ajf
+                      name: Material Reward
+                      type: MATERIAL
+                      parameters:
+                        product:
+                          id: prod_0b7d7dfb05cbe5c616
+                          sku_id: sku_0b7d7dfb090be5c619
+                      stock: "4"
+                      redeemed: "1"
+                      attributes:
+                        image_url: https://voucherify-uploads.s3.amazonaws.com/org_2qt8DYlM/img_wJHdZUAVSpWtYM6ORq4up3I2.png
+                        description: Get a Comic Book in Archie's series.
+                      created_at: 2022-08-17T07:13:32.781Z
+                      updated_at: null
+                      metadata:
+                        Type: Personal
+                      object: reward
+                    total: 5
+              schema:
+                $ref: '#/components/schemas/RewardsListResponseBody'
+          description: Returns a dictionary of reward objects.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Rewards
+      tags:
+      - Rewards
+      x-accepts: application/json
+    post:
+      description: Create a new reward.
+      operationId: create-reward
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Gift card credits:
+                value:
+                  name: Digital - Gift Card Reward
+                  type: CAMPAIGN
+                  metadata:
+                    Type: Gift
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+                      balance: 3000
+              Discount Coupon:
+                value:
+                  name: Digital - Discount Coupon
+                  type: CAMPAIGN
+                  metadata:
+                    Type: Discount
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+              Loyalty Points:
+                value:
+                  name: Digital - Loyalty Points Reward
+                  type: CAMPAIGN
+                  metadata:
+                    Type: Loyalty Points
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+                      balance: 100
+              Pay with Points:
+                value:
+                  name: Pay with Points Reward
+                  type: COIN
+                  metadata:
+                    Type: Coin
+                  parameters:
+                    coin:
+                      exchange_ratio: 900
+                      points_ratio: 8000
+              Material Reward:
+                value:
+                  name: Get a Comic Book
+                  metadata:
+                    Type: Material
+                  type: MATERIAL
+                  parameters:
+                    product:
+                      id: prod_0b15f6b9f650c16990
+                      sku_id: sku_0b1621b319d248b79f
+                  stock: 2
+                  attributes:
+                    image_url: https://www.website.com/img_fPHsk9Ob.png
+                    description: Archie's Series
+            schema:
+              $ref: '#/components/schemas/RewardsCreateRequestBody'
+        description: Define parameters of the new reward.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Material:
+                  value:
+                    id: rew_Crmu3hu2FKZWZIML59AeAs1n
+                    name: Material Reward
+                    type: MATERIAL
+                    parameters:
+                      product:
+                        id: prod_0b15f6b9f650c16990
+                        sku_id: sku_0b1621b319d248b79f
+                    stock: "2"
+                    redeemed: null
+                    attributes:
+                      image_url: https://www.website.com/img_fPH9oOb.png
+                      description: Archie's Series
+                    created_at: 2022-08-25T11:20:58.172Z
+                    updated_at: null
+                    metadata:
+                      Type: Material
+                    object: reward
+              schema:
+                $ref: '#/components/schemas/Reward'
+          description: Returns a reward object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Reward
+      tags:
+      - Rewards
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/rewards/{rewardId}:
     delete:
       description: Delete a reward.
@@ -4827,6 +5283,134 @@ paths:
       summary: Delete Reward
       tags:
       - Rewards
+      x-accepts: application/json
+    get:
+      description: Retrieve a reward by the reward ID.
+      operationId: get-reward
+      parameters:
+      - description: A unique reward ID.
+        explode: false
+        in: path
+        name: rewardId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterRewardId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reward'
+          description: 'Returns a reward object if a valid identifier was provided. '
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Get Reward
+      tags:
+      - Rewards
+      x-accepts: application/json
+    put:
+      description: Update the details of a reward.
+      operationId: update-reward
+      parameters:
+      - description: A unique reward ID.
+        explode: false
+        in: path
+        name: rewardId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterRewardId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Gift card credits:
+                value:
+                  name: Digital - Gift Card Reward
+                  metadata:
+                    Type: Gift
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+                      balance: 3000
+              Discount Coupon:
+                value:
+                  name: Digital - Discount Coupon
+                  metadata:
+                    Type: Discount
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+              Loyalty points:
+                value:
+                  name: Digital - Loyalty Points Reward
+                  metadata:
+                    Type: Loyalty Points
+                  parameters:
+                    campaign:
+                      id: camp_hC2GdqYtOmTT45zfhib62cK1
+                      balance: 100
+              Pay with Points:
+                value:
+                  name: Pay with Points Reward
+                  metadata:
+                    Type: Coin
+                  parameters:
+                    coin:
+                      exchange_ratio: 900
+                      points_ratio: 8000
+              Material Reward:
+                value:
+                  name: Get a Comic Book
+                  metadata:
+                    Type: Physical product
+                  parameters:
+                    product:
+                      id: prod_0b15f6b9f650c16990
+                      sku_id: sku_0b1621b319d248b79f
+                  stock: 2
+                  attributes:
+                    image_url: https://www.website.com/img_fPH9.png
+                    description: Comic book
+            schema:
+              $ref: '#/components/schemas/RewardsUpdateRequestBody'
+        description: Define the parameters to be updated for the reward.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Material:
+                  value:
+                    id: rew_wg2pvCr5LDhCq4uVQZ9LhuZm
+                    name: Get a Comic Book
+                    type: MATERIAL
+                    parameters:
+                      product:
+                        id: prod_0b15f6b9f650c16990
+                        sku_id: sku_0b1621b319d248b79f
+                    stock: "2"
+                    redeemed: null
+                    attributes:
+                      image_url: https://www.website.com/img_fPH9.png
+                      description: Comic book
+                    created_at: 2022-08-25T10:00:12.794Z
+                    updated_at: 2022-08-25T10:06:30.655Z
+                    metadata:
+                      Type: Physical product
+                    object: reward
+              schema:
+                $ref: '#/components/schemas/Reward'
+          description: Returns an updated reward object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Reward
+      tags:
+      - Rewards
+      x-content-type: application/json
       x-accepts: application/json
   /v1/rewards/{rewardId}/assignments:
     get:
@@ -20637,7 +21221,7 @@ components:
     LoyaltiesTiersRewardsListResponseBody:
       description: "Response body schema for **GET** `/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards`."
       example:
-        total: 1
+        total: 0
         data:
         - reward:
             metadata: "{}"
@@ -21621,6 +22205,16 @@ components:
         type: object
       description: "Response body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`."
       title: Promotions Stacks Update Response Body
+    PromotionsTiersCreateRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTierCreate'
+      description: "Request body schema for **post** `/v1/promotions/{campaignId}/tiers`."
+      title: Promotions Tiers Create Request Body
+    PromotionsTiersCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTier'
+      description: "Response body schema for **post** `/promotions/{campaignId}/tiers`."
+      title: Promotions Tiers Create Response Body
     PromotionsTiersDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
@@ -21645,6 +22239,16 @@ components:
       description: "Response body schema for **GET** `/promotions/{campaignId}/tiers`."
       title: Promotions Tiers List Response Body
       type: object
+    PromotionsTiersUpdateRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTierUpdate'
+      description: "Request body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      title: Promotions Tiers Update Request Body
+    PromotionsTiersUpdateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTier'
+      description: "Response body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      title: Promotions Tiers Update Response Body
     PublicationsCreateRequestBody:
       example:
         metadata: "{}"
@@ -24167,6 +24771,87 @@ components:
           $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
       title: Redemptions Rollbacks Create Response Body
       type: object
+    Reward:
+      example:
+        metadata: "{}"
+        updated_at: 2022-08-11T16:01:34.885Z
+        redeemed: 6
+        name: name
+        created_at: 2022-08-11T14:49:22.586Z
+        attributes:
+          image_url: image_url
+          description: description
+        id: rew_nIy4gHpQHle2c3pNMwuj7G6j
+        stock: 0
+        type: CAMPAIGN
+        parameters: ""
+        object: reward
+      properties:
+        id:
+          description: "Unique reward ID, assigned by Voucherify."
+          example: rew_nIy4gHpQHle2c3pNMwuj7G6j
+          nullable: true
+          type: string
+        name:
+          description: Reward name.
+          nullable: true
+          type: string
+        stock:
+          description: Configurable for **material rewards**. The number of units
+            of the product that you want to share as reward.
+          nullable: true
+          type: integer
+        redeemed:
+          description: "Defines the number of already invoked (successful) reward\
+            \ redemptions.\t"
+          nullable: true
+          type: integer
+        attributes:
+          $ref: '#/components/schemas/Reward_attributes'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the reward. A set of key/value pairs that you can attach to a reward object.
+            It can be useful for storing additional information about the reward in
+            a structured format.
+          nullable: true
+          type: object
+        type:
+          description: Reward type.
+          enum:
+          - CAMPAIGN
+          - COIN
+          - MATERIAL
+          nullable: true
+          type: string
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/RewardType'
+          description: Defines how the reward is generated.
+        created_at:
+          description: Timestamp representing the date and time when the reward was
+            created. The value is shown in the ISO 8601 format.
+          example: 2022-08-11T14:49:22.586Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the reward was
+            updated. The value is shown in the ISO 8601 format.
+          example: 2022-08-11T16:01:34.885Z
+          format: date-time
+          nullable: true
+          type: string
+        object:
+          default: reward
+          description: The type of the object represented by the JSON. This object
+            stores information about the reward.
+          enum:
+          - reward
+          type: string
+      required:
+      - object
+      title: Reward
+      type: object
     RewardsAssignmentsCreateRequestBody:
       example:
         campaign: campaign
@@ -24253,6 +24938,142 @@ components:
       - $ref: '#/components/schemas/RewardAssignment'
       description: "Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}`."
       title: Rewards Assignments Update Response Body
+      type: object
+    RewardsCreateRequestBody:
+      example:
+        metadata: "{}"
+        name: name
+        attributes: "{}"
+        stock: 6
+        parameters:
+          product:
+            sku_id: sku_0b7d7dfb090be5c619
+            id: prod_0b7d7dfb05cbe5c616
+          campaign:
+            balance: 0
+            id: id
+          coin:
+            points_ratio: points_ratio
+            exchange_ratio: exchange_ratio
+      properties:
+        name:
+          description: Reward name.
+          nullable: true
+          type: string
+        parameters:
+          $ref: '#/components/schemas/RewardsCreateRequestBodyParameters'
+        attributes:
+          nullable: true
+          title: RewardsCreateRequestBodyAttributes
+          type: object
+        metadata:
+          nullable: true
+          title: RewardsCreateRequestBodyMetadata
+          type: object
+        stock:
+          description: The number of units of the product that you want to share as
+            a reward.
+          nullable: true
+          type: integer
+      title: RewardsCreateRequestBody
+      type: object
+    RewardsListResponseBody:
+      description: Response body schema for **GET** `/rewards`.
+      example:
+        total: 20
+        data:
+        - metadata: "{}"
+          updated_at: 2022-08-11T16:01:34.885Z
+          redeemed: 6
+          name: name
+          created_at: 2022-08-11T14:49:22.586Z
+          attributes:
+            image_url: image_url
+            description: description
+          id: rew_nIy4gHpQHle2c3pNMwuj7G6j
+          stock: 0
+          type: CAMPAIGN
+          parameters: ""
+          object: reward
+        - metadata: "{}"
+          updated_at: 2022-08-11T16:01:34.885Z
+          redeemed: 6
+          name: name
+          created_at: 2022-08-11T14:49:22.586Z
+          attributes:
+            image_url: image_url
+            description: description
+          id: rew_nIy4gHpQHle2c3pNMwuj7G6j
+          stock: 0
+          type: CAMPAIGN
+          parameters: ""
+          object: reward
+        data_ref: data
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON.
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the attribute that contains the array
+            of transaction objects.
+          nullable: true
+          type: string
+        data:
+          description: A dictionary that contains an array of rewards. Each entry
+            in the array is a separate transaction object.
+          items:
+            $ref: '#/components/schemas/Reward'
+          nullable: true
+          type: array
+        total:
+          description: Returns how many rewards in the project meet the limits defined
+            by the query parameter definitions.
+          example: 20
+          nullable: true
+          type: integer
+      title: Rewards List Response Body
+      type: object
+    RewardsUpdateRequestBody:
+      example:
+        metadata: "{}"
+        name: name
+        attributes: "{}"
+        stock: 6
+        parameters:
+          product:
+            sku_id: sku_0b7d7dfb090be5c619
+            id: prod_0b7d7dfb05cbe5c616
+          campaign:
+            balance: 0
+            id: id
+          coin:
+            points_ratio: points_ratio
+            exchange_ratio: exchange_ratio
+      properties:
+        name:
+          description: Reward name.
+          nullable: true
+          type: string
+        parameters:
+          $ref: '#/components/schemas/RewardsUpdateRequestBodyParameters'
+        attributes:
+          nullable: true
+          title: RewardsUpdateRequestBodyAttributes
+          type: object
+        metadata:
+          nullable: true
+          title: RewardsUpdateRequestBodyMetadata
+          type: object
+        stock:
+          description: The number of units of the product that you want to share as
+            a reward.
+          nullable: true
+          type: integer
+      title: RewardsUpdateRequestBody
       type: object
     SkusGetResponseBody:
       allOf:
@@ -24644,7 +25465,7 @@ components:
         session:
           type: LOCK
           ttl: 4.965218492984954
-          key: LOCK
+          key: key
           ttl_unit: DAYS
         tracking_id: track_VAVo1/z+G2GI2LPw==
         order: null
@@ -27307,6 +28128,99 @@ components:
           type: array
       title: Promotion Tier
       type: object
+    PromotionTierCreate:
+      description: This is an object representing a promotion tier. Promotion tiers
+        are always assigned to a campaign and cannot be used standalone.
+      properties:
+        name:
+          description: Name of the promotion tier.
+          nullable: true
+          type: string
+        banner:
+          description: Text to be displayed to your customers on your website.
+          nullable: true
+          type: string
+        action:
+          $ref: '#/components/schemas/PromotionTier_action'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the promotion tier. A set of key/value pairs that you can attach to a
+            promotion tier object. It can be useful for storing additional information
+            about the promotion tier in a structured format.
+          nullable: true
+          type: object
+        hierarchy:
+          description: "The promotions hierarchy defines the order in which the discounts\
+            \ from different tiers will be applied to a customer's order. If a customer\
+            \ qualifies for discounts from more than one tier, discounts will be applied\
+            \ in the order defined in the hierarchy."
+          nullable: true
+          type: integer
+        active:
+          description: "A flag to toggle the promotion tier on or off. You can disable\
+            \ a promotion tier even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date`.  \n\n- `true` indicates an *active*\
+            \ promotion tier\n- `false` indicates an *inactive* promotion tier"
+          nullable: true
+          type: boolean
+        start_date:
+          description: 'Activation timestamp defines when the promotion tier starts
+            to be active in ISO 8601 format. Promotion tier is *inactive before* this
+            date. '
+          example: 2022-09-23T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: 'Activation timestamp defines when the promotion tier expires
+            in ISO 8601 format. Promotion tier is *inactive after* this date. '
+          example: 2022-09-26T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        validation_rule_assignments:
+          $ref: '#/components/schemas/ValidationRuleAssignmentsList'
+        category:
+          description: Assign a new or update the promotion tier's category using
+            name.
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+        category_id:
+          description: Assign a new or update the promotion tier's category using
+            id
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+      title: Promotion Tier Create
+      type: object
     PromotionTierCreateParams:
       description: This is an object representing a promotion tier create params.
         Promotion tiers are always assigned to a campaign and cannot be used standalone.
@@ -27468,6 +28382,92 @@ components:
           nullable: true
           type: string
       title: Promotion Tier Create Params
+      type: object
+    PromotionTierUpdate:
+      description: This is an object representing a promotion tier. Promotion tiers
+        are always assigned to a campaign and cannot be used standalone.
+      properties:
+        name:
+          description: Name of the promotion tier.
+          nullable: true
+          type: string
+        banner:
+          description: Text to be displayed to your customers on your website.
+          nullable: true
+          type: string
+        action:
+          $ref: '#/components/schemas/PromotionTier_action'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the promotion tier. A set of key/value pairs that you can attach to a
+            promotion tier object. It can be useful for storing additional information
+            about the promotion tier in a structured format.
+          nullable: true
+          type: object
+        hierarchy:
+          description: "The promotions hierarchy defines the order in which the discounts\
+            \ from different tiers will be applied to a customer's order. If a customer\
+            \ qualifies for discounts from more than one tier, discounts will be applied\
+            \ in the order defined in the hierarchy."
+          nullable: true
+          type: integer
+        start_date:
+          description: 'Activation timestamp defines when the promotion tier starts
+            to be active in ISO 8601 format. Promotion tier is *inactive before* this
+            date. '
+          example: 2022-09-23T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: 'Activation timestamp defines when the promotion tier expires
+            in ISO 8601 format. Promotion tier is *inactive after* this date. '
+          example: 2022-09-26T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        validation_rule_assignments:
+          $ref: '#/components/schemas/ValidationRuleAssignmentsList'
+        category:
+          description: Assign a new or update the promotion tier's category using
+            name.
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+        category_id:
+          description: Assign a new or update the promotion tier's category using
+            id
+          example: cat_0c9da30e7116ba6bba
+          nullable: true
+          type: string
+      title: Promotion Tier Update
       type: object
     PromotionTiersList:
       description: Promotion Tiers
@@ -28182,113 +29182,38 @@ components:
           $ref: '#/components/schemas/ReferralProgram_referee_reward'
       title: Referral Program
       type: object
-    Reward:
-      example:
-        metadata: "{}"
-        updated_at: 2022-08-11T16:01:34.885Z
-        redeemed: 6
-        name: name
-        created_at: 2022-08-11T14:49:22.586Z
-        attributes:
-          image_url: image_url
-          description: description
-        id: rew_nIy4gHpQHle2c3pNMwuj7G6j
-        stock: 0
-        type: CAMPAIGN
-        parameters: ""
-        object: reward
-      properties:
-        id:
-          description: "Unique reward ID, assigned by Voucherify."
-          example: rew_nIy4gHpQHle2c3pNMwuj7G6j
-          nullable: true
-          type: string
-        name:
-          description: Reward name.
-          nullable: true
-          type: string
-        stock:
-          description: Configurable for **material rewards**. The number of units
-            of the product that you want to share as reward.
-          nullable: true
-          type: integer
-        redeemed:
-          description: "Defines the number of already invoked (successful) reward\
-            \ redemptions.\t"
-          nullable: true
-          type: integer
-        attributes:
-          $ref: '#/components/schemas/Reward_attributes'
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the reward. A set of key/value pairs that you can attach to a reward object.
-            It can be useful for storing additional information about the reward in
-            a structured format.
-          nullable: true
-          type: object
-        type:
-          description: Reward type.
-          enum:
-          - CAMPAIGN
-          - COIN
-          - MATERIAL
-          nullable: true
-          type: string
-        parameters:
-          allOf:
-          - $ref: '#/components/schemas/RewardType'
-          description: Defines how the reward is generated.
-        created_at:
-          description: Timestamp representing the date and time when the reward was
-            created. The value is shown in the ISO 8601 format.
-          example: 2022-08-11T14:49:22.586Z
-          format: date-time
-          nullable: true
-          type: string
-        updated_at:
-          description: Timestamp representing the date and time when the reward was
-            updated. The value is shown in the ISO 8601 format.
-          example: 2022-08-11T16:01:34.885Z
-          format: date-time
-          nullable: true
-          type: string
-        object:
-          default: reward
-          description: The type of the object represented by the JSON. This object
-            stores information about the reward.
-          enum:
-          - reward
-          type: string
-      required:
-      - object
-      title: Reward
-      type: object
     RewardAssignment:
       allOf:
       - $ref: '#/components/schemas/RewardAssignmentBase'
       - $ref: '#/components/schemas/RewardAssignmentParameters'
       title: Reward Assignment
       type: object
+    RewardType:
+      properties:
+        campaign:
+          $ref: '#/components/schemas/RewardType_campaign'
+        coin:
+          $ref: '#/components/schemas/RewardType_coin'
+        product:
+          $ref: '#/components/schemas/RewardType_product'
+      title: RewardType
+      type: object
     Session:
       example:
         type: LOCK
         ttl: 4.965218492984954
-        key: LOCK
+        key: key
         ttl_unit: DAYS
       properties:
         key:
-          default: LOCK
           description: "The session unique ID assigned by Voucherify or your own unique\
             \ session ID. Sending an existing ID will result in overwriting an existing\
             \ session. If no session key is provided, then a new ID will be generated."
-          enum:
-          - LOCK
           nullable: true
           type: string
         type:
           default: LOCK
-          description: This parameter is required to establish a new session. The
-            session locks the redemption quantity by 1.
+          description: This parameter is required to establish a new session.
           enum:
           - LOCK
           nullable: true
@@ -30577,16 +31502,6 @@ components:
         parameters:
           $ref: '#/components/schemas/RewardAssignmentParameters_parameters'
       title: Digital or Material Reward - Parameters
-      type: object
-    RewardType:
-      properties:
-        campaign:
-          $ref: '#/components/schemas/RewardType_campaign'
-        coin:
-          $ref: '#/components/schemas/RewardType_coin'
-        product:
-          $ref: '#/components/schemas/RewardType_product'
-      title: RewardType
       type: object
     SimpleProductDiscountUnit:
       properties:
@@ -35860,6 +36775,22 @@ components:
           type: string
       title: Redemptions List Response Body Redemptions Item
       type: object
+    Reward_attributes:
+      description: These properties are configurable for **material rewards**.
+      example:
+        image_url: image_url
+        description: description
+      nullable: true
+      properties:
+        image_url:
+          description: The HTTPS URL pointing to the .png or .jpg file.
+          nullable: true
+          type: string
+        description:
+          description: An arbitrary string that you can attach to a material reward.
+          nullable: true
+          type: string
+      type: object
     RewardsAssignmentsCreateRequestBody_parameters_loyalty:
       description: Defines the equivalent points value of the reward.
       example:
@@ -35902,6 +36833,122 @@ components:
       properties:
         loyalty:
           $ref: '#/components/schemas/RewardsAssignmentsUpdateRequestBody_parameters_loyalty'
+      type: object
+    Rewards_Create_Request_Body_Parameters_Campaign:
+      example:
+        balance: 0
+        id: id
+      nullable: true
+      properties:
+        id:
+          nullable: true
+          type: string
+        balance:
+          description: "The incremental points to be added to the current balance\
+            \ on the loyalty card. and The incremental amout to be added to the current\
+            \ balance on the gift card. Value is multiplied by 100 to precisely represent\
+            \ 2 decimal places. For example, $100 amount is written as 10000."
+          nullable: true
+          type: integer
+      title: Rewards Create Request Body Parameters Campaign
+      type: object
+    RewardsCreateRequestBodyParameters_product:
+      description: Define the product given as a reward.
+      example:
+        sku_id: sku_0b7d7dfb090be5c619
+        id: prod_0b7d7dfb05cbe5c616
+      nullable: true
+      properties:
+        id:
+          description: "Unique product ID, assigned by Voucherify, given as a reward."
+          example: prod_0b7d7dfb05cbe5c616
+          nullable: true
+          type: string
+        sku_id:
+          description: "Unique SKU ID, assigned by Voucherify, of the SKU given as\
+            \ a reward."
+          example: sku_0b7d7dfb090be5c619
+          nullable: true
+          type: string
+      type: object
+    RewardsCreateRequestBodyParameters_coin:
+      description: Define the ratio by mapping the number of loyalty points in `points_ratio`
+        to a predefined cash amount in `exchange_ratio`.
+      example:
+        points_ratio: points_ratio
+        exchange_ratio: exchange_ratio
+      nullable: true
+      properties:
+        exchange_ratio:
+          description: The cash equivalent of the points defined in the `points_ratio`
+            property.
+          nullable: true
+          type: string
+        points_ratio:
+          description: The number of loyalty points that will map to the predefined
+            cash amount defined by the `exchange_ratio` property.
+          nullable: true
+          type: string
+      type: object
+    RewardsCreateRequestBodyParameters:
+      example:
+        product:
+          sku_id: sku_0b7d7dfb090be5c619
+          id: prod_0b7d7dfb05cbe5c616
+        campaign:
+          balance: 0
+          id: id
+        coin:
+          points_ratio: points_ratio
+          exchange_ratio: exchange_ratio
+      nullable: true
+      properties:
+        campaign:
+          $ref: '#/components/schemas/Rewards_Create_Request_Body_Parameters_Campaign'
+        product:
+          $ref: '#/components/schemas/RewardsCreateRequestBodyParameters_product'
+        coin:
+          $ref: '#/components/schemas/RewardsCreateRequestBodyParameters_coin'
+      title: RewardsCreateRequestBodyParameters
+      type: object
+    Rewards_Update_Request_Body_Parameters_Campaign:
+      example:
+        balance: 0
+        id: id
+      nullable: true
+      properties:
+        id:
+          nullable: true
+          type: string
+        balance:
+          description: "The incremental points to be added to the current balance\
+            \ on the loyalty card. and The incremental amout to be added to the current\
+            \ balance on the gift card. Value is multiplied by 100 to precisely represent\
+            \ 2 decimal places. For example, $100 amount is written as 10000."
+          nullable: true
+          type: integer
+      title: Rewards Update Request Body Parameters Campaign
+      type: object
+    RewardsUpdateRequestBodyParameters:
+      example:
+        product:
+          sku_id: sku_0b7d7dfb090be5c619
+          id: prod_0b7d7dfb05cbe5c616
+        campaign:
+          balance: 0
+          id: id
+        coin:
+          points_ratio: points_ratio
+          exchange_ratio: exchange_ratio
+      nullable: true
+      properties:
+        campaign:
+          $ref: '#/components/schemas/Rewards_Update_Request_Body_Parameters_Campaign'
+        product:
+          $ref: '#/components/schemas/RewardsCreateRequestBodyParameters_product'
+        coin:
+          $ref: '#/components/schemas/RewardsCreateRequestBodyParameters_coin'
+      title: RewardsUpdateRequestBodyParameters
       type: object
     Validations_Validate_Response_Body_Redeemables_ItemResultDiscountProduct:
       example:
@@ -38519,19 +39566,60 @@ components:
           nullable: true
           type: string
       type: object
-    Reward_attributes:
-      description: These properties are configurable for **material rewards**.
-      example:
-        image_url: image_url
-        description: description
+    RewardType_campaign:
+      description: Objects stores information about the campaign related to the reward.
       nullable: true
       properties:
-        image_url:
-          description: The HTTPS URL pointing to the .png or .jpg file.
+        id:
+          description: "Unique campaign ID, assigned by Voucherify."
           nullable: true
           type: string
-        description:
-          description: An arbitrary string that you can attach to a material reward.
+        balance:
+          description: "The incremental amout to be added to the current balance on\
+            \ the gift card. Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, $100 amount is written as 10000."
+          nullable: true
+          type: integer
+        type:
+          description: Campaign type.
+          enum:
+          - DISCOUNT_COUPONS
+          - PROMOTION
+          - GIFT_VOUCHERS
+          - REFERRAL_PROGRAM
+          - LOYALTY_PROGRAM
+          nullable: true
+          type: string
+      type: object
+    RewardType_coin:
+      description: Defines the ratio by mapping the number of loyalty points in points_ratio
+        to a predefined cash amount in exchange_ratio.
+      nullable: true
+      properties:
+        exchange_ratio:
+          description: The cash equivalent of the points defined in the points_ratio
+            property.
+          nullable: true
+          type: number
+        points_ratio:
+          description: The number of loyalty points that will map to the predefined
+            cash amount defined by the exchange_ratio property.
+          nullable: true
+          type: integer
+      type: object
+    RewardType_product:
+      description: Contains information about the product given as a reward.
+      nullable: true
+      properties:
+        id:
+          description: "Unique product ID, assigned by Voucherify."
+          example: prod_0b7d7dfb05cbe5c616
+          nullable: true
+          type: string
+        sku_id:
+          description: "Unique SKU ID, assigned by Voucherify, of the SKU given as\
+            \ a reward."
+          example: sku_0b7d7dfb090be5c619
           nullable: true
           type: string
       type: object
@@ -38653,7 +39741,7 @@ components:
         details:
           $ref: '#/components/schemas/ValidationsRedeemableInapplicable_result_details'
       type: object
-    Validations_Redeemable_Skipped_Details:
+    Validations_Redeemable_Skipped_Result_Details:
       example:
         message: message
         key: applicable_redeemables_limit_exceeded
@@ -38672,7 +39760,7 @@ components:
         message:
           nullable: true
           type: string
-      title: Validations Redeemable Skipped Details
+      title: Validations Redeemable Skipped Result Details
       type: object
     ValidationsRedeemableSkipped_result:
       description: Provides details about the reason why the redeemable is skipped.
@@ -38683,7 +39771,7 @@ components:
       nullable: true
       properties:
         details:
-          $ref: '#/components/schemas/Validations_Redeemable_Skipped_Details'
+          $ref: '#/components/schemas/Validations_Redeemable_Skipped_Result_Details'
       type: object
     ValidityHours_daily_inner:
       description: Defines the reccuring period(s) when the resource will be active.
@@ -39122,63 +40210,6 @@ components:
       properties:
         loyalty:
           $ref: '#/components/schemas/RewardAssignmentParameters_parameters_loyalty'
-      type: object
-    RewardType_campaign:
-      description: Objects stores information about the campaign related to the reward.
-      nullable: true
-      properties:
-        id:
-          description: "Unique campaign ID, assigned by Voucherify."
-          nullable: true
-          type: string
-        balance:
-          description: "The incremental amout to be added to the current balance on\
-            \ the gift card. Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, $100 amount is written as 10000."
-          nullable: true
-          type: integer
-        type:
-          description: Campaign type.
-          enum:
-          - DISCOUNT_COUPONS
-          - PROMOTION
-          - GIFT_VOUCHERS
-          - REFERRAL_PROGRAM
-          - LOYALTY_PROGRAM
-          nullable: true
-          type: string
-      type: object
-    RewardType_coin:
-      description: Defines the ratio by mapping the number of loyalty points in points_ratio
-        to a predefined cash amount in exchange_ratio.
-      nullable: true
-      properties:
-        exchange_ratio:
-          description: The cash equivalent of the points defined in the points_ratio
-            property.
-          nullable: true
-          type: number
-        points_ratio:
-          description: The number of loyalty points that will map to the predefined
-            cash amount defined by the exchange_ratio property.
-          nullable: true
-          type: integer
-      type: object
-    RewardType_product:
-      description: Contains information about the product given as a reward.
-      nullable: true
-      properties:
-        id:
-          description: "Unique product ID, assigned by Voucherify."
-          example: prod_0b7d7dfb05cbe5c616
-          nullable: true
-          type: string
-        sku_id:
-          description: "Unique SKU ID, assigned by Voucherify, of the SKU given as\
-            \ a reward."
-          example: sku_0b7d7dfb090be5c619
-          nullable: true
-          type: string
       type: object
     SimpleVoucher_loyalty_card:
       allOf:

@@ -165,7 +165,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Java-SDK/12.0.0");
+        setUserAgent("OpenAPI-Java-SDK/13.0.0");
         addDefaultHeader("X-Voucherify-Channel", "Java-SDK");
 
         authentications = new HashMap<String, Authentication>();

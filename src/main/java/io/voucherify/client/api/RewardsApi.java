@@ -27,12 +27,16 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.voucherify.client.model.Reward;
 import io.voucherify.client.model.RewardsAssignmentsCreateRequestBody;
 import io.voucherify.client.model.RewardsAssignmentsCreateResponseBody;
 import io.voucherify.client.model.RewardsAssignmentsGetResponseBody;
 import io.voucherify.client.model.RewardsAssignmentsListResponseBody;
 import io.voucherify.client.model.RewardsAssignmentsUpdateRequestBody;
 import io.voucherify.client.model.RewardsAssignmentsUpdateResponseBody;
+import io.voucherify.client.model.RewardsCreateRequestBody;
+import io.voucherify.client.model.RewardsListResponseBody;
+import io.voucherify.client.model.RewardsUpdateRequestBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -77,6 +81,104 @@ public class RewardsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createReward
+     * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createRewardCall(RewardsCreateRequestBody rewardsCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rewardsCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createRewardValidateBeforeCall(RewardsCreateRequestBody rewardsCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        return createRewardCall(rewardsCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Reward
+     * Create a new reward.
+     * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
+     * @return Reward
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Reward createReward(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
+        ApiResponse<Reward> localVarResp = createRewardWithHttpInfo(rewardsCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Reward
+     * Create a new reward.
+     * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
+     * @return ApiResponse&lt;Reward&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Reward> createRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createRewardValidateBeforeCall(rewardsCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Reward (asynchronously)
+     * Create a new reward.
+     * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody, final ApiCallback<Reward> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createRewardValidateBeforeCall(rewardsCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createRewardAssignment
      * @param rewardId A unique reward ID. (required)
@@ -392,6 +494,109 @@ public class RewardsApi {
         return localVarCall;
     }
     /**
+     * Build call for getReward
+     * @param rewardId A unique reward ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getRewardCall(String rewardId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards/{rewardId}"
+            .replace("{" + "rewardId" + "}", localVarApiClient.escapeString(rewardId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRewardValidateBeforeCall(String rewardId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rewardId' is set
+        if (rewardId == null) {
+            throw new ApiException("Missing the required parameter 'rewardId' when calling getReward(Async)");
+        }
+
+        return getRewardCall(rewardId, _callback);
+
+    }
+
+    /**
+     * Get Reward
+     * Retrieve a reward by the reward ID.
+     * @param rewardId A unique reward ID. (required)
+     * @return Reward
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Reward getReward(String rewardId) throws ApiException {
+        ApiResponse<Reward> localVarResp = getRewardWithHttpInfo(rewardId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Reward
+     * Retrieve a reward by the reward ID.
+     * @param rewardId A unique reward ID. (required)
+     * @return ApiResponse&lt;Reward&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Reward> getRewardWithHttpInfo(String rewardId) throws ApiException {
+        okhttp3.Call localVarCall = getRewardValidateBeforeCall(rewardId, null);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Reward (asynchronously)
+     * Retrieve a reward by the reward ID.
+     * @param rewardId A unique reward ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getRewardAsync(String rewardId, final ApiCallback<Reward> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getRewardValidateBeforeCall(rewardId, _callback);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getRewardAssignment
      * @param rewardId A unique reward ID. (required)
      * @param assignmentId A unique reward assignment ID. (required)
@@ -620,6 +825,231 @@ public class RewardsApi {
 
         okhttp3.Call localVarCall = listRewardAssignmentsValidateBeforeCall(rewardId, limit, page, _callback);
         Type localVarReturnType = new TypeToken<RewardsAssignmentsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listRewards
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listRewardsCall(Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (assignmentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("assignment_id", assignmentId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRewardsValidateBeforeCall(Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        return listRewardsCall(limit, page, assignmentId, _callback);
+
+    }
+
+    /**
+     * List Rewards
+     * Retrieve rewards.
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. (optional)
+     * @return RewardsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RewardsListResponseBody listRewards(Integer limit, Integer page, String assignmentId) throws ApiException {
+        ApiResponse<RewardsListResponseBody> localVarResp = listRewardsWithHttpInfo(limit, page, assignmentId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Rewards
+     * Retrieve rewards.
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. (optional)
+     * @return ApiResponse&lt;RewardsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RewardsListResponseBody> listRewardsWithHttpInfo(Integer limit, Integer page, String assignmentId) throws ApiException {
+        okhttp3.Call localVarCall = listRewardsValidateBeforeCall(limit, page, assignmentId, null);
+        Type localVarReturnType = new TypeToken<RewardsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Rewards (asynchronously)
+     * Retrieve rewards.
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listRewardsAsync(Integer limit, Integer page, String assignmentId, final ApiCallback<RewardsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRewardsValidateBeforeCall(limit, page, assignmentId, _callback);
+        Type localVarReturnType = new TypeToken<RewardsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateReward
+     * @param rewardId A unique reward ID. (required)
+     * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateRewardCall(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rewardsUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/rewards/{rewardId}"
+            .replace("{" + "rewardId" + "}", localVarApiClient.escapeString(rewardId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateRewardValidateBeforeCall(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rewardId' is set
+        if (rewardId == null) {
+            throw new ApiException("Missing the required parameter 'rewardId' when calling updateReward(Async)");
+        }
+
+        return updateRewardCall(rewardId, rewardsUpdateRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Reward
+     * Update the details of a reward.
+     * @param rewardId A unique reward ID. (required)
+     * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
+     * @return Reward
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Reward updateReward(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
+        ApiResponse<Reward> localVarResp = updateRewardWithHttpInfo(rewardId, rewardsUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Reward
+     * Update the details of a reward.
+     * @param rewardId A unique reward ID. (required)
+     * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
+     * @return ApiResponse&lt;Reward&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Reward> updateRewardWithHttpInfo(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateRewardValidateBeforeCall(rewardId, rewardsUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Reward (asynchronously)
+     * Update the details of a reward.
+     * @param rewardId A unique reward ID. (required)
+     * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateRewardAsync(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, final ApiCallback<Reward> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateRewardValidateBeforeCall(rewardId, rewardsUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
