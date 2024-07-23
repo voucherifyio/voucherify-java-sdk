@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationsRedeemableSkippedResultDetails;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,36 +48,116 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Provides details about the reason why the redeemable is skipped.
+ * ValidationsRedeemableSkippedResultDetails
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ValidationsRedeemableSkippedResult {
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  private ValidationsRedeemableSkippedResultDetails details;
+public class ValidationsRedeemableSkippedResultDetails {
+  /**
+   * Gets or Sets key
+   */
+  @JsonAdapter(KeyEnum.Adapter.class)
+  public enum KeyEnum {
+    APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED("applicable_redeemables_limit_exceeded"),
+    
+    APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED("applicable_redeemables_per_category_limit_exceeded"),
+    
+    APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT_EXCEEDED("applicable_exclusive_redeemables_limit_exceeded"),
+    
+    APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED("applicable_exclusive_redeemables_per_category_limit_exceeded"),
+    
+    EXCLUSION_RULES_NOT_MET("exclusion_rules_not_met"),
+    
+    PRECEDING_VALIDATION_FAILED("preceding_validation_failed");
 
-  public ValidationsRedeemableSkippedResult() {
+    private String value;
+
+    KeyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static KeyEnum fromValue(String value) {
+      for (KeyEnum b : KeyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<KeyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final KeyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public KeyEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return KeyEnum.fromValue(value);
+      }
+    }
   }
 
-  public ValidationsRedeemableSkippedResult details(ValidationsRedeemableSkippedResultDetails details) {
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private KeyEnum key;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
+
+  public ValidationsRedeemableSkippedResultDetails() {
+  }
+
+  public ValidationsRedeemableSkippedResultDetails key(KeyEnum key) {
     
-    this.details = details;
+    this.key = key;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get key
+   * @return key
   **/
   @javax.annotation.Nullable
-  public ValidationsRedeemableSkippedResultDetails getDetails() {
-    return details;
+  public KeyEnum getKey() {
+    return key;
   }
 
 
-  public void setDetails(ValidationsRedeemableSkippedResultDetails details) {
-    this.details = details;
+  public void setKey(KeyEnum key) {
+    this.key = key;
+  }
+
+
+  public ValidationsRedeemableSkippedResultDetails message(String message) {
+    
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -94,9 +173,9 @@ public class ValidationsRedeemableSkippedResult {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ValidationsRedeemableSkippedResult instance itself
+   * @return the ValidationsRedeemableSkippedResultDetails instance itself
    */
-  public ValidationsRedeemableSkippedResult putAdditionalProperty(String key, Object value) {
+  public ValidationsRedeemableSkippedResultDetails putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -135,9 +214,10 @@ public class ValidationsRedeemableSkippedResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationsRedeemableSkippedResult validationsRedeemableSkippedResult = (ValidationsRedeemableSkippedResult) o;
-    return Objects.equals(this.details, validationsRedeemableSkippedResult.details)&&
-        Objects.equals(this.additionalProperties, validationsRedeemableSkippedResult.additionalProperties);
+    ValidationsRedeemableSkippedResultDetails validationsRedeemableSkippedResultDetails = (ValidationsRedeemableSkippedResultDetails) o;
+    return Objects.equals(this.key, validationsRedeemableSkippedResultDetails.key) &&
+        Objects.equals(this.message, validationsRedeemableSkippedResultDetails.message)&&
+        Objects.equals(this.additionalProperties, validationsRedeemableSkippedResultDetails.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -146,7 +226,7 @@ public class ValidationsRedeemableSkippedResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(details, additionalProperties);
+    return Objects.hash(key, message, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -159,8 +239,9 @@ public class ValidationsRedeemableSkippedResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationsRedeemableSkippedResult {\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("class ValidationsRedeemableSkippedResultDetails {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +265,8 @@ public class ValidationsRedeemableSkippedResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("details");
+    openapiFields.add("key");
+    openapiFields.add("message");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -194,16 +276,16 @@ public class ValidationsRedeemableSkippedResult {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ValidationsRedeemableSkippedResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ValidationsRedeemableSkippedResult' and its subtypes
+       if (!ValidationsRedeemableSkippedResultDetails.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ValidationsRedeemableSkippedResultDetails' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ValidationsRedeemableSkippedResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationsRedeemableSkippedResult.class));
+       final TypeAdapter<ValidationsRedeemableSkippedResultDetails> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationsRedeemableSkippedResultDetails.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ValidationsRedeemableSkippedResult>() {
+       return (TypeAdapter<T>) new TypeAdapter<ValidationsRedeemableSkippedResultDetails>() {
            @Override
-           public void write(JsonWriter out, ValidationsRedeemableSkippedResult value) throws IOException {
+           public void write(JsonWriter out, ValidationsRedeemableSkippedResultDetails value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,11 +308,11 @@ public class ValidationsRedeemableSkippedResult {
            }
 
            @Override
-           public ValidationsRedeemableSkippedResult read(JsonReader in) throws IOException {
+           public ValidationsRedeemableSkippedResultDetails read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ValidationsRedeemableSkippedResult instance = thisAdapter.fromJsonTree(jsonObj);
+             ValidationsRedeemableSkippedResultDetails instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -257,18 +339,18 @@ public class ValidationsRedeemableSkippedResult {
   }
 
  /**
-  * Create an instance of ValidationsRedeemableSkippedResult given an JSON string
+  * Create an instance of ValidationsRedeemableSkippedResultDetails given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ValidationsRedeemableSkippedResult
-  * @throws IOException if the JSON string is invalid with respect to ValidationsRedeemableSkippedResult
+  * @return An instance of ValidationsRedeemableSkippedResultDetails
+  * @throws IOException if the JSON string is invalid with respect to ValidationsRedeemableSkippedResultDetails
   */
-  public static ValidationsRedeemableSkippedResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ValidationsRedeemableSkippedResult.class);
+  public static ValidationsRedeemableSkippedResultDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ValidationsRedeemableSkippedResultDetails.class);
   }
 
  /**
-  * Convert an instance of ValidationsRedeemableSkippedResult to an JSON string
+  * Convert an instance of ValidationsRedeemableSkippedResultDetails to an JSON string
   *
   * @return JSON string
   */

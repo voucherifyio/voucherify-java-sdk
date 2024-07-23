@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationsRedeemableSkippedResultDetails;
+import io.voucherify.client.model.RewardsCreateRequestBodyParametersCampaign;
+import io.voucherify.client.model.RewardsCreateRequestBodyParametersCoin;
+import io.voucherify.client.model.RewardsCreateRequestBodyParametersProduct;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,36 +51,86 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Provides details about the reason why the redeemable is skipped.
+ * RewardsCreateRequestBodyParameters
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ValidationsRedeemableSkippedResult {
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  private ValidationsRedeemableSkippedResultDetails details;
+public class RewardsCreateRequestBodyParameters {
+  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
+  private RewardsCreateRequestBodyParametersCampaign campaign;
 
-  public ValidationsRedeemableSkippedResult() {
+  public static final String SERIALIZED_NAME_PRODUCT = "product";
+  @SerializedName(SERIALIZED_NAME_PRODUCT)
+  private RewardsCreateRequestBodyParametersProduct product;
+
+  public static final String SERIALIZED_NAME_COIN = "coin";
+  @SerializedName(SERIALIZED_NAME_COIN)
+  private RewardsCreateRequestBodyParametersCoin coin;
+
+  public RewardsCreateRequestBodyParameters() {
   }
 
-  public ValidationsRedeemableSkippedResult details(ValidationsRedeemableSkippedResultDetails details) {
+  public RewardsCreateRequestBodyParameters campaign(RewardsCreateRequestBodyParametersCampaign campaign) {
     
-    this.details = details;
+    this.campaign = campaign;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get campaign
+   * @return campaign
   **/
   @javax.annotation.Nullable
-  public ValidationsRedeemableSkippedResultDetails getDetails() {
-    return details;
+  public RewardsCreateRequestBodyParametersCampaign getCampaign() {
+    return campaign;
   }
 
 
-  public void setDetails(ValidationsRedeemableSkippedResultDetails details) {
-    this.details = details;
+  public void setCampaign(RewardsCreateRequestBodyParametersCampaign campaign) {
+    this.campaign = campaign;
+  }
+
+
+  public RewardsCreateRequestBodyParameters product(RewardsCreateRequestBodyParametersProduct product) {
+    
+    this.product = product;
+    return this;
+  }
+
+   /**
+   * Get product
+   * @return product
+  **/
+  @javax.annotation.Nullable
+  public RewardsCreateRequestBodyParametersProduct getProduct() {
+    return product;
+  }
+
+
+  public void setProduct(RewardsCreateRequestBodyParametersProduct product) {
+    this.product = product;
+  }
+
+
+  public RewardsCreateRequestBodyParameters coin(RewardsCreateRequestBodyParametersCoin coin) {
+    
+    this.coin = coin;
+    return this;
+  }
+
+   /**
+   * Get coin
+   * @return coin
+  **/
+  @javax.annotation.Nullable
+  public RewardsCreateRequestBodyParametersCoin getCoin() {
+    return coin;
+  }
+
+
+  public void setCoin(RewardsCreateRequestBodyParametersCoin coin) {
+    this.coin = coin;
   }
 
   /**
@@ -94,9 +146,9 @@ public class ValidationsRedeemableSkippedResult {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ValidationsRedeemableSkippedResult instance itself
+   * @return the RewardsCreateRequestBodyParameters instance itself
    */
-  public ValidationsRedeemableSkippedResult putAdditionalProperty(String key, Object value) {
+  public RewardsCreateRequestBodyParameters putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -135,9 +187,11 @@ public class ValidationsRedeemableSkippedResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationsRedeemableSkippedResult validationsRedeemableSkippedResult = (ValidationsRedeemableSkippedResult) o;
-    return Objects.equals(this.details, validationsRedeemableSkippedResult.details)&&
-        Objects.equals(this.additionalProperties, validationsRedeemableSkippedResult.additionalProperties);
+    RewardsCreateRequestBodyParameters rewardsCreateRequestBodyParameters = (RewardsCreateRequestBodyParameters) o;
+    return Objects.equals(this.campaign, rewardsCreateRequestBodyParameters.campaign) &&
+        Objects.equals(this.product, rewardsCreateRequestBodyParameters.product) &&
+        Objects.equals(this.coin, rewardsCreateRequestBodyParameters.coin)&&
+        Objects.equals(this.additionalProperties, rewardsCreateRequestBodyParameters.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -146,7 +200,7 @@ public class ValidationsRedeemableSkippedResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(details, additionalProperties);
+    return Objects.hash(campaign, product, coin, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -159,8 +213,10 @@ public class ValidationsRedeemableSkippedResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationsRedeemableSkippedResult {\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("class RewardsCreateRequestBodyParameters {\n");
+    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
+    sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    coin: ").append(toIndentedString(coin)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +240,9 @@ public class ValidationsRedeemableSkippedResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("details");
+    openapiFields.add("campaign");
+    openapiFields.add("product");
+    openapiFields.add("coin");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -194,16 +252,16 @@ public class ValidationsRedeemableSkippedResult {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ValidationsRedeemableSkippedResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ValidationsRedeemableSkippedResult' and its subtypes
+       if (!RewardsCreateRequestBodyParameters.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RewardsCreateRequestBodyParameters' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ValidationsRedeemableSkippedResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationsRedeemableSkippedResult.class));
+       final TypeAdapter<RewardsCreateRequestBodyParameters> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsCreateRequestBodyParameters.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ValidationsRedeemableSkippedResult>() {
+       return (TypeAdapter<T>) new TypeAdapter<RewardsCreateRequestBodyParameters>() {
            @Override
-           public void write(JsonWriter out, ValidationsRedeemableSkippedResult value) throws IOException {
+           public void write(JsonWriter out, RewardsCreateRequestBodyParameters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,11 +284,11 @@ public class ValidationsRedeemableSkippedResult {
            }
 
            @Override
-           public ValidationsRedeemableSkippedResult read(JsonReader in) throws IOException {
+           public RewardsCreateRequestBodyParameters read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ValidationsRedeemableSkippedResult instance = thisAdapter.fromJsonTree(jsonObj);
+             RewardsCreateRequestBodyParameters instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -257,18 +315,18 @@ public class ValidationsRedeemableSkippedResult {
   }
 
  /**
-  * Create an instance of ValidationsRedeemableSkippedResult given an JSON string
+  * Create an instance of RewardsCreateRequestBodyParameters given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ValidationsRedeemableSkippedResult
-  * @throws IOException if the JSON string is invalid with respect to ValidationsRedeemableSkippedResult
+  * @return An instance of RewardsCreateRequestBodyParameters
+  * @throws IOException if the JSON string is invalid with respect to RewardsCreateRequestBodyParameters
   */
-  public static ValidationsRedeemableSkippedResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ValidationsRedeemableSkippedResult.class);
+  public static RewardsCreateRequestBodyParameters fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RewardsCreateRequestBodyParameters.class);
   }
 
  /**
-  * Convert an instance of ValidationsRedeemableSkippedResult to an JSON string
+  * Convert an instance of RewardsCreateRequestBodyParameters to an JSON string
   *
   * @return JSON string
   */

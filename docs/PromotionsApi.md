@@ -4,6 +4,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**addPromotionTierToCampaign**](PromotionsApi.md#addPromotionTierToCampaign) | **POST** /v1/promotions/{campaignId}/tiers | Add Promotion Tier to Campaign |
 | [**createPromotionStack**](PromotionsApi.md#createPromotionStack) | **POST** /v1/promotions/{campaignId}/stacks | Create Promotion Stack |
 | [**deletePromotionStack**](PromotionsApi.md#deletePromotionStack) | **DELETE** /v1/promotions/{campaignId}/stacks/{stackId} | Delete Promotion Stack |
 | [**deletePromotionTier**](PromotionsApi.md#deletePromotionTier) | **DELETE** /v1/promotions/tiers/{promotionTierId} | Delete Promotion Tier |
@@ -15,7 +16,79 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listPromotionStacksInCampaign**](PromotionsApi.md#listPromotionStacksInCampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign |
 | [**listPromotionTiersFromCampaign**](PromotionsApi.md#listPromotionTiersFromCampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign |
 | [**updatePromotionStack**](PromotionsApi.md#updatePromotionStack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack |
+| [**updatePromotionTier**](PromotionsApi.md#updatePromotionTier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier |
 
+
+<a id="addPromotionTierToCampaign"></a>
+# **addPromotionTierToCampaign**
+> PromotionsTiersCreateResponseBody addPromotionTierToCampaign(campaignId, promotionsTiersCreateRequestBody)
+
+Add Promotion Tier to Campaign
+
+This method allows you to add a new promotion tier to an existing campaign. The tier hierarchy will be set as the next consequtive integer following the lowest ranking tier.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.PromotionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    PromotionsApi apiInstance = new PromotionsApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID assigned by Voucherify.
+    PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = new PromotionsTiersCreateRequestBody(); // PromotionsTiersCreateRequestBody | Specify the promotion tier parameters.
+    try {
+      PromotionsTiersCreateResponseBody result = apiInstance.addPromotionTierToCampaign(campaignId, promotionsTiersCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PromotionsApi#addPromotionTierToCampaign");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID assigned by Voucherify. |
+| **promotionsTiersCreateRequestBody** | [**PromotionsTiersCreateRequestBody**](PromotionsTiersCreateRequestBody.md)| Specify the promotion tier parameters. |
+
+### Return type
+
+[**PromotionsTiersCreateResponseBody**](PromotionsTiersCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a promotion tier object if the promotion tier was successfully added to the campaign. |  -  |
 
 <a id="createPromotionStack"></a>
 # **createPromotionStack**
@@ -791,4 +864,75 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a promotion stack with updated parameters if the update was successful. |  -  |
+
+<a id="updatePromotionTier"></a>
+# **updatePromotionTier**
+> PromotionsTiersUpdateResponseBody updatePromotionTier(promotionTierId, promotionsTiersUpdateRequestBody)
+
+Update Promotion Tier
+
+This method updates a promotion tier.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.PromotionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    PromotionsApi apiInstance = new PromotionsApi(defaultClient);
+    String promotionTierId = "promotionTierId_example"; // String | Unique promotion tier ID.
+    PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = new PromotionsTiersUpdateRequestBody(); // PromotionsTiersUpdateRequestBody | Specify the promotion tier parameters that you would like to update.
+    try {
+      PromotionsTiersUpdateResponseBody result = apiInstance.updatePromotionTier(promotionTierId, promotionsTiersUpdateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PromotionsApi#updatePromotionTier");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **promotionTierId** | **String**| Unique promotion tier ID. |
+| **promotionsTiersUpdateRequestBody** | [**PromotionsTiersUpdateRequestBody**](PromotionsTiersUpdateRequestBody.md)| Specify the promotion tier parameters that you would like to update. |
+
+### Return type
+
+[**PromotionsTiersUpdateResponseBody**](PromotionsTiersUpdateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a promotion tier object if the update was successful. |  -  |
 

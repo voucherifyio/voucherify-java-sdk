@@ -8,7 +8,7 @@ Provides details about the reason why the redeemable is skipped.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**details** | [**ValidationsRedeemableSkippedDetails**](ValidationsRedeemableSkippedDetails.md) |  |
+|**details** | [**ValidationsRedeemableSkippedResultDetails**](ValidationsRedeemableSkippedResultDetails.md) |  |
 
 
 
