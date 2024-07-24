@@ -4,13 +4,86 @@ All URIs are relative to *https://api.voucherify.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**createReward**](RewardsApi.md#createReward) | **POST** /v1/rewards | Create Reward |
 | [**createRewardAssignment**](RewardsApi.md#createRewardAssignment) | **POST** /v1/rewards/{rewardId}/assignments | Create Reward Assignment |
 | [**deleteReward**](RewardsApi.md#deleteReward) | **DELETE** /v1/rewards/{rewardId} | Delete Reward |
 | [**deleteRewardAssignment**](RewardsApi.md#deleteRewardAssignment) | **DELETE** /v1/rewards/{rewardId}/assignments/{assignmentId} | Delete Reward Assignment |
+| [**getReward**](RewardsApi.md#getReward) | **GET** /v1/rewards/{rewardId} | Get Reward |
 | [**getRewardAssignment**](RewardsApi.md#getRewardAssignment) | **GET** /v1/rewards/{rewardId}/assignments/{assignmentId} | Get Reward Assignment |
 | [**listRewardAssignments**](RewardsApi.md#listRewardAssignments) | **GET** /v1/rewards/{rewardId}/assignments | List Reward Assignments |
+| [**listRewards**](RewardsApi.md#listRewards) | **GET** /v1/rewards | List Rewards |
+| [**updateReward**](RewardsApi.md#updateReward) | **PUT** /v1/rewards/{rewardId} | Update Reward |
 | [**updateRewardAssignment**](RewardsApi.md#updateRewardAssignment) | **PUT** /v1/rewards/{rewardId}/assignments/{assignmentId} | Update Reward Assignment |
 
+
+<a id="createReward"></a>
+# **createReward**
+> Reward createReward(rewardsCreateRequestBody)
+
+Create Reward
+
+Create a new reward.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RewardsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    RewardsApi apiInstance = new RewardsApi(defaultClient);
+    RewardsCreateRequestBody rewardsCreateRequestBody = new RewardsCreateRequestBody(); // RewardsCreateRequestBody | Define parameters of the new reward.
+    try {
+      Reward result = apiInstance.createReward(rewardsCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RewardsApi#createReward");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **rewardsCreateRequestBody** | [**RewardsCreateRequestBody**](RewardsCreateRequestBody.md)| Define parameters of the new reward. |
+
+### Return type
+
+[**Reward**](Reward.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a reward object. |  -  |
 
 <a id="createRewardAssignment"></a>
 # **createRewardAssignment**
@@ -221,6 +294,75 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **204** | Returns no content if deletion is successful. |  -  |
 
+<a id="getReward"></a>
+# **getReward**
+> Reward getReward(rewardId)
+
+Get Reward
+
+Retrieve a reward by the reward ID.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RewardsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    RewardsApi apiInstance = new RewardsApi(defaultClient);
+    String rewardId = "rewardId_example"; // String | A unique reward ID.
+    try {
+      Reward result = apiInstance.getReward(rewardId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RewardsApi#getReward");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **rewardId** | **String**| A unique reward ID. |
+
+### Return type
+
+[**Reward**](Reward.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a reward object if a valid identifier was provided.  |  -  |
+
 <a id="getRewardAssignment"></a>
 # **getRewardAssignment**
 > RewardsAssignmentsGetResponseBody getRewardAssignment(rewardId, assignmentId)
@@ -364,6 +506,150 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. |  -  |
+
+<a id="listRewards"></a>
+# **listRewards**
+> RewardsListResponseBody listRewards(limit, page, assignmentId)
+
+List Rewards
+
+Retrieve rewards.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RewardsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    RewardsApi apiInstance = new RewardsApi(defaultClient);
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    String assignmentId = "assignmentId_example"; // String | A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID.
+    try {
+      RewardsListResponseBody result = apiInstance.listRewards(limit, page, assignmentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RewardsApi#listRewards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **assignmentId** | **String**| A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. |
+
+### Return type
+
+[**RewardsListResponseBody**](RewardsListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary of reward objects. |  -  |
+
+<a id="updateReward"></a>
+# **updateReward**
+> Reward updateReward(rewardId, rewardsUpdateRequestBody)
+
+Update Reward
+
+Update the details of a reward.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.RewardsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    RewardsApi apiInstance = new RewardsApi(defaultClient);
+    String rewardId = "rewardId_example"; // String | A unique reward ID.
+    RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody(); // RewardsUpdateRequestBody | Define the parameters to be updated for the reward.
+    try {
+      Reward result = apiInstance.updateReward(rewardId, rewardsUpdateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RewardsApi#updateReward");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **rewardId** | **String**| A unique reward ID. |
+| **rewardsUpdateRequestBody** | [**RewardsUpdateRequestBody**](RewardsUpdateRequestBody.md)| Define the parameters to be updated for the reward. |
+
+### Return type
+
+[**Reward**](Reward.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns an updated reward object. |  -  |
 
 <a id="updateRewardAssignment"></a>
 # **updateRewardAssignment**

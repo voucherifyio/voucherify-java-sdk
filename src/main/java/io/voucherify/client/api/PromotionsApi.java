@@ -36,10 +36,14 @@ import io.voucherify.client.model.PromotionsStacksGetResponseBody;
 import io.voucherify.client.model.PromotionsStacksListResponseBody;
 import io.voucherify.client.model.PromotionsStacksUpdateRequestBody;
 import io.voucherify.client.model.PromotionsStacksUpdateResponseBody;
+import io.voucherify.client.model.PromotionsTiersCreateRequestBody;
+import io.voucherify.client.model.PromotionsTiersCreateResponseBody;
 import io.voucherify.client.model.PromotionsTiersDisableResponseBody;
 import io.voucherify.client.model.PromotionsTiersEnableResponseBody;
 import io.voucherify.client.model.PromotionsTiersGetResponseBody;
 import io.voucherify.client.model.PromotionsTiersListResponseBody;
+import io.voucherify.client.model.PromotionsTiersUpdateRequestBody;
+import io.voucherify.client.model.PromotionsTiersUpdateResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -84,6 +88,114 @@ public class PromotionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for addPromotionTierToCampaign
+     * @param campaignId Unique campaign ID assigned by Voucherify. (required)
+     * @param promotionsTiersCreateRequestBody Specify the promotion tier parameters. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call addPromotionTierToCampaignCall(String campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = promotionsTiersCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/promotions/{campaignId}/tiers"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addPromotionTierToCampaignValidateBeforeCall(String campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling addPromotionTierToCampaign(Async)");
+        }
+
+        return addPromotionTierToCampaignCall(campaignId, promotionsTiersCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Add Promotion Tier to Campaign
+     * This method allows you to add a new promotion tier to an existing campaign. The tier hierarchy will be set as the next consequtive integer following the lowest ranking tier.
+     * @param campaignId Unique campaign ID assigned by Voucherify. (required)
+     * @param promotionsTiersCreateRequestBody Specify the promotion tier parameters. (optional)
+     * @return PromotionsTiersCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PromotionsTiersCreateResponseBody addPromotionTierToCampaign(String campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody) throws ApiException {
+        ApiResponse<PromotionsTiersCreateResponseBody> localVarResp = addPromotionTierToCampaignWithHttpInfo(campaignId, promotionsTiersCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add Promotion Tier to Campaign
+     * This method allows you to add a new promotion tier to an existing campaign. The tier hierarchy will be set as the next consequtive integer following the lowest ranking tier.
+     * @param campaignId Unique campaign ID assigned by Voucherify. (required)
+     * @param promotionsTiersCreateRequestBody Specify the promotion tier parameters. (optional)
+     * @return ApiResponse&lt;PromotionsTiersCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PromotionsTiersCreateResponseBody> addPromotionTierToCampaignWithHttpInfo(String campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = addPromotionTierToCampaignValidateBeforeCall(campaignId, promotionsTiersCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<PromotionsTiersCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add Promotion Tier to Campaign (asynchronously)
+     * This method allows you to add a new promotion tier to an existing campaign. The tier hierarchy will be set as the next consequtive integer following the lowest ranking tier.
+     * @param campaignId Unique campaign ID assigned by Voucherify. (required)
+     * @param promotionsTiersCreateRequestBody Specify the promotion tier parameters. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call addPromotionTierToCampaignAsync(String campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, final ApiCallback<PromotionsTiersCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addPromotionTierToCampaignValidateBeforeCall(campaignId, promotionsTiersCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<PromotionsTiersCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createPromotionStack
      * @param campaignId Unique campaign ID. (required)
@@ -1274,6 +1386,114 @@ public class PromotionsApi {
 
         okhttp3.Call localVarCall = updatePromotionStackValidateBeforeCall(campaignId, stackId, promotionsStacksUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<PromotionsStacksUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updatePromotionTier
+     * @param promotionTierId Unique promotion tier ID. (required)
+     * @param promotionsTiersUpdateRequestBody Specify the promotion tier parameters that you would like to update. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updatePromotionTierCall(String promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = promotionsTiersUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/promotions/tiers/{promotionTierId}"
+            .replace("{" + "promotionTierId" + "}", localVarApiClient.escapeString(promotionTierId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updatePromotionTierValidateBeforeCall(String promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'promotionTierId' is set
+        if (promotionTierId == null) {
+            throw new ApiException("Missing the required parameter 'promotionTierId' when calling updatePromotionTier(Async)");
+        }
+
+        return updatePromotionTierCall(promotionTierId, promotionsTiersUpdateRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Promotion Tier
+     * This method updates a promotion tier.
+     * @param promotionTierId Unique promotion tier ID. (required)
+     * @param promotionsTiersUpdateRequestBody Specify the promotion tier parameters that you would like to update. (optional)
+     * @return PromotionsTiersUpdateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PromotionsTiersUpdateResponseBody updatePromotionTier(String promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody) throws ApiException {
+        ApiResponse<PromotionsTiersUpdateResponseBody> localVarResp = updatePromotionTierWithHttpInfo(promotionTierId, promotionsTiersUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Promotion Tier
+     * This method updates a promotion tier.
+     * @param promotionTierId Unique promotion tier ID. (required)
+     * @param promotionsTiersUpdateRequestBody Specify the promotion tier parameters that you would like to update. (optional)
+     * @return ApiResponse&lt;PromotionsTiersUpdateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PromotionsTiersUpdateResponseBody> updatePromotionTierWithHttpInfo(String promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updatePromotionTierValidateBeforeCall(promotionTierId, promotionsTiersUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<PromotionsTiersUpdateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Promotion Tier (asynchronously)
+     * This method updates a promotion tier.
+     * @param promotionTierId Unique promotion tier ID. (required)
+     * @param promotionsTiersUpdateRequestBody Specify the promotion tier parameters that you would like to update. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updatePromotionTierAsync(String promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, final ApiCallback<PromotionsTiersUpdateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updatePromotionTierValidateBeforeCall(promotionTierId, promotionsTiersUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<PromotionsTiersUpdateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

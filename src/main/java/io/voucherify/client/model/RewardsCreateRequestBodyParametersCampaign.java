@@ -48,116 +48,61 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ValidationsRedeemableSkippedDetails
+ * RewardsCreateRequestBodyParametersCampaign
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ValidationsRedeemableSkippedDetails {
-  /**
-   * Gets or Sets key
-   */
-  @JsonAdapter(KeyEnum.Adapter.class)
-  public enum KeyEnum {
-    APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED("applicable_redeemables_limit_exceeded"),
-    
-    APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED("applicable_redeemables_per_category_limit_exceeded"),
-    
-    APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT_EXCEEDED("applicable_exclusive_redeemables_limit_exceeded"),
-    
-    APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED("applicable_exclusive_redeemables_per_category_limit_exceeded"),
-    
-    EXCLUSION_RULES_NOT_MET("exclusion_rules_not_met"),
-    
-    PRECEDING_VALIDATION_FAILED("preceding_validation_failed");
+public class RewardsCreateRequestBodyParametersCampaign {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-    private String value;
+  public static final String SERIALIZED_NAME_BALANCE = "balance";
+  @SerializedName(SERIALIZED_NAME_BALANCE)
+  private Integer balance;
 
-    KeyEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static KeyEnum fromValue(String value) {
-      for (KeyEnum b : KeyEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<KeyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final KeyEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public KeyEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return KeyEnum.fromValue(value);
-      }
-    }
+  public RewardsCreateRequestBodyParametersCampaign() {
   }
 
-  public static final String SERIALIZED_NAME_KEY = "key";
-  @SerializedName(SERIALIZED_NAME_KEY)
-  private KeyEnum key;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
-  public ValidationsRedeemableSkippedDetails() {
-  }
-
-  public ValidationsRedeemableSkippedDetails key(KeyEnum key) {
+  public RewardsCreateRequestBodyParametersCampaign id(String id) {
     
-    this.key = key;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
-  public KeyEnum getKey() {
-    return key;
+  public String getId() {
+    return id;
   }
 
 
-  public void setKey(KeyEnum key) {
-    this.key = key;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public ValidationsRedeemableSkippedDetails message(String message) {
+  public RewardsCreateRequestBodyParametersCampaign balance(Integer balance) {
     
-    this.message = message;
+    this.balance = balance;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * The incremental points to be added to the current balance on the loyalty card. and The incremental amout to be added to the current balance on the gift card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+   * @return balance
   **/
   @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
+  public Integer getBalance() {
+    return balance;
   }
 
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setBalance(Integer balance) {
+    this.balance = balance;
   }
 
   /**
@@ -173,9 +118,9 @@ public class ValidationsRedeemableSkippedDetails {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ValidationsRedeemableSkippedDetails instance itself
+   * @return the RewardsCreateRequestBodyParametersCampaign instance itself
    */
-  public ValidationsRedeemableSkippedDetails putAdditionalProperty(String key, Object value) {
+  public RewardsCreateRequestBodyParametersCampaign putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -214,10 +159,10 @@ public class ValidationsRedeemableSkippedDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationsRedeemableSkippedDetails validationsRedeemableSkippedDetails = (ValidationsRedeemableSkippedDetails) o;
-    return Objects.equals(this.key, validationsRedeemableSkippedDetails.key) &&
-        Objects.equals(this.message, validationsRedeemableSkippedDetails.message)&&
-        Objects.equals(this.additionalProperties, validationsRedeemableSkippedDetails.additionalProperties);
+    RewardsCreateRequestBodyParametersCampaign rewardsCreateRequestBodyParametersCampaign = (RewardsCreateRequestBodyParametersCampaign) o;
+    return Objects.equals(this.id, rewardsCreateRequestBodyParametersCampaign.id) &&
+        Objects.equals(this.balance, rewardsCreateRequestBodyParametersCampaign.balance)&&
+        Objects.equals(this.additionalProperties, rewardsCreateRequestBodyParametersCampaign.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -226,7 +171,7 @@ public class ValidationsRedeemableSkippedDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, message, additionalProperties);
+    return Objects.hash(id, balance, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -239,9 +184,9 @@ public class ValidationsRedeemableSkippedDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationsRedeemableSkippedDetails {\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class RewardsCreateRequestBodyParametersCampaign {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -265,8 +210,8 @@ public class ValidationsRedeemableSkippedDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("key");
-    openapiFields.add("message");
+    openapiFields.add("id");
+    openapiFields.add("balance");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -276,16 +221,16 @@ public class ValidationsRedeemableSkippedDetails {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ValidationsRedeemableSkippedDetails.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ValidationsRedeemableSkippedDetails' and its subtypes
+       if (!RewardsCreateRequestBodyParametersCampaign.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RewardsCreateRequestBodyParametersCampaign' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ValidationsRedeemableSkippedDetails> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationsRedeemableSkippedDetails.class));
+       final TypeAdapter<RewardsCreateRequestBodyParametersCampaign> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsCreateRequestBodyParametersCampaign.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ValidationsRedeemableSkippedDetails>() {
+       return (TypeAdapter<T>) new TypeAdapter<RewardsCreateRequestBodyParametersCampaign>() {
            @Override
-           public void write(JsonWriter out, ValidationsRedeemableSkippedDetails value) throws IOException {
+           public void write(JsonWriter out, RewardsCreateRequestBodyParametersCampaign value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -308,11 +253,11 @@ public class ValidationsRedeemableSkippedDetails {
            }
 
            @Override
-           public ValidationsRedeemableSkippedDetails read(JsonReader in) throws IOException {
+           public RewardsCreateRequestBodyParametersCampaign read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ValidationsRedeemableSkippedDetails instance = thisAdapter.fromJsonTree(jsonObj);
+             RewardsCreateRequestBodyParametersCampaign instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -339,18 +284,18 @@ public class ValidationsRedeemableSkippedDetails {
   }
 
  /**
-  * Create an instance of ValidationsRedeemableSkippedDetails given an JSON string
+  * Create an instance of RewardsCreateRequestBodyParametersCampaign given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ValidationsRedeemableSkippedDetails
-  * @throws IOException if the JSON string is invalid with respect to ValidationsRedeemableSkippedDetails
+  * @return An instance of RewardsCreateRequestBodyParametersCampaign
+  * @throws IOException if the JSON string is invalid with respect to RewardsCreateRequestBodyParametersCampaign
   */
-  public static ValidationsRedeemableSkippedDetails fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ValidationsRedeemableSkippedDetails.class);
+  public static RewardsCreateRequestBodyParametersCampaign fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RewardsCreateRequestBodyParametersCampaign.class);
   }
 
  /**
-  * Convert an instance of ValidationsRedeemableSkippedDetails to an JSON string
+  * Convert an instance of RewardsCreateRequestBodyParametersCampaign to an JSON string
   *
   * @return JSON string
   */
