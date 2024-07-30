@@ -91,6 +91,7 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
+
 // Import classes:
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
@@ -102,14 +103,14 @@ import io.voucherify.client.api.CampaignsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://us1.api.voucherify.io"); //(defaults to "https://api.voucherify.io")
+        defaultClient.setBasePath("https://api.voucherify.io");
         
         // Configure API key authorization: X-App-Id
-        defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+        defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
     
         // Configure API key authorization: X-App-Token
-        defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
-    
+        defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
+
         CampaignsApi apiInstance = new CampaignsApi(defaultClient);
         String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
         String code = "code_example"; // String | A custom **code** that identifies the voucher.
@@ -126,6 +127,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 It may be useful to check the test implementation in the folder **test** `(./src/test)`
@@ -170,11 +172,11 @@ import io.voucherify.client.auth.ApiKeyAuth;
 public class Main {
     public static ApiClient getClient() {}
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         defaultClient.setBasePath("https://api.voucherify.io");
         defaultClient.setAuthentication("X-App-Id", "YOUR_X_APP_ID");
         defaultClient.setAuthentication("X-App-Token", "YOUR_X_APP_TOKEN");
-        
+
         return defaultClient;
     }
 }
@@ -275,6 +277,7 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**updateProductsInBulk**](docs/ProductsApi.md#updateProductsInBulk) | **POST** /v1/products/bulk/async | Update Products in bulk
 *ProductsApi* | [**updateProductsMetadataInBulk**](docs/ProductsApi.md#updateProductsMetadataInBulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in bulk
 *ProductsApi* | [**updateSku**](docs/ProductsApi.md#updateSku) | **PUT** /v1/products/{productId}/skus/{skuId} | Update SKU
+*PromotionsApi* | [**addPromotionTierToCampaign**](docs/PromotionsApi.md#addPromotionTierToCampaign) | **POST** /v1/promotions/{campaignId}/tiers | Add Promotion Tier to Campaign
 *PromotionsApi* | [**createPromotionStack**](docs/PromotionsApi.md#createPromotionStack) | **POST** /v1/promotions/{campaignId}/stacks | Create Promotion Stack
 *PromotionsApi* | [**deletePromotionStack**](docs/PromotionsApi.md#deletePromotionStack) | **DELETE** /v1/promotions/{campaignId}/stacks/{stackId} | Delete Promotion Stack
 *PromotionsApi* | [**deletePromotionTier**](docs/PromotionsApi.md#deletePromotionTier) | **DELETE** /v1/promotions/tiers/{promotionTierId} | Delete Promotion Tier
@@ -286,6 +289,7 @@ Class | Method | HTTP request | Description
 *PromotionsApi* | [**listPromotionStacksInCampaign**](docs/PromotionsApi.md#listPromotionStacksInCampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign
 *PromotionsApi* | [**listPromotionTiersFromCampaign**](docs/PromotionsApi.md#listPromotionTiersFromCampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign
 *PromotionsApi* | [**updatePromotionStack**](docs/PromotionsApi.md#updatePromotionStack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack
+*PromotionsApi* | [**updatePromotionTier**](docs/PromotionsApi.md#updatePromotionTier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier
 *PublicationsApi* | [**createPublication**](docs/PublicationsApi.md#createPublication) | **POST** /v1/publications | Create Publication
 *PublicationsApi* | [**createPublication1**](docs/PublicationsApi.md#createPublication1) | **GET** /v1/publications/create | Create Publication
 *PublicationsApi* | [**listPublications**](docs/PublicationsApi.md#listPublications) | **GET** /v1/publications | List Publications
@@ -296,11 +300,15 @@ Class | Method | HTTP request | Description
 *RedemptionsApi* | [**redeemStackedDiscounts**](docs/RedemptionsApi.md#redeemStackedDiscounts) | **POST** /v1/redemptions | Redeem Stackable Discounts
 *RedemptionsApi* | [**rollbackRedemption**](docs/RedemptionsApi.md#rollbackRedemption) | **POST** /v1/redemptions/{redemptionId}/rollback | Rollback Redemption
 *RedemptionsApi* | [**rollbackStackedRedemptions**](docs/RedemptionsApi.md#rollbackStackedRedemptions) | **POST** /v1/redemptions/{parentRedemptionId}/rollbacks | Rollback Stackable Redemptions
+*RewardsApi* | [**createReward**](docs/RewardsApi.md#createReward) | **POST** /v1/rewards | Create Reward
 *RewardsApi* | [**createRewardAssignment**](docs/RewardsApi.md#createRewardAssignment) | **POST** /v1/rewards/{rewardId}/assignments | Create Reward Assignment
 *RewardsApi* | [**deleteReward**](docs/RewardsApi.md#deleteReward) | **DELETE** /v1/rewards/{rewardId} | Delete Reward
 *RewardsApi* | [**deleteRewardAssignment**](docs/RewardsApi.md#deleteRewardAssignment) | **DELETE** /v1/rewards/{rewardId}/assignments/{assignmentId} | Delete Reward Assignment
+*RewardsApi* | [**getReward**](docs/RewardsApi.md#getReward) | **GET** /v1/rewards/{rewardId} | Get Reward
 *RewardsApi* | [**getRewardAssignment**](docs/RewardsApi.md#getRewardAssignment) | **GET** /v1/rewards/{rewardId}/assignments/{assignmentId} | Get Reward Assignment
 *RewardsApi* | [**listRewardAssignments**](docs/RewardsApi.md#listRewardAssignments) | **GET** /v1/rewards/{rewardId}/assignments | List Reward Assignments
+*RewardsApi* | [**listRewards**](docs/RewardsApi.md#listRewards) | **GET** /v1/rewards | List Rewards
+*RewardsApi* | [**updateReward**](docs/RewardsApi.md#updateReward) | **PUT** /v1/rewards/{rewardId} | Update Reward
 *RewardsApi* | [**updateRewardAssignment**](docs/RewardsApi.md#updateRewardAssignment) | **PUT** /v1/rewards/{rewardId}/assignments/{assignmentId} | Update Reward Assignment
 *SegmentsApi* | [**deleteSegment**](docs/SegmentsApi.md#deleteSegment) | **DELETE** /v1/segments/{segmentId} | Delete Segment
 *ValidationRulesApi* | [**createValidationRuleAssignment**](docs/ValidationRulesApi.md#createValidationRuleAssignment) | **POST** /v1/validation-rules/{validationRuleId}/assignments | Create Validation Rules Assignments
@@ -604,10 +612,12 @@ Class | Method | HTTP request | Description
 - [PromotionTier](docs/PromotionTier.md)
 - [PromotionTierAction](docs/PromotionTierAction.md)
 - [PromotionTierCampaign](docs/PromotionTierCampaign.md)
+- [PromotionTierCreate](docs/PromotionTierCreate.md)
 - [PromotionTierCreateParams](docs/PromotionTierCreateParams.md)
 - [PromotionTierSummary](docs/PromotionTierSummary.md)
 - [PromotionTierSummaryOrders](docs/PromotionTierSummaryOrders.md)
 - [PromotionTierSummaryRedemptions](docs/PromotionTierSummaryRedemptions.md)
+- [PromotionTierUpdate](docs/PromotionTierUpdate.md)
 - [PromotionTiersList](docs/PromotionTiersList.md)
 - [PromotionsStacksCreateRequestBody](docs/PromotionsStacksCreateRequestBody.md)
 - [PromotionsStacksCreateResponseBody](docs/PromotionsStacksCreateResponseBody.md)
@@ -616,10 +626,14 @@ Class | Method | HTTP request | Description
 - [PromotionsStacksUpdateRequestBody](docs/PromotionsStacksUpdateRequestBody.md)
 - [PromotionsStacksUpdateRequestBodyTiers](docs/PromotionsStacksUpdateRequestBodyTiers.md)
 - [PromotionsStacksUpdateResponseBody](docs/PromotionsStacksUpdateResponseBody.md)
+- [PromotionsTiersCreateRequestBody](docs/PromotionsTiersCreateRequestBody.md)
+- [PromotionsTiersCreateResponseBody](docs/PromotionsTiersCreateResponseBody.md)
 - [PromotionsTiersDisableResponseBody](docs/PromotionsTiersDisableResponseBody.md)
 - [PromotionsTiersEnableResponseBody](docs/PromotionsTiersEnableResponseBody.md)
 - [PromotionsTiersGetResponseBody](docs/PromotionsTiersGetResponseBody.md)
 - [PromotionsTiersListResponseBody](docs/PromotionsTiersListResponseBody.md)
+- [PromotionsTiersUpdateRequestBody](docs/PromotionsTiersUpdateRequestBody.md)
+- [PromotionsTiersUpdateResponseBody](docs/PromotionsTiersUpdateResponseBody.md)
 - [PublicationsCreateRequestBody](docs/PublicationsCreateRequestBody.md)
 - [PublicationsCreateRequestBodyCustomer](docs/PublicationsCreateRequestBodyCustomer.md)
 - [PublicationsCreateRequestBodyCustomerAddress](docs/PublicationsCreateRequestBodyCustomerAddress.md)
@@ -767,6 +781,15 @@ Class | Method | HTTP request | Description
 - [RewardsAssignmentsUpdateRequestBodyParameters](docs/RewardsAssignmentsUpdateRequestBodyParameters.md)
 - [RewardsAssignmentsUpdateRequestBodyParametersLoyalty](docs/RewardsAssignmentsUpdateRequestBodyParametersLoyalty.md)
 - [RewardsAssignmentsUpdateResponseBody](docs/RewardsAssignmentsUpdateResponseBody.md)
+- [RewardsCreateRequestBody](docs/RewardsCreateRequestBody.md)
+- [RewardsCreateRequestBodyParameters](docs/RewardsCreateRequestBodyParameters.md)
+- [RewardsCreateRequestBodyParametersCampaign](docs/RewardsCreateRequestBodyParametersCampaign.md)
+- [RewardsCreateRequestBodyParametersCoin](docs/RewardsCreateRequestBodyParametersCoin.md)
+- [RewardsCreateRequestBodyParametersProduct](docs/RewardsCreateRequestBodyParametersProduct.md)
+- [RewardsListResponseBody](docs/RewardsListResponseBody.md)
+- [RewardsUpdateRequestBody](docs/RewardsUpdateRequestBody.md)
+- [RewardsUpdateRequestBodyParameters](docs/RewardsUpdateRequestBodyParameters.md)
+- [RewardsUpdateRequestBodyParametersCampaign](docs/RewardsUpdateRequestBodyParametersCampaign.md)
 - [Session](docs/Session.md)
 - [SimpleCustomer](docs/SimpleCustomer.md)
 - [SimpleCustomerRequiredObjectType](docs/SimpleCustomerRequiredObjectType.md)
@@ -807,8 +830,8 @@ Class | Method | HTTP request | Description
 - [ValidationsRedeemableInapplicableResult](docs/ValidationsRedeemableInapplicableResult.md)
 - [ValidationsRedeemableInapplicableResultDetails](docs/ValidationsRedeemableInapplicableResultDetails.md)
 - [ValidationsRedeemableSkipped](docs/ValidationsRedeemableSkipped.md)
-- [ValidationsRedeemableSkippedDetails](docs/ValidationsRedeemableSkippedDetails.md)
 - [ValidationsRedeemableSkippedResult](docs/ValidationsRedeemableSkippedResult.md)
+- [ValidationsRedeemableSkippedResultDetails](docs/ValidationsRedeemableSkippedResultDetails.md)
 - [ValidationsValidateRequestBody](docs/ValidationsValidateRequestBody.md)
 - [ValidationsValidateResponseBody](docs/ValidationsValidateResponseBody.md)
 - [ValidationsValidateResponseBodyRedeemablesItem](docs/ValidationsValidateResponseBodyRedeemablesItem.md)
@@ -895,4 +918,3 @@ Authentication schemes defined for the API:
 ## Recommendation
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
