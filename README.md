@@ -101,15 +101,15 @@ import io.voucherify.client.models.*;
 import io.voucherify.client.api.CampaignsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.voucherify.io");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.voucherify.io");
+        
+        // Configure API key authorization: X-App-Id
+        defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
     
-    // Configure API key authorization: X-App-Id
-    defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
-
-    // Configure API key authorization: X-App-Token
-    defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
+        // Configure API key authorization: X-App-Token
+        defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
 
         CampaignsApi apiInstance = new CampaignsApi(defaultClient);
         String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
