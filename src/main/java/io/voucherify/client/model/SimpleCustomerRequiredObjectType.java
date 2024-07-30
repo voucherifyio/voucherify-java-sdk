@@ -108,7 +108,7 @@ public class SimpleCustomerRequiredObjectType {
   }
 
    /**
-   * The merchant’s customer ID if it is different from the Voucherify customer ID. It is really useful in case of an integration between multiple systems. It can be a customer ID from a CRM system, database or 3rd-party service.
+   * The merchant&#39;s customer ID if it is different from the Voucherify customer ID. It is really useful in case of an integration between multiple systems. It can be a customer ID from a CRM system, database or 3rd-party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable

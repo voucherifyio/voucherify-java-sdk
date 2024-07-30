@@ -130,7 +130,7 @@ paths:
           $ref: '#/components/schemas/CreatePublicationCampaign'
         style: deepObject
       - description: |-
-          The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+          The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
           If source_id is provided only 1 voucher can be published per request.
         explode: true
         in: query
@@ -5875,7 +5875,7 @@ paths:
                     total: 3
               schema:
                 $ref: '#/components/schemas/PublicationsListResponseBody'
-          description: "Returns a list of publications you’ve previously created with\
+          description: "Returns a list of publications you've previously created with\
             \ <!-- [create publication](OpenAPI.json/paths/~1publications/post) -->[create\
             \ publication](ref:create-publication) or implicitly by the distribution\
             \ manager. The publications are returned in sorted order, with the most\
@@ -17062,6 +17062,118 @@ paths:
       tags:
       - Segments
       x-accepts: application/json
+    get:
+      description: Retrieves the segment with given segment ID.
+      operationId: get-segment
+      parameters:
+      - description: A unique customer segment ID.
+        explode: false
+        in: path
+        name: segmentId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterSegmentId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Tier Segment:
+                  value:
+                    id: seg_Mv5w1b2FIEbiCCO5ioT8TfI2
+                    name: Tiers 2 - Senior
+                    created_at: 2022-06-09T13:21:26.656Z
+                    type: auto-update
+                    filter:
+                      junction: and
+                      loyalty_points.campaigns.Tiers 2.points:
+                        conditions:
+                          $more_than_equal:
+                          - 41
+                    initial_sync_status: DONE
+                    object: segment
+              schema:
+                $ref: '#/components/schemas/SegmentsGetResponseBody'
+          description: Returns segment object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Get Segment
+      tags:
+      - Segments
+      x-accepts: application/json
+  /v1/segments:
+    post:
+      description: |-
+        Create a customer segment.
+         🚧 Limit on Static Segments
+         There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+      operationId: create-segment
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Static Segment:
+                value:
+                  name: Customers in a new Segment
+                  type: static
+                  customers:
+                  - cust_iajsExT2QB4sGWzABY85WRqV
+                  - cust_sehkNIi8Uq2qQuRqSr7xn4Zi
+              Dynamic:
+                value:
+                  name: Customers in a new Dynamic Segment
+                  type: auto-update
+                  filter:
+                    junction: and
+                    created_at:
+                      conditions:
+                        $after:
+                        - 2021-12-01T00:00:00.000Z
+            schema:
+              $ref: '#/components/schemas/SegmentsCreateRequestBody'
+        description: Specify the boundary conditions for the customer segment.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Static:
+                  value:
+                    id: seg_vC8iOSCqUG02EsPzsHynLv8i
+                    name: Customers in a new Segment
+                    created_at: 2022-09-13T08:57:15.801Z
+                    type: static
+                    filter: null
+                    initial_sync_status: DONE
+                    object: segment
+                Dynamic:
+                  value:
+                    id: seg_nZULMFHhVWIFm9vQ0dytg83Q
+                    name: Customers in a new Dynamic Segment
+                    created_at: 2022-09-13T09:03:32.764Z
+                    type: auto-update
+                    filter:
+                      junction: and
+                      created_at:
+                        conditions:
+                          $after:
+                          - 2021-12-01T00:00:00.000Z
+                    initial_sync_status: IN_PROGRESS
+                    object: segment
+              schema:
+                $ref: '#/components/schemas/SegmentsCreateResponseBody'
+          description: Returns a customer segment object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Segment
+      tags:
+      - Segments
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/events:
     post:
       description: "To track a custom event, you create an event object.  \nThe event\
@@ -17138,6 +17250,520 @@ paths:
       tags:
       - Events
       x-content-type: application/json
+      x-accepts: application/json
+  /v1/async-actions:
+    get:
+      description: "Track asynchronous operations scheduled in your project.  \nThe\
+        \ table below lists the possible types of async actions. The types are different\
+        \ for each endpoint generating the async action. If you would like to learn\
+        \ more about importing data into Voucherify, read more [here](https://support.voucherify.io/article/574-data-import).\n\
+        \n\n\n\n \n"
+      operationId: list-async-actions
+      parameters:
+      - description: Limit the number of asynchronous actions that the API returns
+          in the response.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: 'Limits results to actions scheduled before the end_date. The
+          date format needs to be consistent with ISO 8601 format (2016-11-16T14:14:31Z
+          or 2016-11-16). '
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterDate'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                List Async Actions:
+                  value:
+                    object: list
+                    data_ref: async_actions
+                    async_actions:
+                    - id: aa_0ba518c55290c6fd62
+                      type: CUSTOMERS.BULK_UPDATE
+                      status: DONE
+                      created_at: 2022-09-05T11:40:17.098Z
+                      updated_at: 2022-09-05T11:40:17.887Z
+                      request_id: v-0ba518c52bc99858f0
+                      progress: 100
+                      object: async_action
+                    - id: aa_0ba50a7ff4d3574568
+                      type: CUSTOMERS.METADATA_UPDATE
+                      status: DONE
+                      created_at: 2022-09-05T10:37:56.051Z
+                      updated_at: 2022-09-05T10:37:56.862Z
+                      request_id: v-0ba50a7feb49984902
+                      progress: 100
+                      object: async_action
+              schema:
+                $ref: '#/components/schemas/AsyncActionsListResponseBody'
+          description: "Returns a list of all scheduled asynchronous actions and detailed\
+            \ information for each scheduled action. Note that a status `DONE`doesn't\
+            \ include the result of the completed action. If you need more information\
+            \ about the result, use the ID of the respective async action to call\
+            \ the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
+            \ -->[Get Async Action](ref:get-async-action) endpoint."
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Async Actions
+      tags:
+      - Async Actions
+      x-accepts: application/json
+  /v1/async-actions/{asyncActionId}:
+    get:
+      description: "Check the result of a scheduled asynchronous operation.  \nThe\
+        \ table below lists the possible types of async actions. The types are different\
+        \ for each endpoint generating the async action. If you would like to learn\
+        \ more about importing data into Voucherify, read more [here](https://support.voucherify.io/article/574-data-import).\n\
+        \n\n\n\n \n"
+      operationId: get-async-action
+      parameters:
+      - description: Unique ID of the asynchronous operation.
+        explode: false
+        in: path
+        name: asyncActionId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterAsyncActionId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                CAMPAIGN.VOUCHERS_IMPORT:
+                  value:
+                    id: aa_0af9b22296cf473a10
+                    type: CAMPAIGN.VOUCHERS_IMPORT
+                    status: DONE
+                    result:
+                      message: "0 voucher(s) imported successfully, 3 failed."
+                      failed:
+                      - code: CODE9
+                        reason: "unit: must be a number, property is required (actual\
+                          \ value is 'EUR')"
+                      - code: CODE8
+                        reason: "unit: must be a number, property is required (actual\
+                          \ value is 'EUR')"
+                      - code: CODE7
+                        reason: "unit: must be a number, property is required (actual\
+                          \ value is 'EUR')"
+                      done_count: 0
+                      failed_count: 3
+                    created_at: 2023-01-20T07:23:43.289Z
+                    updated_at: 2023-01-20T07:23:44.044Z
+                    request_id: v-0c553fdb325688d510
+                    progress: 100
+                    processing_time: 755
+                    object: async_action
+                CAMPAIGN.VOUCHERS_IMPORT_CSV:
+                  value:
+                    id: aa_0c5543f00797b6113f
+                    type: CUSTOMERS.IMPORT_CSV
+                    status: DONE
+                    result:
+                      message: "0 customer(s) imported successfully, 2 failed."
+                      failed:
+                      - source_id: test-user@voucherify.io
+                        row: 1
+                        reason: "acquisition_channel: must be a string, property is\
+                          \ required, must be equal to one of Facebook,Twitter,Website\
+                          \ (actual value is 'snap')"
+                      - source_id: ""
+                        row: 2
+                        reason: "acquisition_channel: must be a string, property is\
+                          \ required, must be equal to one of Facebook,Twitter,Website\
+                          \ (actual value is 'insta')"
+                      done_count: 0
+                      failed_count: 2
+                    created_at: 2023-01-20T07:41:33.086Z
+                    updated_at: 2023-01-20T07:41:33.216Z
+                    request_id: v-0c5543eff2cb0f547f
+                    progress: 100
+                    processing_time: 130
+                    object: async_action
+                CAMPAIGN.VOUCHERS_DELETE:
+                  value:
+                    id: aa_0c553853d957b67bd4
+                    type: CAMPAIGN.VOUCHERS_DELETE
+                    status: DONE
+                    result:
+                      message: Deleted 2 vouchers.
+                      done_count: 2
+                    created_at: 2023-01-20T06:50:49.573Z
+                    updated_at: 2023-01-20T06:50:50.053Z
+                    request_id: v-0c553853b5c418c826
+                    progress: 100
+                    processing_time: 480
+                    object: async_action
+                CAMPAIGN.VOUCHERS_UPDATE:
+                  value:
+                    id: aa_0c5440c25c0e5728d0
+                    type: CAMPAIGN.VOUCHERS_UPDATE
+                    status: DONE
+                    result:
+                      message: Updated 1 vouchers.
+                      done_count: 1
+                    created_at: 2023-01-19T12:49:11.024Z
+                    updated_at: 2023-01-19T12:49:11.852Z
+                    request_id: v-0c5440c24304189e44
+                    progress: 100
+                    processing_time: 828
+                    object: async_action
+                CAMPAIGN.VOUCHERS_GENERATE:
+                  value:
+                    id: aa_0c54441d14d7b60014
+                    type: CAMPAIGN.VOUCHERS_GENERATE
+                    status: DONE
+                    result:
+                      message: Generated 2 vouchers.
+                      done_count: 2
+                    created_at: 2023-01-19T13:03:50.355Z
+                    updated_at: 2023-01-19T13:03:51.030Z
+                    request_id: v-0c54441d0e4418b647
+                    progress: 100
+                    processing_time: 675
+                    object: async_action
+                CAMPAIGNS.METADATA_KEY_PURGE:
+                  value:
+                    id: aa_0c554b22664a0eb5fc
+                    type: CAMPAIGNS.METADATA_KEY_PURGE
+                    status: DONE
+                    result:
+                      message: Updated 0 campaigns.
+                      done_count: 0
+                    created_at: 2023-01-20T08:12:59.673Z
+                    updated_at: 2023-01-20T08:13:00.638Z
+                    request_id: w-0c554b225f8a0eb5fb
+                    progress: 100
+                    processing_time: 965
+                    object: async_action
+                CUSTOMERS.IMPORT_CSV:
+                  value:
+                    id: aa_0c5543f00797b6113f
+                    type: CUSTOMERS.IMPORT_CSV
+                    status: DONE
+                    result:
+                      message: "0 customer(s) imported successfully, 2 failed."
+                      failed:
+                      - source_id: test-user@voucherify.io
+                        row: 1
+                        reason: "acquisition_channel: must be a string, property is\
+                          \ required, must be equal to one of Facebook,Twitter,Website\
+                          \ (actual value is 'snap')"
+                      - source_id: ""
+                        row: 2
+                        reason: "acquisition_channel: must be a string, property is\
+                          \ required, must be equal to one of Facebook,Twitter,Website\
+                          \ (actual value is 'insta')"
+                      done_count: 0
+                      failed_count: 2
+                    created_at: 2023-01-20T07:41:33.086Z
+                    updated_at: 2023-01-20T07:41:33.216Z
+                    request_id: v-0c5543eff2cb0f547f
+                    progress: 100
+                    processing_time: 130
+                    object: async_action
+                CUSTOMERS.BULK_UPDATE:
+                  value:
+                    id: aa_0c5547cc5e17b617b6
+                    type: CUSTOMERS.BULK_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - source_id: source_id_1
+                        updated: true
+                        found: true
+                      - source_id: source_id_2
+                        updated: true
+                        found: true
+                      - source_id: source_id_3
+                        updated: true
+                        found: true
+                      done_count: 3
+                    created_at: 2023-01-20T07:58:25.144Z
+                    updated_at: 2023-01-20T07:58:25.869Z
+                    request_id: v-0c5547cc4d8b0f5be4
+                    progress: 100
+                    processing_time: 725
+                    object: async_action
+                CUSTOMERS.METADATA_UPDATE:
+                  value:
+                    id: aa_0c554a92030e576181
+                    type: CUSTOMERS.METADATA_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - source_id: source_1
+                        updated: true
+                        found: true
+                      - source_id: source_2
+                        updated: true
+                        found: true
+                      done_count: 2
+                    created_at: 2023-01-20T08:10:31.821Z
+                    updated_at: 2023-01-20T08:10:32.564Z
+                    request_id: v-0c554a91fb4b0f61a2
+                    progress: 100
+                    processing_time: 743
+                    object: async_action
+                CUSTOMERS.METADATA_KEY_PURGE:
+                  value:
+                    id: aa_0c5551f2ab0a0ebf0e
+                    type: CUSTOMERS.METADATA_KEY_PURGE
+                    status: DONE
+                    result:
+                      message: Updated 0 customers.
+                      done_count: 0
+                    created_at: 2023-01-20T08:42:45.804Z
+                    updated_at: 2023-01-20T08:42:46.079Z
+                    request_id: w-0c5551f2a38a0ebf0d
+                    progress: 100
+                    processing_time: 275
+                    object: async_action
+                PRODUCTS.BULK_UPDATE:
+                  value:
+                    id: aa_0c5553f0f457b6328e
+                    type: PRODUCTS.BULK_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - source_id: first_product
+                        updated: false
+                        found: true
+                      - source_id: second_product
+                        updated: false
+                        found: true
+                      done_count: 2
+                    created_at: 2023-01-20T08:51:28.337Z
+                    updated_at: 2023-01-20T08:51:28.439Z
+                    request_id: v-0c5553f0e94b0f7502
+                    progress: 100
+                    processing_time: 102
+                    object: async_action
+                PRODUCTS.METADATA_UPDATE:
+                  value:
+                    id: aa_0c5554869b97b633b4
+                    type: PRODUCTS.METADATA_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - source_id: 123-567-3433
+                        updated: false
+                        found: true
+                      - source_id: test_volleyball
+                        updated: false
+                        found: true
+                      done_count: 2
+                    created_at: 2023-01-20T08:54:01.582Z
+                    updated_at: 2023-01-20T08:54:02.436Z
+                    request_id: v-0c55548694c418f9dd
+                    progress: 100
+                    processing_time: 854
+                    object: async_action
+                PRODUCTS.METADATA_KEY_PURGE:
+                  value:
+                    id: aa_0c5552d997ca0ec03a
+                    type: PRODUCTS.METADATA_KEY_PURGE
+                    status: DONE
+                    result:
+                      message: Updated 2 products.
+                      done_count: 2
+                    created_at: 2023-01-20T08:46:42.271Z
+                    updated_at: 2023-01-20T08:46:43.240Z
+                    request_id: w-0c5552d98e8a0ec039
+                    progress: 100
+                    processing_time: 969
+                    object: async_action
+                VOUCHERS.IMPORT:
+                  value:
+                    id: aa_0c5559be44d7b63c06
+                    type: VOUCHERS.IMPORT
+                    status: DONE
+                    result:
+                      message: "0 voucher(s) imported successfully, 3 failed."
+                      failed:
+                      - code: PROMO-CODE31
+                        reason: "unit: must be a number, must be equal to one of 1,2\
+                          \ (actual value is 'EUR')"
+                      - code: PROMO-CODE21
+                        reason: "unit: must be a number, must be equal to one of 1,2\
+                          \ (actual value is 'EUR')"
+                      - code: GIFT-CARD-100-1
+                        reason: "unit: must be a number, must be equal to one of 1,2\
+                          \ (actual value is 'EUR')"
+                      done_count: 0
+                      failed_count: 3
+                    created_at: 2023-01-20T09:16:49.299Z
+                    updated_at: 2023-01-20T09:16:50.238Z
+                    request_id: v-0c5559be25c418824a
+                    progress: 100
+                    processing_time: 939
+                    object: async_action
+                VOUCHERS.IMPORT_CSV:
+                  value:
+                    id: aa_0c555db3d697b643e1
+                    type: VOUCHERS.IMPORT_CSV
+                    status: DONE
+                    result:
+                      message: "0 voucher(s) imported successfully, 2 failed."
+                      failed:
+                      - code: FALL2023
+                        row: 1
+                        reason: Voucher Type is required
+                      - code: FALL2024
+                        row: 2
+                        reason: Voucher Type is required
+                      done_count: 0
+                      failed_count: 2
+                    created_at: 2023-01-20T09:34:07.194Z
+                    updated_at: 2023-01-20T09:34:07.367Z
+                    request_id: v-0c555db3ba8b0f0767
+                    progress: 100
+                    processing_time: 173
+                    object: async_action
+                VOUCHERS.BULK_UPDATE:
+                  value:
+                    id: aa_0c555e8115d7b64504
+                    type: VOUCHERS.BULK_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - code: PROMO-CODE81019
+                        updated: false
+                        found: false
+                      - code: PROMO-CODE7264786
+                        updated: false
+                        found: false
+                      done_count: 2
+                    created_at: 2023-01-20T09:37:37.367Z
+                    updated_at: 2023-01-20T09:37:37.520Z
+                    request_id: v-0c555e810904188aa4
+                    progress: 100
+                    processing_time: 153
+                    object: async_action
+                VOUCHERS.METADATA_UPDATE:
+                  value:
+                    id: aa_0c555ed40857b6463a
+                    type: VOUCHERS.METADATA_UPDATE
+                    status: DONE
+                    result:
+                      results:
+                      - code: v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u
+                        updated: false
+                        found: false
+                      - code: LOYALTY-CARD-xLPbpbXR
+                        updated: false
+                        found: false
+                      done_count: 2
+                    created_at: 2023-01-20T09:39:02.305Z
+                    updated_at: 2023-01-20T09:39:02.640Z
+                    request_id: v-0c555ed40084188b55
+                    progress: 100
+                    processing_time: 335
+                    object: async_action
+                VOUCHERS.METADATA_KEY_PURGE:
+                  value:
+                    id: aa_0c55534bd64a0ec0e0
+                    type: VOUCHERS.METADATA_KEY_PURGE
+                    status: DONE
+                    result:
+                      message: Updated 9 vouchers.
+                      done_count: 9
+                    created_at: 2023-01-20T08:48:39.257Z
+                    updated_at: 2023-01-20T08:48:40.503Z
+                    request_id: w-0c55534bcfca0ec0df
+                    progress: 100
+                    processing_time: 1246
+                    object: async_action
+                SKUS.IMPORT_CSV:
+                  value:
+                    id: aa_0c5558728d0e577e67
+                    type: SKUS.IMPORT_CSV
+                    status: DONE
+                    result:
+                      message: "4 sku(s) imported successfully, 0 failed."
+                      failed: []
+                      done_count: 4
+                      failed_count: 0
+                    created_at: 2023-01-20T09:11:09.620Z
+                    updated_at: 2023-01-20T09:11:10.270Z
+                    request_id: v-0c5558726f0b0f7d82
+                    progress: 100
+                    processing_time: 650
+                    object: async_action
+                PRODUCTS.IMPORT_CSV:
+                  value:
+                    id: aa_0c55578e914e577cf1
+                    type: PRODUCTS.IMPORT_CSV
+                    status: DONE
+                    result:
+                      message: "1 product(s) imported successfully, 1 failed."
+                      failed:
+                      - row: 1
+                        reason: "vendor: must be a string, property is required, must\
+                          \ be equal to one of Vendor 1,Vendor 2 (actual value is\
+                          \ 'Vendor 3')"
+                      done_count: 1
+                      failed_count: 1
+                    created_at: 2023-01-20T09:07:16.165Z
+                    updated_at: 2023-01-20T09:07:17.025Z
+                    request_id: v-0c55578e7a0418fef5
+                    progress: 100
+                    processing_time: 860
+                    object: async_action
+                ORDERS.METADATA_KEY_PURGE:
+                  value:
+                    id: aa_0c555fda50472c83a8
+                    type: ORDERS.METADATA_KEY_PURGE
+                    status: DONE
+                    result:
+                      message: Updated 1 orders.
+                      done_count: 1
+                    created_at: 2023-01-20T09:43:30.881Z
+                    updated_at: 2023-01-20T09:43:31.217Z
+                    request_id: w-0c555fda45c72c83a7
+                    progress: 100
+                    processing_time: 336
+                    object: async_action
+                ORDERS.IMPORT:
+                  value:
+                    id: aa_0c5564b67d0e571534
+                    type: ORDERS.IMPORT
+                    status: DONE
+                    result:
+                      message: "1 order(s) imported successfully, 1 failed."
+                      failed:
+                      - source_id: null
+                        reason: Internal error
+                      done_count: 1
+                      failed_count: 1
+                    created_at: 2023-01-20T10:04:44.916Z
+                    updated_at: 2023-01-20T10:04:46.102Z
+                    request_id: v-0c5564b6688b0f155d
+                    progress: 100
+                    processing_time: 1186
+                    object: async_action
+              schema:
+                $ref: '#/components/schemas/AsyncActionGetResponseBody'
+          description: Returns detailed information about the async action result.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Get Async Action
+      tags:
+      - Async Actions
       x-accepts: application/json
   /v1/exports:
     get:
@@ -18096,6 +18722,61 @@ components:
         $ref: '#/components/schemas/ParameterUpdatedBeforeAfter'
       style: deepObject
   schemas:
+    AsyncActionGetResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/AsyncAction'
+      description: "Response body schema for **GET** `/async-actions/{asyncActionId}`."
+      title: Async Action Get Response Body
+    AsyncActionsListResponseBody:
+      description: Response body schema for **GET** `/async-actions`.
+      example:
+        data_ref: async_actions
+        async_actions:
+        - processing_time: 1217
+          updated_at: 2022-06-23T11:21:46.795Z
+          operation_status: operation_status
+          created_at: 2022-06-23T11:21:45.578Z
+          progress: 8
+          id: aa_0adad13d6f057f088e
+          type: type
+          request_id: v-0b45cee140c3c9b5ca
+          status: ENQUEUED
+          object: async_action
+        - processing_time: 1217
+          updated_at: 2022-06-23T11:21:46.795Z
+          operation_status: operation_status
+          created_at: 2022-06-23T11:21:45.578Z
+          progress: 8
+          id: aa_0adad13d6f057f088e
+          type: type
+          request_id: v-0b45cee140c3c9b5ca
+          status: ENQUEUED
+          object: async_action
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about asynchronous actions.
+          enum:
+          - list
+          nullable: true
+          type: string
+        data_ref:
+          default: async_actions
+          description: Identifies the name of the JSON property that contains the
+            array of asynchronous actions.
+          enum:
+          - async_actions
+          nullable: true
+          type: string
+        async_actions:
+          items:
+            $ref: '#/components/schemas/AsyncActionBase'
+          nullable: true
+          type: array
+      title: Async Actions List Response Body
+      type: object
     CampaignsCreateRequestBody:
       example:
         metadata: "{}"
@@ -19567,7 +20248,7 @@ components:
             Defines the scenario Voucherify should consider during the qualification process.
 
             - `ALL` - Scenario that returns all redeemables available for the customer in one API request. This scenario is used by default when no value is selected.
-            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer’s cart based on the vouchers assigned to the customer’s profile.
+            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer's cart based on the vouchers assigned to the customer's profile.
             - `AUDIENCE_ONLY` - returns all vouchers, promotion tiers, and campaigns available to the customer. Voucherify validates the rules based on the customer profile only.
             - `PRODUCTS` - returns all promotions available for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule).
             - `PRODUCTS_DISCOUNT` - returns all promotions available for products when a discount is defined as applicable to specific item(s).
@@ -19738,12 +20419,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -19798,12 +20479,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -19859,12 +20540,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -20585,7 +21266,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -21207,7 +21888,7 @@ components:
         data:
           description: This is an object representing a loyalty tier. Loyalty tiers
             are used to create a loyalty program with different levels of membership
-            and varied earning rules and rewards based on customer’s tiers.
+            and varied earning rules and rewards based on customer's tiers.
           items:
             $ref: '#/components/schemas/LoyaltyTier'
           nullable: true
@@ -21381,6 +22062,9 @@ components:
       description: "Response body schema for **PUT** `/orders/{orderId}`."
       title: Orders Update Response Body
       type: object
+    ParameterAsyncActionId:
+      example: aa_0afb3d009a55814a48
+      type: string
     ParameterBoolean:
       type: boolean
     ParameterCampaignId:
@@ -22281,7 +22965,7 @@ components:
           type: string
         source_id:
           description: |-
-            The merchant’s publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+            The merchant's publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
             If `source_id` is provided only 1 voucher can be published per request.
           nullable: true
           type: string
@@ -22488,7 +23172,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s publication ID if it is different from the\
+          description: "The merchant's publication ID if it is different from the\
             \ Voucherify publication ID. It's an optional tracking identifier of a\
             \ publication. It is really useful in case of an integration between multiple\
             \ systems. It can be a publication ID from a CRM system, database or 3rd-party\
@@ -22706,7 +23390,7 @@ components:
             Defines the scenario Voucherify should consider during the qualification process.
 
             - `ALL` - Scenario that returns all redeemables available for the customer in one API request. This scenario is used by default when no value is selected.
-            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer’s cart based on the vouchers assigned to the customer’s profile.
+            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer's cart based on the vouchers assigned to the customer's profile.
             - `AUDIENCE_ONLY` - returns all vouchers, promotion tiers, and campaigns available to the customer. Voucherify validates the rules based on the customer profile only.
             - `PRODUCTS` - returns all promotions available for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule).
             - `PRODUCTS_DISCOUNT` - returns all promotions available for products when a discount is defined as applicable to specific item(s).
@@ -22802,12 +23486,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -23132,11 +23816,10 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 1
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -23146,26 +23829,28 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 1
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -23175,20 +23860,23 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
           status: CREATED
           items_discount_amount: 5
@@ -23309,7 +23997,7 @@ components:
     RedemptionsListResponseBody:
       description: Response body schema for **GET** `/redemptions`.
       example:
-        total: 0
+        total: 6
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
@@ -23328,16 +24016,16 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
-            amount: 3
+            amount: 0
           reason: reason
           metadata: "{}"
           amount: 0
@@ -23449,7 +24137,7 @@ components:
             loyalty_card:
               next_expiration_date: 2023-05-30T00:00:00.000+00:00
               balance: 6970
-              next_expiration_points: 6
+              next_expiration_points: 9
               points: 7000
             campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
             validity_timeframe:
@@ -23465,10 +24153,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 8
-            - 8
+            - 6
+            - 6
             redemption:
-              quantity: 9
+              quantity: 3
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -23489,10 +24177,10 @@ components:
           promotion_tier:
             summary:
               redemptions:
-                total_redeemed: 1
+                total_redeemed: 6
               orders:
-                total_amount: 2
-                total_discount_amount: 6
+                total_amount: 6
+                total_discount_amount: 5
             metadata: "{}"
             hierarchy: 6
             validity_hours:
@@ -23514,8 +24202,8 @@ components:
             expiration_date: 2022-09-26T00:00:00Z
             updated_at: 2022-02-09T09:20:05.603Z
             validity_day_of_week:
-            - 6
-            - 6
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
               total: 6
@@ -23571,8 +24259,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 3
-              - 3
+              - 1
+              - 1
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -23658,11 +24346,10 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 1
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -23672,26 +24359,28 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 1
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -23701,20 +24390,23 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
             status: CREATED
             items_discount_amount: 5
@@ -23746,16 +24438,16 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
-            amount: 3
+            amount: 0
           reason: reason
           metadata: "{}"
           amount: 0
@@ -23867,7 +24559,7 @@ components:
             loyalty_card:
               next_expiration_date: 2023-05-30T00:00:00.000+00:00
               balance: 6970
-              next_expiration_points: 6
+              next_expiration_points: 9
               points: 7000
             campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
             validity_timeframe:
@@ -23883,10 +24575,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 8
-            - 8
+            - 6
+            - 6
             redemption:
-              quantity: 9
+              quantity: 3
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -23907,10 +24599,10 @@ components:
           promotion_tier:
             summary:
               redemptions:
-                total_redeemed: 1
+                total_redeemed: 6
               orders:
-                total_amount: 2
-                total_discount_amount: 6
+                total_amount: 6
+                total_discount_amount: 5
             metadata: "{}"
             hierarchy: 6
             validity_hours:
@@ -23932,8 +24624,8 @@ components:
             expiration_date: 2022-09-26T00:00:00Z
             updated_at: 2022-02-09T09:20:05.603Z
             validity_day_of_week:
-            - 6
-            - 6
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
               total: 6
@@ -23989,8 +24681,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 3
-              - 3
+              - 1
+              - 1
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -24076,11 +24768,10 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 1
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24090,26 +24781,28 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 1
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24119,20 +24812,23 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
             status: CREATED
             items_discount_amount: 5
@@ -24268,12 +24964,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -24328,12 +25024,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -24389,12 +25085,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -24589,12 +25285,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -24651,12 +25347,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -24712,12 +25408,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25075,6 +25771,47 @@ components:
           type: integer
       title: RewardsUpdateRequestBody
       type: object
+    SegmentsCreateRequestBody:
+      example:
+        filter: "{}"
+        name: name
+        customers:
+        - customers
+        - customers
+        type: static
+      properties:
+        name:
+          description: Segment name.
+          nullable: true
+          type: string
+        type:
+          enum:
+          - static
+          - auto-update
+          nullable: true
+          type: string
+        customers:
+          description: Array of customer IDs.
+          items:
+            type: string
+          nullable: true
+          type: array
+        filter:
+          description: Defines a set of criteria for an `auto-update` segment type.
+          nullable: true
+          type: object
+      title: SegmentsCreateRequestBody
+      type: object
+    SegmentsCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Segment'
+      description: Response body schema for **POST** `/segments`.
+      title: Segments Create Response Body
+    SegmentsGetResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Segment'
+      description: "Response body schema for **GET** `/v1/segments/{segmentId}`."
+      title: Segments Get Response Body
     SkusGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Sku'
@@ -25527,7 +26264,7 @@ components:
           nullable: true
           type: integer
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -25957,6 +26694,101 @@ components:
           nullable: true
           type: string
       title: Applicable To Result List
+      type: object
+    AsyncAction:
+      allOf:
+      - $ref: '#/components/schemas/AsyncActionBase'
+      - properties:
+          result:
+            nullable: true
+            type: object
+        type: object
+      description: This is an object representing an asynchronous action.
+      title: Async Action
+    AsyncActionBase:
+      description: This is an object representing an asynchronous action.
+      example:
+        processing_time: 1217
+        updated_at: 2022-06-23T11:21:46.795Z
+        operation_status: operation_status
+        created_at: 2022-06-23T11:21:45.578Z
+        progress: 8
+        id: aa_0adad13d6f057f088e
+        type: type
+        request_id: v-0b45cee140c3c9b5ca
+        status: ENQUEUED
+        object: async_action
+      properties:
+        id:
+          description: Async action unique ID.
+          example: aa_0adad13d6f057f088e
+          nullable: true
+          type: string
+        type:
+          description: "Type of async action. Examples: \"CAMPAIGN.VOUCHERS_IMPORT\"\
+            , \"CAMPAIGN.VOUCHERS_IMPORT_CSV\", \"CAMPAIGN.VOUCHERS_UPDATE\", \"CAMPAIGN.VOUCHERS_DELETE\"\
+            , \"CAMPAIGN.VOUCHERS_GENERATE\", \"CAMPAIGNS.METADATA_KEY_PURGE\", \"\
+            CUSTOMERS.IMPORT_CSV\", \"CUSTOMERS.BULK_UPDATE\", \"CUSTOMERS.METADATA_UPDATE\"\
+            , \"CUSTOMERS.METADATA_KEY_PURGE\", \"PRODUCTS.BULK_UPDATE\", \"PRODUCTS.METADATA_UPDATE\"\
+            , \"PRODUCTS.METADATA_KEY_PURGE\", \"PRODUCTS.IMPORT_CSV\", \"SKUS.IMPORT_CSV\"\
+            , \"VOUCHERS.IMPORT\", \"VOUCHERS.IMPORT_CSV\", \"VOUCHERS.BULK_UPDATE\"\
+            , \"VOUCHERS.METADATA_UPDATE\", \"VOUCHERS.METADATA_KEY_PURGE\", \"ORDERS.IMPORT\"\
+            , \"ORDERS.METADATA_KEY_PURGE\""
+          nullable: true
+          type: string
+        status:
+          description: Status of async action. Informs you whether the async action
+            has already been completed.
+          enum:
+          - ENQUEUED
+          - IN_PROGRESS
+          - DONE
+          - FAILED
+          nullable: true
+          type: string
+        operation_status:
+          description: "Status of async action processing. Informs about the async\
+            \ action status, whether it failed, succeeded, or the status is unknown.\
+            \ Examples: \"FAILED\", \"SUCCESS\""
+          nullable: true
+          type: string
+        created_at:
+          description: Timestamp representing the date and time when the async action
+            was scheduled in ISO 8601 format.
+          example: 2022-06-23T11:21:45.578Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the async action
+            was updated. The value is shown in the ISO 8601 format.
+          example: 2022-06-23T11:21:46.795Z
+          format: date-time
+          nullable: true
+          type: string
+        request_id:
+          description: Unique request ID.
+          example: v-0b45cee140c3c9b5ca
+          nullable: true
+          type: string
+        processing_time:
+          description: The length of time it took to process the request in milliseconds.
+          example: 1217
+          nullable: true
+          type: integer
+        progress:
+          description: '% progress to completion of the asynchronous action.'
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: integer
+        object:
+          default: async_action
+          description: The type of the object represented by JSON. This object stores
+            information about the `async_action`.
+          nullable: true
+          type: string
+      title: Async Action Base
       type: object
     AsyncActions:
       additionalProperties: false
@@ -27436,7 +28268,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -27700,11 +28532,10 @@ components:
       title: Order Calculated No Customer Data
     OrderItemCalculated:
       example:
-        total_applied_discount_amount: 1
         amount: 1
         product:
           metadata: "{}"
-          price: 9.965781217890562
+          price: 6.683562403749608
           name: name
           id: id
           source_id: source_id
@@ -27714,28 +28545,31 @@ components:
         initial_quantity: 1
         discount_amount: 1
         sku_id: sku_id
-        initial_amount: 7
-        subtotal_amount: 5
+        applied_quantity: 1
+        initial_amount: 5
+        subtotal_amount: 9
         related_object: product
         applied_discount_amount: 6
-        price: 4
+        price: 9
         product_id: product_id
         discount_quantity: 7
+        applied_discount_quantity: 7
         source_id: source_id
         sku:
-          price: 9.369310271410669
+          price: 8.762042012749001
           id: id
           source_id: source_id
           override: true
           sku: sku
+        applied_quantity_amount: 4
         object: order_item
       properties:
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           nullable: true
           type: string
         product_id:
-          description: A unique product ID assigned by Voucherify.
+          description: Unique identifier of the product. It is assigned by Voucherify.
           nullable: true
           type: string
         related_object:
@@ -27747,7 +28581,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product/SKU ID (if it is different from the\
+          description: "The merchant's product/SKU ID (if it is different from the\
             \ Voucherify product/SKU ID). It is useful in the integration between\
             \ multiple systems. It can be an ID from an eCommerce site, a database,\
             \ or a third-party service."
@@ -27778,16 +28612,26 @@ components:
           description: This field shows the order-level discount applied.
           nullable: true
           type: integer
+        applied_discount_quantity:
+          description: Number of the discounted items applied in the transaction.
+          nullable: true
+          type: integer
+        applied_quantity:
+          description: Quantity of items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
+        applied_quantity_amount:
+          description: Amount for the items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
         initial_amount:
           description: A positive integer in the smallest currency unit (e.g. 100
             cents for $1.00) representing the total amount of the order. This is the
             sum of the order items' amounts.
-          nullable: true
-          type: integer
-        total_applied_discount_amount:
-          description: "Sum of all order-level AND all product-specific discounts\
-            \ applied in a particular request.  \n`total_applied_discount_amount`\
-            \ = `applied_discount_amount` + `items_applied_discount_amount`"
           nullable: true
           type: integer
         price:
@@ -28625,12 +29469,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -28900,12 +29744,12 @@ components:
             sku_id: sku_0a41e31c7b41c28358
             id: prod_0b7d7dfb05cbe5c616
           campaign:
-            balance: 5
+            balance: 3
             id: camp_13BbZ0kQsNinhqsX3wUts2UP
             type: type
           coin:
-            points_ratio: 3
-            exchange_ratio: 6
+            points_ratio: 7
+            exchange_ratio: 3
         customer: ""
         object: reward
       properties:
@@ -28992,12 +29836,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -29198,6 +30042,53 @@ components:
           $ref: '#/components/schemas/RewardType_product'
       title: RewardType
       type: object
+    Segment:
+      description: This is an object representing a customer segment.
+      properties:
+        id:
+          description: Unique segment ID.
+          example: seg_1wc52c5z6r1kQ81brO8j9Hk2
+          nullable: true
+          type: string
+        name:
+          description: Segment name.
+          nullable: true
+          type: string
+        created_at:
+          description: Timestamp representing the date and time when the segment was
+            created. The value is shown in the ISO 8601 format.
+          example: 2022-05-12T13:01:56.896Z
+          format: date-time
+          nullable: true
+          type: string
+        type:
+          description: Describes whether the segment is dynamic (customers come in
+            and leave based on set criteria) or static (manually selected customers).
+          enum:
+          - auto-update
+          - static
+          nullable: true
+          type: string
+        filter:
+          description: 'Defines a set of criteria for an `auto-update` segment type.  '
+          nullable: true
+          type: object
+        initial_sync_status:
+          enum:
+          - IN_PROGRESS
+          - DONE
+          nullable: true
+          type: string
+        object:
+          default: segment
+          description: The type of the object represented by JSON. This object stores
+            information about the customer segment.
+          enum:
+          - segment
+          nullable: true
+          type: string
+      title: Segment
+      type: object
     Session:
       example:
         type: LOCK
@@ -29294,7 +30185,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s customer ID if it is different from the Voucherify\
+          description: "The merchant's customer ID if it is different from the Voucherify\
             \ customer ID. It is really useful in case of an integration between multiple\
             \ systems. It can be a customer ID from a CRM system, database or 3rd-party\
             \ service."
@@ -30456,7 +31347,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service. In case of a redemption, this value is\
@@ -31276,12 +32167,20 @@ components:
       type: object
     OrderItem:
       properties:
+        object:
+          default: order_item
+          description: The type of the object represented by JSON. This object stores
+            information about the `order_item`.
+          enum:
+          - order_item
+          nullable: true
+          type: string
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           nullable: true
           type: string
         product_id:
-          description: A unique product ID assigned by Voucherify.
+          description: Unique identifier of the product. It is assigned by Voucherify.
           nullable: true
           type: string
         related_object:
@@ -31293,7 +32192,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product/SKU ID (if it is different from the\
+          description: "The merchant's product/SKU ID (if it is different from the\
             \ Voucherify product/SKU ID). It is useful in the integration between\
             \ multiple systems. It can be an ID from an eCommerce site, a database,\
             \ or a third-party service."
@@ -31328,9 +32227,35 @@ components:
             sum of the order items' amounts.
           nullable: true
           type: integer
+        applied_discount_amount:
+          description: Order-level discount amount applied in the transaction.
+          nullable: true
+          type: integer
+        applied_discount_quantity:
+          description: Number of the discounted items applied in the transaction.
+          nullable: true
+          type: integer
+        applied_quantity:
+          description: Quantity of items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
+        applied_quantity_amount:
+          description: Amount for the items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
         price:
           description: Unit price of an item. Value is multiplied by 100 to precisely
             represent 2 decimal places. For example `10000 cents` for `$100.00`.
+          nullable: true
+          type: integer
+        subtotal_amount:
+          description: "Final order item amount after the applied item-level discount.\
+            \  If there are no item-level discounts applied, this item is equal to\
+            \ the `amount`.   \n`subtotal_amount`=`amount`-`discount_amount`"
           nullable: true
           type: integer
         product:
@@ -31338,9 +32263,9 @@ components:
         sku:
           $ref: '#/components/schemas/OrderItemCalculated_sku'
         metadata:
-          description: A set of custom key/value pairs that you can attach to an SKU.
-            It can be useful for storing additional information about the SKU in a
-            structured format.
+          description: A set of custom key/value pairs that you can attach to an order
+            item. It can be useful for storing additional information about the order
+            item in a structured format.
           nullable: true
           type: object
       title: Order Item
@@ -33756,7 +34681,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s publication ID if it is different from the\
+          description: "The merchant's publication ID if it is different from the\
             \ Voucherify publication ID. It's an optional tracking identifier of a\
             \ publication. It is really useful in case of an integration between multiple\
             \ systems. It can be a publication ID from a CRM system, database or 3rd-party\
@@ -33915,11 +34840,10 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 1
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -33929,26 +34853,28 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 1
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -33958,20 +34884,23 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
         status: CREATED
         items_discount_amount: 5
@@ -35155,11 +36084,10 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 1
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -35169,26 +36097,28 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 1
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -35198,20 +36128,23 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
         status: CREATED
         items_discount_amount: 5
@@ -35423,7 +36356,7 @@ components:
       example:
         next_expiration_date: 2023-05-30T00:00:00.000+00:00
         balance: 6970
-        next_expiration_points: 6
+        next_expiration_points: 9
         points: 7000
       properties:
         points:
@@ -35477,7 +36410,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemVoucherRedemption:
       example:
-        quantity: 9
+        quantity: 3
         redeemed_quantity: 1
         redeemed_points: 100000
         url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -35620,7 +36553,7 @@ components:
         loyalty_card:
           next_expiration_date: 2023-05-30T00:00:00.000+00:00
           balance: 6970
-          next_expiration_points: 6
+          next_expiration_points: 9
           points: 7000
         campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
         validity_timeframe:
@@ -35636,10 +36569,10 @@ components:
           email: email
           object: customer
         validity_day_of_week:
-        - 8
-        - 8
+        - 6
+        - 6
         redemption:
-          quantity: 9
+          quantity: 3
           redeemed_quantity: 1
           redeemed_points: 100000
           url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -35851,8 +36784,8 @@ components:
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierCampaign:
       example:
         validity_day_of_week:
-        - 3
-        - 3
+        - 1
+        - 1
         category_id: cat_0b688929a2476386a6
         validity_hours:
           daily:
@@ -35944,7 +36877,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryRedemptions:
       example:
-        total_redeemed: 1
+        total_redeemed: 6
       properties:
         total_redeemed:
           description: Number of times the promotion tier was redeemed.
@@ -35954,8 +36887,8 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryOrders:
       example:
-        total_amount: 2
-        total_discount_amount: 6
+        total_amount: 6
+        total_discount_amount: 5
       properties:
         total_amount:
           description: Sum of order totals.
@@ -35970,10 +36903,10 @@ components:
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummary:
       example:
         redemptions:
-          total_redeemed: 1
+          total_redeemed: 6
         orders:
-          total_amount: 2
-          total_discount_amount: 6
+          total_amount: 6
+          total_discount_amount: 5
       properties:
         redemptions:
           $ref: '#/components/schemas/Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryRedemptions'
@@ -35985,10 +36918,10 @@ components:
       example:
         summary:
           redemptions:
-            total_redeemed: 1
+            total_redeemed: 6
           orders:
-            total_amount: 2
-            total_discount_amount: 6
+            total_amount: 6
+            total_discount_amount: 5
         metadata: "{}"
         hierarchy: 6
         validity_hours:
@@ -36010,8 +36943,8 @@ components:
         expiration_date: 2022-09-26T00:00:00Z
         updated_at: 2022-02-09T09:20:05.603Z
         validity_day_of_week:
-        - 6
-        - 6
+        - 2
+        - 2
         category_id: cat_0c9da30e7116ba6bba
         validation_rule_assignments:
           total: 6
@@ -36067,8 +37000,8 @@ components:
             amount_off: 6.027456183070403
         campaign:
           validity_day_of_week:
-          - 3
-          - 3
+          - 1
+          - 1
           category_id: cat_0b688929a2476386a6
           validity_hours:
             daily:
@@ -36235,7 +37168,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemGift:
       example:
-        amount: 3
+        amount: 0
       properties:
         amount:
           description: Amount subtracted from the gift card as a result of the redemption.
@@ -36277,16 +37210,16 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
-          amount: 3
+          amount: 0
         reason: reason
         metadata: "{}"
         amount: 0
@@ -36398,7 +37331,7 @@ components:
           loyalty_card:
             next_expiration_date: 2023-05-30T00:00:00.000+00:00
             balance: 6970
-            next_expiration_points: 6
+            next_expiration_points: 9
             points: 7000
           campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
           validity_timeframe:
@@ -36414,10 +37347,10 @@ components:
             email: email
             object: customer
           validity_day_of_week:
-          - 8
-          - 8
+          - 6
+          - 6
           redemption:
-            quantity: 9
+            quantity: 3
             redeemed_quantity: 1
             redeemed_points: 100000
             url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -36438,10 +37371,10 @@ components:
         promotion_tier:
           summary:
             redemptions:
-              total_redeemed: 1
+              total_redeemed: 6
             orders:
-              total_amount: 2
-              total_discount_amount: 6
+              total_amount: 6
+              total_discount_amount: 5
           metadata: "{}"
           hierarchy: 6
           validity_hours:
@@ -36463,8 +37396,8 @@ components:
           expiration_date: 2022-09-26T00:00:00Z
           updated_at: 2022-02-09T09:20:05.603Z
           validity_day_of_week:
-          - 6
-          - 6
+          - 2
+          - 2
           category_id: cat_0c9da30e7116ba6bba
           validation_rule_assignments:
             total: 6
@@ -36520,8 +37453,8 @@ components:
               amount_off: 6.027456183070403
           campaign:
             validity_day_of_week:
-            - 3
-            - 3
+            - 1
+            - 1
             category_id: cat_0b688929a2476386a6
             validity_hours:
               daily:
@@ -36607,11 +37540,10 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 1
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -36621,26 +37553,28 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 1
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -36650,20 +37584,23 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
           status: CREATED
           items_discount_amount: 5
@@ -37998,7 +38935,7 @@ components:
       description: An object containing details of the related product.
       example:
         metadata: "{}"
-        price: 9.965781217890562
+        price: 6.683562403749608
         name: name
         id: id
         source_id: source_id
@@ -38011,7 +38948,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product ID (if it is different than Voucherify's\
+          description: "The merchant's product ID (if it is different than Voucherify's\
             \ product ID). It is really useful in case of integration between multiple\
             \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
             \ party service."
@@ -38044,7 +38981,7 @@ components:
       additionalProperties: false
       description: An object containing details of the related SKU.
       example:
-        price: 9.369310271410669
+        price: 8.762042012749001
         id: id
         source_id: source_id
         override: true
@@ -38057,7 +38994,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s SKU ID (if it is different than Voucherify's\
+          description: "The merchant's SKU ID (if it is different than Voucherify's\
             \ SKU ID). It is really useful in case of integration between multiple\
             \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
             \ party service."
@@ -38385,6 +39322,59 @@ components:
         conditions:
           $ref: '#/components/schemas/QualificationsOption_filters_resource_type_conditions'
       type: object
+    Holder_Role_conditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      nullable: true
+      properties:
+        $is:
+          description: Will return records only for the first value in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $is_not:
+          description: Will return records only for the first value in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $in:
+          description: Will return records for the values in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Will return records for the values in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Holder_Role:
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/Holder_Role_conditions'
+      title: Holder Role
+      type: object
     QualificationsOption_filters:
       additionalProperties: false
       description: A set of filters to return only a specific category or type of
@@ -38407,6 +39397,8 @@ components:
           $ref: '#/components/schemas/QualificationsFieldConditions'
         code:
           $ref: '#/components/schemas/QualificationsFieldConditions'
+        holder_role:
+          $ref: '#/components/schemas/Holder_Role'
       type: object
     Redemption_Related_Redemptions_Rollbacks_Item:
       example:
@@ -39305,7 +40297,7 @@ components:
     RedemptionRewardResult_parameters_campaign:
       description: Defines the product redeemed as a reward.
       example:
-        balance: 5
+        balance: 3
         id: camp_13BbZ0kQsNinhqsX3wUts2UP
         type: type
       nullable: true
@@ -39337,7 +40329,7 @@ components:
           nullable: true
           type: string
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           example: sku_0a41e31c7b41c28358
           nullable: true
           type: string
@@ -39346,8 +40338,8 @@ components:
       description: Defines the ratio by mapping the number of loyalty points in `points_ratio`
         to a predefined cash amount in `exchange_ratio`.
       example:
-        points_ratio: 3
-        exchange_ratio: 6
+        points_ratio: 7
+        exchange_ratio: 3
       nullable: true
       properties:
         exchange_ratio:
@@ -39368,12 +40360,12 @@ components:
           sku_id: sku_0a41e31c7b41c28358
           id: prod_0b7d7dfb05cbe5c616
         campaign:
-          balance: 5
+          balance: 3
           id: camp_13BbZ0kQsNinhqsX3wUts2UP
           type: type
         coin:
-          points_ratio: 3
-          exchange_ratio: 6
+          points_ratio: 7
+          exchange_ratio: 3
       nullable: true
       properties:
         campaign:
@@ -39898,7 +40890,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s order ID if it is different from the Voucherify\
+          description: "The merchant's order ID if it is different from the Voucherify\
             \ order ID. It is really useful in case of integration between multiple\
             \ systems. It can be an order ID from CRM, database or 3rd party service."
           nullable: true
@@ -40304,14 +41296,6 @@ components:
     X-Client-Application-Id:
       in: header
       name: X-Client-Application-Id
-      type: apiKey
-    X-Management-Id:
-      in: header
-      name: X-Management-Id
-      type: apiKey
-    X-Management-Token:
-      in: header
-      name: X-Management-Token
       type: apiKey
 x-readme:
   samples-languages:

@@ -142,13 +142,21 @@ public class OrderItemCalculated {
   @SerializedName(SERIALIZED_NAME_APPLIED_DISCOUNT_AMOUNT)
   private Integer appliedDiscountAmount;
 
+  public static final String SERIALIZED_NAME_APPLIED_DISCOUNT_QUANTITY = "applied_discount_quantity";
+  @SerializedName(SERIALIZED_NAME_APPLIED_DISCOUNT_QUANTITY)
+  private Integer appliedDiscountQuantity;
+
+  public static final String SERIALIZED_NAME_APPLIED_QUANTITY = "applied_quantity";
+  @SerializedName(SERIALIZED_NAME_APPLIED_QUANTITY)
+  private Integer appliedQuantity;
+
+  public static final String SERIALIZED_NAME_APPLIED_QUANTITY_AMOUNT = "applied_quantity_amount";
+  @SerializedName(SERIALIZED_NAME_APPLIED_QUANTITY_AMOUNT)
+  private Integer appliedQuantityAmount;
+
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
-
-  public static final String SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT = "total_applied_discount_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT)
-  private Integer totalAppliedDiscountAmount;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
@@ -229,7 +237,7 @@ public class OrderItemCalculated {
   }
 
    /**
-   * A unique SKU ID assigned by Voucherify.
+   * Unique identifier of the SKU. It is assigned by Voucherify.
    * @return skuId
   **/
   @javax.annotation.Nullable
@@ -250,7 +258,7 @@ public class OrderItemCalculated {
   }
 
    /**
-   * A unique product ID assigned by Voucherify.
+   * Unique identifier of the product. It is assigned by Voucherify.
    * @return productId
   **/
   @javax.annotation.Nullable
@@ -292,7 +300,7 @@ public class OrderItemCalculated {
   }
 
    /**
-   * The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+   * The merchant&#39;s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -432,6 +440,69 @@ public class OrderItemCalculated {
   }
 
 
+  public OrderItemCalculated appliedDiscountQuantity(Integer appliedDiscountQuantity) {
+    
+    this.appliedDiscountQuantity = appliedDiscountQuantity;
+    return this;
+  }
+
+   /**
+   * Number of the discounted items applied in the transaction.
+   * @return appliedDiscountQuantity
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedDiscountQuantity() {
+    return appliedDiscountQuantity;
+  }
+
+
+  public void setAppliedDiscountQuantity(Integer appliedDiscountQuantity) {
+    this.appliedDiscountQuantity = appliedDiscountQuantity;
+  }
+
+
+  public OrderItemCalculated appliedQuantity(Integer appliedQuantity) {
+    
+    this.appliedQuantity = appliedQuantity;
+    return this;
+  }
+
+   /**
+   * Quantity of items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+   * @return appliedQuantity
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedQuantity() {
+    return appliedQuantity;
+  }
+
+
+  public void setAppliedQuantity(Integer appliedQuantity) {
+    this.appliedQuantity = appliedQuantity;
+  }
+
+
+  public OrderItemCalculated appliedQuantityAmount(Integer appliedQuantityAmount) {
+    
+    this.appliedQuantityAmount = appliedQuantityAmount;
+    return this;
+  }
+
+   /**
+   * Amount for the items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+   * @return appliedQuantityAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedQuantityAmount() {
+    return appliedQuantityAmount;
+  }
+
+
+  public void setAppliedQuantityAmount(Integer appliedQuantityAmount) {
+    this.appliedQuantityAmount = appliedQuantityAmount;
+  }
+
+
   public OrderItemCalculated initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
@@ -450,27 +521,6 @@ public class OrderItemCalculated {
 
   public void setInitialAmount(Integer initialAmount) {
     this.initialAmount = initialAmount;
-  }
-
-
-  public OrderItemCalculated totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level AND all product-specific discounts applied in a particular request.   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;
-   * @return totalAppliedDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getTotalAppliedDiscountAmount() {
-    return totalAppliedDiscountAmount;
-  }
-
-
-  public void setTotalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
   }
 
 
@@ -664,8 +714,10 @@ public class OrderItemCalculated {
         Objects.equals(this.amount, orderItemCalculated.amount) &&
         Objects.equals(this.discountAmount, orderItemCalculated.discountAmount) &&
         Objects.equals(this.appliedDiscountAmount, orderItemCalculated.appliedDiscountAmount) &&
+        Objects.equals(this.appliedDiscountQuantity, orderItemCalculated.appliedDiscountQuantity) &&
+        Objects.equals(this.appliedQuantity, orderItemCalculated.appliedQuantity) &&
+        Objects.equals(this.appliedQuantityAmount, orderItemCalculated.appliedQuantityAmount) &&
         Objects.equals(this.initialAmount, orderItemCalculated.initialAmount) &&
-        Objects.equals(this.totalAppliedDiscountAmount, orderItemCalculated.totalAppliedDiscountAmount) &&
         Objects.equals(this.price, orderItemCalculated.price) &&
         Objects.equals(this.subtotalAmount, orderItemCalculated.subtotalAmount) &&
         Objects.equals(this.product, orderItemCalculated.product) &&
@@ -681,7 +733,7 @@ public class OrderItemCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, initialAmount, totalAppliedDiscountAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
+    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -705,8 +757,10 @@ public class OrderItemCalculated {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    appliedDiscountAmount: ").append(toIndentedString(appliedDiscountAmount)).append("\n");
+    sb.append("    appliedDiscountQuantity: ").append(toIndentedString(appliedDiscountQuantity)).append("\n");
+    sb.append("    appliedQuantity: ").append(toIndentedString(appliedQuantity)).append("\n");
+    sb.append("    appliedQuantityAmount: ").append(toIndentedString(appliedQuantityAmount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
-    sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    subtotalAmount: ").append(toIndentedString(subtotalAmount)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
@@ -746,8 +800,10 @@ public class OrderItemCalculated {
     openapiFields.add("amount");
     openapiFields.add("discount_amount");
     openapiFields.add("applied_discount_amount");
+    openapiFields.add("applied_discount_quantity");
+    openapiFields.add("applied_quantity");
+    openapiFields.add("applied_quantity_amount");
     openapiFields.add("initial_amount");
-    openapiFields.add("total_applied_discount_amount");
     openapiFields.add("price");
     openapiFields.add("subtotal_amount");
     openapiFields.add("product");

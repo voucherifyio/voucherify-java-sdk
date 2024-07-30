@@ -236,9 +236,9 @@
 ## Segments
 | endpoint                 | method | summary        | is supported                         | is deprecated |
 | ------------------------ | ------ | -------------- | ------------------------------------ | ------------- |
-| /v1/segments/{segmentId} | get    | Get Segment    |                                      |               |
+| /v1/segments/{segmentId} | get    | Get Segment    | <font color='green'>supported</font> |               |
 | /v1/segments/{segmentId} | delete | Delete Segment | <font color='green'>supported</font> |               |
-| /v1/segments             | post   | Create Segment |                                      |               |
+| /v1/segments             | post   | Create Segment | <font color='green'>supported</font> |               |
 ## Events
 | endpoint   | method | summary            | is supported                         | is deprecated |
 | ---------- | ------ | ------------------ | ------------------------------------ | ------------- |
@@ -248,10 +248,10 @@
 | ------------ | ------ | ------------- | ------------ | ------------- |
 | /v1/consents | get    | List Consents |              |               |
 ## Async Actions
-| endpoint                          | method | summary            | is supported | is deprecated |
-| --------------------------------- | ------ | ------------------ | ------------ | ------------- |
-| /v1/async-actions                 | get    | List Async Actions |              |               |
-| /v1/async-actions/{asyncActionId} | get    | Get Async Action   |              |               |
+| endpoint                          | method | summary            | is supported                         | is deprecated |
+| --------------------------------- | ------ | ------------------ | ------------------------------------ | ------------- |
+| /v1/async-actions                 | get    | List Async Actions | <font color='green'>supported</font> |               |
+| /v1/async-actions/{asyncActionId} | get    | Get Async Action   | <font color='green'>supported</font> |               |
 ## Exports
 | endpoint                | method | summary         | is supported                         | is deprecated |
 | ----------------------- | ------ | --------------- | ------------------------------------ | ------------- |
@@ -279,10 +279,14 @@
 | /v1/locations              | get    | List Locations |              |               |
 | /v1/locations/{locationId} | get    | Get Location   |              |               |
 ## Referrals
-| endpoint                                              | method | summary                           | is supported | is deprecated |
-| ----------------------------------------------------- | ------ | --------------------------------- | ------------ | ------------- |
-| /v1/referrals/{campaignId}/members/{memberId}/holders | get    | List Referral Code Holders [Beta] |              |               |
-| /v1/referrals/members/{memberId}/holders              | get    | List Referral Code Holders [Beta] |              |               |
+| endpoint                                                         | method | summary                           | is supported | is deprecated |
+| ---------------------------------------------------------------- | ------ | --------------------------------- | ------------ | ------------- |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | post   | Add Referral Code Holders         |              |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | get    | List Referral Code Holders [Beta] |              |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | delete | Remove Referral Card Holder       |              |               |
+| /v1/referrals/members/{memberId}/holders                         | post   | Add Referral Code Holders         |              |               |
+| /v1/referrals/members/{memberId}/holders                         | get    | List Referral Code Holders [Beta] |              |               |
+| /v1/referrals/members/{memberId}/holders/{holderId}              | delete | Remove Referral Card Holder       |              |               |
 ## Bin
 | endpoint                   | method | summary          | is supported | is deprecated |
 | -------------------------- | ------ | ---------------- | ------------ | ------------- |
@@ -301,6 +305,7 @@
 | /management/v1/projects/{projectId}/users/{userId}                             | get    | Get User                   |              |               |
 | /management/v1/projects/{projectId}/users/{userId}                             | put    | Update User                |              |               |
 | /management/v1/projects/{projectId}/users/{userId}                             | delete | Unassign User              |              |               |
+| /management/v1/projects/users/invite                                           | post   | Invite a New User          |              |               |
 | /management/v1/projects/{projectId}/stacking-rules                             | post   | Create Stacking Rules      |              |               |
 | /management/v1/projects/{projectId}/stacking-rules                             | get    | List Stacking Rules        |              |               |
 | /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | get    | Get Stacking Rules         |              |               |

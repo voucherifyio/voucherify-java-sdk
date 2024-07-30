@@ -55,6 +55,55 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class OrderItem {
+  /**
+   * The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    ORDER_ITEM("order_item");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OBJECT = "object";
+  @SerializedName(SERIALIZED_NAME_OBJECT)
+  private ObjectEnum _object = ObjectEnum.ORDER_ITEM;
+
   public static final String SERIALIZED_NAME_SKU_ID = "sku_id";
   @SerializedName(SERIALIZED_NAME_SKU_ID)
   private String skuId;
@@ -142,9 +191,29 @@ public class OrderItem {
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
 
+  public static final String SERIALIZED_NAME_APPLIED_DISCOUNT_AMOUNT = "applied_discount_amount";
+  @SerializedName(SERIALIZED_NAME_APPLIED_DISCOUNT_AMOUNT)
+  private Integer appliedDiscountAmount;
+
+  public static final String SERIALIZED_NAME_APPLIED_DISCOUNT_QUANTITY = "applied_discount_quantity";
+  @SerializedName(SERIALIZED_NAME_APPLIED_DISCOUNT_QUANTITY)
+  private Integer appliedDiscountQuantity;
+
+  public static final String SERIALIZED_NAME_APPLIED_QUANTITY = "applied_quantity";
+  @SerializedName(SERIALIZED_NAME_APPLIED_QUANTITY)
+  private Integer appliedQuantity;
+
+  public static final String SERIALIZED_NAME_APPLIED_QUANTITY_AMOUNT = "applied_quantity_amount";
+  @SerializedName(SERIALIZED_NAME_APPLIED_QUANTITY_AMOUNT)
+  private Integer appliedQuantityAmount;
+
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private Integer price;
+
+  public static final String SERIALIZED_NAME_SUBTOTAL_AMOUNT = "subtotal_amount";
+  @SerializedName(SERIALIZED_NAME_SUBTOTAL_AMOUNT)
+  private Integer subtotalAmount;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
@@ -161,6 +230,27 @@ public class OrderItem {
   public OrderItem() {
   }
 
+  public OrderItem _object(ObjectEnum _object) {
+    
+    this._object = _object;
+    return this;
+  }
+
+   /**
+   * The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;.
+   * @return _object
+  **/
+  @javax.annotation.Nullable
+  public ObjectEnum getObject() {
+    return _object;
+  }
+
+
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+  }
+
+
   public OrderItem skuId(String skuId) {
     
     this.skuId = skuId;
@@ -168,7 +258,7 @@ public class OrderItem {
   }
 
    /**
-   * A unique SKU ID assigned by Voucherify.
+   * Unique identifier of the SKU. It is assigned by Voucherify.
    * @return skuId
   **/
   @javax.annotation.Nullable
@@ -189,7 +279,7 @@ public class OrderItem {
   }
 
    /**
-   * A unique product ID assigned by Voucherify.
+   * Unique identifier of the product. It is assigned by Voucherify.
    * @return productId
   **/
   @javax.annotation.Nullable
@@ -231,7 +321,7 @@ public class OrderItem {
   }
 
    /**
-   * The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+   * The merchant&#39;s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -371,6 +461,90 @@ public class OrderItem {
   }
 
 
+  public OrderItem appliedDiscountAmount(Integer appliedDiscountAmount) {
+    
+    this.appliedDiscountAmount = appliedDiscountAmount;
+    return this;
+  }
+
+   /**
+   * Order-level discount amount applied in the transaction.
+   * @return appliedDiscountAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedDiscountAmount() {
+    return appliedDiscountAmount;
+  }
+
+
+  public void setAppliedDiscountAmount(Integer appliedDiscountAmount) {
+    this.appliedDiscountAmount = appliedDiscountAmount;
+  }
+
+
+  public OrderItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
+    
+    this.appliedDiscountQuantity = appliedDiscountQuantity;
+    return this;
+  }
+
+   /**
+   * Number of the discounted items applied in the transaction.
+   * @return appliedDiscountQuantity
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedDiscountQuantity() {
+    return appliedDiscountQuantity;
+  }
+
+
+  public void setAppliedDiscountQuantity(Integer appliedDiscountQuantity) {
+    this.appliedDiscountQuantity = appliedDiscountQuantity;
+  }
+
+
+  public OrderItem appliedQuantity(Integer appliedQuantity) {
+    
+    this.appliedQuantity = appliedQuantity;
+    return this;
+  }
+
+   /**
+   * Quantity of items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+   * @return appliedQuantity
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedQuantity() {
+    return appliedQuantity;
+  }
+
+
+  public void setAppliedQuantity(Integer appliedQuantity) {
+    this.appliedQuantity = appliedQuantity;
+  }
+
+
+  public OrderItem appliedQuantityAmount(Integer appliedQuantityAmount) {
+    
+    this.appliedQuantityAmount = appliedQuantityAmount;
+    return this;
+  }
+
+   /**
+   * Amount for the items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+   * @return appliedQuantityAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAppliedQuantityAmount() {
+    return appliedQuantityAmount;
+  }
+
+
+  public void setAppliedQuantityAmount(Integer appliedQuantityAmount) {
+    this.appliedQuantityAmount = appliedQuantityAmount;
+  }
+
+
   public OrderItem price(Integer price) {
     
     this.price = price;
@@ -389,6 +563,27 @@ public class OrderItem {
 
   public void setPrice(Integer price) {
     this.price = price;
+  }
+
+
+  public OrderItem subtotalAmount(Integer subtotalAmount) {
+    
+    this.subtotalAmount = subtotalAmount;
+    return this;
+  }
+
+   /**
+   * Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;discount_amount&#x60;
+   * @return subtotalAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getSubtotalAmount() {
+    return subtotalAmount;
+  }
+
+
+  public void setSubtotalAmount(Integer subtotalAmount) {
+    this.subtotalAmount = subtotalAmount;
   }
 
 
@@ -441,7 +636,7 @@ public class OrderItem {
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format.
+   * A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -509,7 +704,8 @@ public class OrderItem {
       return false;
     }
     OrderItem orderItem = (OrderItem) o;
-    return Objects.equals(this.skuId, orderItem.skuId) &&
+    return Objects.equals(this._object, orderItem._object) &&
+        Objects.equals(this.skuId, orderItem.skuId) &&
         Objects.equals(this.productId, orderItem.productId) &&
         Objects.equals(this.relatedObject, orderItem.relatedObject) &&
         Objects.equals(this.sourceId, orderItem.sourceId) &&
@@ -519,7 +715,12 @@ public class OrderItem {
         Objects.equals(this.amount, orderItem.amount) &&
         Objects.equals(this.discountAmount, orderItem.discountAmount) &&
         Objects.equals(this.initialAmount, orderItem.initialAmount) &&
+        Objects.equals(this.appliedDiscountAmount, orderItem.appliedDiscountAmount) &&
+        Objects.equals(this.appliedDiscountQuantity, orderItem.appliedDiscountQuantity) &&
+        Objects.equals(this.appliedQuantity, orderItem.appliedQuantity) &&
+        Objects.equals(this.appliedQuantityAmount, orderItem.appliedQuantityAmount) &&
         Objects.equals(this.price, orderItem.price) &&
+        Objects.equals(this.subtotalAmount, orderItem.subtotalAmount) &&
         Objects.equals(this.product, orderItem.product) &&
         Objects.equals(this.sku, orderItem.sku) &&
         Objects.equals(this.metadata, orderItem.metadata)&&
@@ -532,7 +733,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, initialAmount, price, product, sku, metadata, additionalProperties);
+    return Objects.hash(_object, skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, initialAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, price, subtotalAmount, product, sku, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -546,6 +747,7 @@ public class OrderItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderItem {\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    skuId: ").append(toIndentedString(skuId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    relatedObject: ").append(toIndentedString(relatedObject)).append("\n");
@@ -556,7 +758,12 @@ public class OrderItem {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    appliedDiscountAmount: ").append(toIndentedString(appliedDiscountAmount)).append("\n");
+    sb.append("    appliedDiscountQuantity: ").append(toIndentedString(appliedDiscountQuantity)).append("\n");
+    sb.append("    appliedQuantity: ").append(toIndentedString(appliedQuantity)).append("\n");
+    sb.append("    appliedQuantityAmount: ").append(toIndentedString(appliedQuantityAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    subtotalAmount: ").append(toIndentedString(subtotalAmount)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -583,6 +790,7 @@ public class OrderItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("object");
     openapiFields.add("sku_id");
     openapiFields.add("product_id");
     openapiFields.add("related_object");
@@ -593,7 +801,12 @@ public class OrderItem {
     openapiFields.add("amount");
     openapiFields.add("discount_amount");
     openapiFields.add("initial_amount");
+    openapiFields.add("applied_discount_amount");
+    openapiFields.add("applied_discount_quantity");
+    openapiFields.add("applied_quantity");
+    openapiFields.add("applied_quantity_amount");
     openapiFields.add("price");
+    openapiFields.add("subtotal_amount");
     openapiFields.add("product");
     openapiFields.add("sku");
     openapiFields.add("metadata");

@@ -92,7 +92,7 @@ public class VoucherTransactionDetailsOrder {
   }
 
    /**
-   * The merchant’s order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
+   * The merchant&#39;s order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable

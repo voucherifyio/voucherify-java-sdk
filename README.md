@@ -98,28 +98,26 @@ import io.voucherify.client.ApiException;
 import io.voucherify.client.Configuration;
 import io.voucherify.client.auth.*;
 import io.voucherify.client.models.*;
-import io.voucherify.client.api.CampaignsApi;
+import io.voucherify.client.api.AsyncActionsApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.voucherify.io");
-        
-        // Configure API key authorization: X-App-Id
-        defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
     
-        // Configure API key authorization: X-App-Token
-        defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
 
-        CampaignsApi apiInstance = new CampaignsApi(defaultClient);
-        String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-        String code = "code_example"; // String | A custom **code** that identifies the voucher.
-        CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = new CampaignsVouchersCreateRequestBody(); // CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite.
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
+
+        AsyncActionsApi apiInstance = new AsyncActionsApi(defaultClient);
+        String asyncActionId = "asyncActionId_example"; // String | Unique ID of the asynchronous operation.
         try {
-            CampaignsVouchersCreateResponseBody result = apiInstance.addVoucherWithSpecificCodeToCampaign(campaignId, code, campaignsVouchersCreateRequestBody);
+            AsyncActionGetResponseBody result = apiInstance.getAsyncAction(asyncActionId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling CampaignsApi#addVoucherWithSpecificCodeToCampaign");
+            System.err.println("Exception when calling AsyncActionsApi#getAsyncAction");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -188,6 +186,8 @@ All URIs are relative to *https://api.voucherify.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AsyncActionsApi* | [**getAsyncAction**](docs/AsyncActionsApi.md#getAsyncAction) | **GET** /v1/async-actions/{asyncActionId} | Get Async Action
+*AsyncActionsApi* | [**listAsyncActions**](docs/AsyncActionsApi.md#listAsyncActions) | **GET** /v1/async-actions | List Async Actions
 *CampaignsApi* | [**addVoucherWithSpecificCodeToCampaign**](docs/CampaignsApi.md#addVoucherWithSpecificCodeToCampaign) | **POST** /v1/campaigns/{campaignId}/vouchers/{code} | Add Voucher with Specific Code to Campaign
 *CampaignsApi* | [**addVouchersToCampaign**](docs/CampaignsApi.md#addVouchersToCampaign) | **POST** /v1/campaigns/{campaignId}/vouchers | Add Vouchers to Campaign
 *CampaignsApi* | [**createCampaign**](docs/CampaignsApi.md#createCampaign) | **POST** /v1/campaigns | Create Campaign
@@ -310,7 +310,9 @@ Class | Method | HTTP request | Description
 *RewardsApi* | [**listRewards**](docs/RewardsApi.md#listRewards) | **GET** /v1/rewards | List Rewards
 *RewardsApi* | [**updateReward**](docs/RewardsApi.md#updateReward) | **PUT** /v1/rewards/{rewardId} | Update Reward
 *RewardsApi* | [**updateRewardAssignment**](docs/RewardsApi.md#updateRewardAssignment) | **PUT** /v1/rewards/{rewardId}/assignments/{assignmentId} | Update Reward Assignment
+*SegmentsApi* | [**createSegment**](docs/SegmentsApi.md#createSegment) | **POST** /v1/segments | Create Segment
 *SegmentsApi* | [**deleteSegment**](docs/SegmentsApi.md#deleteSegment) | **DELETE** /v1/segments/{segmentId} | Delete Segment
+*SegmentsApi* | [**getSegment**](docs/SegmentsApi.md#getSegment) | **GET** /v1/segments/{segmentId} | Get Segment
 *ValidationRulesApi* | [**createValidationRuleAssignment**](docs/ValidationRulesApi.md#createValidationRuleAssignment) | **POST** /v1/validation-rules/{validationRuleId}/assignments | Create Validation Rules Assignments
 *ValidationRulesApi* | [**createValidationRules**](docs/ValidationRulesApi.md#createValidationRules) | **POST** /v1/validation-rules | Create Validation Rules
 *ValidationRulesApi* | [**deleteValidationRuleAssignment**](docs/ValidationRulesApi.md#deleteValidationRuleAssignment) | **DELETE** /v1/validation-rules/{validationRuleId}/assignments/{assignmentId} | Delete Validation Rule Assignment
@@ -339,7 +341,11 @@ Class | Method | HTTP request | Description
 - [ApplicableToEffect](docs/ApplicableToEffect.md)
 - [ApplicableToResultList](docs/ApplicableToResultList.md)
 - [AreaStoreCampaignAssignment](docs/AreaStoreCampaignAssignment.md)
+- [AsyncAction](docs/AsyncAction.md)
+- [AsyncActionBase](docs/AsyncActionBase.md)
+- [AsyncActionGetResponseBody](docs/AsyncActionGetResponseBody.md)
 - [AsyncActions](docs/AsyncActions.md)
+- [AsyncActionsListResponseBody](docs/AsyncActionsListResponseBody.md)
 - [BusValRuleAssignment](docs/BusValRuleAssignment.md)
 - [Campaign](docs/Campaign.md)
 - [CampaignBase](docs/CampaignBase.md)
@@ -471,6 +477,8 @@ Class | Method | HTTP request | Description
 - [FilterConditionsString](docs/FilterConditionsString.md)
 - [FiltersCondition](docs/FiltersCondition.md)
 - [Gift](docs/Gift.md)
+- [HolderRole](docs/HolderRole.md)
+- [HolderRoleConditions](docs/HolderRoleConditions.md)
 - [InapplicableTo](docs/InapplicableTo.md)
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
@@ -790,6 +798,10 @@ Class | Method | HTTP request | Description
 - [RewardsUpdateRequestBody](docs/RewardsUpdateRequestBody.md)
 - [RewardsUpdateRequestBodyParameters](docs/RewardsUpdateRequestBodyParameters.md)
 - [RewardsUpdateRequestBodyParametersCampaign](docs/RewardsUpdateRequestBodyParametersCampaign.md)
+- [Segment](docs/Segment.md)
+- [SegmentsCreateRequestBody](docs/SegmentsCreateRequestBody.md)
+- [SegmentsCreateResponseBody](docs/SegmentsCreateResponseBody.md)
+- [SegmentsGetResponseBody](docs/SegmentsGetResponseBody.md)
 - [Session](docs/Session.md)
 - [SimpleCustomer](docs/SimpleCustomer.md)
 - [SimpleCustomerRequiredObjectType](docs/SimpleCustomerRequiredObjectType.md)
@@ -914,6 +926,7 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: X-Client-Application-Id
 - **Location**: HTTP header
+
 
 ## Recommendation
 

@@ -16,6 +16,7 @@ A set of filters to return only a specific category or type of redeemable.
 |**resourceType** | [**QualificationsOptionFiltersResourceType**](QualificationsOptionFiltersResourceType.md) |  |
 |**voucherType** | [**QualificationsFieldConditions**](QualificationsFieldConditions.md) |  |
 |**code** | [**QualificationsFieldConditions**](QualificationsFieldConditions.md) |  |
+|**holderRole** | [**HolderRole**](HolderRole.md) |  |
 
 
 

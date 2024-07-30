@@ -222,7 +222,7 @@ public class LoyaltiesTiersListResponseBody {
   }
 
    /**
-   * This is an object representing a loyalty tier. Loyalty tiers are used to create a loyalty program with different levels of membership and varied earning rules and rewards based on customer’s tiers.
+   * This is an object representing a loyalty tier. Loyalty tiers are used to create a loyalty program with different levels of membership and varied earning rules and rewards based on customer&#39;s tiers.
    * @return data
   **/
   @javax.annotation.Nullable

@@ -92,7 +92,7 @@ public class RedemptionRewardResultParametersProduct {
   }
 
    /**
-   * A unique SKU ID assigned by Voucherify.
+   * Unique identifier of the SKU. It is assigned by Voucherify.
    * @return skuId
   **/
   @javax.annotation.Nullable

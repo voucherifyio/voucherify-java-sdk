@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.HolderRole;
 import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.QualificationsCampaignTypeConditions;
 import io.voucherify.client.model.QualificationsFieldConditions;
@@ -88,6 +89,10 @@ public class QualificationsOptionFilters {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private QualificationsFieldConditions code;
+
+  public static final String SERIALIZED_NAME_HOLDER_ROLE = "holder_role";
+  @SerializedName(SERIALIZED_NAME_HOLDER_ROLE)
+  private HolderRole holderRole;
 
   public QualificationsOptionFilters() {
   }
@@ -260,6 +265,27 @@ public class QualificationsOptionFilters {
   }
 
 
+  public QualificationsOptionFilters holderRole(HolderRole holderRole) {
+    
+    this.holderRole = holderRole;
+    return this;
+  }
+
+   /**
+   * Get holderRole
+   * @return holderRole
+  **/
+  @javax.annotation.Nullable
+  public HolderRole getHolderRole() {
+    return holderRole;
+  }
+
+
+  public void setHolderRole(HolderRole holderRole) {
+    this.holderRole = holderRole;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -277,7 +303,8 @@ public class QualificationsOptionFilters {
         Objects.equals(this.resourceId, qualificationsOptionFilters.resourceId) &&
         Objects.equals(this.resourceType, qualificationsOptionFilters.resourceType) &&
         Objects.equals(this.voucherType, qualificationsOptionFilters.voucherType) &&
-        Objects.equals(this.code, qualificationsOptionFilters.code);
+        Objects.equals(this.code, qualificationsOptionFilters.code) &&
+        Objects.equals(this.holderRole, qualificationsOptionFilters.holderRole);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -286,7 +313,7 @@ public class QualificationsOptionFilters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(junction, categoryId, campaignId, campaignType, resourceId, resourceType, voucherType, code);
+    return Objects.hash(junction, categoryId, campaignId, campaignType, resourceId, resourceType, voucherType, code, holderRole);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -308,6 +335,7 @@ public class QualificationsOptionFilters {
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    voucherType: ").append(toIndentedString(voucherType)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    holderRole: ").append(toIndentedString(holderRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -338,6 +366,7 @@ public class QualificationsOptionFilters {
     openapiFields.add("resource_type");
     openapiFields.add("voucher_type");
     openapiFields.add("code");
+    openapiFields.add("holder_role");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
