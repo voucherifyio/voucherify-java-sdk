@@ -150,6 +150,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
   - Added `holderRole` to `QualificationsOptionFilters` model
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
+  - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
 - **2024-07-22** - `13.0.0`
   - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
   - Added support for GET and POST `/v1/rewards`
