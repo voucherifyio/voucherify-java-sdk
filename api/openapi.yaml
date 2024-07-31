@@ -4068,6 +4068,196 @@ paths:
       tags:
       - Campaigns
       x-accepts: application/json
+  /v1/promotions/tiers:
+    get:
+      description: This method enables you to list promotion tiers.
+      operationId: list-promotion-tiers
+      parameters:
+      - description: "This parameter allows filtering promotions that are only available\
+          \ at the moment. When set to true, it selects only non-expired and active\
+          \ promotions."
+        explode: true
+        in: query
+        name: is_available
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterBoolean'
+        style: form
+      - description: Limits the number of objects to be returned. The limit can range
+          between 1 and 100 items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterPage'
+        style: form
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderListPromotionTiers'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: tiers
+                    tiers:
+                    - id: promo_NzjTc3ZXTe7md5SziK3uYtei
+                      created_at: 2022-09-21T11:38:34.962Z
+                      name: Order more than $100
+                      banner: Order more than $100
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 3000
+                          effect: APPLY_TO_ORDER
+                      metadata: {}
+                      hierarchy: 1
+                      promotion_id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      campaign:
+                        id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                        start_date: 2022-09-21T00:00:00.000Z
+                        expiration_date: 2022-09-30T00:00:00.000Z
+                        validity_timeframe:
+                          interval: P3D
+                          duration: P2D
+                        validity_day_of_week:
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                        active: true
+                        category_id: cat_0bb81a481615a37b5e
+                        object: campaign
+                      campaign_id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      active: true
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_timeframe:
+                        interval: P3D
+                        duration: P2D
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      summary:
+                        redemptions:
+                          total_redeemed: 0
+                        orders:
+                          total_amount: 0
+                          total_discount_amount: 0
+                      object: promotion_tier
+                      validation_rule_assignments: null
+                    - id: promo_RaYHtUBre5jU8frUXOvYBtlN
+                      created_at: 2021-12-15T11:34:01.358Z
+                      updated_at: 2022-02-09T09:20:08.619Z
+                      name: Hot Promotion - Tier 2
+                      banner: Get Tier 2 Discount $20 Off
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 2000
+                          effect: APPLY_TO_ORDER
+                      metadata: {}
+                      hierarchy: 2
+                      promotion_id: camp_5h0wc453_5
+                      campaign:
+                        id: camp_5h0wc453_5
+                        start_date: null
+                        expiration_date: null
+                        active: true
+                        category_id: cat_0b688929a2476386a6
+                        object: campaign
+                      campaign_id: camp_5h0wc453_5
+                      active: true
+                      summary:
+                        redemptions:
+                          total_redeemed: 33
+                        orders:
+                          total_amount: 519200
+                          total_discount_amount: 66000
+                      object: promotion_tier
+                      validation_rule_assignments:
+                        object: list
+                        data_ref: data
+                        data:
+                        - id: asgm_pEe1inoYSfmO12p7
+                          rule_id: val_5h0wc453_5
+                          related_object_id: promo_RaYHtUBre5jU8frUXOvYBtlN
+                          related_object_type: promotion_tier
+                          created_at: 2021-12-15T11:34:01.358Z
+                          object: validation_rules_assignment
+                        total: 1
+                    - id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+                      created_at: 2021-12-15T11:34:01.333Z
+                      updated_at: 2022-02-09T09:20:05.603Z
+                      name: Hot Promotion - Tier 1
+                      banner: Get Tier 1 Discount 10zl
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 1000
+                          effect: APPLY_TO_ORDER
+                      metadata:
+                        ProductionMetaData: Hot Promotion - Tier 1
+                      hierarchy: 1
+                      promotion_id: camp_5h0wc453_5
+                      campaign:
+                        id: camp_5h0wc453_5
+                        start_date: null
+                        expiration_date: null
+                        active: true
+                        category_id: cat_0b688929a2476386a6
+                        object: campaign
+                      campaign_id: camp_5h0wc453_5
+                      active: true
+                      summary:
+                        redemptions:
+                          total_redeemed: 11
+                        orders:
+                          total_amount: 1414979
+                          total_discount_amount: 11000
+                      object: promotion_tier
+                      validation_rule_assignments:
+                        object: list
+                        data_ref: data
+                        data:
+                        - id: asgm_QqYs7GGVy7cuh3L9
+                          rule_id: val_5h0wc453_4
+                          related_object_id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+                          related_object_type: promotion_tier
+                          created_at: 2021-12-15T11:34:01.333Z
+                          object: validation_rules_assignment
+                        total: 1
+                    total: 3
+              schema:
+                $ref: '#/components/schemas/PromotionsTiersListResponseBody'
+          description: Returns a dictionary with a `tiers` property that contains
+            an array of promotion tiers.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Promotion Tiers
+      tags:
+      - Promotions
+      x-accepts: application/json
   /v1/promotions/{campaignId}/tiers:
     get:
       description: This method enables you to list promotion tiers from a specified
@@ -18286,6 +18476,204 @@ paths:
       - Client-side
       x-content-type: application/json
       x-accepts: application/json
+  /client/v1/promotions/tiers:
+    get:
+      description: This method enables you to list promotion tiers.
+      operationId: list-promotion-tiers-client-side
+      parameters:
+      - description: "This parameter allows filtering promotions that are only available\
+          \ at the moment. When set to true, it selects only non-expired and active\
+          \ promotions."
+        explode: true
+        in: query
+        name: is_available
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterBoolean'
+        style: form
+      - description: Limits the number of objects to be returned. The limit can range
+          between 1 and 100 items.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterInteger'
+        style: form
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderListPromotionTiersClientSide'
+        style: form
+      - description: "Indicates the origin (scheme, hostname, and port)."
+        explode: false
+        in: header
+        name: origin
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterOrigin'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: tiers
+                    tiers:
+                    - id: promo_NzjTc3ZXTe7md5SziK3uYtei
+                      created_at: 2022-09-21T11:38:34.962Z
+                      name: Order more than $100
+                      banner: Order more than $100
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 3000
+                          effect: APPLY_TO_ORDER
+                      metadata: {}
+                      hierarchy: 1
+                      promotion_id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      campaign:
+                        id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                        start_date: 2022-09-21T00:00:00.000Z
+                        expiration_date: 2022-09-30T00:00:00.000Z
+                        validity_timeframe:
+                          interval: P3D
+                          duration: P2D
+                        validity_day_of_week:
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                        active: true
+                        category_id: cat_0bb81a481615a37b5e
+                        object: campaign
+                      campaign_id: camp_VEL7UX0jZjrvLx3hfNZBVzpq
+                      active: true
+                      start_date: 2022-09-21T00:00:00.000Z
+                      expiration_date: 2022-09-30T00:00:00.000Z
+                      validity_timeframe:
+                        interval: P3D
+                        duration: P2D
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      summary:
+                        redemptions:
+                          total_redeemed: 0
+                        orders:
+                          total_amount: 0
+                          total_discount_amount: 0
+                      object: promotion_tier
+                      validation_rule_assignments: null
+                    - id: promo_RaYHtUBre5jU8frUXOvYBtlN
+                      created_at: 2021-12-15T11:34:01.358Z
+                      updated_at: 2022-02-09T09:20:08.619Z
+                      name: Hot Promotion - Tier 2
+                      banner: Get Tier 2 Discount $20 Off
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 2000
+                          effect: APPLY_TO_ORDER
+                      metadata: {}
+                      hierarchy: 2
+                      promotion_id: camp_5h0wc453_5
+                      campaign:
+                        id: camp_5h0wc453_5
+                        start_date: null
+                        expiration_date: null
+                        active: true
+                        category_id: cat_0b688929a2476386a6
+                        object: campaign
+                      campaign_id: camp_5h0wc453_5
+                      active: true
+                      summary:
+                        redemptions:
+                          total_redeemed: 33
+                        orders:
+                          total_amount: 519200
+                          total_discount_amount: 66000
+                      object: promotion_tier
+                      validation_rule_assignments:
+                        object: list
+                        data_ref: data
+                        data:
+                        - id: asgm_pEe1inoYSfmO12p7
+                          rule_id: val_5h0wc453_5
+                          related_object_id: promo_RaYHtUBre5jU8frUXOvYBtlN
+                          related_object_type: promotion_tier
+                          created_at: 2021-12-15T11:34:01.358Z
+                          object: validation_rules_assignment
+                        total: 1
+                    - id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+                      created_at: 2021-12-15T11:34:01.333Z
+                      updated_at: 2022-02-09T09:20:05.603Z
+                      name: Hot Promotion - Tier 1
+                      banner: Get Tier 1 Discount 10zl
+                      action:
+                        discount:
+                          type: AMOUNT
+                          amount_off: 1000
+                          effect: APPLY_TO_ORDER
+                      metadata:
+                        ProductionMetaData: Hot Promotion - Tier 1
+                      hierarchy: 1
+                      promotion_id: camp_5h0wc453_5
+                      campaign:
+                        id: camp_5h0wc453_5
+                        start_date: null
+                        expiration_date: null
+                        active: true
+                        category_id: cat_0b688929a2476386a6
+                        object: campaign
+                      campaign_id: camp_5h0wc453_5
+                      active: true
+                      summary:
+                        redemptions:
+                          total_redeemed: 11
+                        orders:
+                          total_amount: 1414979
+                          total_discount_amount: 11000
+                      object: promotion_tier
+                      validation_rule_assignments:
+                        object: list
+                        data_ref: data
+                        data:
+                        - id: asgm_QqYs7GGVy7cuh3L9
+                          rule_id: val_5h0wc453_4
+                          related_object_id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+                          related_object_type: promotion_tier
+                          created_at: 2021-12-15T11:34:01.333Z
+                          object: validation_rules_assignment
+                        total: 1
+                    total: 3
+              schema:
+                $ref: '#/components/schemas/ClientPromotionsTiersListResponseBody'
+          description: Returns a dictionary with a `tiers` property that contains
+            an array of promotion tiers.
+      security:
+      - X-Client-Application-Id: []
+        X-Client-Token: []
+      summary: List Promotion Tiers (client-side)
+      tags:
+      - Client-side
+      x-accepts: application/json
   /client/v1/redemptions:
     post:
       description: |-
@@ -20220,6 +20608,12 @@ components:
       required:
       - customer
       title: Client Events Create Response Body
+      type: object
+    ClientPromotionsTiersListResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/PromotionTiersList'
+      description: Response body schema for **GET** `/client/v1/promotions/tiers`.
+      title: Client Promotions Tiers List Response Body
       type: object
     ClientQualificationsCheckEligibilityRequestBody:
       description: Request body schema for **POST** `/qualifications`.
@@ -22180,6 +22574,20 @@ components:
       - updated_at
       - -updated_at
       type: string
+    ParameterOrderListPromotionTiers:
+      enum:
+      - created_at
+      - -created_at
+      - updated_at
+      - -updated_at
+      type: string
+    ParameterOrderListPromotionTiersClientSide:
+      enum:
+      - created_at
+      - -created_at
+      - updated_at
+      - -updated_at
+      type: string
     ParameterOrderListPublications:
       enum:
       - id
@@ -22920,7 +23328,8 @@ components:
     PromotionsTiersListResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTiersList'
-      description: "Response body schema for **GET** `/promotions/{campaignId}/tiers`."
+      description: "Response body schema for **GET** `/promotions/{campaignId}/tiers`\
+        \ and **GET** `/promotions/tiers`."
       title: Promotions Tiers List Response Body
       type: object
     PromotionsTiersUpdateRequestBody:

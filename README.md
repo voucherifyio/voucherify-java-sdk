@@ -211,6 +211,7 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**listCategories**](docs/CategoriesApi.md#listCategories) | **GET** /v1/categories | List Categories
 *CategoriesApi* | [**updateCategory**](docs/CategoriesApi.md#updateCategory) | **PUT** /v1/categories/{categoryId} | Update Category
 *ClientSideApi* | [**checkEligibilityClientSide**](docs/ClientSideApi.md#checkEligibilityClientSide) | **POST** /client/v1/qualifications | Check Eligibility (client-side)
+*ClientSideApi* | [**listPromotionTiersClientSide**](docs/ClientSideApi.md#listPromotionTiersClientSide) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side)
 *ClientSideApi* | [**redeemStackedDiscountsClientSide**](docs/ClientSideApi.md#redeemStackedDiscountsClientSide) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side)
 *ClientSideApi* | [**trackCustomEventClientSide**](docs/ClientSideApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side)
 *ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side)
@@ -293,6 +294,7 @@ Class | Method | HTTP request | Description
 *PromotionsApi* | [**getPromotionTier**](docs/PromotionsApi.md#getPromotionTier) | **GET** /v1/promotions/tiers/{promotionTierId} | Get Promotion Tier
 *PromotionsApi* | [**listAllPromotionStacks**](docs/PromotionsApi.md#listAllPromotionStacks) | **GET** /v1/promotions/stacks | List Promotion Stacks
 *PromotionsApi* | [**listPromotionStacksInCampaign**](docs/PromotionsApi.md#listPromotionStacksInCampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign
+*PromotionsApi* | [**listPromotionTiers**](docs/PromotionsApi.md#listPromotionTiers) | **GET** /v1/promotions/tiers | List Promotion Tiers
 *PromotionsApi* | [**listPromotionTiersFromCampaign**](docs/PromotionsApi.md#listPromotionTiersFromCampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign
 *PromotionsApi* | [**updatePromotionStack**](docs/PromotionsApi.md#updatePromotionStack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack
 *PromotionsApi* | [**updatePromotionTier**](docs/PromotionsApi.md#updatePromotionTier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier
@@ -397,6 +399,7 @@ Class | Method | HTTP request | Description
 - [ClientEventsCreateRequestBodyLoyalty](docs/ClientEventsCreateRequestBodyLoyalty.md)
 - [ClientEventsCreateRequestBodyReferral](docs/ClientEventsCreateRequestBodyReferral.md)
 - [ClientEventsCreateResponseBody](docs/ClientEventsCreateResponseBody.md)
+- [ClientPromotionsTiersListResponseBody](docs/ClientPromotionsTiersListResponseBody.md)
 - [ClientQualificationsCheckEligibilityRequestBody](docs/ClientQualificationsCheckEligibilityRequestBody.md)
 - [ClientQualificationsCheckEligibilityResponseBody](docs/ClientQualificationsCheckEligibilityResponseBody.md)
 - [ClientRedemptionsRedeemRequestBody](docs/ClientRedemptionsRedeemRequestBody.md)
@@ -582,6 +585,8 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListExports](docs/ParameterOrderListExports.md)
 - [ParameterOrderListLoyaltyTiers](docs/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/ParameterOrderListOrders.md)
+- [ParameterOrderListPromotionTiers](docs/ParameterOrderListPromotionTiers.md)
+- [ParameterOrderListPromotionTiersClientSide](docs/ParameterOrderListPromotionTiersClientSide.md)
 - [ParameterOrderListPublications](docs/ParameterOrderListPublications.md)
 - [ParameterOrderListRedemptions](docs/ParameterOrderListRedemptions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/ParameterOrderListValidationRuleAssignments.md)

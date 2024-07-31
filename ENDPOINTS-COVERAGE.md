@@ -96,7 +96,7 @@
 ## Promotions
 | endpoint                                       | method | summary                            | is supported                         | is deprecated |
 | ---------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
-| /v1/promotions/tiers                           | get    | List Promotion Tiers               |                                      |               |
+| /v1/promotions/tiers                           | get    | List Promotion Tiers               | <font color='green'>supported</font> |               |
 | /v1/promotions/{campaignId}/tiers              | get    | List Promotion Tiers from Campaign | <font color='green'>supported</font> |               |
 | /v1/promotions/{campaignId}/tiers              | post   | Add Promotion Tier to Campaign     | <font color='green'>supported</font> |               |
 | /v1/promotions/tiers/{promotionTierId}         | get    | Get Promotion Tier                 | <font color='green'>supported</font> |               |
@@ -335,7 +335,7 @@
 | endpoint                                   | method | summary                                     | is supported                         | is deprecated                        |
 | ------------------------------------------ | ------ | ------------------------------------------- | ------------------------------------ | ------------------------------------ |
 | /client/v1/qualifications                  | post   | Check Eligibility (client-side)             | <font color='green'>supported</font> |                                      |
-| /client/v1/promotions/tiers                | get    | List Promotion Tiers (client-side)          |                                      |                                      |
+| /client/v1/promotions/tiers                | get    | List Promotion Tiers (client-side)          | <font color='green'>supported</font> |                                      |
 | /client/v1/redemptions                     | post   | Redeem Stackable Discounts (client-side)    | <font color='green'>supported</font> |                                      |
 | /client/v1/validations                     | post   | Validate Stackable Discounts (client-side)  | <font color='green'>supported</font> |                                      |
 | /client/v1/customers/{customerId}/consents | put    | Update Customer's consents (client-side)    | <font color='green'>supported</font> |                                      |

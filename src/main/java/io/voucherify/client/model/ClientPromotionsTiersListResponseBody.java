@@ -51,11 +51,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;/promotions/{campaignId}/tiers&#x60; and **GET** &#x60;/promotions/tiers&#x60;.
+ * Response body schema for **GET** &#x60;/client/v1/promotions/tiers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class PromotionsTiersListResponseBody {
+public class ClientPromotionsTiersListResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "list";
@@ -76,10 +76,10 @@ public class PromotionsTiersListResponseBody {
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   private Boolean hasMore;
 
-  public PromotionsTiersListResponseBody() {
+  public ClientPromotionsTiersListResponseBody() {
   }
 
-  public PromotionsTiersListResponseBody _object(String _object) {
+  public ClientPromotionsTiersListResponseBody _object(String _object) {
     
     this._object = _object;
     return this;
@@ -100,7 +100,7 @@ public class PromotionsTiersListResponseBody {
   }
 
 
-  public PromotionsTiersListResponseBody dataRef(String dataRef) {
+  public ClientPromotionsTiersListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
     return this;
@@ -121,13 +121,13 @@ public class PromotionsTiersListResponseBody {
   }
 
 
-  public PromotionsTiersListResponseBody tiers(List<PromotionTier> tiers) {
+  public ClientPromotionsTiersListResponseBody tiers(List<PromotionTier> tiers) {
     
     this.tiers = tiers;
     return this;
   }
 
-  public PromotionsTiersListResponseBody addTiersItem(PromotionTier tiersItem) {
+  public ClientPromotionsTiersListResponseBody addTiersItem(PromotionTier tiersItem) {
     if (this.tiers == null) {
       this.tiers = new ArrayList<>();
     }
@@ -150,7 +150,7 @@ public class PromotionsTiersListResponseBody {
   }
 
 
-  public PromotionsTiersListResponseBody total(Integer total) {
+  public ClientPromotionsTiersListResponseBody total(Integer total) {
     
     this.total = total;
     return this;
@@ -171,7 +171,7 @@ public class PromotionsTiersListResponseBody {
   }
 
 
-  public PromotionsTiersListResponseBody hasMore(Boolean hasMore) {
+  public ClientPromotionsTiersListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
     return this;
@@ -204,9 +204,9 @@ public class PromotionsTiersListResponseBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PromotionsTiersListResponseBody instance itself
+   * @return the ClientPromotionsTiersListResponseBody instance itself
    */
-  public PromotionsTiersListResponseBody putAdditionalProperty(String key, Object value) {
+  public ClientPromotionsTiersListResponseBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -245,13 +245,13 @@ public class PromotionsTiersListResponseBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PromotionsTiersListResponseBody promotionsTiersListResponseBody = (PromotionsTiersListResponseBody) o;
-    return Objects.equals(this._object, promotionsTiersListResponseBody._object) &&
-        Objects.equals(this.dataRef, promotionsTiersListResponseBody.dataRef) &&
-        Objects.equals(this.tiers, promotionsTiersListResponseBody.tiers) &&
-        Objects.equals(this.total, promotionsTiersListResponseBody.total) &&
-        Objects.equals(this.hasMore, promotionsTiersListResponseBody.hasMore)&&
-        Objects.equals(this.additionalProperties, promotionsTiersListResponseBody.additionalProperties);
+    ClientPromotionsTiersListResponseBody clientPromotionsTiersListResponseBody = (ClientPromotionsTiersListResponseBody) o;
+    return Objects.equals(this._object, clientPromotionsTiersListResponseBody._object) &&
+        Objects.equals(this.dataRef, clientPromotionsTiersListResponseBody.dataRef) &&
+        Objects.equals(this.tiers, clientPromotionsTiersListResponseBody.tiers) &&
+        Objects.equals(this.total, clientPromotionsTiersListResponseBody.total) &&
+        Objects.equals(this.hasMore, clientPromotionsTiersListResponseBody.hasMore)&&
+        Objects.equals(this.additionalProperties, clientPromotionsTiersListResponseBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -273,7 +273,7 @@ public class PromotionsTiersListResponseBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PromotionsTiersListResponseBody {\n");
+    sb.append("class ClientPromotionsTiersListResponseBody {\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    dataRef: ").append(toIndentedString(dataRef)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
@@ -316,16 +316,16 @@ public class PromotionsTiersListResponseBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PromotionsTiersListResponseBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PromotionsTiersListResponseBody' and its subtypes
+       if (!ClientPromotionsTiersListResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ClientPromotionsTiersListResponseBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PromotionsTiersListResponseBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PromotionsTiersListResponseBody.class));
+       final TypeAdapter<ClientPromotionsTiersListResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ClientPromotionsTiersListResponseBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PromotionsTiersListResponseBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ClientPromotionsTiersListResponseBody>() {
            @Override
-           public void write(JsonWriter out, PromotionsTiersListResponseBody value) throws IOException {
+           public void write(JsonWriter out, ClientPromotionsTiersListResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -348,11 +348,11 @@ public class PromotionsTiersListResponseBody {
            }
 
            @Override
-           public PromotionsTiersListResponseBody read(JsonReader in) throws IOException {
+           public ClientPromotionsTiersListResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PromotionsTiersListResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
+             ClientPromotionsTiersListResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -379,18 +379,18 @@ public class PromotionsTiersListResponseBody {
   }
 
  /**
-  * Create an instance of PromotionsTiersListResponseBody given an JSON string
+  * Create an instance of ClientPromotionsTiersListResponseBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PromotionsTiersListResponseBody
-  * @throws IOException if the JSON string is invalid with respect to PromotionsTiersListResponseBody
+  * @return An instance of ClientPromotionsTiersListResponseBody
+  * @throws IOException if the JSON string is invalid with respect to ClientPromotionsTiersListResponseBody
   */
-  public static PromotionsTiersListResponseBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PromotionsTiersListResponseBody.class);
+  public static ClientPromotionsTiersListResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ClientPromotionsTiersListResponseBody.class);
   }
 
  /**
-  * Convert an instance of PromotionsTiersListResponseBody to an JSON string
+  * Convert an instance of ClientPromotionsTiersListResponseBody to an JSON string
   *
   * @return JSON string
   */
