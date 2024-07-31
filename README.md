@@ -802,6 +802,7 @@ Class | Method | HTTP request | Description
 - [RewardsAssignmentsUpdateRequestBodyParametersLoyalty](docs/RewardsAssignmentsUpdateRequestBodyParametersLoyalty.md)
 - [RewardsAssignmentsUpdateResponseBody](docs/RewardsAssignmentsUpdateResponseBody.md)
 - [RewardsCreateRequestBody](docs/RewardsCreateRequestBody.md)
+- [RewardsCreateRequestBodyAttributes](docs/RewardsCreateRequestBodyAttributes.md)
 - [RewardsCreateRequestBodyParameters](docs/RewardsCreateRequestBodyParameters.md)
 - [RewardsCreateRequestBodyParametersCampaign](docs/RewardsCreateRequestBodyParametersCampaign.md)
 - [RewardsCreateRequestBodyParametersCoin](docs/RewardsCreateRequestBodyParametersCoin.md)

@@ -176,7 +176,7 @@ public class AsyncActionBase {
   }
 
    /**
-   * Type of async action. Examples: \&quot;CAMPAIGN.VOUCHERS_IMPORT\&quot;, \&quot;CAMPAIGN.VOUCHERS_IMPORT_CSV\&quot;, \&quot;CAMPAIGN.VOUCHERS_UPDATE\&quot;, \&quot;CAMPAIGN.VOUCHERS_DELETE\&quot;, \&quot;CAMPAIGN.VOUCHERS_GENERATE\&quot;, \&quot;CAMPAIGNS.METADATA_KEY_PURGE\&quot;, \&quot;CUSTOMERS.IMPORT_CSV\&quot;, \&quot;CUSTOMERS.BULK_UPDATE\&quot;, \&quot;CUSTOMERS.METADATA_UPDATE\&quot;, \&quot;CUSTOMERS.METADATA_KEY_PURGE\&quot;, \&quot;PRODUCTS.BULK_UPDATE\&quot;, \&quot;PRODUCTS.METADATA_UPDATE\&quot;, \&quot;PRODUCTS.METADATA_KEY_PURGE\&quot;, \&quot;PRODUCTS.IMPORT_CSV\&quot;, \&quot;SKUS.IMPORT_CSV\&quot;, \&quot;VOUCHERS.IMPORT\&quot;, \&quot;VOUCHERS.IMPORT_CSV\&quot;, \&quot;VOUCHERS.BULK_UPDATE\&quot;, \&quot;VOUCHERS.METADATA_UPDATE\&quot;, \&quot;VOUCHERS.METADATA_KEY_PURGE\&quot;, \&quot;ORDERS.IMPORT\&quot;, \&quot;ORDERS.METADATA_KEY_PURGE\&quot;
+   * Type of async action.
    * @return type
   **/
   @javax.annotation.Nullable

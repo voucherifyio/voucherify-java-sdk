@@ -21623,7 +21623,7 @@ components:
       title: Loyalties Earning Rules Get Response Body
       type: object
     LoyaltiesMembersBalanceUpdateRequestBody:
-      description: "Request Body schema for **post** `/loyalties/members/{memberId}/balance`\
+      description: "Request Body schema for **POST** `/loyalties/members/{memberId}/balance`\
         \ and **POST** `/loyalties/{campaignId}/members/{memberId}/balance`."
       example:
         expiration_type: ""
@@ -23231,7 +23231,7 @@ components:
       title: Promotions Stacks List Response Body
       type: object
     PromotionsStacksUpdateRequestBody:
-      description: "Request Body schema for **put** `/promotions/{campaignId}/stacks/{stackId}`."
+      description: "Request Body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`."
       example:
         tiers:
           ids:
@@ -23300,12 +23300,12 @@ components:
     PromotionsTiersCreateRequestBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTierCreate'
-      description: "Request body schema for **post** `/v1/promotions/{campaignId}/tiers`."
+      description: "Request body schema for **POST** `/v1/promotions/{campaignId}/tiers`."
       title: Promotions Tiers Create Request Body
     PromotionsTiersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **post** `/promotions/{campaignId}/tiers`."
+      description: "Response body schema for **POST** `/promotions/{campaignId}/tiers`."
       title: Promotions Tiers Create Response Body
     PromotionsTiersDisableResponseBody:
       allOf:
@@ -23335,12 +23335,12 @@ components:
     PromotionsTiersUpdateRequestBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTierUpdate'
-      description: "Request body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      description: "Request body schema for **PUT** `/promotions/tiers/{promotionTierId}`."
       title: Promotions Tiers Update Request Body
     PromotionsTiersUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **put** `/promotions/tiers/{promotionTierId}`."
+      description: "Response body schema for **PUT** `/promotions/tiers/{promotionTierId}`."
       title: Promotions Tiers Update Response Body
     PublicationsCreateRequestBody:
       example:
@@ -26048,7 +26048,9 @@ components:
       example:
         metadata: "{}"
         name: name
-        attributes: "{}"
+        attributes:
+          image_url: image_url
+          description: description
         stock: 6
         parameters:
           product:
@@ -26067,10 +26069,6 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/RewardsCreateRequestBodyParameters'
-        attributes:
-          nullable: true
-          title: RewardsCreateRequestBodyAttributes
-          type: object
         metadata:
           nullable: true
           title: RewardsCreateRequestBodyMetadata
@@ -26080,6 +26078,8 @@ components:
             a reward.
           nullable: true
           type: integer
+        attributes:
+          $ref: '#/components/schemas/RewardsCreateRequestBody_attributes'
       title: RewardsCreateRequestBody
       type: object
     RewardsListResponseBody:
@@ -26146,7 +26146,9 @@ components:
       example:
         metadata: "{}"
         name: name
-        attributes: "{}"
+        attributes:
+          image_url: image_url
+          description: description
         stock: 6
         parameters:
           product:
@@ -26165,10 +26167,6 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/RewardsUpdateRequestBodyParameters'
-        attributes:
-          nullable: true
-          title: RewardsUpdateRequestBodyAttributes
-          type: object
         metadata:
           nullable: true
           title: RewardsUpdateRequestBodyMetadata
@@ -26178,6 +26176,8 @@ components:
             a reward.
           nullable: true
           type: integer
+        attributes:
+          $ref: '#/components/schemas/RewardsCreateRequestBody_attributes'
       title: RewardsUpdateRequestBody
       type: object
     SegmentsCreateRequestBody:
@@ -27134,15 +27134,7 @@ components:
           nullable: true
           type: string
         type:
-          description: "Type of async action. Examples: \"CAMPAIGN.VOUCHERS_IMPORT\"\
-            , \"CAMPAIGN.VOUCHERS_IMPORT_CSV\", \"CAMPAIGN.VOUCHERS_UPDATE\", \"CAMPAIGN.VOUCHERS_DELETE\"\
-            , \"CAMPAIGN.VOUCHERS_GENERATE\", \"CAMPAIGNS.METADATA_KEY_PURGE\", \"\
-            CUSTOMERS.IMPORT_CSV\", \"CUSTOMERS.BULK_UPDATE\", \"CUSTOMERS.METADATA_UPDATE\"\
-            , \"CUSTOMERS.METADATA_KEY_PURGE\", \"PRODUCTS.BULK_UPDATE\", \"PRODUCTS.METADATA_UPDATE\"\
-            , \"PRODUCTS.METADATA_KEY_PURGE\", \"PRODUCTS.IMPORT_CSV\", \"SKUS.IMPORT_CSV\"\
-            , \"VOUCHERS.IMPORT\", \"VOUCHERS.IMPORT_CSV\", \"VOUCHERS.BULK_UPDATE\"\
-            , \"VOUCHERS.METADATA_UPDATE\", \"VOUCHERS.METADATA_KEY_PURGE\", \"ORDERS.IMPORT\"\
-            , \"ORDERS.METADATA_KEY_PURGE\""
+          description: Type of async action.
           nullable: true
           type: string
         status:
@@ -38256,6 +38248,22 @@ components:
         coin:
           $ref: '#/components/schemas/RewardsCreateRequestBodyParameters_coin'
       title: RewardsCreateRequestBodyParameters
+      type: object
+    RewardsCreateRequestBody_attributes:
+      description: Attributes of a material reward.
+      example:
+        image_url: image_url
+        description: description
+      nullable: true
+      properties:
+        image_url:
+          description: HTTPS URL pointing to a .png or .jpg file.
+          nullable: true
+          type: string
+        description:
+          description: Description of a material reward.
+          nullable: true
+          type: string
       type: object
     Rewards_Update_Request_Body_Parameters_Campaign:
       example:

@@ -523,6 +523,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsAssignmentsUpdateRequestBodyParametersLoyalty.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsAssignmentsUpdateResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsCreateRequestBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsCreateRequestBodyAttributes.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsCreateRequestBodyParameters.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsCreateRequestBodyParametersCampaign.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.RewardsCreateRequestBodyParametersCoin.CustomTypeAdapterFactory());

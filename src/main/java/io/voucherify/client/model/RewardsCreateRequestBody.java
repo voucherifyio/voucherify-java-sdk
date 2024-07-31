@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.RewardsCreateRequestBodyAttributes;
 import io.voucherify.client.model.RewardsCreateRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
@@ -62,10 +63,6 @@ public class RewardsCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private RewardsCreateRequestBodyParameters parameters;
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Object attributes;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -73,6 +70,10 @@ public class RewardsCreateRequestBody {
   public static final String SERIALIZED_NAME_STOCK = "stock";
   @SerializedName(SERIALIZED_NAME_STOCK)
   private Integer stock;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private RewardsCreateRequestBodyAttributes attributes;
 
   public RewardsCreateRequestBody() {
   }
@@ -119,27 +120,6 @@ public class RewardsCreateRequestBody {
   }
 
 
-  public RewardsCreateRequestBody attributes(Object attributes) {
-    
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @javax.annotation.Nullable
-  public Object getAttributes() {
-    return attributes;
-  }
-
-
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
-  }
-
-
   public RewardsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
@@ -179,6 +159,27 @@ public class RewardsCreateRequestBody {
 
   public void setStock(Integer stock) {
     this.stock = stock;
+  }
+
+
+  public RewardsCreateRequestBody attributes(RewardsCreateRequestBodyAttributes attributes) {
+    
+    this.attributes = attributes;
+    return this;
+  }
+
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @javax.annotation.Nullable
+  public RewardsCreateRequestBodyAttributes getAttributes() {
+    return attributes;
+  }
+
+
+  public void setAttributes(RewardsCreateRequestBodyAttributes attributes) {
+    this.attributes = attributes;
   }
 
   /**
@@ -238,9 +239,9 @@ public class RewardsCreateRequestBody {
     RewardsCreateRequestBody rewardsCreateRequestBody = (RewardsCreateRequestBody) o;
     return Objects.equals(this.name, rewardsCreateRequestBody.name) &&
         Objects.equals(this.parameters, rewardsCreateRequestBody.parameters) &&
-        Objects.equals(this.attributes, rewardsCreateRequestBody.attributes) &&
         Objects.equals(this.metadata, rewardsCreateRequestBody.metadata) &&
-        Objects.equals(this.stock, rewardsCreateRequestBody.stock)&&
+        Objects.equals(this.stock, rewardsCreateRequestBody.stock) &&
+        Objects.equals(this.attributes, rewardsCreateRequestBody.attributes)&&
         Objects.equals(this.additionalProperties, rewardsCreateRequestBody.additionalProperties);
   }
 
@@ -250,7 +251,7 @@ public class RewardsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, parameters, attributes, metadata, stock, additionalProperties);
+    return Objects.hash(name, parameters, metadata, stock, attributes, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -266,9 +267,9 @@ public class RewardsCreateRequestBody {
     sb.append("class RewardsCreateRequestBody {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    stock: ").append(toIndentedString(stock)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -294,9 +295,9 @@ public class RewardsCreateRequestBody {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("parameters");
-    openapiFields.add("attributes");
     openapiFields.add("metadata");
     openapiFields.add("stock");
+    openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

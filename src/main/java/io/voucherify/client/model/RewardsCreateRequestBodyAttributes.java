@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsCreateRequestBodyAttributes;
-import io.voucherify.client.model.RewardsUpdateRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,136 +48,61 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * RewardsUpdateRequestBody
+ * Attributes of a material reward.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class RewardsUpdateRequestBody {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+public class RewardsCreateRequestBodyAttributes {
+  public static final String SERIALIZED_NAME_IMAGE_URL = "image_url";
+  @SerializedName(SERIALIZED_NAME_IMAGE_URL)
+  private String imageUrl;
 
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardsUpdateRequestBodyParameters parameters;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
-
-  public static final String SERIALIZED_NAME_STOCK = "stock";
-  @SerializedName(SERIALIZED_NAME_STOCK)
-  private Integer stock;
-
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private RewardsCreateRequestBodyAttributes attributes;
-
-  public RewardsUpdateRequestBody() {
+  public RewardsCreateRequestBodyAttributes() {
   }
 
-  public RewardsUpdateRequestBody name(String name) {
+  public RewardsCreateRequestBodyAttributes imageUrl(String imageUrl) {
     
-    this.name = name;
+    this.imageUrl = imageUrl;
     return this;
   }
 
    /**
-   * Reward name.
-   * @return name
+   * HTTPS URL pointing to a .png or .jpg file.
+   * @return imageUrl
   **/
   @javax.annotation.Nullable
-  public String getName() {
-    return name;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
 
 
-  public RewardsUpdateRequestBody parameters(RewardsUpdateRequestBodyParameters parameters) {
+  public RewardsCreateRequestBodyAttributes description(String description) {
     
-    this.parameters = parameters;
+    this.description = description;
     return this;
   }
 
    /**
-   * Get parameters
-   * @return parameters
+   * Description of a material reward.
+   * @return description
   **/
   @javax.annotation.Nullable
-  public RewardsUpdateRequestBodyParameters getParameters() {
-    return parameters;
+  public String getDescription() {
+    return description;
   }
 
 
-  public void setParameters(RewardsUpdateRequestBodyParameters parameters) {
-    this.parameters = parameters;
-  }
-
-
-  public RewardsUpdateRequestBody metadata(Object metadata) {
-    
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * Get metadata
-   * @return metadata
-  **/
-  @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
-  }
-
-
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
-  }
-
-
-  public RewardsUpdateRequestBody stock(Integer stock) {
-    
-    this.stock = stock;
-    return this;
-  }
-
-   /**
-   * The number of units of the product that you want to share as a reward.
-   * @return stock
-  **/
-  @javax.annotation.Nullable
-  public Integer getStock() {
-    return stock;
-  }
-
-
-  public void setStock(Integer stock) {
-    this.stock = stock;
-  }
-
-
-  public RewardsUpdateRequestBody attributes(RewardsCreateRequestBodyAttributes attributes) {
-    
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @javax.annotation.Nullable
-  public RewardsCreateRequestBodyAttributes getAttributes() {
-    return attributes;
-  }
-
-
-  public void setAttributes(RewardsCreateRequestBodyAttributes attributes) {
-    this.attributes = attributes;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   /**
@@ -195,9 +118,9 @@ public class RewardsUpdateRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RewardsUpdateRequestBody instance itself
+   * @return the RewardsCreateRequestBodyAttributes instance itself
    */
-  public RewardsUpdateRequestBody putAdditionalProperty(String key, Object value) {
+  public RewardsCreateRequestBodyAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -236,13 +159,10 @@ public class RewardsUpdateRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RewardsUpdateRequestBody rewardsUpdateRequestBody = (RewardsUpdateRequestBody) o;
-    return Objects.equals(this.name, rewardsUpdateRequestBody.name) &&
-        Objects.equals(this.parameters, rewardsUpdateRequestBody.parameters) &&
-        Objects.equals(this.metadata, rewardsUpdateRequestBody.metadata) &&
-        Objects.equals(this.stock, rewardsUpdateRequestBody.stock) &&
-        Objects.equals(this.attributes, rewardsUpdateRequestBody.attributes)&&
-        Objects.equals(this.additionalProperties, rewardsUpdateRequestBody.additionalProperties);
+    RewardsCreateRequestBodyAttributes rewardsCreateRequestBodyAttributes = (RewardsCreateRequestBodyAttributes) o;
+    return Objects.equals(this.imageUrl, rewardsCreateRequestBodyAttributes.imageUrl) &&
+        Objects.equals(this.description, rewardsCreateRequestBodyAttributes.description)&&
+        Objects.equals(this.additionalProperties, rewardsCreateRequestBodyAttributes.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -251,7 +171,7 @@ public class RewardsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, parameters, metadata, stock, attributes, additionalProperties);
+    return Objects.hash(imageUrl, description, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -264,12 +184,9 @@ public class RewardsUpdateRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RewardsUpdateRequestBody {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    stock: ").append(toIndentedString(stock)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class RewardsCreateRequestBodyAttributes {\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -293,11 +210,8 @@ public class RewardsUpdateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("parameters");
-    openapiFields.add("metadata");
-    openapiFields.add("stock");
-    openapiFields.add("attributes");
+    openapiFields.add("image_url");
+    openapiFields.add("description");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -307,16 +221,16 @@ public class RewardsUpdateRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RewardsUpdateRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RewardsUpdateRequestBody' and its subtypes
+       if (!RewardsCreateRequestBodyAttributes.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RewardsCreateRequestBodyAttributes' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RewardsUpdateRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsUpdateRequestBody.class));
+       final TypeAdapter<RewardsCreateRequestBodyAttributes> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsCreateRequestBodyAttributes.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RewardsUpdateRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<RewardsCreateRequestBodyAttributes>() {
            @Override
-           public void write(JsonWriter out, RewardsUpdateRequestBody value) throws IOException {
+           public void write(JsonWriter out, RewardsCreateRequestBodyAttributes value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -339,11 +253,11 @@ public class RewardsUpdateRequestBody {
            }
 
            @Override
-           public RewardsUpdateRequestBody read(JsonReader in) throws IOException {
+           public RewardsCreateRequestBodyAttributes read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RewardsUpdateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             RewardsCreateRequestBodyAttributes instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -370,18 +284,18 @@ public class RewardsUpdateRequestBody {
   }
 
  /**
-  * Create an instance of RewardsUpdateRequestBody given an JSON string
+  * Create an instance of RewardsCreateRequestBodyAttributes given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RewardsUpdateRequestBody
-  * @throws IOException if the JSON string is invalid with respect to RewardsUpdateRequestBody
+  * @return An instance of RewardsCreateRequestBodyAttributes
+  * @throws IOException if the JSON string is invalid with respect to RewardsCreateRequestBodyAttributes
   */
-  public static RewardsUpdateRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RewardsUpdateRequestBody.class);
+  public static RewardsCreateRequestBodyAttributes fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RewardsCreateRequestBodyAttributes.class);
   }
 
  /**
-  * Convert an instance of RewardsUpdateRequestBody to an JSON string
+  * Convert an instance of RewardsCreateRequestBodyAttributes to an JSON string
   *
   * @return JSON string
   */
