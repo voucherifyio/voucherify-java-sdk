@@ -33,6 +33,8 @@ import io.voucherify.client.model.ParameterOrderVouchers;
 import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 import io.voucherify.client.model.VouchersBalanceUpdateRequestBody;
 import io.voucherify.client.model.VouchersBalanceUpdateResponseBody;
+import io.voucherify.client.model.VouchersCreateResponseBody;
+import io.voucherify.client.model.VouchersCreateWithWithSpecificCodeRequestBody;
 import io.voucherify.client.model.VouchersDisableResponseBody;
 import io.voucherify.client.model.VouchersEnableResponseBody;
 import io.voucherify.client.model.VouchersGetResponseBody;
@@ -41,6 +43,8 @@ import io.voucherify.client.model.VouchersListResponseBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateRequestBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.VouchersTransactionsListResponseBody;
+import io.voucherify.client.model.VouchersUpdateRequestBody;
+import io.voucherify.client.model.VouchersUpdateResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -85,6 +89,114 @@ public class VouchersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createVoucher
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createVoucherCall(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersCreateWithWithSpecificCodeRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/{code}"
+            .replace("{" + "code" + "}", localVarApiClient.escapeString(code.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createVoucherValidateBeforeCall(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling createVoucher(Async)");
+        }
+
+        return createVoucherCall(code, vouchersCreateWithWithSpecificCodeRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Voucher
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @return VouchersCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersCreateResponseBody createVoucher(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody) throws ApiException {
+        ApiResponse<VouchersCreateResponseBody> localVarResp = createVoucherWithHttpInfo(code, vouchersCreateWithWithSpecificCodeRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Voucher
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @return ApiResponse&lt;VouchersCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersCreateResponseBody> createVoucherWithHttpInfo(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithWithSpecificCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Voucher (asynchronously)
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createVoucherAsync(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithWithSpecificCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteVoucher
      * @param code A unique **code** that identifies the voucher. (required)
@@ -502,6 +614,104 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = exportVoucherTransactionsValidateBeforeCall(code, vouchersTransactionsExportCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<VouchersTransactionsExportCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for generateRandomCode
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call generateRandomCodeCall(Object body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call generateRandomCodeValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+        return generateRandomCodeCall(body, _callback);
+
+    }
+
+    /**
+     * Generate Random Code
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @return VouchersCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersCreateResponseBody generateRandomCode(Object body) throws ApiException {
+        ApiResponse<VouchersCreateResponseBody> localVarResp = generateRandomCodeWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generate Random Code
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @return ApiResponse&lt;VouchersCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersCreateResponseBody> generateRandomCodeWithHttpInfo(Object body) throws ApiException {
+        okhttp3.Call localVarCall = generateRandomCodeValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generate Random Code (asynchronously)
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call generateRandomCodeAsync(Object body, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = generateRandomCodeValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1100,6 +1310,119 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = releaseValidationSessionValidateBeforeCall(code, sessionKey, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVoucher
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVoucherCall(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/{code}"
+            .replace("{" + "code" + "}", localVarApiClient.escapeString(code.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVoucherValidateBeforeCall(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling updateVoucher(Async)");
+        }
+
+        // verify the required parameter 'vouchersUpdateRequestBody' is set
+        if (vouchersUpdateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersUpdateRequestBody' when calling updateVoucher(Async)");
+        }
+
+        return updateVoucherCall(code, vouchersUpdateRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Voucher
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @return VouchersUpdateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersUpdateResponseBody updateVoucher(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody) throws ApiException {
+        ApiResponse<VouchersUpdateResponseBody> localVarResp = updateVoucherWithHttpInfo(code, vouchersUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Voucher
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @return ApiResponse&lt;VouchersUpdateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersUpdateResponseBody> updateVoucherWithHttpInfo(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateVoucherValidateBeforeCall(code, vouchersUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersUpdateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Voucher (asynchronously)
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVoucherAsync(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback<VouchersUpdateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVoucherValidateBeforeCall(code, vouchersUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

@@ -62,11 +62,11 @@
 | endpoint                                  | method | summary                            | is supported                         | is deprecated                        |
 | ----------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------------------------------ |
 | /v1/vouchers                              | get    | List Vouchers                      | <font color='green'>supported</font> |                                      |
-| /v1/vouchers                              | post   | Generate Random Code               |                                      |                                      |
+| /v1/vouchers                              | post   | Generate Random Code               | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}                       | get    | Get Voucher                        | <font color='green'>supported</font> |                                      |
-| /v1/vouchers/{code}                       | put    | Update Voucher                     |                                      |                                      |
+| /v1/vouchers/{code}                       | put    | Update Voucher                     | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}                       | delete | Delete Voucher                     | <font color='green'>supported</font> |                                      |
-| /v1/vouchers/{code}                       | post   | Create Voucher                     |                                      |                                      |
+| /v1/vouchers/{code}                       | post   | Create Voucher                     | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/enable                | post   | Enable Voucher                     | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/disable               | post   | Disable Voucher                    | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/balance               | post   | Add or Remove Voucher Balance      | <font color='green'>supported</font> |                                      |
