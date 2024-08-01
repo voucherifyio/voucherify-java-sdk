@@ -146,8 +146,10 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 - **2024-08-XX** - `14.0.0`
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItem` model
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItemCalculated` model
-  - ❗❗❗ BREAKING CHANGE ❗❗❗:
+  - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
+    - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
+    - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
   - Added `holderRole` to `QualificationsOptionFilters` model
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
   - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
