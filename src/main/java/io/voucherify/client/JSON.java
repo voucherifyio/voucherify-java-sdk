@@ -594,6 +594,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.ValidityTimeframe.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.Voucher.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherAssets.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherBase.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherHolder.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherTransaction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherTransactionDetails.CustomTypeAdapterFactory());
@@ -617,6 +618,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherTransactionsExportParameters.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherTransactionsExportResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherTransactionsFilters.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VoucherWithCategories.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersBalanceUpdateRequestBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersBalanceUpdateResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersBalanceUpdateResponseBodyRelatedObject.CustomTypeAdapterFactory());
@@ -624,6 +626,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersEnableResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersGetResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersImportCsvCreateResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersListResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersRedemptionGetResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersTransactionsExportCreateRequestBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersTransactionsExportCreateResponseBody.CustomTypeAdapterFactory());

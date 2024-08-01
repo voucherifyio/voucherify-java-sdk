@@ -61,7 +61,7 @@
 ## Vouchers
 | endpoint                                  | method | summary                            | is supported                         | is deprecated                        |
 | ----------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------------------------------ |
-| /v1/vouchers                              | get    | List Vouchers                      |                                      |                                      |
+| /v1/vouchers                              | get    | List Vouchers                      | <font color='green'>supported</font> |                                      |
 | /v1/vouchers                              | post   | Generate Random Code               |                                      |                                      |
 | /v1/vouchers/{code}                       | get    | Get Voucher                        | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}                       | put    | Update Voucher                     |                                      |                                      |

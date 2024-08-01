@@ -149,6 +149,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added `holderRole` to `QualificationsOptionFilters` model
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
   - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
+  - Added support for GET `/v1/vouchers`
   - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
@@ -343,6 +344,7 @@ Class | Method | HTTP request | Description
 *VouchersApi* | [**getVoucher**](docs/VouchersApi.md#getVoucher) | **GET** /v1/vouchers/{code} | Get Voucher
 *VouchersApi* | [**importVouchersUsingCsv**](docs/VouchersApi.md#importVouchersUsingCsv) | **POST** /v1/vouchers/importCSV | Import Vouchers using CSV
 *VouchersApi* | [**listVoucherTransactions**](docs/VouchersApi.md#listVoucherTransactions) | **GET** /v1/vouchers/{code}/transactions | List Voucher Transactions
+*VouchersApi* | [**listVouchers**](docs/VouchersApi.md#listVouchers) | **GET** /v1/vouchers | List Vouchers
 *VouchersApi* | [**releaseValidationSession**](docs/VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
 *VouchersApi* | [**updateVoucherBalance**](docs/VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
 
@@ -596,6 +598,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListRedemptions](docs/ParameterOrderListRedemptions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/ParameterOrderListValidationRuleAssignments.md)
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
+- [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)
 - [ParameterResultListPublications](docs/ParameterResultListPublications.md)
 - [ParameterUpdatedBeforeAfter](docs/ParameterUpdatedBeforeAfter.md)
 - [ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
@@ -877,6 +880,7 @@ Class | Method | HTTP request | Description
 - [ValidityTimeframe](docs/ValidityTimeframe.md)
 - [Voucher](docs/Voucher.md)
 - [VoucherAssets](docs/VoucherAssets.md)
+- [VoucherBase](docs/VoucherBase.md)
 - [VoucherHolder](docs/VoucherHolder.md)
 - [VoucherTransaction](docs/VoucherTransaction.md)
 - [VoucherTransactionDetails](docs/VoucherTransactionDetails.md)
@@ -900,6 +904,7 @@ Class | Method | HTTP request | Description
 - [VoucherTransactionsExportParameters](docs/VoucherTransactionsExportParameters.md)
 - [VoucherTransactionsExportResult](docs/VoucherTransactionsExportResult.md)
 - [VoucherTransactionsFilters](docs/VoucherTransactionsFilters.md)
+- [VoucherWithCategories](docs/VoucherWithCategories.md)
 - [VouchersBalanceUpdateRequestBody](docs/VouchersBalanceUpdateRequestBody.md)
 - [VouchersBalanceUpdateResponseBody](docs/VouchersBalanceUpdateResponseBody.md)
 - [VouchersBalanceUpdateResponseBodyRelatedObject](docs/VouchersBalanceUpdateResponseBodyRelatedObject.md)
@@ -907,6 +912,7 @@ Class | Method | HTTP request | Description
 - [VouchersEnableResponseBody](docs/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/VouchersImportCsvCreateResponseBody.md)
+- [VouchersListResponseBody](docs/VouchersListResponseBody.md)
 - [VouchersRedemptionGetResponseBody](docs/VouchersRedemptionGetResponseBody.md)
 - [VouchersTransactionsExportCreateRequestBody](docs/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/VouchersTransactionsExportCreateResponseBody.md)
