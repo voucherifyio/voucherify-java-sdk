@@ -5441,7 +5441,7 @@ paths:
                       Type: Material
                     object: reward
               schema:
-                $ref: '#/components/schemas/Reward'
+                $ref: '#/components/schemas/RewardsCreateResponseBody'
           description: Returns a reward object.
       security:
       - X-App-Id: []
@@ -5592,7 +5592,7 @@ paths:
                       Type: Physical product
                     object: reward
               schema:
-                $ref: '#/components/schemas/Reward'
+                $ref: '#/components/schemas/RewardsUpdateResponseBody'
           description: Returns an updated reward object.
       security:
       - X-App-Id: []
@@ -26082,6 +26082,11 @@ components:
           $ref: '#/components/schemas/RewardsCreateRequestBody_attributes'
       title: RewardsCreateRequestBody
       type: object
+    RewardsCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Reward'
+      description: Response body schema for **POST** `/rewards`.
+      title: Rewards Create Response Body
     RewardsListResponseBody:
       description: Response body schema for **GET** `/rewards`.
       example:
@@ -26180,6 +26185,11 @@ components:
           $ref: '#/components/schemas/RewardsCreateRequestBody_attributes'
       title: RewardsUpdateRequestBody
       type: object
+    RewardsUpdateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Reward'
+      description: "Response body schema for **PUT** `/rewards/{rewardId}`."
+      title: Rewards Update Response Body
     SegmentsCreateRequestBody:
       example:
         filter: "{}"
