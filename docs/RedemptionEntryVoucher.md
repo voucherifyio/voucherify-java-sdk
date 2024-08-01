@@ -13,7 +13,6 @@
 |**campaignId** | **String** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. |
 |**category** | **String** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint. |
 |**categoryId** | **String** | Unique category ID assigned by Voucherify. |
-|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | [**Discount**](Discount.md) |  |
 |**gift** | [**RedemptionEntryVoucherGift**](RedemptionEntryVoucherGift.md) |  |
@@ -33,9 +32,10 @@
 |**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
 |**referrerId** | **String** | Unique identifier of the referring person. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
-|**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
 |**publish** | [**RedemptionEntryVoucherPublish**](RedemptionEntryVoucherPublish.md) |  |
 |**redemption** | [**RedemptionEntryVoucherRedemption**](RedemptionEntryVoucherRedemption.md) |  |
+|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
+|**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
 |**holder** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 
 

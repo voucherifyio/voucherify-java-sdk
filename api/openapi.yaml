@@ -19179,18 +19179,18 @@ components:
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -19199,16 +19199,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
           type: DISCOUNT_VOUCHER
           loyalty_card:
             expiration_rules:
@@ -19227,13 +19227,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         campaign_type: DISCOUNT_COUPONS
@@ -19280,13 +19280,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             banner: banner
@@ -19304,18 +19304,18 @@ components:
               discount:
                 fixed_amount_formula: fixed_amount_formula
                 product: ""
-                fixed_amount: 9.301444243932576
-                aggregated_amount_limit: 1
-                unit_off: 5
+                fixed_amount: 7.061401241503109
+                aggregated_amount_limit: 6
+                unit_off: 1
                 units:
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
                   unit_off_formula: unit_off_formula
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
@@ -19324,16 +19324,16 @@ components:
                 unit_type: unit_type
                 unit_off_formula: unit_off_formula
                 percent_off_formula: percent_off_formula
-                amount_limit: 7.061401241503109
+                amount_limit: 2.3021358869347655
                 amount_off_formula: amount_off_formula
                 effect: APPLY_TO_ORDER
                 is_dynamic: true
-                percent_off: 2.3021358869347655
+                percent_off: 5.637376656633329
                 sku:
                   name: name
                   id: id
                   source_id: source_id
-                amount_off: 6.027456183070403
+                amount_off: 0.8008281904610115
             category: category
             validity_timeframe:
               duration: PT1H
@@ -19344,13 +19344,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             banner: banner
@@ -19368,18 +19368,18 @@ components:
               discount:
                 fixed_amount_formula: fixed_amount_formula
                 product: ""
-                fixed_amount: 9.301444243932576
-                aggregated_amount_limit: 1
-                unit_off: 5
+                fixed_amount: 7.061401241503109
+                aggregated_amount_limit: 6
+                unit_off: 1
                 units:
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
                   unit_off_formula: unit_off_formula
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
@@ -19388,16 +19388,16 @@ components:
                 unit_type: unit_type
                 unit_off_formula: unit_off_formula
                 percent_off_formula: percent_off_formula
-                amount_limit: 7.061401241503109
+                amount_limit: 2.3021358869347655
                 amount_off_formula: amount_off_formula
                 effect: APPLY_TO_ORDER
                 is_dynamic: true
-                percent_off: 2.3021358869347655
+                percent_off: 5.637376656633329
                 sku:
                   name: name
                   id: id
                   source_id: source_id
-                amount_off: 6.027456183070403
+                amount_off: 0.8008281904610115
             category: category
             validity_timeframe:
               duration: PT1H
@@ -19604,13 +19604,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             discount: ""
@@ -19626,13 +19626,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           description: description
@@ -19661,14 +19661,14 @@ components:
           id: camp_f7fBbQxUuTN7dI7tGOo5XMDA
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -19713,13 +19713,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             discount: ""
@@ -19735,13 +19735,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           description: description
@@ -19770,14 +19770,14 @@ components:
           id: camp_f7fBbQxUuTN7dI7tGOo5XMDA
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -19847,13 +19847,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         description: description
@@ -20066,30 +20066,30 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -20098,16 +20098,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         created_at: 2021-12-22T10:13:06.487Z
         async_action_id: aa_0a875d56c805df6601
         type: GIFT_VOUCHER
@@ -20125,14 +20125,14 @@ components:
         id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -20141,7 +20141,7 @@ components:
         loyalty_card:
           next_expiration_date: 2023-05-30T00:00:00.000+00:00
           balance: 6970
-          next_expiration_points: 3
+          next_expiration_points: 9
           points: 7000
         campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
         validity_timeframe:
@@ -20153,7 +20153,7 @@ components:
         - 0
         - 0
         redemption:
-          quantity: 1
+          quantity: 4
           redeemed_quantity: 1
           redeemed_points: 100000
           url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -20200,12 +20200,6 @@ components:
           example: cat_0bb343dee3cdb5ec0c
           nullable: true
           type: string
-        categories:
-          description: Contains details about the category.
-          items:
-            $ref: '#/components/schemas/Category'
-          nullable: true
-          type: array
         type:
           description: 'Defines the type of the voucher. '
           enum:
@@ -20316,12 +20310,18 @@ components:
           description: The type of the object represented by JSON. Default is `voucher`.
           nullable: true
           type: string
-        validation_rules_assignments:
-          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         publish:
           $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_publish'
         redemption:
           $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_redemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         async_action_id:
           description: The ID of the scheduled asynchronous action.
           example: aa_0a875d56c805df6601
@@ -20426,14 +20426,14 @@ components:
         total: 0
         data:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -20749,14 +20749,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -20780,14 +20780,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -20986,14 +20986,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -21009,14 +21009,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -21979,13 +21979,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         active: active
@@ -22024,14 +22024,14 @@ components:
         id: id
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -23423,30 +23423,30 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -23455,16 +23455,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
           created_at: 2021-12-22T10:13:06.487Z
           type: GIFT_VOUCHER
           expiration_date: 2021-12-31T00:00:00Z
@@ -23481,14 +23481,14 @@ components:
           id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -23497,7 +23497,7 @@ components:
           loyalty_card:
             next_expiration_date: 2023-05-30T00:00:00.000+00:00
             balance: 6970
-            next_expiration_points: 3
+            next_expiration_points: 9
             points: 7000
           campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
           validity_timeframe:
@@ -23506,10 +23506,10 @@ components:
           start_date: 2021-12-01T00:00:00Z
           active: true
           validity_day_of_week:
-          - 2
-          - 2
+          - 3
+          - 3
           redemption:
-            quantity: 1
+            quantity: 4
             redeemed_quantity: 1
             redeemed_points: 100000
             url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -23636,18 +23636,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -23656,16 +23656,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
             loyalty_card: "{}"
             object: voucher
           channel: channel
@@ -23697,18 +23697,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -23717,16 +23717,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
             loyalty_card: "{}"
             object: voucher
           channel: channel
@@ -23942,30 +23942,30 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -23974,16 +23974,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
           created_at: 2021-12-22T10:13:06.487Z
           type: GIFT_VOUCHER
           expiration_date: 2021-12-31T00:00:00Z
@@ -24000,14 +24000,14 @@ components:
           id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -24065,13 +24065,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           created_at: 2021-12-15T11:34:01.333Z
@@ -24106,18 +24106,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -24126,16 +24126,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
           campaign:
             validity_day_of_week:
             - 1
@@ -24144,13 +24144,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             active: true
@@ -24164,14 +24164,14 @@ components:
           id: promo_63fYCt81Aw0h7lzyRkrGZh9p
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -24472,30 +24472,30 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -24504,16 +24504,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
             created_at: 2021-12-22T10:13:06.487Z
             type: GIFT_VOUCHER
             expiration_date: 2021-12-31T00:00:00Z
@@ -24530,14 +24530,14 @@ components:
             id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
             categories:
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
               stacking_rules_type: JOINT
               object: category
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
@@ -24595,13 +24595,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             created_at: 2021-12-15T11:34:01.333Z
@@ -24636,18 +24636,18 @@ components:
               discount:
                 fixed_amount_formula: fixed_amount_formula
                 product: ""
-                fixed_amount: 9.301444243932576
-                aggregated_amount_limit: 1
-                unit_off: 5
+                fixed_amount: 7.061401241503109
+                aggregated_amount_limit: 6
+                unit_off: 1
                 units:
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
                   unit_off_formula: unit_off_formula
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
@@ -24656,16 +24656,16 @@ components:
                 unit_type: unit_type
                 unit_off_formula: unit_off_formula
                 percent_off_formula: percent_off_formula
-                amount_limit: 7.061401241503109
+                amount_limit: 2.3021358869347655
                 amount_off_formula: amount_off_formula
                 effect: APPLY_TO_ORDER
                 is_dynamic: true
-                percent_off: 2.3021358869347655
+                percent_off: 5.637376656633329
                 sku:
                   name: name
                   id: id
                   source_id: source_id
-                amount_off: 6.027456183070403
+                amount_off: 0.8008281904610115
             campaign:
               validity_day_of_week:
               - 1
@@ -24674,13 +24674,13 @@ components:
               validity_hours:
                 daily:
                 - days_of_week:
-                  - 4
-                  - 4
+                  - 2
+                  - 2
                   start_time: 12:00
                   expiration_time: 14:00
                 - days_of_week:
-                  - 4
-                  - 4
+                  - 2
+                  - 2
                   start_time: 12:00
                   expiration_time: 14:00
               active: true
@@ -24694,14 +24694,14 @@ components:
             id: promo_63fYCt81Aw0h7lzyRkrGZh9p
             categories:
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
               stacking_rules_type: JOINT
               object: category
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
@@ -24894,30 +24894,30 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -24926,16 +24926,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
             created_at: 2021-12-22T10:13:06.487Z
             type: GIFT_VOUCHER
             expiration_date: 2021-12-31T00:00:00Z
@@ -24952,14 +24952,14 @@ components:
             id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
             categories:
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
               stacking_rules_type: JOINT
               object: category
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
@@ -25017,13 +25017,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             created_at: 2021-12-15T11:34:01.333Z
@@ -25058,18 +25058,18 @@ components:
               discount:
                 fixed_amount_formula: fixed_amount_formula
                 product: ""
-                fixed_amount: 9.301444243932576
-                aggregated_amount_limit: 1
-                unit_off: 5
+                fixed_amount: 7.061401241503109
+                aggregated_amount_limit: 6
+                unit_off: 1
                 units:
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
                   unit_off_formula: unit_off_formula
                 - product: ""
-                  unit_off: 5.637376656633329
+                  unit_off: 5.962133916683182
                   effect: ADD_NEW_ITEMS
                   unit_type: unit_type
                   sku: ""
@@ -25078,16 +25078,16 @@ components:
                 unit_type: unit_type
                 unit_off_formula: unit_off_formula
                 percent_off_formula: percent_off_formula
-                amount_limit: 7.061401241503109
+                amount_limit: 2.3021358869347655
                 amount_off_formula: amount_off_formula
                 effect: APPLY_TO_ORDER
                 is_dynamic: true
-                percent_off: 2.3021358869347655
+                percent_off: 5.637376656633329
                 sku:
                   name: name
                   id: id
                   source_id: source_id
-                amount_off: 6.027456183070403
+                amount_off: 0.8008281904610115
             campaign:
               validity_day_of_week:
               - 1
@@ -25096,13 +25096,13 @@ components:
               validity_hours:
                 daily:
                 - days_of_week:
-                  - 4
-                  - 4
+                  - 2
+                  - 2
                   start_time: 12:00
                   expiration_time: 14:00
                 - days_of_week:
-                  - 4
-                  - 4
+                  - 2
+                  - 2
                   start_time: 12:00
                   expiration_time: 14:00
               active: true
@@ -25116,14 +25116,14 @@ components:
             id: promo_63fYCt81Aw0h7lzyRkrGZh9p
             categories:
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
               stacking_rules_type: JOINT
               object: category
             - updated_at: 2022-08-16T10:52:08.094Z
-              hierarchy: 0
+              hierarchy: 7
               name: name
               created_at: 2022-07-14T10:45:13.156Z
               id: id
@@ -25309,14 +25309,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -25340,14 +25340,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -25546,14 +25546,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -25569,14 +25569,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -26380,13 +26380,13 @@ components:
               unit_off: 7
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -26429,14 +26429,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -26496,13 +26496,13 @@ components:
               unit_off: 7
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -26545,14 +26545,14 @@ components:
           id: id
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -27240,13 +27240,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           discount: ""
@@ -27262,13 +27262,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         description: description
@@ -27297,14 +27297,14 @@ components:
         id: camp_f7fBbQxUuTN7dI7tGOo5XMDA
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -27644,7 +27644,7 @@ components:
       description: This is an object representing a category.
       example:
         updated_at: 2022-08-16T10:52:08.094Z
-        hierarchy: 0
+        hierarchy: 7
         name: name
         created_at: 2022-07-14T10:45:13.156Z
         id: id
@@ -27869,18 +27869,18 @@ components:
       example:
         fixed_amount_formula: fixed_amount_formula
         product: ""
-        fixed_amount: 9.301444243932576
-        aggregated_amount_limit: 1
-        unit_off: 5
+        fixed_amount: 7.061401241503109
+        aggregated_amount_limit: 6
+        unit_off: 1
         units:
         - product: ""
-          unit_off: 5.637376656633329
+          unit_off: 5.962133916683182
           effect: ADD_NEW_ITEMS
           unit_type: unit_type
           sku: ""
           unit_off_formula: unit_off_formula
         - product: ""
-          unit_off: 5.637376656633329
+          unit_off: 5.962133916683182
           effect: ADD_NEW_ITEMS
           unit_type: unit_type
           sku: ""
@@ -27889,16 +27889,16 @@ components:
         unit_type: unit_type
         unit_off_formula: unit_off_formula
         percent_off_formula: percent_off_formula
-        amount_limit: 7.061401241503109
+        amount_limit: 2.3021358869347655
         amount_off_formula: amount_off_formula
         effect: APPLY_TO_ORDER
         is_dynamic: true
-        percent_off: 2.3021358869347655
+        percent_off: 5.637376656633329
         sku:
           name: name
           id: id
           source_id: source_id
-        amount_off: 6.027456183070403
+        amount_off: 0.8008281904610115
       properties:
         type:
           enum:
@@ -27992,7 +27992,7 @@ components:
     DiscountUnitMultipleOneUnit:
       example:
         product: ""
-        unit_off: 5.637376656633329
+        unit_off: 5.962133916683182
         effect: ADD_NEW_ITEMS
         unit_type: unit_type
         sku: ""
@@ -28554,18 +28554,18 @@ components:
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -28574,16 +28574,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         loyalty_card: "{}"
         object: voucher
       properties:
@@ -29485,13 +29485,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         banner: banner
@@ -29509,18 +29509,18 @@ components:
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -29529,16 +29529,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
         category: category
         validity_timeframe:
           duration: PT1H
@@ -31212,14 +31212,14 @@ components:
         id: id
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -31271,14 +31271,14 @@ components:
         id: id
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -31349,13 +31349,13 @@ components:
       example:
         daily:
         - days_of_week:
-          - 4
-          - 4
+          - 2
+          - 2
           start_time: 12:00
           expiration_time: 14:00
         - days_of_week:
-          - 4
-          - 4
+          - 2
+          - 2
           start_time: 12:00
           expiration_time: 14:00
       properties:
@@ -31393,7 +31393,8 @@ components:
       title: Validity Timeframe
       type: object
     Voucher:
-      description: This is an object representing a voucher.
+      description: This is an object representing a voucher with categories and validation
+        rules assignments.
       example:
         gift:
           amount: 10000
@@ -31426,30 +31427,30 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -31458,16 +31459,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         created_at: 2021-12-22T10:13:06.487Z
         type: GIFT_VOUCHER
         expiration_date: 2021-12-31T00:00:00Z
@@ -31484,14 +31485,14 @@ components:
         id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -31500,7 +31501,7 @@ components:
         loyalty_card:
           next_expiration_date: 2023-05-30T00:00:00.000+00:00
           balance: 6970
-          next_expiration_points: 3
+          next_expiration_points: 9
           points: 7000
         campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
         validity_timeframe:
@@ -31509,10 +31510,10 @@ components:
         start_date: 2021-12-01T00:00:00Z
         active: true
         validity_day_of_week:
-        - 2
-        - 2
+        - 3
+        - 3
         redemption:
-          quantity: 1
+          quantity: 4
           redeemed_quantity: 1
           redeemed_points: 100000
           url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -31559,12 +31560,6 @@ components:
           example: cat_0bb343dee3cdb5ec0c
           nullable: true
           type: string
-        categories:
-          description: Contains details about the category.
-          items:
-            $ref: '#/components/schemas/Category'
-          nullable: true
-          type: array
         type:
           description: 'Defines the type of the voucher. '
           enum:
@@ -31675,12 +31670,18 @@ components:
           description: The type of the object represented by JSON. Default is `voucher`.
           nullable: true
           type: string
-        validation_rules_assignments:
-          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         publish:
           $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_publish'
         redemption:
           $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_redemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
       title: Voucher
       type: object
     VoucherAssets:
@@ -32129,13 +32130,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         discount: ""
@@ -33478,18 +33479,18 @@ components:
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -33498,16 +33499,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         type: DISCOUNT_VOUCHER
         loyalty_card:
           expiration_rules:
@@ -33557,13 +33558,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           banner: banner
@@ -33581,18 +33582,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -33601,16 +33602,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
           category: category
           validity_timeframe:
             duration: PT1H
@@ -33621,13 +33622,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           banner: banner
@@ -33645,18 +33646,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -33665,16 +33666,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
           category: category
           validity_timeframe:
             duration: PT1H
@@ -33734,7 +33735,7 @@ components:
       example:
         next_expiration_date: 2023-05-30T00:00:00.000+00:00
         balance: 6970
-        next_expiration_points: 3
+        next_expiration_points: 9
         points: 7000
       nullable: true
       properties:
@@ -33799,7 +33800,7 @@ components:
     CampaignsVouchersCreateCombinedResponseBody_redemption:
       description: Stores a summary of redemptions that have been applied to the voucher.
       example:
-        quantity: 1
+        quantity: 4
         redeemed_quantity: 1
         redeemed_points: 100000
         url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -35006,18 +35007,18 @@ components:
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -35026,16 +35027,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
           loyalty_card: "{}"
           object: voucher
         channel: channel
@@ -35657,30 +35658,30 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -35689,16 +35690,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         created_at: 2021-12-22T10:13:06.487Z
         type: GIFT_VOUCHER
         expiration_date: 2021-12-31T00:00:00Z
@@ -35715,14 +35716,14 @@ components:
         id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -35798,12 +35799,6 @@ components:
           example: cat_0bb343dee3cdb5ec0c
           nullable: true
           type: string
-        categories:
-          description: Contains details about the category.
-          items:
-            $ref: '#/components/schemas/Category'
-          nullable: true
-          type: array
         type:
           description: 'Defines the type of the voucher. '
           enum:
@@ -35911,12 +35906,18 @@ components:
           description: The type of the object represented by JSON. Default is `voucher`.
           nullable: true
           type: string
-        validation_rules_assignments:
-          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         publish:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyVoucherPublish'
         redemption:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyVoucherRedemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         holder:
           $ref: '#/components/schemas/SimpleCustomer'
       title: RedemptionsGetResponseBodyVoucher
@@ -35926,18 +35927,18 @@ components:
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -35946,16 +35947,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
       nullable: true
       properties:
         discount:
@@ -35971,13 +35972,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         active: true
@@ -36112,13 +36113,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         created_at: 2021-12-15T11:34:01.333Z
@@ -36153,18 +36154,18 @@ components:
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -36173,16 +36174,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
         campaign:
           validity_day_of_week:
           - 1
@@ -36191,13 +36192,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           active: true
@@ -36211,14 +36212,14 @@ components:
         id: promo_63fYCt81Aw0h7lzyRkrGZh9p
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -36890,30 +36891,30 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -36922,16 +36923,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
         created_at: 2021-12-22T10:13:06.487Z
         type: GIFT_VOUCHER
         expiration_date: 2021-12-31T00:00:00Z
@@ -36948,14 +36949,14 @@ components:
         id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -37030,12 +37031,6 @@ components:
           example: cat_0bb343dee3cdb5ec0c
           nullable: true
           type: string
-        categories:
-          description: Contains details about the category.
-          items:
-            $ref: '#/components/schemas/Category'
-          nullable: true
-          type: array
         type:
           description: 'Defines the type of the voucher. '
           enum:
@@ -37142,12 +37137,18 @@ components:
           description: The type of the object represented by JSON. Default is `voucher`.
           nullable: true
           type: string
-        validation_rules_assignments:
-          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         publish:
           $ref: '#/components/schemas/Redemptions_List_Response_Body_Redemptions_ItemVoucherPublish'
         redemption:
           $ref: '#/components/schemas/Redemptions_List_Response_Body_Redemptions_ItemVoucherRedemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         holder:
           $ref: '#/components/schemas/SimpleCustomer'
       title: Redemptions List Response Body Redemptions ItemVoucher
@@ -37157,18 +37158,18 @@ components:
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -37177,16 +37178,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
       properties:
         discount:
           $ref: '#/components/schemas/Discount'
@@ -37201,13 +37202,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         active: true
@@ -37338,13 +37339,13 @@ components:
         validity_hours:
           daily:
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
           - days_of_week:
-            - 4
-            - 4
+            - 2
+            - 2
             start_time: 12:00
             expiration_time: 14:00
         created_at: 2021-12-15T11:34:01.333Z
@@ -37379,18 +37380,18 @@ components:
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -37399,16 +37400,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
         campaign:
           validity_day_of_week:
           - 1
@@ -37417,13 +37418,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           active: true
@@ -37437,14 +37438,14 @@ components:
         id: promo_63fYCt81Aw0h7lzyRkrGZh9p
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -37668,30 +37669,30 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
-            fixed_amount: 9.301444243932576
-            aggregated_amount_limit: 1
-            unit_off: 5
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -37700,16 +37701,16 @@ components:
             unit_type: unit_type
             unit_off_formula: unit_off_formula
             percent_off_formula: percent_off_formula
-            amount_limit: 7.061401241503109
+            amount_limit: 2.3021358869347655
             amount_off_formula: amount_off_formula
             effect: APPLY_TO_ORDER
             is_dynamic: true
-            percent_off: 2.3021358869347655
+            percent_off: 5.637376656633329
             sku:
               name: name
               id: id
               source_id: source_id
-            amount_off: 6.027456183070403
+            amount_off: 0.8008281904610115
           created_at: 2021-12-22T10:13:06.487Z
           type: GIFT_VOUCHER
           expiration_date: 2021-12-31T00:00:00Z
@@ -37726,14 +37727,14 @@ components:
           id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -37791,13 +37792,13 @@ components:
           validity_hours:
             daily:
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
             - days_of_week:
-              - 4
-              - 4
+              - 2
+              - 2
               start_time: 12:00
               expiration_time: 14:00
           created_at: 2021-12-15T11:34:01.333Z
@@ -37832,18 +37833,18 @@ components:
             discount:
               fixed_amount_formula: fixed_amount_formula
               product: ""
-              fixed_amount: 9.301444243932576
-              aggregated_amount_limit: 1
-              unit_off: 5
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
               units:
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
                 unit_off_formula: unit_off_formula
               - product: ""
-                unit_off: 5.637376656633329
+                unit_off: 5.962133916683182
                 effect: ADD_NEW_ITEMS
                 unit_type: unit_type
                 sku: ""
@@ -37852,16 +37853,16 @@ components:
               unit_type: unit_type
               unit_off_formula: unit_off_formula
               percent_off_formula: percent_off_formula
-              amount_limit: 7.061401241503109
+              amount_limit: 2.3021358869347655
               amount_off_formula: amount_off_formula
               effect: APPLY_TO_ORDER
               is_dynamic: true
-              percent_off: 2.3021358869347655
+              percent_off: 5.637376656633329
               sku:
                 name: name
                 id: id
                 source_id: source_id
-              amount_off: 6.027456183070403
+              amount_off: 0.8008281904610115
           campaign:
             validity_day_of_week:
             - 1
@@ -37870,13 +37871,13 @@ components:
             validity_hours:
               daily:
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
               - days_of_week:
-                - 4
-                - 4
+                - 2
+                - 2
                 start_time: 12:00
                 expiration_time: 14:00
             active: true
@@ -37890,14 +37891,14 @@ components:
           id: promo_63fYCt81Aw0h7lzyRkrGZh9p
           categories:
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
             stacking_rules_type: JOINT
             object: category
           - updated_at: 2022-08-16T10:52:08.094Z
-            hierarchy: 0
+            hierarchy: 7
             name: name
             created_at: 2022-07-14T10:45:13.156Z
             id: id
@@ -38346,13 +38347,13 @@ components:
         unit_off: 7
         units:
         - product: ""
-          unit_off: 5.637376656633329
+          unit_off: 5.962133916683182
           effect: ADD_NEW_ITEMS
           unit_type: unit_type
           sku: ""
           unit_off_formula: unit_off_formula
         - product: ""
-          unit_off: 5.637376656633329
+          unit_off: 5.962133916683182
           effect: ADD_NEW_ITEMS
           unit_type: unit_type
           sku: ""
@@ -38505,13 +38506,13 @@ components:
           unit_off: 7
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -38572,13 +38573,13 @@ components:
             unit_off: 7
             units:
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
               unit_off_formula: unit_off_formula
             - product: ""
-              unit_off: 5.637376656633329
+              unit_off: 5.962133916683182
               effect: ADD_NEW_ITEMS
               unit_type: unit_type
               sku: ""
@@ -38621,14 +38622,14 @@ components:
         id: id
         categories:
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
           stacking_rules_type: JOINT
           object: category
         - updated_at: 2022-08-16T10:52:08.094Z
-          hierarchy: 0
+          hierarchy: 7
           name: name
           created_at: 2022-07-14T10:45:13.156Z
           id: id
@@ -39546,18 +39547,18 @@ components:
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
-          fixed_amount: 9.301444243932576
-          aggregated_amount_limit: 1
-          unit_off: 5
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
           units:
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
             unit_off_formula: unit_off_formula
           - product: ""
-            unit_off: 5.637376656633329
+            unit_off: 5.962133916683182
             effect: ADD_NEW_ITEMS
             unit_type: unit_type
             sku: ""
@@ -39566,16 +39567,16 @@ components:
           unit_type: unit_type
           unit_off_formula: unit_off_formula
           percent_off_formula: percent_off_formula
-          amount_limit: 7.061401241503109
+          amount_limit: 2.3021358869347655
           amount_off_formula: amount_off_formula
           effect: APPLY_TO_ORDER
           is_dynamic: true
-          percent_off: 2.3021358869347655
+          percent_off: 5.637376656633329
           sku:
             name: name
             id: id
             source_id: source_id
-          amount_off: 6.027456183070403
+          amount_off: 0.8008281904610115
       nullable: true
       properties:
         discount:
@@ -40326,12 +40327,6 @@ components:
           example: cat_0bb343dee3cdb5ec0c
           nullable: true
           type: string
-        categories:
-          description: Contains details about the category.
-          items:
-            $ref: '#/components/schemas/Category'
-          nullable: true
-          type: array
         type:
           description: 'Defines the type of the voucher. '
           enum:
@@ -40439,12 +40434,18 @@ components:
           description: The type of the object represented by JSON. Default is `voucher`.
           nullable: true
           type: string
-        validation_rules_assignments:
-          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         publish:
           $ref: '#/components/schemas/RedemptionEntryVoucherPublish'
         redemption:
           $ref: '#/components/schemas/RedemptionEntryVoucherRedemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
         holder:
           $ref: '#/components/schemas/SimpleCustomer'
       title: RedemptionEntryVoucher
@@ -41196,8 +41197,8 @@ components:
       description: Defines the reccuring period(s) when the resource will be active.
       example:
         days_of_week:
-        - 4
-        - 4
+        - 2
+        - 2
         start_time: 12:00
         expiration_time: 14:00
       properties:
