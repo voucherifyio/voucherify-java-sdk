@@ -1,7 +1,8 @@
 
 
-# EarningRule
+# LoyaltiesEarningRulesCreateResponseBody
 
+Response body schema for **POST** `/loyalties/{campaignId}/earning-rules`.
 
 ## Properties
 

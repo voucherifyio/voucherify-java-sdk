@@ -58,11 +58,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable&#x60;
+ * Response body schema for **POST** &#x60;/loyalties/{campaignId}/earning-rules&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class LoyaltiesEarningRulesEnableResponseBody {
+public class LoyaltiesEarningRulesCreateResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -229,18 +229,22 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+  public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
+  private String validationRuleId;
+
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private Boolean active = true;
+  private Boolean active;
 
-  public LoyaltiesEarningRulesEnableResponseBody() {
+  public LoyaltiesEarningRulesCreateResponseBody() {
   }
 
-  public LoyaltiesEarningRulesEnableResponseBody id(String id) {
+  public LoyaltiesEarningRulesCreateResponseBody id(String id) {
     
     this.id = id;
     return this;
@@ -261,7 +265,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody createdAt(OffsetDateTime createdAt) {
+  public LoyaltiesEarningRulesCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -282,7 +286,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody loyalty(EarningRuleBaseLoyalty loyalty) {
+  public LoyaltiesEarningRulesCreateResponseBody loyalty(EarningRuleBaseLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -303,7 +307,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody event(String event) {
+  public LoyaltiesEarningRulesCreateResponseBody event(String event) {
     
     this.event = event;
     return this;
@@ -324,7 +328,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody customEvent(EarningRuleBaseCustomEvent customEvent) {
+  public LoyaltiesEarningRulesCreateResponseBody customEvent(EarningRuleBaseCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -345,7 +349,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody segment(EarningRuleBaseSegment segment) {
+  public LoyaltiesEarningRulesCreateResponseBody segment(EarningRuleBaseSegment segment) {
     
     this.segment = segment;
     return this;
@@ -366,7 +370,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public LoyaltiesEarningRulesCreateResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -387,7 +391,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody source(EarningRuleBaseSource source) {
+  public LoyaltiesEarningRulesCreateResponseBody source(EarningRuleBaseSource source) {
     
     this.source = source;
     return this;
@@ -408,7 +412,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody _object(ObjectEnum _object) {
+  public LoyaltiesEarningRulesCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -429,7 +433,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody automationId(String automationId) {
+  public LoyaltiesEarningRulesCreateResponseBody automationId(String automationId) {
     
     this.automationId = automationId;
     return this;
@@ -450,7 +454,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody startDate(String startDate) {
+  public LoyaltiesEarningRulesCreateResponseBody startDate(String startDate) {
     
     this.startDate = startDate;
     return this;
@@ -471,7 +475,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody expirationDate(String expirationDate) {
+  public LoyaltiesEarningRulesCreateResponseBody expirationDate(String expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -492,7 +496,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public LoyaltiesEarningRulesCreateResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -513,13 +517,13 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public LoyaltiesEarningRulesCreateResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public LoyaltiesEarningRulesEnableResponseBody addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public LoyaltiesEarningRulesCreateResponseBody addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -542,7 +546,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityHours(ValidityHours validityHours) {
+  public LoyaltiesEarningRulesCreateResponseBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
     return this;
@@ -563,7 +567,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody metadata(Object metadata) {
+  public LoyaltiesEarningRulesCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -584,7 +588,28 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody updatedAt(OffsetDateTime updatedAt) {
+  public LoyaltiesEarningRulesCreateResponseBody validationRuleId(String validationRuleId) {
+    
+    this.validationRuleId = validationRuleId;
+    return this;
+  }
+
+   /**
+   * A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.
+   * @return validationRuleId
+  **/
+  @javax.annotation.Nullable
+  public String getValidationRuleId() {
+    return validationRuleId;
+  }
+
+
+  public void setValidationRuleId(String validationRuleId) {
+    this.validationRuleId = validationRuleId;
+  }
+
+
+  public LoyaltiesEarningRulesCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
     return this;
@@ -605,14 +630,14 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody active(Boolean active) {
+  public LoyaltiesEarningRulesCreateResponseBody active(Boolean active) {
     
     this.active = active;
     return this;
   }
 
    /**
-   * A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date.
+   * A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date.  - &#x60;true&#x60; indicates an active earning rule - &#x60;false&#x60; indicates an inactive earning rule
    * @return active
   **/
   @javax.annotation.Nullable
@@ -638,9 +663,9 @@ public class LoyaltiesEarningRulesEnableResponseBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the LoyaltiesEarningRulesEnableResponseBody instance itself
+   * @return the LoyaltiesEarningRulesCreateResponseBody instance itself
    */
-  public LoyaltiesEarningRulesEnableResponseBody putAdditionalProperty(String key, Object value) {
+  public LoyaltiesEarningRulesCreateResponseBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -679,26 +704,27 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoyaltiesEarningRulesEnableResponseBody loyaltiesEarningRulesEnableResponseBody = (LoyaltiesEarningRulesEnableResponseBody) o;
-    return Objects.equals(this.id, loyaltiesEarningRulesEnableResponseBody.id) &&
-        Objects.equals(this.createdAt, loyaltiesEarningRulesEnableResponseBody.createdAt) &&
-        Objects.equals(this.loyalty, loyaltiesEarningRulesEnableResponseBody.loyalty) &&
-        Objects.equals(this.event, loyaltiesEarningRulesEnableResponseBody.event) &&
-        Objects.equals(this.customEvent, loyaltiesEarningRulesEnableResponseBody.customEvent) &&
-        Objects.equals(this.segment, loyaltiesEarningRulesEnableResponseBody.segment) &&
-        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesEnableResponseBody.loyaltyTier) &&
-        Objects.equals(this.source, loyaltiesEarningRulesEnableResponseBody.source) &&
-        Objects.equals(this._object, loyaltiesEarningRulesEnableResponseBody._object) &&
-        Objects.equals(this.automationId, loyaltiesEarningRulesEnableResponseBody.automationId) &&
-        Objects.equals(this.startDate, loyaltiesEarningRulesEnableResponseBody.startDate) &&
-        Objects.equals(this.expirationDate, loyaltiesEarningRulesEnableResponseBody.expirationDate) &&
-        Objects.equals(this.validityTimeframe, loyaltiesEarningRulesEnableResponseBody.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesEnableResponseBody.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, loyaltiesEarningRulesEnableResponseBody.validityHours) &&
-        Objects.equals(this.metadata, loyaltiesEarningRulesEnableResponseBody.metadata) &&
-        Objects.equals(this.updatedAt, loyaltiesEarningRulesEnableResponseBody.updatedAt) &&
-        Objects.equals(this.active, loyaltiesEarningRulesEnableResponseBody.active)&&
-        Objects.equals(this.additionalProperties, loyaltiesEarningRulesEnableResponseBody.additionalProperties);
+    LoyaltiesEarningRulesCreateResponseBody loyaltiesEarningRulesCreateResponseBody = (LoyaltiesEarningRulesCreateResponseBody) o;
+    return Objects.equals(this.id, loyaltiesEarningRulesCreateResponseBody.id) &&
+        Objects.equals(this.createdAt, loyaltiesEarningRulesCreateResponseBody.createdAt) &&
+        Objects.equals(this.loyalty, loyaltiesEarningRulesCreateResponseBody.loyalty) &&
+        Objects.equals(this.event, loyaltiesEarningRulesCreateResponseBody.event) &&
+        Objects.equals(this.customEvent, loyaltiesEarningRulesCreateResponseBody.customEvent) &&
+        Objects.equals(this.segment, loyaltiesEarningRulesCreateResponseBody.segment) &&
+        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesCreateResponseBody.loyaltyTier) &&
+        Objects.equals(this.source, loyaltiesEarningRulesCreateResponseBody.source) &&
+        Objects.equals(this._object, loyaltiesEarningRulesCreateResponseBody._object) &&
+        Objects.equals(this.automationId, loyaltiesEarningRulesCreateResponseBody.automationId) &&
+        Objects.equals(this.startDate, loyaltiesEarningRulesCreateResponseBody.startDate) &&
+        Objects.equals(this.expirationDate, loyaltiesEarningRulesCreateResponseBody.expirationDate) &&
+        Objects.equals(this.validityTimeframe, loyaltiesEarningRulesCreateResponseBody.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesCreateResponseBody.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, loyaltiesEarningRulesCreateResponseBody.validityHours) &&
+        Objects.equals(this.metadata, loyaltiesEarningRulesCreateResponseBody.metadata) &&
+        Objects.equals(this.validationRuleId, loyaltiesEarningRulesCreateResponseBody.validationRuleId) &&
+        Objects.equals(this.updatedAt, loyaltiesEarningRulesCreateResponseBody.updatedAt) &&
+        Objects.equals(this.active, loyaltiesEarningRulesCreateResponseBody.active)&&
+        Objects.equals(this.additionalProperties, loyaltiesEarningRulesCreateResponseBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -707,7 +733,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active, additionalProperties);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -720,7 +746,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoyaltiesEarningRulesEnableResponseBody {\n");
+    sb.append("class LoyaltiesEarningRulesCreateResponseBody {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
@@ -737,6 +763,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    validationRuleId: ").append(toIndentedString(validationRuleId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -778,6 +805,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("metadata");
+    openapiFields.add("validation_rule_id");
     openapiFields.add("updated_at");
     openapiFields.add("active");
 
@@ -789,16 +817,16 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LoyaltiesEarningRulesEnableResponseBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltiesEarningRulesEnableResponseBody' and its subtypes
+       if (!LoyaltiesEarningRulesCreateResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesEarningRulesCreateResponseBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LoyaltiesEarningRulesEnableResponseBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesEnableResponseBody.class));
+       final TypeAdapter<LoyaltiesEarningRulesCreateResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateResponseBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesEnableResponseBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateResponseBody>() {
            @Override
-           public void write(JsonWriter out, LoyaltiesEarningRulesEnableResponseBody value) throws IOException {
+           public void write(JsonWriter out, LoyaltiesEarningRulesCreateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -821,11 +849,11 @@ public class LoyaltiesEarningRulesEnableResponseBody {
            }
 
            @Override
-           public LoyaltiesEarningRulesEnableResponseBody read(JsonReader in) throws IOException {
+           public LoyaltiesEarningRulesCreateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             LoyaltiesEarningRulesEnableResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltiesEarningRulesCreateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -852,18 +880,18 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
  /**
-  * Create an instance of LoyaltiesEarningRulesEnableResponseBody given an JSON string
+  * Create an instance of LoyaltiesEarningRulesCreateResponseBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of LoyaltiesEarningRulesEnableResponseBody
-  * @throws IOException if the JSON string is invalid with respect to LoyaltiesEarningRulesEnableResponseBody
+  * @return An instance of LoyaltiesEarningRulesCreateResponseBody
+  * @throws IOException if the JSON string is invalid with respect to LoyaltiesEarningRulesCreateResponseBody
   */
-  public static LoyaltiesEarningRulesEnableResponseBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LoyaltiesEarningRulesEnableResponseBody.class);
+  public static LoyaltiesEarningRulesCreateResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltiesEarningRulesCreateResponseBody.class);
   }
 
  /**
-  * Convert an instance of LoyaltiesEarningRulesEnableResponseBody to an JSON string
+  * Convert an instance of LoyaltiesEarningRulesCreateResponseBody to an JSON string
   *
   * @return JSON string
   */

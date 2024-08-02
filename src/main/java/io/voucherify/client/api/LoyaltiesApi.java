@@ -28,9 +28,14 @@ import java.io.IOException;
 
 
 import io.voucherify.client.model.LoyaltiesDeleteResponseBody;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyInner;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBody;
+import io.voucherify.client.model.LoyaltiesEarningRulesListResponseBody;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBody;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersPointsExpirationListResponseBody;
@@ -52,6 +57,7 @@ import io.voucherify.client.model.LoyaltiesTiersListResponseBody;
 import io.voucherify.client.model.LoyaltiesTiersRewardsListResponseBody;
 import io.voucherify.client.model.LoyaltiesTransferPoints;
 import io.voucherify.client.model.LoyaltyTier;
+import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
 
 import java.lang.reflect.Type;
@@ -97,6 +103,114 @@ public class LoyaltiesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createEarningRule
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createEarningRuleCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = loyaltiesEarningRulesCreateRequestBodyInner;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/earning-rules"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEarningRuleValidateBeforeCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling createEarningRule(Async)");
+        }
+
+        return createEarningRuleCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, _callback);
+
+    }
+
+    /**
+     * Create Earning Rule
+     * Create earning rules for a loyalty campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @return List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<LoyaltiesEarningRulesCreateResponseBody> createEarningRule(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner) throws ApiException {
+        ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResp = createEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyInner);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Earning Rule
+     * Create earning rules for a loyalty campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @return ApiResponse&lt;List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> createEarningRuleWithHttpInfo(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner) throws ApiException {
+        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, null);
+        Type localVarReturnType = new TypeToken<List<LoyaltiesEarningRulesCreateResponseBody>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Earning Rule (asynchronously)
+     * Create earning rules for a loyalty campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createEarningRuleAsync(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback<List<LoyaltiesEarningRulesCreateResponseBody>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, _callback);
+        Type localVarReturnType = new TypeToken<List<LoyaltiesEarningRulesCreateResponseBody>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createInBulkLoyaltyTiers
      * @param campaignId Unique loyalty campaign ID or name. (required)
@@ -1550,6 +1664,133 @@ public class LoyaltiesApi {
         return localVarCall;
     }
     /**
+     * Build call for listEarningRules
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listEarningRulesCall(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/earning-rules"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEarningRulesValidateBeforeCall(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listEarningRules(Async)");
+        }
+
+        return listEarningRulesCall(campaignId, limit, page, order, _callback);
+
+    }
+
+    /**
+     * List Earning Rules
+     * Returns a list of all earning rules within a given campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return LoyaltiesEarningRulesListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesEarningRulesListResponseBody listEarningRules(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order) throws ApiException {
+        ApiResponse<LoyaltiesEarningRulesListResponseBody> localVarResp = listEarningRulesWithHttpInfo(campaignId, limit, page, order);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Earning Rules
+     * Returns a list of all earning rules within a given campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return ApiResponse&lt;LoyaltiesEarningRulesListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesEarningRulesListResponseBody> listEarningRulesWithHttpInfo(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order) throws ApiException {
+        okhttp3.Call localVarCall = listEarningRulesValidateBeforeCall(campaignId, limit, page, order, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Earning Rules (asynchronously)
+     * Returns a list of all earning rules within a given campaign.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listEarningRulesAsync(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback<LoyaltiesEarningRulesListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listEarningRulesValidateBeforeCall(campaignId, limit, page, order, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listLoyaltyCardTransactions
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -2842,6 +3083,124 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = transferPointsValidateBeforeCall(campaignId, memberId, loyaltiesTransferPoints, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransfersCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateEarningRule
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param earningRuleId A unique earning rule ID. (required)
+     * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateEarningRuleCall(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = loyaltiesEarningRulesUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()))
+            .replace("{" + "earningRuleId" + "}", localVarApiClient.escapeString(earningRuleId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling updateEarningRule(Async)");
+        }
+
+        // verify the required parameter 'earningRuleId' is set
+        if (earningRuleId == null) {
+            throw new ApiException("Missing the required parameter 'earningRuleId' when calling updateEarningRule(Async)");
+        }
+
+        return updateEarningRuleCall(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Earning Rule
+     * Update an earning rule definition.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param earningRuleId A unique earning rule ID. (required)
+     * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
+     * @return LoyaltiesEarningRulesUpdateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesEarningRulesUpdateResponseBody updateEarningRule(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody) throws ApiException {
+        ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResp = updateEarningRuleWithHttpInfo(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Earning Rule
+     * Update an earning rule definition.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param earningRuleId A unique earning rule ID. (required)
+     * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
+     * @return ApiResponse&lt;LoyaltiesEarningRulesUpdateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> updateEarningRuleWithHttpInfo(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateEarningRuleValidateBeforeCall(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesUpdateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Earning Rule (asynchronously)
+     * Update an earning rule definition.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param earningRuleId A unique earning rule ID. (required)
+     * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateEarningRuleAsync(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback<LoyaltiesEarningRulesUpdateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateEarningRuleValidateBeforeCall(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesUpdateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -150,13 +150,18 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
   - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
   - Added support for GET and POST `/v1/vouchers`
-  - Added support for POST and PUT `/v1/vouchers/{code}`
+  - Added support for GET and PUT `/v1/vouchers/{code}`
+  - Added `loyaltyTier` parameter to models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody`
+  - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
+  - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
   - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
     - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
     - Method `createReward` will return `RewardsCreateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
     - Method `updateReward` will return `RewardsUpdateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
+    - Deleted model `EarningRuleEvent`
+    - Models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody` parameter `event` is no longer `EarningRuleEvent`, instead this is `String` now.
 - **2024-07-22** - `13.0.0`
   - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
   - Added support for GET and POST `/v1/rewards`
@@ -240,6 +245,7 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**downloadExport**](docs/ExportsApi.md#downloadExport) | **GET** /v1/exports/{export_Id} | Download Export
 *ExportsApi* | [**getExport**](docs/ExportsApi.md#getExport) | **GET** /v1/exports/{exportId} | Get Export
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
+*LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
 *LoyaltiesApi* | [**deleteEarningRule**](docs/LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule
 *LoyaltiesApi* | [**deleteLoyaltyProgram**](docs/LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign
@@ -253,6 +259,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardDetails**](docs/LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details
+*LoyaltiesApi* | [**listEarningRules**](docs/LoyaltiesApi.md#listEarningRules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules
 *LoyaltiesApi* | [**listLoyaltyCardTransactions**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions
 *LoyaltiesApi* | [**listLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions
 *LoyaltiesApi* | [**listLoyaltyTierEarningRules**](docs/LoyaltiesApi.md#listLoyaltyTierEarningRules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules
@@ -264,6 +271,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**redeemReward**](docs/LoyaltiesApi.md#redeemReward) | **POST** /v1/loyalties/members/{memberId}/redemption | Redeem Reward
 *LoyaltiesApi* | [**redeemReward1**](docs/LoyaltiesApi.md#redeemReward1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/redemption | Redeem Reward
 *LoyaltiesApi* | [**transferPoints**](docs/LoyaltiesApi.md#transferPoints) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transfers | Transfer Loyalty Points
+*LoyaltiesApi* | [**updateEarningRule**](docs/LoyaltiesApi.md#updateEarningRule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule
 *LoyaltiesApi* | [**updateLoyaltyCardBalance**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Add or Remove Loyalty Card Balance
 *LoyaltiesApi* | [**updateLoyaltyCardBalance1**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Add or Remove Loyalty Card Balance
 *OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/orders | Create Order
@@ -451,6 +459,7 @@ Class | Method | HTTP request | Description
 - [CustomersUpdateInBulkResponseBody](docs/CustomersUpdateInBulkResponseBody.md)
 - [CustomersUpdateRequestBody](docs/CustomersUpdateRequestBody.md)
 - [CustomersUpdateResponseBody](docs/CustomersUpdateResponseBody.md)
+- [DefineFixedAmountOfPoints](docs/DefineFixedAmountOfPoints.md)
 - [Discount](docs/Discount.md)
 - [DiscountUnitMultipleOneUnit](docs/DiscountUnitMultipleOneUnit.md)
 - [EarningRule](docs/EarningRule.md)
@@ -466,9 +475,9 @@ Class | Method | HTTP request | Description
 - [EarningRuleBaseLoyaltyOrderItems](docs/EarningRuleBaseLoyaltyOrderItems.md)
 - [EarningRuleBaseLoyaltyOrderItemsQuantity](docs/EarningRuleBaseLoyaltyOrderItemsQuantity.md)
 - [EarningRuleBaseLoyaltyOrderMetadata](docs/EarningRuleBaseLoyaltyOrderMetadata.md)
+- [EarningRuleBaseLoyaltyTier](docs/EarningRuleBaseLoyaltyTier.md)
 - [EarningRuleBaseSegment](docs/EarningRuleBaseSegment.md)
 - [EarningRuleBaseSource](docs/EarningRuleBaseSource.md)
-- [EarningRuleEvent](docs/EarningRuleEvent.md)
 - [Error](docs/Error.md)
 - [EventsCreateRequestBody](docs/EventsCreateRequestBody.md)
 - [EventsCreateResponseBody](docs/EventsCreateResponseBody.md)
@@ -504,9 +513,29 @@ Class | Method | HTTP request | Description
 - [Junction](docs/Junction.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
 - [LoyaltiesDeleteResponseBody](docs/LoyaltiesDeleteResponseBody.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBody](docs/LoyaltiesEarningRulesCreateCustomEventRequestBody.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodySource](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodySource.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBody](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBody](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBody.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems.md)
+- [LoyaltiesEarningRulesCreateRequestBodyInner](docs/LoyaltiesEarningRulesCreateRequestBodyInner.md)
+- [LoyaltiesEarningRulesCreateResponseBody](docs/LoyaltiesEarningRulesCreateResponseBody.md)
+- [LoyaltiesEarningRulesCreateTierChangeRequestBody](docs/LoyaltiesEarningRulesCreateTierChangeRequestBody.md)
 - [LoyaltiesEarningRulesDisableResponseBody](docs/LoyaltiesEarningRulesDisableResponseBody.md)
 - [LoyaltiesEarningRulesEnableResponseBody](docs/LoyaltiesEarningRulesEnableResponseBody.md)
 - [LoyaltiesEarningRulesGetResponseBody](docs/LoyaltiesEarningRulesGetResponseBody.md)
+- [LoyaltiesEarningRulesListResponseBody](docs/LoyaltiesEarningRulesListResponseBody.md)
+- [LoyaltiesEarningRulesUpdateRequestBody](docs/LoyaltiesEarningRulesUpdateRequestBody.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyalty](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems.md)
+- [LoyaltiesEarningRulesUpdateResponseBody](docs/LoyaltiesEarningRulesUpdateResponseBody.md)
 - [LoyaltiesLoyaltyTierReward](docs/LoyaltiesLoyaltyTierReward.md)
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
@@ -593,6 +622,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListAllPromotionStacks](docs/ParameterOrderListAllPromotionStacks.md)
 - [ParameterOrderListCampaigns](docs/ParameterOrderListCampaigns.md)
 - [ParameterOrderListCustomers](docs/ParameterOrderListCustomers.md)
+- [ParameterOrderListEarningRules](docs/ParameterOrderListEarningRules.md)
 - [ParameterOrderListExports](docs/ParameterOrderListExports.md)
 - [ParameterOrderListLoyaltyTiers](docs/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/ParameterOrderListOrders.md)

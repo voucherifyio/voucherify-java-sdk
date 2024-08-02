@@ -11132,6 +11132,1382 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+  /v1/loyalties/{campaignId}/earning-rules:
+    get:
+      description: Returns a list of all earning rules within a given campaign.
+      operationId: list-earning-rules
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterPage'
+        style: form
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderListEarningRules'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: data
+                    data:
+                    - id: ern_HnRXyJHoj3E79r3KUWhgMgtD
+                      created_at: 2022-11-10T12:25:12.927Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        points: 100
+                        type: FIXED
+                      segment:
+                        id: seg_n3vVcU5t0m3rs4rEPr3C1oU5
+                      event: customer.segment.entered
+                      source:
+                        banner: New Customers
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_0gv3v7jQG5U6TtVC8bMEdIap
+                      metadata: {}
+                    - id: ern_raVUcdXruvXGuzm682ESrAzt
+                      created_at: 2022-11-24T09:03:14.534Z
+                      updated_at: 2022-11-25T07:31:42.778Z
+                      validation_rule_id: val_7SxpdhPeBngA
+                      loyalty:
+                        points: 20
+                        type: FIXED
+                      event: order.paid
+                      source:
+                        banner: Order has been paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      start_date: 2022-11-23T00:00:00.000Z
+                      expiration_date: 2022-11-30T00:00:00.000Z
+                      validity_day_of_week:
+                      - 1
+                      - 2
+                      - 3
+                      - 4
+                      - 5
+                      object: earning_rule
+                      automation_id: auto_MbEIyLbn7pHyba5Qw5eeb35L
+                      metadata:
+                        Type: Order has been paid - Fixed
+                    - id: ern_BmDiQs7T3UHfJQqtI2RfJHFR
+                      created_at: 2022-11-24T14:48:36.567Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_AMOUNT
+                        order:
+                          amount:
+                            every: 1000
+                            points: 1
+                      event: order.paid
+                      source:
+                        banner: Order paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_IKanVw37J6oFuRrdnryXw8Lz
+                      metadata:
+                        Type: Order has been paid - Proportional - 1
+                    - id: ern_jwtacKdEEHoc85QbouRw3CR8
+                      created_at: 2022-11-24T15:17:11.539Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_TOTAL_AMOUNT
+                        order:
+                          total_amount:
+                            every: 1100
+                            points: 1
+                      event: order.paid
+                      source:
+                        banner: Order has been paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_Y6IWqhz0cHGkKcteU9PS5nmK
+                      metadata:
+                        Type: Order has been paid - Proportional - 2
+                    - id: ern_fxVdmtJ4u4rlyoH2hIq7m1PQ
+                      created_at: 2022-11-24T15:20:04.392Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_METADATA
+                        order:
+                          metadata:
+                            every: 10
+                            points: 2
+                            property: number_of_store_visits
+                      event: order.paid
+                      source:
+                        banner: Order paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_HyowcdKQ0lsQ1rSxV5tyYr2z
+                      metadata:
+                        Type: Order has been paid - Proportional - 3 - Metadata
+                    - id: ern_Aop1wTrmPv4yBntDcvXNTCWR
+                      created_at: 2022-11-24T15:23:44.514Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_ITEMS_AMOUNT
+                        order_items:
+                          amount:
+                            every: 1000
+                            points: 3
+                            object: products_collection
+                            id: pc_75U0dHlr7u75BJodrW1AE3t6
+                      event: order.paid
+                      source:
+                        banner: Order paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_EXRyQ0z0rgtF54PKDGGAF1qg
+                      metadata:
+                        Type: Order has been paid - Proportional - 4
+                    - id: ern_4qSQVjfGEH7OmXKMzotS0juY
+                      created_at: 2022-11-24T15:44:45.301Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_ITEMS_SUBTOTAL_AMOUNT
+                        order_items:
+                          subtotal_amount:
+                            every: 1000
+                            points: 4
+                            object: sku
+                            id: sku_0b7d7dfb090be5c619
+                      event: order.paid
+                      source:
+                        banner: Order paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_ID3xLPXCdnOaveJYWiulcNFW
+                      metadata:
+                        Type: Order has been paid - Proportional - 5 - Items
+                    - id: ern_aJyt4wIrXhmfMxvrLoZjBYrP
+                      created_at: 2022-11-24T15:56:58.710Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: ORDER_ITEMS_AMOUNT
+                        order_items:
+                          amount:
+                            every: 10000
+                            points: 1
+                            object: product
+                            id: prod_0bae32322150fd0546
+                      event: order.paid
+                      source:
+                        banner: Order paid
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_EbBqD1SNW70vgDp5icGbWl3e
+                      metadata: {}
+                    - id: ern_v4Blmh9hA3gpnjo93cMAgvHr
+                      created_at: 2022-11-24T16:19:20.571Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOMER_METADATA
+                        customer:
+                          metadata:
+                            every: 1
+                            points: 5
+                            property: customer_life_time_value
+                      segment:
+                        id: seg_OlE7DmfzMI5pHyD5VAv512r1
+                      event: customer.segment.entered
+                      source:
+                        banner: Entered Segment
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_wMMDJ86iHKkznz9x0506e30E
+                      metadata: {}
+                    - id: ern_L8dFanPxJzhw0f5voTwPurGP
+                      created_at: 2022-11-24T16:27:13.917Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        points: 3
+                        type: FIXED
+                      custom_event:
+                        schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                      event: page_view
+                      source:
+                        banner: Custom Event
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_9N69OJzGKGhp2mo7SNsnsF5b
+                      metadata:
+                        Type: Fixed
+                    - id: ern_ngdugZ2hzg35hGASFF8nDjUO
+                      created_at: 2022-11-24T16:41:48.830Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOM_EVENT_METADATA
+                        custom_event:
+                          metadata:
+                            every: 2
+                            points: 2
+                            property: volume_number
+                      custom_event:
+                        schema_id: ms_qpRZ3EmRQyszNH6Z52Gkq8au
+                      event: user_subscribed
+                      source:
+                        banner: Custom Event
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_v1eTxL7X63B5IkYgRWHK4leh
+                      metadata:
+                        Type: Event
+                    - id: ern_afo3Ea760hAKv07JYpycnhiE
+                      created_at: 2022-11-24T16:50:12.945Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOMER_METADATA
+                        customer:
+                          metadata:
+                            every: 3
+                            points: 3
+                            property: customer_life_time_value
+                      custom_event:
+                        schema_id: ms_f0r4hcu5T0m3v3nT5ch3ma
+                      event: cart_abandoned
+                      source:
+                        banner: Custom Event
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_7ovoKiXx49fe3nnhEbDlp9FP
+                      metadata: {}
+                    - id: ern_chdlG14W8Sdcq3d6jJQQgRMT
+                      created_at: 2022-11-24T16:51:31.595Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        points: 1
+                        type: FIXED
+                      event: customer.loyalty.tier.joined
+                      loyalty_tier:
+                        id: __ANY__
+                      source:
+                        banner: Tier joined - Any
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_W9yMQTz5fgQTgmuu6pTVraBW
+                      metadata:
+                        Type: Tier joined  - any - fixed
+                    - id: ern_gVo6CHBduFPoh1hctASfXHLT
+                      created_at: 2022-11-24T17:01:42.809Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOMER_METADATA
+                        customer:
+                          metadata:
+                            every: 4
+                            points: 4
+                            property: customer_life_time_value
+                      event: customer.loyalty.tier.joined
+                      loyalty_tier:
+                        id: ltr_pudTGWasuIqxdiDM0go31OV1
+                      source:
+                        banner: Tier joined
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_wdlEo17wmoqYHGfilbayEUj7
+                      metadata:
+                        Type: Tier joined - customer metadata - proportional
+                    - id: ern_66OdCyLADv5IGFoQe18vGUwa
+                      created_at: 2022-11-24T17:03:59.414Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOMER_METADATA
+                        customer:
+                          metadata:
+                            every: 2
+                            points: 2
+                            property: customer_life_time_value
+                      event: customer.loyalty.tier.left
+                      loyalty_tier:
+                        id: ltr_7rVIPlPzdSFwpnbCcUXgwzH2
+                      source:
+                        banner: Tier left
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_czm5el1Uz1jeGaO97AYoDNAq
+                      metadata:
+                        Type: Tier left
+                    - id: ern_YR3fDfCjAmz9a5D68nk0i4dm
+                      created_at: 2022-11-25T07:29:38.961Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        type: PROPORTIONAL
+                        calculation_type: CUSTOMER_METADATA
+                        customer:
+                          metadata:
+                            every: 3
+                            points: 4
+                            property: customer_life_time_value
+                      event: customer.loyalty.tier.upgraded
+                      loyalty_tier:
+                        id: ltr_30KHciA0UG8B71Fo51GZqwgN
+                      source:
+                        banner: Tier upgraded
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_M1OdRH8spk6Fs7yTuPLN2LAv
+                      metadata:
+                        Type: Upgraded
+                    - id: ern_A2RArBE30Tkt56utVLrRv7rZ
+                      created_at: 2022-11-25T07:31:05.866Z
+                      updated_at: 2022-11-25T07:31:43.029Z
+                      validation_rule_id: val_kfmWpfXMI9P1
+                      loyalty:
+                        points: 1
+                        type: FIXED
+                      event: customer.loyalty.tier.downgraded
+                      loyalty_tier:
+                        id: __ANY__
+                      source:
+                        banner: Tier Downgraded
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_TMVZtCNMBgZm0KcPJ7otiHZW
+                      metadata:
+                        Type: Tier
+                    - id: ern_AdlWO2yt6b6llWsibIdiRXVE
+                      created_at: 2022-11-25T07:31:42.767Z
+                      updated_at: null
+                      validation_rule_id: null
+                      loyalty:
+                        points: 5
+                        type: FIXED
+                      event: customer.loyalty.tier.prolonged
+                      loyalty_tier:
+                        id: __ANY__
+                      source:
+                        banner: Prolonged
+                        object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                        object_type: campaign
+                      active: true
+                      object: earning_rule
+                      automation_id: auto_4jH1yq9WJS0oJ8suagCrltyb
+                      metadata: {}
+                    total: 18
+              schema:
+                $ref: '#/components/schemas/LoyaltiesEarningRulesListResponseBody'
+          description: Returns a list of earning rules.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Earning Rules
+      tags:
+      - Loyalties
+      x-accepts: application/json
+    post:
+      description: Create earning rules for a loyalty campaign.
+      operationId: create-earning-rule
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                - event: order.paid
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: FIXED
+                    points: "5"
+                  source:
+                    banner: Order paid 5 points.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid - fixed amount of points
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_AMOUNT
+                    order:
+                      amount:
+                        every: 1
+                        points: 1
+                  source:
+                    banner: Order paid - 1 point for 1 dollar spent excluding discounts.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid- points proportional to order amount
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_TOTAL_AMOUNT
+                    order:
+                      total_amount:
+                        every: 1
+                        points: 1
+                  source:
+                    banner: Order paid - 1 point for 1 dollar spent including discounts.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid- points proportional to order total amount
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_METADATA
+                    order:
+                      metadata:
+                        every: 2
+                        points: 1
+                        property: number_of_store_visits
+                  source:
+                    banner: Order paid - 2 points for each store visit.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: 'Order paid- points proportional to numerical order metadata
+                      property '
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_ITEMS_AMOUNT
+                    order_items:
+                      amount:
+                        every: 2
+                        points: 1
+                        object: product
+                        id: prod_0bae32322150fd0546
+                  source:
+                    banner: Order paid - 2 points for 1 dollar spent on items excluding
+                      discounts.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid- points proportional to order items amount
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_ITEMS_SUBTOTAL_AMOUNT
+                    order_items:
+                      subtotal_amount:
+                        every: 2
+                        points: 1
+                        object: products_collection
+                        id: pc_75U0dHlr7u75BJodrW1AE3t6
+                  source:
+                    banner: Order paid - 2 points for every dollar spent on the product
+                      collection.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid- points proportional to order items subtotal
+                      amount
+                - event: order.paid
+                  validation_rule_id: null
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: ORDER_ITEMS_QUANTITY
+                    order_items:
+                      quantity:
+                        every: 1
+                        points: 1
+                        object: sku
+                        id: sku_0b7d7dfb090be5c619
+                  source:
+                    banner: Order paid - 1 point for every brand phone in your cart.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid - points proportional to quantity of items in
+                      a cart of a product varient.
+                - event: order.paid
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: CUSTOMER_METADATA
+                    customer:
+                      metadata:
+                        every: 1
+                        points: 1
+                        property: customer_life_time_value
+                  source:
+                    banner: Order paid 1 point for 1 month of being a customer with
+                      us.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid - points proportional to customer metadata property
+                - event: customer.segment.entered
+                  segment:
+                    id: seg_OlE7DmfzMI5pHyD5VAv512r1
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: CUSTOMER_METADATA
+                    customer:
+                      metadata:
+                        every: 1
+                        points: 1
+                        property: customer_life_time_value
+                  source:
+                    banner: Customer entered birthday segment - 1 point for each month
+                      of being a customer with us.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Entered segment - points proportional to customer metadata
+                      property
+                - event: customer.segment.entered
+                  segment:
+                    id: seg_OlE7DmfzMI5pHyD5VAv512r1
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: FIXED
+                    points: "5"
+                  source:
+                    banner: Customer entered birthday segment - 5 points
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Entered segment - fixed points
+                - event: page_view
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    points: 3
+                    type: FIXED
+                  custom_event:
+                    schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                  source:
+                    banner: See page - 3 points
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Custom Event - fixed points for viewing a page
+                - event: page_view
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: CUSTOM_EVENT_METADATA
+                    custom_event:
+                      metadata:
+                        every: 1
+                        points: 2
+                        property: volume_number
+                  custom_event:
+                    schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                  source:
+                    banner: See page X - get 2 points multiplied by the page number
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Custom Event - proportional points for viewing a page based
+                      on custom event metadata
+                - event: page_view
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: CUSTOMER_METADATA
+                    customer:
+                      metadata:
+                        every: 1
+                        points: 2
+                        property: customer_life_time_value
+                  custom_event:
+                    schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                  source:
+                    banner: Get 2 points for every month you're a customer for viewing
+                      a page
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Custom Event - proportional points for viewing a page based
+                      on customer metadata
+                - event: customer.loyalty.tier.prolonged
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: PROPORTIONAL
+                    calculation_type: CUSTOMER_METADATA
+                    customer:
+                      metadata:
+                        every: 1
+                        points: 2
+                        property: customer_life_time_value
+                  loyalty_tier:
+                    id: ltr_pudTGWasuIqxdiDM0go31OV1
+                  source:
+                    banner: Get 2 points for every month you're a customer when your
+                      loyalty tier is prolonged.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Custom Event - proportional points for extending a loyalty
+                      tier based on customer metadata.
+            schema:
+              $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBody'
+        description: "Customize the request body based on the type of earning rules\
+          \ you would like to create. The request body is an array of objects. The\
+          \ required minimum properties to include in the payload for each object\
+          \ are event and loyalty. Additionally, if you choose to add a validity_timeframe,\
+          \ you must include a start_date. Furthermore, an earning rule event type:\
+          \  \n- customer.segment.entered requires a segment object\n- a custom event\
+          \ requires a custom_event object\n- a customer.loyalty.tier.joined, customer.loyalty.tier.left,\
+          \ customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged\
+          \ requires a loyalty_tier object"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                  - id: ern_63g6NQgtepfXn2z0QbT2ksLf
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      points: 5
+                      type: FIXED
+                    event: order.paid
+                    source:
+                      banner: Order paid 5 points.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_knM56LS3oygL0Ue0oeSNt4WA
+                    metadata:
+                      Type: Order paid - fixed amount of points
+                  - id: ern_Ov5RWerVFubVSjIHOMco34dv
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_AMOUNT
+                      order:
+                        amount:
+                          every: 1
+                          points: 1
+                    event: order.paid
+                    source:
+                      banner: Order paid - 1 point for 1 dollar spent excluding discounts.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_2R4x6pMFVEIPz1Lhz5ZVo33Y
+                    metadata:
+                      Type: Order paid- points proportional to order amount
+                  - id: ern_5rWPz4arGlTv4FVc1vETeFfe
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_TOTAL_AMOUNT
+                      order:
+                        total_amount:
+                          every: 1
+                          points: 1
+                    event: order.paid
+                    source:
+                      banner: Order paid - 1 point for 1 dollar spent including discounts.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_fXasfs6Eh7P2haZkI33PEumI
+                    metadata:
+                      Type: Order paid- points proportional to order total amount
+                  - id: ern_Xs3o43dHr1O3RM5ojoeu1l6b
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_METADATA
+                      order:
+                        metadata:
+                          every: 2
+                          points: 1
+                          property: number_of_store_visits
+                    event: order.paid
+                    source:
+                      banner: Order paid - 2 points for each store visit.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_jucMzF25jisrqiG3k6JyyviT
+                    metadata:
+                      Type: 'Order paid- points proportional to numerical order metadata
+                        property '
+                  - id: ern_9CjMBP2V8zgpsHLga4YOQo0A
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_ITEMS_AMOUNT
+                      order_items:
+                        amount:
+                          every: 2
+                          points: 1
+                          object: product
+                          id: prod_0bae32322150fd0546
+                    event: order.paid
+                    source:
+                      banner: Order paid - 2 points for 1 dollar spent on items excluding
+                        discounts.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_y60lx7XsW1YdOOOFuDaYjvG4
+                    metadata:
+                      Type: Order paid- points proportional to order items amount
+                  - id: ern_uI7hRj8PNodK8xWRsn3gpDdG
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_ITEMS_SUBTOTAL_AMOUNT
+                      order_items:
+                        subtotal_amount:
+                          every: 2
+                          points: 1
+                          object: products_collection
+                          id: pc_75U0dHlr7u75BJodrW1AE3t6
+                    event: order.paid
+                    source:
+                      banner: Order paid - 2 points for every dollar spent on the
+                        product collection.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_Lk1WROGexXA72FabUWhR1p7X
+                    metadata:
+                      Type: Order paid- points proportional to order items subtotal
+                        amount
+                  - id: ern_dL13AmZEO0ToImOY44YUP1ru
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: ORDER_ITEMS_QUANTITY
+                      order_items:
+                        quantity:
+                          every: 1
+                          points: 1
+                          object: sku
+                          id: sku_0b7d7dfb090be5c619
+                    event: order.paid
+                    source:
+                      banner: Order paid - 1 point for every brand phone in your cart.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_4F9iJG0hmKTiqSsmkfbB8vUF
+                    metadata:
+                      Type: Order paid - points proportional to quantity of items
+                        in a cart of a product varient.
+                  - id: ern_ublD9yGhxPrd9ayPAMTc4aOZ
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: CUSTOMER_METADATA
+                      customer:
+                        metadata:
+                          every: 1
+                          points: 1
+                          property: customer_life_time_value
+                    event: order.paid
+                    source:
+                      banner: Order paid 1 point for 1 month of being a customer with
+                        us.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_raft7C1hVw427OnEobmzhXjD
+                    metadata:
+                      Type: Order paid - points proportional to customer metadata
+                        property
+                  - id: ern_6tBwufmR7UNJInhZq8zNRrj5
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: CUSTOMER_METADATA
+                      customer:
+                        metadata:
+                          every: 1
+                          points: 1
+                          property: customer_life_time_value
+                    segment:
+                      id: seg_OlE7DmfzMI5pHyD5VAv512r1
+                    event: customer.segment.entered
+                    source:
+                      banner: Customer entered birthday segment - 1 point for each
+                        month of being a customer with us.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_mQ8SCABGLnrGMBbh8QS6DUpX
+                    metadata:
+                      Type: Entered segment - points proportional to customer metadata
+                        property
+                  - id: ern_yBR0JtdcDyJXgZf30C8KQLPw
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      points: 5
+                      type: FIXED
+                    segment:
+                      id: seg_OlE7DmfzMI5pHyD5VAv512r1
+                    event: customer.segment.entered
+                    source:
+                      banner: Customer entered birthday segment - 5 points
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_Co7zjgYPIKZ45vcK0jn7qrY8
+                    metadata:
+                      Type: Entered segment - fixed points
+                  - id: ern_Ic2AUznt4cJInIl1wt6n0Fbv
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      points: 3
+                      type: FIXED
+                    custom_event:
+                      schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                    event: page_view
+                    source:
+                      banner: See page - 3 points
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_KWvcBS3bdmJnWD4BTw29eRNT
+                    metadata:
+                      Type: Custom Event - fixed points for viewing a page
+                  - id: ern_4SRj1TY1j8Q617R2Y4qiN1sy
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: CUSTOM_EVENT_METADATA
+                      custom_event:
+                        metadata:
+                          every: 1
+                          points: 2
+                          property: volume_number
+                    custom_event:
+                      schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                    event: page_view
+                    source:
+                      banner: See page X - get 2 points multiplied by the page number
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_WWESERcKoTRSbCDal7Hr7H0A
+                    metadata:
+                      Type: Custom Event - proportional points for viewing a page
+                        based on custom event metadata
+                  - id: ern_WXBa4b5a6N5XZt9A9Nf9dagA
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: CUSTOMER_METADATA
+                      customer:
+                        metadata:
+                          every: 1
+                          points: 2
+                          property: customer_life_time_value
+                    custom_event:
+                      schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+                    event: page_view
+                    source:
+                      banner: Get 2 points for every month you're a customer for viewing
+                        a page
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_zv3mCOeZOaHCsFMG0yIKu0ax
+                    metadata:
+                      Type: Custom Event - proportional points for viewing a page
+                        based on customer metadata
+                  - id: ern_DvdegDzcaMUXzf2fayzCqMEV
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: null
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      type: PROPORTIONAL
+                      calculation_type: CUSTOMER_METADATA
+                      customer:
+                        metadata:
+                          every: 1
+                          points: 2
+                          property: customer_life_time_value
+                    event: customer.loyalty.tier.prolonged
+                    loyalty_tier:
+                      id: ltr_pudTGWasuIqxdiDM0go31OV1
+                    source:
+                      banner: Get 2 points for every month you're a customer when
+                        your loyalty tier is prolonged.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_fpfYyNcpVskgwcrs21kQ91Wx
+                    metadata:
+                      Type: Custom Event - proportional points for extending a loyalty
+                        tier based on customer metadata.
+              schema:
+                items:
+                  $ref: '#/components/schemas/LoyaltiesEarningRulesCreateResponseBody'
+                type: array
+          description: Returns an array of earning rule objects.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Earning Rule
+      tags:
+      - Loyalties
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}:
     delete:
       description: This method deletes an earning rule for a specific loyalty campaign.
@@ -11397,6 +12773,106 @@ paths:
       summary: Get Earning Rule
       tags:
       - Loyalties
+      x-accepts: application/json
+    put:
+      description: Update an earning rule definition.
+      operationId: update-earning-rule
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: A unique earning rule ID.
+        explode: false
+        in: path
+        name: earningRuleId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterEarningRuleId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  validation_rule_id: val_7SxpdhPeBngA
+                  loyalty:
+                    type: FIXED
+                    points: "5"
+                  source:
+                    banner: Order paid 5 points.
+                  active: true
+                  start_date: 2022-11-02T13:00:00.000Z
+                  expiration_date: 2023-03-03T14:30:00.000Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  metadata:
+                    Type: Order paid - fixed amount of points
+            schema:
+              $ref: '#/components/schemas/LoyaltiesEarningRulesUpdateRequestBody'
+        description: Specify the parameters that you would like to update for the
+          given earning rule.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: ern_63g6NQgtepfXn2z0QbT2ksLf
+                    created_at: 2022-11-29T11:10:46.523Z
+                    updated_at: 2022-11-29T11:30:57.652Z
+                    validation_rule_id: val_7SxpdhPeBngA
+                    loyalty:
+                      points: 5
+                      type: FIXED
+                    event: order.paid
+                    source:
+                      banner: Order paid 5 points.
+                      object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                      object_type: campaign
+                    active: true
+                    start_date: 2022-11-02T13:00:00.000Z
+                    expiration_date: 2023-03-03T14:30:00.000Z
+                    validity_timeframe:
+                      duration: PT1H
+                      interval: P1D
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    object: earning_rule
+                    automation_id: auto_knM56LS3oygL0Ue0oeSNt4WA
+                    metadata:
+                      Type: Order paid - fixed amount of points
+              schema:
+                $ref: '#/components/schemas/LoyaltiesEarningRulesUpdateResponseBody'
+          description: Returns the updated earning rule object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Earning Rule
+      tags:
+      - Loyalties
+      x-content-type: application/json
       x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable:
     post:
@@ -23069,6 +24545,19 @@ components:
       description: "Response body schema for **DELETE** `/loyalties/{campaignId}`."
       title: Loyalties Delete Response Body
       type: object
+    LoyaltiesEarningRulesCreateRequestBody:
+      description: "This data model represents the Request body schema for the `/loyalties/{campaignId}/earning-rules`\
+        \ endpoint."
+      items:
+        $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBody_inner'
+      title: Create Earning Rule Request Body
+      type: array
+    LoyaltiesEarningRulesCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/EarningRule'
+      description: "Response body schema for **POST** `/loyalties/{campaignId}/earning-rules`."
+      title: Loyalties Earning Rules Create Response Body
+      type: object
     LoyaltiesEarningRulesDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/EarningRuleBase'
@@ -23116,6 +24605,49 @@ components:
       - $ref: '#/components/schemas/EarningRule'
       description: "Response body schema for **GET** `/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
       title: Loyalties Earning Rules Get Response Body
+      type: object
+    LoyaltiesEarningRulesListResponseBody:
+      description: "Response body schema for listing earning rules using **GET** `/loyalties/{campaignId}/earning-rules`\
+        \ endpoint."
+      example:
+        total: 0
+        data:
+        - null
+        - null
+        data_ref: data
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about earning rules in a dictionary.
+          enum:
+          - list
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the attribute that contains the array
+            of earning rule objects.
+          nullable: true
+          type: string
+        data:
+          description: Contains array of earning rule objects.
+          items:
+            $ref: '#/components/schemas/EarningRule'
+          nullable: true
+          type: array
+        total:
+          description: Total number of earning rule objects.
+          nullable: true
+          type: integer
+      title: List Earning Rules Response Body
+      type: object
+    LoyaltiesEarningRulesUpdateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/EarningRule'
+      description: "Response body schema for **PUT** `/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
+      title: Loyalties Earning Rules Update Response Body
       type: object
     LoyaltiesMembersBalanceUpdateRequestBody:
       description: "Request Body schema for **POST** `/loyalties/members/{memberId}/balance`\
@@ -24047,6 +25579,13 @@ components:
       - -updated_at
       - source_id
       - -source_id
+      type: string
+    ParameterOrderListEarningRules:
+      enum:
+      - created_at
+      - -created_at
+      - updated_at
+      - -updated_at
       type: string
     ParameterOrderListExports:
       enum:
@@ -29810,6 +31349,8 @@ components:
           $ref: '#/components/schemas/EarningRuleBase_custom_event'
         segment:
           $ref: '#/components/schemas/EarningRuleBase_segment'
+        loyalty_tier:
+          $ref: '#/components/schemas/EarningRuleBase_loyalty_tier'
         source:
           $ref: '#/components/schemas/EarningRuleBase_source'
         object:
@@ -30349,6 +31890,364 @@ components:
           nullable: true
           type: boolean
       title: List Publications Item Voucher
+      type: object
+    LoyaltiesEarningRulesCreateCustomEventRequestBody:
+      description: This is an object representing an earning rule triggered by a custom
+        event.
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Create_Custom_Event_Request_Body_Loyalty'
+        custom_event:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_custom_event'
+        event:
+          description: "Defines the event which triggers the earning rule to add points\
+            \ to a loyalty card.  \n\n- `custom_event_name` the name of a custom event\
+            \ defined in the Dashboard &rarr; **Project Settings** &rarr; **EVENT\
+            \ SCHEMA** &rarr; **Add event definition**. Read more on defining [custom\
+            \ events](https://support.voucherify.io/article/111-custom-events). "
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_source'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the earning rule. A set of key/value pairs that you can attach to an earning
+            rule object. It can be useful for storing additional information about
+            the earning rule in a structured format.
+          nullable: true
+          type: object
+      title: Earning Rule Object for Custom Event
+      type: object
+    LoyaltiesEarningRulesCreateEnteredSegmentRequestBody:
+      description: This is an object representing an earning rule for entering a customer
+        segment.
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Create_Entered_Segment_Request_Body_Loyalty'
+        segment:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBody_segment'
+        event:
+          default: customer.segment.entered
+          description: "Defines the event which triggers the earning rule to add points\
+            \ to a loyalty card.  \n\n- `customer.segment.entered` an event defined\
+            \ by the Voucherify API corresponding to a customer entering a pre-defined\
+            \ customer segment."
+          enum:
+          - customer.segment.entered
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_source'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the earning rule. A set of key/value pairs that you can attach to an earning
+            rule object. It can be useful for storing additional information about
+            the earning rule in a structured format.
+          nullable: true
+          type: object
+      title: Earning Rule Object for Entered Segment
+      type: object
+    LoyaltiesEarningRulesCreateOrderPaidRequestBody:
+      description: This is an object representing an earning rule for a paid order.
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_Loyalty'
+        event:
+          default: order.paid
+          description: "Defines the event which triggers the earning rule to add points\
+            \ to a loyalty card.  \n\n- `order.paid` an event defined by the Voucherify\
+            \ API corresponding to an order status `PAID`. "
+          enum:
+          - order.paid
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_source'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the earning rule. A set of key/value pairs that you can attach to an earning
+            rule object. It can be useful for storing additional information about
+            the earning rule in a structured format.
+          nullable: true
+          type: object
+      title: Earning Rule Object for Order Paid
+      type: object
+    LoyaltiesEarningRulesCreateTierChangeRequestBody:
+      description: This is an object representing an earning rule for tiers.
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/Define_fixed_amount_of_points'
+        event:
+          description: "Defines the event which triggers the earning rule to add points\
+            \ to a loyalty card.  \n\n- `customer.loyalty.tier.joined` an event defined\
+            \ by the Voucherify API corresponding to a customer joining a tier   \
+            \ \n- `customer.loyalty.tier.left` an event defined by the Voucherify\
+            \ API corresponding to a customer leaving a tier    \n- `customer.loyalty.tier.upgraded`\
+            \ an event defined by the Voucherify API corresponding to a customer's\
+            \ tier being upgraded    \n- `customer.loyalty.tier.downgraded` an event\
+            \ defined by the Voucherify API corresponding to a customer's tier being\
+            \ upgraded    \n- `customer.loyalty.tier.prolonged` an event defined by\
+            \ the Voucherify API corresponding to a customer's tier being prolonged"
+          enum:
+          - customer.loyalty.tier.joined
+          - customer.loyalty.tier.left
+          - customer.loyalty.tier.upgraded
+          - customer.loyalty.tier.downgraded
+          - customer.loyalty.tier.prolonged
+          nullable: true
+          type: string
+        loyalty_tier:
+          $ref: '#/components/schemas/EarningRuleBase_loyalty_tier'
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_source'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the earning rule. A set of key/value pairs that you can attach to an earning
+            rule object. It can be useful for storing additional information about
+            the earning rule in a structured format.
+          nullable: true
+          type: object
+      title: Earning Rule Object for Tiers
       type: object
     LoyaltiesLoyaltyTierReward:
       description: This is an object representing a loyalty tier reward.
@@ -34072,15 +35971,9 @@ components:
       title: Customer Summary
       type: object
     EarningRuleEvent:
-      enum:
-      - order.paid
-      - customer.segment.entered
-      - custom_event
-      - customer.loyalty.tier.upgraded
-      - customer.loyalty.tier.downgraded
-      - customer.loyalty.tier.prolonged
-      - customer.loyalty.tier.joined
-      - customer.loyalty.tier.left
+      example: "\"order.paid\", \"customer.segment.entered\", \"customer.loyalty.tier.upgraded\"\
+        , \"customer.loyalty.tier.downgraded\", \"customer.loyalty.tier.prolonged\"\
+        , \"customer.loyalty.tier.joined\", \"customer.loyalty.tier.left\""
       title: Earning Rule Event
       type: string
     ExportVoucherTransactionsBase:
@@ -35355,6 +37248,148 @@ components:
           type: array
       title: Redeemable Loyalty Card
       type: object
+    LoyaltiesEarningRulesUpdateRequestBody:
+      example:
+        metadata: "{}"
+        validity_day_of_week:
+        - 7
+        - 7
+        loyalty:
+          calculation_type: ORDER_AMOUNT
+          custom_event:
+            metadata:
+              property: property
+              every: 3
+              points: 2
+          type: PROPORTIONAL
+          order:
+            amount:
+              every: 0
+              points: 6
+            metadata:
+              property: property
+              every: 1
+              points: 5
+            total_amount:
+              every: 0
+              points: 6
+          order_items:
+            amount:
+              id: id
+              every: 5
+              points: 2
+              object: products_collection
+            quantity:
+              id: id
+              every: 5
+              points: 2
+              object: products_collection
+            subtotal_amount:
+              id: id
+              every: 5
+              points: 2
+              object: products_collection
+          customer:
+            metadata:
+              property: property
+              every: 7
+              points: 9
+          points: 4
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        source:
+          banner: Order Paid - You will get 100 points
+        expiration_date: 2022-03-03T14:30:00Z
+        validation_rule_id: val_248vs7tUjlIE
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2022-02-02T13:00:00Z
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Update_Request_Body_Loyalty'
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody_source'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the earning rule. A set of key/value pairs that you can attach to an earning
+            rule object. It can be useful for storing additional information about
+            the earning rule in a structured format.
+          nullable: true
+          type: object
+      title: Loyalties Earning Rules Update Request Body
+      type: object
     CampaignsCreateRequestBodyVoucherRedemption:
       example:
         quantity: 1
@@ -36186,6 +38221,12 @@ components:
           $ref: '#/components/schemas/ExportsCreateResponseBodyParametersFilters'
       title: ExportsCreateResponseBodyParameters
       type: object
+    LoyaltiesEarningRulesCreateRequestBody_inner:
+      oneOf:
+      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBody'
+      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBody'
+      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody'
+      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateTierChangeRequestBody'
     LoyaltiesMembersBalanceUpdateResponseBody_related_object:
       description: Defines the object that is being modified with the values that
         are returned in the balance object.
@@ -40715,6 +42756,9 @@ components:
         \ for the property defined in calculation_type, give the customer the number\
         \ of points defined in the points parameter. In other words, for every calculation_type,\
         \ give points."
+      example:
+        every: 0
+        points: 6
       nullable: true
       properties:
         every:
@@ -40734,6 +42778,10 @@ components:
         \ every parameter for the property defined in calculation_type, give the customer\
         \ the number of points defined in the points parameter. In other words, for\
         \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 1
+        points: 5
       nullable: true
       properties:
         every:
@@ -40768,6 +42816,11 @@ components:
         \ for the property defined in calculation_type, give the customer the number\
         \ of points defined in the points parameter. In other words, for every calculation_type,\
         \ give points."
+      example:
+        id: id
+        every: 5
+        points: 2
+        object: products_collection
       nullable: true
       properties:
         every:
@@ -40811,6 +42864,10 @@ components:
         \ every parameter for the property defined in calculation_type, give the customer\
         \ the number of points defined in the points parameter. In other words, for\
         \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 7
+        points: 9
       nullable: true
       properties:
         every:
@@ -40829,6 +42886,11 @@ components:
           type: string
       type: object
     Earning_Rule_Base_Loyalty_customer:
+      example:
+        metadata:
+          property: property
+          every: 7
+          points: 9
       nullable: true
       properties:
         metadata:
@@ -40840,6 +42902,10 @@ components:
         \ every parameter for the property defined in calculation_type, give the customer\
         \ the number of points defined in the points parameter. In other words, for\
         \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 3
+        points: 2
       nullable: true
       properties:
         every:
@@ -40860,6 +42926,11 @@ components:
           type: string
       type: object
     Earning_Rule_Base_Loyalty_custom_event:
+      example:
+        metadata:
+          property: property
+          every: 3
+          points: 2
       nullable: true
       properties:
         metadata:
@@ -40916,6 +42987,17 @@ components:
         id:
           description: Contains a unique identifier of a customer segment. Assigned
             by the Voucherify API.
+          nullable: true
+          type: string
+      type: object
+    EarningRuleBase_loyalty_tier:
+      description: Defines the tier associated with the earning rule definition.
+      nullable: true
+      properties:
+        id:
+          description: "Unique loyalty tier ID associated with the earning rule. \
+            \   \n\n- `__ANY__`: any loyalty tier within the campaign"
+          example: ltr_pudTGWasuIqxdiDM0go31OV1
           nullable: true
           type: string
       type: object
@@ -41108,6 +43190,164 @@ components:
         filters:
           $ref: '#/components/schemas/ExportParametersFilters'
       title: ExportParameters
+      type: object
+    Loyalties_Earning_Rules_Create_Custom_Event_Request_Body_Loyalty:
+      nullable: true
+      properties:
+        type:
+          enum:
+          - FIXED
+          - PROPORTIONAL
+          nullable: true
+          type: string
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+        calculation_type:
+          default: CUSTOM_EVENT_METADATA
+          description: "CUSTOM_EVENT_METADATA: Custom event metadata (X points for\
+            \ every Y in metadata attribute)."
+          enum:
+          - CUSTOM_EVENT_METADATA
+          nullable: true
+          type: string
+        custom_event:
+          $ref: '#/components/schemas/Earning_Rule_Base_Loyalty_custom_event'
+      title: Loyalties Earning Rules Create Custom Event Request Body Loyalty
+      type: object
+    LoyaltiesEarningRulesCreateCustomEventRequestBody_custom_event:
+      description: Contains the schema id of a custom event. **Required** for the
+        custom event option in `event`.
+      nullable: true
+      properties:
+        schema_id:
+          description: Contains a unique identifier of a custom event schema. Assigned
+            by the Voucherify API.
+          example: ms_gn4Qe4xsFPf7orCArCiNVY13
+          nullable: true
+          type: string
+      type: object
+    LoyaltiesEarningRulesCreateCustomEventRequestBody_source:
+      description: Contains the custom earning rule name and parent campaign.
+      example:
+        banner: Order Paid - You will get 100 points
+      nullable: true
+      properties:
+        banner:
+          description: Name of the earning rule. This is displayed as a header for
+            the earning rule in the Dashboard.
+          example: Order Paid - You will get 100 points
+          nullable: true
+          type: string
+      type: object
+    Loyalties_Earning_Rules_Create_Entered_Segment_Request_Body_Loyalty:
+      nullable: true
+      properties:
+        type:
+          enum:
+          - FIXED
+          - PROPORTIONAL
+          nullable: true
+          type: string
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+        calculation_type:
+          default: CUSTOMER_METADATA
+          description: "CUSTOMER_METADATA: Customer Metadata (X points for every Y\
+            \ in metadata attribute, defined in the property key under the customer.metadata\
+            \ object)"
+          enum:
+          - CUSTOMER_METADATA
+          nullable: true
+          type: string
+        customer:
+          $ref: '#/components/schemas/Earning_Rule_Base_Loyalty_customer'
+      title: Loyalties Earning Rules Create Entered Segment Request Body Loyalty
+      type: object
+    LoyaltiesEarningRulesCreateEnteredSegmentRequestBody_segment:
+      description: Contains the ID of a customer segment. **Required** for the `customer.segment.entered`
+        option in `event`.
+      nullable: true
+      properties:
+        id:
+          description: Contains a unique identifier of a customer segment. Assigned
+            by the Voucherify API.
+          nullable: true
+          type: string
+      type: object
+    Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_LoyaltyOrderItems:
+      nullable: true
+      properties:
+        quantity:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+        amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+        subtotal_amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+      title: Loyalties Earning Rules Create Order Paid Request Body LoyaltyOrderItems
+      type: object
+    Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_LoyaltyOrder:
+      nullable: true
+      properties:
+        amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_amount'
+        total_amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_amount'
+        metadata:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_metadata'
+      title: Loyalties Earning Rules Create Order Paid Request Body LoyaltyOrder
+      type: object
+    Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_Loyalty:
+      nullable: true
+      properties:
+        type:
+          enum:
+          - PROPORTIONAL
+          - FIXED
+          nullable: true
+          type: string
+        calculation_type:
+          enum:
+          - ORDER_ITEMS_QUANTITY
+          - ORDER_ITEMS_AMOUNT
+          - ORDER_ITEMS_SUBTOTAL_AMOUNT
+          - ORDER_AMOUNT
+          - ORDER_TOTAL_AMOUNT
+          - ORDER_METADATA
+          nullable: true
+          type: string
+        order_items:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_LoyaltyOrderItems'
+        order:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Create_Order_Paid_Request_Body_LoyaltyOrder'
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+      title: Loyalties Earning Rules Create Order Paid Request Body Loyalty
+      type: object
+    Define_fixed_amount_of_points:
+      nullable: true
+      properties:
+        type:
+          default: FIXED
+          description: The number of points to be added to the loyalty card.
+          enum:
+          - FIXED
+          nullable: true
+          type: string
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+      title: Define fixed amount of points
       type: object
     LoyaltyTier_allOf_config_points:
       description: Defines range of loyalty tier in points.
@@ -43607,6 +45847,132 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/VoucherTransactionsExportFilterConditions_voucher_id_conditions'
+      type: object
+    Loyalties_Earning_Rules_Update_Request_Body_LoyaltyOrder:
+      example:
+        amount:
+          every: 0
+          points: 6
+        metadata:
+          property: property
+          every: 1
+          points: 5
+        total_amount:
+          every: 0
+          points: 6
+      nullable: true
+      properties:
+        amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_amount'
+        total_amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_amount'
+        metadata:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrder_metadata'
+      title: Loyalties Earning Rules Update Request Body LoyaltyOrder
+      type: object
+    Loyalties_Earning_Rules_Update_Request_Body_LoyaltyOrderItems:
+      example:
+        amount:
+          id: id
+          every: 5
+          points: 2
+          object: products_collection
+        quantity:
+          id: id
+          every: 5
+          points: 2
+          object: products_collection
+        subtotal_amount:
+          id: id
+          every: 5
+          points: 2
+          object: products_collection
+      nullable: true
+      properties:
+        quantity:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+        amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+        subtotal_amount:
+          $ref: '#/components/schemas/Earning_Rule_Base_LoyaltyOrderItems_quantity'
+      title: Loyalties Earning Rules Update Request Body LoyaltyOrderItems
+      type: object
+    Loyalties_Earning_Rules_Update_Request_Body_Loyalty:
+      example:
+        calculation_type: ORDER_AMOUNT
+        custom_event:
+          metadata:
+            property: property
+            every: 3
+            points: 2
+        type: PROPORTIONAL
+        order:
+          amount:
+            every: 0
+            points: 6
+          metadata:
+            property: property
+            every: 1
+            points: 5
+          total_amount:
+            every: 0
+            points: 6
+        order_items:
+          amount:
+            id: id
+            every: 5
+            points: 2
+            object: products_collection
+          quantity:
+            id: id
+            every: 5
+            points: 2
+            object: products_collection
+          subtotal_amount:
+            id: id
+            every: 5
+            points: 2
+            object: products_collection
+        customer:
+          metadata:
+            property: property
+            every: 7
+            points: 9
+        points: 4
+      nullable: true
+      properties:
+        type:
+          enum:
+          - PROPORTIONAL
+          - FIXED
+          nullable: true
+          type: string
+        calculation_type:
+          enum:
+          - ORDER_AMOUNT
+          - ORDER_TOTAL_AMOUNT
+          - ORDER_METADATA
+          - ORDER_ITEMS_QUANTITY
+          - ORDER_ITEMS_AMOUNT
+          - ORDER_ITEMS_SUBTOTAL_AMOUNT
+          - CUSTOMER_METADATA
+          - CUSTOM_EVENT_METADATA
+          nullable: true
+          type: string
+        order:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Update_Request_Body_LoyaltyOrder'
+        order_items:
+          $ref: '#/components/schemas/Loyalties_Earning_Rules_Update_Request_Body_LoyaltyOrderItems'
+        customer:
+          $ref: '#/components/schemas/Earning_Rule_Base_Loyalty_customer'
+        custom_event:
+          $ref: '#/components/schemas/Earning_Rule_Base_Loyalty_custom_event'
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+      title: Loyalties Earning Rules Update Request Body Loyalty
       type: object
   securitySchemes:
     X-App-Id:

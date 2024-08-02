@@ -1,7 +1,8 @@
 
 
-# EarningRule
+# LoyaltiesEarningRulesUpdateResponseBody
 
+Response body schema for **PUT** `/loyalties/{campaignId}/earning-rules/{earningRuleId}`.
 
 ## Properties
 

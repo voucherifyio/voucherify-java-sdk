@@ -21,9 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleBaseCustomEvent;
 import io.voucherify.client.model.EarningRuleBaseLoyalty;
+import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
 import io.voucherify.client.model.EarningRuleBaseSegment;
 import io.voucherify.client.model.EarningRuleBaseSource;
-import io.voucherify.client.model.EarningRuleEvent;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -77,7 +77,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
-  private EarningRuleEvent event;
+  private String event;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
@@ -86,6 +86,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
   private EarningRuleBaseSegment segment;
+
+  public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
+  private EarningRuleBaseLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -299,7 +303,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody event(EarningRuleEvent event) {
+  public LoyaltiesEarningRulesDisableResponseBody event(String event) {
     
     this.event = event;
     return this;
@@ -310,12 +314,12 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return event
   **/
   @javax.annotation.Nullable
-  public EarningRuleEvent getEvent() {
+  public String getEvent() {
     return event;
   }
 
 
-  public void setEvent(EarningRuleEvent event) {
+  public void setEvent(String event) {
     this.event = event;
   }
 
@@ -359,6 +363,27 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setSegment(EarningRuleBaseSegment segment) {
     this.segment = segment;
+  }
+
+
+  public LoyaltiesEarningRulesDisableResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+    
+    this.loyaltyTier = loyaltyTier;
+    return this;
+  }
+
+   /**
+   * Get loyaltyTier
+   * @return loyaltyTier
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+    return loyaltyTier;
+  }
+
+
+  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+    this.loyaltyTier = loyaltyTier;
   }
 
 
@@ -661,6 +686,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
         Objects.equals(this.event, loyaltiesEarningRulesDisableResponseBody.event) &&
         Objects.equals(this.customEvent, loyaltiesEarningRulesDisableResponseBody.customEvent) &&
         Objects.equals(this.segment, loyaltiesEarningRulesDisableResponseBody.segment) &&
+        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesDisableResponseBody.loyaltyTier) &&
         Objects.equals(this.source, loyaltiesEarningRulesDisableResponseBody.source) &&
         Objects.equals(this._object, loyaltiesEarningRulesDisableResponseBody._object) &&
         Objects.equals(this.automationId, loyaltiesEarningRulesDisableResponseBody.automationId) &&
@@ -681,7 +707,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active, additionalProperties);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -701,6 +727,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
     sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    automationId: ").append(toIndentedString(automationId)).append("\n");
@@ -741,6 +768,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
     openapiFields.add("event");
     openapiFields.add("custom_event");
     openapiFields.add("segment");
+    openapiFields.add("loyalty_tier");
     openapiFields.add("source");
     openapiFields.add("object");
     openapiFields.add("automation_id");

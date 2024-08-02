@@ -11,9 +11,10 @@ Response body schema for **POST** `/loyalties/{campaignId}/earning-rules/{earnin
 |**id** | **String** | Assigned by the Voucherify API, identifies the earning rule object. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the earning rule was created. The value is shown in the ISO 8601 format. |
 |**loyalty** | [**EarningRuleBaseLoyalty**](EarningRuleBaseLoyalty.md) |  |
-|**event** | **EarningRuleEvent** |  |
+|**event** | **String** |  |
 |**customEvent** | [**EarningRuleBaseCustomEvent**](EarningRuleBaseCustomEvent.md) |  |
 |**segment** | [**EarningRuleBaseSegment**](EarningRuleBaseSegment.md) |  |
+|**loyaltyTier** | [**EarningRuleBaseLoyaltyTier**](EarningRuleBaseLoyaltyTier.md) |  |
 |**source** | [**EarningRuleBaseSource**](EarningRuleBaseSource.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is earning_rule. |
 |**automationId** | **String** | For internal use by Voucherify. |

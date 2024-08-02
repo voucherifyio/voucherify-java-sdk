@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseCustomEvent;
-import io.voucherify.client.model.EarningRuleBaseLoyalty;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
-import io.voucherify.client.model.EarningRuleBaseSegment;
-import io.voucherify.client.model.EarningRuleBaseSource;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodySource;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -58,53 +56,33 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable&#x60;
+ * This is an object representing an earning rule for entering a customer segment.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class LoyaltiesEarningRulesEnableResponseBody {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
+public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBody {
+  public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
+  private String validationRuleId;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private EarningRuleBaseLoyalty loyalty;
-
-  public static final String SERIALIZED_NAME_EVENT = "event";
-  @SerializedName(SERIALIZED_NAME_EVENT)
-  private String event;
-
-  public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseCustomEvent customEvent;
+  private LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty loyalty;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
-  private EarningRuleBaseSegment segment;
-
-  public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
-  private EarningRuleBaseLoyaltyTier loyaltyTier;
-
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  private EarningRuleBaseSource source;
+  private LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment segment;
 
   /**
-   * The type of the object represented by JSON. Default is earning_rule.
+   * Defines the event which triggers the earning rule to add points to a loyalty card.    - &#x60;customer.segment.entered&#x60; an event defined by the Voucherify API corresponding to a customer entering a pre-defined customer segment.
    */
-  @JsonAdapter(ObjectEnum.Adapter.class)
-  public enum ObjectEnum {
-    EARNING_RULE("earning_rule");
+  @JsonAdapter(EventEnum.Adapter.class)
+  public enum EventEnum {
+    CUSTOMER_SEGMENT_ENTERED("customer.segment.entered");
 
     private String value;
 
-    ObjectEnum(String value) {
+    EventEnum(String value) {
       this.value = value;
     }
 
@@ -117,8 +95,8 @@ public class LoyaltiesEarningRulesEnableResponseBody {
       return String.valueOf(value);
     }
 
-    public static ObjectEnum fromValue(String value) {
-      for (ObjectEnum b : ObjectEnum.values()) {
+    public static EventEnum fromValue(String value) {
+      for (EventEnum b : EventEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -126,35 +104,39 @@ public class LoyaltiesEarningRulesEnableResponseBody {
         return null;
     }
 
-    public static class Adapter extends TypeAdapter<ObjectEnum> {
+    public static class Adapter extends TypeAdapter<EventEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final EventEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+      public EventEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return ObjectEnum.fromValue(value);
+        return EventEnum.fromValue(value);
       }
     }
   }
 
-  public static final String SERIALIZED_NAME_OBJECT = "object";
-  @SerializedName(SERIALIZED_NAME_OBJECT)
-  private ObjectEnum _object = ObjectEnum.EARNING_RULE;
+  public static final String SERIALIZED_NAME_EVENT = "event";
+  @SerializedName(SERIALIZED_NAME_EVENT)
+  private EventEnum event = EventEnum.CUSTOMER_SEGMENT_ENTERED;
 
-  public static final String SERIALIZED_NAME_AUTOMATION_ID = "automation_id";
-  @SerializedName(SERIALIZED_NAME_AUTOMATION_ID)
-  private String automationId;
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private LoyaltiesEarningRulesCreateCustomEventRequestBodySource source;
+
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  private String startDate;
+  private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
-  private String expirationDate;
+  private OffsetDateTime expirationDate;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -229,60 +211,31 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private Boolean active = true;
-
-  public LoyaltiesEarningRulesEnableResponseBody() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody() {
   }
 
-  public LoyaltiesEarningRulesEnableResponseBody id(String id) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody validationRuleId(String validationRuleId) {
     
-    this.id = id;
+    this.validationRuleId = validationRuleId;
     return this;
   }
 
    /**
-   * Assigned by the Voucherify API, identifies the earning rule object.
-   * @return id
+   * A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.
+   * @return validationRuleId
   **/
   @javax.annotation.Nullable
-  public String getId() {
-    return id;
+  public String getValidationRuleId() {
+    return validationRuleId;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
+  public void setValidationRuleId(String validationRuleId) {
+    this.validationRuleId = validationRuleId;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the earning rule was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public LoyaltiesEarningRulesEnableResponseBody loyalty(EarningRuleBaseLoyalty loyalty) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody loyalty(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -293,59 +246,17 @@ public class LoyaltiesEarningRulesEnableResponseBody {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyalty getLoyalty() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(EarningRuleBaseLoyalty loyalty) {
+  public void setLoyalty(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody event(String event) {
-    
-    this.event = event;
-    return this;
-  }
-
-   /**
-   * Get event
-   * @return event
-  **/
-  @javax.annotation.Nullable
-  public String getEvent() {
-    return event;
-  }
-
-
-  public void setEvent(String event) {
-    this.event = event;
-  }
-
-
-  public LoyaltiesEarningRulesEnableResponseBody customEvent(EarningRuleBaseCustomEvent customEvent) {
-    
-    this.customEvent = customEvent;
-    return this;
-  }
-
-   /**
-   * Get customEvent
-   * @return customEvent
-  **/
-  @javax.annotation.Nullable
-  public EarningRuleBaseCustomEvent getCustomEvent() {
-    return customEvent;
-  }
-
-
-  public void setCustomEvent(EarningRuleBaseCustomEvent customEvent) {
-    this.customEvent = customEvent;
-  }
-
-
-  public LoyaltiesEarningRulesEnableResponseBody segment(EarningRuleBaseSegment segment) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody segment(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment segment) {
     
     this.segment = segment;
     return this;
@@ -356,38 +267,38 @@ public class LoyaltiesEarningRulesEnableResponseBody {
    * @return segment
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSegment getSegment() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment getSegment() {
     return segment;
   }
 
 
-  public void setSegment(EarningRuleBaseSegment segment) {
+  public void setSegment(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment segment) {
     this.segment = segment;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody event(EventEnum event) {
     
-    this.loyaltyTier = loyaltyTier;
+    this.event = event;
     return this;
   }
 
    /**
-   * Get loyaltyTier
-   * @return loyaltyTier
+   * Defines the event which triggers the earning rule to add points to a loyalty card.    - &#x60;customer.segment.entered&#x60; an event defined by the Voucherify API corresponding to a customer entering a pre-defined customer segment.
+   * @return event
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
-    return loyaltyTier;
+  public EventEnum getEvent() {
+    return event;
   }
 
 
-  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
-    this.loyaltyTier = loyaltyTier;
+  public void setEvent(EventEnum event) {
+    this.event = event;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody source(EarningRuleBaseSource source) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody source(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
     
     this.source = source;
     return this;
@@ -398,101 +309,80 @@ public class LoyaltiesEarningRulesEnableResponseBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSource getSource() {
+  public LoyaltiesEarningRulesCreateCustomEventRequestBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(EarningRuleBaseSource source) {
+  public void setSource(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
     this.source = source;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody _object(ObjectEnum _object) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody active(Boolean active) {
     
-    this._object = _object;
+    this.active = active;
     return this;
   }
 
    /**
-   * The type of the object represented by JSON. Default is earning_rule.
-   * @return _object
+   * A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; of the campaign or the earning rule&#39;s own &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* earning rule - &#x60;false&#x60; indicates an *inactive* earning rule
+   * @return active
   **/
   @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
+  public Boolean getActive() {
+    return active;
   }
 
 
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
+  public void setActive(Boolean active) {
+    this.active = active;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody automationId(String automationId) {
-    
-    this.automationId = automationId;
-    return this;
-  }
-
-   /**
-   * For internal use by Voucherify.
-   * @return automationId
-  **/
-  @javax.annotation.Nullable
-  public String getAutomationId() {
-    return automationId;
-  }
-
-
-  public void setAutomationId(String automationId) {
-    this.automationId = automationId;
-  }
-
-
-  public LoyaltiesEarningRulesEnableResponseBody startDate(String startDate) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
   }
 
    /**
-   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is inactive before this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default.
+   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. 
    * @return startDate
   **/
   @javax.annotation.Nullable
-  public String getStartDate() {
+  public OffsetDateTime getStartDate() {
     return startDate;
   }
 
 
-  public void setStartDate(String startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody expirationDate(String expirationDate) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
   }
 
    /**
-   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. Earning rule is inactive after this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
    * @return expirationDate
   **/
   @javax.annotation.Nullable
-  public String getExpirationDate() {
+  public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
 
 
-  public void setExpirationDate(String expirationDate) {
+  public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -513,13 +403,13 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public LoyaltiesEarningRulesEnableResponseBody addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -542,7 +432,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody validityHours(ValidityHours validityHours) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
     return this;
@@ -563,7 +453,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesEnableResponseBody metadata(Object metadata) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -583,48 +473,6 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     this.metadata = metadata;
   }
 
-
-  public LoyaltiesEarningRulesEnableResponseBody updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the earning rule was last updated in ISO 8601 format.
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-
-  public LoyaltiesEarningRulesEnableResponseBody active(Boolean active) {
-    
-    this.active = active;
-    return this;
-  }
-
-   /**
-   * A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date.
-   * @return active
-  **/
-  @javax.annotation.Nullable
-  public Boolean getActive() {
-    return active;
-  }
-
-
-  public void setActive(Boolean active) {
-    this.active = active;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -638,9 +486,9 @@ public class LoyaltiesEarningRulesEnableResponseBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the LoyaltiesEarningRulesEnableResponseBody instance itself
+   * @return the LoyaltiesEarningRulesCreateEnteredSegmentRequestBody instance itself
    */
-  public LoyaltiesEarningRulesEnableResponseBody putAdditionalProperty(String key, Object value) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -679,26 +527,20 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoyaltiesEarningRulesEnableResponseBody loyaltiesEarningRulesEnableResponseBody = (LoyaltiesEarningRulesEnableResponseBody) o;
-    return Objects.equals(this.id, loyaltiesEarningRulesEnableResponseBody.id) &&
-        Objects.equals(this.createdAt, loyaltiesEarningRulesEnableResponseBody.createdAt) &&
-        Objects.equals(this.loyalty, loyaltiesEarningRulesEnableResponseBody.loyalty) &&
-        Objects.equals(this.event, loyaltiesEarningRulesEnableResponseBody.event) &&
-        Objects.equals(this.customEvent, loyaltiesEarningRulesEnableResponseBody.customEvent) &&
-        Objects.equals(this.segment, loyaltiesEarningRulesEnableResponseBody.segment) &&
-        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesEnableResponseBody.loyaltyTier) &&
-        Objects.equals(this.source, loyaltiesEarningRulesEnableResponseBody.source) &&
-        Objects.equals(this._object, loyaltiesEarningRulesEnableResponseBody._object) &&
-        Objects.equals(this.automationId, loyaltiesEarningRulesEnableResponseBody.automationId) &&
-        Objects.equals(this.startDate, loyaltiesEarningRulesEnableResponseBody.startDate) &&
-        Objects.equals(this.expirationDate, loyaltiesEarningRulesEnableResponseBody.expirationDate) &&
-        Objects.equals(this.validityTimeframe, loyaltiesEarningRulesEnableResponseBody.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesEnableResponseBody.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, loyaltiesEarningRulesEnableResponseBody.validityHours) &&
-        Objects.equals(this.metadata, loyaltiesEarningRulesEnableResponseBody.metadata) &&
-        Objects.equals(this.updatedAt, loyaltiesEarningRulesEnableResponseBody.updatedAt) &&
-        Objects.equals(this.active, loyaltiesEarningRulesEnableResponseBody.active)&&
-        Objects.equals(this.additionalProperties, loyaltiesEarningRulesEnableResponseBody.additionalProperties);
+    LoyaltiesEarningRulesCreateEnteredSegmentRequestBody loyaltiesEarningRulesCreateEnteredSegmentRequestBody = (LoyaltiesEarningRulesCreateEnteredSegmentRequestBody) o;
+    return Objects.equals(this.validationRuleId, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.validationRuleId) &&
+        Objects.equals(this.loyalty, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.loyalty) &&
+        Objects.equals(this.segment, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.segment) &&
+        Objects.equals(this.event, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.event) &&
+        Objects.equals(this.source, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.source) &&
+        Objects.equals(this.active, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.active) &&
+        Objects.equals(this.startDate, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.startDate) &&
+        Objects.equals(this.expirationDate, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.expirationDate) &&
+        Objects.equals(this.validityTimeframe, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.validityHours) &&
+        Objects.equals(this.metadata, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.metadata)&&
+        Objects.equals(this.additionalProperties, loyaltiesEarningRulesCreateEnteredSegmentRequestBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -707,7 +549,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active, additionalProperties);
+    return Objects.hash(validationRuleId, loyalty, segment, event, source, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -720,25 +562,19 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoyaltiesEarningRulesEnableResponseBody {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("class LoyaltiesEarningRulesCreateEnteredSegmentRequestBody {\n");
+    sb.append("    validationRuleId: ").append(toIndentedString(validationRuleId)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
-    sb.append("    event: ").append(toIndentedString(event)).append("\n");
-    sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
-    sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    automationId: ").append(toIndentedString(automationId)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -762,24 +598,18 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created_at");
+    openapiFields.add("validation_rule_id");
     openapiFields.add("loyalty");
-    openapiFields.add("event");
-    openapiFields.add("custom_event");
     openapiFields.add("segment");
-    openapiFields.add("loyalty_tier");
+    openapiFields.add("event");
     openapiFields.add("source");
-    openapiFields.add("object");
-    openapiFields.add("automation_id");
+    openapiFields.add("active");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("metadata");
-    openapiFields.add("updated_at");
-    openapiFields.add("active");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -789,16 +619,16 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LoyaltiesEarningRulesEnableResponseBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltiesEarningRulesEnableResponseBody' and its subtypes
+       if (!LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesEarningRulesCreateEnteredSegmentRequestBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LoyaltiesEarningRulesEnableResponseBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesEnableResponseBody.class));
+       final TypeAdapter<LoyaltiesEarningRulesCreateEnteredSegmentRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesEnableResponseBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateEnteredSegmentRequestBody>() {
            @Override
-           public void write(JsonWriter out, LoyaltiesEarningRulesEnableResponseBody value) throws IOException {
+           public void write(JsonWriter out, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -821,11 +651,11 @@ public class LoyaltiesEarningRulesEnableResponseBody {
            }
 
            @Override
-           public LoyaltiesEarningRulesEnableResponseBody read(JsonReader in) throws IOException {
+           public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             LoyaltiesEarningRulesEnableResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltiesEarningRulesCreateEnteredSegmentRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -852,18 +682,18 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
  /**
-  * Create an instance of LoyaltiesEarningRulesEnableResponseBody given an JSON string
+  * Create an instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of LoyaltiesEarningRulesEnableResponseBody
-  * @throws IOException if the JSON string is invalid with respect to LoyaltiesEarningRulesEnableResponseBody
+  * @return An instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBody
+  * @throws IOException if the JSON string is invalid with respect to LoyaltiesEarningRulesCreateEnteredSegmentRequestBody
   */
-  public static LoyaltiesEarningRulesEnableResponseBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LoyaltiesEarningRulesEnableResponseBody.class);
+  public static LoyaltiesEarningRulesCreateEnteredSegmentRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.class);
   }
 
  /**
-  * Convert an instance of LoyaltiesEarningRulesEnableResponseBody to an JSON string
+  * Convert an instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBody to an JSON string
   *
   * @return JSON string
   */
