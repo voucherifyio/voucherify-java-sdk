@@ -9,6 +9,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**deleteCustomer**](CustomersApi.md#deleteCustomer) | **DELETE** /v1/customers/{customerId} | Delete Customer |
 | [**getCustomer**](CustomersApi.md#getCustomer) | **GET** /v1/customers/{customerId} | Get Customer |
 | [**importCustomersUsingCsv**](CustomersApi.md#importCustomersUsingCsv) | **POST** /v1/customers/importCSV | Import and Update Customers using CSV |
+| [**listCustomerActivity**](CustomersApi.md#listCustomerActivity) | **GET** /v1/customers/{customerId}/activity | List Customer Activity |
 | [**listCustomerSegments**](CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments |
 | [**listCustomers**](CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers |
 | [**updateCustomer**](CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer |
@@ -360,6 +361,93 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be added to the repository asynchronously. To check the import status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+
+<a id="listCustomerActivity"></a>
+# **listCustomerActivity**
+> CustomersActivityListResponseBody listCustomerActivity(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type)
+
+List Customer Activity
+
+Retrieve customer activities.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customerId = "customerId_example"; // String | A Voucherify customers id or source ID of the customer who performed the activities.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderCreatedAt order = ParameterOrderCreatedAt.fromValue("created_at"); // ParameterOrderCreatedAt | Apply this filter to order the events according the date and time when it was created. 
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format.
+    OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Timestamp representing the date and time which results must end on. Represented in ISO 8601 format.
+    String campaignId = "campaignId_example"; // String | Requests only events related to specific campaign identified by its ID.
+    ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM.
+    ParameterActivityCategory category = ParameterActivityCategory.fromValue("ACTION"); // ParameterActivityCategory | Filters activities for actions or effects. Allowed values:  ACTION, EFFECT.
+    String type = "type_example"; // String | Event name of the customer event.
+    try {
+      CustomersActivityListResponseBody result = apiInstance.listCustomerActivity(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#listCustomerActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **customerId** | **String**| A Voucherify customers id or source ID of the customer who performed the activities. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderCreatedAt**](.md)| Apply this filter to order the events according the date and time when it was created.  |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the events starting after an event with the given ID. |
+| **startDate** | **OffsetDateTime**| Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. |
+| **endDate** | **OffsetDateTime**| Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. |
+| **campaignId** | **String**| Requests only events related to specific campaign identified by its ID. |
+| **campaignType** | [**ParameterCampaignType**](.md)| Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. |
+| **category** | [**ParameterActivityCategory**](.md)| Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. |
+| **type** | **String**| Event name of the customer event. |
+
+### Return type
+
+[**CustomersActivityListResponseBody**](CustomersActivityListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary with customer activities. |  -  |
 
 <a id="listCustomerSegments"></a>
 # **listCustomerSegments**

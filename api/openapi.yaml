@@ -16698,6 +16698,115 @@ paths:
       - Customers
       x-content-type: application/json
       x-accepts: application/json
+  /v1/customers/{customerId}/activity:
+    get:
+      description: Retrieve customer activities.
+      operationId: list-customer-activity
+      parameters:
+      - description: A Voucherify customers id or source ID of the customer who performed
+          the activities.
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCustomerId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: 'Apply this filter to order the events according the date and
+          time when it was created. '
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderCreatedAt'
+        style: form
+      - description: A cursor for pagination. It retrieves the events starting after
+          an event with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
+        style: form
+      - description: Timestamp representing the date and time which results must begin
+          on. Represented in ISO 8601 format.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterDate'
+        style: form
+      - description: Timestamp representing the date and time which results must end
+          on. Represented in ISO 8601 format.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterDate'
+        style: form
+      - description: Requests only events related to specific campaign identified
+          by its ID.
+        explode: true
+        in: query
+        name: campaign_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: form
+      - description: "Filters related customers activity for the selected campaign\
+          \ types. Allowed values: \nDISCOUNT_COUPONS,\nREFERRAL_PROGRAM,\nGIFT_VOUCHERS,\n\
+          PROMOTION,\nLOYALTY_PROGRAM."
+        explode: true
+        in: query
+        name: campaign_type
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignType'
+        style: form
+      - description: "Filters activities for actions or effects. Allowed values: \n\
+          ACTION,\nEFFECT."
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterActivityCategory'
+        style: form
+      - description: Event name of the customer event.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterCustomerEvent'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomersActivityListResponseBody'
+          description: Returns a dictionary with customer activities.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Customer Activity
+      tags:
+      - Customers
+      x-accepts: application/json
   /v1/customers/{customerId}/segments:
     get:
       description: "Returns the list of segments IDs to which the customer belongs\
@@ -24133,6 +24242,61 @@ components:
         type: object
       - $ref: '#/components/schemas/CustomerBase'
       title: Customer
+    CustomersActivityListResponseBody:
+      description: "Response body schema for **GET** `/customers/{customerId}/activity`."
+      example:
+        data:
+        - data: "{}"
+          group_id: v-1f36113948e50fc4ge
+          created_at: 2022-08-30T09:14:07.66Z
+          id: evcus_0c150c51730c6b60b1
+          type: type
+        - data: "{}"
+          group_id: v-1f36113948e50fc4ge
+          created_at: 2022-08-30T09:14:07.66Z
+          id: evcus_0c150c51730c6b60b1
+          type: type
+        more_starting_after: more_starting_after
+        data_ref: data
+        has_more: true
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about customer activities in a dictionary.
+          enum:
+          - list
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the attribute that contains the array
+            of customer activity objects.
+          nullable: true
+          type: string
+        data:
+          description: Array of customer activity objects.
+          items:
+            $ref: '#/components/schemas/CustomerActivity'
+          nullable: true
+          type: array
+        has_more:
+          description: "As query results are always limited (by the limit parameter),\
+            \ the `has_more` flag indicates if there are more records for given filter\
+            \ parameters. This lets you know if you can run another request with a\
+            \ `starting_after_id` query or a different limit to get more records returned\
+            \ in the results."
+          nullable: true
+          type: boolean
+        more_starting_after:
+          description: Returns an ID that can be used to return another page of results.
+            Use the event id in the `starting_after_id` query parameter to display
+            another page of the results starting after the event with that ID.
+          nullable: true
+          type: string
+      title: Customers Activity List Response Body
+      type: object
     CustomersConsentsUpdateRequestBody:
       description: "Request body schema for **PUT** `/customers/{customerId}/consents`."
       title: Customers Consents Update Request Body
@@ -25541,6 +25705,11 @@ components:
       description: "Response body schema for **PUT** `/orders/{orderId}`."
       title: Orders Update Response Body
       type: object
+    ParameterActivityCategory:
+      enum:
+      - ACTION
+      - EFFECT
+      type: string
     ParameterAsyncActionId:
       example: aa_0afb3d009a55814a48
       type: string
@@ -25549,11 +25718,22 @@ components:
     ParameterCampaignId:
       example: camp_rRsfatlwN7unSeUIJDCYedal
       type: string
+    ParameterCampaignType:
+      enum:
+      - PROMOTION
+      - GIFT_VOUCHERS
+      - REFERRAL_PROGRAM
+      - DISCOUNT_COUPONS
+      - LOYALTY_PROGRAM
+      - LUCKY_DRAW
+      type: string
     ParameterCategoryId:
       example: cat_0bb81a481615a37b5e
       type: string
     ParameterCode:
       example: 2CpRCE2c
+      type: string
+    ParameterCustomerEvent:
       type: string
     ParameterCustomerId:
       example: cust_nk0N1uNQ1YnupAoJGOgvsODC
@@ -25610,6 +25790,11 @@ components:
       type: string
     ParameterObject:
       type: object
+    ParameterOrderCreatedAt:
+      enum:
+      - created_at
+      - -created_at
+      type: string
     ParameterOrderId:
       example: ord_smEh8p1p6W6DgOmeERk092LG
       type: string
@@ -30386,15 +30571,6 @@ components:
           nullable: true
           type: string
       type: object
-    ParameterCampaignType:
-      enum:
-      - PROMOTION
-      - GIFT_VOUCHERS
-      - REFERRAL_PROGRAM
-      - DISCOUNT_COUPONS
-      - LOYALTY_PROGRAM
-      - LUCKY_DRAW
-      type: string
     ParameterOrder:
       enum:
       - created_at
@@ -31103,6 +31279,50 @@ components:
           nullable: true
           type: integer
       title: Code Config
+      type: object
+    CustomerActivity:
+      description: "This is an object representing customer activity.  \n\nThis is\
+        \ a general object which presents moments from customers' activity. There\
+        \ are all types of different events that customers perform during their journey\
+        \ once they participate in Promotions. Events describe moments when customers\
+        \ redeem coupons and earn points or rewards. The list of all types of activities\
+        \ is listed below.\n\nThe details describing the activity are collected in\
+        \ a property named `data`. In this object, software integrators will find\
+        \ all further information explaining the event context."
+      example:
+        data: "{}"
+        group_id: v-1f36113948e50fc4ge
+        created_at: 2022-08-30T09:14:07.66Z
+        id: evcus_0c150c51730c6b60b1
+        type: type
+      properties:
+        id:
+          description: "Unique event ID, assigned by Voucherify."
+          example: evcus_0c150c51730c6b60b1
+          nullable: true
+          type: string
+        type:
+          description: Event type.
+          nullable: true
+          type: string
+        data:
+          description: Contains details about the event. The objects that are returned
+            in the data attribute differ based on the context of the event type.
+          nullable: true
+          type: object
+        created_at:
+          description: Timestamp representing the date and time when the customer
+            activity occurred in ISO 8601 format.
+          example: 2022-08-30T09:14:07.66Z
+          format: date-time
+          nullable: true
+          type: string
+        group_id:
+          description: Unique identifier of the request that caused the event.
+          example: v-1f36113948e50fc4ge
+          nullable: true
+          type: string
+      title: Customer Activity
       type: object
     CustomerBase:
       properties:
