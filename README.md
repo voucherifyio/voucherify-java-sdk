@@ -154,7 +154,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added `loyaltyTier` parameter to models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody`
   - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
   - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
-  - ❗❗❗ BREAKING CHANGES ❗❗❗:
+  - Added support for POST `v1/vouchers/metadata/async`
+- ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
     - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
@@ -359,6 +360,7 @@ Class | Method | HTTP request | Description
 *VouchersApi* | [**releaseValidationSession**](docs/VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
 *VouchersApi* | [**updateVoucher**](docs/VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher
 *VouchersApi* | [**updateVoucherBalance**](docs/VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
+*VouchersApi* | [**updateVouchersMetadataInBulk**](docs/VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk
 
 
 ## Documentation for Models
@@ -949,6 +951,8 @@ Class | Method | HTTP request | Description
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/VouchersImportCsvCreateResponseBody.md)
 - [VouchersListResponseBody](docs/VouchersListResponseBody.md)
+- [VouchersMetadataUpdateInBulkRequestBody](docs/VouchersMetadataUpdateInBulkRequestBody.md)
+- [VouchersMetadataUpdateInBulkResponseBody](docs/VouchersMetadataUpdateInBulkResponseBody.md)
 - [VouchersRedemptionGetResponseBody](docs/VouchersRedemptionGetResponseBody.md)
 - [VouchersTransactionsExportCreateRequestBody](docs/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/VouchersTransactionsExportCreateResponseBody.md)

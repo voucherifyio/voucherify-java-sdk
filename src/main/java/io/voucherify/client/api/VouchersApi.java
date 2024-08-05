@@ -40,6 +40,8 @@ import io.voucherify.client.model.VouchersEnableResponseBody;
 import io.voucherify.client.model.VouchersGetResponseBody;
 import io.voucherify.client.model.VouchersImportCsvCreateResponseBody;
 import io.voucherify.client.model.VouchersListResponseBody;
+import io.voucherify.client.model.VouchersMetadataUpdateInBulkRequestBody;
+import io.voucherify.client.model.VouchersMetadataUpdateInBulkResponseBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateRequestBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.VouchersTransactionsListResponseBody;
@@ -1535,6 +1537,109 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = updateVoucherBalanceValidateBeforeCall(code, vouchersBalanceUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<VouchersBalanceUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVouchersMetadataInBulk
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVouchersMetadataInBulkCall(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersMetadataUpdateInBulkRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/metadata/async";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVouchersMetadataInBulkValidateBeforeCall(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vouchersMetadataUpdateInBulkRequestBody' is set
+        if (vouchersMetadataUpdateInBulkRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersMetadataUpdateInBulkRequestBody' when calling updateVouchersMetadataInBulk(Async)");
+        }
+
+        return updateVouchersMetadataInBulkCall(vouchersMetadataUpdateInBulkRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @return VouchersMetadataUpdateInBulkResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersMetadataUpdateInBulkResponseBody updateVouchersMetadataInBulk(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody) throws ApiException {
+        ApiResponse<VouchersMetadataUpdateInBulkResponseBody> localVarResp = updateVouchersMetadataInBulkWithHttpInfo(vouchersMetadataUpdateInBulkRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @return ApiResponse&lt;VouchersMetadataUpdateInBulkResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersMetadataUpdateInBulkResponseBody> updateVouchersMetadataInBulkWithHttpInfo(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateVouchersMetadataInBulkValidateBeforeCall(vouchersMetadataUpdateInBulkRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersMetadataUpdateInBulkResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk (asynchronously)
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVouchersMetadataInBulkAsync(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback<VouchersMetadataUpdateInBulkResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVouchersMetadataInBulkValidateBeforeCall(vouchersMetadataUpdateInBulkRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersMetadataUpdateInBulkResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

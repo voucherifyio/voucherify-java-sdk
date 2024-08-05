@@ -3918,6 +3918,64 @@ paths:
       - Vouchers
       x-content-type: multipart/form-data
       x-accepts: application/json
+  /v1/vouchers/metadata/async:
+    post:
+      description: "Use this endpoint to update the same metadata parameters for a\
+        \ list of codes.   \nUpdate up to **100 records** in one request. Upserts\
+        \ are not supported. \nThis API request starts a process that affects Voucherify\
+        \ data in bulk. \nIn case of small jobs (like bulk update) the request is\
+        \ put into a queue and processed once every other bulk request placed in the\
+        \ queue prior to this request is finished. However, when the job takes a longer\
+        \ time (like vouchers generation) then it is processed in small portions in\
+        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
+        \ then they will all have the IN_PROGRESS status shortly. This way, small\
+        \ jobs added just after scheduling big jobs of the same type will be processed\
+        \ in a short time window. \nThe result will return the async ID. You can verify\
+        \ the status of your request via this API request."
+      operationId: update-vouchers-metadata-in-bulk
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  codes:
+                  - PROMO-CODE810
+                  - PROMO-CODE726
+                  metadata:
+                    lang: en
+                    authorized_internally: true
+            schema:
+              $ref: '#/components/schemas/VouchersMetadataUpdateInBulkRequestBody'
+        description: Request to update vouchers metadata in bulk. Provide an array
+          of voucher codes in the codes parameter along with the metadata object.
+          The metadata object should contain the key value pairs that you would like
+          to update for all the vouchers included in the codes parameter.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                Example:
+                  $ref: '#/components/examples/res_async_actions'
+              schema:
+                $ref: '#/components/schemas/VouchersMetadataUpdateInBulkResponseBody'
+          description: "Returns the ID of the scheduled asynchronous action, informing\
+            \ you that your request has been accepted and the voucher(s) will be updated\
+            \ in the repository asynchronously. To check the status and result, copy\
+            \ the `async_action_id` from the response and pass it using <!-- [Get\
+            \ Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
+            \ -->[Get Async Action](ref:get-async-action) endpoint."
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Vouchers' metadata in bulk
+      tags:
+      - Vouchers
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/vouchers/{code}/sessions/{sessionKey}:
     delete:
       description: "Manually release a validation session that has been set up for\
@@ -29886,6 +29944,44 @@ components:
           type: integer
       title: Vouchers List Response Body
       type: object
+    VouchersMetadataUpdateInBulkRequestBody:
+      description: Request body schema for `vouchers/metadata/async`.
+      example:
+        codes:
+        - codes
+        - codes
+        metadata:
+          lang: en
+          authorized_internally: true
+      properties:
+        codes:
+          description: An array of voucher codes.
+          items:
+            type: string
+          nullable: true
+          type: array
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the code. A set of key/value pairs that you can attach to a voucher object.
+            It can be useful for storing additional information about the voucher
+            in a structured format.
+          example:
+            lang: en
+            authorized_internally: true
+          nullable: true
+          type: object
+      title: Update Vouchers' Metadata in Bulk Request Body
+      type: object
+      x-examples:
+        example-1:
+          $ref: '#/components/examples/req_vouchers_metadata_1'
+        example-2:
+          $ref: '#/components/examples/req_vouchers_metadata_2'
+    VouchersMetadataUpdateInBulkResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/AsyncActions'
+      description: Response body schema for **POST** `/vouchers/metadata/async`.
+      title: Vouchers Metadata Update In Bulk Response Body
     VouchersRedemptionGetResponseBody:
       description: "Response body schema for **GET** `/vouchers/{code}/redemption`."
       example:

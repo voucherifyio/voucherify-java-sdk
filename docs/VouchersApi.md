@@ -17,6 +17,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**releaseValidationSession**](VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session |
 | [**updateVoucher**](VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher |
 | [**updateVoucherBalance**](VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance |
+| [**updateVouchersMetadataInBulk**](VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk |
 
 
 <a id="createVoucher"></a>
@@ -945,4 +946,73 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a balance object if the operation succeeded. |  -  |
+
+<a id="updateVouchersMetadataInBulk"></a>
+# **updateVouchersMetadataInBulk**
+> VouchersMetadataUpdateInBulkResponseBody updateVouchersMetadataInBulk(vouchersMetadataUpdateInBulkRequestBody)
+
+Update Vouchers&#39; metadata in bulk
+
+Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.VouchersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    VouchersApi apiInstance = new VouchersApi(defaultClient);
+    VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody = new VouchersMetadataUpdateInBulkRequestBody(); // VouchersMetadataUpdateInBulkRequestBody | Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter.
+    try {
+      VouchersMetadataUpdateInBulkResponseBody result = apiInstance.updateVouchersMetadataInBulk(vouchersMetadataUpdateInBulkRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VouchersApi#updateVouchersMetadataInBulk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **vouchersMetadataUpdateInBulkRequestBody** | [**VouchersMetadataUpdateInBulkRequestBody**](VouchersMetadataUpdateInBulkRequestBody.md)| Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. |
+
+### Return type
+
+[**VouchersMetadataUpdateInBulkResponseBody**](VouchersMetadataUpdateInBulkResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the voucher(s) will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
 
