@@ -171,22 +171,22 @@
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules      | get    | List Loyalty Tier Earning Rules    | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards            | get    | List Loyalty Tier Rewards          | <font color='green'>supported</font> |               |
 ## Customers
-| endpoint                                      | method | summary                               | is supported                         | is deprecated                        |
-| --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------------------------------ |
-| /v1/customers                                 | get    | List Customers                        | <font color='green'>supported</font> |                                      |
-| /v1/customers                                 | post   | Create Customer                       | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | get    | Get Customer                          | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | delete | Delete Customer                       | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | put    | Update Customer                       | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently           | <font color='green'>supported</font> |                                      |
-| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV | <font color='green'>supported</font> |                                      |
-| /v1/customers/bulk/async                      | post   | Update Customers in bulk              | <font color='green'>supported</font> |                                      |
-| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in bulk    | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/consents           | put    | Update Customer's consents            | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/activity           | get    | List Customer Activity                | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated] |                                      |  <font color='red'>deprecated</font> |
-| /v1/customers/{customerId}/segments           | get    | List Customer's Segments              | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables [Beta]    |                                      |                                      |
+| endpoint                                      | method | summary                               | is supported                         | is deprecated |
+| --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------- |
+| /v1/customers                                 | get    | List Customers                        | <font color='green'>supported</font> |               |
+| /v1/customers                                 | post   | Create Customer                       | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}                    | get    | Get Customer                          | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}                    | delete | Delete Customer                       | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}                    | put    | Update Customer                       | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently           | <font color='green'>supported</font> |               |
+| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV | <font color='green'>supported</font> |               |
+| /v1/customers/bulk/async                      | post   | Update Customers in bulk              | <font color='green'>supported</font> |               |
+| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in bulk    | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}/consents           | put    | Update Customer's consents            | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}/activity           | get    | List Customer Activity                |                                      |               |
+| /v1/customers/{customerId}/activities         | get    | List Customer Activities              |                                      |               |
+| /v1/customers/{customerId}/segments           | get    | List Customer's Segments              | <font color='green'>supported</font> |               |
+| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables [Beta]    |                                      |               |
 ## Orders
 | endpoint             | method | summary              | is supported                         | is deprecated |
 | -------------------- | ------ | -------------------- | ------------------------------------ | ------------- |

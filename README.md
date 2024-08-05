@@ -155,7 +155,6 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
   - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
   - Added support for POST `v1/vouchers/metadata/async`
-  - Added support for GET `/v1/customers/{customerId}/activity`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
@@ -235,7 +234,6 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**deleteCustomer**](docs/CustomersApi.md#deleteCustomer) | **DELETE** /v1/customers/{customerId} | Delete Customer
 *CustomersApi* | [**getCustomer**](docs/CustomersApi.md#getCustomer) | **GET** /v1/customers/{customerId} | Get Customer
 *CustomersApi* | [**importCustomersUsingCsv**](docs/CustomersApi.md#importCustomersUsingCsv) | **POST** /v1/customers/importCSV | Import and Update Customers using CSV
-*CustomersApi* | [**listCustomerActivity**](docs/CustomersApi.md#listCustomerActivity) | **GET** /v1/customers/{customerId}/activity | List Customer Activity
 *CustomersApi* | [**listCustomerSegments**](docs/CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer
@@ -434,7 +432,6 @@ Class | Method | HTTP request | Description
 - [CodeConfig](docs/CodeConfig.md)
 - [CreatePublicationCampaign](docs/CreatePublicationCampaign.md)
 - [Customer](docs/Customer.md)
-- [CustomerActivity](docs/CustomerActivity.md)
 - [CustomerBase](docs/CustomerBase.md)
 - [CustomerBaseAddress](docs/CustomerBaseAddress.md)
 - [CustomerId](docs/CustomerId.md)
@@ -450,7 +447,6 @@ Class | Method | HTTP request | Description
 - [CustomerSummaryRedemptionsGift](docs/CustomerSummaryRedemptionsGift.md)
 - [CustomerSummaryRedemptionsLoyaltyCard](docs/CustomerSummaryRedemptionsLoyaltyCard.md)
 - [CustomerWithSummaryLoyaltyReferrals](docs/CustomerWithSummaryLoyaltyReferrals.md)
-- [CustomersActivityListResponseBody](docs/CustomersActivityListResponseBody.md)
 - [CustomersCreateRequestBody](docs/CustomersCreateRequestBody.md)
 - [CustomersCreateResponseBody](docs/CustomersCreateResponseBody.md)
 - [CustomersGetResponseBody](docs/CustomersGetResponseBody.md)
@@ -610,7 +606,6 @@ Class | Method | HTTP request | Description
 - [OrdersListResponseBody](docs/OrdersListResponseBody.md)
 - [OrdersUpdateRequestBody](docs/OrdersUpdateRequestBody.md)
 - [OrdersUpdateResponseBody](docs/OrdersUpdateResponseBody.md)
-- [ParameterActivityCategory](docs/ParameterActivityCategory.md)
 - [ParameterCampaignType](docs/ParameterCampaignType.md)
 - [ParameterCreatedBeforeAfter](docs/ParameterCreatedBeforeAfter.md)
 - [ParameterExpandListCampaigns](docs/ParameterExpandListCampaigns.md)
@@ -626,7 +621,6 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListRedemptionsUserLogin](docs/ParameterFiltersListRedemptionsUserLogin.md)
 - [ParameterFiltersListRedemptionsVoucherCode](docs/ParameterFiltersListRedemptionsVoucherCode.md)
 - [ParameterOrder](docs/ParameterOrder.md)
-- [ParameterOrderCreatedAt](docs/ParameterOrderCreatedAt.md)
 - [ParameterOrderListAllPromotionStacks](docs/ParameterOrderListAllPromotionStacks.md)
 - [ParameterOrderListCampaigns](docs/ParameterOrderListCampaigns.md)
 - [ParameterOrderListCustomers](docs/ParameterOrderListCustomers.md)
