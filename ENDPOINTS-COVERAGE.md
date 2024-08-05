@@ -72,7 +72,7 @@
 | /v1/vouchers/{code}/balance               | post   | Add or Remove Voucher Balance      | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/transactions          | get    | List Voucher Transactions          | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/transactions/export   | post   | Export Voucher Transactions        | <font color='green'>supported</font> |                                      |
-| /v1/vouchers/import                       | post   | Import Vouchers                    |                                      |                                      |
+| /v1/vouchers/import                       | post   | Import Vouchers                    | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/importCSV                    | post   | Import Vouchers using CSV          | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/bulk/async                   | post   | Update Vouchers in bulk            |                                      |                                      |
 | /v1/vouchers/metadata/async               | post   | Update Vouchers' metadata in bulk  | <font color='green'>supported</font> |                                      |

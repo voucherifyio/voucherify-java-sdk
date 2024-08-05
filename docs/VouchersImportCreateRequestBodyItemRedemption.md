@@ -1,6 +1,6 @@
 
 
-# CampaignsImportVoucherItemRedemption
+# VouchersImportCreateRequestBodyItemRedemption
 
 
 ## Properties

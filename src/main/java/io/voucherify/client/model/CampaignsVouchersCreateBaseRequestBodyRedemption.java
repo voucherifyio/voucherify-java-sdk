@@ -48,19 +48,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * CampaignsImportVoucherItemRedemption
+ * Stores the quantity of redemptions that can be applied to the voucher.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignsImportVoucherItemRedemption {
+public class CampaignsVouchersCreateBaseRequestBodyRedemption {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
 
-  public CampaignsImportVoucherItemRedemption() {
+  public CampaignsVouchersCreateBaseRequestBodyRedemption() {
   }
 
-  public CampaignsImportVoucherItemRedemption quantity(Integer quantity) {
+  public CampaignsVouchersCreateBaseRequestBodyRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
     return this;
@@ -93,9 +93,9 @@ public class CampaignsImportVoucherItemRedemption {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignsImportVoucherItemRedemption instance itself
+   * @return the CampaignsVouchersCreateBaseRequestBodyRedemption instance itself
    */
-  public CampaignsImportVoucherItemRedemption putAdditionalProperty(String key, Object value) {
+  public CampaignsVouchersCreateBaseRequestBodyRedemption putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,9 +134,9 @@ public class CampaignsImportVoucherItemRedemption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignsImportVoucherItemRedemption campaignsImportVoucherItemRedemption = (CampaignsImportVoucherItemRedemption) o;
-    return Objects.equals(this.quantity, campaignsImportVoucherItemRedemption.quantity)&&
-        Objects.equals(this.additionalProperties, campaignsImportVoucherItemRedemption.additionalProperties);
+    CampaignsVouchersCreateBaseRequestBodyRedemption campaignsVouchersCreateBaseRequestBodyRedemption = (CampaignsVouchersCreateBaseRequestBodyRedemption) o;
+    return Objects.equals(this.quantity, campaignsVouchersCreateBaseRequestBodyRedemption.quantity)&&
+        Objects.equals(this.additionalProperties, campaignsVouchersCreateBaseRequestBodyRedemption.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -158,7 +158,7 @@ public class CampaignsImportVoucherItemRedemption {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignsImportVoucherItemRedemption {\n");
+    sb.append("class CampaignsVouchersCreateBaseRequestBodyRedemption {\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -193,16 +193,16 @@ public class CampaignsImportVoucherItemRedemption {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignsImportVoucherItemRedemption.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignsImportVoucherItemRedemption' and its subtypes
+       if (!CampaignsVouchersCreateBaseRequestBodyRedemption.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CampaignsVouchersCreateBaseRequestBodyRedemption' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignsImportVoucherItemRedemption> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsImportVoucherItemRedemption.class));
+       final TypeAdapter<CampaignsVouchersCreateBaseRequestBodyRedemption> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsVouchersCreateBaseRequestBodyRedemption.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignsImportVoucherItemRedemption>() {
+       return (TypeAdapter<T>) new TypeAdapter<CampaignsVouchersCreateBaseRequestBodyRedemption>() {
            @Override
-           public void write(JsonWriter out, CampaignsImportVoucherItemRedemption value) throws IOException {
+           public void write(JsonWriter out, CampaignsVouchersCreateBaseRequestBodyRedemption value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -225,11 +225,11 @@ public class CampaignsImportVoucherItemRedemption {
            }
 
            @Override
-           public CampaignsImportVoucherItemRedemption read(JsonReader in) throws IOException {
+           public CampaignsVouchersCreateBaseRequestBodyRedemption read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignsImportVoucherItemRedemption instance = thisAdapter.fromJsonTree(jsonObj);
+             CampaignsVouchersCreateBaseRequestBodyRedemption instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -256,18 +256,18 @@ public class CampaignsImportVoucherItemRedemption {
   }
 
  /**
-  * Create an instance of CampaignsImportVoucherItemRedemption given an JSON string
+  * Create an instance of CampaignsVouchersCreateBaseRequestBodyRedemption given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignsImportVoucherItemRedemption
-  * @throws IOException if the JSON string is invalid with respect to CampaignsImportVoucherItemRedemption
+  * @return An instance of CampaignsVouchersCreateBaseRequestBodyRedemption
+  * @throws IOException if the JSON string is invalid with respect to CampaignsVouchersCreateBaseRequestBodyRedemption
   */
-  public static CampaignsImportVoucherItemRedemption fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignsImportVoucherItemRedemption.class);
+  public static CampaignsVouchersCreateBaseRequestBodyRedemption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CampaignsVouchersCreateBaseRequestBodyRedemption.class);
   }
 
  /**
-  * Convert an instance of CampaignsImportVoucherItemRedemption to an JSON string
+  * Convert an instance of CampaignsVouchersCreateBaseRequestBodyRedemption to an JSON string
   *
   * @return JSON string
   */

@@ -48,36 +48,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Schema model for a campaign loyalty card.
+ * VouchersImportCreateRequestBodyItemRedemption
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignsImportVoucherLoyaltyCard {
-  public static final String SERIALIZED_NAME_POINTS = "points";
-  @SerializedName(SERIALIZED_NAME_POINTS)
-  private Integer points;
+public class VouchersImportCreateRequestBodyItemRedemption {
+  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  @SerializedName(SERIALIZED_NAME_QUANTITY)
+  private Integer quantity;
 
-  public CampaignsImportVoucherLoyaltyCard() {
+  public VouchersImportCreateRequestBodyItemRedemption() {
   }
 
-  public CampaignsImportVoucherLoyaltyCard points(Integer points) {
+  public VouchersImportCreateRequestBodyItemRedemption quantity(Integer quantity) {
     
-    this.points = points;
+    this.quantity = quantity;
     return this;
   }
 
    /**
-   * The initial number of points to assign to the loyalty card. This is the current loyalty card score i.e. the number of loyalty points on the card.
-   * @return points
+   * How many times a voucher can be redeemed. A &#x60;null&#x60; value means unlimited.
+   * @return quantity
   **/
   @javax.annotation.Nullable
-  public Integer getPoints() {
-    return points;
+  public Integer getQuantity() {
+    return quantity;
   }
 
 
-  public void setPoints(Integer points) {
-    this.points = points;
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
   }
 
   /**
@@ -93,9 +93,9 @@ public class CampaignsImportVoucherLoyaltyCard {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignsImportVoucherLoyaltyCard instance itself
+   * @return the VouchersImportCreateRequestBodyItemRedemption instance itself
    */
-  public CampaignsImportVoucherLoyaltyCard putAdditionalProperty(String key, Object value) {
+  public VouchersImportCreateRequestBodyItemRedemption putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,9 +134,9 @@ public class CampaignsImportVoucherLoyaltyCard {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignsImportVoucherLoyaltyCard campaignsImportVoucherLoyaltyCard = (CampaignsImportVoucherLoyaltyCard) o;
-    return Objects.equals(this.points, campaignsImportVoucherLoyaltyCard.points)&&
-        Objects.equals(this.additionalProperties, campaignsImportVoucherLoyaltyCard.additionalProperties);
+    VouchersImportCreateRequestBodyItemRedemption vouchersImportCreateRequestBodyItemRedemption = (VouchersImportCreateRequestBodyItemRedemption) o;
+    return Objects.equals(this.quantity, vouchersImportCreateRequestBodyItemRedemption.quantity)&&
+        Objects.equals(this.additionalProperties, vouchersImportCreateRequestBodyItemRedemption.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -145,7 +145,7 @@ public class CampaignsImportVoucherLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, additionalProperties);
+    return Objects.hash(quantity, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -158,8 +158,8 @@ public class CampaignsImportVoucherLoyaltyCard {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignsImportVoucherLoyaltyCard {\n");
-    sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("class VouchersImportCreateRequestBodyItemRedemption {\n");
+    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,7 +183,7 @@ public class CampaignsImportVoucherLoyaltyCard {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("points");
+    openapiFields.add("quantity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -193,16 +193,16 @@ public class CampaignsImportVoucherLoyaltyCard {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignsImportVoucherLoyaltyCard.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignsImportVoucherLoyaltyCard' and its subtypes
+       if (!VouchersImportCreateRequestBodyItemRedemption.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VouchersImportCreateRequestBodyItemRedemption' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignsImportVoucherLoyaltyCard> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsImportVoucherLoyaltyCard.class));
+       final TypeAdapter<VouchersImportCreateRequestBodyItemRedemption> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersImportCreateRequestBodyItemRedemption.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignsImportVoucherLoyaltyCard>() {
+       return (TypeAdapter<T>) new TypeAdapter<VouchersImportCreateRequestBodyItemRedemption>() {
            @Override
-           public void write(JsonWriter out, CampaignsImportVoucherLoyaltyCard value) throws IOException {
+           public void write(JsonWriter out, VouchersImportCreateRequestBodyItemRedemption value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -225,11 +225,11 @@ public class CampaignsImportVoucherLoyaltyCard {
            }
 
            @Override
-           public CampaignsImportVoucherLoyaltyCard read(JsonReader in) throws IOException {
+           public VouchersImportCreateRequestBodyItemRedemption read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignsImportVoucherLoyaltyCard instance = thisAdapter.fromJsonTree(jsonObj);
+             VouchersImportCreateRequestBodyItemRedemption instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -256,18 +256,18 @@ public class CampaignsImportVoucherLoyaltyCard {
   }
 
  /**
-  * Create an instance of CampaignsImportVoucherLoyaltyCard given an JSON string
+  * Create an instance of VouchersImportCreateRequestBodyItemRedemption given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignsImportVoucherLoyaltyCard
-  * @throws IOException if the JSON string is invalid with respect to CampaignsImportVoucherLoyaltyCard
+  * @return An instance of VouchersImportCreateRequestBodyItemRedemption
+  * @throws IOException if the JSON string is invalid with respect to VouchersImportCreateRequestBodyItemRedemption
   */
-  public static CampaignsImportVoucherLoyaltyCard fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignsImportVoucherLoyaltyCard.class);
+  public static VouchersImportCreateRequestBodyItemRedemption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VouchersImportCreateRequestBodyItemRedemption.class);
   }
 
  /**
-  * Convert an instance of CampaignsImportVoucherLoyaltyCard to an JSON string
+  * Convert an instance of VouchersImportCreateRequestBodyItemRedemption to an JSON string
   *
   * @return JSON string
   */

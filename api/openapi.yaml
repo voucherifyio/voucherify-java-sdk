@@ -3856,6 +3856,229 @@ paths:
       - Vouchers
       x-content-type: application/json
       x-accepts: application/json
+  /v1/vouchers/import:
+    post:
+      description: "Import standalone vouchers and gift cards into the repository.\n\
+        \ 📘 Important notes\n - **Start and expiration dates** need to be provided\
+        \ in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.\n\
+        \ - Custom code attributes (not supported by-default) need to be added as\
+        \ code **metadata**.\n - You **cannot import the same codes** to a single\
+        \ Voucherify Project.\nAny parameters not provided in the payload will be\
+        \ left blank or null.\nFor both **standalone discount vouchers and gift cards**,\
+        \ you can import the following fields:  \n- code\n- category\n- active\n-\
+        \ type\n- start_date\n- expiration_date\n- redemption.quantity\n- additional_info\n\
+        - metadata\nFor **gift cards**, you can also import the following field:\n\
+        - gift.amount\nFor **discount vouchers**, you can import the discount object.\
+        \ The object will slightly vary depending on the type of discount. Each discount\
+        \ type **requires** the type to be defined in the import.\n\n\nFields other\
+        \ than the ones listed above wont be imported. Even if provided, they will\
+        \ be silently skipped.\nThis API request starts a process that affects Voucherify\
+        \ data in bulk. \nIn case of small jobs (like bulk update) the request is\
+        \ put into a queue and processed once every other bulk request placed in the\
+        \ queue prior to this request is finished. However, when the job takes a longer\
+        \ time (like vouchers generation) then it is processed in small portions in\
+        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
+        \ then they will all have the IN_PROGRESS status shortly. This way, small\
+        \ jobs added just after scheduling big jobs of the same type will be processed\
+        \ in a short time window. \nThe result will return the async ID. You can verify\
+        \ the status of your request via this API request."
+      operationId: import-vouchers
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                - code: PROMO-CODE30OFF-NO-EFFECT
+                  category: new customer acquisition
+                  type: DISCOUNT_VOUCHER
+                  active: true
+                  discount:
+                    amount_off: 3000
+                    type: AMOUNT
+                  start_date: 2020-12-01T23:00:00Z
+                  expiration_date: 2023-12-19T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code1
+                - code: PROMO-CODE30-PERCENT-NO-EFFECT
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    percent_off: 30
+                    type: PERCENT
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: GIFT-CARD-100
+                  type: GIFT_VOUCHER
+                  active: true
+                  category: new customer acquisition
+                  gift:
+                    amount: 10000
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 5
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-GIFT-code2
+                - code: PROMO-CODE1-PERCENT-EFFECT-ORDER
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    percent_off: 30
+                    type: PERCENT
+                    effect: APPLY_TO_ORDER
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE2-PERCENT-EFFECT-ITEM
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    percent_off: 30
+                    type: PERCENT
+                    effect: APPLY_TO_ITEMS
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE1-PERCENT-NO-EFFECT-REDEEMED-QUANTITY-ATTRIBUTE-DOESNT-GET-PASSED
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    percent_off: 30
+                    type: PERCENT
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                    redeemed_quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE1-AMOUNT-EFFECT-ITEMS-PROPORTIONALLY
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    amount_off: 30
+                    type: AMOUNT
+                    effect: APPLY_TO_ITEMS_PROPORTIONALLY
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE1-FIXED-EFFECT-ORDER
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    fixed_amount: 30
+                    type: FIXED
+                    effect: APPLY_TO_ORDER
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE1-UNIT-SINGLE-ITEM-EFFECT-MISSING
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    unit_off: 1
+                    unit_type: prod_0a9f9aeddb019a42db
+                    type: UNIT
+                    effect: ADD_MISSING_ITEMS
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE2-UNIT-MULTIPLE-ITEMS
+                  type: DISCOUNT_VOUCHER
+                  active: true
+                  discount:
+                    type: UNIT
+                    effect: ADD_MANY_ITEMS
+                    units:
+                    - unit_off: 1
+                      unit_type: prod_0a9f9aeddb019a42db
+                      effect: ADD_MISSING_ITEMS
+                    - unit_off: 1
+                      unit_type: prod_0a9f9aeddb019a42db
+                      effect: ADD_NEW_ITEMS
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+                - code: PROMO-CODE1-SHIPPING
+                  type: DISCOUNT_VOUCHER
+                  active: false
+                  discount:
+                    type: UNIT
+                    unit_off: 1
+                    unit_type: prod_5h1pp1ng
+                    effect: ADD_MISSING_ITEMS
+                  start_date: 2020-12-10T23:00:00Z
+                  expiration_date: 2023-12-31T23:00:00Z
+                  redemption:
+                    quantity: 1
+                  metadata:
+                    unit: EUR
+                  additional_info: secret-code2
+            schema:
+              $ref: '#/components/schemas/VouchersImportCreateRequestBody'
+        description: 'The request body is an array of objects. Each object contains
+          details about a specific voucher. '
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    async_action_id: aa_0aac93c6af84485df3
+              schema:
+                $ref: '#/components/schemas/VouchersImportCreateResponseBody'
+          description: "Returns ID of the scheduled async action. The response informs\
+            \ you that your request has been accepted and vouchers will be added to\
+            \ the repository asynchronously. To check the import status and result,\
+            \ copy the `async_action_id` from the response and pass it using the <!--\
+            \ [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
+            \ -->[Get Async Action](ref:get-async-action) endpoint."
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Import Vouchers
+      tags:
+      - Vouchers
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/vouchers/importCSV:
     post:
       description: "Import standalone vouchers into the repository using a CSV file.\n\
@@ -29898,6 +30121,17 @@ components:
       description: Request body schema for **POST** `/vouchers/importCSV`.
       title: Vouchers Import C S V Request Body
       type: object
+    VouchersImportCreateRequestBody:
+      description: Request body schema for **POST** `/vouchers/import`.
+      items:
+        $ref: '#/components/schemas/VouchersImportCreateRequestBodyItem'
+      title: Vouchers Import Request Body
+      type: array
+    VouchersImportCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/AsyncActions'
+      description: Response body schema for **POST** `/vouchers/import`.
+      title: Vouchers Import Create Response Body
     VouchersImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
@@ -30907,34 +31141,90 @@ components:
       title: Campaign Loyalty Card
       type: object
     CampaignsImportVoucherItem:
-      description: Import Vouchers to Campaign
       example:
-        gift: ""
+        gift:
+          amount: 5.637376656633329
+          balance: 2.3021358869347655
+          effect: APPLY_TO_ORDER
         metadata: "{}"
         code: code
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product: ""
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
+          units:
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 2.3021358869347655
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 5.637376656633329
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 0.8008281904610115
+        expiration_date: expiration_date
+        type: LOYALTY_CARD
+        validation_rules:
+        - "[val_4j7DCRm2IS59]"
+        - "[val_4j7DCRm2IS59]"
         redemption:
           quantity: 0
+        validity_day_of_week:
+        - 6
+        - 6
+        category_id: cat_0b6152ce12414820dc
         additional_info: additional_info
-        active: true
-        type: DISCOUNT_VOUCHER
+        campaign: Gift Card Campaign
         category: category
-        loyalty_card: ""
+        loyalty_card:
+          next_expiration_date: next_expiration_date
+          balance: 1
+          next_expiration_points: 5
+          points: 6
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        start_date: start_date
       properties:
         code:
-          description: Unique custom voucher code.
-          nullable: true
-          type: string
-        type:
-          description: Type of voucher.
-          enum:
-          - DISCOUNT_VOUCHER
-          - GIFT_VOUCHER
-          - LOYALTY_CARD
-          - LUCKY_DRAW_CODE
+          description: Value representing the imported code.
           nullable: true
           type: string
         redemption:
-          $ref: '#/components/schemas/CampaignsImportVoucherItem_redemption'
+          $ref: '#/components/schemas/CampaignsImportVoucherItemRedemption'
         active:
           description: "A flag to toggle the voucher on or off. You can disable a\
             \ voucher even though it's within the active period defined by the `start_date`\
@@ -30943,68 +31233,92 @@ components:
           nullable: true
           type: boolean
         metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the voucher. A set of key/value pairs that you can attach to a voucher
-            object. It can be useful for storing additional information about the
-            voucher in a structured format.
           nullable: true
+          title: CampaignsImportVoucherItemMetadata
           type: object
         category:
-          description: The category assigned to the campaign. Either pass this parameter
-            OR the `category_id`.
-          nullable: true
-          type: string
-        additional_info:
-          description: An optional field to keep any extra textual information about
-            the code such as a code description and details.
-          nullable: true
-          type: string
-        gift:
-          allOf:
-          - $ref: '#/components/schemas/Gift'
-          description: Defines the voucher gift details.
-        loyalty_card:
-          allOf:
-          - $ref: '#/components/schemas/CampaignsImportVoucherLoyaltyCard'
-          description: Defines the voucher loyalty card details.
-      title: Import Vouchers to Campaign
-      type: object
-    CampaignsVouchersCreateBaseRequestBody:
-      properties:
-        category:
-          description: The category assigned to the campaign. Either pass this parameter
-            OR the `category_id`.
-          nullable: true
-          type: string
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the voucher. A set of key/value pairs that you can attach to a voucher
-            object. It can be useful for storing additional information about the
-            voucher in a structured format.
-          nullable: true
-          type: object
-        redemption:
-          $ref: '#/components/schemas/CampaignsImportVoucherItem_redemption'
-        additional_info:
-          description: An optional field to keep any extra textual information about
-            the code such as a code description and details.
           nullable: true
           type: string
         start_date:
-          description: 'Activation timestamp defines when the voucher starts to be
-            active in ISO 8601 format. Voucher is *inactive before* this date. '
-          example: 2022-09-20T00:00:00Z
-          format: date-time
           nullable: true
           type: string
         expiration_date:
-          description: Expiration timestamp defines when the voucher expires in ISO
-            8601 format.  Voucher is *inactive after* this date.
-          example: 2022-09-30T00:00:00Z
-          format: date-time
           nullable: true
           type: string
-      title: Campaigns Vouchers Create Base Request Body
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        type:
+          enum:
+          - LOYALTY_CARD
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          nullable: true
+          type: string
+        loyalty_card:
+          $ref: '#/components/schemas/SimpleLoyaltyCard'
+        campaign:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            name.
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            ID assigned by the Voucherify API.
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category_id:
+          description: "The unique ID assigned by Voucherify of the tag defining the\
+            \ category that this voucher belongs to. Useful when listing vouchers\
+            \ using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) -->[List\
+            \ Vouchers](ref:list-vouchers) endpoint."
+          example: cat_0b6152ce12414820dc
+          nullable: true
+          type: string
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        validation_rules:
+          description: Array containing the ID of the validation rule associated with
+            the voucher.
+          items:
+            example: "[val_4j7DCRm2IS59]"
+            type: string
+          nullable: true
+          type: array
+        gift:
+          $ref: '#/components/schemas/Gift'
+        discount:
+          $ref: '#/components/schemas/Discount'
+      title: CampaignsImportVoucherItem
       type: object
     Category:
       description: This is an object representing a category.
@@ -35689,6 +36003,186 @@ components:
         type: object
       description: This is an object representing a voucher with categories.
       title: Voucher With Categories
+    VouchersImportCreateRequestBodyItem:
+      example:
+        gift:
+          amount: 5.637376656633329
+          balance: 2.3021358869347655
+          effect: APPLY_TO_ORDER
+        metadata: "{}"
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product: ""
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
+          units:
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 2.3021358869347655
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 5.637376656633329
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 0.8008281904610115
+        expiration_date: 2021-12-31T00:00:00Z
+        type: GIFT_VOUCHER
+        validation_rules:
+        - "[val_4j7DCRm2IS59]"
+        - "[val_4j7DCRm2IS59]"
+        category_id: cat_0b6152ce12414820dc
+        validity_day_of_week:
+        - 0
+        - 0
+        redemption:
+          quantity: 6
+        additional_info: additional_info
+        campaign: Gift Card Campaign
+        category: category
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2021-12-01T00:00:00Z
+      properties:
+        campaign:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            name.
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            ID assigned by the Voucherify API.
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category:
+          description: "The name of the tag defining the category that this voucher\
+            \ belongs to. Useful when listing vouchers using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get)\
+            \ -->[List Vouchers](ref:list-vouchers) endpoint."
+          nullable: true
+          type: string
+        category_id:
+          description: "The unique ID assigned by Voucherify of the tag defining the\
+            \ category that this voucher belongs to. Useful when listing vouchers\
+            \ using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) -->[List\
+            \ Vouchers](ref:list-vouchers) endpoint."
+          example: cat_0b6152ce12414820dc
+          nullable: true
+          type: string
+        start_date:
+          description: Start date defines when the code starts to be active. Activation
+            timestamp is presented in the ISO 8601 format. Voucher is *inactive before*
+            this date.
+          example: 2021-12-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration date defines when the code expires. Expiration timestamp
+            is presented in the ISO 8601 format.  Voucher is *inactive after* this
+            date.
+          example: 2021-12-31T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
+          nullable: true
+          type: boolean
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          title: VouchersImportCreateRequestBodyItemMetadata
+          type: object
+        validation_rules:
+          description: Array containing the ID of the validation rule associated with
+            the voucher.
+          items:
+            example: "[val_4j7DCRm2IS59]"
+            type: string
+          nullable: true
+          type: array
+        redemption:
+          $ref: '#/components/schemas/VouchersImportCreateRequestBodyItemRedemption'
+        type:
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          nullable: true
+          type: string
+        gift:
+          $ref: '#/components/schemas/Gift'
+        discount:
+          $ref: '#/components/schemas/Discount'
+      title: VouchersImportCreateRequestBodyItem
+      type: object
     AccessSettingsCampaignAssignmentsList:
       description: Lists all assignments of the campaign to areas and stores if the
         Areas and Stores feature is enabled (Enterprise feature).
@@ -35990,17 +36484,6 @@ components:
       required:
       - code_config
       title: Campaign Voucher
-      type: object
-    CampaignsImportVoucherLoyaltyCard:
-      description: Schema model for a campaign loyalty card.
-      properties:
-        points:
-          description: The initial number of points to assign to the loyalty card.
-            This is the current loyalty card score i.e. the number of loyalty points
-            on the card.
-          nullable: true
-          type: integer
-      title: Campaigns Import Voucher Loyalty Card
       type: object
     CustomerId:
       properties:
@@ -37485,6 +37968,43 @@ components:
           nullable: true
           type: object
       title: Loyalties Earning Rules Update Request Body
+      type: object
+    CampaignsVouchersCreateBaseRequestBody:
+      properties:
+        category:
+          description: The category assigned to the campaign. Either pass this parameter
+            OR the `category_id`.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the voucher. A set of key/value pairs that you can attach to a voucher
+            object. It can be useful for storing additional information about the
+            voucher in a structured format.
+          nullable: true
+          type: object
+        redemption:
+          $ref: '#/components/schemas/CampaignsVouchersCreateBaseRequestBody_redemption'
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        start_date:
+          description: 'Activation timestamp defines when the voucher starts to be
+            active in ISO 8601 format. Voucher is *inactive before* this date. '
+          example: 2022-09-20T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the voucher expires in ISO
+            8601 format.  Voucher is *inactive after* this date.
+          example: 2022-09-30T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+      title: Campaigns Vouchers Create Base Request Body
       type: object
     CampaignsCreateRequestBodyVoucherRedemption:
       example:
@@ -42795,8 +43315,7 @@ components:
           nullable: true
           type: integer
       type: object
-    CampaignsImportVoucherItem_redemption:
-      description: Stores the quantity of redemptions that can be applied to the voucher.
+    CampaignsImportVoucherItemRedemption:
       example:
         quantity: 0
       nullable: true
@@ -42806,6 +43325,7 @@ components:
             unlimited.
           nullable: true
           type: integer
+      title: CampaignsImportVoucherItemRedemption
       type: object
     CustomerBase_address:
       description: Customer's address.
@@ -45791,6 +46311,18 @@ components:
           nullable: true
           type: string
       type: object
+    VouchersImportCreateRequestBodyItemRedemption:
+      example:
+        quantity: 6
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
+      title: VouchersImportCreateRequestBodyItemRedemption
+      type: object
     CampaignVoucher_redemption:
       description: Defines the redemption limits on vouchers.
       example:
@@ -46069,6 +46601,16 @@ components:
           nullable: true
           type: integer
       title: Loyalties Earning Rules Update Request Body Loyalty
+      type: object
+    CampaignsVouchersCreateBaseRequestBody_redemption:
+      description: Stores the quantity of redemptions that can be applied to the voucher.
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
       type: object
   securitySchemes:
     X-App-Id:

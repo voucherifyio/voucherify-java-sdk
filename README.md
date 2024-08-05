@@ -155,6 +155,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
   - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
   - Added support for POST `v1/vouchers/metadata/async`
+  - Added support for POST `/v1/vouchers/import`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
@@ -163,6 +164,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - Method `updateReward` will return `RewardsUpdateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
     - Deleted model `EarningRuleEvent`
     - Models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody` parameter `event` is no longer `EarningRuleEvent`, instead this is `String` now.
+    - Removed `CampaignsImportVoucherLoyaltyCard`, use `SimpleLoyaltyCard` instead.
+    - Property `type` in model `CampaignsImportVoucherItem` has no longer `LUCKY_DRAW_CODE` enum option.
 - **2024-07-22** - `13.0.0`
   - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
   - Added support for GET and POST `/v1/rewards`
@@ -354,6 +357,7 @@ Class | Method | HTTP request | Description
 *VouchersApi* | [**exportVoucherTransactions**](docs/VouchersApi.md#exportVoucherTransactions) | **POST** /v1/vouchers/{code}/transactions/export | Export Voucher Transactions
 *VouchersApi* | [**generateRandomCode**](docs/VouchersApi.md#generateRandomCode) | **POST** /v1/vouchers | Generate Random Code
 *VouchersApi* | [**getVoucher**](docs/VouchersApi.md#getVoucher) | **GET** /v1/vouchers/{code} | Get Voucher
+*VouchersApi* | [**importVouchers**](docs/VouchersApi.md#importVouchers) | **POST** /v1/vouchers/import | Import Vouchers
 *VouchersApi* | [**importVouchersUsingCsv**](docs/VouchersApi.md#importVouchersUsingCsv) | **POST** /v1/vouchers/importCSV | Import Vouchers using CSV
 *VouchersApi* | [**listVoucherTransactions**](docs/VouchersApi.md#listVoucherTransactions) | **GET** /v1/vouchers/{code}/transactions | List Voucher Transactions
 *VouchersApi* | [**listVouchers**](docs/VouchersApi.md#listVouchers) | **GET** /v1/vouchers | List Vouchers
@@ -395,12 +399,12 @@ Class | Method | HTTP request | Description
 - [CampaignsImportCsvCreateResponseBody](docs/CampaignsImportCsvCreateResponseBody.md)
 - [CampaignsImportVoucherItem](docs/CampaignsImportVoucherItem.md)
 - [CampaignsImportVoucherItemRedemption](docs/CampaignsImportVoucherItemRedemption.md)
-- [CampaignsImportVoucherLoyaltyCard](docs/CampaignsImportVoucherLoyaltyCard.md)
 - [CampaignsListResponseBody](docs/CampaignsListResponseBody.md)
 - [CampaignsUpdateRequestBody](docs/CampaignsUpdateRequestBody.md)
 - [CampaignsUpdateRequestBodyOptions](docs/CampaignsUpdateRequestBodyOptions.md)
 - [CampaignsUpdateResponseBody](docs/CampaignsUpdateResponseBody.md)
 - [CampaignsVouchersCreateBaseRequestBody](docs/CampaignsVouchersCreateBaseRequestBody.md)
+- [CampaignsVouchersCreateBaseRequestBodyRedemption](docs/CampaignsVouchersCreateBaseRequestBodyRedemption.md)
 - [CampaignsVouchersCreateCombinedResponseBody](docs/CampaignsVouchersCreateCombinedResponseBody.md)
 - [CampaignsVouchersCreateCombinedResponseBodyGift](docs/CampaignsVouchersCreateCombinedResponseBodyGift.md)
 - [CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard](docs/CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md)
@@ -949,6 +953,9 @@ Class | Method | HTTP request | Description
 - [VouchersDisableResponseBody](docs/VouchersDisableResponseBody.md)
 - [VouchersEnableResponseBody](docs/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)
+- [VouchersImportCreateRequestBodyItem](docs/VouchersImportCreateRequestBodyItem.md)
+- [VouchersImportCreateRequestBodyItemRedemption](docs/VouchersImportCreateRequestBodyItemRedemption.md)
+- [VouchersImportCreateResponseBody](docs/VouchersImportCreateResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/VouchersImportCsvCreateResponseBody.md)
 - [VouchersListResponseBody](docs/VouchersListResponseBody.md)
 - [VouchersMetadataUpdateInBulkRequestBody](docs/VouchersMetadataUpdateInBulkRequestBody.md)

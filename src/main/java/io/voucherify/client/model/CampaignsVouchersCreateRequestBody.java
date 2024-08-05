@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsImportVoucherItemRedemption;
+import io.voucherify.client.model.CampaignsVouchersCreateBaseRequestBodyRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -65,7 +65,7 @@ public class CampaignsVouchersCreateRequestBody {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsImportVoucherItemRedemption redemption;
+  private CampaignsVouchersCreateBaseRequestBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
@@ -124,7 +124,7 @@ public class CampaignsVouchersCreateRequestBody {
   }
 
 
-  public CampaignsVouchersCreateRequestBody redemption(CampaignsImportVoucherItemRedemption redemption) {
+  public CampaignsVouchersCreateRequestBody redemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -135,12 +135,12 @@ public class CampaignsVouchersCreateRequestBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsImportVoucherItemRedemption getRedemption() {
+  public CampaignsVouchersCreateBaseRequestBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsImportVoucherItemRedemption redemption) {
+  public void setRedemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
     this.redemption = redemption;
   }
 

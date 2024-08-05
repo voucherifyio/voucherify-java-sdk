@@ -48,36 +48,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * CampaignsImportVoucherItemRedemption
+ * Response body schema for **POST** &#x60;/vouchers/import&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignsImportVoucherItemRedemption {
-  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
-  @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private Integer quantity;
+public class VouchersImportCreateResponseBody {
+  public static final String SERIALIZED_NAME_ASYNC_ACTION_ID = "async_action_id";
+  @SerializedName(SERIALIZED_NAME_ASYNC_ACTION_ID)
+  private String asyncActionId;
 
-  public CampaignsImportVoucherItemRedemption() {
+  public VouchersImportCreateResponseBody() {
   }
 
-  public CampaignsImportVoucherItemRedemption quantity(Integer quantity) {
+  public VouchersImportCreateResponseBody asyncActionId(String asyncActionId) {
     
-    this.quantity = quantity;
+    this.asyncActionId = asyncActionId;
     return this;
   }
 
    /**
-   * How many times a voucher can be redeemed. A &#x60;null&#x60; value means unlimited.
-   * @return quantity
+   * The ID of the scheduled asynchronous action.
+   * @return asyncActionId
   **/
   @javax.annotation.Nullable
-  public Integer getQuantity() {
-    return quantity;
+  public String getAsyncActionId() {
+    return asyncActionId;
   }
 
 
-  public void setQuantity(Integer quantity) {
-    this.quantity = quantity;
+  public void setAsyncActionId(String asyncActionId) {
+    this.asyncActionId = asyncActionId;
   }
 
   /**
@@ -93,9 +93,9 @@ public class CampaignsImportVoucherItemRedemption {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignsImportVoucherItemRedemption instance itself
+   * @return the VouchersImportCreateResponseBody instance itself
    */
-  public CampaignsImportVoucherItemRedemption putAdditionalProperty(String key, Object value) {
+  public VouchersImportCreateResponseBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,9 +134,9 @@ public class CampaignsImportVoucherItemRedemption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignsImportVoucherItemRedemption campaignsImportVoucherItemRedemption = (CampaignsImportVoucherItemRedemption) o;
-    return Objects.equals(this.quantity, campaignsImportVoucherItemRedemption.quantity)&&
-        Objects.equals(this.additionalProperties, campaignsImportVoucherItemRedemption.additionalProperties);
+    VouchersImportCreateResponseBody vouchersImportCreateResponseBody = (VouchersImportCreateResponseBody) o;
+    return Objects.equals(this.asyncActionId, vouchersImportCreateResponseBody.asyncActionId)&&
+        Objects.equals(this.additionalProperties, vouchersImportCreateResponseBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -145,7 +145,7 @@ public class CampaignsImportVoucherItemRedemption {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantity, additionalProperties);
+    return Objects.hash(asyncActionId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -158,8 +158,8 @@ public class CampaignsImportVoucherItemRedemption {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignsImportVoucherItemRedemption {\n");
-    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("class VouchersImportCreateResponseBody {\n");
+    sb.append("    asyncActionId: ").append(toIndentedString(asyncActionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,7 +183,7 @@ public class CampaignsImportVoucherItemRedemption {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("quantity");
+    openapiFields.add("async_action_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -193,16 +193,16 @@ public class CampaignsImportVoucherItemRedemption {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignsImportVoucherItemRedemption.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignsImportVoucherItemRedemption' and its subtypes
+       if (!VouchersImportCreateResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VouchersImportCreateResponseBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignsImportVoucherItemRedemption> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsImportVoucherItemRedemption.class));
+       final TypeAdapter<VouchersImportCreateResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersImportCreateResponseBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignsImportVoucherItemRedemption>() {
+       return (TypeAdapter<T>) new TypeAdapter<VouchersImportCreateResponseBody>() {
            @Override
-           public void write(JsonWriter out, CampaignsImportVoucherItemRedemption value) throws IOException {
+           public void write(JsonWriter out, VouchersImportCreateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -225,11 +225,11 @@ public class CampaignsImportVoucherItemRedemption {
            }
 
            @Override
-           public CampaignsImportVoucherItemRedemption read(JsonReader in) throws IOException {
+           public VouchersImportCreateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignsImportVoucherItemRedemption instance = thisAdapter.fromJsonTree(jsonObj);
+             VouchersImportCreateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -256,18 +256,18 @@ public class CampaignsImportVoucherItemRedemption {
   }
 
  /**
-  * Create an instance of CampaignsImportVoucherItemRedemption given an JSON string
+  * Create an instance of VouchersImportCreateResponseBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignsImportVoucherItemRedemption
-  * @throws IOException if the JSON string is invalid with respect to CampaignsImportVoucherItemRedemption
+  * @return An instance of VouchersImportCreateResponseBody
+  * @throws IOException if the JSON string is invalid with respect to VouchersImportCreateResponseBody
   */
-  public static CampaignsImportVoucherItemRedemption fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignsImportVoucherItemRedemption.class);
+  public static VouchersImportCreateResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VouchersImportCreateResponseBody.class);
   }
 
  /**
-  * Convert an instance of CampaignsImportVoucherItemRedemption to an JSON string
+  * Convert an instance of VouchersImportCreateResponseBody to an JSON string
   *
   * @return JSON string
   */
