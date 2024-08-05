@@ -47,6 +47,8 @@ import io.voucherify.client.model.VouchersMetadataUpdateInBulkResponseBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateRequestBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.VouchersTransactionsListResponseBody;
+import io.voucherify.client.model.VouchersUpdateInBulkRequestBodyItem;
+import io.voucherify.client.model.VouchersUpdateInBulkResponseBody;
 import io.voucherify.client.model.VouchersUpdateRequestBody;
 import io.voucherify.client.model.VouchersUpdateResponseBody;
 
@@ -1642,6 +1644,109 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = updateVoucherBalanceValidateBeforeCall(code, vouchersBalanceUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<VouchersBalanceUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVouchersInBulk
+     * @param vouchersUpdateInBulkRequestBodyItem List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVouchersInBulkCall(List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersUpdateInBulkRequestBodyItem;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/bulk/async";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVouchersInBulkValidateBeforeCall(List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vouchersUpdateInBulkRequestBodyItem' is set
+        if (vouchersUpdateInBulkRequestBodyItem == null) {
+            throw new ApiException("Missing the required parameter 'vouchersUpdateInBulkRequestBodyItem' when calling updateVouchersInBulk(Async)");
+        }
+
+        return updateVouchersInBulkCall(vouchersUpdateInBulkRequestBodyItem, _callback);
+
+    }
+
+    /**
+     * Update Vouchers in bulk
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkRequestBodyItem List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @return VouchersUpdateInBulkResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersUpdateInBulkResponseBody updateVouchersInBulk(List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem) throws ApiException {
+        ApiResponse<VouchersUpdateInBulkResponseBody> localVarResp = updateVouchersInBulkWithHttpInfo(vouchersUpdateInBulkRequestBodyItem);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Vouchers in bulk
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkRequestBodyItem List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @return ApiResponse&lt;VouchersUpdateInBulkResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersUpdateInBulkResponseBody> updateVouchersInBulkWithHttpInfo(List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem) throws ApiException {
+        okhttp3.Call localVarCall = updateVouchersInBulkValidateBeforeCall(vouchersUpdateInBulkRequestBodyItem, null);
+        Type localVarReturnType = new TypeToken<VouchersUpdateInBulkResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Vouchers in bulk (asynchronously)
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkRequestBodyItem List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVouchersInBulkAsync(List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem, final ApiCallback<VouchersUpdateInBulkResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVouchersInBulkValidateBeforeCall(vouchersUpdateInBulkRequestBodyItem, _callback);
+        Type localVarReturnType = new TypeToken<VouchersUpdateInBulkResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

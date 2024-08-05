@@ -157,6 +157,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `v1/vouchers/metadata/async`
   - Added support for POST `/v1/vouchers/import`
   - Added support for GET `/v1/customers/{customerId}/activity`
+  - Added support for POST `/v1/vouchers/bulk/async`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
@@ -366,6 +367,7 @@ Class | Method | HTTP request | Description
 *VouchersApi* | [**releaseValidationSession**](docs/VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
 *VouchersApi* | [**updateVoucher**](docs/VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher
 *VouchersApi* | [**updateVoucherBalance**](docs/VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
+*VouchersApi* | [**updateVouchersInBulk**](docs/VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in bulk
 *VouchersApi* | [**updateVouchersMetadataInBulk**](docs/VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk
 
 
@@ -970,6 +972,8 @@ Class | Method | HTTP request | Description
 - [VouchersTransactionsExportCreateRequestBody](docs/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/VouchersTransactionsExportCreateResponseBody.md)
 - [VouchersTransactionsListResponseBody](docs/VouchersTransactionsListResponseBody.md)
+- [VouchersUpdateInBulkRequestBodyItem](docs/VouchersUpdateInBulkRequestBodyItem.md)
+- [VouchersUpdateInBulkResponseBody](docs/VouchersUpdateInBulkResponseBody.md)
 - [VouchersUpdateRequestBody](docs/VouchersUpdateRequestBody.md)
 - [VouchersUpdateResponseBody](docs/VouchersUpdateResponseBody.md)
 
