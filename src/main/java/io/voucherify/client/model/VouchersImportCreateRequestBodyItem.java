@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
-import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VouchersImportCreateRequestBodyItemRedemption;
 import java.io.IOException;
@@ -61,21 +60,25 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class VouchersImportCreateRequestBodyItem {
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  private String campaign;
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
-  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  private String campaignId;
+  public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
+  @SerializedName(SERIALIZED_NAME_REDEMPTION)
+  private VouchersImportCreateRequestBodyItemRedemption redemption;
+
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
-
-  public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
-  @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
-  private String categoryId;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -150,29 +153,9 @@ public class VouchersImportCreateRequestBodyItem {
   @SerializedName(SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK)
   private List<ValidityDayOfWeekEnum> validityDayOfWeek;
 
-  public static final String SERIALIZED_NAME_VALIDITY_HOURS = "validity_hours";
-  @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
-  private ValidityHours validityHours;
-
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private Boolean active;
-
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
   private String additionalInfo;
-
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
-
-  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
-  private List<String> validationRules;
-
-  public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
-  @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private VouchersImportCreateRequestBodyItemRedemption redemption;
 
   /**
    * Gets or Sets type
@@ -236,45 +219,87 @@ public class VouchersImportCreateRequestBodyItem {
   public VouchersImportCreateRequestBodyItem() {
   }
 
-  public VouchersImportCreateRequestBodyItem campaign(String campaign) {
+  public VouchersImportCreateRequestBodyItem code(String code) {
     
-    this.campaign = campaign;
+    this.code = code;
     return this;
   }
 
    /**
-   * Identifies the voucher&#39;s parent campaign using a unique campaign name.
-   * @return campaign
+   * Value representing the imported code.
+   * @return code
   **/
   @javax.annotation.Nullable
-  public String getCampaign() {
-    return campaign;
+  public String getCode() {
+    return code;
   }
 
 
-  public void setCampaign(String campaign) {
-    this.campaign = campaign;
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
-  public VouchersImportCreateRequestBodyItem campaignId(String campaignId) {
+  public VouchersImportCreateRequestBodyItem redemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
     
-    this.campaignId = campaignId;
+    this.redemption = redemption;
     return this;
   }
 
    /**
-   * Identifies the voucher&#39;s parent campaign using a unique campaign ID assigned by the Voucherify API.
-   * @return campaignId
+   * Get redemption
+   * @return redemption
   **/
   @javax.annotation.Nullable
-  public String getCampaignId() {
-    return campaignId;
+  public VouchersImportCreateRequestBodyItemRedemption getRedemption() {
+    return redemption;
   }
 
 
-  public void setCampaignId(String campaignId) {
-    this.campaignId = campaignId;
+  public void setRedemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
+    this.redemption = redemption;
+  }
+
+
+  public VouchersImportCreateRequestBodyItem active(Boolean active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * A flag to toggle the voucher on or off. You can disable a voucher even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* voucher - &#x60;false&#x60; indicates an *inactive* voucher
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  public Boolean getActive() {
+    return active;
+  }
+
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+
+  public VouchersImportCreateRequestBodyItem metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
   }
 
 
@@ -285,7 +310,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
    /**
-   * The name of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the &lt;!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) --&gt;[List Vouchers](ref:list-vouchers) endpoint.
+   * Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -299,27 +324,6 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem categoryId(String categoryId) {
-    
-    this.categoryId = categoryId;
-    return this;
-  }
-
-   /**
-   * The unique ID assigned by Voucherify of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the &lt;!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) --&gt;[List Vouchers](ref:list-vouchers) endpoint.
-   * @return categoryId
-  **/
-  @javax.annotation.Nullable
-  public String getCategoryId() {
-    return categoryId;
-  }
-
-
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
-
-
   public VouchersImportCreateRequestBodyItem startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
@@ -327,7 +331,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
    /**
-   * Start date defines when the code starts to be active. Activation timestamp is presented in the ISO 8601 format. Voucher is *inactive before* this date.
+   * Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ
    * @return startDate
   **/
   @javax.annotation.Nullable
@@ -348,7 +352,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
    /**
-   * Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date.
+   * Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ
    * @return expirationDate
   **/
   @javax.annotation.Nullable
@@ -412,48 +416,6 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem validityHours(ValidityHours validityHours) {
-    
-    this.validityHours = validityHours;
-    return this;
-  }
-
-   /**
-   * Get validityHours
-   * @return validityHours
-  **/
-  @javax.annotation.Nullable
-  public ValidityHours getValidityHours() {
-    return validityHours;
-  }
-
-
-  public void setValidityHours(ValidityHours validityHours) {
-    this.validityHours = validityHours;
-  }
-
-
-  public VouchersImportCreateRequestBodyItem active(Boolean active) {
-    
-    this.active = active;
-    return this;
-  }
-
-   /**
-   * A flag to toggle the voucher on or off. You can disable a voucher even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* voucher - &#x60;false&#x60; indicates an *inactive* voucher
-   * @return active
-  **/
-  @javax.annotation.Nullable
-  public Boolean getActive() {
-    return active;
-  }
-
-
-  public void setActive(Boolean active) {
-    this.active = active;
-  }
-
-
   public VouchersImportCreateRequestBodyItem additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
@@ -472,77 +434,6 @@ public class VouchersImportCreateRequestBodyItem {
 
   public void setAdditionalInfo(String additionalInfo) {
     this.additionalInfo = additionalInfo;
-  }
-
-
-  public VouchersImportCreateRequestBodyItem metadata(Object metadata) {
-    
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * Get metadata
-   * @return metadata
-  **/
-  @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
-  }
-
-
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
-  }
-
-
-  public VouchersImportCreateRequestBodyItem validationRules(List<String> validationRules) {
-    
-    this.validationRules = validationRules;
-    return this;
-  }
-
-  public VouchersImportCreateRequestBodyItem addValidationRulesItem(String validationRulesItem) {
-    if (this.validationRules == null) {
-      this.validationRules = new ArrayList<>();
-    }
-    this.validationRules.add(validationRulesItem);
-    return this;
-  }
-
-   /**
-   * Array containing the ID of the validation rule associated with the voucher.
-   * @return validationRules
-  **/
-  @javax.annotation.Nullable
-  public List<String> getValidationRules() {
-    return validationRules;
-  }
-
-
-  public void setValidationRules(List<String> validationRules) {
-    this.validationRules = validationRules;
-  }
-
-
-  public VouchersImportCreateRequestBodyItem redemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
-    
-    this.redemption = redemption;
-    return this;
-  }
-
-   /**
-   * Get redemption
-   * @return redemption
-  **/
-  @javax.annotation.Nullable
-  public VouchersImportCreateRequestBodyItemRedemption getRedemption() {
-    return redemption;
-  }
-
-
-  public void setRedemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
-    this.redemption = redemption;
   }
 
 
@@ -663,20 +554,16 @@ public class VouchersImportCreateRequestBodyItem {
       return false;
     }
     VouchersImportCreateRequestBodyItem vouchersImportCreateRequestBodyItem = (VouchersImportCreateRequestBodyItem) o;
-    return Objects.equals(this.campaign, vouchersImportCreateRequestBodyItem.campaign) &&
-        Objects.equals(this.campaignId, vouchersImportCreateRequestBodyItem.campaignId) &&
+    return Objects.equals(this.code, vouchersImportCreateRequestBodyItem.code) &&
+        Objects.equals(this.redemption, vouchersImportCreateRequestBodyItem.redemption) &&
+        Objects.equals(this.active, vouchersImportCreateRequestBodyItem.active) &&
+        Objects.equals(this.metadata, vouchersImportCreateRequestBodyItem.metadata) &&
         Objects.equals(this.category, vouchersImportCreateRequestBodyItem.category) &&
-        Objects.equals(this.categoryId, vouchersImportCreateRequestBodyItem.categoryId) &&
         Objects.equals(this.startDate, vouchersImportCreateRequestBodyItem.startDate) &&
         Objects.equals(this.expirationDate, vouchersImportCreateRequestBodyItem.expirationDate) &&
         Objects.equals(this.validityTimeframe, vouchersImportCreateRequestBodyItem.validityTimeframe) &&
         Objects.equals(this.validityDayOfWeek, vouchersImportCreateRequestBodyItem.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, vouchersImportCreateRequestBodyItem.validityHours) &&
-        Objects.equals(this.active, vouchersImportCreateRequestBodyItem.active) &&
         Objects.equals(this.additionalInfo, vouchersImportCreateRequestBodyItem.additionalInfo) &&
-        Objects.equals(this.metadata, vouchersImportCreateRequestBodyItem.metadata) &&
-        Objects.equals(this.validationRules, vouchersImportCreateRequestBodyItem.validationRules) &&
-        Objects.equals(this.redemption, vouchersImportCreateRequestBodyItem.redemption) &&
         Objects.equals(this.type, vouchersImportCreateRequestBodyItem.type) &&
         Objects.equals(this.gift, vouchersImportCreateRequestBodyItem.gift) &&
         Objects.equals(this.discount, vouchersImportCreateRequestBodyItem.discount)&&
@@ -689,7 +576,7 @@ public class VouchersImportCreateRequestBodyItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, campaignId, category, categoryId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, validationRules, redemption, type, gift, discount, additionalProperties);
+    return Objects.hash(code, redemption, active, metadata, category, startDate, expirationDate, validityTimeframe, validityDayOfWeek, additionalInfo, type, gift, discount, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -703,20 +590,16 @@ public class VouchersImportCreateRequestBodyItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VouchersImportCreateRequestBodyItem {\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
-    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
-    sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
-    sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
@@ -743,20 +626,16 @@ public class VouchersImportCreateRequestBodyItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("campaign");
-    openapiFields.add("campaign_id");
+    openapiFields.add("code");
+    openapiFields.add("redemption");
+    openapiFields.add("active");
+    openapiFields.add("metadata");
     openapiFields.add("category");
-    openapiFields.add("category_id");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
-    openapiFields.add("validity_hours");
-    openapiFields.add("active");
     openapiFields.add("additional_info");
-    openapiFields.add("metadata");
-    openapiFields.add("validation_rules");
-    openapiFields.add("redemption");
     openapiFields.add("type");
     openapiFields.add("gift");
     openapiFields.add("discount");

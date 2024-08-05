@@ -23,9 +23,9 @@ import io.voucherify.client.model.CampaignsImportVoucherItemRedemption;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
 import io.voucherify.client.model.SimpleLoyaltyCard;
-import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -83,11 +83,11 @@ public class CampaignsImportVoucherItem {
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  private String startDate;
+  private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
-  private String expirationDate;
+  private OffsetDateTime expirationDate;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -215,26 +215,6 @@ public class CampaignsImportVoucherItem {
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private SimpleLoyaltyCard loyaltyCard;
 
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  private String campaign;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  private String campaignId;
-
-  public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
-  @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
-  private String categoryId;
-
-  public static final String SERIALIZED_NAME_VALIDITY_HOURS = "validity_hours";
-  @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
-  private ValidityHours validityHours;
-
-  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
-  private List<String> validationRules;
-
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private Gift gift;
@@ -337,7 +317,7 @@ public class CampaignsImportVoucherItem {
   }
 
    /**
-   * Get category
+   * Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -351,44 +331,44 @@ public class CampaignsImportVoucherItem {
   }
 
 
-  public CampaignsImportVoucherItem startDate(String startDate) {
+  public CampaignsImportVoucherItem startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
   }
 
    /**
-   * Get startDate
+   * Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ
    * @return startDate
   **/
   @javax.annotation.Nullable
-  public String getStartDate() {
+  public OffsetDateTime getStartDate() {
     return startDate;
   }
 
 
-  public void setStartDate(String startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public CampaignsImportVoucherItem expirationDate(String expirationDate) {
+  public CampaignsImportVoucherItem expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
   }
 
    /**
-   * Get expirationDate
+   * Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ
    * @return expirationDate
   **/
   @javax.annotation.Nullable
-  public String getExpirationDate() {
+  public OffsetDateTime getExpirationDate() {
     return expirationDate;
   }
 
 
-  public void setExpirationDate(String expirationDate) {
+  public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
   }
 
@@ -506,119 +486,6 @@ public class CampaignsImportVoucherItem {
   }
 
 
-  public CampaignsImportVoucherItem campaign(String campaign) {
-    
-    this.campaign = campaign;
-    return this;
-  }
-
-   /**
-   * Identifies the voucher&#39;s parent campaign using a unique campaign name.
-   * @return campaign
-  **/
-  @javax.annotation.Nullable
-  public String getCampaign() {
-    return campaign;
-  }
-
-
-  public void setCampaign(String campaign) {
-    this.campaign = campaign;
-  }
-
-
-  public CampaignsImportVoucherItem campaignId(String campaignId) {
-    
-    this.campaignId = campaignId;
-    return this;
-  }
-
-   /**
-   * Identifies the voucher&#39;s parent campaign using a unique campaign ID assigned by the Voucherify API.
-   * @return campaignId
-  **/
-  @javax.annotation.Nullable
-  public String getCampaignId() {
-    return campaignId;
-  }
-
-
-  public void setCampaignId(String campaignId) {
-    this.campaignId = campaignId;
-  }
-
-
-  public CampaignsImportVoucherItem categoryId(String categoryId) {
-    
-    this.categoryId = categoryId;
-    return this;
-  }
-
-   /**
-   * The unique ID assigned by Voucherify of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the &lt;!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) --&gt;[List Vouchers](ref:list-vouchers) endpoint.
-   * @return categoryId
-  **/
-  @javax.annotation.Nullable
-  public String getCategoryId() {
-    return categoryId;
-  }
-
-
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
-
-
-  public CampaignsImportVoucherItem validityHours(ValidityHours validityHours) {
-    
-    this.validityHours = validityHours;
-    return this;
-  }
-
-   /**
-   * Get validityHours
-   * @return validityHours
-  **/
-  @javax.annotation.Nullable
-  public ValidityHours getValidityHours() {
-    return validityHours;
-  }
-
-
-  public void setValidityHours(ValidityHours validityHours) {
-    this.validityHours = validityHours;
-  }
-
-
-  public CampaignsImportVoucherItem validationRules(List<String> validationRules) {
-    
-    this.validationRules = validationRules;
-    return this;
-  }
-
-  public CampaignsImportVoucherItem addValidationRulesItem(String validationRulesItem) {
-    if (this.validationRules == null) {
-      this.validationRules = new ArrayList<>();
-    }
-    this.validationRules.add(validationRulesItem);
-    return this;
-  }
-
-   /**
-   * Array containing the ID of the validation rule associated with the voucher.
-   * @return validationRules
-  **/
-  @javax.annotation.Nullable
-  public List<String> getValidationRules() {
-    return validationRules;
-  }
-
-
-  public void setValidationRules(List<String> validationRules) {
-    this.validationRules = validationRules;
-  }
-
-
   public CampaignsImportVoucherItem gift(Gift gift) {
     
     this.gift = gift;
@@ -727,11 +594,6 @@ public class CampaignsImportVoucherItem {
         Objects.equals(this.additionalInfo, campaignsImportVoucherItem.additionalInfo) &&
         Objects.equals(this.type, campaignsImportVoucherItem.type) &&
         Objects.equals(this.loyaltyCard, campaignsImportVoucherItem.loyaltyCard) &&
-        Objects.equals(this.campaign, campaignsImportVoucherItem.campaign) &&
-        Objects.equals(this.campaignId, campaignsImportVoucherItem.campaignId) &&
-        Objects.equals(this.categoryId, campaignsImportVoucherItem.categoryId) &&
-        Objects.equals(this.validityHours, campaignsImportVoucherItem.validityHours) &&
-        Objects.equals(this.validationRules, campaignsImportVoucherItem.validationRules) &&
         Objects.equals(this.gift, campaignsImportVoucherItem.gift) &&
         Objects.equals(this.discount, campaignsImportVoucherItem.discount)&&
         Objects.equals(this.additionalProperties, campaignsImportVoucherItem.additionalProperties);
@@ -743,7 +605,7 @@ public class CampaignsImportVoucherItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, redemption, active, metadata, category, startDate, expirationDate, validityTimeframe, validityDayOfWeek, additionalInfo, type, loyaltyCard, campaign, campaignId, categoryId, validityHours, validationRules, gift, discount, additionalProperties);
+    return Objects.hash(code, redemption, active, metadata, category, startDate, expirationDate, validityTimeframe, validityDayOfWeek, additionalInfo, type, loyaltyCard, gift, discount, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -769,11 +631,6 @@ public class CampaignsImportVoucherItem {
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
-    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
-    sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
-    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -811,11 +668,6 @@ public class CampaignsImportVoucherItem {
     openapiFields.add("additional_info");
     openapiFields.add("type");
     openapiFields.add("loyalty_card");
-    openapiFields.add("campaign");
-    openapiFields.add("campaign_id");
-    openapiFields.add("category_id");
-    openapiFields.add("validity_hours");
-    openapiFields.add("validation_rules");
     openapiFields.add("gift");
     openapiFields.add("discount");
 

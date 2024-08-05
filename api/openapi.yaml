@@ -31148,18 +31148,6 @@ components:
           effect: APPLY_TO_ORDER
         metadata: "{}"
         code: code
-        validity_hours:
-          daily:
-          - days_of_week:
-            - 2
-            - 2
-            start_time: 12:00
-            expiration_time: 14:00
-          - days_of_week:
-            - 2
-            - 2
-            start_time: 12:00
-            expiration_time: 14:00
         active: true
         discount:
           fixed_amount_formula: fixed_amount_formula
@@ -31194,19 +31182,14 @@ components:
             id: id
             source_id: source_id
           amount_off: 0.8008281904610115
-        expiration_date: expiration_date
+        expiration_date: 2053-12-28T12:49:16.272Z
         type: LOYALTY_CARD
-        validation_rules:
-        - "[val_4j7DCRm2IS59]"
-        - "[val_4j7DCRm2IS59]"
         redemption:
-          quantity: 0
+          quantity: 10
         validity_day_of_week:
-        - 6
-        - 6
-        category_id: cat_0b6152ce12414820dc
+        - 0
+        - 0
         additional_info: additional_info
-        campaign: Gift Card Campaign
         category: category
         loyalty_card:
           next_expiration_date: next_expiration_date
@@ -31216,8 +31199,7 @@ components:
         validity_timeframe:
           duration: PT1H
           interval: P2D
-        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
-        start_date: start_date
+        start_date: 2020-12-28T12:49:16.272Z
       properties:
         code:
           description: Value representing the imported code.
@@ -31237,12 +31219,36 @@ components:
           title: CampaignsImportVoucherItemMetadata
           type: object
         category:
+          description: "Tag defining the category that this voucher belongs to. Useful\
+            \ when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint."
           nullable: true
           type: string
         start_date:
+          description: |-
+            Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active.
+            Allowed date formats are:
+            - YYYY-MM-DD
+            - YYYY-MM-DDTHH
+            - YYYY-MM-DDTHH:mm
+            - YYYY-MM-DDTHH:mm:ss
+            - YYYY-MM-DDTHH:mm:ssZ
+            - YYYY-MM-DDTHH:mm:ss.SSSZ
+          example: 2020-12-28T12:49:16.272Z
+          format: date-time
           nullable: true
           type: string
         expiration_date:
+          description: |-
+            Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date.
+            Allowed date formats are:
+            - YYYY-MM-DD
+            - YYYY-MM-DDTHH
+            - YYYY-MM-DDTHH:mm
+            - YYYY-MM-DDTHH:mm:ss
+            - YYYY-MM-DDTHH:mm:ssZ
+            - YYYY-MM-DDTHH:mm:ss.SSSZ
+          example: 2053-12-28T12:49:16.272Z
+          format: date-time
           nullable: true
           type: string
         validity_timeframe:
@@ -31284,36 +31290,6 @@ components:
           type: string
         loyalty_card:
           $ref: '#/components/schemas/SimpleLoyaltyCard'
-        campaign:
-          description: Identifies the voucher's parent campaign using a unique campaign
-            name.
-          example: Gift Card Campaign
-          nullable: true
-          type: string
-        campaign_id:
-          description: Identifies the voucher's parent campaign using a unique campaign
-            ID assigned by the Voucherify API.
-          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
-          nullable: true
-          type: string
-        category_id:
-          description: "The unique ID assigned by Voucherify of the tag defining the\
-            \ category that this voucher belongs to. Useful when listing vouchers\
-            \ using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) -->[List\
-            \ Vouchers](ref:list-vouchers) endpoint."
-          example: cat_0b6152ce12414820dc
-          nullable: true
-          type: string
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        validation_rules:
-          description: Array containing the ID of the validation rule associated with
-            the voucher.
-          items:
-            example: "[val_4j7DCRm2IS59]"
-            type: string
-          nullable: true
-          type: array
         gift:
           $ref: '#/components/schemas/Gift'
         discount:
@@ -36010,18 +35986,7 @@ components:
           balance: 2.3021358869347655
           effect: APPLY_TO_ORDER
         metadata: "{}"
-        validity_hours:
-          daily:
-          - days_of_week:
-            - 2
-            - 2
-            start_time: 12:00
-            expiration_time: 14:00
-          - days_of_week:
-            - 2
-            - 2
-            start_time: 12:00
-            expiration_time: 14:00
+        code: code
         active: true
         discount:
           fixed_amount_formula: fixed_amount_formula
@@ -36056,65 +36021,67 @@ components:
             id: id
             source_id: source_id
           amount_off: 0.8008281904610115
-        expiration_date: 2021-12-31T00:00:00Z
+        expiration_date: 2053-12-28T12:49:16.272Z
         type: GIFT_VOUCHER
-        validation_rules:
-        - "[val_4j7DCRm2IS59]"
-        - "[val_4j7DCRm2IS59]"
-        category_id: cat_0b6152ce12414820dc
+        redemption:
+          quantity: 10
         validity_day_of_week:
         - 0
         - 0
-        redemption:
-          quantity: 6
         additional_info: additional_info
-        campaign: Gift Card Campaign
         category: category
-        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
         validity_timeframe:
           duration: PT1H
           interval: P2D
-        start_date: 2021-12-01T00:00:00Z
+        start_date: 2020-12-28T12:49:16.272Z
       properties:
-        campaign:
-          description: Identifies the voucher's parent campaign using a unique campaign
-            name.
-          example: Gift Card Campaign
+        code:
+          description: Value representing the imported code.
           nullable: true
           type: string
-        campaign_id:
-          description: Identifies the voucher's parent campaign using a unique campaign
-            ID assigned by the Voucherify API.
-          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        redemption:
+          $ref: '#/components/schemas/VouchersImportCreateRequestBodyItemRedemption'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
           nullable: true
-          type: string
+          type: boolean
+        metadata:
+          nullable: true
+          title: VouchersImportCreateRequestBodyItemMetadata
+          type: object
         category:
-          description: "The name of the tag defining the category that this voucher\
-            \ belongs to. Useful when listing vouchers using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get)\
-            \ -->[List Vouchers](ref:list-vouchers) endpoint."
-          nullable: true
-          type: string
-        category_id:
-          description: "The unique ID assigned by Voucherify of the tag defining the\
-            \ category that this voucher belongs to. Useful when listing vouchers\
-            \ using the <!-- [List Vouchers](OpenAPI.json/paths/~1vouchers/get) -->[List\
-            \ Vouchers](ref:list-vouchers) endpoint."
-          example: cat_0b6152ce12414820dc
+          description: "Tag defining the category that this voucher belongs to. Useful\
+            \ when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint."
           nullable: true
           type: string
         start_date:
-          description: Start date defines when the code starts to be active. Activation
-            timestamp is presented in the ISO 8601 format. Voucher is *inactive before*
-            this date.
-          example: 2021-12-01T00:00:00Z
+          description: |-
+            Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active.
+            Allowed date formats are:
+            - YYYY-MM-DD
+            - YYYY-MM-DDTHH
+            - YYYY-MM-DDTHH:mm
+            - YYYY-MM-DDTHH:mm:ss
+            - YYYY-MM-DDTHH:mm:ssZ
+            - YYYY-MM-DDTHH:mm:ss.SSSZ
+          example: 2020-12-28T12:49:16.272Z
           format: date-time
           nullable: true
           type: string
         expiration_date:
-          description: Expiration date defines when the code expires. Expiration timestamp
-            is presented in the ISO 8601 format.  Voucher is *inactive after* this
-            date.
-          example: 2021-12-31T00:00:00Z
+          description: |-
+            Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date.
+            Allowed date formats are:
+            - YYYY-MM-DD
+            - YYYY-MM-DDTHH
+            - YYYY-MM-DDTHH:mm
+            - YYYY-MM-DDTHH:mm:ss
+            - YYYY-MM-DDTHH:mm:ssZ
+            - YYYY-MM-DDTHH:mm:ss.SSSZ
+          example: 2053-12-28T12:49:16.272Z
           format: date-time
           nullable: true
           type: string
@@ -36143,34 +36110,11 @@ components:
             type: integer
           title: Validity Day Of Week
           type: array
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        active:
-          description: "A flag to toggle the voucher on or off. You can disable a\
-            \ voucher even though it's within the active period defined by the `start_date`\
-            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
-            - `false` indicates an *inactive* voucher"
-          nullable: true
-          type: boolean
         additional_info:
           description: An optional field to keep any extra textual information about
             the code such as a code description and details.
           nullable: true
           type: string
-        metadata:
-          nullable: true
-          title: VouchersImportCreateRequestBodyItemMetadata
-          type: object
-        validation_rules:
-          description: Array containing the ID of the validation rule associated with
-            the voucher.
-          items:
-            example: "[val_4j7DCRm2IS59]"
-            type: string
-          nullable: true
-          type: array
-        redemption:
-          $ref: '#/components/schemas/VouchersImportCreateRequestBodyItemRedemption'
         type:
           enum:
           - GIFT_VOUCHER
@@ -43317,12 +43261,13 @@ components:
       type: object
     CampaignsImportVoucherItemRedemption:
       example:
-        quantity: 0
+        quantity: 10
       nullable: true
       properties:
         quantity:
           description: How many times a voucher can be redeemed. A `null` value means
             unlimited.
+          example: 10
           nullable: true
           type: integer
       title: CampaignsImportVoucherItemRedemption
@@ -46313,12 +46258,13 @@ components:
       type: object
     VouchersImportCreateRequestBodyItemRedemption:
       example:
-        quantity: 6
+        quantity: 10
       nullable: true
       properties:
         quantity:
           description: How many times a voucher can be redeemed. A `null` value means
             unlimited.
+          example: 10
           nullable: true
           type: integer
       title: VouchersImportCreateRequestBodyItemRedemption
