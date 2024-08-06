@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsAssignmentsUpdateRequestBodyParameters;
+import io.voucherify.client.model.RewardsAssignmentsCreateRequestBodyParameters;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,19 +51,48 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **PUT** &#x60;/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
+ * LoyaltiesRewardsCreateAssignmentItemRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class RewardsAssignmentsUpdateRequestBody {
+public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
+  public static final String SERIALIZED_NAME_REWARD = "reward";
+  @SerializedName(SERIALIZED_NAME_REWARD)
+  private String reward;
+
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardsAssignmentsUpdateRequestBodyParameters parameters;
+  private RewardsAssignmentsCreateRequestBodyParameters parameters;
 
-  public RewardsAssignmentsUpdateRequestBody() {
+  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
+  private List<String> validationRules;
+
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody() {
   }
 
-  public RewardsAssignmentsUpdateRequestBody parameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody reward(String reward) {
+    
+    this.reward = reward;
+    return this;
+  }
+
+   /**
+   * The reward ID of the campaign to which the campaign is to be assigned.
+   * @return reward
+  **/
+  @javax.annotation.Nullable
+  public String getReward() {
+    return reward;
+  }
+
+
+  public void setReward(String reward) {
+    this.reward = reward;
+  }
+
+
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody parameters(RewardsAssignmentsCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -72,13 +103,42 @@ public class RewardsAssignmentsUpdateRequestBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public RewardsAssignmentsUpdateRequestBodyParameters getParameters() {
+  public RewardsAssignmentsCreateRequestBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
+  public void setParameters(RewardsAssignmentsCreateRequestBodyParameters parameters) {
     this.parameters = parameters;
+  }
+
+
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody validationRules(List<String> validationRules) {
+    
+    this.validationRules = validationRules;
+    return this;
+  }
+
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody addValidationRulesItem(String validationRulesItem) {
+    if (this.validationRules == null) {
+      this.validationRules = new ArrayList<>();
+    }
+    this.validationRules.add(validationRulesItem);
+    return this;
+  }
+
+   /**
+   * Get validationRules
+   * @return validationRules
+  **/
+  @javax.annotation.Nullable
+  public List<String> getValidationRules() {
+    return validationRules;
+  }
+
+
+  public void setValidationRules(List<String> validationRules) {
+    this.validationRules = validationRules;
   }
 
   /**
@@ -94,9 +154,9 @@ public class RewardsAssignmentsUpdateRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RewardsAssignmentsUpdateRequestBody instance itself
+   * @return the LoyaltiesRewardsCreateAssignmentItemRequestBody instance itself
    */
-  public RewardsAssignmentsUpdateRequestBody putAdditionalProperty(String key, Object value) {
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -135,9 +195,11 @@ public class RewardsAssignmentsUpdateRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = (RewardsAssignmentsUpdateRequestBody) o;
-    return Objects.equals(this.parameters, rewardsAssignmentsUpdateRequestBody.parameters)&&
-        Objects.equals(this.additionalProperties, rewardsAssignmentsUpdateRequestBody.additionalProperties);
+    LoyaltiesRewardsCreateAssignmentItemRequestBody loyaltiesRewardsCreateAssignmentItemRequestBody = (LoyaltiesRewardsCreateAssignmentItemRequestBody) o;
+    return Objects.equals(this.reward, loyaltiesRewardsCreateAssignmentItemRequestBody.reward) &&
+        Objects.equals(this.parameters, loyaltiesRewardsCreateAssignmentItemRequestBody.parameters) &&
+        Objects.equals(this.validationRules, loyaltiesRewardsCreateAssignmentItemRequestBody.validationRules)&&
+        Objects.equals(this.additionalProperties, loyaltiesRewardsCreateAssignmentItemRequestBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -146,7 +208,7 @@ public class RewardsAssignmentsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameters, additionalProperties);
+    return Objects.hash(reward, parameters, validationRules, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -159,8 +221,10 @@ public class RewardsAssignmentsUpdateRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RewardsAssignmentsUpdateRequestBody {\n");
+    sb.append("class LoyaltiesRewardsCreateAssignmentItemRequestBody {\n");
+    sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +248,9 @@ public class RewardsAssignmentsUpdateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("reward");
     openapiFields.add("parameters");
+    openapiFields.add("validation_rules");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -194,16 +260,16 @@ public class RewardsAssignmentsUpdateRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RewardsAssignmentsUpdateRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RewardsAssignmentsUpdateRequestBody' and its subtypes
+       if (!LoyaltiesRewardsCreateAssignmentItemRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesRewardsCreateAssignmentItemRequestBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RewardsAssignmentsUpdateRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsAssignmentsUpdateRequestBody.class));
+       final TypeAdapter<LoyaltiesRewardsCreateAssignmentItemRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesRewardsCreateAssignmentItemRequestBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RewardsAssignmentsUpdateRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesRewardsCreateAssignmentItemRequestBody>() {
            @Override
-           public void write(JsonWriter out, RewardsAssignmentsUpdateRequestBody value) throws IOException {
+           public void write(JsonWriter out, LoyaltiesRewardsCreateAssignmentItemRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,11 +292,11 @@ public class RewardsAssignmentsUpdateRequestBody {
            }
 
            @Override
-           public RewardsAssignmentsUpdateRequestBody read(JsonReader in) throws IOException {
+           public LoyaltiesRewardsCreateAssignmentItemRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RewardsAssignmentsUpdateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltiesRewardsCreateAssignmentItemRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -257,18 +323,18 @@ public class RewardsAssignmentsUpdateRequestBody {
   }
 
  /**
-  * Create an instance of RewardsAssignmentsUpdateRequestBody given an JSON string
+  * Create an instance of LoyaltiesRewardsCreateAssignmentItemRequestBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RewardsAssignmentsUpdateRequestBody
-  * @throws IOException if the JSON string is invalid with respect to RewardsAssignmentsUpdateRequestBody
+  * @return An instance of LoyaltiesRewardsCreateAssignmentItemRequestBody
+  * @throws IOException if the JSON string is invalid with respect to LoyaltiesRewardsCreateAssignmentItemRequestBody
   */
-  public static RewardsAssignmentsUpdateRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RewardsAssignmentsUpdateRequestBody.class);
+  public static LoyaltiesRewardsCreateAssignmentItemRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltiesRewardsCreateAssignmentItemRequestBody.class);
   }
 
  /**
-  * Convert an instance of RewardsAssignmentsUpdateRequestBody to an JSON string
+  * Convert an instance of LoyaltiesRewardsCreateAssignmentItemRequestBody to an JSON string
   *
   * @return JSON string
   */

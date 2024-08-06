@@ -1,6 +1,6 @@
 
 
-# VouchersUpdateInBulkRequestBodyItem
+# VouchersUpdateInBulkItemRequestBody
 
 
 ## Properties

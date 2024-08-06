@@ -159,6 +159,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for GET `/v1/customers/{customerId}/activity`
   - Added support for POST `/v1/vouchers/bulk/async`
   - Added support for GET `/v1/loyalties/{campaignId}/reward-assignments` and GET `/v1/loyalties/{campaignId}/rewards`
+  - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
@@ -255,6 +256,7 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
 *LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
+*LoyaltiesApi* | [**createRewardAssignment1**](docs/LoyaltiesApi.md#createRewardAssignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment
 *LoyaltiesApi* | [**deleteEarningRule**](docs/LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule
 *LoyaltiesApi* | [**deleteLoyaltyProgram**](docs/LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign
 *LoyaltiesApi* | [**deleteRewardAssignment1**](docs/LoyaltiesApi.md#deleteRewardAssignment1) | **DELETE** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Delete Reward Assignment
@@ -284,6 +286,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**updateEarningRule**](docs/LoyaltiesApi.md#updateEarningRule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule
 *LoyaltiesApi* | [**updateLoyaltyCardBalance**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Add or Remove Loyalty Card Balance
 *LoyaltiesApi* | [**updateLoyaltyCardBalance1**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Add or Remove Loyalty Card Balance
+*LoyaltiesApi* | [**updateRewardAssignment1**](docs/LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment
 *OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/orders | Create Order
 *OrdersApi* | [**createOrderExport**](docs/OrdersApi.md#createOrderExport) | **POST** /v1/orders/export | Create Orders Export
 *OrdersApi* | [**getOrder**](docs/OrdersApi.md#getOrder) | **GET** /v1/orders/{orderId} | Get Order
@@ -578,8 +581,12 @@ Class | Method | HTTP request | Description
 - [LoyaltiesRewardAssignmentsGetResponseBody](docs/LoyaltiesRewardAssignmentsGetResponseBody.md)
 - [LoyaltiesRewardAssignmentsListResponseBody](docs/LoyaltiesRewardAssignmentsListResponseBody.md)
 - [LoyaltiesRewardAssignmentsRewardGetResponseBody](docs/LoyaltiesRewardAssignmentsRewardGetResponseBody.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBody](docs/LoyaltiesRewardsCreateAssignmentItemRequestBody.md)
+- [LoyaltiesRewardsCreateAssignmentResponseBody](docs/LoyaltiesRewardsCreateAssignmentResponseBody.md)
 - [LoyaltiesRewardsGetResponseBody](docs/LoyaltiesRewardsGetResponseBody.md)
 - [LoyaltiesRewardsListAssignmentsResponseBody](docs/LoyaltiesRewardsListAssignmentsResponseBody.md)
+- [LoyaltiesRewardsUpdateAssignmentRequestBody](docs/LoyaltiesRewardsUpdateAssignmentRequestBody.md)
+- [LoyaltiesRewardsUpdateAssignmentResponseBody](docs/LoyaltiesRewardsUpdateAssignmentResponseBody.md)
 - [LoyaltiesTiersCreateInBulkRequestBodyItem](docs/LoyaltiesTiersCreateInBulkRequestBodyItem.md)
 - [LoyaltiesTiersEarningRulesListResponseBody](docs/LoyaltiesTiersEarningRulesListResponseBody.md)
 - [LoyaltiesTiersGetResponseBody](docs/LoyaltiesTiersGetResponseBody.md)
@@ -966,8 +973,8 @@ Class | Method | HTTP request | Description
 - [VouchersDisableResponseBody](docs/VouchersDisableResponseBody.md)
 - [VouchersEnableResponseBody](docs/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)
-- [VouchersImportCreateRequestBodyItem](docs/VouchersImportCreateRequestBodyItem.md)
-- [VouchersImportCreateRequestBodyItemRedemption](docs/VouchersImportCreateRequestBodyItemRedemption.md)
+- [VouchersImportCreateItemRequestBody](docs/VouchersImportCreateItemRequestBody.md)
+- [VouchersImportCreateItemRequestBodyRedemption](docs/VouchersImportCreateItemRequestBodyRedemption.md)
 - [VouchersImportCreateResponseBody](docs/VouchersImportCreateResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/VouchersImportCsvCreateResponseBody.md)
 - [VouchersListResponseBody](docs/VouchersListResponseBody.md)
@@ -977,7 +984,7 @@ Class | Method | HTTP request | Description
 - [VouchersTransactionsExportCreateRequestBody](docs/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/VouchersTransactionsExportCreateResponseBody.md)
 - [VouchersTransactionsListResponseBody](docs/VouchersTransactionsListResponseBody.md)
-- [VouchersUpdateInBulkRequestBodyItem](docs/VouchersUpdateInBulkRequestBodyItem.md)
+- [VouchersUpdateInBulkItemRequestBody](docs/VouchersUpdateInBulkItemRequestBody.md)
 - [VouchersUpdateInBulkResponseBody](docs/VouchersUpdateInBulkResponseBody.md)
 - [VouchersUpdateRequestBody](docs/VouchersUpdateRequestBody.md)
 - [VouchersUpdateResponseBody](docs/VouchersUpdateResponseBody.md)

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsAssignmentsUpdateRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,36 +48,61 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **PUT** &#x60;/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
+ * VouchersUpdateInBulkItemRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class RewardsAssignmentsUpdateRequestBody {
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardsAssignmentsUpdateRequestBodyParameters parameters;
+public class VouchersUpdateInBulkItemRequestBody {
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
-  public RewardsAssignmentsUpdateRequestBody() {
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
+
+  public VouchersUpdateInBulkItemRequestBody() {
   }
 
-  public RewardsAssignmentsUpdateRequestBody parameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
+  public VouchersUpdateInBulkItemRequestBody code(String code) {
     
-    this.parameters = parameters;
+    this.code = code;
     return this;
   }
 
    /**
-   * Get parameters
-   * @return parameters
+   * Unique voucher code.
+   * @return code
   **/
   @javax.annotation.Nullable
-  public RewardsAssignmentsUpdateRequestBodyParameters getParameters() {
-    return parameters;
+  public String getCode() {
+    return code;
   }
 
 
-  public void setParameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
-    this.parameters = parameters;
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public VouchersUpdateInBulkItemRequestBody metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
   }
 
   /**
@@ -94,9 +118,9 @@ public class RewardsAssignmentsUpdateRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RewardsAssignmentsUpdateRequestBody instance itself
+   * @return the VouchersUpdateInBulkItemRequestBody instance itself
    */
-  public RewardsAssignmentsUpdateRequestBody putAdditionalProperty(String key, Object value) {
+  public VouchersUpdateInBulkItemRequestBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -135,9 +159,10 @@ public class RewardsAssignmentsUpdateRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = (RewardsAssignmentsUpdateRequestBody) o;
-    return Objects.equals(this.parameters, rewardsAssignmentsUpdateRequestBody.parameters)&&
-        Objects.equals(this.additionalProperties, rewardsAssignmentsUpdateRequestBody.additionalProperties);
+    VouchersUpdateInBulkItemRequestBody vouchersUpdateInBulkItemRequestBody = (VouchersUpdateInBulkItemRequestBody) o;
+    return Objects.equals(this.code, vouchersUpdateInBulkItemRequestBody.code) &&
+        Objects.equals(this.metadata, vouchersUpdateInBulkItemRequestBody.metadata)&&
+        Objects.equals(this.additionalProperties, vouchersUpdateInBulkItemRequestBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -146,7 +171,7 @@ public class RewardsAssignmentsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameters, additionalProperties);
+    return Objects.hash(code, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -159,8 +184,9 @@ public class RewardsAssignmentsUpdateRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RewardsAssignmentsUpdateRequestBody {\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("class VouchersUpdateInBulkItemRequestBody {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +210,8 @@ public class RewardsAssignmentsUpdateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("parameters");
+    openapiFields.add("code");
+    openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -194,16 +221,16 @@ public class RewardsAssignmentsUpdateRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RewardsAssignmentsUpdateRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RewardsAssignmentsUpdateRequestBody' and its subtypes
+       if (!VouchersUpdateInBulkItemRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VouchersUpdateInBulkItemRequestBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RewardsAssignmentsUpdateRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RewardsAssignmentsUpdateRequestBody.class));
+       final TypeAdapter<VouchersUpdateInBulkItemRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersUpdateInBulkItemRequestBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RewardsAssignmentsUpdateRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<VouchersUpdateInBulkItemRequestBody>() {
            @Override
-           public void write(JsonWriter out, RewardsAssignmentsUpdateRequestBody value) throws IOException {
+           public void write(JsonWriter out, VouchersUpdateInBulkItemRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,11 +253,11 @@ public class RewardsAssignmentsUpdateRequestBody {
            }
 
            @Override
-           public RewardsAssignmentsUpdateRequestBody read(JsonReader in) throws IOException {
+           public VouchersUpdateInBulkItemRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RewardsAssignmentsUpdateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             VouchersUpdateInBulkItemRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -257,18 +284,18 @@ public class RewardsAssignmentsUpdateRequestBody {
   }
 
  /**
-  * Create an instance of RewardsAssignmentsUpdateRequestBody given an JSON string
+  * Create an instance of VouchersUpdateInBulkItemRequestBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RewardsAssignmentsUpdateRequestBody
-  * @throws IOException if the JSON string is invalid with respect to RewardsAssignmentsUpdateRequestBody
+  * @return An instance of VouchersUpdateInBulkItemRequestBody
+  * @throws IOException if the JSON string is invalid with respect to VouchersUpdateInBulkItemRequestBody
   */
-  public static RewardsAssignmentsUpdateRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RewardsAssignmentsUpdateRequestBody.class);
+  public static VouchersUpdateInBulkItemRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VouchersUpdateInBulkItemRequestBody.class);
   }
 
  /**
-  * Convert an instance of RewardsAssignmentsUpdateRequestBody to an JSON string
+  * Convert an instance of VouchersUpdateInBulkItemRequestBody to an JSON string
   *
   * @return JSON string
   */

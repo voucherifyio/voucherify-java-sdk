@@ -13865,6 +13865,75 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+    post:
+      description: Add rewards to a loyalty campaign.
+      operationId: create-reward-assignment-1
+      parameters:
+      - description: "Unique campaign ID or name of the loyalty campaign. You can\
+          \ either pass the campaign ID, which was assigned by Voucherify, or the\
+          \ name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                - reward: rew_wg2pvCr5LDhCq4uVQZ9LhuZm
+                  parameters:
+                    loyalty:
+                      points: 2
+                - reward: rew_z35ffKoH0tCcck8EL56p6SIs
+                  parameters:
+                    loyalty:
+                      points: 2
+            schema:
+              $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentResponseBody'
+        description: Define the cost of the rewards in loyalty points.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                  - id: rewa_Iw9VopmlLm0topBG17ZH1gp5
+                    reward_id: rew_wg2pvCr5LDhCq4uVQZ9LhuZm
+                    related_object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                    related_object_type: campaign
+                    parameters:
+                      loyalty:
+                        points: 2
+                    created_at: 2022-11-28T18:54:19.747Z
+                    updated_at: null
+                    object: reward_assignment
+                  - id: rewa_tAFZ7cHiTwZyOg1QaWHt6yYv
+                    reward_id: rew_z35ffKoH0tCcck8EL56p6SIs
+                    related_object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                    related_object_type: campaign
+                    parameters:
+                      loyalty:
+                        points: 2
+                    created_at: 2022-11-28T18:54:19.747Z
+                    updated_at: null
+                    object: reward_assignment
+              schema:
+                $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentRequestBody'
+          description: Returns a list of reward assignment objects.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Reward Assignment
+      tags:
+      - Loyalties
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}:
     get:
       description: Retrieve specific reward assignment.
@@ -13998,6 +14067,69 @@ paths:
       summary: Get Reward Assignment
       tags:
       - Loyalties
+      x-accepts: application/json
+    put:
+      description: "Updates rewards parameters, i.e. the points cost for the specific\
+        \ reward."
+      operationId: update-reward-assignment-1
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: A unique reward assignment ID.
+        explode: false
+        in: path
+        name: assignmentId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterRewardAssignmentId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  parameters:
+                    loyalty:
+                      points: 3
+            schema:
+              $ref: '#/components/schemas/LoyaltiesRewardsUpdateAssignmentRequestBody'
+        description: Update the points cost for the reward assignment.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: rewa_Iw9VopmlLm0topBG17ZH1gp5
+                    reward_id: rew_wg2pvCr5LDhCq4uVQZ9LhuZm
+                    related_object_id: camp_fkZ28pe7DUAEmmabofkxHI8N
+                    related_object_type: campaign
+                    parameters:
+                      loyalty:
+                        points: 3
+                    created_at: 2022-11-28T18:54:19.747Z
+                    updated_at: 2022-11-28T19:27:40.604Z
+                    object: reward_assignment
+              schema:
+                $ref: '#/components/schemas/LoyaltiesRewardsUpdateAssignmentResponseBody'
+          description: Returns a reward assignment with an updated points value.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Reward Assignment
+      tags:
+      - Loyalties
+      x-content-type: application/json
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/redemption:
     post:
@@ -25980,6 +26112,18 @@ components:
       description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward`"
       title: Loyalties Reward Assignments Reward Get Response Body
       type: object
+    LoyaltiesRewardsCreateAssignmentRequestBody:
+      description: "Request body schema for **POST** `/loyalties/{campaignId}/rewards`."
+      items:
+        $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentItemRequestBody'
+      title: Loyalties Rewards Create Assignment Request Body
+      type: array
+    LoyaltiesRewardsCreateAssignmentResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/RewardAssignment'
+      description: "Response body schema for **POST** `/v1/loyalties/{campaignId}/rewards`."
+      title: Loyalties Rewards Create Assignment Response Body
+      type: object
     LoyaltiesRewardsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
@@ -26021,6 +26165,17 @@ components:
           nullable: true
           type: integer
       title: Loyalties Rewards List Assignments Response Body
+      type: object
+    LoyaltiesRewardsUpdateAssignmentRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/RewardsAssignmentsUpdateRequestBody'
+      description: "Response body schema for **PUT** `/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
+      title: Loyalties Rewards Update Assignment Request Body
+    LoyaltiesRewardsUpdateAssignmentResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/RewardAssignment'
+      description: "Response body schema for **PUT** `/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
+      title: Loyalties Rewards Update Assignment Response Body
       type: object
     LoyaltiesTiersCreateInBulkRequestBody:
       description: "Request body schema for **POST** `/loyalties/{campaignId}/tiers`"
@@ -29889,8 +30044,7 @@ components:
       title: Rewards Assignments List Response Body
       type: object
     RewardsAssignmentsUpdateRequestBody:
-      description: "Request body schema for **PUT** `/loyalties/{campaignId}/rewards/{assignmentId}`\
-        \ and **PUT** `/rewards/{rewardId}/assignments/{assignmentId}`."
+      description: "Request body schema for **PUT** `/rewards/{rewardId}/assignments/{assignmentId}`."
       example:
         parameters:
           loyalty:
@@ -30662,7 +30816,7 @@ components:
     VouchersImportCreateRequestBody:
       description: Request body schema for **POST** `/vouchers/import`.
       items:
-        $ref: '#/components/schemas/VouchersImportCreateRequestBodyItem'
+        $ref: '#/components/schemas/VouchersImportCreateItemRequestBody'
       title: Vouchers Import Request Body
       type: array
     VouchersImportCreateResponseBody:
@@ -30963,7 +31117,7 @@ components:
     VouchersUpdateInBulkRequestBody:
       description: Request body schema for **POST** `/vouchers/bulk/async`.
       items:
-        $ref: '#/components/schemas/VouchersUpdateInBulkRequestBodyItem'
+        $ref: '#/components/schemas/VouchersUpdateInBulkItemRequestBody'
       title: Vouchers Update In Bulk Request Body
       type: array
     VouchersUpdateInBulkResponseBody:
@@ -33255,6 +33409,30 @@ components:
       - object
       - reward
       title: Loyalty Tier Reward Object
+      type: object
+    LoyaltiesRewardsCreateAssignmentItemRequestBody:
+      example:
+        reward: reward
+        parameters:
+          loyalty:
+            points: 0
+        validation_rules:
+        - validation_rules
+        - validation_rules
+      properties:
+        reward:
+          description: The reward ID of the campaign to which the campaign is to be
+            assigned.
+          nullable: true
+          type: string
+        parameters:
+          $ref: '#/components/schemas/RewardsAssignmentsCreateRequestBody_parameters'
+        validation_rules:
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: LoyaltiesRewardsCreateAssignmentItemRequestBody
       type: object
     LoyaltiesTransferPoints:
       example:
@@ -36563,7 +36741,7 @@ components:
         type: object
       description: This is an object representing a voucher with categories.
       title: Voucher With Categories
-    VouchersImportCreateRequestBodyItem:
+    VouchersImportCreateItemRequestBody:
       example:
         gift:
           amount: 5.637376656633329
@@ -36624,7 +36802,7 @@ components:
           nullable: true
           type: string
         redemption:
-          $ref: '#/components/schemas/VouchersImportCreateRequestBodyItemRedemption'
+          $ref: '#/components/schemas/VouchersImportCreateItemRequestBodyRedemption'
         active:
           description: "A flag to toggle the voucher on or off. You can disable a\
             \ voucher even though it's within the active period defined by the `start_date`\
@@ -36634,7 +36812,7 @@ components:
           type: boolean
         metadata:
           nullable: true
-          title: VouchersImportCreateRequestBodyItemMetadata
+          title: VouchersImportCreateItemRequestBodyMetadata
           type: object
         category:
           description: "Tag defining the category that this voucher belongs to. Useful\
@@ -36709,9 +36887,9 @@ components:
           $ref: '#/components/schemas/Gift'
         discount:
           $ref: '#/components/schemas/Discount'
-      title: VouchersImportCreateRequestBodyItem
+      title: VouchersImportCreateItemRequestBody
       type: object
-    VouchersUpdateInBulkRequestBodyItem:
+    VouchersUpdateInBulkItemRequestBody:
       example:
         metadata: "{}"
         code: code
@@ -46858,7 +47036,7 @@ components:
           nullable: true
           type: string
       type: object
-    VouchersImportCreateRequestBodyItemRedemption:
+    VouchersImportCreateItemRequestBodyRedemption:
       example:
         quantity: 10
       nullable: true
@@ -46869,7 +47047,7 @@ components:
           example: 10
           nullable: true
           type: integer
-      title: VouchersImportCreateRequestBodyItemRedemption
+      title: VouchersImportCreateItemRequestBodyRedemption
       type: object
     CampaignVoucher_redemption:
       description: Defines the redemption limits on vouchers.

@@ -1,6 +1,6 @@
 
 
-# VouchersImportCreateRequestBodyItem
+# VouchersImportCreateItemRequestBody
 
 
 ## Properties
@@ -8,7 +8,7 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**code** | **String** | Value representing the imported code. |
-|**redemption** | [**VouchersImportCreateRequestBodyItemRedemption**](VouchersImportCreateRequestBodyItemRedemption.md) |  |
+|**redemption** | [**VouchersImportCreateItemRequestBodyRedemption**](VouchersImportCreateItemRequestBodyRedemption.md) |  |
 |**active** | **Boolean** | A flag to toggle the voucher on or off. You can disable a voucher even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* voucher - &#x60;false&#x60; indicates an *inactive* voucher |
 |**metadata** | **Object** |  |
 |**category** | **String** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint. |

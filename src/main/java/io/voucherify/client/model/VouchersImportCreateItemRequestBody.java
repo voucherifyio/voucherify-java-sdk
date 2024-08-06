@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
 import io.voucherify.client.model.ValidityTimeframe;
-import io.voucherify.client.model.VouchersImportCreateRequestBodyItemRedemption;
+import io.voucherify.client.model.VouchersImportCreateItemRequestBodyRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -55,18 +55,18 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * VouchersImportCreateRequestBodyItem
+ * VouchersImportCreateItemRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class VouchersImportCreateRequestBodyItem {
+public class VouchersImportCreateItemRequestBody {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private VouchersImportCreateRequestBodyItemRedemption redemption;
+  private VouchersImportCreateItemRequestBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -216,10 +216,10 @@ public class VouchersImportCreateRequestBodyItem {
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   private Discount discount;
 
-  public VouchersImportCreateRequestBodyItem() {
+  public VouchersImportCreateItemRequestBody() {
   }
 
-  public VouchersImportCreateRequestBodyItem code(String code) {
+  public VouchersImportCreateItemRequestBody code(String code) {
     
     this.code = code;
     return this;
@@ -240,7 +240,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem redemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
+  public VouchersImportCreateItemRequestBody redemption(VouchersImportCreateItemRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -251,17 +251,17 @@ public class VouchersImportCreateRequestBodyItem {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public VouchersImportCreateRequestBodyItemRedemption getRedemption() {
+  public VouchersImportCreateItemRequestBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(VouchersImportCreateRequestBodyItemRedemption redemption) {
+  public void setRedemption(VouchersImportCreateItemRequestBodyRedemption redemption) {
     this.redemption = redemption;
   }
 
 
-  public VouchersImportCreateRequestBodyItem active(Boolean active) {
+  public VouchersImportCreateItemRequestBody active(Boolean active) {
     
     this.active = active;
     return this;
@@ -282,7 +282,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem metadata(Object metadata) {
+  public VouchersImportCreateItemRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -303,7 +303,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem category(String category) {
+  public VouchersImportCreateItemRequestBody category(String category) {
     
     this.category = category;
     return this;
@@ -324,7 +324,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem startDate(OffsetDateTime startDate) {
+  public VouchersImportCreateItemRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
@@ -345,7 +345,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem expirationDate(OffsetDateTime expirationDate) {
+  public VouchersImportCreateItemRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -366,7 +366,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public VouchersImportCreateItemRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -387,13 +387,13 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public VouchersImportCreateItemRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public VouchersImportCreateRequestBodyItem addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public VouchersImportCreateItemRequestBody addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -416,7 +416,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem additionalInfo(String additionalInfo) {
+  public VouchersImportCreateItemRequestBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
     return this;
@@ -437,7 +437,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem type(TypeEnum type) {
+  public VouchersImportCreateItemRequestBody type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -458,7 +458,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem gift(Gift gift) {
+  public VouchersImportCreateItemRequestBody gift(Gift gift) {
     
     this.gift = gift;
     return this;
@@ -479,7 +479,7 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
 
-  public VouchersImportCreateRequestBodyItem discount(Discount discount) {
+  public VouchersImportCreateItemRequestBody discount(Discount discount) {
     
     this.discount = discount;
     return this;
@@ -512,9 +512,9 @@ public class VouchersImportCreateRequestBodyItem {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the VouchersImportCreateRequestBodyItem instance itself
+   * @return the VouchersImportCreateItemRequestBody instance itself
    */
-  public VouchersImportCreateRequestBodyItem putAdditionalProperty(String key, Object value) {
+  public VouchersImportCreateItemRequestBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -553,21 +553,21 @@ public class VouchersImportCreateRequestBodyItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VouchersImportCreateRequestBodyItem vouchersImportCreateRequestBodyItem = (VouchersImportCreateRequestBodyItem) o;
-    return Objects.equals(this.code, vouchersImportCreateRequestBodyItem.code) &&
-        Objects.equals(this.redemption, vouchersImportCreateRequestBodyItem.redemption) &&
-        Objects.equals(this.active, vouchersImportCreateRequestBodyItem.active) &&
-        Objects.equals(this.metadata, vouchersImportCreateRequestBodyItem.metadata) &&
-        Objects.equals(this.category, vouchersImportCreateRequestBodyItem.category) &&
-        Objects.equals(this.startDate, vouchersImportCreateRequestBodyItem.startDate) &&
-        Objects.equals(this.expirationDate, vouchersImportCreateRequestBodyItem.expirationDate) &&
-        Objects.equals(this.validityTimeframe, vouchersImportCreateRequestBodyItem.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, vouchersImportCreateRequestBodyItem.validityDayOfWeek) &&
-        Objects.equals(this.additionalInfo, vouchersImportCreateRequestBodyItem.additionalInfo) &&
-        Objects.equals(this.type, vouchersImportCreateRequestBodyItem.type) &&
-        Objects.equals(this.gift, vouchersImportCreateRequestBodyItem.gift) &&
-        Objects.equals(this.discount, vouchersImportCreateRequestBodyItem.discount)&&
-        Objects.equals(this.additionalProperties, vouchersImportCreateRequestBodyItem.additionalProperties);
+    VouchersImportCreateItemRequestBody vouchersImportCreateItemRequestBody = (VouchersImportCreateItemRequestBody) o;
+    return Objects.equals(this.code, vouchersImportCreateItemRequestBody.code) &&
+        Objects.equals(this.redemption, vouchersImportCreateItemRequestBody.redemption) &&
+        Objects.equals(this.active, vouchersImportCreateItemRequestBody.active) &&
+        Objects.equals(this.metadata, vouchersImportCreateItemRequestBody.metadata) &&
+        Objects.equals(this.category, vouchersImportCreateItemRequestBody.category) &&
+        Objects.equals(this.startDate, vouchersImportCreateItemRequestBody.startDate) &&
+        Objects.equals(this.expirationDate, vouchersImportCreateItemRequestBody.expirationDate) &&
+        Objects.equals(this.validityTimeframe, vouchersImportCreateItemRequestBody.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, vouchersImportCreateItemRequestBody.validityDayOfWeek) &&
+        Objects.equals(this.additionalInfo, vouchersImportCreateItemRequestBody.additionalInfo) &&
+        Objects.equals(this.type, vouchersImportCreateItemRequestBody.type) &&
+        Objects.equals(this.gift, vouchersImportCreateItemRequestBody.gift) &&
+        Objects.equals(this.discount, vouchersImportCreateItemRequestBody.discount)&&
+        Objects.equals(this.additionalProperties, vouchersImportCreateItemRequestBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -589,7 +589,7 @@ public class VouchersImportCreateRequestBodyItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VouchersImportCreateRequestBodyItem {\n");
+    sb.append("class VouchersImportCreateItemRequestBody {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -648,16 +648,16 @@ public class VouchersImportCreateRequestBodyItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VouchersImportCreateRequestBodyItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VouchersImportCreateRequestBodyItem' and its subtypes
+       if (!VouchersImportCreateItemRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VouchersImportCreateItemRequestBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VouchersImportCreateRequestBodyItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersImportCreateRequestBodyItem.class));
+       final TypeAdapter<VouchersImportCreateItemRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersImportCreateItemRequestBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VouchersImportCreateRequestBodyItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<VouchersImportCreateItemRequestBody>() {
            @Override
-           public void write(JsonWriter out, VouchersImportCreateRequestBodyItem value) throws IOException {
+           public void write(JsonWriter out, VouchersImportCreateItemRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -680,11 +680,11 @@ public class VouchersImportCreateRequestBodyItem {
            }
 
            @Override
-           public VouchersImportCreateRequestBodyItem read(JsonReader in) throws IOException {
+           public VouchersImportCreateItemRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             VouchersImportCreateRequestBodyItem instance = thisAdapter.fromJsonTree(jsonObj);
+             VouchersImportCreateItemRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -711,18 +711,18 @@ public class VouchersImportCreateRequestBodyItem {
   }
 
  /**
-  * Create an instance of VouchersImportCreateRequestBodyItem given an JSON string
+  * Create an instance of VouchersImportCreateItemRequestBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VouchersImportCreateRequestBodyItem
-  * @throws IOException if the JSON string is invalid with respect to VouchersImportCreateRequestBodyItem
+  * @return An instance of VouchersImportCreateItemRequestBody
+  * @throws IOException if the JSON string is invalid with respect to VouchersImportCreateItemRequestBody
   */
-  public static VouchersImportCreateRequestBodyItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VouchersImportCreateRequestBodyItem.class);
+  public static VouchersImportCreateItemRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VouchersImportCreateItemRequestBody.class);
   }
 
  /**
-  * Convert an instance of VouchersImportCreateRequestBodyItem to an JSON string
+  * Convert an instance of VouchersImportCreateItemRequestBody to an JSON string
   *
   * @return JSON string
   */

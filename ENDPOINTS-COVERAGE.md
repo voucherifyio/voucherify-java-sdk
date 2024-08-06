@@ -157,10 +157,10 @@
 | /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | get    | Get Reward Details                 | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/reward-assignments                       | get    | List Reward Assignments            | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/rewards                                  | get    | List Reward Assignments            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards                                  | post   | Create Reward Assignment           |                                      |               |
+| /v1/loyalties/{campaignId}/rewards                                  | post   | Create Reward Assignment           | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}        | get    | Get Reward Assignment              | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | get    | Get Reward Assignment              | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | put    | Update Reward Assignment           |                                      |               |
+| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | put    | Update Reward Assignment           | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | delete | Delete Reward Assignment           | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/members/{memberId}/redemption            | post   | Redeem Reward                      | <font color='green'>supported</font> |               |
 | /v1/loyalties/members/{memberId}/redemption                         | post   | Redeem Reward                      | <font color='green'>supported</font> |               |

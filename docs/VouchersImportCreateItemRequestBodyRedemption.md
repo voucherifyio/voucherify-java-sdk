@@ -1,6 +1,6 @@
 
 
-# VouchersImportCreateRequestBodyItemRedemption
+# VouchersImportCreateItemRequestBodyRedemption
 
 
 ## Properties

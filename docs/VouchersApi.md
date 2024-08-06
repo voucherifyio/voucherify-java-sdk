@@ -512,7 +512,7 @@ public class Example {
 
 <a id="importVouchers"></a>
 # **importVouchers**
-> VouchersImportCreateResponseBody importVouchers(vouchersImportCreateRequestBodyItem)
+> VouchersImportCreateResponseBody importVouchers(vouchersImportCreateItemRequestBody)
 
 Import Vouchers
 
@@ -540,9 +540,9 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
-    List<VouchersImportCreateRequestBodyItem> vouchersImportCreateRequestBodyItem = Arrays.asList(); // List<VouchersImportCreateRequestBodyItem> | The request body is an array of objects. Each object contains details about a specific voucher. 
+    List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody = Arrays.asList(); // List<VouchersImportCreateItemRequestBody> | The request body is an array of objects. Each object contains details about a specific voucher. 
     try {
-      VouchersImportCreateResponseBody result = apiInstance.importVouchers(vouchersImportCreateRequestBodyItem);
+      VouchersImportCreateResponseBody result = apiInstance.importVouchers(vouchersImportCreateItemRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#importVouchers");
@@ -559,7 +559,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **vouchersImportCreateRequestBodyItem** | [**List&lt;VouchersImportCreateRequestBodyItem&gt;**](VouchersImportCreateRequestBodyItem.md)| The request body is an array of objects. Each object contains details about a specific voucher.  |
+| **vouchersImportCreateItemRequestBody** | [**List&lt;VouchersImportCreateItemRequestBody&gt;**](VouchersImportCreateItemRequestBody.md)| The request body is an array of objects. Each object contains details about a specific voucher.  |
 
 ### Return type
 
@@ -1020,7 +1020,7 @@ public class Example {
 
 <a id="updateVouchersInBulk"></a>
 # **updateVouchersInBulk**
-> VouchersUpdateInBulkResponseBody updateVouchersInBulk(vouchersUpdateInBulkRequestBodyItem)
+> VouchersUpdateInBulkResponseBody updateVouchersInBulk(vouchersUpdateInBulkItemRequestBody)
 
 Update Vouchers in bulk
 
@@ -1048,9 +1048,9 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
-    List<VouchersUpdateInBulkRequestBodyItem> vouchersUpdateInBulkRequestBodyItem = Arrays.asList(); // List<VouchersUpdateInBulkRequestBodyItem> | List of objects, each containing a code that is being updated and the metadata key/value pairs for that code.
+    List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody = Arrays.asList(); // List<VouchersUpdateInBulkItemRequestBody> | List of objects, each containing a code that is being updated and the metadata key/value pairs for that code.
     try {
-      VouchersUpdateInBulkResponseBody result = apiInstance.updateVouchersInBulk(vouchersUpdateInBulkRequestBodyItem);
+      VouchersUpdateInBulkResponseBody result = apiInstance.updateVouchersInBulk(vouchersUpdateInBulkItemRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#updateVouchersInBulk");
@@ -1067,7 +1067,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **vouchersUpdateInBulkRequestBodyItem** | [**List&lt;VouchersUpdateInBulkRequestBodyItem&gt;**](VouchersUpdateInBulkRequestBodyItem.md)| List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. |
+| **vouchersUpdateInBulkItemRequestBody** | [**List&lt;VouchersUpdateInBulkItemRequestBody&gt;**](VouchersUpdateInBulkItemRequestBody.md)| List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. |
 
 ### Return type
 

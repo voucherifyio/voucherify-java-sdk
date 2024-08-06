@@ -48,61 +48,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * VouchersUpdateInBulkRequestBodyItem
+ * VouchersImportCreateItemRequestBodyRedemption
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class VouchersUpdateInBulkRequestBodyItem {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+public class VouchersImportCreateItemRequestBodyRedemption {
+  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  @SerializedName(SERIALIZED_NAME_QUANTITY)
+  private Integer quantity;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
-
-  public VouchersUpdateInBulkRequestBodyItem() {
+  public VouchersImportCreateItemRequestBodyRedemption() {
   }
 
-  public VouchersUpdateInBulkRequestBodyItem code(String code) {
+  public VouchersImportCreateItemRequestBodyRedemption quantity(Integer quantity) {
     
-    this.code = code;
+    this.quantity = quantity;
     return this;
   }
 
    /**
-   * Unique voucher code.
-   * @return code
+   * How many times a voucher can be redeemed. A &#x60;null&#x60; value means unlimited.
+   * @return quantity
   **/
   @javax.annotation.Nullable
-  public String getCode() {
-    return code;
+  public Integer getQuantity() {
+    return quantity;
   }
 
 
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public VouchersUpdateInBulkRequestBodyItem metadata(Object metadata) {
-    
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format.
-   * @return metadata
-  **/
-  @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
-  }
-
-
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
   }
 
   /**
@@ -118,9 +93,9 @@ public class VouchersUpdateInBulkRequestBodyItem {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the VouchersUpdateInBulkRequestBodyItem instance itself
+   * @return the VouchersImportCreateItemRequestBodyRedemption instance itself
    */
-  public VouchersUpdateInBulkRequestBodyItem putAdditionalProperty(String key, Object value) {
+  public VouchersImportCreateItemRequestBodyRedemption putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -159,10 +134,9 @@ public class VouchersUpdateInBulkRequestBodyItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VouchersUpdateInBulkRequestBodyItem vouchersUpdateInBulkRequestBodyItem = (VouchersUpdateInBulkRequestBodyItem) o;
-    return Objects.equals(this.code, vouchersUpdateInBulkRequestBodyItem.code) &&
-        Objects.equals(this.metadata, vouchersUpdateInBulkRequestBodyItem.metadata)&&
-        Objects.equals(this.additionalProperties, vouchersUpdateInBulkRequestBodyItem.additionalProperties);
+    VouchersImportCreateItemRequestBodyRedemption vouchersImportCreateItemRequestBodyRedemption = (VouchersImportCreateItemRequestBodyRedemption) o;
+    return Objects.equals(this.quantity, vouchersImportCreateItemRequestBodyRedemption.quantity)&&
+        Objects.equals(this.additionalProperties, vouchersImportCreateItemRequestBodyRedemption.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -171,7 +145,7 @@ public class VouchersUpdateInBulkRequestBodyItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, metadata, additionalProperties);
+    return Objects.hash(quantity, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -184,9 +158,8 @@ public class VouchersUpdateInBulkRequestBodyItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VouchersUpdateInBulkRequestBodyItem {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("class VouchersImportCreateItemRequestBodyRedemption {\n");
+    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -210,8 +183,7 @@ public class VouchersUpdateInBulkRequestBodyItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("code");
-    openapiFields.add("metadata");
+    openapiFields.add("quantity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -221,16 +193,16 @@ public class VouchersUpdateInBulkRequestBodyItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VouchersUpdateInBulkRequestBodyItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VouchersUpdateInBulkRequestBodyItem' and its subtypes
+       if (!VouchersImportCreateItemRequestBodyRedemption.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'VouchersImportCreateItemRequestBodyRedemption' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VouchersUpdateInBulkRequestBodyItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersUpdateInBulkRequestBodyItem.class));
+       final TypeAdapter<VouchersImportCreateItemRequestBodyRedemption> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersImportCreateItemRequestBodyRedemption.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VouchersUpdateInBulkRequestBodyItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<VouchersImportCreateItemRequestBodyRedemption>() {
            @Override
-           public void write(JsonWriter out, VouchersUpdateInBulkRequestBodyItem value) throws IOException {
+           public void write(JsonWriter out, VouchersImportCreateItemRequestBodyRedemption value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -253,11 +225,11 @@ public class VouchersUpdateInBulkRequestBodyItem {
            }
 
            @Override
-           public VouchersUpdateInBulkRequestBodyItem read(JsonReader in) throws IOException {
+           public VouchersImportCreateItemRequestBodyRedemption read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             VouchersUpdateInBulkRequestBodyItem instance = thisAdapter.fromJsonTree(jsonObj);
+             VouchersImportCreateItemRequestBodyRedemption instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -284,18 +256,18 @@ public class VouchersUpdateInBulkRequestBodyItem {
   }
 
  /**
-  * Create an instance of VouchersUpdateInBulkRequestBodyItem given an JSON string
+  * Create an instance of VouchersImportCreateItemRequestBodyRedemption given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VouchersUpdateInBulkRequestBodyItem
-  * @throws IOException if the JSON string is invalid with respect to VouchersUpdateInBulkRequestBodyItem
+  * @return An instance of VouchersImportCreateItemRequestBodyRedemption
+  * @throws IOException if the JSON string is invalid with respect to VouchersImportCreateItemRequestBodyRedemption
   */
-  public static VouchersUpdateInBulkRequestBodyItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VouchersUpdateInBulkRequestBodyItem.class);
+  public static VouchersImportCreateItemRequestBodyRedemption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VouchersImportCreateItemRequestBodyRedemption.class);
   }
 
  /**
-  * Convert an instance of VouchersUpdateInBulkRequestBodyItem to an JSON string
+  * Convert an instance of VouchersImportCreateItemRequestBodyRedemption to an JSON string
   *
   * @return JSON string
   */
