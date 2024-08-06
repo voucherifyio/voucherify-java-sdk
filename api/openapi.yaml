@@ -13619,6 +13619,252 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+  /v1/loyalties/{campaignId}/reward-assignments:
+    get:
+      description: |-
+        Returns reward assignments from a given loyalty campaign.
+         📘 Alternative endpoint
+         This endpoint is an alternative to this endpoint. The URL was re-designed to be more contextual to the type of data returned in the response.
+      operationId: list-reward-assignments-1
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterPage'
+        style: form
+      - description: A unique reward assignment ID.
+        explode: true
+        in: query
+        name: assignmentId
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterRewardAssignmentId'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: data
+                    data:
+                    - id: rewa_2EPffrq151ArmjR7j3CumxGE
+                      reward_id: rew_6uCtsIjgcuzi4NW43mKZQWd5
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 18
+                      created_at: 2022-06-22T11:02:19.564Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_75e6oBjYfIKUDbM4Dsgg6xAU
+                      reward_id: rew_gI4GYbXMeHAJUAIiZCad5LaS
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 25
+                      created_at: 2022-06-22T11:00:49.034Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_dJ5nFBpmL8DVhmY1j4zYYOqF
+                      reward_id: rew_VSi5rNvb67bn2tqkNwVBBP7u
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 100
+                      created_at: 2022-06-22T10:57:24.051Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_874iVl5bHrZFr2FSsG9ilKzF
+                      reward_id: rew_QQ73sIywuMoEj6L8K6ft2Mn7
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      created_at: 2022-06-22T10:47:55.934Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_GgSlEk4bnR09lMMts6CgR6aV
+                      reward_id: rew_URQeO2fgbjxHnulgYVguuidX
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 9
+                      created_at: 2022-06-22T10:21:53.109Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_i6VcsXr3ovJ2JCpZk9k1JOj1
+                      reward_id: rew_YNr7tRr9TPAiFEJBZBAsuKCq
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      created_at: 2022-06-22T10:18:27.684Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_YjTw2InYSVx1nA88brDASS9e
+                      reward_id: rew_BUfchmIo7pOR8GrZMw0vVL08
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 30
+                      created_at: 2022-06-22T09:58:12.133Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_1gJ6VyYQI0IcnEvhArbr9XFH
+                      reward_id: rew_injbwG52POgfpSogTlQl4hA6
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 10
+                      created_at: 2022-06-13T11:56:49.185Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_gb6U5byuRh12EvdiL46P4Cxy
+                      reward_id: rew_NQB7WbdQLBrFQW1DZmBNcLvH
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 100
+                      created_at: 2022-06-13T11:50:23.429Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_hfyF9IGez9i3z5a3Uwlkcg7S
+                      reward_id: rew_87ItIc9P5Bky10eS7vEm7Dc7
+                      related_object_id: camp_Vr97XXNOnFEUIMFymKK99FAA
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 20
+                      created_at: 2022-06-13T11:20:43.961Z
+                      updated_at: null
+                      object: reward_assignment
+                    total: 12
+              schema:
+                $ref: '#/components/schemas/LoyaltiesRewardAssignmentsListResponseBody'
+          description: Returns a dictionary with reward assignment objects.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Reward Assignments
+      tags:
+      - Loyalties
+      x-accepts: application/json
+  /v1/loyalties/{campaignId}/rewards:
+    get:
+      description: Returns active rewards from a given loyalty campaign.
+      operationId: list-reward-assignments-2
+      parameters:
+      - description: "Unique campaign ID or name of the loyalty campaign. You can\
+          \ either pass the campaign ID, which was assigned by Voucherify, or the\
+          \ name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Which page of results to return. The lowest value is 1.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterPage'
+        style: form
+      - description: A unique reward assignment ID.
+        explode: true
+        in: query
+        name: assignment_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterRewardAssignmentId'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: data
+                    data:
+                    - id: rewa_6VSWcXjfm5PuZlfeuZxl5JZT
+                      reward_id: rew_pjJKIZgjIopIPZyibEAt7oPk
+                      related_object_id: camp_7s3uXI44aKfIk5IhmeOPr6ic
+                      related_object_type: campaign
+                      created_at: 2022-08-30T08:24:32.171Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_7gFZsNg8oiry63FtzML0N52R
+                      reward_id: rew_BUfchmIo7pOR8GrZMw0vVL08
+                      related_object_id: camp_7s3uXI44aKfIk5IhmeOPr6ic
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 3000000
+                      created_at: 2022-05-13T11:14:58.146Z
+                      updated_at: null
+                      object: reward_assignment
+                    - id: rewa_eAGhQSY4FS4T3q4zMkiarHoN
+                      reward_id: rew_nIy4gHpQHle2c3pNMwuj7G6j
+                      related_object_id: camp_7s3uXI44aKfIk5IhmeOPr6ic
+                      related_object_type: campaign
+                      parameters:
+                        loyalty:
+                          points: 100
+                      created_at: 2022-02-28T11:56:55.241Z
+                      updated_at: null
+                      object: reward_assignment
+                    total: 3
+              schema:
+                $ref: '#/components/schemas/LoyaltiesRewardsListAssignmentsResponseBody'
+          description: Returns a dictionary with reward assignment objects.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Reward Assignments
+      tags:
+      - Loyalties
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}:
     get:
       description: Retrieve specific reward assignment.
@@ -25722,6 +25968,12 @@ components:
       description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments/{assignmentId}`."
       title: Loyalties Reward Assignments Get Response Body
       type: object
+    LoyaltiesRewardAssignmentsListResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/LoyaltiesRewardsListAssignmentsResponseBody'
+      description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments`."
+      title: Loyalties Reward Assignments List Response Body
+      type: object
     LoyaltiesRewardAssignmentsRewardGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Reward'
@@ -25733,6 +25985,42 @@ components:
       - $ref: '#/components/schemas/RewardAssignment'
       description: "Response body schema for **GET** `/loyalties/{campaignId}/rewards/{assignmentId}`"
       title: Loyalties Rewards Get Response Body
+      type: object
+    LoyaltiesRewardsListAssignmentsResponseBody:
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/rewards`."
+      example:
+        total: 0
+        data:
+        - null
+        - null
+        data_ref: data
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about loyalty reward assignments in a dictionary.
+          enum:
+          - list
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the attribute that contains the array
+            of reward assignment objects.
+          nullable: true
+          type: string
+        data:
+          description: Contains array of reward assignment objects.
+          items:
+            $ref: '#/components/schemas/RewardAssignment'
+          nullable: true
+          type: array
+        total:
+          description: Total number of reward assignment objects.
+          nullable: true
+          type: integer
+      title: Loyalties Rewards List Assignments Response Body
       type: object
     LoyaltiesTiersCreateInBulkRequestBody:
       description: "Request body schema for **POST** `/loyalties/{campaignId}/tiers`"

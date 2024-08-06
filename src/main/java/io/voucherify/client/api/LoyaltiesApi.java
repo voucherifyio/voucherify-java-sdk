@@ -48,8 +48,10 @@ import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateRespon
 import io.voucherify.client.model.LoyaltiesMembersTransactionsListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersTransfersCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsGetResponseBody;
+import io.voucherify.client.model.LoyaltiesRewardAssignmentsListResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsRewardGetResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardsGetResponseBody;
+import io.voucherify.client.model.LoyaltiesRewardsListAssignmentsResponseBody;
 import io.voucherify.client.model.LoyaltiesTiersCreateInBulkRequestBodyItem;
 import io.voucherify.client.model.LoyaltiesTiersEarningRulesListResponseBody;
 import io.voucherify.client.model.LoyaltiesTiersGetResponseBody;
@@ -2739,6 +2741,260 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = listPointsExpirationValidateBeforeCall(campaignId, memberId, limit, page, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPointsExpirationListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listRewardAssignments1
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listRewardAssignments1Call(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/reward-assignments"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (assignmentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("assignmentId", assignmentId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRewardAssignments1ValidateBeforeCall(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listRewardAssignments1(Async)");
+        }
+
+        return listRewardAssignments1Call(campaignId, limit, page, assignmentId, _callback);
+
+    }
+
+    /**
+     * List Reward Assignments
+     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to be more contextual to the type of data returned in the response.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @return LoyaltiesRewardAssignmentsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesRewardAssignmentsListResponseBody listRewardAssignments1(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
+        ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> localVarResp = listRewardAssignments1WithHttpInfo(campaignId, limit, page, assignmentId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Reward Assignments
+     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to be more contextual to the type of data returned in the response.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesRewardAssignmentsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> listRewardAssignments1WithHttpInfo(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
+        okhttp3.Call localVarCall = listRewardAssignments1ValidateBeforeCall(campaignId, limit, page, assignmentId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Reward Assignments (asynchronously)
+     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to be more contextual to the type of data returned in the response.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listRewardAssignments1Async(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRewardAssignments1ValidateBeforeCall(campaignId, limit, page, assignmentId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listRewardAssignments2
+     * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listRewardAssignments2Call(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/rewards"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (assignmentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("assignment_id", assignmentId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRewardAssignments2ValidateBeforeCall(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listRewardAssignments2(Async)");
+        }
+
+        return listRewardAssignments2Call(campaignId, limit, page, assignmentId, _callback);
+
+    }
+
+    /**
+     * List Reward Assignments
+     * Returns active rewards from a given loyalty campaign.
+     * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @return LoyaltiesRewardsListAssignmentsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesRewardsListAssignmentsResponseBody listRewardAssignments2(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
+        ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> localVarResp = listRewardAssignments2WithHttpInfo(campaignId, limit, page, assignmentId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Reward Assignments
+     * Returns active rewards from a given loyalty campaign.
+     * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesRewardsListAssignmentsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> listRewardAssignments2WithHttpInfo(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
+        okhttp3.Call localVarCall = listRewardAssignments2ValidateBeforeCall(campaignId, limit, page, assignmentId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardsListAssignmentsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Reward Assignments (asynchronously)
+     * Returns active rewards from a given loyalty campaign.
+     * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param assignmentId A unique reward assignment ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listRewardAssignments2Async(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback<LoyaltiesRewardsListAssignmentsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRewardAssignments2ValidateBeforeCall(campaignId, limit, page, assignmentId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardsListAssignmentsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
