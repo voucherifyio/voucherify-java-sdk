@@ -19,11 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignLoyaltyCard;
-import io.voucherify.client.model.CampaignVoucherRedemption;
-import io.voucherify.client.model.CodeConfig;
-import io.voucherify.client.model.Discount;
-import io.voucherify.client.model.Gift;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -58,39 +53,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Schema model for a campaign voucher.
+ * Base body schema for creating a campaign using **PUT** &#x60;/campaigns&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignVoucher {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
-  public static final String SERIALIZED_NAME_DISCOUNT = "discount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT)
-  private Discount discount;
-
-  public static final String SERIALIZED_NAME_GIFT = "gift";
-  @SerializedName(SERIALIZED_NAME_GIFT)
-  private Gift gift;
-
-  public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private CampaignLoyaltyCard loyaltyCard;
-
-  public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
-  @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignVoucherRedemption redemption;
-
-  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
-  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
-  private CodeConfig codeConfig;
-
-  public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
-  @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
-  private Boolean isReferralCode;
-
+public class CampaignsUpdateBase {
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
@@ -168,157 +135,30 @@ public class CampaignVoucher {
   @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
   private ValidityHours validityHours;
 
-  public CampaignVoucher() {
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_CATEGORY = "category";
+  @SerializedName(SERIALIZED_NAME_CATEGORY)
+  private String category;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
+
+  public static final String SERIALIZED_NAME_UNSET_METADATA_FIELDS = "unset_metadata_fields";
+  @SerializedName(SERIALIZED_NAME_UNSET_METADATA_FIELDS)
+  private List<String> unsetMetadataFields;
+
+  public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
+  @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
+  private String categoryId;
+
+  public CampaignsUpdateBase() {
   }
 
-  public CampaignVoucher type(String type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Type of voucher.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  public String getType() {
-    return type;
-  }
-
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public CampaignVoucher discount(Discount discount) {
-    
-    this.discount = discount;
-    return this;
-  }
-
-   /**
-   * Get discount
-   * @return discount
-  **/
-  @javax.annotation.Nullable
-  public Discount getDiscount() {
-    return discount;
-  }
-
-
-  public void setDiscount(Discount discount) {
-    this.discount = discount;
-  }
-
-
-  public CampaignVoucher gift(Gift gift) {
-    
-    this.gift = gift;
-    return this;
-  }
-
-   /**
-   * Get gift
-   * @return gift
-  **/
-  @javax.annotation.Nullable
-  public Gift getGift() {
-    return gift;
-  }
-
-
-  public void setGift(Gift gift) {
-    this.gift = gift;
-  }
-
-
-  public CampaignVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
-    
-    this.loyaltyCard = loyaltyCard;
-    return this;
-  }
-
-   /**
-   * Get loyaltyCard
-   * @return loyaltyCard
-  **/
-  @javax.annotation.Nullable
-  public CampaignLoyaltyCard getLoyaltyCard() {
-    return loyaltyCard;
-  }
-
-
-  public void setLoyaltyCard(CampaignLoyaltyCard loyaltyCard) {
-    this.loyaltyCard = loyaltyCard;
-  }
-
-
-  public CampaignVoucher redemption(CampaignVoucherRedemption redemption) {
-    
-    this.redemption = redemption;
-    return this;
-  }
-
-   /**
-   * Get redemption
-   * @return redemption
-  **/
-  @javax.annotation.Nullable
-  public CampaignVoucherRedemption getRedemption() {
-    return redemption;
-  }
-
-
-  public void setRedemption(CampaignVoucherRedemption redemption) {
-    this.redemption = redemption;
-  }
-
-
-  public CampaignVoucher codeConfig(CodeConfig codeConfig) {
-    
-    this.codeConfig = codeConfig;
-    return this;
-  }
-
-   /**
-   * Get codeConfig
-   * @return codeConfig
-  **/
-  @javax.annotation.Nonnull
-  public CodeConfig getCodeConfig() {
-    return codeConfig;
-  }
-
-
-  public void setCodeConfig(CodeConfig codeConfig) {
-    this.codeConfig = codeConfig;
-  }
-
-
-  public CampaignVoucher isReferralCode(Boolean isReferralCode) {
-    
-    this.isReferralCode = isReferralCode;
-    return this;
-  }
-
-   /**
-   * Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;.
-   * @return isReferralCode
-  **/
-  @javax.annotation.Nullable
-  public Boolean getIsReferralCode() {
-    return isReferralCode;
-  }
-
-
-  public void setIsReferralCode(Boolean isReferralCode) {
-    this.isReferralCode = isReferralCode;
-  }
-
-
-  public CampaignVoucher startDate(OffsetDateTime startDate) {
+  public CampaignsUpdateBase startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
@@ -339,7 +179,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher expirationDate(OffsetDateTime expirationDate) {
+  public CampaignsUpdateBase expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -360,7 +200,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public CampaignsUpdateBase validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -381,13 +221,13 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public CampaignsUpdateBase validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public CampaignVoucher addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public CampaignsUpdateBase addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -410,7 +250,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityHours(ValidityHours validityHours) {
+  public CampaignsUpdateBase validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
     return this;
@@ -430,6 +270,119 @@ public class CampaignVoucher {
     this.validityHours = validityHours;
   }
 
+
+  public CampaignsUpdateBase description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * An optional field to keep any extra textual information about the campaign such as a campaign description and details.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public CampaignsUpdateBase category(String category) {
+    
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * The category assigned to the campaign. Either pass this parameter OR the &#x60;category_id&#x60;.
+   * @return category
+  **/
+  @javax.annotation.Nullable
+  public String getCategory() {
+    return category;
+  }
+
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+
+  public CampaignsUpdateBase metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
+
+  public CampaignsUpdateBase unsetMetadataFields(List<String> unsetMetadataFields) {
+    
+    this.unsetMetadataFields = unsetMetadataFields;
+    return this;
+  }
+
+  public CampaignsUpdateBase addUnsetMetadataFieldsItem(String unsetMetadataFieldsItem) {
+    if (this.unsetMetadataFields == null) {
+      this.unsetMetadataFields = new ArrayList<>();
+    }
+    this.unsetMetadataFields.add(unsetMetadataFieldsItem);
+    return this;
+  }
+
+   /**
+   * Determine which metadata should be removed from campaign.
+   * @return unsetMetadataFields
+  **/
+  @javax.annotation.Nullable
+  public List<String> getUnsetMetadataFields() {
+    return unsetMetadataFields;
+  }
+
+
+  public void setUnsetMetadataFields(List<String> unsetMetadataFields) {
+    this.unsetMetadataFields = unsetMetadataFields;
+  }
+
+
+  public CampaignsUpdateBase categoryId(String categoryId) {
+    
+    this.categoryId = categoryId;
+    return this;
+  }
+
+   /**
+   * Unique category ID that this campaign belongs to. Either pass this parameter OR the &#x60;category&#x60;.
+   * @return categoryId
+  **/
+  @javax.annotation.Nullable
+  public String getCategoryId() {
+    return categoryId;
+  }
+
+
+  public void setCategoryId(String categoryId) {
+    this.categoryId = categoryId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -443,9 +396,9 @@ public class CampaignVoucher {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignVoucher instance itself
+   * @return the CampaignsUpdateBase instance itself
    */
-  public CampaignVoucher putAdditionalProperty(String key, Object value) {
+  public CampaignsUpdateBase putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -484,20 +437,18 @@ public class CampaignVoucher {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignVoucher campaignVoucher = (CampaignVoucher) o;
-    return Objects.equals(this.type, campaignVoucher.type) &&
-        Objects.equals(this.discount, campaignVoucher.discount) &&
-        Objects.equals(this.gift, campaignVoucher.gift) &&
-        Objects.equals(this.loyaltyCard, campaignVoucher.loyaltyCard) &&
-        Objects.equals(this.redemption, campaignVoucher.redemption) &&
-        Objects.equals(this.codeConfig, campaignVoucher.codeConfig) &&
-        Objects.equals(this.isReferralCode, campaignVoucher.isReferralCode) &&
-        Objects.equals(this.startDate, campaignVoucher.startDate) &&
-        Objects.equals(this.expirationDate, campaignVoucher.expirationDate) &&
-        Objects.equals(this.validityTimeframe, campaignVoucher.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, campaignVoucher.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, campaignVoucher.validityHours)&&
-        Objects.equals(this.additionalProperties, campaignVoucher.additionalProperties);
+    CampaignsUpdateBase campaignsUpdateBase = (CampaignsUpdateBase) o;
+    return Objects.equals(this.startDate, campaignsUpdateBase.startDate) &&
+        Objects.equals(this.expirationDate, campaignsUpdateBase.expirationDate) &&
+        Objects.equals(this.validityTimeframe, campaignsUpdateBase.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, campaignsUpdateBase.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, campaignsUpdateBase.validityHours) &&
+        Objects.equals(this.description, campaignsUpdateBase.description) &&
+        Objects.equals(this.category, campaignsUpdateBase.category) &&
+        Objects.equals(this.metadata, campaignsUpdateBase.metadata) &&
+        Objects.equals(this.unsetMetadataFields, campaignsUpdateBase.unsetMetadataFields) &&
+        Objects.equals(this.categoryId, campaignsUpdateBase.categoryId)&&
+        Objects.equals(this.additionalProperties, campaignsUpdateBase.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -506,7 +457,7 @@ public class CampaignVoucher {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, discount, gift, loyaltyCard, redemption, codeConfig, isReferralCode, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, additionalProperties);
+    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -519,19 +470,17 @@ public class CampaignVoucher {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignVoucher {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
-    sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
-    sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
-    sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
-    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
-    sb.append("    isReferralCode: ").append(toIndentedString(isReferralCode)).append("\n");
+    sb.append("class CampaignsUpdateBase {\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    unsetMetadataFields: ").append(toIndentedString(unsetMetadataFields)).append("\n");
+    sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -555,38 +504,35 @@ public class CampaignVoucher {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("discount");
-    openapiFields.add("gift");
-    openapiFields.add("loyalty_card");
-    openapiFields.add("redemption");
-    openapiFields.add("code_config");
-    openapiFields.add("is_referral_code");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
+    openapiFields.add("description");
+    openapiFields.add("category");
+    openapiFields.add("metadata");
+    openapiFields.add("unset_metadata_fields");
+    openapiFields.add("category_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("code_config");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignVoucher.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignVoucher' and its subtypes
+       if (!CampaignsUpdateBase.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CampaignsUpdateBase' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignVoucher> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignVoucher.class));
+       final TypeAdapter<CampaignsUpdateBase> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsUpdateBase.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignVoucher>() {
+       return (TypeAdapter<T>) new TypeAdapter<CampaignsUpdateBase>() {
            @Override
-           public void write(JsonWriter out, CampaignVoucher value) throws IOException {
+           public void write(JsonWriter out, CampaignsUpdateBase value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -609,11 +555,11 @@ public class CampaignVoucher {
            }
 
            @Override
-           public CampaignVoucher read(JsonReader in) throws IOException {
+           public CampaignsUpdateBase read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignVoucher instance = thisAdapter.fromJsonTree(jsonObj);
+             CampaignsUpdateBase instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -640,18 +586,18 @@ public class CampaignVoucher {
   }
 
  /**
-  * Create an instance of CampaignVoucher given an JSON string
+  * Create an instance of CampaignsUpdateBase given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignVoucher
-  * @throws IOException if the JSON string is invalid with respect to CampaignVoucher
+  * @return An instance of CampaignsUpdateBase
+  * @throws IOException if the JSON string is invalid with respect to CampaignsUpdateBase
   */
-  public static CampaignVoucher fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignVoucher.class);
+  public static CampaignsUpdateBase fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CampaignsUpdateBase.class);
   }
 
  /**
-  * Convert an instance of CampaignVoucher to an JSON string
+  * Convert an instance of CampaignsUpdateBase to an JSON string
   *
   * @return JSON string
   */

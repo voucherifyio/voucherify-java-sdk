@@ -160,7 +160,9 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `/v1/vouchers/bulk/async`
   - Added support for GET `/v1/loyalties/{campaignId}/reward-assignments` and GET `/v1/loyalties/{campaignId}/rewards`
   - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
+  - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
+    - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
     - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
@@ -256,6 +258,7 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
 *LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
+*LoyaltiesApi* | [**createLoyaltyProgram**](docs/LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign
 *LoyaltiesApi* | [**createRewardAssignment1**](docs/LoyaltiesApi.md#createRewardAssignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment
 *LoyaltiesApi* | [**deleteEarningRule**](docs/LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule
 *LoyaltiesApi* | [**deleteLoyaltyProgram**](docs/LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign
@@ -286,6 +289,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**updateEarningRule**](docs/LoyaltiesApi.md#updateEarningRule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule
 *LoyaltiesApi* | [**updateLoyaltyCardBalance**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Add or Remove Loyalty Card Balance
 *LoyaltiesApi* | [**updateLoyaltyCardBalance1**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Add or Remove Loyalty Card Balance
+*LoyaltiesApi* | [**updateLoyaltyProgram**](docs/LoyaltiesApi.md#updateLoyaltyProgram) | **PUT** /v1/loyalties/{campaignId} | Update Loyalty Campaign
 *LoyaltiesApi* | [**updateRewardAssignment1**](docs/LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment
 *OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/orders | Create Order
 *OrdersApi* | [**createOrderExport**](docs/OrdersApi.md#createOrderExport) | **POST** /v1/orders/export | Create Orders Export
@@ -394,8 +398,11 @@ Class | Method | HTTP request | Description
 - [CampaignBase](docs/CampaignBase.md)
 - [CampaignLoyaltyCard](docs/CampaignLoyaltyCard.md)
 - [CampaignLoyaltyCardExpirationRules](docs/CampaignLoyaltyCardExpirationRules.md)
+- [CampaignLoyaltyVoucher](docs/CampaignLoyaltyVoucher.md)
 - [CampaignVoucher](docs/CampaignVoucher.md)
 - [CampaignVoucherRedemption](docs/CampaignVoucherRedemption.md)
+- [CampaignsCreateBase](docs/CampaignsCreateBase.md)
+- [CampaignsCreateLoyaltyCampaign](docs/CampaignsCreateLoyaltyCampaign.md)
 - [CampaignsCreateRequestBody](docs/CampaignsCreateRequestBody.md)
 - [CampaignsCreateRequestBodyPromotion](docs/CampaignsCreateRequestBodyPromotion.md)
 - [CampaignsCreateRequestBodyVoucher](docs/CampaignsCreateRequestBodyVoucher.md)
@@ -410,6 +417,9 @@ Class | Method | HTTP request | Description
 - [CampaignsImportVoucherItem](docs/CampaignsImportVoucherItem.md)
 - [CampaignsImportVoucherItemRedemption](docs/CampaignsImportVoucherItemRedemption.md)
 - [CampaignsListResponseBody](docs/CampaignsListResponseBody.md)
+- [CampaignsUpdateBase](docs/CampaignsUpdateBase.md)
+- [CampaignsUpdateCouponCampaignBase](docs/CampaignsUpdateCouponCampaignBase.md)
+- [CampaignsUpdateLoyaltyCampaign](docs/CampaignsUpdateLoyaltyCampaign.md)
 - [CampaignsUpdateRequestBody](docs/CampaignsUpdateRequestBody.md)
 - [CampaignsUpdateRequestBodyOptions](docs/CampaignsUpdateRequestBodyOptions.md)
 - [CampaignsUpdateResponseBody](docs/CampaignsUpdateResponseBody.md)
@@ -530,6 +540,8 @@ Class | Method | HTTP request | Description
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
+- [LoyaltiesCreateCampaignRequestBody](docs/LoyaltiesCreateCampaignRequestBody.md)
+- [LoyaltiesCreateCampaignResponseBody](docs/LoyaltiesCreateCampaignResponseBody.md)
 - [LoyaltiesDeleteResponseBody](docs/LoyaltiesDeleteResponseBody.md)
 - [LoyaltiesEarningRulesCreateCustomEventRequestBody](docs/LoyaltiesEarningRulesCreateCustomEventRequestBody.md)
 - [LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent.md)
@@ -593,6 +605,10 @@ Class | Method | HTTP request | Description
 - [LoyaltiesTiersListResponseBody](docs/LoyaltiesTiersListResponseBody.md)
 - [LoyaltiesTiersRewardsListResponseBody](docs/LoyaltiesTiersRewardsListResponseBody.md)
 - [LoyaltiesTransferPoints](docs/LoyaltiesTransferPoints.md)
+- [LoyaltiesUpdateCampaignRequestBody](docs/LoyaltiesUpdateCampaignRequestBody.md)
+- [LoyaltiesUpdateCampaignResponseBody](docs/LoyaltiesUpdateCampaignResponseBody.md)
+- [LoyaltyCampaign](docs/LoyaltyCampaign.md)
+- [LoyaltyCampaignVoucher](docs/LoyaltyCampaignVoucher.md)
 - [LoyaltyCardTransaction](docs/LoyaltyCardTransaction.md)
 - [LoyaltyCardTransactionsType](docs/LoyaltyCardTransactionsType.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
@@ -721,6 +737,7 @@ Class | Method | HTTP request | Description
 - [PromotionsTiersListResponseBody](docs/PromotionsTiersListResponseBody.md)
 - [PromotionsTiersUpdateRequestBody](docs/PromotionsTiersUpdateRequestBody.md)
 - [PromotionsTiersUpdateResponseBody](docs/PromotionsTiersUpdateResponseBody.md)
+- [PropertiesForLoyaltyCampaignOptions](docs/PropertiesForLoyaltyCampaignOptions.md)
 - [PublicationsCreateRequestBody](docs/PublicationsCreateRequestBody.md)
 - [PublicationsCreateRequestBodyCustomer](docs/PublicationsCreateRequestBodyCustomer.md)
 - [PublicationsCreateRequestBodyCustomerAddress](docs/PublicationsCreateRequestBodyCustomerAddress.md)

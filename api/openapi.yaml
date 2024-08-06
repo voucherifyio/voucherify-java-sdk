@@ -10311,6 +10311,163 @@ paths:
       - Redemptions
       x-content-type: application/json
       x-accepts: application/json
+  /v1/loyalties:
+    post:
+      description: "Creates a batch of loyalty cards aggregated in a single loyalty\
+        \ campaign. It also allows you to define a custom codes pattern.  \n 📘 Global\
+        \ uniqueness\n All codes are unique across the whole project. Voucherify wont\
+        \ allow to generate the same codes in any of your campaigns.\n 🚧 Asyncronous\
+        \ action!\n This is an asynchronous action, you cant read or modify a newly\
+        \ created campaign until the code generation is completed. See creation_status\
+        \ field in the loyalty campaign object description."
+      operationId: create-loyalty-program
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  name: Loyalty Program 4
+                  description: This is a campaign description.
+                  auto_join: true
+                  join_once: true
+                  use_voucher_metadata_schema: true
+                  start_date: 2016-10-26T00:00:00Z
+                  expiration_date: 2024-10-26T00:00:00Z
+                  validity_timeframe:
+                    duration: PT1H
+                    interval: P1D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  activity_duration_after_publishing: P24D
+                  category_id: cat_0b6152ce12414820dc
+                  vouchers_count: 2
+                  voucher:
+                    type: LOYALTY_CARD
+                    loyalty_card:
+                      points: 0
+                      expiration_rules:
+                        period_type: MONTH
+                        period_value: 3
+                        rounding_type: END_OF_QUARTER
+                    redemption:
+                      quantity: 2
+                    code_config:
+                      pattern: L-CARD-#######
+                  metadata:
+                    test: true
+                  type: STATIC
+                  loyalty_tiers_expiration:
+                    qualification_type: BALANCE
+                    start_date:
+                      type: IMMEDIATE
+                    expiration_date:
+                      type: CUSTOM
+                      extend: P3M
+                      rounding:
+                        type: MONTH
+                        strategy: END
+            schema:
+              $ref: '#/components/schemas/LoyaltiesCreateCampaignRequestBody'
+        description: Specify the loyalty campaign details.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: camp_wGlqXtnHddb39DvHuuhvvbxi
+                    name: Loyalty Program 4
+                    campaign_type: LOYALTY_PROGRAM
+                    type: STATIC
+                    voucher:
+                      type: LOYALTY_CARD
+                      loyalty_card:
+                        points: 0
+                        expiration_rules:
+                          period_type: MONTH
+                          period_value: 3
+                          rounding_type: END_OF_QUARTER
+                      redemption:
+                        quantity: 2
+                      code_config:
+                        length: 7
+                        charset: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+                        pattern: L-CARD-#######
+                      is_referral_code: false
+                      start_date: 2016-10-26T00:00:00.000Z
+                      expiration_date: 2024-10-26T00:00:00.000Z
+                      validity_timeframe:
+                        interval: P1D
+                        duration: PT1H
+                    auto_join: true
+                    join_once: true
+                    use_voucher_metadata_schema: true
+                    description: This is a campaign description.
+                    start_date: 2016-10-26T00:00:00.000Z
+                    expiration_date: 2024-10-26T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P1D
+                      duration: PT1H
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    activity_duration_after_publishing: P24D
+                    vouchers_count: 0
+                    active: true
+                    metadata:
+                      test: true
+                    created_at: 2022-11-29T13:10:30.848Z
+                    category: New Customers
+                    creation_status: IN_PROGRESS
+                    vouchers_generation_status: IN_PROGRESS
+                    protected: false
+                    validation_rules_assignments:
+                      object: list
+                      data_ref: data
+                      data: []
+                      total: 0
+                    category_id: cat_0b6152ce12414820dc
+                    categories:
+                    - id: cat_0b6152ce12414820dc
+                      name: New Customers
+                      hierarchy: 0
+                      created_at: 2022-07-14T20:17:07.657Z
+                      object: category
+                    loyalty_tiers_expiration:
+                      qualification_type: BALANCE
+                      start_date:
+                        type: IMMEDIATE
+                      expiration_date:
+                        type: CUSTOM
+                        extend: P3M
+                        rounding:
+                          type: MONTH
+                          strategy: END
+                    object: campaign
+              schema:
+                $ref: '#/components/schemas/LoyaltiesCreateCampaignResponseBody'
+          description: Returns a campaign object with its settings but without the
+            loyalty card codes.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Loyalty Campaign
+      tags:
+      - Loyalties
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/loyalties/{campaignId}:
     delete:
       description: |-
@@ -10362,6 +10519,167 @@ paths:
       summary: Delete Loyalty Campaign
       tags:
       - Loyalties
+      x-accepts: application/json
+    put:
+      description: "Updates a loyalty program. \nFields other than those specified\
+        \ in the allowed request body payload wont be modified (even if provided they\
+        \ are silently skipped). Any parameters not provided will be left unchanged.\
+        \ \nThis method will update the loyalty cards which have not been published\
+        \ or redeemed yet."
+      operationId: update-loyalty-program
+      parameters:
+      - description: "The campaign ID or name of the loyalty campaign. You can either\
+          \ pass the campaign ID, which was assigned by Voucherify, or the name of\
+          \ the campaign as the path parameter value, e.g., Loyalty%20Campaign. "
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Example:
+                value:
+                  description: This is a campaign description. Updated
+                  auto_join: false
+                  join_once: false
+                  start_date: 2013-10-26T00:00:00Z
+                  expiration_date: 2025-10-26T00:00:00Z
+                  validity_timeframe:
+                    duration: PT2H
+                    interval: P2D
+                  validity_day_of_week:
+                  - 0
+                  - 1
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                  - 6
+                  activity_duration_after_publishing: P25D
+                  category_id: cat_0b6152ce12414820dd
+                  loyalty_card:
+                    points: 1
+                    expiration_rules:
+                      period_type: MONTH
+                      period_value: 4
+                      rounding_type: END_OF_YEAR
+                  metadata:
+                    test: false
+                  type: AUTO_UPDATE
+                  loyalty_tiers_expiration:
+                    qualification_type: BALANCE
+                    start_date:
+                      type: IMMEDIATE
+                    expiration_date:
+                      type: CUSTOM
+                      extend: P4M
+                      rounding:
+                        type: CUSTOM
+                        unit: MONTH
+                        value: 1
+            schema:
+              $ref: '#/components/schemas/LoyaltiesUpdateCampaignRequestBody'
+        description: Specify the new values for the parameters that you would like
+          to update for the given loyalty campaign.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    id: camp_wGlqXtnHddb39DvHuuhvvbxi
+                    name: Loyalty Program 4
+                    campaign_type: LOYALTY_PROGRAM
+                    type: AUTO_UPDATE
+                    voucher:
+                      type: LOYALTY_CARD
+                      loyalty_card:
+                        points: 1
+                        expiration_rules:
+                          period_type: MONTH
+                          period_value: 4
+                          rounding_type: END_OF_YEAR
+                      redemption:
+                        quantity: 2
+                      code_config:
+                        length: 7
+                        charset: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+                        pattern: L-CARD-#######
+                      is_referral_code: false
+                      start_date: 2013-10-26T00:00:00.000Z
+                      expiration_date: 2025-10-26T00:00:00.000Z
+                      validity_timeframe:
+                        interval: P2D
+                        duration: PT2H
+                    auto_join: false
+                    join_once: false
+                    use_voucher_metadata_schema: true
+                    description: This is a campaign description. Updated
+                    start_date: 2013-10-26T00:00:00.000Z
+                    expiration_date: 2025-10-26T00:00:00.000Z
+                    validity_timeframe:
+                      interval: P2D
+                      duration: PT2H
+                    validity_day_of_week:
+                    - 0
+                    - 1
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                    - 6
+                    activity_duration_after_publishing: P25D
+                    vouchers_count: 2
+                    active: true
+                    metadata:
+                      test: false
+                    created_at: 2022-11-29T13:10:30.848Z
+                    updated_at: 2022-11-29T14:08:30.655Z
+                    category: Lorem_Ipsum
+                    creation_status: MODIFYING
+                    vouchers_generation_status: MODIFYING
+                    protected: false
+                    validation_rules_assignments:
+                      object: list
+                      data_ref: data
+                      data: []
+                      total: 0
+                    category_id: cat_0b6152ce12414820dd
+                    categories:
+                    - id: cat_0b6152ce12414820dd
+                      name: Lorem_Ipsum
+                      hierarchy: 0
+                      created_at: 2022-07-14T20:17:07.657Z
+                      object: category
+                    loyalty_tiers_expiration:
+                      qualification_type: BALANCE
+                      start_date:
+                        type: IMMEDIATE
+                      expiration_date:
+                        type: CUSTOM
+                        extend: P4M
+                        rounding:
+                          type: CUSTOM
+                          strategy: END
+                          unit: MONTH
+                          value: 1
+                    object: campaign
+              schema:
+                $ref: '#/components/schemas/LoyaltiesUpdateCampaignResponseBody'
+          description: Returns the loyalty campaign object if the update succeeded.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Update Loyalty Campaign
+      tags:
+      - Loyalties
+      x-content-type: application/json
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/balance:
     post:
@@ -23418,7 +23736,7 @@ components:
                 start_time: 12:00
                 expiration_time: 14:00
             discount: ""
-            type: DISCOUNT_VOUCHER
+            type: type
             loyalty_card: ""
             expiration_date: 2022-09-30T00:00:00Z
             code_config: ""
@@ -23527,7 +23845,7 @@ components:
                 start_time: 12:00
                 expiration_time: 14:00
             discount: ""
-            type: DISCOUNT_VOUCHER
+            type: type
             loyalty_card: ""
             expiration_date: 2022-09-30T00:00:00Z
             code_config: ""
@@ -25427,6 +25745,18 @@ components:
           type: integer
       title: Exports List Response Body
       type: object
+    LoyaltiesCreateCampaignRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/CampaignsCreateLoyaltyCampaign'
+      description: Request body schema for **POST** `/loyalties`.
+      title: Loyalties Create Campaign Request Body
+      type: object
+    LoyaltiesCreateCampaignResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/LoyaltyCampaign'
+      description: Response body schema for **POST** `/loyalties`.
+      title: Loyalties Create Campaign Response Body
+      type: object
     LoyaltiesDeleteResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
@@ -26336,6 +26666,18 @@ components:
           nullable: true
           type: integer
       title: Loyalties Tiers Rewards List Response Body
+      type: object
+    LoyaltiesUpdateCampaignRequestBody:
+      allOf:
+      - $ref: '#/components/schemas/CampaignsUpdateLoyaltyCampaign'
+      description: "Request body schema for **PUT** `/loyalties/{campaignId}`."
+      title: Loyalties Update Campaign Request Body
+      type: object
+    LoyaltiesUpdateCampaignResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/LoyaltyCampaign'
+      description: "Response body schema for **PUT** `/loyalties/{campaignId}`."
+      title: Loyalties Update Campaign Response Body
       type: object
     OrdersCreateRequestBody:
       allOf:
@@ -31544,7 +31886,7 @@ components:
               start_time: 12:00
               expiration_time: 14:00
           discount: ""
-          type: DISCOUNT_VOUCHER
+          type: type
           loyalty_card: ""
           expiration_date: 2022-09-30T00:00:00Z
           code_config: ""
@@ -31834,6 +32176,24 @@ components:
           $ref: '#/components/schemas/CampaignLoyaltyCard_expiration_rules'
       title: Campaign Loyalty Card
       type: object
+    CampaignsCreateLoyaltyCampaign:
+      allOf:
+      - $ref: '#/components/schemas/CampaignsCreateBase'
+      - description: Body schema for creating a campaign of loyalty type using **POST**
+          `/campaigns`.
+        properties:
+          campaign_type:
+            default: LOYALTY_PROGRAM
+            description: Type of campaign.
+            enum:
+            - LOYALTY_PROGRAM
+            nullable: true
+            type: string
+          voucher:
+            $ref: '#/components/schemas/CampaignLoyaltyVoucher'
+        title: Schema that contains unique properties for Loyalty Campaign
+        type: object
+      title: Campaigns Create Loyalty Campaign
     CampaignsImportVoucherItem:
       example:
         gift:
@@ -31989,6 +32349,20 @@ components:
         discount:
           $ref: '#/components/schemas/Discount'
       title: CampaignsImportVoucherItem
+      type: object
+    CampaignsUpdateLoyaltyCampaign:
+      allOf:
+      - $ref: '#/components/schemas/CampaignsUpdateCouponCampaignBase'
+      - description: Body schema for update a campaign of loyalty type using **PUT**
+          `/campaigns`.
+        properties:
+          loyalty_tiers_expiration:
+            $ref: '#/components/schemas/LoyaltyTiersExpirationAll'
+          options:
+            $ref: '#/components/schemas/Properties_For_Loyalty_Campaign_options'
+        title: Properties For Loyalty Campaign
+        type: object
+      title: Campaigns Update Loyalty Campaign
       type: object
     Category:
       description: This is an object representing a category.
@@ -33465,6 +33839,186 @@ components:
           type: string
       title: Loyalties Transfer Points
       type: object
+    LoyaltyCampaign:
+      properties:
+        id:
+          description: "Unique campaign ID, assigned by Voucherify."
+          example: camp_f7fBbQxUuTN7dI7tGOo5XMDA
+          nullable: true
+          type: string
+        name:
+          description: Campaign name.
+          nullable: true
+          type: string
+        description:
+          description: An optional field to keep any extra textual information about
+            the campaign such as a campaign description and details.
+          nullable: true
+          type: string
+        campaign_type:
+          description: Type of campaign.
+          enum:
+          - LOYALTY_PROGRAM
+          nullable: true
+          type: string
+        type:
+          description: "Defines whether the campaign can be updated with new vouchers\
+            \ after campaign creation.    \n\n- `AUTO_UPDATE`: the campaign is dynamic,\
+            \ i.e. vouchers will generate based on set criteria    \n-  `STATIC`:\
+            \ vouchers need to be manually published"
+          enum:
+          - AUTO_UPDATE
+          - STATIC
+          nullable: true
+          type: string
+        voucher:
+          $ref: '#/components/schemas/LoyaltyCampaignVoucher'
+        auto_join:
+          description: Indicates whether customers will be able to auto-join a loyalty
+            campaign if any earning rule is fulfilled.
+          nullable: true
+          type: boolean
+        join_once:
+          description: "If this value is set to `true`, customers will be able to\
+            \ join the campaign only once."
+          nullable: true
+          type: boolean
+        use_voucher_metadata_schema:
+          description: Flag indicating whether the campaign is to use the voucher's
+            metadata schema instead of the campaign metadata schema.
+          nullable: true
+          type: boolean
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        activity_duration_after_publishing:
+          description: "Defines the amount of time the campaign will be active in\
+            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
+            \ of `P24D` will be valid for a duration of 24 days."
+          nullable: true
+          type: string
+        vouchers_count:
+          description: Total number of unique vouchers in campaign.
+          nullable: true
+          type: integer
+        start_date:
+          description: 'Activation timestamp defines when the campaign starts to be
+            active in ISO 8601 format. Campaign is *inactive before* this date. '
+          example: 2022-09-20T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the campaign expires in ISO
+            8601 format.  Campaign is *inactive after* this date.
+          example: 2022-09-30T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        active:
+          description: "A flag to toggle the campaign on or off. You can disable a\
+            \ campaign even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* campaign\n\
+            - `false` indicates an *inactive* campaign"
+          nullable: true
+          type: boolean
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the campaign. A set of key/value pairs that you can attach to a campaign
+            object. It can be useful for storing additional information about the
+            campaign in a structured format.
+          nullable: true
+          type: object
+        created_at:
+          description: Timestamp representing the date and time when the campaign
+            was created. The value is shown in the ISO 8601 format.
+          example: 2021-12-01T08:00:50.038Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the campaign
+            was last updated in ISO 8601 format.
+          example: 2022-09-20T09:18:19.623Z
+          format: date-time
+          nullable: true
+          type: string
+        category:
+          description: Unique category name.
+          nullable: true
+          type: string
+        creation_status:
+          description: Indicates the status of the campaign creation.
+          enum:
+          - DONE
+          - IN_PROGRESS
+          - FAILED
+          - DRAFT
+          - MODIFYING
+          nullable: true
+          type: string
+        vouchers_generation_status:
+          description: Indicates the status of the campaign's voucher generation.
+          enum:
+          - DONE
+          - IN_PROGRESS
+          - FAILED
+          - DRAFT
+          - MODIFYING
+          nullable: true
+          type: string
+        protected:
+          description: Indicates whether the resource can be deleted.
+          nullable: true
+          type: boolean
+        category_id:
+          description: Unique category ID that this campaign belongs to.
+          example: cat_0b688929a2476386a7
+          nullable: true
+          type: string
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          type: array
+        object:
+          default: campaign
+          description: The type of the object represented by JSON. This object stores
+            information about the campaign.
+          nullable: true
+          type: string
+        loyalty_tiers_expiration:
+          $ref: '#/components/schemas/LoyaltyTiersExpirationAll'
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
+        access_settings_assignments:
+          $ref: '#/components/schemas/AccessSettingsCampaignAssignmentsList'
+      title: Loyalty Campaign
     LoyaltyCardTransaction:
       allOf:
       - $ref: '#/components/schemas/VoucherTransaction'
@@ -37124,7 +37678,7 @@ components:
             start_time: 12:00
             expiration_time: 14:00
         discount: ""
-        type: DISCOUNT_VOUCHER
+        type: type
         loyalty_card: ""
         expiration_date: 2022-09-30T00:00:00Z
         code_config: ""
@@ -37134,7 +37688,6 @@ components:
         start_date: 2022-09-20T00:00:00Z
       properties:
         type:
-          default: DISCOUNT_VOUCHER
           description: Type of voucher.
           nullable: true
           type: string
@@ -37208,6 +37761,159 @@ components:
       required:
       - code_config
       title: Campaign Voucher
+      type: object
+    CampaignsCreateBase:
+      description: Base body schema for creating a campaign using **POST** `/campaigns`.
+      properties:
+        name:
+          description: Campaign name.
+          nullable: true
+          type: string
+        description:
+          description: An optional field to keep any extra textual information about
+            the campaign such as a campaign description and details.
+          nullable: true
+          type: string
+        type:
+          description: "Defines whether the campaign can be updated with new vouchers\
+            \ after campaign creation.    \n\n- `AUTO_UPDATE`: By choosing the auto\
+            \ update option you will create a campaign that can be enhanced by new\
+            \ vouchers after the time of creation (e.g. by publish vouchers method).\
+            \    \n-  `STATIC`: vouchers need to be manually published."
+          enum:
+          - AUTO_UPDATE
+          - STATIC
+          nullable: true
+          type: string
+        join_once:
+          description: "If this value is set to `true`, customers will be able to\
+            \ join the campaign only once."
+          nullable: true
+          type: boolean
+        auto_join:
+          description: Indicates whether customers will be able to auto-join a loyalty
+            campaign if any earning rule is fulfilled.
+          nullable: true
+          type: boolean
+        use_voucher_metadata_schema:
+          description: Flag indicating whether the campaign is to use the voucher's
+            metadata schema instead of the campaign metadata schema.
+          nullable: true
+          type: boolean
+        vouchers_count:
+          description: Total number of unique vouchers in campaign (size of campaign).
+          nullable: true
+          type: integer
+        start_date:
+          description: 'Activation timestamp defines when the campaign starts to be
+            active in ISO 8601 format. Campaign is *inactive before* this date. '
+          example: 2022-09-20T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the campaign expires in ISO
+            8601 format.  Campaign is *inactive after* this date.
+          example: 2022-09-30T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        activity_duration_after_publishing:
+          description: "Defines the amount of time the campaign will be active in\
+            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
+            \ of `P24D` will be valid for a duration of 24 days."
+          nullable: true
+          type: string
+        validation_rules:
+          description: Array containing the ID of the validation rule associated with
+            the promotion tier.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        category_id:
+          description: Unique category ID that this campaign belongs to. Either pass
+            this parameter OR the `category`.
+          example: cat_0b688929a2476386a7
+          nullable: true
+          type: string
+        category:
+          description: The category assigned to the campaign. Either pass this parameter
+            OR the `category_id`.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the campaign. A set of key/value pairs that you can attach to a campaign
+            object. It can be useful for storing additional information about the
+            campaign in a structured format.
+          nullable: true
+          type: object
+      title: Campaign Create Schema Base
+      type: object
+    CampaignsUpdateCouponCampaignBase:
+      allOf:
+      - $ref: '#/components/schemas/CampaignsUpdateBase'
+      - properties:
+          activity_duration_after_publishing:
+            description: "Defines the amount of time the campaign will be active in\
+              \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
+              \ of `P24D` will be valid for a duration of 24 days."
+            nullable: true
+            type: string
+          join_once:
+            description: "If this value is set to `true`, customers will be able to\
+              \ join the campaign only once."
+            nullable: true
+            type: boolean
+          auto_join:
+            description: Indicates whether customers will be able to auto-join a loyalty
+              campaign if any earning rule is fulfilled.
+            nullable: true
+            type: boolean
+          type:
+            description: "Defines whether the campaign can be updated with new vouchers\
+              \ after campaign creation.    \n\n- `AUTO_UPDATE`: By choosing the auto\
+              \ update option you will create a campaign that can be enhanced by new\
+              \ vouchers after the time of creation (e.g. by publish vouchers method).\
+              \    \n-  `STATIC`: vouchers need to be manually published."
+            enum:
+            - AUTO_UPDATE
+            - STATIC
+            nullable: true
+            type: string
+        type: object
+      description: Base body schema for updating a campaign which contains coupon
+        codes using **PUT** `/campaigns`.
+      title: Campaigns Update Coupon Campaign Base
       type: object
     CustomerId:
       properties:
@@ -37350,6 +38056,77 @@ components:
       allOf:
       - $ref: '#/components/schemas/ApplicableTo'
       title: Inapplicable To
+      type: object
+    LoyaltyCampaignVoucher:
+      description: Schema model for a campaign voucher.
+      properties:
+        type:
+          description: Type of voucher.
+          enum:
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        loyalty_card:
+          allOf:
+          - $ref: '#/components/schemas/CampaignLoyaltyCard'
+          description: Defines the voucher loyalty card details.
+        redemption:
+          $ref: '#/components/schemas/CampaignVoucher_redemption'
+        code_config:
+          allOf:
+          - $ref: '#/components/schemas/CodeConfig'
+          required:
+          - charset
+          - length
+          - pattern
+        is_referral_code:
+          description: Always `false` for loyalty card voucher
+          nullable: true
+          type: boolean
+        start_date:
+          description: 'Activation timestamp defines when the campaign starts to be
+            active in ISO 8601 format. Campaign is *inactive before* this date. '
+          example: 2022-09-20T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the campaign expires in ISO
+            8601 format.  Campaign is *inactive after* this date.
+          example: 2022-09-30T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+      required:
+      - code_config
+      title: Loyalty Campaign Voucher
       type: object
     LoyaltyCardTransactionsType:
       enum:
@@ -38248,6 +39025,81 @@ components:
           type: string
       title: Areas and Stores Campain Assignment
       type: object
+    CampaignsUpdateBase:
+      description: Base body schema for creating a campaign using **PUT** `/campaigns`.
+      properties:
+        start_date:
+          description: 'Activation timestamp defines when the campaign starts to be
+            active in ISO 8601 format. Campaign is *inactive before* this date. '
+          example: 2022-09-20T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the campaign expires in ISO
+            8601 format.  Campaign is *inactive after* this date.
+          example: 2022-09-30T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        description:
+          description: An optional field to keep any extra textual information about
+            the campaign such as a campaign description and details.
+          nullable: true
+          type: string
+        category:
+          description: The category assigned to the campaign. Either pass this parameter
+            OR the `category_id`.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the campaign. A set of key/value pairs that you can attach to a campaign
+            object. It can be useful for storing additional information about the
+            campaign in a structured format.
+          nullable: true
+          type: object
+        unset_metadata_fields:
+          description: Determine which metadata should be removed from campaign.
+          items:
+            type: string
+          nullable: true
+          type: array
+        category_id:
+          description: Unique category ID that this campaign belongs to. Either pass
+            this parameter OR the `category`.
+          example: cat_0b688929a2476386a7
+          nullable: true
+          type: string
+      title: Campaign Update Schema Base
+      type: object
     CustomerSummaryOrders:
       properties:
         total_amount:
@@ -38729,6 +39581,26 @@ components:
           nullable: true
           type: string
       title: Campaigns Vouchers Create Base Request Body
+      type: object
+    CampaignLoyaltyVoucher:
+      description: Schema model for a discount voucher.
+      properties:
+        type:
+          default: LOYALTY_CARD
+          description: Type of voucher.
+          enum:
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        loyalty_card:
+          $ref: '#/components/schemas/CampaignLoyaltyCard'
+        redemption:
+          $ref: '#/components/schemas/CampaignVoucher_redemption'
+        code_config:
+          $ref: '#/components/schemas/CodeConfig'
+      required:
+      - loyalty_card
+      title: Campaign Loyalty Voucher
       type: object
     CampaignsCreateRequestBodyVoucherRedemption:
       example:
@@ -44052,6 +44924,15 @@ components:
           type: integer
       title: CampaignsImportVoucherItemRedemption
       type: object
+    Properties_For_Loyalty_Campaign_options:
+      nullable: true
+      properties:
+        recalculate_tiers:
+          description: Determine if tiers should be recalculated or no.
+          nullable: true
+          type: boolean
+      type: object
+      example: null
     CustomerBase_address:
       description: Customer's address.
       nullable: true

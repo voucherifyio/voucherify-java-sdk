@@ -127,9 +127,9 @@
 | endpoint                                                            | method | summary                            | is supported                         | is deprecated |
 | ------------------------------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
 | /v1/loyalties                                                       | get    | List Loyalty Campaigns             |                                      |               |
-| /v1/loyalties                                                       | post   | Create Loyalty Campaign            |                                      |               |
+| /v1/loyalties                                                       | post   | Create Loyalty Campaign            | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}                                          | get    | Get Loyalty Campaign               |                                      |               |
-| /v1/loyalties/{campaignId}                                          | put    | Update Loyalty Campaign            |                                      |               |
+| /v1/loyalties/{campaignId}                                          | put    | Update Loyalty Campaign            | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}                                          | delete | Delete Loyalty Campaign            | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/members                                  | get    | List Members                       |                                      |               |
 | /v1/loyalties/{campaignId}/members                                  | post   | Add Member                         |                                      |               |

@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CampaignLoyaltyCard;
 import io.voucherify.client.model.CampaignVoucherRedemption;
 import io.voucherify.client.model.CodeConfig;
-import io.voucherify.client.model.Discount;
-import io.voucherify.client.model.Gift;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -62,18 +60,55 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignVoucher {
+public class LoyaltyCampaignVoucher {
+  /**
+   * Type of voucher.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    LOYALTY_CARD("LOYALTY_CARD");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
-  public static final String SERIALIZED_NAME_DISCOUNT = "discount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT)
-  private Discount discount;
-
-  public static final String SERIALIZED_NAME_GIFT = "gift";
-  @SerializedName(SERIALIZED_NAME_GIFT)
-  private Gift gift;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
@@ -168,10 +203,10 @@ public class CampaignVoucher {
   @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
   private ValidityHours validityHours;
 
-  public CampaignVoucher() {
+  public LoyaltyCampaignVoucher() {
   }
 
-  public CampaignVoucher type(String type) {
+  public LoyaltyCampaignVoucher type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -182,59 +217,17 @@ public class CampaignVoucher {
    * @return type
   **/
   @javax.annotation.Nullable
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public CampaignVoucher discount(Discount discount) {
-    
-    this.discount = discount;
-    return this;
-  }
-
-   /**
-   * Get discount
-   * @return discount
-  **/
-  @javax.annotation.Nullable
-  public Discount getDiscount() {
-    return discount;
-  }
-
-
-  public void setDiscount(Discount discount) {
-    this.discount = discount;
-  }
-
-
-  public CampaignVoucher gift(Gift gift) {
-    
-    this.gift = gift;
-    return this;
-  }
-
-   /**
-   * Get gift
-   * @return gift
-  **/
-  @javax.annotation.Nullable
-  public Gift getGift() {
-    return gift;
-  }
-
-
-  public void setGift(Gift gift) {
-    this.gift = gift;
-  }
-
-
-  public CampaignVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
+  public LoyaltyCampaignVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -255,7 +248,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher redemption(CampaignVoucherRedemption redemption) {
+  public LoyaltyCampaignVoucher redemption(CampaignVoucherRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -276,7 +269,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher codeConfig(CodeConfig codeConfig) {
+  public LoyaltyCampaignVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
     return this;
@@ -297,14 +290,14 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher isReferralCode(Boolean isReferralCode) {
+  public LoyaltyCampaignVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
     return this;
   }
 
    /**
-   * Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;.
+   * Always &#x60;false&#x60; for loyalty card voucher
    * @return isReferralCode
   **/
   @javax.annotation.Nullable
@@ -318,7 +311,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher startDate(OffsetDateTime startDate) {
+  public LoyaltyCampaignVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
@@ -339,7 +332,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher expirationDate(OffsetDateTime expirationDate) {
+  public LoyaltyCampaignVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -360,7 +353,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public LoyaltyCampaignVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -381,13 +374,13 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public LoyaltyCampaignVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public CampaignVoucher addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public LoyaltyCampaignVoucher addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -410,7 +403,7 @@ public class CampaignVoucher {
   }
 
 
-  public CampaignVoucher validityHours(ValidityHours validityHours) {
+  public LoyaltyCampaignVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
     return this;
@@ -443,9 +436,9 @@ public class CampaignVoucher {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignVoucher instance itself
+   * @return the LoyaltyCampaignVoucher instance itself
    */
-  public CampaignVoucher putAdditionalProperty(String key, Object value) {
+  public LoyaltyCampaignVoucher putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -484,20 +477,18 @@ public class CampaignVoucher {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignVoucher campaignVoucher = (CampaignVoucher) o;
-    return Objects.equals(this.type, campaignVoucher.type) &&
-        Objects.equals(this.discount, campaignVoucher.discount) &&
-        Objects.equals(this.gift, campaignVoucher.gift) &&
-        Objects.equals(this.loyaltyCard, campaignVoucher.loyaltyCard) &&
-        Objects.equals(this.redemption, campaignVoucher.redemption) &&
-        Objects.equals(this.codeConfig, campaignVoucher.codeConfig) &&
-        Objects.equals(this.isReferralCode, campaignVoucher.isReferralCode) &&
-        Objects.equals(this.startDate, campaignVoucher.startDate) &&
-        Objects.equals(this.expirationDate, campaignVoucher.expirationDate) &&
-        Objects.equals(this.validityTimeframe, campaignVoucher.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, campaignVoucher.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, campaignVoucher.validityHours)&&
-        Objects.equals(this.additionalProperties, campaignVoucher.additionalProperties);
+    LoyaltyCampaignVoucher loyaltyCampaignVoucher = (LoyaltyCampaignVoucher) o;
+    return Objects.equals(this.type, loyaltyCampaignVoucher.type) &&
+        Objects.equals(this.loyaltyCard, loyaltyCampaignVoucher.loyaltyCard) &&
+        Objects.equals(this.redemption, loyaltyCampaignVoucher.redemption) &&
+        Objects.equals(this.codeConfig, loyaltyCampaignVoucher.codeConfig) &&
+        Objects.equals(this.isReferralCode, loyaltyCampaignVoucher.isReferralCode) &&
+        Objects.equals(this.startDate, loyaltyCampaignVoucher.startDate) &&
+        Objects.equals(this.expirationDate, loyaltyCampaignVoucher.expirationDate) &&
+        Objects.equals(this.validityTimeframe, loyaltyCampaignVoucher.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, loyaltyCampaignVoucher.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, loyaltyCampaignVoucher.validityHours)&&
+        Objects.equals(this.additionalProperties, loyaltyCampaignVoucher.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -506,7 +497,7 @@ public class CampaignVoucher {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, discount, gift, loyaltyCard, redemption, codeConfig, isReferralCode, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, additionalProperties);
+    return Objects.hash(type, loyaltyCard, redemption, codeConfig, isReferralCode, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -519,10 +510,8 @@ public class CampaignVoucher {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignVoucher {\n");
+    sb.append("class LoyaltyCampaignVoucher {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
-    sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
@@ -556,8 +545,6 @@ public class CampaignVoucher {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
-    openapiFields.add("discount");
-    openapiFields.add("gift");
     openapiFields.add("loyalty_card");
     openapiFields.add("redemption");
     openapiFields.add("code_config");
@@ -577,16 +564,16 @@ public class CampaignVoucher {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignVoucher.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignVoucher' and its subtypes
+       if (!LoyaltyCampaignVoucher.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltyCampaignVoucher' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignVoucher> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignVoucher.class));
+       final TypeAdapter<LoyaltyCampaignVoucher> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltyCampaignVoucher.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignVoucher>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltyCampaignVoucher>() {
            @Override
-           public void write(JsonWriter out, CampaignVoucher value) throws IOException {
+           public void write(JsonWriter out, LoyaltyCampaignVoucher value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -609,11 +596,11 @@ public class CampaignVoucher {
            }
 
            @Override
-           public CampaignVoucher read(JsonReader in) throws IOException {
+           public LoyaltyCampaignVoucher read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignVoucher instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltyCampaignVoucher instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -640,18 +627,18 @@ public class CampaignVoucher {
   }
 
  /**
-  * Create an instance of CampaignVoucher given an JSON string
+  * Create an instance of LoyaltyCampaignVoucher given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignVoucher
-  * @throws IOException if the JSON string is invalid with respect to CampaignVoucher
+  * @return An instance of LoyaltyCampaignVoucher
+  * @throws IOException if the JSON string is invalid with respect to LoyaltyCampaignVoucher
   */
-  public static CampaignVoucher fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignVoucher.class);
+  public static LoyaltyCampaignVoucher fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltyCampaignVoucher.class);
   }
 
  /**
-  * Convert an instance of CampaignVoucher to an JSON string
+  * Convert an instance of LoyaltyCampaignVoucher to an JSON string
   *
   * @return JSON string
   */

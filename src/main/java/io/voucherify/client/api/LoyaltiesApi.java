@@ -27,6 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.voucherify.client.model.LoyaltiesCreateCampaignRequestBody;
+import io.voucherify.client.model.LoyaltiesCreateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltiesDeleteResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyInner;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateResponseBody;
@@ -62,6 +64,8 @@ import io.voucherify.client.model.LoyaltiesTiersGetResponseBody;
 import io.voucherify.client.model.LoyaltiesTiersListResponseBody;
 import io.voucherify.client.model.LoyaltiesTiersRewardsListResponseBody;
 import io.voucherify.client.model.LoyaltiesTransferPoints;
+import io.voucherify.client.model.LoyaltiesUpdateCampaignRequestBody;
+import io.voucherify.client.model.LoyaltiesUpdateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltyTier;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
@@ -322,6 +326,104 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = createInBulkLoyaltyTiersValidateBeforeCall(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, _callback);
         Type localVarReturnType = new TypeToken<List<LoyaltyTier>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createLoyaltyProgram
+     * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createLoyaltyProgramCall(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = loyaltiesCreateCampaignRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createLoyaltyProgramValidateBeforeCall(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
+        return createLoyaltyProgramCall(loyaltiesCreateCampaignRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Loyalty Campaign
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
+     * @return LoyaltiesCreateCampaignResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesCreateCampaignResponseBody createLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody) throws ApiException {
+        ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResp = createLoyaltyProgramWithHttpInfo(loyaltiesCreateCampaignRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Loyalty Campaign
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
+     * @return ApiResponse&lt;LoyaltiesCreateCampaignResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesCreateCampaignResponseBody> createLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createLoyaltyProgramValidateBeforeCall(loyaltiesCreateCampaignRequestBody, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesCreateCampaignResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Loyalty Campaign (asynchronously)
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback<LoyaltiesCreateCampaignResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createLoyaltyProgramValidateBeforeCall(loyaltiesCreateCampaignRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesCreateCampaignResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3795,6 +3897,114 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = updateLoyaltyCardBalance1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersBalanceUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateLoyaltyProgram
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateLoyaltyProgramCall(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = loyaltiesUpdateCampaignRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateLoyaltyProgramValidateBeforeCall(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling updateLoyaltyProgram(Async)");
+        }
+
+        return updateLoyaltyProgramCall(campaignId, loyaltiesUpdateCampaignRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Loyalty Campaign
+     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the loyalty cards which have not been published or redeemed yet.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
+     * @return LoyaltiesUpdateCampaignResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesUpdateCampaignResponseBody updateLoyaltyProgram(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody) throws ApiException {
+        ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResp = updateLoyaltyProgramWithHttpInfo(campaignId, loyaltiesUpdateCampaignRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Loyalty Campaign
+     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the loyalty cards which have not been published or redeemed yet.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
+     * @return ApiResponse&lt;LoyaltiesUpdateCampaignResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesUpdateCampaignResponseBody> updateLoyaltyProgramWithHttpInfo(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateLoyaltyProgramValidateBeforeCall(campaignId, loyaltiesUpdateCampaignRequestBody, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesUpdateCampaignResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Loyalty Campaign (asynchronously)
+     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the loyalty cards which have not been published or redeemed yet.
+     * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
+     * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateLoyaltyProgramAsync(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback<LoyaltiesUpdateCampaignResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateLoyaltyProgramValidateBeforeCall(campaignId, loyaltiesUpdateCampaignRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesUpdateCampaignResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
