@@ -33856,6 +33856,7 @@ components:
           nullable: true
           type: string
         campaign_type:
+          default: LOYALTY_PROGRAM
           description: Type of campaign.
           enum:
           - LOYALTY_PROGRAM
@@ -38061,6 +38062,7 @@ components:
       description: Schema model for a campaign voucher.
       properties:
         type:
+          default: LOYALTY_CARD
           description: Type of voucher.
           enum:
           - LOYALTY_CARD

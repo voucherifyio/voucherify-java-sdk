@@ -122,7 +122,7 @@ public class LoyaltiesUpdateCampaignResponseBody {
 
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
-  private CampaignTypeEnum campaignType;
+  private CampaignTypeEnum campaignType = CampaignTypeEnum.LOYALTY_PROGRAM;
 
   /**
    * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published
