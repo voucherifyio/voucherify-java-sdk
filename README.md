@@ -273,6 +273,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**getEarningRule**](docs/LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule
 *LoyaltiesApi* | [**getLoyaltyProgram**](docs/LoyaltiesApi.md#getLoyaltyProgram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign
 *LoyaltiesApi* | [**getLoyaltyTier**](docs/LoyaltiesApi.md#getLoyaltyTier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier
+*LoyaltiesApi* | [**getMember**](docs/LoyaltiesApi.md#getMember) | **GET** /v1/loyalties/members/{memberId} | Get Member
 *LoyaltiesApi* | [**getMember1**](docs/LoyaltiesApi.md#getMember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment

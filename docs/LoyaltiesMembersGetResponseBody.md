@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersGetResponseBody
 
-Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}`.
+Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}` and **GET** `/loyalties/members/{memberId}`.
 
 ## Properties
 

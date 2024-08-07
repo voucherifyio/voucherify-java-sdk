@@ -11244,6 +11244,83 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+  /v1/loyalties/members/{memberId}:
+    get:
+      description: "Retrieve loyalty card with the given member ID (i.e. voucher code).\
+        \    \n 📘 Alternative endpoint\n This endpoint is an alternative to this\
+        \ endpoint. The URL was re-designed to allow you to retrieve loyalty card\
+        \ details without having to provide the campaignId as a path parameter."
+      operationId: get-member
+      parameters:
+      - description: Unique loyalty card code assigned to a particular customer.
+        explode: false
+        in: path
+        name: memberId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterMemberId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Loyalty Card:
+                  value:
+                    id: v_0aMj6Mdp0i3zuXrd9NnBKboc7746mlgF
+                    code: MmFAzfDe
+                    campaign: Loyalty Program
+                    campaign_id: camp_7s3uXI44aKfIk5IhmeOPr6ic
+                    category: null
+                    category_id: cat_0b6152ce12414820de
+                    categories: []
+                    type: LOYALTY_CARD
+                    discount: null
+                    gift: null
+                    loyalty_card:
+                      points: 13435
+                      balance: 13135
+                      next_expiration_date: 2022-11-30
+                      next_expiration_points: 12
+                    start_date: null
+                    expiration_date: null
+                    validity_timeframe: null
+                    validity_day_of_week: null
+                    active: true
+                    additional_info: null
+                    metadata: {}
+                    assets:
+                      qr:
+                        id: U2FsdGVkX184kVdWUO/msrLg1G0MRf/Cs6QwSN3f6kyWCOTGdijyq8OfUbUpcGx6fjdeIpTf2UilFGNG8aCWVk/dXm/QEJ/sulXKDlUMWf+MN7TRG5LB+wuzqTy7csDBfRoJn0fURpwU4A6VZZSwBQ==
+                        url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX184kVdWUO%2FmsrLg1G0MRf%2FCs6QwSN3f6kyWCOTGdijyq8OfUbUpcGx6fjdeIpTf2UilFGNG8aCWVk%2FdXm%2FQEJ%2FsulXKDlUMWf%2BMN7TRG5LB%2BwuzqTy7csDBfRoJn0fURpwU4A6VZZSwBQ%3D%3D
+                      barcode:
+                        id: U2FsdGVkX1/RGZN9VwvkdI6B26PPZQZWjh33USr5NPMXbHuJVkxsH6TUyW/cXen1Lc7gaqik09BGiry0R4QIAP52jnxQuABOsW0HdYfglsLPY7IajGX5rJzZKDKuzioq2vRIPyuE6z03frAod7ptvQ==
+                        url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX1%2FRGZN9VwvkdI6B26PPZQZWjh33USr5NPMXbHuJVkxsH6TUyW%2FcXen1Lc7gaqik09BGiry0R4QIAP52jnxQuABOsW0HdYfglsLPY7IajGX5rJzZKDKuzioq2vRIPyuE6z03frAod7ptvQ%3D%3D
+                    is_referral_code: false
+                    created_at: 2022-02-18T14:03:59.954Z
+                    updated_at: 2022-11-21T13:49:54.949Z
+                    holder_id: cust_sehkNIi8Uq2qQuRqSr7xn4Zi
+                    redemption:
+                      quantity: null
+                      redeemed_quantity: 1
+                      redeemed_points: 300
+                      object: list
+                      url: /v1/vouchers/MmFAzfDe/redemptions?page=1&limit=10
+                    publish:
+                      object: list
+                      count: 1
+                      url: /v1/vouchers/MmFAzfDe/publications?page=1&limit=10
+                    object: voucher
+              schema:
+                $ref: '#/components/schemas/LoyaltiesMembersGetResponseBody'
+          description: Returns loyalty card details.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Get Member
+      tags:
+      - Loyalties
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/balance:
     post:
       description: "This method adds or removes balance to an existing loyalty card.\
@@ -26996,7 +27073,8 @@ components:
     LoyaltiesMembersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/LoyaltyMember'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}`."
+      description: "Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}`\
+        \ and **GET** `/loyalties/members/{memberId}`."
       title: Loyalties Members Get Response Body
       type: object
     LoyaltiesMembersPointsExpirationListResponseBody:

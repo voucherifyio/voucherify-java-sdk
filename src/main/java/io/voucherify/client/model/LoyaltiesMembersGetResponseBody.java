@@ -57,7 +57,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;/loyalties/{campaignId}/members/{memberId}&#x60;.
+ * Response body schema for **GET** &#x60;/loyalties/{campaignId}/members/{memberId}&#x60; and **GET** &#x60;/loyalties/members/{memberId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

@@ -1652,6 +1652,109 @@ public class LoyaltiesApi {
         return localVarCall;
     }
     /**
+     * Build call for getMember
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getMemberCall(String memberId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/members/{memberId}"
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMemberValidateBeforeCall(String memberId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling getMember(Async)");
+        }
+
+        return getMemberCall(memberId, _callback);
+
+    }
+
+    /**
+     * Get Member
+     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @return LoyaltiesMembersGetResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMembersGetResponseBody getMember(String memberId) throws ApiException {
+        ApiResponse<LoyaltiesMembersGetResponseBody> localVarResp = getMemberWithHttpInfo(memberId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Member
+     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @return ApiResponse&lt;LoyaltiesMembersGetResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMembersGetResponseBody> getMemberWithHttpInfo(String memberId) throws ApiException {
+        okhttp3.Call localVarCall = getMemberValidateBeforeCall(memberId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Member (asynchronously)
+     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getMemberAsync(String memberId, final ApiCallback<LoyaltiesMembersGetResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMemberValidateBeforeCall(memberId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getMember1
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique code that identifies the loyalty card. (required)
