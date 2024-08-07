@@ -131,9 +131,9 @@
 | /v1/loyalties/{campaignId}                                          | get    | Get Loyalty Campaign               | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}                                          | put    | Update Loyalty Campaign            | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}                                          | delete | Delete Loyalty Campaign            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members                                  | get    | List Members                       |                                      |               |
+| /v1/loyalties/{campaignId}/members                                  | get    | List Members                       | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/members                                  | post   | Add Member                         |                                      |               |
-| /v1/loyalties/{campaignId}/members/{memberId}                       | get    | Get Member                         |                                      |               |
+| /v1/loyalties/{campaignId}/members/{memberId}                       | get    | Get Member                         | <font color='green'>supported</font> |               |
 | /v1/loyalties/members/{memberId}                                    | get    | Get Member                         |                                      |               |
 | /v1/loyalties/{campaignId}/members/{memberId}/activity              | get    | List Member Activity               |                                      |               |
 | /v1/loyalties/members/{memberId}/activity                           | get    | List Member Activity               |                                      |               |

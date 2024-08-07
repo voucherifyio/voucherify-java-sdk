@@ -40,8 +40,10 @@ import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesGetCampaignResponseBody;
 import io.voucherify.client.model.LoyaltiesListCampaignsResponseBody;
+import io.voucherify.client.model.LoyaltiesListMembersResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateResponseBody;
+import io.voucherify.client.model.LoyaltiesMembersGetResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersPointsExpirationListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBody;
@@ -69,9 +71,12 @@ import io.voucherify.client.model.LoyaltiesTransferPoints;
 import io.voucherify.client.model.LoyaltiesUpdateCampaignRequestBody;
 import io.voucherify.client.model.LoyaltiesUpdateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltyTier;
+import io.voucherify.client.model.ParameterCreatedBeforeAfter;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
+import io.voucherify.client.model.ParameterOrderVouchers;
+import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1647,6 +1652,119 @@ public class LoyaltiesApi {
         return localVarCall;
     }
     /**
+     * Build call for getMember1
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique code that identifies the loyalty card. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getMember1Call(String campaignId, String memberId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/members/{memberId}"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()))
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMember1ValidateBeforeCall(String campaignId, String memberId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling getMember1(Async)");
+        }
+
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling getMember1(Async)");
+        }
+
+        return getMember1Call(campaignId, memberId, _callback);
+
+    }
+
+    /**
+     * Get Member
+     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique code that identifies the loyalty card. (required)
+     * @return LoyaltiesMembersGetResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMembersGetResponseBody getMember1(String campaignId, String memberId) throws ApiException {
+        ApiResponse<LoyaltiesMembersGetResponseBody> localVarResp = getMember1WithHttpInfo(campaignId, memberId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Member
+     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique code that identifies the loyalty card. (required)
+     * @return ApiResponse&lt;LoyaltiesMembersGetResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMembersGetResponseBody> getMember1WithHttpInfo(String campaignId, String memberId) throws ApiException {
+        okhttp3.Call localVarCall = getMember1ValidateBeforeCall(campaignId, memberId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Member (asynchronously)
+     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique code that identifies the loyalty card. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getMember1Async(String campaignId, String memberId, final ApiCallback<LoyaltiesMembersGetResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMember1ValidateBeforeCall(campaignId, memberId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getRewardAssignment1
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
@@ -3049,6 +3167,173 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = listMemberRewardsValidateBeforeCall(memberId, affordableOnly, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersRewardsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMembers
+     * @param campaignId Unique campaign ID of the loyalty program. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listMembersCall(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/members"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (customer != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer", customer));
+        }
+
+        if (createdAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("created_at", createdAt));
+        }
+
+        if (updatedAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updated_at", updatedAt));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (code != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("code", code));
+        }
+
+        if (ids != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "ids", ids));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMembersValidateBeforeCall(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listMembers(Async)");
+        }
+
+        return listMembersCall(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, _callback);
+
+    }
+
+    /**
+     * List Members
+     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * @param campaignId Unique campaign ID of the loyalty program. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @return LoyaltiesListMembersResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesListMembersResponseBody listMembers(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        ApiResponse<LoyaltiesListMembersResponseBody> localVarResp = listMembersWithHttpInfo(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Members
+     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * @param campaignId Unique campaign ID of the loyalty program. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @return ApiResponse&lt;LoyaltiesListMembersResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesListMembersResponseBody> listMembersWithHttpInfo(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        okhttp3.Call localVarCall = listMembersValidateBeforeCall(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesListMembersResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Members (asynchronously)
+     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * @param campaignId Unique campaign ID of the loyalty program. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listMembersAsync(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback<LoyaltiesListMembersResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMembersValidateBeforeCall(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesListMembersResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

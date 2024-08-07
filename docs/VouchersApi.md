@@ -723,7 +723,7 @@ public class Example {
 
 <a id="listVouchers"></a>
 # **listVouchers**
-> VouchersListResponseBody listVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order)
+> VouchersListResponseBody listVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids)
 
 List Vouchers
 
@@ -760,8 +760,10 @@ public class Example {
     ParameterCreatedBeforeAfter createdAt = new ParameterCreatedBeforeAfter(); // ParameterCreatedBeforeAfter | A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z
     ParameterUpdatedBeforeAfter updatedAt = new ParameterUpdatedBeforeAfter(); // ParameterUpdatedBeforeAfter | A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z
     ParameterOrderVouchers order = ParameterOrderVouchers.fromValue("created_at"); // ParameterOrderVouchers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String code = "code_example"; // String | 
+    List<String> ids = Arrays.asList(); // List<String> | 
     try {
-      VouchersListResponseBody result = apiInstance.listVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order);
+      VouchersListResponseBody result = apiInstance.listVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#listVouchers");
@@ -787,6 +789,8 @@ public class Example {
 | **createdAt** | [**ParameterCreatedBeforeAfter**](.md)| A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z |
 | **updatedAt** | [**ParameterUpdatedBeforeAfter**](.md)| A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z |
 | **order** | [**ParameterOrderVouchers**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **code** | **String**|  |
+| **ids** | [**List&lt;String&gt;**](String.md)|  |
 
 ### Return type
 

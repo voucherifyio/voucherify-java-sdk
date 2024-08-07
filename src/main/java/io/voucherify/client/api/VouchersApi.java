@@ -1159,11 +1159,13 @@ public class VouchersApi {
      * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listVouchersCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listVouchersCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1224,6 +1226,14 @@ public class VouchersApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
+        if (code != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("code", code));
+        }
+
+        if (ids != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "ids", ids));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1244,8 +1254,8 @@ public class VouchersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listVouchersValidateBeforeCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, final ApiCallback _callback) throws ApiException {
-        return listVouchersCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, _callback);
+    private okhttp3.Call listVouchersValidateBeforeCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
+        return listVouchersCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, _callback);
 
     }
 
@@ -1261,11 +1271,13 @@ public class VouchersApi {
      * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
      * @return VouchersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VouchersListResponseBody listVouchers(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order) throws ApiException {
-        ApiResponse<VouchersListResponseBody> localVarResp = listVouchersWithHttpInfo(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order);
+    public VouchersListResponseBody listVouchers(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        ApiResponse<VouchersListResponseBody> localVarResp = listVouchersWithHttpInfo(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids);
         return localVarResp.getData();
     }
 
@@ -1281,11 +1293,13 @@ public class VouchersApi {
      * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
      * @return ApiResponse&lt;VouchersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VouchersListResponseBody> listVouchersWithHttpInfo(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order) throws ApiException {
-        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, null);
+    public ApiResponse<VouchersListResponseBody> listVouchersWithHttpInfo(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, null);
         Type localVarReturnType = new TypeToken<VouchersListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1302,13 +1316,15 @@ public class VouchersApi {
      * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listVouchersAsync(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, final ApiCallback<VouchersListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listVouchersAsync(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback<VouchersListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, _callback);
+        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, _callback);
         Type localVarReturnType = new TypeToken<VouchersListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

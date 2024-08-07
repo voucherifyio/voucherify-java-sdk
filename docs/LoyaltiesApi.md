@@ -18,6 +18,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**getEarningRule**](LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule |
 | [**getLoyaltyProgram**](LoyaltiesApi.md#getLoyaltyProgram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign |
 | [**getLoyaltyTier**](LoyaltiesApi.md#getLoyaltyTier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier |
+| [**getMember1**](LoyaltiesApi.md#getMember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member |
 | [**getRewardAssignment1**](LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment |
 | [**getRewardAssignment2**](LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment |
 | [**getRewardDetails**](LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details |
@@ -30,6 +31,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listLoyaltyTiers**](LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers |
 | [**listMemberLoyaltyTier**](LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers |
 | [**listMemberRewards**](LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards |
+| [**listMembers**](LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members |
 | [**listPointsExpiration**](LoyaltiesApi.md#listPointsExpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | Get Points Expiration |
 | [**listRewardAssignments1**](LoyaltiesApi.md#listRewardAssignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments |
 | [**listRewardAssignments2**](LoyaltiesApi.md#listRewardAssignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Reward Assignments |
@@ -1033,6 +1035,77 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Returns a loyalty tier object. |  -  |
 
+<a id="getMember1"></a>
+# **getMember1**
+> LoyaltiesMembersGetResponseBody getMember1(campaignId, memberId)
+
+Get Member
+
+Retrieves the loyalty card with the given member ID (i.e. voucher code).
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID.
+    String memberId = "memberId_example"; // String | Unique code that identifies the loyalty card.
+    try {
+      LoyaltiesMembersGetResponseBody result = apiInstance.getMember1(campaignId, memberId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#getMember1");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID. |
+| **memberId** | **String**| Unique code that identifies the loyalty card. |
+
+### Return type
+
+[**LoyaltiesMembersGetResponseBody**](LoyaltiesMembersGetResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns loyalty card details. |  -  |
+
 <a id="getRewardAssignment1"></a>
 # **getRewardAssignment1**
 > LoyaltiesRewardAssignmentsGetResponseBody getRewardAssignment1(campaignId, assignmentId)
@@ -1900,6 +1973,91 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of rewards for the given &#x60;member_id&#x60;. Returns a filtered list if the query parameter &#x60;affordable_only&#x60; is set to &#x60;true&#x60;. |  -  |
+
+<a id="listMembers"></a>
+# **listMembers**
+> LoyaltiesListMembersResponseBody listMembers(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids)
+
+List Members
+
+Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID of the loyalty program.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    String customer = "customer_example"; // String | A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters.
+    ParameterCreatedBeforeAfter createdAt = new ParameterCreatedBeforeAfter(); // ParameterCreatedBeforeAfter | A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z
+    ParameterUpdatedBeforeAfter updatedAt = new ParameterUpdatedBeforeAfter(); // ParameterUpdatedBeforeAfter | A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z
+    ParameterOrderVouchers order = ParameterOrderVouchers.fromValue("created_at"); // ParameterOrderVouchers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String code = "code_example"; // String | 
+    List<String> ids = Arrays.asList(); // List<String> | 
+    try {
+      LoyaltiesListMembersResponseBody result = apiInstance.listMembers(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#listMembers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID of the loyalty program. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **customer** | **String**| A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. |
+| **createdAt** | [**ParameterCreatedBeforeAfter**](.md)| A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z |
+| **updatedAt** | [**ParameterUpdatedBeforeAfter**](.md)| A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z |
+| **order** | [**ParameterOrderVouchers**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **code** | **String**|  |
+| **ids** | [**List&lt;String&gt;**](String.md)|  |
+
+### Return type
+
+[**LoyaltiesListMembersResponseBody**](LoyaltiesListMembersResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of loyalty cards within a campaign. |  -  |
 
 <a id="listPointsExpiration"></a>
 # **listPointsExpiration**

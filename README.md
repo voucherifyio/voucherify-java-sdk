@@ -162,6 +162,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
   - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
   - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members`
+  - Added new query option to GET `/v1/vouchers` - `code` and `ids`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
@@ -271,6 +273,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**getEarningRule**](docs/LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule
 *LoyaltiesApi* | [**getLoyaltyProgram**](docs/LoyaltiesApi.md#getLoyaltyProgram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign
 *LoyaltiesApi* | [**getLoyaltyTier**](docs/LoyaltiesApi.md#getLoyaltyTier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier
+*LoyaltiesApi* | [**getMember1**](docs/LoyaltiesApi.md#getMember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardDetails**](docs/LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details
@@ -283,6 +286,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**listLoyaltyTiers**](docs/LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers
 *LoyaltiesApi* | [**listMemberLoyaltyTier**](docs/LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers
 *LoyaltiesApi* | [**listMemberRewards**](docs/LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards
+*LoyaltiesApi* | [**listMembers**](docs/LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members
 *LoyaltiesApi* | [**listPointsExpiration**](docs/LoyaltiesApi.md#listPointsExpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | Get Points Expiration
 *LoyaltiesApi* | [**listRewardAssignments1**](docs/LoyaltiesApi.md#listRewardAssignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments
 *LoyaltiesApi* | [**listRewardAssignments2**](docs/LoyaltiesApi.md#listRewardAssignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Reward Assignments
@@ -571,10 +575,12 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesUpdateResponseBody](docs/LoyaltiesEarningRulesUpdateResponseBody.md)
 - [LoyaltiesGetCampaignResponseBody](docs/LoyaltiesGetCampaignResponseBody.md)
 - [LoyaltiesListCampaignsResponseBody](docs/LoyaltiesListCampaignsResponseBody.md)
+- [LoyaltiesListMembersResponseBody](docs/LoyaltiesListMembersResponseBody.md)
 - [LoyaltiesLoyaltyTierReward](docs/LoyaltiesLoyaltyTierReward.md)
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject](docs/LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md)
+- [LoyaltiesMembersGetResponseBody](docs/LoyaltiesMembersGetResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBody](docs/LoyaltiesMembersPointsExpirationListResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItem](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItem.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket.md)
@@ -616,6 +622,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyCampaignVoucher](docs/LoyaltyCampaignVoucher.md)
 - [LoyaltyCardTransaction](docs/LoyaltyCardTransaction.md)
 - [LoyaltyCardTransactionsType](docs/LoyaltyCardTransactionsType.md)
+- [LoyaltyMember](docs/LoyaltyMember.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
 - [LoyaltyTierAllOfConfig](docs/LoyaltyTierAllOfConfig.md)
 - [LoyaltyTierAllOfConfigPoints](docs/LoyaltyTierAllOfConfigPoints.md)
