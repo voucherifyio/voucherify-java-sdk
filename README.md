@@ -161,6 +161,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for GET `/v1/loyalties/{campaignId}/reward-assignments` and GET `/v1/loyalties/{campaignId}/rewards`
   - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
   - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
+  - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
@@ -268,6 +269,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**exportLoyaltyCardTransactions**](docs/LoyaltiesApi.md#exportLoyaltyCardTransactions) | **POST** /v1/loyalties/members/{memberId}/transactions/export | Export Loyalty Card Transactions
 *LoyaltiesApi* | [**exportLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#exportLoyaltyCardTransactions1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transactions/export | Export Loyalty Card Transactions
 *LoyaltiesApi* | [**getEarningRule**](docs/LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule
+*LoyaltiesApi* | [**getLoyaltyProgram**](docs/LoyaltiesApi.md#getLoyaltyProgram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign
 *LoyaltiesApi* | [**getLoyaltyTier**](docs/LoyaltiesApi.md#getLoyaltyTier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment
@@ -275,6 +277,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**listEarningRules**](docs/LoyaltiesApi.md#listEarningRules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules
 *LoyaltiesApi* | [**listLoyaltyCardTransactions**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions
 *LoyaltiesApi* | [**listLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions
+*LoyaltiesApi* | [**listLoyaltyPrograms**](docs/LoyaltiesApi.md#listLoyaltyPrograms) | **GET** /v1/loyalties | List Loyalty Campaigns
 *LoyaltiesApi* | [**listLoyaltyTierEarningRules**](docs/LoyaltiesApi.md#listLoyaltyTierEarningRules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules
 *LoyaltiesApi* | [**listLoyaltyTierRewards**](docs/LoyaltiesApi.md#listLoyaltyTierRewards) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards | List Loyalty Tier Rewards
 *LoyaltiesApi* | [**listLoyaltyTiers**](docs/LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers
@@ -566,6 +569,8 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder.md)
 - [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems.md)
 - [LoyaltiesEarningRulesUpdateResponseBody](docs/LoyaltiesEarningRulesUpdateResponseBody.md)
+- [LoyaltiesGetCampaignResponseBody](docs/LoyaltiesGetCampaignResponseBody.md)
+- [LoyaltiesListCampaignsResponseBody](docs/LoyaltiesListCampaignsResponseBody.md)
 - [LoyaltiesLoyaltyTierReward](docs/LoyaltiesLoyaltyTierReward.md)
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
