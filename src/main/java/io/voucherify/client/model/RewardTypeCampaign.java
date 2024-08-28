@@ -68,11 +68,7 @@ public class RewardTypeCampaign {
   public enum TypeEnum {
     DISCOUNT_COUPONS("DISCOUNT_COUPONS"),
     
-    PROMOTION("PROMOTION"),
-    
     GIFT_VOUCHERS("GIFT_VOUCHERS"),
-    
-    REFERRAL_PROGRAM("REFERRAL_PROGRAM"),
     
     LOYALTY_PROGRAM("LOYALTY_PROGRAM");
 
@@ -149,7 +145,7 @@ public class RewardTypeCampaign {
   }
 
    /**
-   * The incremental amout to be added to the current balance on the gift card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+   * The number of points to be added to a loyalty card or the amount to be added to the current balance on the gift card.  For gift cards, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
    * @return balance
   **/
   @javax.annotation.Nullable

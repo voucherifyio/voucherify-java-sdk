@@ -146,8 +146,10 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 - **2024-08-XX** - `14.0.0`
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItem` model
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItemCalculated` model
-  - ❗❗❗ BREAKING CHANGE ❗❗❗:
+  - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
+    - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
+    - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
   - Added `holderRole` to `QualificationsOptionFilters` model
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
   - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
@@ -215,7 +217,7 @@ Class | Method | HTTP request | Description
 *ClientSideApi* | [**listPromotionTiersClientSide**](docs/ClientSideApi.md#listPromotionTiersClientSide) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side)
 *ClientSideApi* | [**redeemStackedDiscountsClientSide**](docs/ClientSideApi.md#redeemStackedDiscountsClientSide) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side)
 *ClientSideApi* | [**trackCustomEventClientSide**](docs/ClientSideApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side)
-*ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side)
+*ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) [Deprecated]
 *ClientSideApi* | [**validateStackedDiscountsClientSide**](docs/ClientSideApi.md#validateStackedDiscountsClientSide) | **POST** /client/v1/validations | Validate Stackable Discounts (client-side)
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createCustomer) | **POST** /v1/customers | Create Customer
 *CustomersApi* | [**customerPermanentlyDeletion**](docs/CustomersApi.md#customerPermanentlyDeletion) | **POST** /v1/customers/{customerId}/permanent-deletion | Delete Customer Permanently
@@ -225,7 +227,7 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**listCustomerSegments**](docs/CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer
-*CustomersApi* | [**updateCustomersConsents**](docs/CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents
+*CustomersApi* | [**updateCustomersConsents**](docs/CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents [Deprecated]
 *CustomersApi* | [**updateCustomersInBulk**](docs/CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in bulk
 *CustomersApi* | [**updateCustomersMetadataInBulk**](docs/CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in bulk
 *EventsApi* | [**trackCustomEvent**](docs/EventsApi.md#trackCustomEvent) | **POST** /v1/events | Track Custom Event
@@ -711,9 +713,6 @@ Class | Method | HTTP request | Description
 - [RedemptionRewardResultParametersCampaign](docs/RedemptionRewardResultParametersCampaign.md)
 - [RedemptionRewardResultParametersCoin](docs/RedemptionRewardResultParametersCoin.md)
 - [RedemptionRewardResultParametersProduct](docs/RedemptionRewardResultParametersProduct.md)
-- [RedemptionRewardResultProduct](docs/RedemptionRewardResultProduct.md)
-- [RedemptionRewardResultSku](docs/RedemptionRewardResultSku.md)
-- [RedemptionRewardResultVoucher](docs/RedemptionRewardResultVoucher.md)
 - [RedemptionRollback](docs/RedemptionRollback.md)
 - [RedemptionRollbackChannel](docs/RedemptionRollbackChannel.md)
 - [RedemptionRollbackGift](docs/RedemptionRollbackGift.md)

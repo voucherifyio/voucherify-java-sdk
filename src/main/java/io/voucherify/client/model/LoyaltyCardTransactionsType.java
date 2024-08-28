@@ -30,8 +30,6 @@ public enum LoyaltyCardTransactionsType {
   
   ACCRUAL("POINTS_ACCRUAL"),
   
-  CANCELLATION("POINTS_CANCELLATION"),
-  
   REDEMPTION("POINTS_REDEMPTION"),
   
   REFUND("POINTS_REFUND"),

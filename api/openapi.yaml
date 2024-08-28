@@ -13659,7 +13659,11 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}/consents:
     put:
-      description: Update marketing permissions for the specified customer.
+      deprecated: true
+      description: |-
+        Update marketing permissions for the specified customer.
+        ❗️ Deprecated
+         This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
       operationId: update-customers-consents
       parameters:
       - description: A Voucherify unique customer identifier or source ID.
@@ -13693,7 +13697,7 @@ paths:
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Customer's consents
+      summary: "Update Customer's consents [Deprecated]"
       tags:
       - Customers
       x-content-type: application/json
@@ -18860,7 +18864,11 @@ paths:
       x-accepts: application/json
   /client/v1/customers/{customerId}/consents:
     put:
-      description: Update marketing permissions for the specified customer.
+      deprecated: true
+      description: |-
+        Update marketing permissions for the specified customer.
+        ❗️ Deprecated
+         This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
       operationId: update-customers-consents-client-side
       parameters:
       - description: A Voucherify customer identifier or source_id
@@ -18894,7 +18902,7 @@ paths:
       security:
       - X-Client-Application-Id: []
         X-Client-Token: []
-      summary: Update Customer's consents (client-side)
+      summary: "Update Customer's consents (client-side) [Deprecated]"
       tags:
       - Client-side
       x-content-type: application/json
@@ -20302,7 +20310,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -20798,8 +20807,9 @@ components:
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -20807,7 +20817,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -20858,8 +20868,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -20867,7 +20878,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -20919,8 +20930,9 @@ components:
         parent_redemption:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -20928,7 +20940,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -22161,7 +22173,8 @@ components:
           nullable: true
           type: boolean
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           nullable: true
           type: string
         updated_at:
@@ -23880,8 +23893,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -23889,7 +23903,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -24410,8 +24424,9 @@ components:
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -24419,7 +24434,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -24832,8 +24847,9 @@ components:
             object: customer
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -24841,7 +24857,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25358,8 +25374,9 @@ components:
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25367,7 +25384,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25418,8 +25435,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25427,7 +25445,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25479,8 +25497,9 @@ components:
         parent_redemption:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25488,7 +25507,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25679,8 +25698,9 @@ components:
         parent_rollback:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25688,7 +25708,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25741,8 +25761,9 @@ components:
         rollbacks:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25750,7 +25771,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25802,8 +25823,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25811,7 +25833,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -29855,8 +29877,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -29864,7 +29887,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -30130,8 +30153,9 @@ components:
       type: object
     RedemptionRewardResult:
       example:
-        product: null
-        voucher: null
+        product: ""
+        metadata: "{}"
+        voucher: ""
         created_at: 2021-12-22T10:13:06.487Z
         type: CAMPAIGN
         assignment_id: assignment_id
@@ -30139,7 +30163,7 @@ components:
         loyalty_tier_id: loyalty_tier_id
         name: Reward Name
         id: rew_0bc92f81a6801f9bca
-        sku: null
+        sku: ""
         parameters:
           product:
             sku_id: sku_0a41e31c7b41c28358
@@ -30163,11 +30187,17 @@ components:
           nullable: true
           type: string
         voucher:
-          $ref: '#/components/schemas/RedemptionRewardResult_voucher'
+          allOf:
+          - $ref: '#/components/schemas/Voucher'
+          nullable: true
         product:
-          $ref: '#/components/schemas/RedemptionRewardResult_product'
+          allOf:
+          - $ref: '#/components/schemas/Product'
+          nullable: true
         sku:
-          $ref: '#/components/schemas/RedemptionRewardResult_sku'
+          allOf:
+          - $ref: '#/components/schemas/Sku'
+          nullable: true
         loyalty_tier_id:
           description: Unique loyalty tier ID assigned by Voucherify.
           nullable: true
@@ -30205,6 +30235,11 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/RedemptionRewardResult_parameters'
+        metadata:
+          description: A set of custom key/value pairs that you can attach to a reward.
+            The metadata object stores all custom attributes assigned to the reward.
+          nullable: true
+          type: object
         type:
           description: Reward type.
           enum:
@@ -30222,8 +30257,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -30231,7 +30267,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -30530,6 +30566,7 @@ components:
       title: Session
       type: object
     SimpleCustomer:
+      description: Simplified customer data.
       example:
         metadata: "{}"
         name: name
@@ -30539,15 +30576,8 @@ components:
         object: customer
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -30558,13 +30588,14 @@ components:
           description: Customer's email address.
           nullable: true
           type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
+          nullable: true
+          type: string
         metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
+          description: A set of custom key/value pairs that are attached to the customer.
+            It stores all custom attributes assigned to the customer.
           nullable: true
           type: object
         object:
@@ -31651,7 +31682,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -31882,7 +31914,7 @@ components:
             | **Field** | **Definition** | **Example Export** |
             |:---|:---|:---|
             | id | Unique transaction ID. | vtx_0cb7811f1c07765800 |
-            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_CANCELLATION` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
+            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
             | source_id | Unique transaction source ID. | 8638 |
             | reason | Contains the reason for the transaction if one was included originally. |  |
             | balance | The gift card or loyalty card balance after the transaction. |  |
@@ -32376,7 +32408,6 @@ components:
     LoyaltyCardTransactionsType:
       enum:
       - POINTS_ACCRUAL
-      - POINTS_CANCELLATION
       - POINTS_REDEMPTION
       - POINTS_REFUND
       - POINTS_ADDITION
@@ -32907,7 +32938,8 @@ components:
           nullable: true
           type: boolean
         holder_id:
-          description: Unique customer ID of the campaign owner.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -32935,14 +32967,14 @@ components:
           type: boolean
         created_at:
           description: Timestamp representing the date and time when the order was
-            created. Timestamp is presented in the ISO 8601 format.
+            created in the ISO 8601 format.
           example: 2021-12-22T10:13:06.487Z
           format: date-time
           nullable: true
           type: string
         updated_at:
-          description: Timestamp representing the date and time when the voucher was
-            updated in the ISO 8601 format.
+          description: Timestamp representing the date and time when the order was
+            created. The value is shown in the ISO 8601 format.
           example: 2024-01-01T11:11:11.111Z
           format: date-time
           nullable: true
@@ -32975,8 +33007,6 @@ components:
           - voucher
           nullable: true
           type: string
-      required:
-      - inapplicable_to
       title: Simple Voucher
       type: object
     SkusListForProduct:
@@ -33040,7 +33070,7 @@ components:
             | **Field** | **Definition** | **Example Export** |
             |:---|:---|:---|
             | id | Unique transaction ID. | vtx_0cb7811f1c07765800 |
-            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_CANCELLATION` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
+            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL`<br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
             | source_id | Unique transaction source ID. | 8638 |
             | reason | Contains the reason for the transaction if one was included originally. |  |
             | balance | The gift card or loyalty card balance after the transaction. |  |
@@ -34765,7 +34795,7 @@ components:
           description: Product ID for SKUs.
           type: string
         object:
-          description: Denotes the type of object represented by the ID.
+          description: Denotes the type of the object represented by the ID.
           enum:
           - sku
           - product
@@ -34837,7 +34867,8 @@ components:
       - junction
       type: object
     PromotionsStacksUpdateRequestBody_tiers:
-      description: Contains the tier configuration.
+      description: Contains the tier configuration. A promotion stack can include
+        up to 30 tiers.
       example:
         ids:
         - ids
@@ -35456,15 +35487,8 @@ components:
       nullable: true
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -35473,6 +35497,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -35887,7 +35916,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -36694,15 +36724,8 @@ components:
         object: customer
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -36711,6 +36734,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -37118,7 +37146,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -37596,8 +37625,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -37605,7 +37635,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -38276,7 +38306,7 @@ components:
           type: string
         balance:
           description: "The incremental points to be added to the current balance\
-            \ on the loyalty card. and The incremental amout to be added to the current\
+            \ on the loyalty card. and The incremental amount to be added to the current\
             \ balance on the gift card. Value is multiplied by 100 to precisely represent\
             \ 2 decimal places. For example, $100 amount is written as 10000."
           nullable: true
@@ -39444,7 +39474,7 @@ components:
           description: Product ID for SKUs.
           type: string
         object:
-          description: Denotes the type of object represented by the ID.
+          description: Denotes the type of the object represented by the ID.
           enum:
           - sku
           - product
@@ -39513,7 +39543,8 @@ components:
       title: Product Collections Products List Data Item
       type: object
     PromotionStackBase_tiers:
-      description: Contains the tier configuration.
+      description: Contains the tier configuration. A promotion stack can include
+        up to 30 tiers.
       nullable: true
       properties:
         ids:
@@ -40142,15 +40173,8 @@ components:
       nullable: true
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -40159,6 +40183,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -40415,7 +40444,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -40696,21 +40726,6 @@ components:
           type: integer
       title: RedemptionEntryLoyaltyCard
       type: object
-    RedemptionRewardResult_voucher:
-      allOf:
-      - $ref: '#/components/schemas/Voucher'
-      description: Defines of the voucher.
-      nullable: true
-    RedemptionRewardResult_product:
-      allOf:
-      - $ref: '#/components/schemas/Product'
-      description: Defines of the product.
-      nullable: true
-    RedemptionRewardResult_sku:
-      allOf:
-      - $ref: '#/components/schemas/Sku'
-      description: Defines of the sku.
-      nullable: true
     RedemptionRewardResult_parameters_campaign:
       description: Defines the product redeemed as a reward.
       example:
@@ -40984,18 +40999,17 @@ components:
           nullable: true
           type: string
         balance:
-          description: "The incremental amout to be added to the current balance on\
-            \ the gift card. Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, $100 amount is written as 10000."
+          description: |-
+            The number of points to be added to a loyalty card or the amount to be added to the current balance on the gift card.
+
+            For gift cards, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
           nullable: true
           type: integer
         type:
           description: Campaign type.
           enum:
           - DISCOUNT_COUPONS
-          - PROMOTION
           - GIFT_VOUCHERS
-          - REFERRAL_PROGRAM
           - LOYALTY_PROGRAM
           nullable: true
           type: string

@@ -57,10 +57,6 @@ public class RedemptionsGetResponseBodyCustomer {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -68,6 +64,10 @@ public class RedemptionsGetResponseBodyCustomer {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -132,7 +132,7 @@ public class RedemptionsGetResponseBodyCustomer {
   }
 
    /**
-   * The ID of an existing customer that will be linked to redemption in this request.
+   * Unique identifier of an existing customer. It is assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -143,27 +143,6 @@ public class RedemptionsGetResponseBodyCustomer {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-
-  public RedemptionsGetResponseBodyCustomer sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
   }
 
 
@@ -206,6 +185,27 @@ public class RedemptionsGetResponseBodyCustomer {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public RedemptionsGetResponseBodyCustomer sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
   }
 
 
@@ -306,9 +306,9 @@ public class RedemptionsGetResponseBodyCustomer {
     }
     RedemptionsGetResponseBodyCustomer redemptionsGetResponseBodyCustomer = (RedemptionsGetResponseBodyCustomer) o;
     return Objects.equals(this.id, redemptionsGetResponseBodyCustomer.id) &&
-        Objects.equals(this.sourceId, redemptionsGetResponseBodyCustomer.sourceId) &&
         Objects.equals(this.name, redemptionsGetResponseBodyCustomer.name) &&
         Objects.equals(this.email, redemptionsGetResponseBodyCustomer.email) &&
+        Objects.equals(this.sourceId, redemptionsGetResponseBodyCustomer.sourceId) &&
         Objects.equals(this.metadata, redemptionsGetResponseBodyCustomer.metadata) &&
         Objects.equals(this._object, redemptionsGetResponseBodyCustomer._object)&&
         Objects.equals(this.additionalProperties, redemptionsGetResponseBodyCustomer.additionalProperties);
@@ -320,7 +320,7 @@ public class RedemptionsGetResponseBodyCustomer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, name, email, metadata, _object, additionalProperties);
+    return Objects.hash(id, name, email, sourceId, metadata, _object, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -335,9 +335,9 @@ public class RedemptionsGetResponseBodyCustomer {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedemptionsGetResponseBodyCustomer {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -364,9 +364,9 @@ public class RedemptionsGetResponseBodyCustomer {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("source_id");
     openapiFields.add("name");
     openapiFields.add("email");
+    openapiFields.add("source_id");
     openapiFields.add("metadata");
     openapiFields.add("object");
 

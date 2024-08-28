@@ -438,7 +438,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Unique customer ID of the campaign owner.
+   * Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
    * @return holderId
   **/
   @javax.annotation.Nullable
@@ -551,7 +551,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Timestamp representing the date and time when the order was created. Timestamp is presented in the ISO 8601 format.
+   * Timestamp representing the date and time when the order was created in the ISO 8601 format.
    * @return createdAt
   **/
   @javax.annotation.Nullable
@@ -572,7 +572,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Timestamp representing the date and time when the voucher was updated in the ISO 8601 format.
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
    * @return updatedAt
   **/
   @javax.annotation.Nullable

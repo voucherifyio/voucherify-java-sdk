@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- |
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**assignmentId** | **String** | Unique reward assignment ID assigned by Voucherify. |
-|**voucher** | [**RedemptionRewardResultVoucher**](RedemptionRewardResultVoucher.md) |  |
-|**product** | [**RedemptionRewardResultProduct**](RedemptionRewardResultProduct.md) |  |
-|**sku** | [**RedemptionRewardResultSku**](RedemptionRewardResultSku.md) |  |
+|**voucher** | [**Voucher**](Voucher.md) |  |
+|**product** | [**Product**](Product.md) |  |
+|**sku** | [**Sku**](Sku.md) |  |
 |**loyaltyTierId** | **String** | Unique loyalty tier ID assigned by Voucherify. |
 |**id** | **String** | Unique reward ID. |
 |**name** | **String** | Name of the reward. |
@@ -19,6 +19,7 @@
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp in ISO 8601 format indicating when the reward was updated. |
 |**parameters** | [**RedemptionRewardResultParameters**](RedemptionRewardResultParameters.md) |  |
+|**metadata** | **Object** | A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward. |
 |**type** | [**TypeEnum**](#TypeEnum) | Reward type. |
 
 

@@ -61,7 +61,7 @@ public class ProductCollectionsCreateDynamicRequestBodyProductsItem {
   private String productId;
 
   /**
-   * Denotes the type of object represented by the ID.
+   * Denotes the type of the object represented by the ID.
    */
   @JsonAdapter(ObjectEnum.Adapter.class)
   public enum ObjectEnum {
@@ -163,7 +163,7 @@ public class ProductCollectionsCreateDynamicRequestBodyProductsItem {
   }
 
    /**
-   * Denotes the type of object represented by the ID.
+   * Denotes the type of the object represented by the ID.
    * @return _object
   **/
   @javax.annotation.Nonnull
