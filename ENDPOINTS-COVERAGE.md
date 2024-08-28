@@ -145,7 +145,7 @@
 | /v1/loyalties/members/{memberId}/transactions/export                | post   | Export Loyalty Card Transactions   | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/members/{memberId}/transactions/export   | post   | Export Loyalty Card Transactions   | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/members/{memberId}/points-expiration     | get    | Get Points Expiration              | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/points-expiration/export                 | post   | Create Points Expiration Export    |                                      |               |
+| /v1/loyalties/{campaignId}/points-expiration/export                 | post   | Create Points Expiration Export    | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/earning-rules                            | get    | List Earning Rules                 | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/earning-rules                            | post   | Create Earning Rule                | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | get    | Get Earning Rule                   | <font color='green'>supported</font> |               |
@@ -186,7 +186,7 @@
 | /v1/customers/{customerId}/activity           | get    | List Customer Activity                  | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated]   |                                      |  <font color='red'>deprecated</font> |
 | /v1/customers/{customerId}/segments           | get    | List Customer's Segments                | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables             |                                      |                                      |
+| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables             | <font color='green'>supported</font> |                                      |
 ## Orders
 | endpoint             | method | summary              | is supported                         | is deprecated |
 | -------------------- | ------ | -------------------- | ------------------------------------ | ------------- |

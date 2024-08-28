@@ -12689,6 +12689,134 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+  /v1/loyalties/{campaignId}/points-expiration/export:
+    post:
+      description: Schedule the generation of a points expiration CSV file for a particular
+        campaign.
+      operationId: create-points-expiration-export
+      parameters:
+      - description: Unique campaign ID or name.
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Specific Vouchers:
+                value:
+                  parameters:
+                    fields:
+                    - id
+                    - campaign_id
+                    - voucher_id
+                    - status
+                    - expires_at
+                    - points
+                    order: -expires_at
+                    filters:
+                      junction: and
+                      voucher_id:
+                        conditions:
+                          $in:
+                          - v_0aMj6Mdp0i3zuXrd9NnBKboc7746mlgF
+                          - v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655
+              Specific campaign:
+                value:
+                  parameters:
+                    fields:
+                    - id
+                    - campaign_id
+                    - voucher_id
+                    - status
+                    - expires_at
+                    - points
+                    order: -expires_at
+                    filters:
+                      junction: and
+                      campaign_id:
+                        conditions:
+                          $is: camp_7s3uXI44aKfIk5IhmeOPr6ic
+            schema:
+              $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBody'
+        description: "Specify the data filters, types of data to return and order\
+          \ in which the results should be returned."
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Specific Vouchers:
+                  value:
+                    id: exp_zC3eXAFss17XTMzMkkov4KGq
+                    object: export
+                    created_at: 2022-11-28T13:00:23.621Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: points_expiration
+                    parameters:
+                      order: -expires_at
+                      fields:
+                      - id
+                      - campaign_id
+                      - voucher_id
+                      - status
+                      - expires_at
+                      - points
+                      filters:
+                        junction: and
+                        voucher_id:
+                          conditions:
+                            $in:
+                            - v_0aMj6Mdp0i3zuXrd9NnBKboc7746mlgF
+                            - v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655
+                    result: null
+                    user_id: null
+                Specific Campaign:
+                  value:
+                    id: exp_kfwVDMsavDHl2vOY6vH9q7P7
+                    object: export
+                    created_at: 2022-11-28T16:46:34.148Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: points_expiration
+                    parameters:
+                      order: -expires_at
+                      fields:
+                      - id
+                      - campaign_id
+                      - voucher_id
+                      - status
+                      - expires_at
+                      - points
+                      filters:
+                        junction: and
+                        campaign_id:
+                          conditions:
+                            $is: camp_7s3uXI44aKfIk5IhmeOPr6ic
+                    result: null
+                    user_id: null
+              schema:
+                $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBody'
+          description: "Returns an object with the export ID of the scheduled generation\
+            \ of CSV file with exported points expirations. You can use either the\
+            \ <!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) -->[Get\
+            \ Export](ref:get-export) endpoint to view the status and obtain the URL\
+            \ of the CSV file or <!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get)\
+            \ -->[Download Export](ref:download-export) endpoint to download the CSV\
+            \ file."
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Points Expiration Export
+      tags:
+      - Loyalties
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules:
     get:
       description: Returns a list of all earning rules within a given campaign.
@@ -18740,6 +18868,193 @@ paths:
       - X-App-Id: []
         X-App-Token: []
       summary: List Customer's Segments
+      tags:
+      - Customers
+      x-accepts: application/json
+  /v1/customers/{customerId}/redeemables:
+    get:
+      description: |-
+        Retrieves all the redeemables that have been assigned to the customer.
+        To use this endpoint, you must have the following permissions:
+        - Read Customers (customers.details.read)
+      operationId: list-customer-redeemables
+      parameters:
+      - description: Unique identifier of a customer represented by an internal customer
+          ID or customer source ID.
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCustomerId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderListRedeemables'
+        style: form
+      - description: A cursor for pagination. It retrieves the events starting after
+          an event with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
+        style: form
+      - description: Filters for listing customer redeemables.
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemables'
+        style: deepObject
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    object: list
+                    data_ref: data
+                    data:
+                    - id: rh_0e7b8db4700106a852
+                      created_at: 2024-03-22T17:48:25.910Z
+                      redeemable_id: v_GXVguPhq2khgFxH7GrRXWA91gDr1LiA1
+                      redeemable_object: voucher
+                      customer_id: cust_p1ufreYbVbwZ1x70nFkH9rF9
+                      holder_role: OWNER
+                      campaign_id: camp_weer1c3p5ZgktqfW56RfoNaG
+                      campaign_type: DISCOUNT_COUPONS
+                      voucher_type: DISCOUNT_VOUCHER
+                      redeemable:
+                        type: voucher
+                        voucher:
+                          id: v_GXVguPhq2khgFxH7GrRXWA91gDr1LiA1
+                          code: 3xRUnMVG
+                          campaign: Gaz6Q29w1d
+                          campaign_id: camp_weer1c3p5ZgktqfW56RfoNaG
+                          category: null
+                          category_id: null
+                          categories: []
+                          type: DISCOUNT_VOUCHER
+                          discount:
+                            type: AMOUNT
+                            amount_off: 1000
+                          gift: null
+                          loyalty_card: null
+                          start_date: null
+                          expiration_date: null
+                          validity_timeframe: null
+                          validity_hours: null
+                          validity_day_of_week: null
+                          active: true
+                          additional_info: null
+                          metadata: {}
+                          assets:
+                            qr:
+                              id: fa250fcd-8d51-41e7-9dda-9288ce2799a7
+                              url: https://dl.voucherify.io/api/v1/assets/qr/fa250fcd-8d51-41e7-9dda-9288ce2799a7
+                            barcode:
+                              id: 1b876033-ad88-4e74-8344-27fca1767006
+                              url: https://dl.voucherify.io/api/v1/assets/barcode/1b876033-ad88-4e74-8344-27fca1767006
+                          is_referral_code: false
+                          created_at: 2024-03-22T17:48:18.57+00:00
+                          updated_at: 2024-03-22T17:48:25.910974+00:00
+                          holder_id: cust_p1ufreYbVbwZ1x70nFkH9rF9
+                          redemption:
+                            quantity: null
+                            redeemed_quantity: 0
+                            object: list
+                            url: /v1/vouchers/3xRUnMVG/redemptions?page=1&limit=10
+                          publish:
+                            object: list
+                            count: 1
+                            url: /v1/vouchers/3xRUnMVG/publications?page=1&limit=10
+                          object: voucher
+                        status: ACTIVE
+                    - id: rh_0e79fe37e4926cafd6
+                      created_at: 2024-03-21T12:43:02.915Z
+                      redeemable_id: v_nnxc1aFzFZCAhRlG6sm0kSO4jKUohc9b
+                      redeemable_object: voucher
+                      customer_id: cust_p1ufreYbVbwZ1x70nFkH9rF9
+                      holder_role: REFERRER
+                      campaign_id: camp_ixXNxP8kRoV15RoyZU4HqqYJ
+                      campaign_type: REFERRAL_PROGRAM
+                      voucher_type: DISCOUNT_VOUCHER
+                      redeemable:
+                        type: voucher
+                        voucher:
+                          id: v_nnxc1aFzFZCAhRlG6sm0kSO4jKUohc9b
+                          code: PBF3ZYfS
+                          campaign: REFER_2
+                          campaign_id: camp_ixXNxP8kRoV15RoyZU4HqqYJ
+                          category: null
+                          category_id: null
+                          categories: []
+                          type: DISCOUNT_VOUCHER
+                          discount:
+                            type: AMOUNT
+                            amount_off: 88800
+                            effect: APPLY_TO_ORDER
+                          gift: null
+                          loyalty_card: null
+                          start_date: null
+                          expiration_date: null
+                          validity_timeframe: null
+                          validity_hours: null
+                          validity_day_of_week: null
+                          active: true
+                          additional_info: null
+                          metadata: {}
+                          assets:
+                            qr:
+                              id: fc0471bf-0c7b-443f-9532-303437041eea
+                              url: https://dl.voucherify.io/api/v1/assets/qr/fc0471bf-0c7b-443f-9532-303437041eea
+                            barcode:
+                              id: 5b2f2007-494b-40c3-9d4c-ad27269a0cd0
+                              url: https://dl.voucherify.io/api/v1/assets/barcode/5b2f2007-494b-40c3-9d4c-ad27269a0cd0
+                          is_referral_code: true
+                          created_at: 2024-03-21T12:42:49.771+00:00
+                          updated_at: 2024-03-21T12:43:02.915953+00:00
+                          holder_id: cust_p1ufreYbVbwZ1x70nFkH9rF9
+                          referrer_id: cust_p1ufreYbVbwZ1x70nFkH9rF9
+                          redemption:
+                            quantity: null
+                            redeemed_quantity: 0
+                            object: list
+                            url: /v1/vouchers/PBF3ZYfS/redemptions?page=1&limit=10
+                          publish:
+                            object: list
+                            count: 1
+                            url: /v1/vouchers/PBF3ZYfS/publications?page=1&limit=10
+                          object: voucher
+                        status: ACTIVE
+                    total: 2
+                    has_more: false
+              schema:
+                $ref: '#/components/schemas/CustomersRedeemablesListResponseBody'
+          description: The method returns redeemable(s) to which the given customer
+            is assigned.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Customer's Redeemables
       tags:
       - Customers
       x-accepts: application/json
@@ -26374,6 +26689,12 @@ components:
           type: string
       title: CustomersPermanentDeletionCreateResponseBody
       type: object
+    CustomersRedeemablesListResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/CustomerRedeemablesList'
+      description: "Response body schema for **GET** `v1/customers/{customerId}/redeemables`."
+      title: CustomersRedeemablesListResponseBody
+      type: object
     CustomersSegmentsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/CustomerSegmentsList'
@@ -27913,6 +28234,138 @@ components:
       - validity_timeframe
       title: LoyaltiesMembersTransfersCreateResponseBody
       type: object
+    LoyaltiesPointsExpirationExportCreateRequestBody:
+      description: "Request schema model for validating a voucher using **POST** `/v1/loyalties/{campaignId}/points-expiration/export`"
+      example:
+        parameters:
+          filters:
+            junction: null
+            voucher_id:
+              conditions:
+                $not_in:
+                - $not_in
+                - $not_in
+                $in:
+                - $in
+                - $in
+                $is_not: $is_not
+                $is: $is
+            campaign_id:
+              conditions:
+                $not_in:
+                - $not_in
+                - $not_in
+                $in:
+                - $in
+                - $in
+                $is_not: $is_not
+                $is: $is
+          fields:
+          - id
+          - id
+          order: expires_at
+      properties:
+        parameters:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParameters'
+      title: LoyaltiesPointsExpirationExportCreateRequestBody
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBody:
+      description: 'This is an object representing an export of points expirations. '
+      example:
+        result: "{}"
+        user_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0Fr
+        channel: API
+        created_at: 2022-04-28T11:23:20.922Z
+        id: exp_FFfp9o7daWuJqJCKp5xqqli4
+        parameters:
+          filters:
+            junction: null
+            voucher_id:
+              conditions:
+                $not_in:
+                - $not_in
+                - $not_in
+                $in:
+                - $in
+                - $in
+                $is_not: $is_not
+                $is: $is
+            campaign_id:
+              conditions:
+                $not_in:
+                - $not_in
+                - $not_in
+                $in:
+                - $in
+                - $in
+                $is_not: $is_not
+                $is: $is
+          fields:
+          - id
+          - id
+          order: expires_at
+        exported_object: points_expiration
+        object: export
+        status: SCHEDULED
+      properties:
+        id:
+          description: Unique export ID.
+          example: exp_FFfp9o7daWuJqJCKp5xqqli4
+          nullable: true
+          type: string
+        object:
+          default: export
+          description: The type of object being represented. This object stores information
+            about the export.
+          enum:
+          - export
+          nullable: true
+          type: string
+        created_at:
+          description: Timestamp representing the date and time when the export was
+            scheduled in ISO 8601 format.
+          example: 2022-04-28T11:23:20.922Z
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          default: SCHEDULED
+          description: Status of the export. Informs you whether the export has already
+            been completed.
+          enum:
+          - SCHEDULED
+          nullable: true
+          type: string
+        channel:
+          description: The channel through which the export was triggered.
+          enum:
+          - API
+          - WEBSITE
+          nullable: true
+          type: string
+        exported_object:
+          default: points_expiration
+          description: The type of exported object.
+          enum:
+          - points_expiration
+          nullable: true
+          type: string
+        parameters:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParameters'
+        result:
+          description: Always null
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyResult
+          type: object
+        user_id:
+          description: The user_id identifies the specific user who initiated the
+            export through the Voucherify Dashboard; this `user_id` is returned when
+            the channel value is `WEBSITE`.
+          example: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0Fr
+          nullable: true
+          type: string
+      title: LoyaltiesPointsExpirationExportCreateResponseBody
+      type: object
     LoyaltiesRewardAssignmentsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
@@ -28333,6 +28786,26 @@ components:
       example: exp_2bYLdY2lQ2886wmYIHyeBWUZ
       title: ParameterExportId
       type: string
+    ParameterFiltersListCustomerRedeemables:
+      properties:
+        id:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesId'
+        created_at:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCreatedAt'
+        redeemable_id:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesRedeemableId'
+        redeemable_object:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesRedeemableObject'
+        holder_role:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesHolderRole'
+        campaign_id:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCampaignId'
+        campaign_type:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCampaignType'
+        voucher_type:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesVoucherType'
+      title: ParameterFiltersListCustomerRedeemables
+      type: object
     ParameterFiltersListRedemptions:
       properties:
         voucher_code:
@@ -28477,6 +28950,12 @@ components:
       - channel
       - -channel
       title: ParameterOrderListPublications
+      type: string
+    ParameterOrderListRedeemables:
+      enum:
+      - id
+      - -id
+      title: ParameterOrderListRedeemables
       type: string
     ParameterOrderListRedemptions:
       enum:
@@ -34371,6 +34850,48 @@ components:
           type: object
       title: CustomerBase
       type: object
+    CustomerRedeemablesList:
+      description: List of customer's redeemables
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about customer redeemables.
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the JSON property that contains the
+            array of redeemables.
+          nullable: true
+          type: string
+        data:
+          description: A dictionary that contains an array of redeemables.
+          items:
+            $ref: '#/components/schemas/CustomerRedeemable'
+          nullable: true
+          title: CustomerRedeemablesListData
+          type: array
+        total:
+          description: Total number of results returned.
+          nullable: true
+          type: integer
+        has_more:
+          description: "As query results are always limited (by the limit parameter),\
+            \ the `has_more` flag indicates if there are more records for given filter\
+            \ parameters. This lets you know if you can run another request with a\
+            \ `starting_after_id` query or a different limit to get more records returned\
+            \ in the results."
+          nullable: true
+          type: boolean
+        more_starting_after:
+          description: Returns an ID that can be used to return another page of results.
+            Use the ID in the `starting_after_id` query parameter to display another
+            page of the results occuring after the field with that ID.
+          nullable: true
+          type: string
+      title: CustomerRedeemablesList
+      type: object
     CustomerSegmentsList:
       description: List of customer's segments
       properties:
@@ -35009,6 +35530,14 @@ components:
             in the result.
       title: FieldConditions
       type: object
+    FilterConditionsDateTime:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsDateTimeConditions'
+      title: FilterConditionsDateTime
+      type: object
     FilterConditionsString:
       description: Data filters used to narrow the data records to be returned in
         the result.
@@ -35624,6 +36153,141 @@ components:
       - object
       - reward
       title: LoyaltiesLoyaltyTierReward
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParameters:
+      description: List of fields and filters that will be used to create the export.
+      example:
+        filters:
+          junction: null
+          voucher_id:
+            conditions:
+              $not_in:
+              - $not_in
+              - $not_in
+              $in:
+              - $in
+              - $in
+              $is_not: $is_not
+              $is: $is
+          campaign_id:
+            conditions:
+              $not_in:
+              - $not_in
+              - $not_in
+              $in:
+              - $in
+              - $in
+              $is_not: $is_not
+              $is: $is
+        fields:
+        - id
+        - id
+        order: expires_at
+      properties:
+        order:
+          description: "How the export is filtered, where the dash `-` preceding a\
+            \ sorting option means sorting in a descending order."
+          enum:
+          - expires_at
+          - -expires_at
+          nullable: true
+          type: string
+        fields:
+          description: "Array of strings containing the data that was exported. These\
+            \ fields define the headers in the CSV file. \n\n The array can be a combination\
+            \ of any of the following available fields:  \n\n| **Field** | **Definition**\
+            \ | **Example Export** |\n|:---|:---|:---|\n| id | Loyalty points bucket\
+            \ ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n |\n| campaign_id | Campaign ID of\
+            \ the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic |\n| voucher_id\
+            \ | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655\
+            \ |\n| status | Status of the loyalty points bucket. | `ACTIVE` or `INACTIVE`\
+            \ |\n| expires_at | Timestamp in ISO 8601 format representing the date\
+            \ when the points expire. | 2022-06-30 |\n| points | Number of points.\
+            \ | 1000 |"
+          items:
+            enum:
+            - id
+            - campaign_id
+            - voucher_id
+            - points
+            - status
+            - expires_at
+            title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFieldsItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFields
+          type: array
+        filters:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters'
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParameters
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParameters:
+      description: List of fields and filters that were passed in the request body
+        to create the export.
+      example:
+        filters:
+          junction: null
+          voucher_id:
+            conditions:
+              $not_in:
+              - $not_in
+              - $not_in
+              $in:
+              - $in
+              - $in
+              $is_not: $is_not
+              $is: $is
+          campaign_id:
+            conditions:
+              $not_in:
+              - $not_in
+              - $not_in
+              $in:
+              - $in
+              - $in
+              $is_not: $is_not
+              $is: $is
+        fields:
+        - id
+        - id
+        order: expires_at
+      properties:
+        order:
+          description: "How the export is filtered, where the dash `-` preceding a\
+            \ sorting option means sorting in a descending order."
+          enum:
+          - expires_at
+          - -expires_at
+          nullable: true
+          type: string
+        fields:
+          description: "Array of strings containing the data that was exported. These\
+            \ fields define the headers in the CSV file. \n\n The array can be a combination\
+            \ of any of the following available fields:  \n\n| **Field** | **Definition**\
+            \ | **Example Export** |\n|:---|:---|:---|\n| id | Loyalty points bucket\
+            \ ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n |\n| campaign_id | Campaign ID of\
+            \ the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic |\n| voucher_id\
+            \ | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655\
+            \ |\n| status | Status of the loyalty points bucket. | `ACTIVE` or `INACTIVE`\
+            \ |\n| expires_at | Timestamp in ISO 8601 format representing the date\
+            \ when the points expire. | 2022-06-30 |\n| points | Number of points.\
+            \ | 1000 |"
+          items:
+            enum:
+            - id
+            - campaign_id
+            - voucher_id
+            - points
+            - status
+            - expires_at
+            title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFieldsItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFields
+          type: array
+        filters:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters'
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParameters
       type: object
     LoyaltiesRewardsCreateAssignmentItemRequestBody:
       example:
@@ -40265,6 +40929,79 @@ components:
           type: object
       title: CustomerLoyalty
       type: object
+    CustomerRedeemable:
+      description: Single customer's redeemable
+      properties:
+        id:
+          description: Unique redeemable holder identifier.
+          example: rh_0e7b8db4700106a852
+          nullable: true
+          type: string
+        created_at:
+          description: Timestamp representing the date and time when the redeemable
+            was assigned. The value is shown in the ISO 8601 format.
+          example: 2024-03-22T17:48:25.91Z
+          format: date-time
+          nullable: true
+          type: string
+        redeemable_id:
+          description: Identifier of the redeemable item.
+          example: v_GXVguPhq2khgFxH7GrRXWA91gDr1LiA1
+          nullable: true
+          type: string
+        redeemable_object:
+          description: Type of the redeemable.
+          example: voucher
+          nullable: true
+          type: string
+        customer_id:
+          description: Identifier of the customer.
+          example: cust_p1ufreYbVbwZ1x70nFkH9rF9
+          nullable: true
+          type: string
+        holder_role:
+          default: OWNER
+          description: Role of the holder.
+          enum:
+          - OWNER
+          - REFERRER
+          - REFEREE
+          example: OWNER
+          nullable: true
+          type: string
+        campaign_id:
+          description: "Unique campaign identifier, assigned by Voucherify."
+          example: camp_weer1c3p5ZgktqfW56RfoNaG
+          nullable: true
+          type: string
+        campaign_type:
+          default: DISCOUNT_COUPONS
+          description: Defines the type of the campaign.
+          enum:
+          - LOYALTY_PROGRAM
+          - GIFT_VOUCHERS
+          - DISCOUNT_COUPONS
+          - PROMOTION
+          - REFERRAL_PROGRAM
+          - LUCKY_DRAW
+          example: DISCOUNT_COUPONS
+          nullable: true
+          type: string
+        voucher_type:
+          default: DISCOUNT_VOUCHER
+          description: Defines the type of the voucher.
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          - LUCKY_DRAW_CODE
+          example: DISCOUNT_VOUCHER
+          nullable: true
+          type: string
+        redeemable:
+          $ref: '#/components/schemas/CustomerRedeemableRedeemable'
+      title: CustomerRedeemable
+      type: object
     CustomerReferrals:
       description: "Summary of customer's referrals, in this case, the customer being\
         \ the referee, i.e. information about the source of referrals and number of\
@@ -40373,6 +41110,74 @@ components:
       allOf:
       - $ref: '#/components/schemas/ApplicableTo'
       title: InapplicableTo
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters:
+      description: Data filters used to narrow the data records to be returned in
+        the export.
+      example:
+        junction: null
+        voucher_id:
+          conditions:
+            $not_in:
+            - $not_in
+            - $not_in
+            $in:
+            - $in
+            - $in
+            $is_not: $is_not
+            $is: $is
+        campaign_id:
+          conditions:
+            $not_in:
+            - $not_in
+            - $not_in
+            $in:
+            - $in
+            - $in
+            $is_not: $is_not
+            $is: $is
+      properties:
+        junction:
+          $ref: '#/components/schemas/Junction'
+        voucher_id:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId'
+        campaign_id:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignId'
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters:
+      description: Data filters used to narrow the data records to be returned in
+        the export.
+      example:
+        junction: null
+        voucher_id:
+          conditions:
+            $not_in:
+            - $not_in
+            - $not_in
+            $in:
+            - $in
+            - $in
+            $is_not: $is_not
+            $is: $is
+        campaign_id:
+          conditions:
+            $not_in:
+            - $not_in
+            - $not_in
+            $in:
+            - $in
+            - $in
+            $is_not: $is_not
+            $is: $is
+      properties:
+        junction:
+          $ref: '#/components/schemas/Junction'
+        voucher_id:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId'
+        campaign_id:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId'
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters
       type: object
     LoyaltyCampaignVoucher:
       description: Schema model for a campaign voucher.
@@ -41710,6 +42515,167 @@ components:
         validation_rules_assignments:
           $ref: '#/components/schemas/ValidationRulesAssignmentsList'
       title: QualificationsRedeemableBase
+      type: object
+    RedeemableVoucher:
+      description: This is an object representing a voucher.
+      properties:
+        id:
+          description: "Assigned by the Voucherify API, identifies the voucher."
+          example: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          nullable: true
+          type: string
+        code:
+          description: "A code that identifies a voucher. Pattern can use all letters\
+            \ of the English alphabet, Arabic numerals, and special characters."
+          example: WVPblOYX
+          nullable: true
+          type: string
+        campaign:
+          description: "A unique campaign name, identifies the voucher's parent campaign."
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: "Assigned by the Voucherify API, identifies the voucher's parent\
+            \ campaign."
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category:
+          description: The value is null.
+          nullable: true
+          type: string
+        category_id:
+          description: Unique category ID assigned by Voucherify.
+          example: cat_0bb343dee3cdb5ec0c
+          nullable: true
+          type: string
+        categories:
+          description: Contains an empty array.
+          items:
+            title: RedeemableVoucherCategoriesItem
+            type: "null"
+          nullable: true
+          title: RedeemableVoucherCategories
+          type: array
+        type:
+          description: 'Defines the type of the voucher. '
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        discount:
+          $ref: '#/components/schemas/Discount'
+        gift:
+          $ref: '#/components/schemas/RedeemableVoucherGift'
+        loyalty_card:
+          $ref: '#/components/schemas/RedeemableVoucherLoyaltyCard'
+        start_date:
+          description: 'Activation timestamp defines when the code starts to be active
+            in ISO 8601 format. Voucher is *inactive before* this date. '
+          example: 2021-12-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the code expires in ISO 8601
+            format.  Voucher is *inactive after* this date.
+          example: 2021-12-31T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            title: ValidityDayOfWeekItem
+            type: integer
+          title: ValidityDayOfWeek
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
+          nullable: true
+          type: boolean
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the code. A set of key/value pairs that you can attach to a voucher object.
+            It can be useful for storing additional information about the voucher
+            in a structured format.
+          nullable: true
+          title: RedeemableVoucherMetadata
+          type: object
+        assets:
+          $ref: '#/components/schemas/VoucherAssets'
+        is_referral_code:
+          description: Flag indicating whether this voucher is a referral code; `true`
+            for campaign type `REFERRAL_PROGRAM`.
+          nullable: true
+          type: boolean
+        created_at:
+          description: Timestamp representing the date and time when the voucher was
+            created. The value is shown in the ISO 8601 format.
+          example: 2021-12-22T10:13:06.487Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the voucher was
+            last updated in ISO 8601 format.
+          example: 2021-12-22T10:14:45.316Z
+          format: date-time
+          nullable: true
+          type: string
+        referrer_id:
+          description: Unique identifier of the referring person.
+          example: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          nullable: true
+          type: string
+        holder_id:
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
+          example: cust_eWgXlBBiY6THFRJwX45Iakv4
+          nullable: true
+          type: string
+        object:
+          default: voucher
+          description: The type of the object represented by JSON. Default is `voucher`.
+          nullable: true
+          type: string
+        publish:
+          $ref: '#/components/schemas/RedeemableVoucherPublish'
+        redemption:
+          $ref: '#/components/schemas/RedeemableVoucherRedemption'
+      title: RedeemableVoucher
       type: object
     VoucherTransactionsExportFilterConditions:
       description: Filter condition.
@@ -43270,6 +44236,329 @@ components:
         type: object
       - $ref: '#/components/schemas/OrderBase'
       title: OrdersImportCreateRequestBodyItem
+      type: object
+    ParameterFiltersListCustomerRedeemablesId:
+      description: "Unique redeemable holder ID, i.e. `rh_0e77502f84f0f4a6a8`."
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesId
+      type: object
+    ParameterFiltersListCustomerRedeemablesCreatedAt:
+      allOf:
+      - $ref: '#/components/schemas/FilterConditionsDateTime'
+      - properties:
+          junction:
+            $ref: '#/components/schemas/Junction'
+        type: object
+      description: Timestamp representing the date and time when the customer redeemable
+        was created. The value is shown in the ISO 8601 format.
+      nullable: true
+      title: ParameterFiltersListCustomerRedeemablesCreatedAt
+      type: object
+    ParameterFiltersListCustomerRedeemablesRedeemableId:
+      description: "Unique redeemable ID, e.g. `v_hS8JFl8S6lNcd1L69wLIoXgTio7eWEgk`."
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesRedeemableId
+      type: object
+    ParameterFiltersListCustomerRedeemablesRedeemableObject_conditions:
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            default: voucher
+            enum:
+            - voucher
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            default: voucher
+            enum:
+            - voucher
+            type: string
+          nullable: true
+          type: array
+        $is:
+          default: voucher
+          description: Value is exactly this value (single value).
+          enum:
+          - voucher
+          nullable: true
+          type: string
+        $is_not:
+          default: voucher
+          description: Results omit this value (single value).
+          enum:
+          - voucher
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        $starts_with:
+          description: Value starts with the specified string.
+          nullable: true
+          type: string
+        $ends_with:
+          description: Value ends with the specified string.
+          nullable: true
+          type: string
+    ParameterFiltersListCustomerRedeemablesRedeemableObject:
+      description: "Unique related object, i.e. `voucher`."
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesRedeemableObject_conditions'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesRedeemableObject
+      type: object
+    ParameterFiltersListCustomerRedeemablesHolderRole_conditions:
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - OWNER
+            - REFEREE
+            - REFERRER
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - OWNER
+            - REFEREE
+            - REFERRER
+            type: string
+          nullable: true
+          type: array
+        $is:
+          description: Value is exactly this value (single value).
+          enum:
+          - OWNER
+          - REFEREE
+          - REFERRER
+          nullable: true
+          type: string
+        $is_not:
+          description: Results omit this value (single value).
+          enum:
+          - OWNER
+          - REFEREE
+          - REFERRER
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        $starts_with:
+          description: Value starts with the specified string.
+          nullable: true
+          type: string
+        $ends_with:
+          description: Value ends with the specified string.
+          nullable: true
+          type: string
+    ParameterFiltersListCustomerRedeemablesHolderRole:
+      description: |-
+        Holder role of the redeemable. Allowed values:
+        `OWNER`,
+        `REFEREE`,
+        `REFERRER`.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesHolderRole_conditions'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesHolderRole
+      type: object
+    ParameterFiltersListCustomerRedeemablesCampaignId:
+      description: "Unique campaign identifer, e.g. `camp_bfrwAVsP6Q1EM1ZjgHwheKYr`."
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesCampaignId
+      type: object
+    ParameterFiltersListCustomerRedeemablesCampaignType_conditions:
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - LOYALTY_PROGRAM
+            - GIFT_VOUCHERS
+            - DISCOUNT_COUPONS
+            - REFERRAL_PROGRAM
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - LOYALTY_PROGRAM
+            - GIFT_VOUCHERS
+            - DISCOUNT_COUPONS
+            - REFERRAL_PROGRAM
+            type: string
+          nullable: true
+          type: array
+        $is:
+          description: Value is exactly this value (single value).
+          enum:
+          - LOYALTY_PROGRAM
+          - GIFT_VOUCHERS
+          - DISCOUNT_COUPONS
+          - REFERRAL_PROGRAM
+          nullable: true
+          type: string
+        $is_not:
+          description: Results omit this value (single value).
+          enum:
+          - LOYALTY_PROGRAM
+          - GIFT_VOUCHERS
+          - DISCOUNT_COUPONS
+          - REFERRAL_PROGRAM
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        $starts_with:
+          description: Value starts with the specified string.
+          nullable: true
+          type: string
+        $ends_with:
+          description: Value ends with the specified string.
+          nullable: true
+          type: string
+    ParameterFiltersListCustomerRedeemablesCampaignType:
+      description: |-
+        Type of the campaign. Allowed values:
+        `DISCOUNT_COUPONS`,
+        `REFERRAL_PROGRAM`,
+        `GIFT_VOUCHERS`,
+        `LOYALTY_PROGRAM`
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCampaignType_conditions'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesCampaignType
+      type: object
+    ParameterFiltersListCustomerRedeemablesVoucherType_conditions:
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - GIFT_VOUCHER
+            - DISCOUNT_VOUCHER
+            - LOYALTY_CARD
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results
+            (multiple values).
+          items:
+            enum:
+            - GIFT_VOUCHER
+            - DISCOUNT_VOUCHER
+            - LOYALTY_CARD
+            type: string
+          nullable: true
+          type: array
+        $is:
+          description: Value is exactly this value (single value).
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        $is_not:
+          description: Results omit this value (single value).
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        $starts_with:
+          description: Value starts with the specified string.
+          nullable: true
+          type: string
+        $ends_with:
+          description: Value ends with the specified string.
+          nullable: true
+          type: string
+    ParameterFiltersListCustomerRedeemablesVoucherType:
+      description: |-
+        Type of the voucher. Allowed values:
+        `DISCOUNT_VOUCHER`,
+        `GIFT_VOUCHER`,
+        `LOYALTY_CARD`.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesVoucherType_conditions'
+        junction:
+          $ref: '#/components/schemas/Junction'
+      title: ParameterFiltersListCustomerRedeemablesVoucherType
       type: object
     ParameterFiltersListRedemptionsVoucherCode:
       description: Unique voucher code.
@@ -48073,6 +49362,44 @@ components:
           description: Filter conditions.
       title: ExportOrderBaseParameters
       type: object
+    FilterConditionsDateTimeConditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      nullable: true
+      properties:
+        $after:
+          description: Value is after this date. The value for this parameter is shown
+            in the ISO 8601 format.
+          format: date-time
+          nullable: true
+          type: string
+        $before:
+          description: Value is before this date. The value for this parameter is
+            shown in the ISO 8601 format.
+          format: date-time
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        more_than:
+          description: "Value is more days ago before the current date and time, e.g.\
+            \ more than `10` days ago."
+          nullable: true
+          type: integer
+        less_than:
+          description: "Value is less days before the current date and time, e.g.\
+            \ less than `10` days ago."
+          nullable: true
+          type: integer
+      title: FilterConditionsDateTimeConditions
+      type: object
     LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEventMetadata:
       description: "Defines the ratio based on the property defined in the calculation_type\
         \ parameter. For every given increment of value (1, 10, etc) defined in the\
@@ -51344,6 +52671,36 @@ components:
           description: Number of customers referred by the customer in campaign.
           type: integer
       type: object
+    CustomerRedeemableRedeemable:
+      description: Detailed information about the customer's redeemable item
+      nullable: true
+      properties:
+        type:
+          description: Type of the redeemable.
+          example: voucher
+          nullable: true
+          type: string
+        voucher:
+          allOf:
+          - $ref: '#/components/schemas/RedeemableVoucher'
+          description: Defines the details of the voucher.
+        status:
+          default: ACTIVE
+          description: Status of the redeemable.
+          enum:
+          - ACTIVE
+          - USED
+          - DISABLED
+          - NOT_ACTIVE_YET
+          - EXPIRED
+          - NO_BALANCE
+          example: ACTIVE
+          nullable: true
+          type: string
+      required:
+      - voucher
+      title: CustomerRedeemableRedeemable
+      type: object
     CustomerReferralsCampaignsItem:
       description: Contains information about the source of the referral.
       properties:
@@ -51400,6 +52757,242 @@ components:
           - $ref: '#/components/schemas/ExportVoucherTransactionsFilters'
           description: Filter conditions.
       title: ExportVoucherTransactionsBaseParameters
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        $not_in:
+        - $not_in
+        - $not_in
+        $in:
+        - $in
+        - $in
+        $is_not: $is_not
+        $is: $is
+      nullable: true
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsIn
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsNotInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsNotIn
+          type: array
+        $is:
+          description: Specify the exact resource value.
+          nullable: true
+          type: string
+        $is_not:
+          description: Results should omit this value.
+          nullable: true
+          type: string
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        conditions:
+          $not_in:
+          - $not_in
+          - $not_in
+          $in:
+          - $in
+          - $in
+          $is_not: $is_not
+          $is: $is
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions'
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        $not_in:
+        - $not_in
+        - $not_in
+        $in:
+        - $in
+        - $in
+        $is_not: $is_not
+        $is: $is
+      nullable: true
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsIn
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsNotInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsNotIn
+          type: array
+        $is:
+          description: Specify the exact resource value.
+          nullable: true
+          type: string
+        $is_not:
+          description: Results should omit this value.
+          nullable: true
+          type: string
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditions
+      type: object
+    LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignId:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        conditions:
+          $not_in:
+          - $not_in
+          - $not_in
+          $in:
+          - $in
+          - $in
+          $is_not: $is_not
+          $is: $is
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditions'
+      title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignId
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        $not_in:
+        - $not_in
+        - $not_in
+        $in:
+        - $in
+        - $in
+        $is_not: $is_not
+        $is: $is
+      nullable: true
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsIn
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsNotInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsNotIn
+          type: array
+        $is:
+          description: Specify the exact resource value.
+          nullable: true
+          type: string
+        $is_not:
+          description: Results should omit this value.
+          nullable: true
+          type: string
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        conditions:
+          $not_in:
+          - $not_in
+          - $not_in
+          $in:
+          - $in
+          - $in
+          $is_not: $is_not
+          $is: $is
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions'
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        $not_in:
+        - $not_in
+        - $not_in
+        $in:
+        - $in
+        - $in
+        $is_not: $is_not
+        $is: $is
+      nullable: true
+      properties:
+        $in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsIn
+          type: array
+        $not_in:
+          description: Array of resource values that should be included in the results.
+          items:
+            title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsNotInItem
+            type: string
+          nullable: true
+          title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsNotIn
+          type: array
+        $is:
+          description: Specify the exact resource value.
+          nullable: true
+          type: string
+        $is_not:
+          description: Results should omit this value.
+          nullable: true
+          type: string
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions
+      type: object
+    LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      example:
+        conditions:
+          $not_in:
+          - $not_in
+          - $not_in
+          $in:
+          - $in
+          - $in
+          $is_not: $is_not
+          $is: $is
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions'
+      title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId
       type: object
     LoyaltyCampaignVoucherRedemption:
       description: Defines the redemption limits on vouchers.
@@ -51681,6 +53274,128 @@ components:
           nullable: true
           type: integer
       title: CustomerSummaryRedemptionsLoyaltyCard
+      type: object
+    RedeemableVoucherGift:
+      description: Object representing gift parameters. Child attributes are present
+        only if `type` is `GIFT_VOUCHER`. Defaults to `null`.
+      nullable: true
+      properties:
+        amount:
+          description: "Total gift card income over the lifetime of the card. Value\
+            \ is multiplied by 100 to precisely represent 2 decimal places. For example,\
+            \ $100 amount is written as 10000."
+          example: 10000
+          nullable: true
+          type: integer
+        balance:
+          description: "Available funds. Value is multiplied by 100 to precisely represent\
+            \ 2 decimal places. For example, $100 amount is written as 10000."
+          example: 500
+          nullable: true
+          type: integer
+        effect:
+          description: Defines how the credits are applied to the customer's order.
+          enum:
+          - APPLY_TO_ORDER
+          - APPLY_TO_ITEMS
+          nullable: true
+          type: string
+      title: RedeemableVoucherGift
+      type: object
+    RedeemableVoucherLoyaltyCard:
+      description: Object representing loyalty card parameters. Child attributes are
+        present only if `type` is `LOYALTY_CARD`. Defaults to `null`.
+      nullable: true
+      properties:
+        points:
+          description: Total points incurred over the lifespan of the loyalty card.
+          example: 7000
+          nullable: true
+          type: integer
+        balance:
+          description: Points available for reward redemption.
+          example: 6970
+          nullable: true
+          type: integer
+        next_expiration_date:
+          description: The next closest date when the next set of points are due to
+            expire.
+          example: 2023-05-30
+          format: date
+          nullable: true
+          type: string
+        next_expiration_points:
+          description: The amount of points that are set to expire next.
+          nullable: true
+          type: integer
+      title: RedeemableVoucherLoyaltyCard
+      type: object
+    RedeemableVoucherPublish:
+      description: "This object stores a summary of publish events: an events counter\
+        \ and an endpoint which can be called to return details of each event.  A\
+        \ publication is required for loyalty cards and referral codes. This object\
+        \ gets updated whenever a voucher has been published. Publication means assigning\
+        \ a code to a particular customer. Typically, a publication is made by distributing\
+        \ your codes to your customers, e.g. through Export to MailChimp or <!-- [publish\
+        \ voucher](OpenAPI.json/paths/~1publications/post) -->[publish voucher](ref:create-publication)\
+        \ API method. \n\n<!-- title: My Table Title -->\n\n| Required | Optional\
+        \ |\n| -------- | :------: |\n| `type`:`LOYALTY_CARD` |  `type`:`DISCOUNT_VOUCHER`\
+        \   | \n| `is_referral_code`:`true`      |    `type`:`GIFT_VOUCHER`   |\n"
+      nullable: true
+      properties:
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ `url` attribute."
+          nullable: true
+          type: string
+        count:
+          description: Publication events counter.
+          example: 0
+          nullable: true
+          type: integer
+        url:
+          description: "The endpoint where this list of publications can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/publications`"
+          example: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          nullable: true
+          type: string
+      title: RedeemableVoucherPublish
+      type: object
+    RedeemableVoucherRedemption:
+      description: Stores a summary of redemptions that have been applied to the voucher.
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
+        redeemed_quantity:
+          description: How many times a voucher has already been redeemed.
+          example: 1
+          nullable: true
+          type: integer
+        redeemed_points:
+          description: Total loyalty points redeemed.
+          example: 100000
+          nullable: true
+          type: integer
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ url attribute."
+          nullable: true
+          type: string
+        url:
+          description: "The endpoint where this list of redemptions can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/redemptions`"
+          example: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          nullable: true
+          type: string
+      title: RedeemableVoucherRedemption
       type: object
     VoucherTransactionsExportFilterConditionsVoucherIdConditions:
       description: Data filters used to narrow the data records to be returned in

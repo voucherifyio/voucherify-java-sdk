@@ -56,6 +56,8 @@ import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateReques
 import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersTransactionsListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersTransfersCreateResponseBody;
+import io.voucherify.client.model.LoyaltiesPointsExpirationExportCreateRequestBody;
+import io.voucherify.client.model.LoyaltiesPointsExpirationExportCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsGetResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsListResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsRewardGetResponseBody;
@@ -544,6 +546,114 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = createLoyaltyProgramValidateBeforeCall(loyaltiesCreateCampaignRequestBody, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesCreateCampaignResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createPointsExpirationExport
+     * @param campaignId Unique campaign ID or name. (required)
+     * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createPointsExpirationExportCall(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = loyaltiesPointsExpirationExportCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/points-expiration/export"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createPointsExpirationExportValidateBeforeCall(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling createPointsExpirationExport(Async)");
+        }
+
+        return createPointsExpirationExportCall(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Points Expiration Export
+     * Schedule the generation of a points expiration CSV file for a particular campaign.
+     * @param campaignId Unique campaign ID or name. (required)
+     * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
+     * @return LoyaltiesPointsExpirationExportCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesPointsExpirationExportCreateResponseBody createPointsExpirationExport(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody) throws ApiException {
+        ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResp = createPointsExpirationExportWithHttpInfo(campaignId, loyaltiesPointsExpirationExportCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Points Expiration Export
+     * Schedule the generation of a points expiration CSV file for a particular campaign.
+     * @param campaignId Unique campaign ID or name. (required)
+     * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
+     * @return ApiResponse&lt;LoyaltiesPointsExpirationExportCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> createPointsExpirationExportWithHttpInfo(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createPointsExpirationExportValidateBeforeCall(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesPointsExpirationExportCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Points Expiration Export (asynchronously)
+     * Schedule the generation of a points expiration CSV file for a particular campaign.
+     * @param campaignId Unique campaign ID or name. (required)
+     * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createPointsExpirationExportAsync(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback<LoyaltiesPointsExpirationExportCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createPointsExpirationExportValidateBeforeCall(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesPointsExpirationExportCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

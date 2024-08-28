@@ -36,6 +36,7 @@ import io.voucherify.client.model.CustomersListResponseBody;
 import io.voucherify.client.model.CustomersMetadataUpdateInBulkRequestBody;
 import io.voucherify.client.model.CustomersMetadataUpdateInBulkResponseBody;
 import io.voucherify.client.model.CustomersPermanentDeletionCreateResponseBody;
+import io.voucherify.client.model.CustomersRedeemablesListResponseBody;
 import io.voucherify.client.model.CustomersSegmentsListResponseBody;
 import io.voucherify.client.model.CustomersUpdateInBulkRequestBody;
 import io.voucherify.client.model.CustomersUpdateInBulkResponseBody;
@@ -45,8 +46,10 @@ import java.io.File;
 import java.time.OffsetDateTime;
 import io.voucherify.client.model.ParameterActivityCategory;
 import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterFiltersListCustomerRedeemables;
 import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCustomers;
+import io.voucherify.client.model.ParameterOrderListRedeemables;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -767,6 +770,141 @@ public class CustomersApi {
 
         okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
         Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCustomerRedeemables
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCustomerRedeemablesCall(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/customers/{customerId}/redeemables"
+            .replace("{" + "customerId" + "}", localVarApiClient.escapeString(customerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomerRedeemablesValidateBeforeCall(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'customerId' is set
+        if (customerId == null) {
+            throw new ApiException("Missing the required parameter 'customerId' when calling listCustomerRedeemables(Async)");
+        }
+
+        return listCustomerRedeemablesCall(customerId, limit, order, startingAfterId, filters, _callback);
+
+    }
+
+    /**
+     * List Customer&#39;s Redeemables
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @return CustomersRedeemablesListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomersRedeemablesListResponseBody listCustomerRedeemables(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters) throws ApiException {
+        ApiResponse<CustomersRedeemablesListResponseBody> localVarResp = listCustomerRedeemablesWithHttpInfo(customerId, limit, order, startingAfterId, filters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Customer&#39;s Redeemables
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @return ApiResponse&lt;CustomersRedeemablesListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomersRedeemablesListResponseBody> listCustomerRedeemablesWithHttpInfo(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters) throws ApiException {
+        okhttp3.Call localVarCall = listCustomerRedeemablesValidateBeforeCall(customerId, limit, order, startingAfterId, filters, null);
+        Type localVarReturnType = new TypeToken<CustomersRedeemablesListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Customer&#39;s Redeemables (asynchronously)
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCustomerRedeemablesAsync(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback<CustomersRedeemablesListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomerRedeemablesValidateBeforeCall(customerId, limit, order, startingAfterId, filters, _callback);
+        Type localVarReturnType = new TypeToken<CustomersRedeemablesListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

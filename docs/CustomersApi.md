@@ -10,6 +10,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**getCustomer**](CustomersApi.md#getCustomer) | **GET** /v1/customers/{customerId} | Get Customer |
 | [**importCustomersUsingCsv**](CustomersApi.md#importCustomersUsingCsv) | **POST** /v1/customers/importCSV | Import and Update Customers using CSV |
 | [**listCustomerActivity**](CustomersApi.md#listCustomerActivity) | **GET** /v1/customers/{customerId}/activity | List Customer Activity |
+| [**listCustomerRedeemables**](CustomersApi.md#listCustomerRedeemables) | **GET** /v1/customers/{customerId}/redeemables | List Customer&#39;s Redeemables |
 | [**listCustomerSegments**](CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments |
 | [**listCustomers**](CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers |
 | [**updateCustomer**](CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer |
@@ -448,6 +449,83 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a dictionary with customer activities. |  -  |
+
+<a id="listCustomerRedeemables"></a>
+# **listCustomerRedeemables**
+> CustomersRedeemablesListResponseBody listCustomerRedeemables(customerId, limit, order, startingAfterId, filters)
+
+List Customer&#39;s Redeemables
+
+Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    String customerId = "customerId_example"; // String | Unique identifier of a customer represented by an internal customer ID or customer source ID.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderListRedeemables order = ParameterOrderListRedeemables.fromValue("id"); // ParameterOrderListRedeemables | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+    ParameterFiltersListCustomerRedeemables filters = new ParameterFiltersListCustomerRedeemables(); // ParameterFiltersListCustomerRedeemables | Filters for listing customer redeemables.
+    try {
+      CustomersRedeemablesListResponseBody result = apiInstance.listCustomerRedeemables(customerId, limit, order, startingAfterId, filters);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#listCustomerRedeemables");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **customerId** | **String**| Unique identifier of a customer represented by an internal customer ID or customer source ID. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderListRedeemables**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the events starting after an event with the given ID. |
+| **filters** | [**ParameterFiltersListCustomerRedeemables**](.md)| Filters for listing customer redeemables. |
+
+### Return type
+
+[**CustomersRedeemablesListResponseBody**](CustomersRedeemablesListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The method returns redeemable(s) to which the given customer is assigned. |  -  |
 
 <a id="listCustomerSegments"></a>
 # **listCustomerSegments**
