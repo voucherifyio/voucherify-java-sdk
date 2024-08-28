@@ -17,7 +17,7 @@ This is an object representing a loyalty member.
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | **Object** |  |
 |**gift** | **Object** |  |
-|**loyaltyCard** | [**CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard**](CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md) |  |
+|**loyaltyCard** | [**LoyaltyMemberLoyaltyCard**](LoyaltyMemberLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -33,7 +33,7 @@ This is an object representing a loyalty member.
 |**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
 |**publish** | [**LoyaltyMemberPublish**](LoyaltyMemberPublish.md) |  |
-|**redemption** | [**CampaignsVouchersCreateCombinedResponseBodyRedemption**](CampaignsVouchersCreateCombinedResponseBodyRedemption.md) |  |
+|**redemption** | [**LoyaltyMemberRedemption**](LoyaltyMemberRedemption.md) |  |
 
 
 

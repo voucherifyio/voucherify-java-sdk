@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerLoyaltyCampaignsValue;
+import io.voucherify.client.model.CustomerLoyaltyCampaigns;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -66,7 +66,7 @@ public class CustomerLoyalty {
 
   public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS)
-  private Map<String, CustomerLoyaltyCampaignsValue> campaigns;
+  private Map<String, CustomerLoyaltyCampaigns> campaigns;
 
   public CustomerLoyalty() {
   }
@@ -113,13 +113,13 @@ public class CustomerLoyalty {
   }
 
 
-  public CustomerLoyalty campaigns(Map<String, CustomerLoyaltyCampaignsValue> campaigns) {
+  public CustomerLoyalty campaigns(Map<String, CustomerLoyaltyCampaigns> campaigns) {
     
     this.campaigns = campaigns;
     return this;
   }
 
-  public CustomerLoyalty putCampaignsItem(String key, CustomerLoyaltyCampaignsValue campaignsItem) {
+  public CustomerLoyalty putCampaignsItem(String key, CustomerLoyaltyCampaigns campaignsItem) {
     if (this.campaigns == null) {
       this.campaigns = new HashMap<>();
     }
@@ -132,12 +132,12 @@ public class CustomerLoyalty {
    * @return campaigns
   **/
   @javax.annotation.Nullable
-  public Map<String, CustomerLoyaltyCampaignsValue> getCampaigns() {
+  public Map<String, CustomerLoyaltyCampaigns> getCampaigns() {
     return campaigns;
   }
 
 
-  public void setCampaigns(Map<String, CustomerLoyaltyCampaignsValue> campaigns) {
+  public void setCampaigns(Map<String, CustomerLoyaltyCampaigns> campaigns) {
     this.campaigns = campaigns;
   }
 

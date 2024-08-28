@@ -10,7 +10,7 @@ Schema model for a discount voucher.
 |------------ | ------------- | ------------- |
 |**type** | [**TypeEnum**](#TypeEnum) | Type of voucher. |
 |**loyaltyCard** | [**CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  |
-|**redemption** | [**CampaignVoucherRedemption**](CampaignVoucherRedemption.md) |  |
+|**redemption** | [**CampaignLoyaltyVoucherRedemption**](CampaignLoyaltyVoucherRedemption.md) |  |
 |**codeConfig** | [**CodeConfig**](CodeConfig.md) |  |
 
 

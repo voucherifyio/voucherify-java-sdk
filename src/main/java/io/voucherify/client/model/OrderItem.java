@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemCalculatedProduct;
-import io.voucherify.client.model.OrderItemCalculatedSku;
+import io.voucherify.client.model.OrderItemProduct;
+import io.voucherify.client.model.OrderItemSku;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -217,11 +217,11 @@ public class OrderItem {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private OrderItemCalculatedProduct product;
+  private OrderItemProduct product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
-  private OrderItemCalculatedSku sku;
+  private OrderItemSku sku;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -587,7 +587,7 @@ public class OrderItem {
   }
 
 
-  public OrderItem product(OrderItemCalculatedProduct product) {
+  public OrderItem product(OrderItemProduct product) {
     
     this.product = product;
     return this;
@@ -598,17 +598,17 @@ public class OrderItem {
    * @return product
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedProduct getProduct() {
+  public OrderItemProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(OrderItemCalculatedProduct product) {
+  public void setProduct(OrderItemProduct product) {
     this.product = product;
   }
 
 
-  public OrderItem sku(OrderItemCalculatedSku sku) {
+  public OrderItem sku(OrderItemSku sku) {
     
     this.sku = sku;
     return this;
@@ -619,12 +619,12 @@ public class OrderItem {
    * @return sku
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedSku getSku() {
+  public OrderItemSku getSku() {
     return sku;
   }
 
 
-  public void setSku(OrderItemCalculatedSku sku) {
+  public void setSku(OrderItemSku sku) {
     this.sku = sku;
   }
 

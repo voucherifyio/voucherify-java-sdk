@@ -10,7 +10,7 @@ Schema model for a campaign voucher.
 |------------ | ------------- | ------------- |
 |**type** | [**TypeEnum**](#TypeEnum) | Type of voucher. |
 |**loyaltyCard** | [**CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  |
-|**redemption** | [**CampaignVoucherRedemption**](CampaignVoucherRedemption.md) |  |
+|**redemption** | [**LoyaltyCampaignVoucherRedemption**](LoyaltyCampaignVoucherRedemption.md) |  |
 |**codeConfig** | [**CodeConfig**](CodeConfig.md) |  |
 |**isReferralCode** | **Boolean** | Always &#x60;false&#x60; for a loyalty card voucher |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the campaign starts to be active in ISO 8601 format. Campaign is *inactive before* this date.  |

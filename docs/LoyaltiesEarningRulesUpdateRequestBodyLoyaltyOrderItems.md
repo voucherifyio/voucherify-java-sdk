@@ -7,9 +7,9 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**quantity** | [**EarningRuleBaseLoyaltyOrderItemsQuantity**](EarningRuleBaseLoyaltyOrderItemsQuantity.md) |  |
-|**amount** | [**EarningRuleBaseLoyaltyOrderItemsQuantity**](EarningRuleBaseLoyaltyOrderItemsQuantity.md) |  |
-|**subtotalAmount** | [**EarningRuleBaseLoyaltyOrderItemsQuantity**](EarningRuleBaseLoyaltyOrderItemsQuantity.md) |  |
+|**quantity** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity.md) |  |
+|**amount** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount.md) |  |
+|**subtotalAmount** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount.md) |  |
 
 
 

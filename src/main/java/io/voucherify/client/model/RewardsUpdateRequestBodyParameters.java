@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsCreateRequestBodyParametersCoin;
-import io.voucherify.client.model.RewardsCreateRequestBodyParametersProduct;
 import io.voucherify.client.model.RewardsUpdateRequestBodyParametersCampaign;
+import io.voucherify.client.model.RewardsUpdateRequestBodyParametersCoin;
+import io.voucherify.client.model.RewardsUpdateRequestBodyParametersProduct;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -62,11 +62,11 @@ public class RewardsUpdateRequestBodyParameters {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private RewardsCreateRequestBodyParametersProduct product;
+  private RewardsUpdateRequestBodyParametersProduct product;
 
   public static final String SERIALIZED_NAME_COIN = "coin";
   @SerializedName(SERIALIZED_NAME_COIN)
-  private RewardsCreateRequestBodyParametersCoin coin;
+  private RewardsUpdateRequestBodyParametersCoin coin;
 
   public RewardsUpdateRequestBodyParameters() {
   }
@@ -92,7 +92,7 @@ public class RewardsUpdateRequestBodyParameters {
   }
 
 
-  public RewardsUpdateRequestBodyParameters product(RewardsCreateRequestBodyParametersProduct product) {
+  public RewardsUpdateRequestBodyParameters product(RewardsUpdateRequestBodyParametersProduct product) {
     
     this.product = product;
     return this;
@@ -103,17 +103,17 @@ public class RewardsUpdateRequestBodyParameters {
    * @return product
   **/
   @javax.annotation.Nullable
-  public RewardsCreateRequestBodyParametersProduct getProduct() {
+  public RewardsUpdateRequestBodyParametersProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(RewardsCreateRequestBodyParametersProduct product) {
+  public void setProduct(RewardsUpdateRequestBodyParametersProduct product) {
     this.product = product;
   }
 
 
-  public RewardsUpdateRequestBodyParameters coin(RewardsCreateRequestBodyParametersCoin coin) {
+  public RewardsUpdateRequestBodyParameters coin(RewardsUpdateRequestBodyParametersCoin coin) {
     
     this.coin = coin;
     return this;
@@ -124,12 +124,12 @@ public class RewardsUpdateRequestBodyParameters {
    * @return coin
   **/
   @javax.annotation.Nullable
-  public RewardsCreateRequestBodyParametersCoin getCoin() {
+  public RewardsUpdateRequestBodyParametersCoin getCoin() {
     return coin;
   }
 
 
-  public void setCoin(RewardsCreateRequestBodyParametersCoin coin) {
+  public void setCoin(RewardsUpdateRequestBodyParametersCoin coin) {
     this.coin = coin;
   }
 

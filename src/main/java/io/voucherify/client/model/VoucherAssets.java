@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode;
-import io.voucherify.client.model.LoyaltiesMembersTransfersCreateResponseBodyAssetsQr;
+import io.voucherify.client.model.VoucherAssetsBarcode;
+import io.voucherify.client.model.VoucherAssetsQr;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -57,16 +57,16 @@ import io.voucherify.client.JSON;
 public class VoucherAssets {
   public static final String SERIALIZED_NAME_QR = "qr";
   @SerializedName(SERIALIZED_NAME_QR)
-  private LoyaltiesMembersTransfersCreateResponseBodyAssetsQr qr;
+  private VoucherAssetsQr qr;
 
   public static final String SERIALIZED_NAME_BARCODE = "barcode";
   @SerializedName(SERIALIZED_NAME_BARCODE)
-  private LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode barcode;
+  private VoucherAssetsBarcode barcode;
 
   public VoucherAssets() {
   }
 
-  public VoucherAssets qr(LoyaltiesMembersTransfersCreateResponseBodyAssetsQr qr) {
+  public VoucherAssets qr(VoucherAssetsQr qr) {
     
     this.qr = qr;
     return this;
@@ -77,17 +77,17 @@ public class VoucherAssets {
    * @return qr
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersTransfersCreateResponseBodyAssetsQr getQr() {
+  public VoucherAssetsQr getQr() {
     return qr;
   }
 
 
-  public void setQr(LoyaltiesMembersTransfersCreateResponseBodyAssetsQr qr) {
+  public void setQr(VoucherAssetsQr qr) {
     this.qr = qr;
   }
 
 
-  public VoucherAssets barcode(LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode barcode) {
+  public VoucherAssets barcode(VoucherAssetsBarcode barcode) {
     
     this.barcode = barcode;
     return this;
@@ -98,12 +98,12 @@ public class VoucherAssets {
    * @return barcode
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode getBarcode() {
+  public VoucherAssetsBarcode getBarcode() {
     return barcode;
   }
 
 
-  public void setBarcode(LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode barcode) {
+  public void setBarcode(VoucherAssetsBarcode barcode) {
     this.barcode = barcode;
   }
 

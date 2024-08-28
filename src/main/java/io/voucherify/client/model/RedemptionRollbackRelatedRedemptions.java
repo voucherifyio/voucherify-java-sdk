@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RedemptionRollbackRelatedRedemptionsItem;
+import io.voucherify.client.model.RedemptionRollbackRelatedRedemptionsRedemptionsItem;
 import io.voucherify.client.model.RedemptionRollbackRelatedRedemptionsRollbacksItem;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class RedemptionRollbackRelatedRedemptions {
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private List<RedemptionRollbackRelatedRedemptionsItem> redemptions;
+  private List<RedemptionRollbackRelatedRedemptionsRedemptionsItem> redemptions;
 
   public RedemptionRollbackRelatedRedemptions() {
   }
@@ -97,13 +97,13 @@ public class RedemptionRollbackRelatedRedemptions {
   }
 
 
-  public RedemptionRollbackRelatedRedemptions redemptions(List<RedemptionRollbackRelatedRedemptionsItem> redemptions) {
+  public RedemptionRollbackRelatedRedemptions redemptions(List<RedemptionRollbackRelatedRedemptionsRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
     return this;
   }
 
-  public RedemptionRollbackRelatedRedemptions addRedemptionsItem(RedemptionRollbackRelatedRedemptionsItem redemptionsItem) {
+  public RedemptionRollbackRelatedRedemptions addRedemptionsItem(RedemptionRollbackRelatedRedemptionsRedemptionsItem redemptionsItem) {
     if (this.redemptions == null) {
       this.redemptions = new ArrayList<>();
     }
@@ -116,12 +116,12 @@ public class RedemptionRollbackRelatedRedemptions {
    * @return redemptions
   **/
   @javax.annotation.Nullable
-  public List<RedemptionRollbackRelatedRedemptionsItem> getRedemptions() {
+  public List<RedemptionRollbackRelatedRedemptionsRedemptionsItem> getRedemptions() {
     return redemptions;
   }
 
 
-  public void setRedemptions(List<RedemptionRollbackRelatedRedemptionsItem> redemptions) {
+  public void setRedemptions(List<RedemptionRollbackRelatedRedemptionsRedemptionsItem> redemptions) {
     this.redemptions = redemptions;
   }
 

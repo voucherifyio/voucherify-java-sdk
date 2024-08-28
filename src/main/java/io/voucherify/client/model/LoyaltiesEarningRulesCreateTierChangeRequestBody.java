@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
-import io.voucherify.client.model.EarningRuleFixed;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodySource;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -67,7 +67,7 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private EarningRuleFixed loyalty;
+  private LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty loyalty;
 
   /**
    * Defines the event which triggers the earning rule to add points to a loyalty card.    - &#x60;customer.loyalty.tier.joined&#x60; an event defined by the Voucherify API corresponding to a customer joining a tier     - &#x60;customer.loyalty.tier.left&#x60; an event defined by the Voucherify API corresponding to a customer leaving a tier     - &#x60;customer.loyalty.tier.upgraded&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being upgraded     - &#x60;customer.loyalty.tier.downgraded&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being upgraded     - &#x60;customer.loyalty.tier.prolonged&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being prolonged
@@ -128,11 +128,11 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
-  private EarningRuleBaseLoyaltyTier loyaltyTier;
+  private LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private LoyaltiesEarningRulesCreateCustomEventRequestBodySource source;
+  private LoyaltiesEarningRulesCreateTierChangeRequestBodySource source;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -243,7 +243,7 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
   }
 
 
-  public LoyaltiesEarningRulesCreateTierChangeRequestBody loyalty(EarningRuleFixed loyalty) {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBody loyalty(LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -254,12 +254,12 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public EarningRuleFixed getLoyalty() {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(EarningRuleFixed loyalty) {
+  public void setLoyalty(LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 
@@ -285,7 +285,7 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
   }
 
 
-  public LoyaltiesEarningRulesCreateTierChangeRequestBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBody loyaltyTier(LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -296,17 +296,17 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
    * @return loyaltyTier
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier getLoyaltyTier() {
     return loyaltyTier;
   }
 
 
-  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public void setLoyaltyTier(LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
   }
 
 
-  public LoyaltiesEarningRulesCreateTierChangeRequestBody source(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBody source(LoyaltiesEarningRulesCreateTierChangeRequestBodySource source) {
     
     this.source = source;
     return this;
@@ -317,12 +317,12 @@ public class LoyaltiesEarningRulesCreateTierChangeRequestBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public LoyaltiesEarningRulesCreateCustomEventRequestBodySource getSource() {
+  public LoyaltiesEarningRulesCreateTierChangeRequestBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public void setSource(LoyaltiesEarningRulesCreateTierChangeRequestBodySource source) {
     this.source = source;
   }
 

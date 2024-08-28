@@ -16,8 +16,8 @@ This is an object representing a voucher with categories.
 |**categoryId** | **String** | Unique category ID assigned by Voucherify. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | [**Discount**](Discount.md) |  |
-|**gift** | [**CampaignsVouchersCreateCombinedResponseBodyGift**](CampaignsVouchersCreateCombinedResponseBodyGift.md) |  |
-|**loyaltyCard** | [**CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard**](CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md) |  |
+|**gift** | [**VoucherBaseGift**](VoucherBaseGift.md) |  |
+|**loyaltyCard** | [**VoucherBaseLoyaltyCard**](VoucherBaseLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -33,8 +33,8 @@ This is an object representing a voucher with categories.
 |**holderId** | **String** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. |
 |**referrerId** | **String** | Unique identifier of the referring person. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
-|**publish** | [**CampaignsVouchersCreateCombinedResponseBodyPublish**](CampaignsVouchersCreateCombinedResponseBodyPublish.md) |  |
-|**redemption** | [**CampaignsVouchersCreateCombinedResponseBodyRedemption**](CampaignsVouchersCreateCombinedResponseBodyRedemption.md) |  |
+|**publish** | [**VoucherBasePublish**](VoucherBasePublish.md) |  |
+|**redemption** | [**VoucherBaseRedemption**](VoucherBaseRedemption.md) |  |
 |**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
 
 

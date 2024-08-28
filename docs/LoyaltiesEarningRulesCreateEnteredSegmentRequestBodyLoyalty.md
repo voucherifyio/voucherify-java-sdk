@@ -10,7 +10,7 @@
 |**type** | [**TypeEnum**](#TypeEnum) |  |
 |**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
 |**calculationType** | [**CalculationTypeEnum**](#CalculationTypeEnum) | CUSTOMER_METADATA: Customer Metadata (X points for every Y in metadata attribute, defined in the property key under the customer.metadata object) |
-|**customer** | [**EarningRuleBaseLoyaltyCustomer**](EarningRuleBaseLoyaltyCustomer.md) |  |
+|**customer** | [**LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer**](LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer.md) |  |
 
 
 

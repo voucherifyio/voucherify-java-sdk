@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidityHoursDailyInner;
+import io.voucherify.client.model.ValidityHoursDailyItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,18 +58,18 @@ import io.voucherify.client.JSON;
 public class ValidityHours {
   public static final String SERIALIZED_NAME_DAILY = "daily";
   @SerializedName(SERIALIZED_NAME_DAILY)
-  private List<ValidityHoursDailyInner> daily;
+  private List<ValidityHoursDailyItem> daily;
 
   public ValidityHours() {
   }
 
-  public ValidityHours daily(List<ValidityHoursDailyInner> daily) {
+  public ValidityHours daily(List<ValidityHoursDailyItem> daily) {
     
     this.daily = daily;
     return this;
   }
 
-  public ValidityHours addDailyItem(ValidityHoursDailyInner dailyItem) {
+  public ValidityHours addDailyItem(ValidityHoursDailyItem dailyItem) {
     if (this.daily == null) {
       this.daily = new ArrayList<>();
     }
@@ -82,12 +82,12 @@ public class ValidityHours {
    * @return daily
   **/
   @javax.annotation.Nullable
-  public List<ValidityHoursDailyInner> getDaily() {
+  public List<ValidityHoursDailyItem> getDaily() {
     return daily;
   }
 
 
-  public void setDaily(List<ValidityHoursDailyInner> daily) {
+  public void setDaily(List<ValidityHoursDailyItem> daily) {
     this.daily = daily;
   }
 

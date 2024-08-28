@@ -11,8 +11,8 @@
 |**calculationType** | [**CalculationTypeEnum**](#CalculationTypeEnum) |  |
 |**order** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder.md) |  |
 |**orderItems** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems.md) |  |
-|**customer** | [**EarningRuleBaseLoyaltyCustomer**](EarningRuleBaseLoyaltyCustomer.md) |  |
-|**customEvent** | [**EarningRuleBaseLoyaltyCustomEvent**](EarningRuleBaseLoyaltyCustomEvent.md) |  |
+|**customer** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer.md) |  |
+|**customEvent** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent.md) |  |
 |**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
 
 

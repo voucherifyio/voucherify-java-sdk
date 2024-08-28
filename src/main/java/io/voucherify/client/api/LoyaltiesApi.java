@@ -30,7 +30,7 @@ import java.io.IOException;
 import io.voucherify.client.model.LoyaltiesCreateCampaignRequestBody;
 import io.voucherify.client.model.LoyaltiesCreateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltiesDeleteResponseBody;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyInner;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItem;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBody;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBody;
@@ -236,12 +236,12 @@ public class LoyaltiesApi {
     /**
      * Build call for createEarningRule
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call createEarningRuleCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEarningRuleCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -255,7 +255,7 @@ public class LoyaltiesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = loyaltiesEarningRulesCreateRequestBodyInner;
+        Object localVarPostBody = loyaltiesEarningRulesCreateRequestBodyItem;
 
         // create path and map variables
         String localVarPath = "/v1/loyalties/{campaignId}/earning-rules"
@@ -288,13 +288,13 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEarningRuleValidateBeforeCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createEarningRuleValidateBeforeCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling createEarningRule(Async)");
         }
 
-        return createEarningRuleCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, _callback);
+        return createEarningRuleCall(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, _callback);
 
     }
 
@@ -302,12 +302,12 @@ public class LoyaltiesApi {
      * Create Earning Rule
      * Create earning rules for a loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<LoyaltiesEarningRulesCreateResponseBody> createEarningRule(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner) throws ApiException {
-        ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResp = createEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyInner);
+    public List<LoyaltiesEarningRulesCreateResponseBody> createEarningRule(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem) throws ApiException {
+        ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResp = createEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyItem);
         return localVarResp.getData();
     }
 
@@ -315,12 +315,12 @@ public class LoyaltiesApi {
      * Create Earning Rule
      * Create earning rules for a loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return ApiResponse&lt;List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> createEarningRuleWithHttpInfo(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner) throws ApiException {
-        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, null);
+    public ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> createEarningRuleWithHttpInfo(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem) throws ApiException {
+        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, null);
         Type localVarReturnType = new TypeToken<List<LoyaltiesEarningRulesCreateResponseBody>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -329,14 +329,14 @@ public class LoyaltiesApi {
      * Create Earning Rule (asynchronously)
      * Create earning rules for a loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesEarningRulesCreateRequestBodyInner Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
+     * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call createEarningRuleAsync(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner, final ApiCallback<List<LoyaltiesEarningRulesCreateResponseBody>> _callback) throws ApiException {
+    public okhttp3.Call createEarningRuleAsync(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback<List<LoyaltiesEarningRulesCreateResponseBody>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyInner, _callback);
+        okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, _callback);
         Type localVarReturnType = new TypeToken<List<LoyaltiesEarningRulesCreateResponseBody>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

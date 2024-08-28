@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderItemsQuantity;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -56,20 +58,20 @@ import io.voucherify.client.JSON;
 public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
-  private EarningRuleBaseLoyaltyOrderItemsQuantity quantity;
+  private LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity quantity;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private EarningRuleBaseLoyaltyOrderItemsQuantity amount;
+  private LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount amount;
 
   public static final String SERIALIZED_NAME_SUBTOTAL_AMOUNT = "subtotal_amount";
   @SerializedName(SERIALIZED_NAME_SUBTOTAL_AMOUNT)
-  private EarningRuleBaseLoyaltyOrderItemsQuantity subtotalAmount;
+  private LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount subtotalAmount;
 
   public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems() {
   }
 
-  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems quantity(EarningRuleBaseLoyaltyOrderItemsQuantity quantity) {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems quantity(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity quantity) {
     
     this.quantity = quantity;
     return this;
@@ -80,17 +82,17 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
    * @return quantity
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderItemsQuantity getQuantity() {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity getQuantity() {
     return quantity;
   }
 
 
-  public void setQuantity(EarningRuleBaseLoyaltyOrderItemsQuantity quantity) {
+  public void setQuantity(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity quantity) {
     this.quantity = quantity;
   }
 
 
-  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems amount(EarningRuleBaseLoyaltyOrderItemsQuantity amount) {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems amount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount amount) {
     
     this.amount = amount;
     return this;
@@ -101,17 +103,17 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
    * @return amount
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderItemsQuantity getAmount() {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount getAmount() {
     return amount;
   }
 
 
-  public void setAmount(EarningRuleBaseLoyaltyOrderItemsQuantity amount) {
+  public void setAmount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount amount) {
     this.amount = amount;
   }
 
 
-  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems subtotalAmount(EarningRuleBaseLoyaltyOrderItemsQuantity subtotalAmount) {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems subtotalAmount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
     return this;
@@ -122,12 +124,12 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
    * @return subtotalAmount
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderItemsQuantity getSubtotalAmount() {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount getSubtotalAmount() {
     return subtotalAmount;
   }
 
 
-  public void setSubtotalAmount(EarningRuleBaseLoyaltyOrderItemsQuantity subtotalAmount) {
+  public void setSubtotalAmount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount subtotalAmount) {
     this.subtotalAmount = subtotalAmount;
   }
 

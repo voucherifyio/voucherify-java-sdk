@@ -183,13 +183,8 @@
 | /v1/customers/bulk/async                      | post   | Update Customers in bulk                | <font color='green'>supported</font> |                                      |
 | /v1/customers/metadata/async                  | post   | Update Customers' Metadata in bulk      | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/consents           | put    | Update Customer's consents [Deprecated] | <font color='green'>supported</font> |  <font color='red'>deprecated</font> |
-<<<<<<< Updated upstream
-| /v1/customers/{customerId}/activity           | get    | List Customer Activity                  |                                      |                                      |
-| /v1/customers/{customerId}/activities         | get    | List Customer Activities                |                                      |                                      |
-=======
 | /v1/customers/{customerId}/activity           | get    | List Customer Activity                  | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated]   |                                      |  <font color='red'>deprecated</font> |
->>>>>>> Stashed changes
 | /v1/customers/{customerId}/segments           | get    | List Customer's Segments                | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables             |                                      |                                      |
 ## Orders

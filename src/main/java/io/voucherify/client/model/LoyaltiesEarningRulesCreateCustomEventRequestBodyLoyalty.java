@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyCustomEvent;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -160,7 +160,7 @@ public class LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty {
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseLoyaltyCustomEvent customEvent;
+  private LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent customEvent;
 
   public LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty() {
   }
@@ -228,7 +228,7 @@ public class LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty customEvent(EarningRuleBaseLoyaltyCustomEvent customEvent) {
+  public LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty customEvent(LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -239,12 +239,12 @@ public class LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty {
    * @return customEvent
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyCustomEvent getCustomEvent() {
+  public LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent getCustomEvent() {
     return customEvent;
   }
 
 
-  public void setCustomEvent(EarningRuleBaseLoyaltyCustomEvent customEvent) {
+  public void setCustomEvent(LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent customEvent) {
     this.customEvent = customEvent;
   }
 

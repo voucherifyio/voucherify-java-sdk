@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard;
-import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBodyRedemption;
+import io.voucherify.client.model.LoyaltyMemberLoyaltyCard;
 import io.voucherify.client.model.LoyaltyMemberPublish;
+import io.voucherify.client.model.LoyaltyMemberRedemption;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
@@ -145,7 +145,7 @@ public class LoyaltyMember {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard;
+  private LoyaltyMemberLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -266,7 +266,7 @@ public class LoyaltyMember {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsVouchersCreateCombinedResponseBodyRedemption redemption;
+  private LoyaltyMemberRedemption redemption;
 
   public LoyaltyMember() {
   }
@@ -460,7 +460,7 @@ public class LoyaltyMember {
   }
 
 
-  public LoyaltyMember loyaltyCard(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard) {
+  public LoyaltyMember loyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -471,12 +471,12 @@ public class LoyaltyMember {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard getLoyaltyCard() {
+  public LoyaltyMemberLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -804,7 +804,7 @@ public class LoyaltyMember {
   }
 
 
-  public LoyaltyMember redemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
+  public LoyaltyMember redemption(LoyaltyMemberRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -815,12 +815,12 @@ public class LoyaltyMember {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateCombinedResponseBodyRedemption getRedemption() {
+  public LoyaltyMemberRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
+  public void setRedemption(LoyaltyMemberRedemption redemption) {
     this.redemption = redemption;
   }
 

@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodySource;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -124,7 +124,7 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBody {
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private LoyaltiesEarningRulesCreateCustomEventRequestBodySource source;
+  private LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource source;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -298,7 +298,7 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBody {
   }
 
 
-  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody source(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody source(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource source) {
     
     this.source = source;
     return this;
@@ -309,12 +309,12 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public LoyaltiesEarningRulesCreateCustomEventRequestBodySource getSource() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public void setSource(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource source) {
     this.source = source;
   }
 

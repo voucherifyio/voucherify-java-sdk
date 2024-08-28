@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerBaseAddress;
 import io.voucherify.client.model.CustomerLoyalty;
 import io.voucherify.client.model.CustomerReferrals;
-import io.voucherify.client.model.CustomerResponseDataAssets;
 import io.voucherify.client.model.CustomerSummary;
+import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAllOfAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -94,7 +94,7 @@ public class CustomersGetResponseBody {
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
-  private CustomerResponseDataAssets assets;
+  private CustomerWithSummaryLoyaltyReferralsAllOfAssets assets;
 
   /**
    * The type of the object represented by JSON.
@@ -348,7 +348,7 @@ public class CustomersGetResponseBody {
   }
 
 
-  public CustomersGetResponseBody assets(CustomerResponseDataAssets assets) {
+  public CustomersGetResponseBody assets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
     
     this.assets = assets;
     return this;
@@ -359,12 +359,12 @@ public class CustomersGetResponseBody {
    * @return assets
   **/
   @javax.annotation.Nullable
-  public CustomerResponseDataAssets getAssets() {
+  public CustomerWithSummaryLoyaltyReferralsAllOfAssets getAssets() {
     return assets;
   }
 
 
-  public void setAssets(CustomerResponseDataAssets assets) {
+  public void setAssets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
     this.assets = assets;
   }
 

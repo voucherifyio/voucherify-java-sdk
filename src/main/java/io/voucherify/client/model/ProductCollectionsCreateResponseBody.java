@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ProductCollectionsCreateRequestBodyFilter;
+import io.voucherify.client.model.ProductCollectionsItemFilter;
 import io.voucherify.client.model.ProductCollectionsItemProductsItem;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -119,7 +119,7 @@ public class ProductCollectionsCreateResponseBody {
 
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private ProductCollectionsCreateRequestBodyFilter filter;
+  private ProductCollectionsItemFilter filter;
 
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
@@ -244,7 +244,7 @@ public class ProductCollectionsCreateResponseBody {
   }
 
 
-  public ProductCollectionsCreateResponseBody filter(ProductCollectionsCreateRequestBodyFilter filter) {
+  public ProductCollectionsCreateResponseBody filter(ProductCollectionsItemFilter filter) {
     
     this.filter = filter;
     return this;
@@ -255,12 +255,12 @@ public class ProductCollectionsCreateResponseBody {
    * @return filter
   **/
   @javax.annotation.Nullable
-  public ProductCollectionsCreateRequestBodyFilter getFilter() {
+  public ProductCollectionsItemFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(ProductCollectionsCreateRequestBodyFilter filter) {
+  public void setFilter(ProductCollectionsItemFilter filter) {
     this.filter = filter;
   }
 

@@ -24,8 +24,8 @@
 |**appliedQuantityAmount** | **Integer** | Amount for the items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced. |
 |**price** | **Integer** | Unit price of an item. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. |
 |**subtotalAmount** | **Integer** | Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;discount_amount&#x60; |
-|**product** | [**OrderItemCalculatedProduct**](OrderItemCalculatedProduct.md) |  |
-|**sku** | [**OrderItemCalculatedSku**](OrderItemCalculatedSku.md) |  |
+|**product** | [**OrderItemProduct**](OrderItemProduct.md) |  |
+|**sku** | [**OrderItemSku**](OrderItemSku.md) |  |
 |**metadata** | **Object** | A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format. |
 
 

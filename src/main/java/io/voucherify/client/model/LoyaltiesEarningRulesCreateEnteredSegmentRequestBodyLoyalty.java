@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyCustomer;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -160,7 +160,7 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private EarningRuleBaseLoyaltyCustomer customer;
+  private LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer customer;
 
   public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty() {
   }
@@ -228,7 +228,7 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty customer(EarningRuleBaseLoyaltyCustomer customer) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty customer(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer customer) {
     
     this.customer = customer;
     return this;
@@ -239,12 +239,12 @@ public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyCustomer getCustomer() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(EarningRuleBaseLoyaltyCustomer customer) {
+  public void setCustomer(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer customer) {
     this.customer = customer;
   }
 

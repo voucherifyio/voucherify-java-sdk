@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.HolderRole;
 import io.voucherify.client.model.Junction;
-import io.voucherify.client.model.QualificationsCampaignTypeConditions;
 import io.voucherify.client.model.QualificationsFieldConditions;
+import io.voucherify.client.model.QualificationsOptionFiltersCampaignType;
+import io.voucherify.client.model.QualificationsOptionFiltersHolderRole;
 import io.voucherify.client.model.QualificationsOptionFiltersResourceType;
 import java.io.IOException;
 import java.util.Arrays;
@@ -72,7 +72,7 @@ public class QualificationsOptionFilters {
 
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
-  private QualificationsCampaignTypeConditions campaignType;
+  private QualificationsOptionFiltersCampaignType campaignType;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
@@ -92,7 +92,7 @@ public class QualificationsOptionFilters {
 
   public static final String SERIALIZED_NAME_HOLDER_ROLE = "holder_role";
   @SerializedName(SERIALIZED_NAME_HOLDER_ROLE)
-  private HolderRole holderRole;
+  private QualificationsOptionFiltersHolderRole holderRole;
 
   public QualificationsOptionFilters() {
   }
@@ -160,7 +160,7 @@ public class QualificationsOptionFilters {
   }
 
 
-  public QualificationsOptionFilters campaignType(QualificationsCampaignTypeConditions campaignType) {
+  public QualificationsOptionFilters campaignType(QualificationsOptionFiltersCampaignType campaignType) {
     
     this.campaignType = campaignType;
     return this;
@@ -171,12 +171,12 @@ public class QualificationsOptionFilters {
    * @return campaignType
   **/
   @javax.annotation.Nullable
-  public QualificationsCampaignTypeConditions getCampaignType() {
+  public QualificationsOptionFiltersCampaignType getCampaignType() {
     return campaignType;
   }
 
 
-  public void setCampaignType(QualificationsCampaignTypeConditions campaignType) {
+  public void setCampaignType(QualificationsOptionFiltersCampaignType campaignType) {
     this.campaignType = campaignType;
   }
 
@@ -265,7 +265,7 @@ public class QualificationsOptionFilters {
   }
 
 
-  public QualificationsOptionFilters holderRole(HolderRole holderRole) {
+  public QualificationsOptionFilters holderRole(QualificationsOptionFiltersHolderRole holderRole) {
     
     this.holderRole = holderRole;
     return this;
@@ -276,12 +276,12 @@ public class QualificationsOptionFilters {
    * @return holderRole
   **/
   @javax.annotation.Nullable
-  public HolderRole getHolderRole() {
+  public QualificationsOptionFiltersHolderRole getHolderRole() {
     return holderRole;
   }
 
 
-  public void setHolderRole(HolderRole holderRole) {
+  public void setHolderRole(QualificationsOptionFiltersHolderRole holderRole) {
     this.holderRole = holderRole;
   }
 

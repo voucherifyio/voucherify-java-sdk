@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodySource;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -119,7 +119,7 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBody {
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private LoyaltiesEarningRulesCreateCustomEventRequestBodySource source;
+  private LoyaltiesEarningRulesCreateOrderPaidRequestBodySource source;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -272,7 +272,7 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBody {
   }
 
 
-  public LoyaltiesEarningRulesCreateOrderPaidRequestBody source(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBody source(LoyaltiesEarningRulesCreateOrderPaidRequestBodySource source) {
     
     this.source = source;
     return this;
@@ -283,12 +283,12 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public LoyaltiesEarningRulesCreateCustomEventRequestBodySource getSource() {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(LoyaltiesEarningRulesCreateCustomEventRequestBodySource source) {
+  public void setSource(LoyaltiesEarningRulesCreateOrderPaidRequestBodySource source) {
     this.source = source;
   }
 

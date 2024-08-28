@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RedemptionRelatedRedemptionsItem;
+import io.voucherify.client.model.RedemptionRelatedRedemptionsRedemptionsItem;
 import io.voucherify.client.model.RedemptionRelatedRedemptionsRollbacksItem;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class RedemptionRelatedRedemptions {
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private List<RedemptionRelatedRedemptionsItem> redemptions;
+  private List<RedemptionRelatedRedemptionsRedemptionsItem> redemptions;
 
   public RedemptionRelatedRedemptions() {
   }
@@ -97,13 +97,13 @@ public class RedemptionRelatedRedemptions {
   }
 
 
-  public RedemptionRelatedRedemptions redemptions(List<RedemptionRelatedRedemptionsItem> redemptions) {
+  public RedemptionRelatedRedemptions redemptions(List<RedemptionRelatedRedemptionsRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
     return this;
   }
 
-  public RedemptionRelatedRedemptions addRedemptionsItem(RedemptionRelatedRedemptionsItem redemptionsItem) {
+  public RedemptionRelatedRedemptions addRedemptionsItem(RedemptionRelatedRedemptionsRedemptionsItem redemptionsItem) {
     if (this.redemptions == null) {
       this.redemptions = new ArrayList<>();
     }
@@ -116,12 +116,12 @@ public class RedemptionRelatedRedemptions {
    * @return redemptions
   **/
   @javax.annotation.Nullable
-  public List<RedemptionRelatedRedemptionsItem> getRedemptions() {
+  public List<RedemptionRelatedRedemptionsRedemptionsItem> getRedemptions() {
     return redemptions;
   }
 
 
-  public void setRedemptions(List<RedemptionRelatedRedemptionsItem> redemptions) {
+  public void setRedemptions(List<RedemptionRelatedRedemptionsRedemptionsItem> redemptions) {
     this.redemptions = redemptions;
   }
 

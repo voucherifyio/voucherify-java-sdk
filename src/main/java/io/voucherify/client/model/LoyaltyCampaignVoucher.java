@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CampaignLoyaltyCard;
-import io.voucherify.client.model.CampaignVoucherRedemption;
 import io.voucherify.client.model.CodeConfig;
+import io.voucherify.client.model.LoyaltyCampaignVoucherRedemption;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -116,7 +116,7 @@ public class LoyaltyCampaignVoucher {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignVoucherRedemption redemption;
+  private LoyaltyCampaignVoucherRedemption redemption;
 
   public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
   @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
@@ -248,7 +248,7 @@ public class LoyaltyCampaignVoucher {
   }
 
 
-  public LoyaltyCampaignVoucher redemption(CampaignVoucherRedemption redemption) {
+  public LoyaltyCampaignVoucher redemption(LoyaltyCampaignVoucherRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -259,12 +259,12 @@ public class LoyaltyCampaignVoucher {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignVoucherRedemption getRedemption() {
+  public LoyaltyCampaignVoucherRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignVoucherRedemption redemption) {
+  public void setRedemption(LoyaltyCampaignVoucherRedemption redemption) {
     this.redemption = redemption;
   }
 

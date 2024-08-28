@@ -22,7 +22,7 @@
 |**autoJoin** | **Boolean** | Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method).     -  &#x60;STATIC&#x60;: vouchers need to be manually published. |
 |**loyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  |
-|**options** | [**PropertiesForLoyaltyCampaignOptions**](PropertiesForLoyaltyCampaignOptions.md) |  |
+|**options** | [**CampaignsUpdateLoyaltyCampaignAllOfOptions**](CampaignsUpdateLoyaltyCampaignAllOfOptions.md) |  |
 
 
 
