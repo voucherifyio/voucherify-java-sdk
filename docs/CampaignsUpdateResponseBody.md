@@ -2,7 +2,7 @@
 
 # CampaignsUpdateResponseBody
 
-Response body schema for **PUT** `/campaigns/{campaignId}`.
+Response body schema for **PUT** `v1/campaigns/{campaignId}`.
 
 ## Properties
 

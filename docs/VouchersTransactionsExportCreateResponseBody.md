@@ -2,7 +2,7 @@
 
 # VouchersTransactionsExportCreateResponseBody
 
-Response body schema for **POST** `/vouchers/{code}/transactions/export`.
+Response body schema for **POST** `v1/vouchers/{code}/transactions/export`.
 
 ## Properties
 

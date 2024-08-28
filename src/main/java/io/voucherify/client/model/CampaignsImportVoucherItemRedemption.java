@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Stores the quantity of redemptions that can be applied to the voucher.
+ * CampaignsImportVoucherItemRedemption
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

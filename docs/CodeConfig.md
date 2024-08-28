@@ -2,7 +2,7 @@
 
 # CodeConfig
 
-Schema containing information about config used for voucher. Defines code's pattern (prefix, suffix, length, charset, etc).
+Contains information about the config used for the voucher code. Defines the code's pattern (prefix, postfix, length, charset, etc).
 
 ## Properties
 
@@ -13,7 +13,7 @@ Schema containing information about config used for voucher. Defines code's patt
 |**prefix** | **String** | A text appended before the code. |
 |**postfix** | **String** | A text appended after the code. |
 |**pattern** | **String** | A pattern for codes where hashes (#) will be replaced with random characters. Overrides &#x60;length&#x60;. |
-|**initialCount** | **Integer** | The initial count |
+|**initialCount** | **Integer** | Internal value, does not change anything if provided. |
 
 
 

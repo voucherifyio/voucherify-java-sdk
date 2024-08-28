@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersTransfersCreateResponseBody
 
-Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/transfers`.
+Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transfers`.
 
 ## Properties
 

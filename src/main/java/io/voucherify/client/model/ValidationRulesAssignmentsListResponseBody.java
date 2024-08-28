@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body for **GET** &#x60;/validation-rules-assignments&#x60; and **GET** &#x60;/validation-rules/{validationRuleId}/assignments&#x60;.
+ * Response body for **GET** &#x60;v1/validation-rules-assignments&#x60; and **GET** &#x60;v1/validation-rules/{validationRuleId}/assignments&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

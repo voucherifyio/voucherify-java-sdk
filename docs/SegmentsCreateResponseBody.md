@@ -2,7 +2,7 @@
 
 # SegmentsCreateResponseBody
 
-Response body schema for **POST** `/segments`.
+Response body schema for **POST** `v1/segments`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # CustomersCreateResponseBody
 
-Response body for **POST** `/customers`.
+Response body for **POST** `v1/customers`.
 
 ## Properties
 

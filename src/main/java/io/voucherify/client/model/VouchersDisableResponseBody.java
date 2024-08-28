@@ -61,7 +61,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/vouchers/{code}/disable&#x60;.
+ * Response body schema for **POST** &#x60;v1/vouchers/{code}/disable&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -89,10 +89,6 @@ public class VouchersDisableResponseBody {
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
-
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
 
   /**
    * Defines the type of the voucher. 
@@ -276,10 +272,6 @@ public class VouchersDisableResponseBody {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "voucher";
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
-  private ValidationRulesAssignmentsList validationRulesAssignments;
-
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
   private CampaignsVouchersCreateCombinedResponseBodyPublish publish;
@@ -287,6 +279,14 @@ public class VouchersDisableResponseBody {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private CampaignsVouchersCreateCombinedResponseBodyRedemption redemption;
+
+  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
+  @SerializedName(SERIALIZED_NAME_CATEGORIES)
+  private List<Category> categories;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
+  private ValidationRulesAssignmentsList validationRulesAssignments;
 
   public VouchersDisableResponseBody() {
   }
@@ -414,35 +414,6 @@ public class VouchersDisableResponseBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
-  }
-
-
-  public VouchersDisableResponseBody categories(List<Category> categories) {
-    
-    this.categories = categories;
-    return this;
-  }
-
-  public VouchersDisableResponseBody addCategoriesItem(Category categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<>();
-    }
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * Contains details about the category.
-   * @return categories
-  **/
-  @javax.annotation.Nullable
-  public List<Category> getCategories() {
-    return categories;
-  }
-
-
-  public void setCategories(List<Category> categories) {
-    this.categories = categories;
   }
 
 
@@ -853,27 +824,6 @@ public class VouchersDisableResponseBody {
   }
 
 
-  public VouchersDisableResponseBody validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    
-    this.validationRulesAssignments = validationRulesAssignments;
-    return this;
-  }
-
-   /**
-   * Get validationRulesAssignments
-   * @return validationRulesAssignments
-  **/
-  @javax.annotation.Nullable
-  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
-    return validationRulesAssignments;
-  }
-
-
-  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    this.validationRulesAssignments = validationRulesAssignments;
-  }
-
-
   public VouchersDisableResponseBody publish(CampaignsVouchersCreateCombinedResponseBodyPublish publish) {
     
     this.publish = publish;
@@ -913,6 +863,56 @@ public class VouchersDisableResponseBody {
 
   public void setRedemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
     this.redemption = redemption;
+  }
+
+
+  public VouchersDisableResponseBody categories(List<Category> categories) {
+    
+    this.categories = categories;
+    return this;
+  }
+
+  public VouchersDisableResponseBody addCategoriesItem(Category categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<>();
+    }
+    this.categories.add(categoriesItem);
+    return this;
+  }
+
+   /**
+   * Contains details about the category.
+   * @return categories
+  **/
+  @javax.annotation.Nullable
+  public List<Category> getCategories() {
+    return categories;
+  }
+
+
+  public void setCategories(List<Category> categories) {
+    this.categories = categories;
+  }
+
+
+  public VouchersDisableResponseBody validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    
+    this.validationRulesAssignments = validationRulesAssignments;
+    return this;
+  }
+
+   /**
+   * Get validationRulesAssignments
+   * @return validationRulesAssignments
+  **/
+  @javax.annotation.Nullable
+  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
+    return validationRulesAssignments;
+  }
+
+
+  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    this.validationRulesAssignments = validationRulesAssignments;
   }
 
   /**
@@ -976,7 +976,6 @@ public class VouchersDisableResponseBody {
         Objects.equals(this.campaignId, vouchersDisableResponseBody.campaignId) &&
         Objects.equals(this.category, vouchersDisableResponseBody.category) &&
         Objects.equals(this.categoryId, vouchersDisableResponseBody.categoryId) &&
-        Objects.equals(this.categories, vouchersDisableResponseBody.categories) &&
         Objects.equals(this.type, vouchersDisableResponseBody.type) &&
         Objects.equals(this.discount, vouchersDisableResponseBody.discount) &&
         Objects.equals(this.gift, vouchersDisableResponseBody.gift) &&
@@ -996,9 +995,10 @@ public class VouchersDisableResponseBody {
         Objects.equals(this.holderId, vouchersDisableResponseBody.holderId) &&
         Objects.equals(this.referrerId, vouchersDisableResponseBody.referrerId) &&
         Objects.equals(this._object, vouchersDisableResponseBody._object) &&
-        Objects.equals(this.validationRulesAssignments, vouchersDisableResponseBody.validationRulesAssignments) &&
         Objects.equals(this.publish, vouchersDisableResponseBody.publish) &&
-        Objects.equals(this.redemption, vouchersDisableResponseBody.redemption)&&
+        Objects.equals(this.redemption, vouchersDisableResponseBody.redemption) &&
+        Objects.equals(this.categories, vouchersDisableResponseBody.categories) &&
+        Objects.equals(this.validationRulesAssignments, vouchersDisableResponseBody.validationRulesAssignments)&&
         Objects.equals(this.additionalProperties, vouchersDisableResponseBody.additionalProperties);
   }
 
@@ -1008,7 +1008,7 @@ public class VouchersDisableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, campaign, campaignId, category, categoryId, categories, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, validationRulesAssignments, publish, redemption, additionalProperties);
+    return Objects.hash(id, code, campaign, campaignId, category, categoryId, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, publish, redemption, categories, validationRulesAssignments, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1028,7 +1028,6 @@ public class VouchersDisableResponseBody {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
@@ -1048,9 +1047,10 @@ public class VouchersDisableResponseBody {
     sb.append("    holderId: ").append(toIndentedString(holderId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    publish: ").append(toIndentedString(publish)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1080,7 +1080,6 @@ public class VouchersDisableResponseBody {
     openapiFields.add("campaign_id");
     openapiFields.add("category");
     openapiFields.add("category_id");
-    openapiFields.add("categories");
     openapiFields.add("type");
     openapiFields.add("discount");
     openapiFields.add("gift");
@@ -1100,9 +1099,10 @@ public class VouchersDisableResponseBody {
     openapiFields.add("holder_id");
     openapiFields.add("referrer_id");
     openapiFields.add("object");
-    openapiFields.add("validation_rules_assignments");
     openapiFields.add("publish");
     openapiFields.add("redemption");
+    openapiFields.add("categories");
+    openapiFields.add("validation_rules_assignments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

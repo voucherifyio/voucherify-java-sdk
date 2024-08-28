@@ -2,7 +2,7 @@
 
 # PromotionsStacksUpdateResponseBody
 
-Response body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`.
+Response body schema for **PUT** `v1/promotions/{campaignId}/stacks/{stackId}`.
 
 ## Properties
 

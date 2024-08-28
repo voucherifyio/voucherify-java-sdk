@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsImportVoucherItemRedemption;
+import io.voucherify.client.model.CampaignsVouchersCreateBaseRequestBodyRedemption;
 import io.voucherify.client.model.CodeConfig;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers&#x60;.
+ * Request body schema for **POST** &#x60;v1/campaigns/{campaignId}/vouchers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -66,7 +66,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsImportVoucherItemRedemption redemption;
+  private CampaignsVouchersCreateBaseRequestBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
@@ -133,7 +133,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   }
 
 
-  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsImportVoucherItemRedemption redemption) {
+  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -144,12 +144,12 @@ public class CampaignsVouchersCreateInBulkRequestBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsImportVoucherItemRedemption getRedemption() {
+  public CampaignsVouchersCreateBaseRequestBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsImportVoucherItemRedemption redemption) {
+  public void setRedemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
     this.redemption = redemption;
   }
 

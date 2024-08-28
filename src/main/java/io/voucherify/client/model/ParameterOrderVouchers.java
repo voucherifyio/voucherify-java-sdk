@@ -23,30 +23,26 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets EarningRuleEvent
+ * Gets or Sets ParameterOrderVouchers
  */
-@JsonAdapter(EarningRuleEvent.Adapter.class)
-public enum EarningRuleEvent {
+@JsonAdapter(ParameterOrderVouchers.Adapter.class)
+public enum ParameterOrderVouchers {
   
-  ORDER_PAID("order.paid"),
+  CREATED_AT("created_at"),
   
-  CUSTOMER_SEGMENT_ENTERED("customer.segment.entered"),
+  _CREATED_AT("-created_at"),
   
-  CUSTOM_EVENT("custom_event"),
+  UPDATED_AT("updated_at"),
   
-  CUSTOMER_LOYALTY_TIER_UPGRADED("customer.loyalty.tier.upgraded"),
+  _UPDATED_AT("-updated_at"),
   
-  CUSTOMER_LOYALTY_TIER_DOWNGRADED("customer.loyalty.tier.downgraded"),
+  CODE("code"),
   
-  CUSTOMER_LOYALTY_TIER_PROLONGED("customer.loyalty.tier.prolonged"),
-  
-  CUSTOMER_LOYALTY_TIER_JOINED("customer.loyalty.tier.joined"),
-  
-  CUSTOMER_LOYALTY_TIER_LEFT("customer.loyalty.tier.left");
+  _CODE("-code");
 
   private String value;
 
-  EarningRuleEvent(String value) {
+  ParameterOrderVouchers(String value) {
     this.value = value;
   }
 
@@ -59,8 +55,8 @@ public enum EarningRuleEvent {
     return String.valueOf(value);
   }
 
-  public static EarningRuleEvent fromValue(String value) {
-    for (EarningRuleEvent b : EarningRuleEvent.values()) {
+  public static ParameterOrderVouchers fromValue(String value) {
+    for (ParameterOrderVouchers b : ParameterOrderVouchers.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -68,16 +64,16 @@ public enum EarningRuleEvent {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<EarningRuleEvent> {
+  public static class Adapter extends TypeAdapter<ParameterOrderVouchers> {
     @Override
-    public void write(final JsonWriter jsonWriter, final EarningRuleEvent enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final ParameterOrderVouchers enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public EarningRuleEvent read(final JsonReader jsonReader) throws IOException {
+    public ParameterOrderVouchers read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return EarningRuleEvent.fromValue(value);
+      return ParameterOrderVouchers.fromValue(value);
     }
   }
 }

@@ -28,15 +28,29 @@ import java.io.IOException;
 
 
 import java.io.File;
+import io.voucherify.client.model.ParameterCreatedBeforeAfter;
+import io.voucherify.client.model.ParameterOrderVouchers;
+import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 import io.voucherify.client.model.VouchersBalanceUpdateRequestBody;
 import io.voucherify.client.model.VouchersBalanceUpdateResponseBody;
+import io.voucherify.client.model.VouchersCreateResponseBody;
+import io.voucherify.client.model.VouchersCreateWithSpecificCodeRequestBody;
 import io.voucherify.client.model.VouchersDisableResponseBody;
 import io.voucherify.client.model.VouchersEnableResponseBody;
 import io.voucherify.client.model.VouchersGetResponseBody;
+import io.voucherify.client.model.VouchersImportCreateItemRequestBody;
+import io.voucherify.client.model.VouchersImportCreateResponseBody;
 import io.voucherify.client.model.VouchersImportCsvCreateResponseBody;
+import io.voucherify.client.model.VouchersListResponseBody;
+import io.voucherify.client.model.VouchersMetadataUpdateInBulkRequestBody;
+import io.voucherify.client.model.VouchersMetadataUpdateInBulkResponseBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateRequestBody;
 import io.voucherify.client.model.VouchersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.VouchersTransactionsListResponseBody;
+import io.voucherify.client.model.VouchersUpdateInBulkItemRequestBody;
+import io.voucherify.client.model.VouchersUpdateInBulkResponseBody;
+import io.voucherify.client.model.VouchersUpdateRequestBody;
+import io.voucherify.client.model.VouchersUpdateResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -81,6 +95,114 @@ public class VouchersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createVoucher
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createVoucherCall(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersCreateWithSpecificCodeRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/{code}"
+            .replace("{" + "code" + "}", localVarApiClient.escapeString(code.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createVoucherValidateBeforeCall(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling createVoucher(Async)");
+        }
+
+        return createVoucherCall(code, vouchersCreateWithSpecificCodeRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Voucher
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @return VouchersCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersCreateResponseBody createVoucher(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody) throws ApiException {
+        ApiResponse<VouchersCreateResponseBody> localVarResp = createVoucherWithHttpInfo(code, vouchersCreateWithSpecificCodeRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Voucher
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @return ApiResponse&lt;VouchersCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersCreateResponseBody> createVoucherWithHttpInfo(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithSpecificCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Voucher (asynchronously)
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createVoucherAsync(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithSpecificCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteVoucher
      * @param code A unique **code** that identifies the voucher. (required)
@@ -502,6 +624,104 @@ public class VouchersApi {
         return localVarCall;
     }
     /**
+     * Build call for generateRandomCode
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call generateRandomCodeCall(Object body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call generateRandomCodeValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+        return generateRandomCodeCall(body, _callback);
+
+    }
+
+    /**
+     * Generate Random Code
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @return VouchersCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersCreateResponseBody generateRandomCode(Object body) throws ApiException {
+        ApiResponse<VouchersCreateResponseBody> localVarResp = generateRandomCodeWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generate Random Code
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @return ApiResponse&lt;VouchersCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersCreateResponseBody> generateRandomCodeWithHttpInfo(Object body) throws ApiException {
+        okhttp3.Call localVarCall = generateRandomCodeValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generate Random Code (asynchronously)
+     * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+     * @param body Specify the details of the voucher that you would like to create. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call generateRandomCodeAsync(Object body, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = generateRandomCodeValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getVoucher
      * @param code A unique **code** that identifies the voucher. (required)
      * @param _callback Callback for upload/download progress
@@ -601,6 +821,109 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = getVoucherValidateBeforeCall(code, _callback);
         Type localVarReturnType = new TypeToken<VouchersGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for importVouchers
+     * @param vouchersImportCreateItemRequestBody The request body is an array of objects. Each object contains details about a specific voucher.  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call importVouchersCall(List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersImportCreateItemRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/import";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call importVouchersValidateBeforeCall(List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vouchersImportCreateItemRequestBody' is set
+        if (vouchersImportCreateItemRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersImportCreateItemRequestBody' when calling importVouchers(Async)");
+        }
+
+        return importVouchersCall(vouchersImportCreateItemRequestBody, _callback);
+
+    }
+
+    /**
+     * Import Vouchers
+     * Import standalone vouchers and gift cards into the repository.  📘 Important notes  - **Start and expiration dates** need to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify Project. Any parameters not provided in the payload will be left blank or null. For both **standalone discount vouchers and gift cards**, you can import the following fields:   - code - category - active - type - start_date - expiration_date - redemption.quantity - additional_info - metadata For **gift cards**, you can also import the following field: - gift.amount For **discount vouchers**, you can import the discount object. The object will slightly vary depending on the type of discount. Each discount type **requires** the type to be defined in the import.   Fields other than the ones listed above wont be imported. Even if provided, they will be silently skipped. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersImportCreateItemRequestBody The request body is an array of objects. Each object contains details about a specific voucher.  (required)
+     * @return VouchersImportCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersImportCreateResponseBody importVouchers(List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody) throws ApiException {
+        ApiResponse<VouchersImportCreateResponseBody> localVarResp = importVouchersWithHttpInfo(vouchersImportCreateItemRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Import Vouchers
+     * Import standalone vouchers and gift cards into the repository.  📘 Important notes  - **Start and expiration dates** need to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify Project. Any parameters not provided in the payload will be left blank or null. For both **standalone discount vouchers and gift cards**, you can import the following fields:   - code - category - active - type - start_date - expiration_date - redemption.quantity - additional_info - metadata For **gift cards**, you can also import the following field: - gift.amount For **discount vouchers**, you can import the discount object. The object will slightly vary depending on the type of discount. Each discount type **requires** the type to be defined in the import.   Fields other than the ones listed above wont be imported. Even if provided, they will be silently skipped. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersImportCreateItemRequestBody The request body is an array of objects. Each object contains details about a specific voucher.  (required)
+     * @return ApiResponse&lt;VouchersImportCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersImportCreateResponseBody> importVouchersWithHttpInfo(List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = importVouchersValidateBeforeCall(vouchersImportCreateItemRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersImportCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Import Vouchers (asynchronously)
+     * Import standalone vouchers and gift cards into the repository.  📘 Important notes  - **Start and expiration dates** need to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify Project. Any parameters not provided in the payload will be left blank or null. For both **standalone discount vouchers and gift cards**, you can import the following fields:   - code - category - active - type - start_date - expiration_date - redemption.quantity - additional_info - metadata For **gift cards**, you can also import the following field: - gift.amount For **discount vouchers**, you can import the discount object. The object will slightly vary depending on the type of discount. Each discount type **requires** the type to be defined in the import.   Fields other than the ones listed above wont be imported. Even if provided, they will be silently skipped. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersImportCreateItemRequestBody The request body is an array of objects. Each object contains details about a specific voucher.  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call importVouchersAsync(List<VouchersImportCreateItemRequestBody> vouchersImportCreateItemRequestBody, final ApiCallback<VouchersImportCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = importVouchersValidateBeforeCall(vouchersImportCreateItemRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersImportCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -826,6 +1149,187 @@ public class VouchersApi {
         return localVarCall;
     }
     /**
+     * Build call for listVouchers
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param category Limit search results to vouchers within the specified category. (optional)
+     * @param campaignId Limit search results to vouchers within the specified campaign (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listVouchersCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (category != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("category", category));
+        }
+
+        if (campaignId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_id", campaignId));
+        }
+
+        if (customer != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer", customer));
+        }
+
+        if (campaign != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign", campaign));
+        }
+
+        if (createdAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("created_at", createdAt));
+        }
+
+        if (updatedAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updated_at", updatedAt));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (code != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("code", code));
+        }
+
+        if (ids != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "ids", ids));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listVouchersValidateBeforeCall(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
+        return listVouchersCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, _callback);
+
+    }
+
+    /**
+     * List Vouchers
+     * Returns a list of vouchers. By default, the vouchers are returned sorted by creation date, with the most recent vouchers appearing first. A maximum of 100 vouchers are returned in the response. When you get a list of vouchers, you can optionally specify query parameters to customize the number of vouchers returned per call using limit, which page of vouchers to return using page, sort the vouchers using the order query parameter and more. This method will return an error when trying to return a limit of more than 100 vouchers. 
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param category Limit search results to vouchers within the specified category. (optional)
+     * @param campaignId Limit search results to vouchers within the specified campaign (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @return VouchersListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersListResponseBody listVouchers(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        ApiResponse<VouchersListResponseBody> localVarResp = listVouchersWithHttpInfo(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Vouchers
+     * Returns a list of vouchers. By default, the vouchers are returned sorted by creation date, with the most recent vouchers appearing first. A maximum of 100 vouchers are returned in the response. When you get a list of vouchers, you can optionally specify query parameters to customize the number of vouchers returned per call using limit, which page of vouchers to return using page, sort the vouchers using the order query parameter and more. This method will return an error when trying to return a limit of more than 100 vouchers. 
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param category Limit search results to vouchers within the specified category. (optional)
+     * @param campaignId Limit search results to vouchers within the specified campaign (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @return ApiResponse&lt;VouchersListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersListResponseBody> listVouchersWithHttpInfo(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
+        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, null);
+        Type localVarReturnType = new TypeToken<VouchersListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Vouchers (asynchronously)
+     * Returns a list of vouchers. By default, the vouchers are returned sorted by creation date, with the most recent vouchers appearing first. A maximum of 100 vouchers are returned in the response. When you get a list of vouchers, you can optionally specify query parameters to customize the number of vouchers returned per call using limit, which page of vouchers to return using page, sort the vouchers using the order query parameter and more. This method will return an error when trying to return a limit of more than 100 vouchers. 
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param category Limit search results to vouchers within the specified category. (optional)
+     * @param campaignId Limit search results to vouchers within the specified campaign (optional)
+     * @param customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param createdAt A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param updatedAt A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param code  (optional)
+     * @param ids  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listVouchersAsync(Integer limit, Integer page, String category, String campaignId, String customer, String campaign, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback<VouchersListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listVouchersValidateBeforeCall(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, _callback);
+        Type localVarReturnType = new TypeToken<VouchersListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for releaseValidationSession
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify. (required)
      * @param sessionKey A unique session identifier. (required)
@@ -931,6 +1435,119 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = releaseValidationSessionValidateBeforeCall(code, sessionKey, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVoucher
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVoucherCall(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/{code}"
+            .replace("{" + "code" + "}", localVarApiClient.escapeString(code.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVoucherValidateBeforeCall(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'code' is set
+        if (code == null) {
+            throw new ApiException("Missing the required parameter 'code' when calling updateVoucher(Async)");
+        }
+
+        // verify the required parameter 'vouchersUpdateRequestBody' is set
+        if (vouchersUpdateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersUpdateRequestBody' when calling updateVoucher(Async)");
+        }
+
+        return updateVoucherCall(code, vouchersUpdateRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Voucher
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @return VouchersUpdateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersUpdateResponseBody updateVoucher(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody) throws ApiException {
+        ApiResponse<VouchersUpdateResponseBody> localVarResp = updateVoucherWithHttpInfo(code, vouchersUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Voucher
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @return ApiResponse&lt;VouchersUpdateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersUpdateResponseBody> updateVoucherWithHttpInfo(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateVoucherValidateBeforeCall(code, vouchersUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersUpdateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Voucher (asynchronously)
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * @param code A unique **code** that identifies the voucher. (required)
+     * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVoucherAsync(String code, VouchersUpdateRequestBody vouchersUpdateRequestBody, final ApiCallback<VouchersUpdateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVoucherValidateBeforeCall(code, vouchersUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1043,6 +1660,212 @@ public class VouchersApi {
 
         okhttp3.Call localVarCall = updateVoucherBalanceValidateBeforeCall(code, vouchersBalanceUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<VouchersBalanceUpdateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVouchersInBulk
+     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVouchersInBulkCall(List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersUpdateInBulkItemRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/bulk/async";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVouchersInBulkValidateBeforeCall(List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vouchersUpdateInBulkItemRequestBody' is set
+        if (vouchersUpdateInBulkItemRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersUpdateInBulkItemRequestBody' when calling updateVouchersInBulk(Async)");
+        }
+
+        return updateVouchersInBulkCall(vouchersUpdateInBulkItemRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Vouchers in bulk
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @return VouchersUpdateInBulkResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersUpdateInBulkResponseBody updateVouchersInBulk(List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody) throws ApiException {
+        ApiResponse<VouchersUpdateInBulkResponseBody> localVarResp = updateVouchersInBulkWithHttpInfo(vouchersUpdateInBulkItemRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Vouchers in bulk
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @return ApiResponse&lt;VouchersUpdateInBulkResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersUpdateInBulkResponseBody> updateVouchersInBulkWithHttpInfo(List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateVouchersInBulkValidateBeforeCall(vouchersUpdateInBulkItemRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersUpdateInBulkResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Vouchers in bulk (asynchronously)
+     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVouchersInBulkAsync(List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody, final ApiCallback<VouchersUpdateInBulkResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVouchersInBulkValidateBeforeCall(vouchersUpdateInBulkItemRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersUpdateInBulkResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateVouchersMetadataInBulk
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateVouchersMetadataInBulkCall(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vouchersMetadataUpdateInBulkRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/vouchers/metadata/async";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateVouchersMetadataInBulkValidateBeforeCall(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vouchersMetadataUpdateInBulkRequestBody' is set
+        if (vouchersMetadataUpdateInBulkRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'vouchersMetadataUpdateInBulkRequestBody' when calling updateVouchersMetadataInBulk(Async)");
+        }
+
+        return updateVouchersMetadataInBulkCall(vouchersMetadataUpdateInBulkRequestBody, _callback);
+
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @return VouchersMetadataUpdateInBulkResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VouchersMetadataUpdateInBulkResponseBody updateVouchersMetadataInBulk(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody) throws ApiException {
+        ApiResponse<VouchersMetadataUpdateInBulkResponseBody> localVarResp = updateVouchersMetadataInBulkWithHttpInfo(vouchersMetadataUpdateInBulkRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @return ApiResponse&lt;VouchersMetadataUpdateInBulkResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VouchersMetadataUpdateInBulkResponseBody> updateVouchersMetadataInBulkWithHttpInfo(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateVouchersMetadataInBulkValidateBeforeCall(vouchersMetadataUpdateInBulkRequestBody, null);
+        Type localVarReturnType = new TypeToken<VouchersMetadataUpdateInBulkResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Vouchers&#39; metadata in bulk (asynchronously)
+     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateVouchersMetadataInBulkAsync(VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody, final ApiCallback<VouchersMetadataUpdateInBulkResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateVouchersMetadataInBulkValidateBeforeCall(vouchersMetadataUpdateInBulkRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<VouchersMetadataUpdateInBulkResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

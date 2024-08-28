@@ -2,7 +2,7 @@
 
 # PromotionsTiersEnableResponseBody
 
-Response body schema for **POST** `/promotions/tiers/{promotionTierId}/enable`.
+Response body schema for **POST** `v1/promotions/tiers/{promotionTierId}/enable`.
 
 ## Properties
 

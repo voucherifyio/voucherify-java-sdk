@@ -65,7 +65,7 @@ import io.voucherify.client.JSON;
 public class CampaignVoucher {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type = "DISCOUNT_VOUCHER";
+  private String type;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)

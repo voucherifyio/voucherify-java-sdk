@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.voucherify.client.model.CustomersActivityListResponseBody;
 import io.voucherify.client.model.CustomersCreateRequestBody;
 import io.voucherify.client.model.CustomersCreateResponseBody;
 import io.voucherify.client.model.CustomersGetResponseBody;
@@ -42,6 +43,9 @@ import io.voucherify.client.model.CustomersUpdateRequestBody;
 import io.voucherify.client.model.CustomersUpdateResponseBody;
 import java.io.File;
 import java.time.OffsetDateTime;
+import io.voucherify.client.model.ParameterActivityCategory;
+import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCustomers;
 
 import java.lang.reflect.Type;
@@ -588,6 +592,181 @@ public class CustomersApi {
 
         okhttp3.Call localVarCall = importCustomersUsingCsvValidateBeforeCall(_file, _callback);
         Type localVarReturnType = new TypeToken<CustomersImportCsvCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCustomerActivity
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCustomerActivityCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/customers/{customerId}/activity"
+            .replace("{" + "customerId" + "}", localVarApiClient.escapeString(customerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (campaignId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_id", campaignId));
+        }
+
+        if (campaignType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_type", campaignType));
+        }
+
+        if (category != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("category", category));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomerActivityValidateBeforeCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'customerId' is set
+        if (customerId == null) {
+            throw new ApiException("Missing the required parameter 'customerId' when calling listCustomerActivity(Async)");
+        }
+
+        return listCustomerActivityCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
+
+    }
+
+    /**
+     * List Customer Activity
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @return CustomersActivityListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomersActivityListResponseBody listCustomerActivity(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+        ApiResponse<CustomersActivityListResponseBody> localVarResp = listCustomerActivityWithHttpInfo(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Customer Activity
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @return ApiResponse&lt;CustomersActivityListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomersActivityListResponseBody> listCustomerActivityWithHttpInfo(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+        okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, null);
+        Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Customer Activity (asynchronously)
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCustomerActivityAsync(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback<CustomersActivityListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
+        Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

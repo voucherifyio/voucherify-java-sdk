@@ -2,7 +2,7 @@
 
 # EventsCreateRequestBody
 
-Request body schema for **POST** `/events`.
+Request body schema for **POST** `v1/events`.
 
 ## Properties
 

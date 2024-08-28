@@ -2,7 +2,7 @@
 
 # ProductsMetadataUpdateInBulkResponseBody
 
-Response body schema for **POST** `/products/metadata/async`.
+Response body schema for **POST** `v1/products/metadata/async`.
 
 ## Properties
 

@@ -21,9 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleBaseCustomEvent;
 import io.voucherify.client.model.EarningRuleBaseLoyalty;
+import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
 import io.voucherify.client.model.EarningRuleBaseSegment;
 import io.voucherify.client.model.EarningRuleBaseSource;
-import io.voucherify.client.model.EarningRuleEvent;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -58,7 +58,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
+ * Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -77,7 +77,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
-  private EarningRuleEvent event;
+  private String event;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
@@ -86,6 +86,10 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
   private EarningRuleBaseSegment segment;
+
+  public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
+  private EarningRuleBaseLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -303,7 +307,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody event(EarningRuleEvent event) {
+  public LoyaltiesEarningRulesGetResponseBody event(String event) {
     
     this.event = event;
     return this;
@@ -314,12 +318,12 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return event
   **/
   @javax.annotation.Nullable
-  public EarningRuleEvent getEvent() {
+  public String getEvent() {
     return event;
   }
 
 
-  public void setEvent(EarningRuleEvent event) {
+  public void setEvent(String event) {
     this.event = event;
   }
 
@@ -363,6 +367,27 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   public void setSegment(EarningRuleBaseSegment segment) {
     this.segment = segment;
+  }
+
+
+  public LoyaltiesEarningRulesGetResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+    
+    this.loyaltyTier = loyaltyTier;
+    return this;
+  }
+
+   /**
+   * Get loyaltyTier
+   * @return loyaltyTier
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+    return loyaltyTier;
+  }
+
+
+  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+    this.loyaltyTier = loyaltyTier;
   }
 
 
@@ -436,7 +461,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
    /**
-   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is inactive before this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default.
+   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default.
    * @return startDate
   **/
   @javax.annotation.Nullable
@@ -457,7 +482,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
    /**
-   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. Earning rule is inactive after this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default.
    * @return expirationDate
   **/
   @javax.annotation.Nullable
@@ -686,6 +711,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
         Objects.equals(this.event, loyaltiesEarningRulesGetResponseBody.event) &&
         Objects.equals(this.customEvent, loyaltiesEarningRulesGetResponseBody.customEvent) &&
         Objects.equals(this.segment, loyaltiesEarningRulesGetResponseBody.segment) &&
+        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesGetResponseBody.loyaltyTier) &&
         Objects.equals(this.source, loyaltiesEarningRulesGetResponseBody.source) &&
         Objects.equals(this._object, loyaltiesEarningRulesGetResponseBody._object) &&
         Objects.equals(this.automationId, loyaltiesEarningRulesGetResponseBody.automationId) &&
@@ -707,7 +733,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active, additionalProperties);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -727,6 +753,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
     sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    automationId: ").append(toIndentedString(automationId)).append("\n");
@@ -768,6 +795,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
     openapiFields.add("event");
     openapiFields.add("custom_event");
     openapiFields.add("segment");
+    openapiFields.add("loyalty_tier");
     openapiFields.add("source");
     openapiFields.add("object");
     openapiFields.add("automation_id");

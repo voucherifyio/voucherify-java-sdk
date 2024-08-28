@@ -49,7 +49,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Schema containing information about config used for voucher. Defines code&#39;s pattern (prefix, suffix, length, charset, etc).
+ * Contains information about the config used for the voucher code. Defines the code&#39;s pattern (prefix, postfix, length, charset, etc).
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -193,7 +193,7 @@ public class CodeConfig {
   }
 
    /**
-   * The initial count
+   * Internal value, does not change anything if provided.
    * @return initialCount
   **/
   @javax.annotation.Nullable

@@ -2,7 +2,7 @@
 
 # ValidationRulesCreateResponseBody
 
-Response body schema for **POST** `/validation-rules`.
+Response body schema for **POST** `v1/validation-rules`.
 
 ## Properties
 

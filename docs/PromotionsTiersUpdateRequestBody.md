@@ -2,7 +2,7 @@
 
 # PromotionsTiersUpdateRequestBody
 
-Request body schema for **PUT** `/promotions/tiers/{promotionTierId}`.
+Request body schema for **PUT** `v1/promotions/tiers/{promotionTierId}`.
 
 ## Properties
 

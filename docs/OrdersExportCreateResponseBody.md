@@ -2,7 +2,7 @@
 
 # OrdersExportCreateResponseBody
 
-Response body schema for **POST** `/orders/export`.
+Response body schema for **POST** `v1/orders/export`.
 
 ## Properties
 

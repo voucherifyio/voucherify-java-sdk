@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/customers/{customerId}/permanent-deletion&#x60;.
+ * Response body schema for **POST** &#x60;v1/customers/{customerId}/permanent-deletion&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

@@ -67,7 +67,8 @@ public class RewardsAssignmentsCreateRequestBodyParametersLoyalty {
   }
 
    /**
-   * Number of points that will be subtracted from the loyalty card points balance if the reward is redeemed.
+   * Number of points that will be subtracted from the loyalty card points balance if the reward is redeemed. Must be positive integer.
+   * minimum: 1
    * @return points
   **/
   @javax.annotation.Nullable

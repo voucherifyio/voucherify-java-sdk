@@ -2,7 +2,7 @@
 
 # OrdersListResponseBody
 
-Response body schema representing **GET** `/orders`.
+Response body schema representing **GET** `v1/orders`.
 
 ## Properties
 

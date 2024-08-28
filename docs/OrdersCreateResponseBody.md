@@ -2,7 +2,7 @@
 
 # OrdersCreateResponseBody
 
-Response body schema for **POST** `/orders`.
+Response body schema for **POST** `v1/orders`.
 
 ## Properties
 

@@ -91,10 +91,6 @@ public class RedemptionsGetResponseBodyVoucher {
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
 
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
-
   /**
    * Defines the type of the voucher. 
    */
@@ -277,10 +273,6 @@ public class RedemptionsGetResponseBodyVoucher {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "voucher";
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
-  private ValidationRulesAssignmentsList validationRulesAssignments;
-
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
   private RedemptionsGetResponseBodyVoucherPublish publish;
@@ -288,6 +280,14 @@ public class RedemptionsGetResponseBodyVoucher {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private RedemptionsGetResponseBodyVoucherRedemption redemption;
+
+  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
+  @SerializedName(SERIALIZED_NAME_CATEGORIES)
+  private List<Category> categories;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
+  private ValidationRulesAssignmentsList validationRulesAssignments;
 
   public static final String SERIALIZED_NAME_HOLDER = "holder";
   @SerializedName(SERIALIZED_NAME_HOLDER)
@@ -419,35 +419,6 @@ public class RedemptionsGetResponseBodyVoucher {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
-  }
-
-
-  public RedemptionsGetResponseBodyVoucher categories(List<Category> categories) {
-    
-    this.categories = categories;
-    return this;
-  }
-
-  public RedemptionsGetResponseBodyVoucher addCategoriesItem(Category categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<>();
-    }
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * Contains details about the category.
-   * @return categories
-  **/
-  @javax.annotation.Nullable
-  public List<Category> getCategories() {
-    return categories;
-  }
-
-
-  public void setCategories(List<Category> categories) {
-    this.categories = categories;
   }
 
 
@@ -858,27 +829,6 @@ public class RedemptionsGetResponseBodyVoucher {
   }
 
 
-  public RedemptionsGetResponseBodyVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    
-    this.validationRulesAssignments = validationRulesAssignments;
-    return this;
-  }
-
-   /**
-   * Get validationRulesAssignments
-   * @return validationRulesAssignments
-  **/
-  @javax.annotation.Nullable
-  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
-    return validationRulesAssignments;
-  }
-
-
-  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    this.validationRulesAssignments = validationRulesAssignments;
-  }
-
-
   public RedemptionsGetResponseBodyVoucher publish(RedemptionsGetResponseBodyVoucherPublish publish) {
     
     this.publish = publish;
@@ -918,6 +868,56 @@ public class RedemptionsGetResponseBodyVoucher {
 
   public void setRedemption(RedemptionsGetResponseBodyVoucherRedemption redemption) {
     this.redemption = redemption;
+  }
+
+
+  public RedemptionsGetResponseBodyVoucher categories(List<Category> categories) {
+    
+    this.categories = categories;
+    return this;
+  }
+
+  public RedemptionsGetResponseBodyVoucher addCategoriesItem(Category categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<>();
+    }
+    this.categories.add(categoriesItem);
+    return this;
+  }
+
+   /**
+   * Contains details about the category.
+   * @return categories
+  **/
+  @javax.annotation.Nullable
+  public List<Category> getCategories() {
+    return categories;
+  }
+
+
+  public void setCategories(List<Category> categories) {
+    this.categories = categories;
+  }
+
+
+  public RedemptionsGetResponseBodyVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    
+    this.validationRulesAssignments = validationRulesAssignments;
+    return this;
+  }
+
+   /**
+   * Get validationRulesAssignments
+   * @return validationRulesAssignments
+  **/
+  @javax.annotation.Nullable
+  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
+    return validationRulesAssignments;
+  }
+
+
+  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    this.validationRulesAssignments = validationRulesAssignments;
   }
 
 
@@ -1002,7 +1002,6 @@ public class RedemptionsGetResponseBodyVoucher {
         Objects.equals(this.campaignId, redemptionsGetResponseBodyVoucher.campaignId) &&
         Objects.equals(this.category, redemptionsGetResponseBodyVoucher.category) &&
         Objects.equals(this.categoryId, redemptionsGetResponseBodyVoucher.categoryId) &&
-        Objects.equals(this.categories, redemptionsGetResponseBodyVoucher.categories) &&
         Objects.equals(this.type, redemptionsGetResponseBodyVoucher.type) &&
         Objects.equals(this.discount, redemptionsGetResponseBodyVoucher.discount) &&
         Objects.equals(this.gift, redemptionsGetResponseBodyVoucher.gift) &&
@@ -1022,9 +1021,10 @@ public class RedemptionsGetResponseBodyVoucher {
         Objects.equals(this.holderId, redemptionsGetResponseBodyVoucher.holderId) &&
         Objects.equals(this.referrerId, redemptionsGetResponseBodyVoucher.referrerId) &&
         Objects.equals(this._object, redemptionsGetResponseBodyVoucher._object) &&
-        Objects.equals(this.validationRulesAssignments, redemptionsGetResponseBodyVoucher.validationRulesAssignments) &&
         Objects.equals(this.publish, redemptionsGetResponseBodyVoucher.publish) &&
         Objects.equals(this.redemption, redemptionsGetResponseBodyVoucher.redemption) &&
+        Objects.equals(this.categories, redemptionsGetResponseBodyVoucher.categories) &&
+        Objects.equals(this.validationRulesAssignments, redemptionsGetResponseBodyVoucher.validationRulesAssignments) &&
         Objects.equals(this.holder, redemptionsGetResponseBodyVoucher.holder)&&
         Objects.equals(this.additionalProperties, redemptionsGetResponseBodyVoucher.additionalProperties);
   }
@@ -1035,7 +1035,7 @@ public class RedemptionsGetResponseBodyVoucher {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, campaign, campaignId, category, categoryId, categories, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, validationRulesAssignments, publish, redemption, holder, additionalProperties);
+    return Objects.hash(id, code, campaign, campaignId, category, categoryId, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, publish, redemption, categories, validationRulesAssignments, holder, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1055,7 +1055,6 @@ public class RedemptionsGetResponseBodyVoucher {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
@@ -1075,9 +1074,10 @@ public class RedemptionsGetResponseBodyVoucher {
     sb.append("    holderId: ").append(toIndentedString(holderId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    publish: ").append(toIndentedString(publish)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    holder: ").append(toIndentedString(holder)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -1108,7 +1108,6 @@ public class RedemptionsGetResponseBodyVoucher {
     openapiFields.add("campaign_id");
     openapiFields.add("category");
     openapiFields.add("category_id");
-    openapiFields.add("categories");
     openapiFields.add("type");
     openapiFields.add("discount");
     openapiFields.add("gift");
@@ -1128,9 +1127,10 @@ public class RedemptionsGetResponseBodyVoucher {
     openapiFields.add("holder_id");
     openapiFields.add("referrer_id");
     openapiFields.add("object");
-    openapiFields.add("validation_rules_assignments");
     openapiFields.add("publish");
     openapiFields.add("redemption");
+    openapiFields.add("categories");
+    openapiFields.add("validation_rules_assignments");
     openapiFields.add("holder");
 
     // a set of required properties/fields (JSON key names)

@@ -2,7 +2,7 @@
 
 # CampaignsGetResponseBody
 
-Response body schema for **GET** `/campaigns/{campaignId}`.
+Response body schema for **GET** `v1/campaigns/{campaignId}`.
 
 ## Properties
 

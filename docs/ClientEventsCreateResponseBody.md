@@ -2,7 +2,7 @@
 
 # ClientEventsCreateResponseBody
 
-Response body schema for **POST** `/events`.
+Response body schema for **POST** `v1/events`.
 
 ## Properties
 

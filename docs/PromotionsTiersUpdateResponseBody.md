@@ -2,7 +2,7 @@
 
 # PromotionsTiersUpdateResponseBody
 
-Response body schema for **PUT** `/promotions/tiers/{promotionTierId}`.
+Response body schema for **PUT** `v1/promotions/tiers/{promotionTierId}`.
 
 ## Properties
 

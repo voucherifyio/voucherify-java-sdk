@@ -2,7 +2,7 @@
 
 # AsyncActionGetResponseBody
 
-Response body schema for **GET** `/async-actions/{asyncActionId}`.
+Response body schema for **GET** `v1/async-actions/{asyncActionId}`.
 
 ## Properties
 

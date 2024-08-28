@@ -2,7 +2,7 @@
 
 # CustomersCreateRequestBody
 
-Request body schema for **POST** `/customers`.
+Request body schema for **POST** `v1/customers`.
 
 ## Properties
 

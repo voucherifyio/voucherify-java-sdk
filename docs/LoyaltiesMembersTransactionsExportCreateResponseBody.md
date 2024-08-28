@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersTransactionsExportCreateResponseBody
 
-Response body schema for **POST** `/loyalties/members/{memberId}/transactions/export` and for **POST** `/loyalties/{campaignId}/members/{memberId}/transactions/export`.
+Response body schema for **POST** `v1/loyalties/members/{memberId}/transactions/export` and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transactions/export`.
 
 ## Properties
 

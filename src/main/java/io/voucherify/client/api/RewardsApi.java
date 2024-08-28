@@ -35,8 +35,10 @@ import io.voucherify.client.model.RewardsAssignmentsListResponseBody;
 import io.voucherify.client.model.RewardsAssignmentsUpdateRequestBody;
 import io.voucherify.client.model.RewardsAssignmentsUpdateResponseBody;
 import io.voucherify.client.model.RewardsCreateRequestBody;
+import io.voucherify.client.model.RewardsCreateResponseBody;
 import io.voucherify.client.model.RewardsListResponseBody;
 import io.voucherify.client.model.RewardsUpdateRequestBody;
+import io.voucherify.client.model.RewardsUpdateResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -143,11 +145,11 @@ public class RewardsApi {
      * Create Reward
      * Create a new reward.
      * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
-     * @return Reward
+     * @return RewardsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Reward createReward(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
-        ApiResponse<Reward> localVarResp = createRewardWithHttpInfo(rewardsCreateRequestBody);
+    public RewardsCreateResponseBody createReward(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
+        ApiResponse<RewardsCreateResponseBody> localVarResp = createRewardWithHttpInfo(rewardsCreateRequestBody);
         return localVarResp.getData();
     }
 
@@ -155,12 +157,12 @@ public class RewardsApi {
      * Create Reward
      * Create a new reward.
      * @param rewardsCreateRequestBody Define parameters of the new reward. (optional)
-     * @return ApiResponse&lt;Reward&gt;
+     * @return ApiResponse&lt;RewardsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Reward> createRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
+    public ApiResponse<RewardsCreateResponseBody> createRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createRewardValidateBeforeCall(rewardsCreateRequestBody, null);
-        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        Type localVarReturnType = new TypeToken<RewardsCreateResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -172,10 +174,10 @@ public class RewardsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call createRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody, final ApiCallback<Reward> _callback) throws ApiException {
+    public okhttp3.Call createRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody, final ApiCallback<RewardsCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createRewardValidateBeforeCall(rewardsCreateRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        Type localVarReturnType = new TypeToken<RewardsCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1015,11 +1017,11 @@ public class RewardsApi {
      * Update the details of a reward.
      * @param rewardId A unique reward ID. (required)
      * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
-     * @return Reward
+     * @return RewardsUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Reward updateReward(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
-        ApiResponse<Reward> localVarResp = updateRewardWithHttpInfo(rewardId, rewardsUpdateRequestBody);
+    public RewardsUpdateResponseBody updateReward(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
+        ApiResponse<RewardsUpdateResponseBody> localVarResp = updateRewardWithHttpInfo(rewardId, rewardsUpdateRequestBody);
         return localVarResp.getData();
     }
 
@@ -1028,12 +1030,12 @@ public class RewardsApi {
      * Update the details of a reward.
      * @param rewardId A unique reward ID. (required)
      * @param rewardsUpdateRequestBody Define the parameters to be updated for the reward. (optional)
-     * @return ApiResponse&lt;Reward&gt;
+     * @return ApiResponse&lt;RewardsUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Reward> updateRewardWithHttpInfo(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
+    public ApiResponse<RewardsUpdateResponseBody> updateRewardWithHttpInfo(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateRewardValidateBeforeCall(rewardId, rewardsUpdateRequestBody, null);
-        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        Type localVarReturnType = new TypeToken<RewardsUpdateResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1046,10 +1048,10 @@ public class RewardsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call updateRewardAsync(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, final ApiCallback<Reward> _callback) throws ApiException {
+    public okhttp3.Call updateRewardAsync(String rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, final ApiCallback<RewardsUpdateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateRewardValidateBeforeCall(rewardId, rewardsUpdateRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<Reward>(){}.getType();
+        Type localVarReturnType = new TypeToken<RewardsUpdateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

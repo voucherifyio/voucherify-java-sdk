@@ -2,7 +2,7 @@
 
 # ValidationRulesUpdateRequestBody
 
-Response body schema for **PUT** `/validation-rules/{validationRuleId}`.
+Response body schema for **PUT** `v1/validation-rules/{validationRuleId}`.
 
 ## Properties
 

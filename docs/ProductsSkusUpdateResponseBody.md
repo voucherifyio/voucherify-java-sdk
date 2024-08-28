@@ -2,7 +2,7 @@
 
 # ProductsSkusUpdateResponseBody
 
-Response body schema for **PUT** `/products/{productId}/skus/{skuId}`.
+Response body schema for **PUT** `v1/products/{productId}/skus/{skuId}`.
 
 ## Properties
 

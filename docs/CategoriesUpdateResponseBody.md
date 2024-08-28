@@ -2,7 +2,7 @@
 
 # CategoriesUpdateResponseBody
 
-Response body schema for **PUT** `/categories/{categoryId}`.
+Response body schema for **PUT** `v1/categories/{categoryId}`.
 
 ## Properties
 

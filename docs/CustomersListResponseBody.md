@@ -2,7 +2,7 @@
 
 # CustomersListResponseBody
 
-Response body schema for **GET** `/customers`.
+Response body schema for **GET** `v1/customers`.
 
 ## Properties
 

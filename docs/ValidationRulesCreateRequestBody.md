@@ -2,7 +2,7 @@
 
 # ValidationRulesCreateRequestBody
 
-Request body schema for **POST** `/validation-rules`.
+Request body schema for **POST** `v1/validation-rules`.
 
 ## Properties
 

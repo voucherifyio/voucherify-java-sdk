@@ -55,7 +55,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body for **POST** &#x60;/customers&#x60;.
+ * Response body for **POST** &#x60;v1/customers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

@@ -146,13 +146,45 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 - **2024-08-XX** - `14.0.0`
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItem` model
   - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItemCalculated` model
+<<<<<<< Updated upstream
   - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
     - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
     - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
+=======
+>>>>>>> Stashed changes
   - Added `holderRole` to `QualificationsOptionFilters` model
   - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
   - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
+  - Added support for GET and POST `/v1/vouchers`
+  - Added support for GET and PUT `/v1/vouchers/{code}`
+  - Added `loyaltyTier` parameter to models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody`
+  - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
+  - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
+  - Added support for POST `v1/vouchers/metadata/async`
+  - Added support for POST `/v1/vouchers/import`
+  - Added support for GET `/v1/customers/{customerId}/activity`
+  - Added support for POST `/v1/vouchers/bulk/async`
+  - Added support for GET `/v1/loyalties/{campaignId}/reward-assignments` and GET `/v1/loyalties/{campaignId}/rewards`
+  - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
+  - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
+  - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members` and GET `/v1/loyalties/members/{memberId}`
+  - Added new query option to GET `/v1/vouchers` - `code` and `ids`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}/activity` and GET `/v1/loyalties/members/{memberId}/activity`
+  - Added support for POST `/v1/loyalties/{campaignId}/members`
+  - Added parameter `channel` to `PublicationsCreateRequestBody` model
+- ❗❗❗ BREAKING CHANGES ❗❗❗:
+    - Property `type` of Model `CampaignVoucher` has no default value anymore.
+    - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
+    - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
+    - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
+    - Method `createReward` will return `RewardsCreateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
+    - Method `updateReward` will return `RewardsUpdateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
+    - Deleted model `EarningRuleEvent`
+    - Models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody` parameter `event` is no longer `EarningRuleEvent`, instead this is `String` now.
+    - Removed `CampaignsImportVoucherLoyaltyCard`, use `SimpleLoyaltyCard` instead.
+    - Property `type` in model `CampaignsImportVoucherItem` has no longer `LUCKY_DRAW_CODE` enum option.
 - **2024-07-22** - `13.0.0`
   - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
   - Added support for GET and POST `/v1/rewards`
@@ -224,6 +256,7 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**deleteCustomer**](docs/CustomersApi.md#deleteCustomer) | **DELETE** /v1/customers/{customerId} | Delete Customer
 *CustomersApi* | [**getCustomer**](docs/CustomersApi.md#getCustomer) | **GET** /v1/customers/{customerId} | Get Customer
 *CustomersApi* | [**importCustomersUsingCsv**](docs/CustomersApi.md#importCustomersUsingCsv) | **POST** /v1/customers/importCSV | Import and Update Customers using CSV
+*CustomersApi* | [**listCustomerActivity**](docs/CustomersApi.md#listCustomerActivity) | **GET** /v1/customers/{customerId}/activity | List Customer Activity
 *CustomersApi* | [**listCustomerSegments**](docs/CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer
@@ -236,7 +269,11 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**downloadExport**](docs/ExportsApi.md#downloadExport) | **GET** /v1/exports/{export_Id} | Download Export
 *ExportsApi* | [**getExport**](docs/ExportsApi.md#getExport) | **GET** /v1/exports/{exportId} | Get Export
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
+*LoyaltiesApi* | [**addMember**](docs/LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member
+*LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
+*LoyaltiesApi* | [**createLoyaltyProgram**](docs/LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign
+*LoyaltiesApi* | [**createRewardAssignment1**](docs/LoyaltiesApi.md#createRewardAssignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment
 *LoyaltiesApi* | [**deleteEarningRule**](docs/LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule
 *LoyaltiesApi* | [**deleteLoyaltyProgram**](docs/LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign
 *LoyaltiesApi* | [**deleteRewardAssignment1**](docs/LoyaltiesApi.md#deleteRewardAssignment1) | **DELETE** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Delete Reward Assignment
@@ -245,23 +282,36 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**exportLoyaltyCardTransactions**](docs/LoyaltiesApi.md#exportLoyaltyCardTransactions) | **POST** /v1/loyalties/members/{memberId}/transactions/export | Export Loyalty Card Transactions
 *LoyaltiesApi* | [**exportLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#exportLoyaltyCardTransactions1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transactions/export | Export Loyalty Card Transactions
 *LoyaltiesApi* | [**getEarningRule**](docs/LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule
+*LoyaltiesApi* | [**getLoyaltyProgram**](docs/LoyaltiesApi.md#getLoyaltyProgram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign
 *LoyaltiesApi* | [**getLoyaltyTier**](docs/LoyaltiesApi.md#getLoyaltyTier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier
+*LoyaltiesApi* | [**getMember**](docs/LoyaltiesApi.md#getMember) | **GET** /v1/loyalties/members/{memberId} | Get Member
+*LoyaltiesApi* | [**getMember1**](docs/LoyaltiesApi.md#getMember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardDetails**](docs/LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details
+*LoyaltiesApi* | [**listEarningRules**](docs/LoyaltiesApi.md#listEarningRules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules
 *LoyaltiesApi* | [**listLoyaltyCardTransactions**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions
 *LoyaltiesApi* | [**listLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions
+*LoyaltiesApi* | [**listLoyaltyPrograms**](docs/LoyaltiesApi.md#listLoyaltyPrograms) | **GET** /v1/loyalties | List Loyalty Campaigns
 *LoyaltiesApi* | [**listLoyaltyTierEarningRules**](docs/LoyaltiesApi.md#listLoyaltyTierEarningRules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules
 *LoyaltiesApi* | [**listLoyaltyTierRewards**](docs/LoyaltiesApi.md#listLoyaltyTierRewards) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards | List Loyalty Tier Rewards
 *LoyaltiesApi* | [**listLoyaltyTiers**](docs/LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers
+*LoyaltiesApi* | [**listMemberActivity**](docs/LoyaltiesApi.md#listMemberActivity) | **GET** /v1/loyalties/members/{memberId}/activity | List Member Activity
+*LoyaltiesApi* | [**listMemberActivity1**](docs/LoyaltiesApi.md#listMemberActivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity
 *LoyaltiesApi* | [**listMemberLoyaltyTier**](docs/LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers
 *LoyaltiesApi* | [**listMemberRewards**](docs/LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards
+*LoyaltiesApi* | [**listMembers**](docs/LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members
 *LoyaltiesApi* | [**listPointsExpiration**](docs/LoyaltiesApi.md#listPointsExpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | Get Points Expiration
+*LoyaltiesApi* | [**listRewardAssignments1**](docs/LoyaltiesApi.md#listRewardAssignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments
+*LoyaltiesApi* | [**listRewardAssignments2**](docs/LoyaltiesApi.md#listRewardAssignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Reward Assignments
 *LoyaltiesApi* | [**redeemReward**](docs/LoyaltiesApi.md#redeemReward) | **POST** /v1/loyalties/members/{memberId}/redemption | Redeem Reward
 *LoyaltiesApi* | [**redeemReward1**](docs/LoyaltiesApi.md#redeemReward1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/redemption | Redeem Reward
 *LoyaltiesApi* | [**transferPoints**](docs/LoyaltiesApi.md#transferPoints) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transfers | Transfer Loyalty Points
+*LoyaltiesApi* | [**updateEarningRule**](docs/LoyaltiesApi.md#updateEarningRule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule
 *LoyaltiesApi* | [**updateLoyaltyCardBalance**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Add or Remove Loyalty Card Balance
 *LoyaltiesApi* | [**updateLoyaltyCardBalance1**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Add or Remove Loyalty Card Balance
+*LoyaltiesApi* | [**updateLoyaltyProgram**](docs/LoyaltiesApi.md#updateLoyaltyProgram) | **PUT** /v1/loyalties/{campaignId} | Update Loyalty Campaign
+*LoyaltiesApi* | [**updateRewardAssignment1**](docs/LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment
 *OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/orders | Create Order
 *OrdersApi* | [**createOrderExport**](docs/OrdersApi.md#createOrderExport) | **POST** /v1/orders/export | Create Orders Export
 *OrdersApi* | [**getOrder**](docs/OrdersApi.md#getOrder) | **GET** /v1/orders/{orderId} | Get Order
@@ -334,15 +384,22 @@ Class | Method | HTTP request | Description
 *ValidationRulesApi* | [**listValidationRulesAssignments**](docs/ValidationRulesApi.md#listValidationRulesAssignments) | **GET** /v1/validation-rules-assignments | List Validation Rules&#39; Assignment(s)
 *ValidationRulesApi* | [**updateValidationRule**](docs/ValidationRulesApi.md#updateValidationRule) | **PUT** /v1/validation-rules/{validationRuleId} | Update Validation Rule
 *ValidationsApi* | [**validateStackedDiscounts**](docs/ValidationsApi.md#validateStackedDiscounts) | **POST** /v1/validations | Validate Stackable Discounts
+*VouchersApi* | [**createVoucher**](docs/VouchersApi.md#createVoucher) | **POST** /v1/vouchers/{code} | Create Voucher
 *VouchersApi* | [**deleteVoucher**](docs/VouchersApi.md#deleteVoucher) | **DELETE** /v1/vouchers/{code} | Delete Voucher
 *VouchersApi* | [**disableVoucher**](docs/VouchersApi.md#disableVoucher) | **POST** /v1/vouchers/{code}/disable | Disable Voucher
 *VouchersApi* | [**enableVoucher**](docs/VouchersApi.md#enableVoucher) | **POST** /v1/vouchers/{code}/enable | Enable Voucher
 *VouchersApi* | [**exportVoucherTransactions**](docs/VouchersApi.md#exportVoucherTransactions) | **POST** /v1/vouchers/{code}/transactions/export | Export Voucher Transactions
+*VouchersApi* | [**generateRandomCode**](docs/VouchersApi.md#generateRandomCode) | **POST** /v1/vouchers | Generate Random Code
 *VouchersApi* | [**getVoucher**](docs/VouchersApi.md#getVoucher) | **GET** /v1/vouchers/{code} | Get Voucher
+*VouchersApi* | [**importVouchers**](docs/VouchersApi.md#importVouchers) | **POST** /v1/vouchers/import | Import Vouchers
 *VouchersApi* | [**importVouchersUsingCsv**](docs/VouchersApi.md#importVouchersUsingCsv) | **POST** /v1/vouchers/importCSV | Import Vouchers using CSV
 *VouchersApi* | [**listVoucherTransactions**](docs/VouchersApi.md#listVoucherTransactions) | **GET** /v1/vouchers/{code}/transactions | List Voucher Transactions
+*VouchersApi* | [**listVouchers**](docs/VouchersApi.md#listVouchers) | **GET** /v1/vouchers | List Vouchers
 *VouchersApi* | [**releaseValidationSession**](docs/VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
+*VouchersApi* | [**updateVoucher**](docs/VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher
 *VouchersApi* | [**updateVoucherBalance**](docs/VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
+*VouchersApi* | [**updateVouchersInBulk**](docs/VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in bulk
+*VouchersApi* | [**updateVouchersMetadataInBulk**](docs/VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk
 
 
 ## Documentation for Models
@@ -362,8 +419,11 @@ Class | Method | HTTP request | Description
 - [CampaignBase](docs/CampaignBase.md)
 - [CampaignLoyaltyCard](docs/CampaignLoyaltyCard.md)
 - [CampaignLoyaltyCardExpirationRules](docs/CampaignLoyaltyCardExpirationRules.md)
+- [CampaignLoyaltyVoucher](docs/CampaignLoyaltyVoucher.md)
 - [CampaignVoucher](docs/CampaignVoucher.md)
 - [CampaignVoucherRedemption](docs/CampaignVoucherRedemption.md)
+- [CampaignsCreateBase](docs/CampaignsCreateBase.md)
+- [CampaignsCreateLoyaltyCampaign](docs/CampaignsCreateLoyaltyCampaign.md)
 - [CampaignsCreateRequestBody](docs/CampaignsCreateRequestBody.md)
 - [CampaignsCreateRequestBodyPromotion](docs/CampaignsCreateRequestBodyPromotion.md)
 - [CampaignsCreateRequestBodyVoucher](docs/CampaignsCreateRequestBodyVoucher.md)
@@ -377,12 +437,15 @@ Class | Method | HTTP request | Description
 - [CampaignsImportCsvCreateResponseBody](docs/CampaignsImportCsvCreateResponseBody.md)
 - [CampaignsImportVoucherItem](docs/CampaignsImportVoucherItem.md)
 - [CampaignsImportVoucherItemRedemption](docs/CampaignsImportVoucherItemRedemption.md)
-- [CampaignsImportVoucherLoyaltyCard](docs/CampaignsImportVoucherLoyaltyCard.md)
 - [CampaignsListResponseBody](docs/CampaignsListResponseBody.md)
+- [CampaignsUpdateBase](docs/CampaignsUpdateBase.md)
+- [CampaignsUpdateCouponCampaignBase](docs/CampaignsUpdateCouponCampaignBase.md)
+- [CampaignsUpdateLoyaltyCampaign](docs/CampaignsUpdateLoyaltyCampaign.md)
 - [CampaignsUpdateRequestBody](docs/CampaignsUpdateRequestBody.md)
 - [CampaignsUpdateRequestBodyOptions](docs/CampaignsUpdateRequestBodyOptions.md)
 - [CampaignsUpdateResponseBody](docs/CampaignsUpdateResponseBody.md)
 - [CampaignsVouchersCreateBaseRequestBody](docs/CampaignsVouchersCreateBaseRequestBody.md)
+- [CampaignsVouchersCreateBaseRequestBodyRedemption](docs/CampaignsVouchersCreateBaseRequestBodyRedemption.md)
 - [CampaignsVouchersCreateCombinedResponseBody](docs/CampaignsVouchersCreateCombinedResponseBody.md)
 - [CampaignsVouchersCreateCombinedResponseBodyGift](docs/CampaignsVouchersCreateCombinedResponseBodyGift.md)
 - [CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard](docs/CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md)
@@ -412,8 +475,10 @@ Class | Method | HTTP request | Description
 - [ClientValidationsValidateRequestBodyAllOfOptions](docs/ClientValidationsValidateRequestBodyAllOfOptions.md)
 - [ClientValidationsValidateResponseBody](docs/ClientValidationsValidateResponseBody.md)
 - [CodeConfig](docs/CodeConfig.md)
+- [CreatePublicationBase](docs/CreatePublicationBase.md)
 - [CreatePublicationCampaign](docs/CreatePublicationCampaign.md)
 - [Customer](docs/Customer.md)
+- [CustomerActivity](docs/CustomerActivity.md)
 - [CustomerBase](docs/CustomerBase.md)
 - [CustomerBaseAddress](docs/CustomerBaseAddress.md)
 - [CustomerId](docs/CustomerId.md)
@@ -429,6 +494,7 @@ Class | Method | HTTP request | Description
 - [CustomerSummaryRedemptionsGift](docs/CustomerSummaryRedemptionsGift.md)
 - [CustomerSummaryRedemptionsLoyaltyCard](docs/CustomerSummaryRedemptionsLoyaltyCard.md)
 - [CustomerWithSummaryLoyaltyReferrals](docs/CustomerWithSummaryLoyaltyReferrals.md)
+- [CustomersActivityListResponseBody](docs/CustomersActivityListResponseBody.md)
 - [CustomersCreateRequestBody](docs/CustomersCreateRequestBody.md)
 - [CustomersCreateResponseBody](docs/CustomersCreateResponseBody.md)
 - [CustomersGetResponseBody](docs/CustomersGetResponseBody.md)
@@ -458,9 +524,10 @@ Class | Method | HTTP request | Description
 - [EarningRuleBaseLoyaltyOrderItems](docs/EarningRuleBaseLoyaltyOrderItems.md)
 - [EarningRuleBaseLoyaltyOrderItemsQuantity](docs/EarningRuleBaseLoyaltyOrderItemsQuantity.md)
 - [EarningRuleBaseLoyaltyOrderMetadata](docs/EarningRuleBaseLoyaltyOrderMetadata.md)
+- [EarningRuleBaseLoyaltyTier](docs/EarningRuleBaseLoyaltyTier.md)
 - [EarningRuleBaseSegment](docs/EarningRuleBaseSegment.md)
 - [EarningRuleBaseSource](docs/EarningRuleBaseSource.md)
-- [EarningRuleEvent](docs/EarningRuleEvent.md)
+- [EarningRuleFixed](docs/EarningRuleFixed.md)
 - [Error](docs/Error.md)
 - [EventsCreateRequestBody](docs/EventsCreateRequestBody.md)
 - [EventsCreateResponseBody](docs/EventsCreateResponseBody.md)
@@ -495,14 +562,43 @@ Class | Method | HTTP request | Description
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
+- [LoyaltiesCreateCampaignRequestBody](docs/LoyaltiesCreateCampaignRequestBody.md)
+- [LoyaltiesCreateCampaignResponseBody](docs/LoyaltiesCreateCampaignResponseBody.md)
 - [LoyaltiesDeleteResponseBody](docs/LoyaltiesDeleteResponseBody.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBody](docs/LoyaltiesEarningRulesCreateCustomEventRequestBody.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateCustomEventRequestBodySource](docs/LoyaltiesEarningRulesCreateCustomEventRequestBodySource.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBody](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment](docs/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBody](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBody.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder.md)
+- [LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems](docs/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems.md)
+- [LoyaltiesEarningRulesCreateRequestBodyInner](docs/LoyaltiesEarningRulesCreateRequestBodyInner.md)
+- [LoyaltiesEarningRulesCreateResponseBody](docs/LoyaltiesEarningRulesCreateResponseBody.md)
+- [LoyaltiesEarningRulesCreateTierChangeRequestBody](docs/LoyaltiesEarningRulesCreateTierChangeRequestBody.md)
 - [LoyaltiesEarningRulesDisableResponseBody](docs/LoyaltiesEarningRulesDisableResponseBody.md)
 - [LoyaltiesEarningRulesEnableResponseBody](docs/LoyaltiesEarningRulesEnableResponseBody.md)
 - [LoyaltiesEarningRulesGetResponseBody](docs/LoyaltiesEarningRulesGetResponseBody.md)
+- [LoyaltiesEarningRulesListResponseBody](docs/LoyaltiesEarningRulesListResponseBody.md)
+- [LoyaltiesEarningRulesUpdateRequestBody](docs/LoyaltiesEarningRulesUpdateRequestBody.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyalty](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyalty.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder.md)
+- [LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems](docs/LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems.md)
+- [LoyaltiesEarningRulesUpdateResponseBody](docs/LoyaltiesEarningRulesUpdateResponseBody.md)
+- [LoyaltiesGetCampaignResponseBody](docs/LoyaltiesGetCampaignResponseBody.md)
+- [LoyaltiesListCampaignsResponseBody](docs/LoyaltiesListCampaignsResponseBody.md)
+- [LoyaltiesListMembersResponseBody](docs/LoyaltiesListMembersResponseBody.md)
 - [LoyaltiesLoyaltyTierReward](docs/LoyaltiesLoyaltyTierReward.md)
+- [LoyaltiesMemberActivityListResponseBody](docs/LoyaltiesMemberActivityListResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject](docs/LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md)
+- [LoyaltiesMembersCreateRequestBody](docs/LoyaltiesMembersCreateRequestBody.md)
+- [LoyaltiesMembersCreateResponseBody](docs/LoyaltiesMembersCreateResponseBody.md)
+- [LoyaltiesMembersGetResponseBody](docs/LoyaltiesMembersGetResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBody](docs/LoyaltiesMembersPointsExpirationListResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItem](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItem.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket.md)
@@ -524,16 +620,30 @@ Class | Method | HTTP request | Description
 - [LoyaltiesMembersTransfersCreateResponseBodyPublish](docs/LoyaltiesMembersTransfersCreateResponseBodyPublish.md)
 - [LoyaltiesMembersTransfersCreateResponseBodyRedemption](docs/LoyaltiesMembersTransfersCreateResponseBodyRedemption.md)
 - [LoyaltiesRewardAssignmentsGetResponseBody](docs/LoyaltiesRewardAssignmentsGetResponseBody.md)
+- [LoyaltiesRewardAssignmentsListResponseBody](docs/LoyaltiesRewardAssignmentsListResponseBody.md)
 - [LoyaltiesRewardAssignmentsRewardGetResponseBody](docs/LoyaltiesRewardAssignmentsRewardGetResponseBody.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBody](docs/LoyaltiesRewardsCreateAssignmentItemRequestBody.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters](docs/LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty](docs/LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty.md)
+- [LoyaltiesRewardsCreateAssignmentResponseBody](docs/LoyaltiesRewardsCreateAssignmentResponseBody.md)
 - [LoyaltiesRewardsGetResponseBody](docs/LoyaltiesRewardsGetResponseBody.md)
+- [LoyaltiesRewardsListAssignmentsResponseBody](docs/LoyaltiesRewardsListAssignmentsResponseBody.md)
+- [LoyaltiesRewardsUpdateAssignmentRequestBody](docs/LoyaltiesRewardsUpdateAssignmentRequestBody.md)
+- [LoyaltiesRewardsUpdateAssignmentResponseBody](docs/LoyaltiesRewardsUpdateAssignmentResponseBody.md)
 - [LoyaltiesTiersCreateInBulkRequestBodyItem](docs/LoyaltiesTiersCreateInBulkRequestBodyItem.md)
 - [LoyaltiesTiersEarningRulesListResponseBody](docs/LoyaltiesTiersEarningRulesListResponseBody.md)
 - [LoyaltiesTiersGetResponseBody](docs/LoyaltiesTiersGetResponseBody.md)
 - [LoyaltiesTiersListResponseBody](docs/LoyaltiesTiersListResponseBody.md)
 - [LoyaltiesTiersRewardsListResponseBody](docs/LoyaltiesTiersRewardsListResponseBody.md)
 - [LoyaltiesTransferPoints](docs/LoyaltiesTransferPoints.md)
+- [LoyaltiesUpdateCampaignRequestBody](docs/LoyaltiesUpdateCampaignRequestBody.md)
+- [LoyaltiesUpdateCampaignResponseBody](docs/LoyaltiesUpdateCampaignResponseBody.md)
+- [LoyaltyCampaign](docs/LoyaltyCampaign.md)
+- [LoyaltyCampaignVoucher](docs/LoyaltyCampaignVoucher.md)
 - [LoyaltyCardTransaction](docs/LoyaltyCardTransaction.md)
 - [LoyaltyCardTransactionsType](docs/LoyaltyCardTransactionsType.md)
+- [LoyaltyMember](docs/LoyaltyMember.md)
+- [LoyaltyMemberPublish](docs/LoyaltyMemberPublish.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
 - [LoyaltyTierAllOfConfig](docs/LoyaltyTierAllOfConfig.md)
 - [LoyaltyTierAllOfConfigPoints](docs/LoyaltyTierAllOfConfigPoints.md)
@@ -546,6 +656,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyTiersExpirationAllStartDate](docs/LoyaltyTiersExpirationAllStartDate.md)
 - [LuckyDraw](docs/LuckyDraw.md)
 - [MappingPoints](docs/MappingPoints.md)
+- [MemberActivity](docs/MemberActivity.md)
 - [Order](docs/Order.md)
 - [OrderBase](docs/OrderBase.md)
 - [OrderCalculated](docs/OrderCalculated.md)
@@ -567,6 +678,7 @@ Class | Method | HTTP request | Description
 - [OrdersListResponseBody](docs/OrdersListResponseBody.md)
 - [OrdersUpdateRequestBody](docs/OrdersUpdateRequestBody.md)
 - [OrdersUpdateResponseBody](docs/OrdersUpdateResponseBody.md)
+- [ParameterActivityCategory](docs/ParameterActivityCategory.md)
 - [ParameterCampaignType](docs/ParameterCampaignType.md)
 - [ParameterCreatedBeforeAfter](docs/ParameterCreatedBeforeAfter.md)
 - [ParameterExpandListCampaigns](docs/ParameterExpandListCampaigns.md)
@@ -582,9 +694,11 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListRedemptionsUserLogin](docs/ParameterFiltersListRedemptionsUserLogin.md)
 - [ParameterFiltersListRedemptionsVoucherCode](docs/ParameterFiltersListRedemptionsVoucherCode.md)
 - [ParameterOrder](docs/ParameterOrder.md)
+- [ParameterOrderCreatedAt](docs/ParameterOrderCreatedAt.md)
 - [ParameterOrderListAllPromotionStacks](docs/ParameterOrderListAllPromotionStacks.md)
 - [ParameterOrderListCampaigns](docs/ParameterOrderListCampaigns.md)
 - [ParameterOrderListCustomers](docs/ParameterOrderListCustomers.md)
+- [ParameterOrderListEarningRules](docs/ParameterOrderListEarningRules.md)
 - [ParameterOrderListExports](docs/ParameterOrderListExports.md)
 - [ParameterOrderListLoyaltyTiers](docs/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/ParameterOrderListOrders.md)
@@ -594,6 +708,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListRedemptions](docs/ParameterOrderListRedemptions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/ParameterOrderListValidationRuleAssignments.md)
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
+- [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)
 - [ParameterResultListPublications](docs/ParameterResultListPublications.md)
 - [ParameterUpdatedBeforeAfter](docs/ParameterUpdatedBeforeAfter.md)
 - [ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
@@ -656,6 +771,7 @@ Class | Method | HTTP request | Description
 - [PromotionsTiersListResponseBody](docs/PromotionsTiersListResponseBody.md)
 - [PromotionsTiersUpdateRequestBody](docs/PromotionsTiersUpdateRequestBody.md)
 - [PromotionsTiersUpdateResponseBody](docs/PromotionsTiersUpdateResponseBody.md)
+- [PropertiesForLoyaltyCampaignOptions](docs/PropertiesForLoyaltyCampaignOptions.md)
 - [PublicationsCreateRequestBody](docs/PublicationsCreateRequestBody.md)
 - [PublicationsCreateRequestBodyCustomer](docs/PublicationsCreateRequestBodyCustomer.md)
 - [PublicationsCreateRequestBodyCustomerAddress](docs/PublicationsCreateRequestBodyCustomerAddress.md)
@@ -806,10 +922,12 @@ Class | Method | HTTP request | Description
 - [RewardsCreateRequestBodyParametersCampaign](docs/RewardsCreateRequestBodyParametersCampaign.md)
 - [RewardsCreateRequestBodyParametersCoin](docs/RewardsCreateRequestBodyParametersCoin.md)
 - [RewardsCreateRequestBodyParametersProduct](docs/RewardsCreateRequestBodyParametersProduct.md)
+- [RewardsCreateResponseBody](docs/RewardsCreateResponseBody.md)
 - [RewardsListResponseBody](docs/RewardsListResponseBody.md)
 - [RewardsUpdateRequestBody](docs/RewardsUpdateRequestBody.md)
 - [RewardsUpdateRequestBodyParameters](docs/RewardsUpdateRequestBodyParameters.md)
 - [RewardsUpdateRequestBodyParametersCampaign](docs/RewardsUpdateRequestBodyParametersCampaign.md)
+- [RewardsUpdateResponseBody](docs/RewardsUpdateResponseBody.md)
 - [Segment](docs/Segment.md)
 - [SegmentsCreateRequestBody](docs/SegmentsCreateRequestBody.md)
 - [SegmentsCreateResponseBody](docs/SegmentsCreateResponseBody.md)
@@ -870,6 +988,7 @@ Class | Method | HTTP request | Description
 - [ValidityTimeframe](docs/ValidityTimeframe.md)
 - [Voucher](docs/Voucher.md)
 - [VoucherAssets](docs/VoucherAssets.md)
+- [VoucherBase](docs/VoucherBase.md)
 - [VoucherHolder](docs/VoucherHolder.md)
 - [VoucherTransaction](docs/VoucherTransaction.md)
 - [VoucherTransactionDetails](docs/VoucherTransactionDetails.md)
@@ -893,17 +1012,31 @@ Class | Method | HTTP request | Description
 - [VoucherTransactionsExportParameters](docs/VoucherTransactionsExportParameters.md)
 - [VoucherTransactionsExportResult](docs/VoucherTransactionsExportResult.md)
 - [VoucherTransactionsFilters](docs/VoucherTransactionsFilters.md)
+- [VoucherWithCategories](docs/VoucherWithCategories.md)
 - [VouchersBalanceUpdateRequestBody](docs/VouchersBalanceUpdateRequestBody.md)
 - [VouchersBalanceUpdateResponseBody](docs/VouchersBalanceUpdateResponseBody.md)
 - [VouchersBalanceUpdateResponseBodyRelatedObject](docs/VouchersBalanceUpdateResponseBodyRelatedObject.md)
+- [VouchersCreateResponseBody](docs/VouchersCreateResponseBody.md)
+- [VouchersCreateWithSpecificCodeRequestBody](docs/VouchersCreateWithSpecificCodeRequestBody.md)
+- [VouchersCreateWithSpecificCodeRequestBodyRedemption](docs/VouchersCreateWithSpecificCodeRequestBodyRedemption.md)
 - [VouchersDisableResponseBody](docs/VouchersDisableResponseBody.md)
 - [VouchersEnableResponseBody](docs/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)
+- [VouchersImportCreateItemRequestBody](docs/VouchersImportCreateItemRequestBody.md)
+- [VouchersImportCreateItemRequestBodyRedemption](docs/VouchersImportCreateItemRequestBodyRedemption.md)
+- [VouchersImportCreateResponseBody](docs/VouchersImportCreateResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/VouchersImportCsvCreateResponseBody.md)
+- [VouchersListResponseBody](docs/VouchersListResponseBody.md)
+- [VouchersMetadataUpdateInBulkRequestBody](docs/VouchersMetadataUpdateInBulkRequestBody.md)
+- [VouchersMetadataUpdateInBulkResponseBody](docs/VouchersMetadataUpdateInBulkResponseBody.md)
 - [VouchersRedemptionGetResponseBody](docs/VouchersRedemptionGetResponseBody.md)
 - [VouchersTransactionsExportCreateRequestBody](docs/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/VouchersTransactionsExportCreateResponseBody.md)
 - [VouchersTransactionsListResponseBody](docs/VouchersTransactionsListResponseBody.md)
+- [VouchersUpdateInBulkItemRequestBody](docs/VouchersUpdateInBulkItemRequestBody.md)
+- [VouchersUpdateInBulkResponseBody](docs/VouchersUpdateInBulkResponseBody.md)
+- [VouchersUpdateRequestBody](docs/VouchersUpdateRequestBody.md)
+- [VouchersUpdateResponseBody](docs/VouchersUpdateResponseBody.md)
 
 
 <a id="documentation-for-authorization"></a>

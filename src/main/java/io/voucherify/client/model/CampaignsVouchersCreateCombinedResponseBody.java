@@ -90,10 +90,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
 
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
-
   /**
    * Defines the type of the voucher. 
    */
@@ -276,10 +272,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "voucher";
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
-  private ValidationRulesAssignmentsList validationRulesAssignments;
-
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
   private CampaignsVouchersCreateCombinedResponseBodyPublish publish;
@@ -287,6 +279,14 @@ public class CampaignsVouchersCreateCombinedResponseBody {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private CampaignsVouchersCreateCombinedResponseBodyRedemption redemption;
+
+  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
+  @SerializedName(SERIALIZED_NAME_CATEGORIES)
+  private List<Category> categories;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
+  private ValidationRulesAssignmentsList validationRulesAssignments;
 
   public static final String SERIALIZED_NAME_ASYNC_ACTION_ID = "async_action_id";
   @SerializedName(SERIALIZED_NAME_ASYNC_ACTION_ID)
@@ -418,35 +418,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
-  }
-
-
-  public CampaignsVouchersCreateCombinedResponseBody categories(List<Category> categories) {
-    
-    this.categories = categories;
-    return this;
-  }
-
-  public CampaignsVouchersCreateCombinedResponseBody addCategoriesItem(Category categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<>();
-    }
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * Contains details about the category.
-   * @return categories
-  **/
-  @javax.annotation.Nullable
-  public List<Category> getCategories() {
-    return categories;
-  }
-
-
-  public void setCategories(List<Category> categories) {
-    this.categories = categories;
   }
 
 
@@ -857,27 +828,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
   }
 
 
-  public CampaignsVouchersCreateCombinedResponseBody validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    
-    this.validationRulesAssignments = validationRulesAssignments;
-    return this;
-  }
-
-   /**
-   * Get validationRulesAssignments
-   * @return validationRulesAssignments
-  **/
-  @javax.annotation.Nullable
-  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
-    return validationRulesAssignments;
-  }
-
-
-  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    this.validationRulesAssignments = validationRulesAssignments;
-  }
-
-
   public CampaignsVouchersCreateCombinedResponseBody publish(CampaignsVouchersCreateCombinedResponseBodyPublish publish) {
     
     this.publish = publish;
@@ -917,6 +867,56 @@ public class CampaignsVouchersCreateCombinedResponseBody {
 
   public void setRedemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
     this.redemption = redemption;
+  }
+
+
+  public CampaignsVouchersCreateCombinedResponseBody categories(List<Category> categories) {
+    
+    this.categories = categories;
+    return this;
+  }
+
+  public CampaignsVouchersCreateCombinedResponseBody addCategoriesItem(Category categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<>();
+    }
+    this.categories.add(categoriesItem);
+    return this;
+  }
+
+   /**
+   * Contains details about the category.
+   * @return categories
+  **/
+  @javax.annotation.Nullable
+  public List<Category> getCategories() {
+    return categories;
+  }
+
+
+  public void setCategories(List<Category> categories) {
+    this.categories = categories;
+  }
+
+
+  public CampaignsVouchersCreateCombinedResponseBody validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    
+    this.validationRulesAssignments = validationRulesAssignments;
+    return this;
+  }
+
+   /**
+   * Get validationRulesAssignments
+   * @return validationRulesAssignments
+  **/
+  @javax.annotation.Nullable
+  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
+    return validationRulesAssignments;
+  }
+
+
+  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    this.validationRulesAssignments = validationRulesAssignments;
   }
 
 
@@ -1001,7 +1001,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
         Objects.equals(this.campaignId, campaignsVouchersCreateCombinedResponseBody.campaignId) &&
         Objects.equals(this.category, campaignsVouchersCreateCombinedResponseBody.category) &&
         Objects.equals(this.categoryId, campaignsVouchersCreateCombinedResponseBody.categoryId) &&
-        Objects.equals(this.categories, campaignsVouchersCreateCombinedResponseBody.categories) &&
         Objects.equals(this.type, campaignsVouchersCreateCombinedResponseBody.type) &&
         Objects.equals(this.discount, campaignsVouchersCreateCombinedResponseBody.discount) &&
         Objects.equals(this.gift, campaignsVouchersCreateCombinedResponseBody.gift) &&
@@ -1021,9 +1020,10 @@ public class CampaignsVouchersCreateCombinedResponseBody {
         Objects.equals(this.holderId, campaignsVouchersCreateCombinedResponseBody.holderId) &&
         Objects.equals(this.referrerId, campaignsVouchersCreateCombinedResponseBody.referrerId) &&
         Objects.equals(this._object, campaignsVouchersCreateCombinedResponseBody._object) &&
-        Objects.equals(this.validationRulesAssignments, campaignsVouchersCreateCombinedResponseBody.validationRulesAssignments) &&
         Objects.equals(this.publish, campaignsVouchersCreateCombinedResponseBody.publish) &&
         Objects.equals(this.redemption, campaignsVouchersCreateCombinedResponseBody.redemption) &&
+        Objects.equals(this.categories, campaignsVouchersCreateCombinedResponseBody.categories) &&
+        Objects.equals(this.validationRulesAssignments, campaignsVouchersCreateCombinedResponseBody.validationRulesAssignments) &&
         Objects.equals(this.asyncActionId, campaignsVouchersCreateCombinedResponseBody.asyncActionId)&&
         Objects.equals(this.additionalProperties, campaignsVouchersCreateCombinedResponseBody.additionalProperties);
   }
@@ -1034,7 +1034,7 @@ public class CampaignsVouchersCreateCombinedResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, campaign, campaignId, category, categoryId, categories, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, validationRulesAssignments, publish, redemption, asyncActionId, additionalProperties);
+    return Objects.hash(id, code, campaign, campaignId, category, categoryId, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, publish, redemption, categories, validationRulesAssignments, asyncActionId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1054,7 +1054,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
@@ -1074,9 +1073,10 @@ public class CampaignsVouchersCreateCombinedResponseBody {
     sb.append("    holderId: ").append(toIndentedString(holderId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    publish: ").append(toIndentedString(publish)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    asyncActionId: ").append(toIndentedString(asyncActionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -1107,7 +1107,6 @@ public class CampaignsVouchersCreateCombinedResponseBody {
     openapiFields.add("campaign_id");
     openapiFields.add("category");
     openapiFields.add("category_id");
-    openapiFields.add("categories");
     openapiFields.add("type");
     openapiFields.add("discount");
     openapiFields.add("gift");
@@ -1127,9 +1126,10 @@ public class CampaignsVouchersCreateCombinedResponseBody {
     openapiFields.add("holder_id");
     openapiFields.add("referrer_id");
     openapiFields.add("object");
-    openapiFields.add("validation_rules_assignments");
     openapiFields.add("publish");
     openapiFields.add("redemption");
+    openapiFields.add("categories");
+    openapiFields.add("validation_rules_assignments");
     openapiFields.add("async_action_id");
 
     // a set of required properties/fields (JSON key names)

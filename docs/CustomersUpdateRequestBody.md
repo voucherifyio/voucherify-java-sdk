@@ -2,7 +2,7 @@
 
 # CustomersUpdateRequestBody
 
-Request body schema for **PUT** `/customers/{customerId}`.
+Request body schema for **PUT** `v1/customers/{customerId}`.
 
 ## Properties
 

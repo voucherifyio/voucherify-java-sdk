@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/redemptions/{parentRedemptionId}/rollbacks&#x60;.
+ * Request body schema for **POST** &#x60;v1/redemptions/{parentRedemptionId}/rollbacks&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

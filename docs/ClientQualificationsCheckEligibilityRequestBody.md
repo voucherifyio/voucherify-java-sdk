@@ -2,7 +2,7 @@
 
 # ClientQualificationsCheckEligibilityRequestBody
 
-Request body schema for **POST** `/qualifications`.
+Request body schema for **POST** `v1/qualifications`.
 
 ## Properties
 

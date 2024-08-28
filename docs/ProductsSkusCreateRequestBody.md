@@ -2,7 +2,7 @@
 
 # ProductsSkusCreateRequestBody
 
-Request body schema for **POST** `/products/{productId}/skus
+Request body schema for **POST** `v1/products/{productId}/skus
 
 ## Properties
 

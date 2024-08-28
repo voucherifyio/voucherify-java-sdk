@@ -48,36 +48,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Schema model for a campaign loyalty card.
+ * Contains the ID of a customer segment. **Required** for the &#x60;customer.segment.entered&#x60; option in &#x60;event&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CampaignsImportVoucherLoyaltyCard {
-  public static final String SERIALIZED_NAME_POINTS = "points";
-  @SerializedName(SERIALIZED_NAME_POINTS)
-  private Integer points;
+public class LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public CampaignsImportVoucherLoyaltyCard() {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment() {
   }
 
-  public CampaignsImportVoucherLoyaltyCard points(Integer points) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment id(String id) {
     
-    this.points = points;
+    this.id = id;
     return this;
   }
 
    /**
-   * The initial number of points to assign to the loyalty card. This is the current loyalty card score i.e. the number of loyalty points on the card.
-   * @return points
+   * Contains a unique identifier of a customer segment. Assigned by the Voucherify API.
+   * @return id
   **/
   @javax.annotation.Nullable
-  public Integer getPoints() {
-    return points;
+  public String getId() {
+    return id;
   }
 
 
-  public void setPoints(Integer points) {
-    this.points = points;
+  public void setId(String id) {
+    this.id = id;
   }
 
   /**
@@ -93,9 +93,9 @@ public class CampaignsImportVoucherLoyaltyCard {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CampaignsImportVoucherLoyaltyCard instance itself
+   * @return the LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment instance itself
    */
-  public CampaignsImportVoucherLoyaltyCard putAdditionalProperty(String key, Object value) {
+  public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,9 +134,9 @@ public class CampaignsImportVoucherLoyaltyCard {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CampaignsImportVoucherLoyaltyCard campaignsImportVoucherLoyaltyCard = (CampaignsImportVoucherLoyaltyCard) o;
-    return Objects.equals(this.points, campaignsImportVoucherLoyaltyCard.points)&&
-        Objects.equals(this.additionalProperties, campaignsImportVoucherLoyaltyCard.additionalProperties);
+    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment loyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment = (LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment) o;
+    return Objects.equals(this.id, loyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.id)&&
+        Objects.equals(this.additionalProperties, loyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -145,7 +145,7 @@ public class CampaignsImportVoucherLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, additionalProperties);
+    return Objects.hash(id, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -158,8 +158,8 @@ public class CampaignsImportVoucherLoyaltyCard {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CampaignsImportVoucherLoyaltyCard {\n");
-    sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("class LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,7 +183,7 @@ public class CampaignsImportVoucherLoyaltyCard {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("points");
+    openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -193,16 +193,16 @@ public class CampaignsImportVoucherLoyaltyCard {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CampaignsImportVoucherLoyaltyCard.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CampaignsImportVoucherLoyaltyCard' and its subtypes
+       if (!LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CampaignsImportVoucherLoyaltyCard> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CampaignsImportVoucherLoyaltyCard.class));
+       final TypeAdapter<LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CampaignsImportVoucherLoyaltyCard>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment>() {
            @Override
-           public void write(JsonWriter out, CampaignsImportVoucherLoyaltyCard value) throws IOException {
+           public void write(JsonWriter out, LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -225,11 +225,11 @@ public class CampaignsImportVoucherLoyaltyCard {
            }
 
            @Override
-           public CampaignsImportVoucherLoyaltyCard read(JsonReader in) throws IOException {
+           public LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CampaignsImportVoucherLoyaltyCard instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -256,18 +256,18 @@ public class CampaignsImportVoucherLoyaltyCard {
   }
 
  /**
-  * Create an instance of CampaignsImportVoucherLoyaltyCard given an JSON string
+  * Create an instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CampaignsImportVoucherLoyaltyCard
-  * @throws IOException if the JSON string is invalid with respect to CampaignsImportVoucherLoyaltyCard
+  * @return An instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment
+  * @throws IOException if the JSON string is invalid with respect to LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment
   */
-  public static CampaignsImportVoucherLoyaltyCard fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CampaignsImportVoucherLoyaltyCard.class);
+  public static LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment.class);
   }
 
  /**
-  * Convert an instance of CampaignsImportVoucherLoyaltyCard to an JSON string
+  * Convert an instance of LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment to an JSON string
   *
   * @return JSON string
   */
