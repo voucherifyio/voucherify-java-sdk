@@ -158,10 +158,6 @@ public class OrderItemCalculated {
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
 
-  public static final String SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT = "total_applied_discount_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT)
-  private Integer totalAppliedDiscountAmount;
-
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private Integer price;
@@ -528,27 +524,6 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level AND all product-specific discounts applied in a particular request.   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;
-   * @return totalAppliedDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getTotalAppliedDiscountAmount() {
-    return totalAppliedDiscountAmount;
-  }
-
-
-  public void setTotalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-  }
-
-
   public OrderItemCalculated price(Integer price) {
     
     this.price = price;
@@ -743,7 +718,6 @@ public class OrderItemCalculated {
         Objects.equals(this.appliedQuantity, orderItemCalculated.appliedQuantity) &&
         Objects.equals(this.appliedQuantityAmount, orderItemCalculated.appliedQuantityAmount) &&
         Objects.equals(this.initialAmount, orderItemCalculated.initialAmount) &&
-        Objects.equals(this.totalAppliedDiscountAmount, orderItemCalculated.totalAppliedDiscountAmount) &&
         Objects.equals(this.price, orderItemCalculated.price) &&
         Objects.equals(this.subtotalAmount, orderItemCalculated.subtotalAmount) &&
         Objects.equals(this.product, orderItemCalculated.product) &&
@@ -759,7 +733,7 @@ public class OrderItemCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, totalAppliedDiscountAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
+    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -787,7 +761,6 @@ public class OrderItemCalculated {
     sb.append("    appliedQuantity: ").append(toIndentedString(appliedQuantity)).append("\n");
     sb.append("    appliedQuantityAmount: ").append(toIndentedString(appliedQuantityAmount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
-    sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    subtotalAmount: ").append(toIndentedString(subtotalAmount)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
@@ -831,7 +804,6 @@ public class OrderItemCalculated {
     openapiFields.add("applied_quantity");
     openapiFields.add("applied_quantity_amount");
     openapiFields.add("initial_amount");
-    openapiFields.add("total_applied_discount_amount");
     openapiFields.add("price");
     openapiFields.add("subtotal_amount");
     openapiFields.add("product");
