@@ -30,3 +30,4 @@ build
 /.env
 /.idea
 gradle.properties
+.DS_Store
