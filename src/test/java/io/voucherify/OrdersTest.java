@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.IOException;
 
@@ -46,11 +47,13 @@ public class OrdersTest {
             OrdersCreateResponseBody createdOrderResponseBody = ordersApi.createOrder(createdOrder);
             VoucherifyStore.getInstance().getOrder().setId(createdOrderResponseBody.getId());
 
-            String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(createdOrderResponseBody);
-            String snapshot = JsonHelper.readJsonFile(snapshotPath);
-            
+            List<String> keysToRemove = Arrays.asList("id", "createdAt");
+
+            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
+            String filteredResponse = JsonHelper.validateClassPayloads(createdOrderResponseBody, keysToRemove);
+
             assertNotNull(createdOrderResponseBody);
-            JSONAssert.assertEquals(snapshot, responseBodyJson, true);
+            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
         } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
             System.out.println(e);
             fail();
@@ -62,12 +65,16 @@ public class OrdersTest {
     public void getOrderTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/GetOrder.snapshot.json";
         try {
-            OrdersGetResponseBody orderResponseBody = ordersApi.getOrder(VoucherifyStore.getInstance().getOrder().getId());
+            OrdersGetResponseBody orderResponseBody = ordersApi
+                    .getOrder(VoucherifyStore.getInstance().getOrder().getId());
 
-            String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(orderResponseBody);
-            String snapshot = JsonHelper.readJsonFile(snapshotPath);
+            List<String> keysToRemove = Arrays.asList("id", "createdAt");
+
+            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
+            String filteredResponse = JsonHelper.validateClassPayloads(orderResponseBody, keysToRemove);
+
             assertNotNull(orderResponseBody);
-            JSONAssert.assertEquals(snapshot, responseBodyJson, false);
+            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
         } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
             fail();
         }
@@ -83,11 +90,14 @@ public class OrdersTest {
         try {
             OrdersUpdateResponseBody updatedOrderResponseBody = ordersApi
                     .updateOrder(VoucherifyStore.getInstance().getOrder().getId(), updatedOrderRequestBody);
-            String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(updatedOrderResponseBody);
-            String snapshot = JsonHelper.readJsonFile(snapshotPath);
+
+            List<String> keysToRemove = Arrays.asList("id", "createdAt", "updatedAt");
+
+            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
+            String filteredResponse = JsonHelper.validateClassPayloads(updatedOrderResponseBody, keysToRemove);
 
             assertNotNull(updatedOrderResponseBody);
-            JSONAssert.assertEquals(snapshot, responseBodyJson, false);
+            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
         } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
             fail();
         }

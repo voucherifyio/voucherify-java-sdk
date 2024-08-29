@@ -64,7 +64,7 @@ public class JsonHelper {
         return objectMapper.writeValueAsString(response);
     }
 
-    public static <T> void logJSONResponse(T response) throws IOException {
+    public static <T> void logPureResponseBody(T response) throws IOException {
         System.out.println(returnJsonResponse(response));
     }
 

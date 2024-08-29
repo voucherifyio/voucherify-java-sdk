@@ -53,17 +53,115 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CampaignLoyaltyCardExpirationRules {
+  /**
+   * Type of period
+   */
+  @JsonAdapter(PeriodTypeEnum.Adapter.class)
+  public enum PeriodTypeEnum {
+    MONTH("MONTH");
+
+    private String value;
+
+    PeriodTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PeriodTypeEnum fromValue(String value) {
+      for (PeriodTypeEnum b : PeriodTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PeriodTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PeriodTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PeriodTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_PERIOD_TYPE = "period_type";
   @SerializedName(SERIALIZED_NAME_PERIOD_TYPE)
-  private String periodType;
+  private PeriodTypeEnum periodType = PeriodTypeEnum.MONTH;
 
   public static final String SERIALIZED_NAME_PERIOD_VALUE = "period_value";
   @SerializedName(SERIALIZED_NAME_PERIOD_VALUE)
   private Integer periodValue;
 
+  /**
+   * Type of rounding
+   */
+  @JsonAdapter(RoundingTypeEnum.Adapter.class)
+  public enum RoundingTypeEnum {
+    END_OF_MONTH("END_OF_MONTH"),
+    
+    END_OF_QUARTER("END_OF_QUARTER"),
+    
+    END_OF_HALF_YEAR("END_OF_HALF_YEAR"),
+    
+    END_OF_YEAR("END_OF_YEAR"),
+    
+    PARTICULAR_MONTH("PARTICULAR_MONTH");
+
+    private String value;
+
+    RoundingTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RoundingTypeEnum fromValue(String value) {
+      for (RoundingTypeEnum b : RoundingTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RoundingTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RoundingTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RoundingTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RoundingTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_ROUNDING_TYPE = "rounding_type";
   @SerializedName(SERIALIZED_NAME_ROUNDING_TYPE)
-  private String roundingType;
+  private RoundingTypeEnum roundingType;
 
   public static final String SERIALIZED_NAME_ROUNDING_VALUE = "rounding_value";
   @SerializedName(SERIALIZED_NAME_ROUNDING_VALUE)
@@ -72,7 +170,7 @@ public class CampaignLoyaltyCardExpirationRules {
   public CampaignLoyaltyCardExpirationRules() {
   }
 
-  public CampaignLoyaltyCardExpirationRules periodType(String periodType) {
+  public CampaignLoyaltyCardExpirationRules periodType(PeriodTypeEnum periodType) {
     
     this.periodType = periodType;
     return this;
@@ -83,12 +181,12 @@ public class CampaignLoyaltyCardExpirationRules {
    * @return periodType
   **/
   @javax.annotation.Nullable
-  public String getPeriodType() {
+  public PeriodTypeEnum getPeriodType() {
     return periodType;
   }
 
 
-  public void setPeriodType(String periodType) {
+  public void setPeriodType(PeriodTypeEnum periodType) {
     this.periodType = periodType;
   }
 
@@ -114,7 +212,7 @@ public class CampaignLoyaltyCardExpirationRules {
   }
 
 
-  public CampaignLoyaltyCardExpirationRules roundingType(String roundingType) {
+  public CampaignLoyaltyCardExpirationRules roundingType(RoundingTypeEnum roundingType) {
     
     this.roundingType = roundingType;
     return this;
@@ -125,12 +223,12 @@ public class CampaignLoyaltyCardExpirationRules {
    * @return roundingType
   **/
   @javax.annotation.Nullable
-  public String getRoundingType() {
+  public RoundingTypeEnum getRoundingType() {
     return roundingType;
   }
 
 
-  public void setRoundingType(String roundingType) {
+  public void setRoundingType(RoundingTypeEnum roundingType) {
     this.roundingType = roundingType;
   }
 

@@ -40,7 +40,7 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance(
-                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -56,8 +56,8 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance1(
-                VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
-                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -70,9 +70,8 @@ public class LoyaltiesTest {
     public void loyaltiesMembersTransactionsListTest() {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
-                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
-                    10,
-                    1);
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                    10);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
@@ -91,7 +90,7 @@ public class LoyaltiesTest {
             loyaltyTierBasePoints.setTo(1000);
 
             List<LoyaltyTier> loyaltyTiers = loyalties.createInBulkLoyaltyTiers(
-                VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
+                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
                     tiers);
 
             assertNotNull(loyaltyTiers);

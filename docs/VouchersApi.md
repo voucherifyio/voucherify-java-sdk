@@ -18,8 +18,8 @@ All URIs are relative to *https://api.voucherify.io*
 | [**releaseValidationSession**](VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session |
 | [**updateVoucher**](VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher |
 | [**updateVoucherBalance**](VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance |
-| [**updateVouchersInBulk**](VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in bulk |
-| [**updateVouchersMetadataInBulk**](VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk |
+| [**updateVouchersInBulk**](VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in Bulk |
+| [**updateVouchersMetadataInBulk**](VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; Metadata in Bulk |
 
 
 <a id="createVoucher"></a>
@@ -1026,9 +1026,9 @@ public class Example {
 # **updateVouchersInBulk**
 > VouchersUpdateInBulkResponseBody updateVouchersInBulk(vouchersUpdateInBulkItemRequestBody)
 
-Update Vouchers in bulk
+Update Vouchers in Bulk
 
-Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+Updates specific metadata parameters for each code, respectively, in one asynchronous operation. The request can include up to **10 MB** of data. Upserts are not supported.  🚧    Currently, only **metadata** updates are supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
 
 ### Example
 ```java
@@ -1052,7 +1052,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
-    List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody = Arrays.asList(); // List<VouchersUpdateInBulkItemRequestBody> | List of objects, each containing a code that is being updated and the metadata key/value pairs for that code.
+    List<VouchersUpdateInBulkItemRequestBody> vouchersUpdateInBulkItemRequestBody = Arrays.asList(); // List<VouchersUpdateInBulkItemRequestBody> | List the codes to be updated with the metadata key/value pairs for that code.
     try {
       VouchersUpdateInBulkResponseBody result = apiInstance.updateVouchersInBulk(vouchersUpdateInBulkItemRequestBody);
       System.out.println(result);
@@ -1071,7 +1071,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **vouchersUpdateInBulkItemRequestBody** | [**List&lt;VouchersUpdateInBulkItemRequestBody&gt;**](VouchersUpdateInBulkItemRequestBody.md)| List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. |
+| **vouchersUpdateInBulkItemRequestBody** | [**List&lt;VouchersUpdateInBulkItemRequestBody&gt;**](VouchersUpdateInBulkItemRequestBody.md)| List the codes to be updated with the metadata key/value pairs for that code. |
 
 ### Return type
 
@@ -1089,15 +1089,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the voucher(s) will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **202** | Returns the ID of the scheduled asynchronous action. The response informs you that the request has been accepted and the resources will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and use it as a query parameter in the [GET Async Action](ref:get-async-action) endpoint. |  -  |
 
 <a id="updateVouchersMetadataInBulk"></a>
 # **updateVouchersMetadataInBulk**
 > VouchersMetadataUpdateInBulkResponseBody updateVouchersMetadataInBulk(vouchersMetadataUpdateInBulkRequestBody)
 
-Update Vouchers&#39; metadata in bulk
+Update Vouchers&#39; Metadata in Bulk
 
-Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+Updates metadata parameters for a list of codes. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. Upserts are not supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
 
 ### Example
 ```java
@@ -1121,7 +1121,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
-    VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody = new VouchersMetadataUpdateInBulkRequestBody(); // VouchersMetadataUpdateInBulkRequestBody | Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter.
+    VouchersMetadataUpdateInBulkRequestBody vouchersMetadataUpdateInBulkRequestBody = new VouchersMetadataUpdateInBulkRequestBody(); // VouchersMetadataUpdateInBulkRequestBody | List the codes of the vouchers you would like to update with the metadata key/value pairs.
     try {
       VouchersMetadataUpdateInBulkResponseBody result = apiInstance.updateVouchersMetadataInBulk(vouchersMetadataUpdateInBulkRequestBody);
       System.out.println(result);
@@ -1140,7 +1140,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **vouchersMetadataUpdateInBulkRequestBody** | [**VouchersMetadataUpdateInBulkRequestBody**](VouchersMetadataUpdateInBulkRequestBody.md)| Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. |
+| **vouchersMetadataUpdateInBulkRequestBody** | [**VouchersMetadataUpdateInBulkRequestBody**](VouchersMetadataUpdateInBulkRequestBody.md)| List the codes of the vouchers you would like to update with the metadata key/value pairs. |
 
 ### Return type
 
@@ -1158,5 +1158,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the voucher(s) will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **202** | Returns the ID of the scheduled asynchronous action. The response informs you that the request has been accepted and the resources will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and use it as a query parameter in the [GET Async Action](ref:get-async-action) endpoint. |  -  |
 

@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -80,11 +81,14 @@ public class RedemptionsTest {
         try {
             RedemptionsRedeemResponseBody responseBody = redemptions.redeemStackedDiscounts(requestBody);
 
-            String responseBodyJson = JsonHelper.getObjectMapper().writeValueAsString(responseBody);
-            String snapshot = JsonHelper.readJsonFile(snapshotPath);
+            List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId",
+                    "createdAt", "redemptions", "parentRedemption");
+
+            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
+            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
 
             assertNotNull(responseBody);
-            JSONAssert.assertEquals(snapshot, responseBodyJson, false);
+            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
         } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
             fail();
         }

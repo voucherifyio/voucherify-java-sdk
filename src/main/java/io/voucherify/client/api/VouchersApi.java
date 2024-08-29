@@ -1665,7 +1665,7 @@ public class VouchersApi {
     }
     /**
      * Build call for updateVouchersInBulk
-     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * @param vouchersUpdateInBulkItemRequestBody List the codes to be updated with the metadata key/value pairs for that code. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1727,9 +1727,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers in bulk
-     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * Update Vouchers in Bulk
+     * Updates specific metadata parameters for each code, respectively, in one asynchronous operation. The request can include up to **10 MB** of data. Upserts are not supported.  🚧    Currently, only **metadata** updates are supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersUpdateInBulkItemRequestBody List the codes to be updated with the metadata key/value pairs for that code. (required)
      * @return VouchersUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1739,9 +1739,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers in bulk
-     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * Update Vouchers in Bulk
+     * Updates specific metadata parameters for each code, respectively, in one asynchronous operation. The request can include up to **10 MB** of data. Upserts are not supported.  🚧    Currently, only **metadata** updates are supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersUpdateInBulkItemRequestBody List the codes to be updated with the metadata key/value pairs for that code. (required)
      * @return ApiResponse&lt;VouchersUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1752,9 +1752,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers in bulk (asynchronously)
-     * Use this endpoint to update specific metadata parameters for each code, respectively. You can update each codes metadata property separately.     - Update up to **100 records** in one request. - Upserts are not supported.    🚧     Currently only **metadata** updates are supported. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersUpdateInBulkItemRequestBody List of objects, each containing a code that is being updated and the metadata key/value pairs for that code. (required)
+     * Update Vouchers in Bulk (asynchronously)
+     * Updates specific metadata parameters for each code, respectively, in one asynchronous operation. The request can include up to **10 MB** of data. Upserts are not supported.  🚧    Currently, only **metadata** updates are supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersUpdateInBulkItemRequestBody List the codes to be updated with the metadata key/value pairs for that code. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1768,7 +1768,7 @@ public class VouchersApi {
     }
     /**
      * Build call for updateVouchersMetadataInBulk
-     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * @param vouchersMetadataUpdateInBulkRequestBody List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1830,9 +1830,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers&#39; metadata in bulk
-     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * Update Vouchers&#39; Metadata in Bulk
+     * Updates metadata parameters for a list of codes. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. Upserts are not supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersMetadataUpdateInBulkRequestBody List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
      * @return VouchersMetadataUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1842,9 +1842,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers&#39; metadata in bulk
-     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * Update Vouchers&#39; Metadata in Bulk
+     * Updates metadata parameters for a list of codes. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. Upserts are not supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersMetadataUpdateInBulkRequestBody List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
      * @return ApiResponse&lt;VouchersMetadataUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1855,9 +1855,9 @@ public class VouchersApi {
     }
 
     /**
-     * Update Vouchers&#39; metadata in bulk (asynchronously)
-     * Use this endpoint to update the same metadata parameters for a list of codes.    Update up to **100 records** in one request. Upserts are not supported.  This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param vouchersMetadataUpdateInBulkRequestBody Request to update vouchers metadata in bulk. Provide an array of voucher codes in the codes parameter along with the metadata object. The metadata object should contain the key value pairs that you would like to update for all the vouchers included in the codes parameter. (required)
+     * Update Vouchers&#39; Metadata in Bulk (asynchronously)
+     * Updates metadata parameters for a list of codes. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. Upserts are not supported. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param vouchersMetadataUpdateInBulkRequestBody List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -8,6 +8,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**createEarningRule**](LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule |
 | [**createInBulkLoyaltyTiers**](LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers |
 | [**createLoyaltyProgram**](LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign |
+| [**createPointsExpirationExport**](LoyaltiesApi.md#createPointsExpirationExport) | **POST** /v1/loyalties/{campaignId}/points-expiration/export | Create Points Expiration Export |
 | [**createRewardAssignment1**](LoyaltiesApi.md#createRewardAssignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment |
 | [**deleteEarningRule**](LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule |
 | [**deleteLoyaltyProgram**](LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign |
@@ -330,6 +331,77 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a campaign object with its settings but without the loyalty card codes. |  -  |
+
+<a id="createPointsExpirationExport"></a>
+# **createPointsExpirationExport**
+> LoyaltiesPointsExpirationExportCreateResponseBody createPointsExpirationExport(campaignId, loyaltiesPointsExpirationExportCreateRequestBody)
+
+Create Points Expiration Export
+
+Schedule the generation of a points expiration CSV file for a particular campaign.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID or name.
+    LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = new LoyaltiesPointsExpirationExportCreateRequestBody(); // LoyaltiesPointsExpirationExportCreateRequestBody | Specify the data filters, types of data to return and order in which the results should be returned.
+    try {
+      LoyaltiesPointsExpirationExportCreateResponseBody result = apiInstance.createPointsExpirationExport(campaignId, loyaltiesPointsExpirationExportCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#createPointsExpirationExport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID or name. |
+| **loyaltiesPointsExpirationExportCreateRequestBody** | [**LoyaltiesPointsExpirationExportCreateRequestBody**](LoyaltiesPointsExpirationExportCreateRequestBody.md)| Specify the data filters, types of data to return and order in which the results should be returned. |
+
+### Return type
+
+[**LoyaltiesPointsExpirationExportCreateResponseBody**](LoyaltiesPointsExpirationExportCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns an object with the export ID of the scheduled generation of CSV file with exported points expirations. You can use either the &lt;!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) --&gt;[Get Export](ref:get-export) endpoint to view the status and obtain the URL of the CSV file or &lt;!-- [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) --&gt;[Download Export](ref:download-export) endpoint to download the CSV file. |  -  |
 
 <a id="createRewardAssignment1"></a>
 # **createRewardAssignment1**
@@ -1540,7 +1612,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions"></a>
 # **listLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, page)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit)
 
 List Loyalty Card Transactions
 
@@ -1570,9 +1642,8 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, page);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions");
@@ -1591,7 +1662,6 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 
