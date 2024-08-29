@@ -3,12 +3,12 @@ package io.voucherify;
 import com.google.gson.JsonSyntaxException;
 
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.api.*;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.model.*;
+import io.voucherify.client.model.Order;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -24,7 +24,8 @@ import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
-@org.junit.jupiter.api.Order(8)
+@org.junit.jupiter.api.Order(9)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RedemptionsTest {
     public static ApiClient defaultClient = null;
     public static RedemptionsApi redemptions = null;
@@ -62,7 +63,7 @@ public class RedemptionsTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void redeemStackedApplicableDiscountsTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Redemptions/ApplicableRedemption.snapshot.json";
+        String snapshotPath = "src/test/java/org/example/snapshots/Redemptions/ApplicableRedemption.snapshot.json";
         RedemptionsRedeemRequestBody redemptionsBody = getRedemptionsRequestBody(1);
         redeemStackedDiscounts(redemptionsBody, snapshotPath);
     }
@@ -70,7 +71,7 @@ public class RedemptionsTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void redeemStackedSkippedDiscountsTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Redemptions/SkippedRedemption.snapshot.json";
+        String snapshotPath = "src/test/java/org/example/snapshots/Redemptions/SkippedRedemption.snapshot.json";
         RedemptionsRedeemRequestBody redemptionsBody = getRedemptionsRequestBody(30);
         redeemStackedDiscounts(redemptionsBody, snapshotPath);
     }

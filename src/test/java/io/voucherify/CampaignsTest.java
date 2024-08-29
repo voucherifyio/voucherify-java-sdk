@@ -13,8 +13,8 @@ import io.voucherify.client.model.*;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(1)
@@ -32,8 +32,6 @@ public class CampaignsTest {
     public static void beforeAll() {
         defaultClient = Utils.getClient();
         campaigns = new CampaignsApi(defaultClient);
-        promotions = new PromotionsApi(defaultClient);
-        rewards = new RewardsApi(defaultClient);
     }
 
     @Test
@@ -47,6 +45,14 @@ public class CampaignsTest {
         voucher.setType(CampaignsCreateRequestBodyVoucher.TypeEnum.LOYALTY_CARD);
 
         CampaignsCreateRequestBody campaignsCreateRequestBody = new CampaignsCreateRequestBody();
+        // Voucher
+        // Vouchers
+        // CampaignsCreateRequestBody
+        // | Specify the
+        // details of the
+        // campaign that you
+        // would like to
+        // create.
         campaignsCreateRequestBody.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.LOYALTY_PROGRAM);
         campaignsCreateRequestBody.setType(CampaignsCreateRequestBody.TypeEnum.AUTO_UPDATE);
         campaignsCreateRequestBody.setName(Utils.getAlphaNumericString(20));
@@ -72,7 +78,7 @@ public class CampaignsTest {
 
     @Test
     @Order(2)
-    public void createDiscountCampaign() {
+    public void createDiscountCampaignTest() {
         Discount discount = new Discount();
         discount.setType(Discount.TypeEnum.AMOUNT);
         discount.setAmountOff(BigDecimal.valueOf(1));
@@ -116,26 +122,27 @@ public class CampaignsTest {
 
     @Test
     @Order(4)
-    public void addVoucherToCampaign() {
+    public void addVoucherToCampaignTest() {
         try {
             Integer vouchersCount = 1; // Integer | Number of vouchers that should be added.
             CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody();
+            // CampaignsVouchersCreateInBulkRequestBody | Specify the voucher parameters
+            // that you would like to overwrite.
 
             CampaignsVouchersCreateCombinedResponseBody result = campaigns.addVouchersToCampaign(loyaltyProgramId,
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             assertNotNull(result);
             VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
-                result.getId()
-            );
+                    result.getId());
 
-            //NEED TWO VOUCHERS FOR PUBLICATION
-            CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
+            // NEED TWO VOUCHERS FOR PUBLICATION
+            CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId,
+                    vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             assertNotNull(result2);
             VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
-                result2.getId()
-            );
+                    result2.getId());
 
         } catch (ApiException | JsonSyntaxException e) {
             fail();
@@ -144,10 +151,10 @@ public class CampaignsTest {
 
     @Test
     @Order(5)
-    public void addVouchersToCampaign() {
+    public void addVouchersToCampaignTest() {
         try {
             Integer vouchersCount = 2; // Integer | Number of vouchers that should be added.
-            CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody(); //
+            CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody();
             CampaignsVouchersCreateCombinedResponseBody responseBody = campaigns.addVouchersToCampaign(loyaltyProgramId,
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
@@ -156,7 +163,6 @@ public class CampaignsTest {
             fail();
         }
     }
-
 
     @Test
     @Order(6)
@@ -173,7 +179,6 @@ public class CampaignsTest {
 
             assertNotNull(campaignId);
             assertNotNull(campaignName);
-
 
         } catch (ApiException | JsonSyntaxException e) {
             fail();
@@ -192,9 +197,10 @@ public class CampaignsTest {
         PromotionTierAction promotionTierAction = new PromotionTierAction();
         promotionTierAction.setDiscount(discount);
         promotionTierCreate.setAction(promotionTierAction);
-        
+
         try {
-            PromotionsTiersCreateResponseBody promotionTierCreateResult = promotions.addPromotionTierToCampaign(campaignId, promotionTierCreate);
+            PromotionsTiersCreateResponseBody promotionTierCreateResult = promotions
+                    .addPromotionTierToCampaign(campaignId, promotionTierCreate);
             promotionTierCreateId = promotionTierCreateResult.getId();
 
             assertNotNull(promotionTierCreateId);
@@ -207,9 +213,10 @@ public class CampaignsTest {
         PromotionsTiersUpdateRequestBody promotionTierUpdate = new PromotionsTiersUpdateRequestBody();
         String promotionTierUpdateBanner = Utils.getAlphaNumericString(20);
         promotionTierUpdate.setBanner(promotionTierUpdateBanner);
-        
+
         try {
-            PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions.updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
+            PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions
+                    .updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
 
             assertEquals(promotionTierUpdateResult.getBanner(), promotionTierUpdateBanner);
             assertNotNull(promotionTierUpdateResult);
@@ -245,7 +252,6 @@ public class CampaignsTest {
             assertNotNull(campaignId);
             assertNotNull(campaignName);
 
-
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }
@@ -257,8 +263,9 @@ public class CampaignsTest {
         rewardsCreateRequestBodyParametersCampaign.setId(campaignId);
         rewardsCreateRequestBodyParameters.setCampaign(rewardsCreateRequestBodyParametersCampaign);
         rewardsCreateRequestBody.setParameters(rewardsCreateRequestBodyParameters);
-        Reward reward = new Reward();;
-        
+        Reward reward = new Reward();
+        ;
+
         try {
             reward = rewards.createReward(rewardsCreateRequestBody);
 
@@ -270,7 +277,7 @@ public class CampaignsTest {
         RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
         String newRewardName = Utils.getAlphaNumericString(20);
         rewardsUpdateRequestBody.setName(newRewardName);
-        
+
         Reward updatedReward;
         try {
             updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);

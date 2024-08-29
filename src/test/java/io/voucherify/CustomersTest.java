@@ -9,6 +9,10 @@ import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CustomersApi;
 import io.voucherify.client.model.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +107,25 @@ public class CustomersTest {
             customers.deleteCustomer(this.sourceIdToDelete);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
+        }
+    }
+
+    @Test
+    @Order(5)
+    public void uploadCsvFileWithCustomersTest() {
+        try {
+            File csvFile = new File("src/test/java/org/example/helpers/test-csv.csv");
+            List<String> lines = Files.readAllLines(csvFile.toPath(), StandardCharsets.UTF_8);
+            StringBuilder csvContent = new StringBuilder();
+            for (String line : lines) {
+                csvContent.append(line).append(System.lineSeparator());
+            }
+
+            CustomersImportCsvCreateResponseBody result = customers.importCustomersUsingCsv(csvFile);
+
+            assertNotNull(result);
+        } catch (IOException | ApiException e) {
+            e.printStackTrace();
         }
     }
 }

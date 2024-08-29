@@ -5,9 +5,10 @@ import io.voucherify.data.VoucherifyStore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
-import io.voucherify.client.api.CampaignsApi;
 import io.voucherify.client.api.LoyaltiesApi;
 import io.voucherify.client.api.VouchersApi;
 import io.voucherify.client.model.*;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(5)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoyaltiesTest {
     public static ApiClient defaultClient = null;
     public static LoyaltiesApi loyalties = null;
@@ -38,7 +40,7 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance(
-                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -54,8 +56,8 @@ public class LoyaltiesTest {
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
 
             LoyaltiesMembersBalanceUpdateResponseBody responseBody = loyalties.updateLoyaltyCardBalance1(
-                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
-                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
+                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             assertNotNull(responseBody);
@@ -68,7 +70,7 @@ public class LoyaltiesTest {
     public void loyaltiesMembersTransactionsListTest() {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
-                    VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
+                VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     10,
                     1);
 
@@ -89,7 +91,7 @@ public class LoyaltiesTest {
             loyaltyTierBasePoints.setTo(1000);
 
             List<LoyaltyTier> loyaltyTiers = loyalties.createInBulkLoyaltyTiers(
-                    VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
+                VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
                     tiers);
 
             assertNotNull(loyaltyTiers);

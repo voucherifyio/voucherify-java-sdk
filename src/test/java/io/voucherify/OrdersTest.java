@@ -3,7 +3,6 @@ package io.voucherify;
 import com.google.gson.JsonSyntaxException;
 
 import io.voucherify.data.VoucherifyStore;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.voucherify.client.ApiClient;
@@ -17,12 +16,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
+
+@org.junit.jupiter.api.Order(11)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OrdersTest {
     public static ApiClient defaultClient = null;
     public static OrdersApi ordersApi = null;
@@ -36,7 +39,7 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(1)
     public void createOrderTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/CreatedOrder.snapshot.json";
+        String snapshotPath = "src/test/java/org/example/snapshots/Orders/CreatedOrder.snapshot.json";
         OrdersCreateRequestBody createdOrder = createOrderRequestBody();
 
         try {
@@ -56,7 +59,7 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void getOrderTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/GetOrder.snapshot.json";
+        String snapshotPath = "src/test/java/org/example/snapshots/Orders/GetOrder.snapshot.json";
         try {
             OrdersGetResponseBody orderResponseBody = ordersApi.getOrder(VoucherifyStore.getInstance().getOrder().getId());
 
@@ -64,8 +67,7 @@ public class OrdersTest {
             String snapshot = JsonHelper.readJsonFile(snapshotPath);
             assertNotNull(orderResponseBody);
             JSONAssert.assertEquals(snapshot, responseBodyJson, false);
-        } catch (ApiException | IOException | JSONException
-                | JsonSyntaxException e) {
+        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
             fail();
         }
 
@@ -74,7 +76,7 @@ public class OrdersTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void updatePaidStatusOrderTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Orders/UpdatedOrder.snapshot.json";
+        String snapshotPath = "src/test/java/org/example/snapshots/Orders/UpdatedOrder.snapshot.json";
         OrdersUpdateRequestBody updatedOrderRequestBody = updateOrderRequestBody();
 
         try {

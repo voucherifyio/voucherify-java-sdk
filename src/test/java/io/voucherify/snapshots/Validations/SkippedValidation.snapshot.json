@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "ap1G0buLshDz9J32ZT6D",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -14,6 +15,8 @@
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id ap1G0buLshDz9J32ZT6D",
+          "requestId": "v-0f2e15ed3e57470273",
           "resourceId": null,
           "resourceType": null,
           "additionalProperties": null
@@ -32,6 +35,7 @@
     },
     {
       "status": "SKIPPED",
+      "id": "2f1jojzx",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -56,6 +60,7 @@
   "skippedRedeemables": [
     {
       "status": "SKIPPED",
+      "id": "2f1jojzx",
       "result": {
         "details": {
           "key": "PRECEDING_VALIDATION_FAILED",
@@ -73,11 +78,14 @@
   "inapplicableRedeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "ap1G0buLshDz9J32ZT6D",
       "result": {
         "error": {
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id ap1G0buLshDz9J32ZT6D",
+          "requestId": "v-0f2e15ed3e57470273",
           "resourceId": null,
           "resourceType": null,
           "additionalProperties": null
@@ -108,7 +116,10 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
+    "additionalProperties": {
+      "redeemables_products_application_mode": "STACK",
+      "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+    }
   },
   "additionalProperties": null
 }

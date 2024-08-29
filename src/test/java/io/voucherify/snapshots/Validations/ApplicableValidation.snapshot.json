@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "APPLICABLE",
+      "id": "XqZ9XIAv",
       "order": {
         "id": null,
         "sourceId": null,
@@ -200,7 +201,10 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
+    "additionalProperties": {
+      "redeemables_products_application_mode": "STACK",
+      "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+    }
   },
   "additionalProperties": null
 }

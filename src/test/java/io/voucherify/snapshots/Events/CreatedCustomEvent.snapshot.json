@@ -1,0 +1,16 @@
+{
+  "type": "test-event",
+  "customer": {
+    "id": "cust_t10PA85aLTW0t5iWX6jayAkI",
+    "sourceId": "test-customer",
+    "name": null,
+    "email": null,
+    "metadata": null,
+    "additionalProperties": null,
+    "object": "customer"
+  },
+  "referral": null,
+  "loyalty": null,
+  "additionalProperties": { "metadata": {} },
+  "object": "EVENT"
+}

@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "5Wu5Cai2krvdtZ4Llrpy",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -14,6 +15,8 @@
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id 5Wu5Cai2krvdtZ4Llrpy",
+          "requestId": "v-0f2e15d1f755ec6cdc",
           "resourceId": null,
           "resourceType": null,
           "additionalProperties": null
@@ -35,11 +38,14 @@
   "inapplicableRedeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "5Wu5Cai2krvdtZ4Llrpy",
       "result": {
         "error": {
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id 5Wu5Cai2krvdtZ4Llrpy",
+          "requestId": "v-0f2e15d1f755ec6cdc",
           "resourceId": null,
           "resourceType": null,
           "additionalProperties": null
@@ -70,7 +76,10 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
+    "additionalProperties": {
+      "redeemables_products_application_mode": "STACK",
+      "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+    }
   },
   "additionalProperties": null
 }

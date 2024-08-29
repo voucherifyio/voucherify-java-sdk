@@ -2,7 +2,6 @@ package io.voucherify;
 
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.Configuration;
-import io.voucherify.client.auth.ApiKeyAuth;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,18 +11,17 @@ import java.util.Properties;
 public class Utils {
     public static String getAlphaNumericString(int n) {
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            + "0123456789"
-            + "abcdefghijklmnopqrstuvxyz";
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
 
         StringBuilder sb = new StringBuilder(n);
 
         for (int i = 0; i < n; i++) {
-            int index
-                = (int) (AlphaNumericString.length()
-                * Math.random());
+            int index = (int) (AlphaNumericString.length()
+                    * Math.random());
 
             sb.append(AlphaNumericString
-                .charAt(index));
+                    .charAt(index));
         }
 
         return sb.toString();

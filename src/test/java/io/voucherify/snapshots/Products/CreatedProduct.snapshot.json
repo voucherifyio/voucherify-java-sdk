@@ -1,0 +1,14 @@
+{
+  "id": "prod_0f2fa623b7616f684f",
+  "sourceId": "K0rKbz317m",
+  "name": "Test product",
+  "price": null,
+  "attributes": ["color", "memory", "processor"],
+  "metadata": {},
+  "imageUrl": null,
+  "createdAt": 1723215706.846,
+  "updatedAt": null,
+  "skus": null,
+  "additionalProperties": null,
+  "object": "PRODUCT"
+}
