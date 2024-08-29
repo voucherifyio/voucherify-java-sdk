@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * This is an object representing an export of points expirations. 
+ * Object representing an export of points expirations. 
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -430,7 +430,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBody {
   }
 
    /**
-   * Always null
+   * Always null.
    * @return result
   **/
   @javax.annotation.Nullable
@@ -451,7 +451,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBody {
   }
 
    /**
-   * The user_id identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;.
+   * &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard. &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;.
    * @return userId
   **/
   @javax.annotation.Nullable

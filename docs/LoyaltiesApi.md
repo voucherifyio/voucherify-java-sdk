@@ -1612,7 +1612,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions"></a>
 # **listLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, page)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit)
 
 List Loyalty Card Transactions
 
@@ -1642,9 +1642,8 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, page);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions");
@@ -1663,7 +1662,6 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 
 ### Return type
 

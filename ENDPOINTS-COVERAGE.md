@@ -26,6 +26,7 @@
 - [Locations](#locations)
 - [Referrals](#referrals)
 - [Bin](#bin)
+- [Templates](#templates)
 - [Management](#management)
 - [Client-side](#client-side)
 # Endpoints
@@ -74,8 +75,8 @@
 | /v1/vouchers/{code}/transactions/export   | post   | Export Voucher Transactions        | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/import                       | post   | Import Vouchers                    | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/importCSV                    | post   | Import Vouchers using CSV          | <font color='green'>supported</font> |                                      |
-| /v1/vouchers/bulk/async                   | post   | Update Vouchers in bulk            | <font color='green'>supported</font> |                                      |
-| /v1/vouchers/metadata/async               | post   | Update Vouchers' metadata in bulk  | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/bulk/async                   | post   | Update Vouchers in Bulk            | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/metadata/async               | post   | Update Vouchers' Metadata in Bulk  | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/{code}/sessions/{sessionKey} | delete | Release Validation Session         | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/qualification                | post   | Examine Qualification [Deprecated] |                                      |  <font color='red'>deprecated</font> |
 ## Campaigns
@@ -180,8 +181,8 @@
 | /v1/customers/{customerId}                    | put    | Update Customer                         | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently             | <font color='green'>supported</font> |                                      |
 | /v1/customers/importCSV                       | post   | Import and Update Customers using CSV   | <font color='green'>supported</font> |                                      |
-| /v1/customers/bulk/async                      | post   | Update Customers in bulk                | <font color='green'>supported</font> |                                      |
-| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in bulk      | <font color='green'>supported</font> |                                      |
+| /v1/customers/bulk/async                      | post   | Update Customers in Bulk                | <font color='green'>supported</font> |                                      |
+| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in Bulk      | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/consents           | put    | Update Customer's consents [Deprecated] | <font color='green'>supported</font> |  <font color='red'>deprecated</font> |
 | /v1/customers/{customerId}/activity           | get    | List Customer Activity                  | <font color='green'>supported</font> |                                      |
 | /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated]   |                                      |  <font color='red'>deprecated</font> |
@@ -204,8 +205,8 @@
 | /v1/products/{productId}              | get    | Get Product                       | <font color='green'>supported</font> |               |
 | /v1/products/{productId}              | put    | Update Product                    | <font color='green'>supported</font> |               |
 | /v1/products/{productId}              | delete | Delete Product                    | <font color='green'>supported</font> |               |
-| /v1/products/bulk/async               | post   | Update Products in bulk           | <font color='green'>supported</font> |               |
-| /v1/products/metadata/async           | post   | Update Products' Metadata in bulk | <font color='green'>supported</font> |               |
+| /v1/products/bulk/async               | post   | Update Products in Bulk           | <font color='green'>supported</font> |               |
+| /v1/products/metadata/async           | post   | Update Products' Metadata in Bulk | <font color='green'>supported</font> |               |
 | /v1/skus/{skuId}                      | get    | Get SKU                           | <font color='green'>supported</font> |               |
 | /v1/products/{productId}/skus         | get    | List SKUs in Product              | <font color='green'>supported</font> |               |
 | /v1/products/{productId}/skus         | post   | Create SKU                        | <font color='green'>supported</font> |               |
@@ -292,6 +293,11 @@
 | -------------------------- | ------ | ---------------- | ------------ | ------------- |
 | /v1/trash-bin              | get    | List Bin Entries |              |               |
 | /v1/trash-bin/{binEntryId} | delete | Delete Bin Entry |              |               |
+## Templates
+| endpoint                | method | summary                  | is supported | is deprecated |
+| ----------------------- | ------ | ------------------------ | ------------ | ------------- |
+| /v1/templates/campaigns | get    | List Campaign Templates  |              |               |
+| /v1/templates/campaigns | post   | Create Campaign Template |              |               |
 ## Management
 | endpoint                                                                       | method | summary                    | is supported | is deprecated |
 | ------------------------------------------------------------------------------ | ------ | -------------------------- | ------------ | ------------- |

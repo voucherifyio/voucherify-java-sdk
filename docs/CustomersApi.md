@@ -15,8 +15,8 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listCustomers**](CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers |
 | [**updateCustomer**](CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer |
 | [**updateCustomersConsents**](CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents [Deprecated] |
-| [**updateCustomersInBulk**](CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in bulk |
-| [**updateCustomersMetadataInBulk**](CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in bulk |
+| [**updateCustomersInBulk**](CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in Bulk |
+| [**updateCustomersMetadataInBulk**](CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in Bulk |
 
 
 <a id="createCustomer"></a>
@@ -832,9 +832,9 @@ null (empty response body)
 # **updateCustomersInBulk**
 > CustomersUpdateInBulkResponseBody updateCustomersInBulk(customersUpdateInBulkRequestBody)
 
-Update Customers in bulk
+Update Customers in Bulk
 
-Update several customers in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
 
 ### Example
 ```java
@@ -858,7 +858,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = Arrays.asList(); // List<CustomersUpdateInBulkRequestBody> | Specify the customer fields that you would like to update in each customer object.
+    List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = Arrays.asList(); // List<CustomersUpdateInBulkRequestBody> | List the customer fields to be updated in each customer object.
     try {
       CustomersUpdateInBulkResponseBody result = apiInstance.updateCustomersInBulk(customersUpdateInBulkRequestBody);
       System.out.println(result);
@@ -877,7 +877,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **customersUpdateInBulkRequestBody** | [**List&lt;CustomersUpdateInBulkRequestBody&gt;**](CustomersUpdateInBulkRequestBody.md)| Specify the customer fields that you would like to update in each customer object. |
+| **customersUpdateInBulkRequestBody** | [**List&lt;CustomersUpdateInBulkRequestBody&gt;**](CustomersUpdateInBulkRequestBody.md)| List the customer fields to be updated in each customer object. |
 
 ### Return type
 
@@ -895,15 +895,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **202** | Returns the ID of the scheduled asynchronous action. The response informs you that the request has been accepted and the resources will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and use it as a query parameter in the [GET Async Action](ref:get-async-action) endpoint. |  -  |
 
 <a id="updateCustomersMetadataInBulk"></a>
 # **updateCustomersMetadataInBulk**
 > CustomersMetadataUpdateInBulkResponseBody updateCustomersMetadataInBulk(customersMetadataUpdateInBulkRequestBody)
 
-Update Customers&#39; Metadata in bulk
+Update Customers&#39; Metadata in Bulk
 
-Update several customers metadata properties in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
+Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
 
 ### Example
 ```java
@@ -927,7 +927,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
-    CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = new CustomersMetadataUpdateInBulkRequestBody(); // CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update along with the metadata key value pairs.
+    CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = new CustomersMetadataUpdateInBulkRequestBody(); // CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update with the metadata key/value pairs.
     try {
       CustomersMetadataUpdateInBulkResponseBody result = apiInstance.updateCustomersMetadataInBulk(customersMetadataUpdateInBulkRequestBody);
       System.out.println(result);
@@ -946,7 +946,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **customersMetadataUpdateInBulkRequestBody** | [**CustomersMetadataUpdateInBulkRequestBody**](CustomersMetadataUpdateInBulkRequestBody.md)| List the source_ids of the customers you would like to update along with the metadata key value pairs. |
+| **customersMetadataUpdateInBulkRequestBody** | [**CustomersMetadataUpdateInBulkRequestBody**](CustomersMetadataUpdateInBulkRequestBody.md)| List the source_ids of the customers you would like to update with the metadata key/value pairs. |
 
 ### Return type
 
@@ -964,5 +964,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Returns ID of the scheduled async action. The response informs you that your request has been accepted and customers will be updated in the repository asynchronously. To check the update status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **202** | Returns the ID of the scheduled asynchronous action. The response informs you that the request has been accepted and the resources will be updated in the repository asynchronously. To check the status and result, copy the &#x60;async_action_id&#x60; from the response and use it as a query parameter in the [GET Async Action](ref:get-async-action) endpoint. |  -  |
 

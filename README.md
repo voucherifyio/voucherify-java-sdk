@@ -255,8 +255,8 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer
 *CustomersApi* | [**updateCustomersConsents**](docs/CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents [Deprecated]
-*CustomersApi* | [**updateCustomersInBulk**](docs/CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in bulk
-*CustomersApi* | [**updateCustomersMetadataInBulk**](docs/CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in bulk
+*CustomersApi* | [**updateCustomersInBulk**](docs/CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in Bulk
+*CustomersApi* | [**updateCustomersMetadataInBulk**](docs/CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in Bulk
 *EventsApi* | [**trackCustomEvent**](docs/EventsApi.md#trackCustomEvent) | **POST** /v1/events | Track Custom Event
 *ExportsApi* | [**createExport**](docs/ExportsApi.md#createExport) | **POST** /v1/exports | Create Export
 *ExportsApi* | [**deleteExport**](docs/ExportsApi.md#deleteExport) | **DELETE** /v1/exports/{exportId} | Delete Export
@@ -329,8 +329,8 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**listProducts**](docs/ProductsApi.md#listProducts) | **GET** /v1/products | List Products
 *ProductsApi* | [**listSkusInProduct**](docs/ProductsApi.md#listSkusInProduct) | **GET** /v1/products/{productId}/skus | List SKUs in Product
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PUT** /v1/products/{productId} | Update Product
-*ProductsApi* | [**updateProductsInBulk**](docs/ProductsApi.md#updateProductsInBulk) | **POST** /v1/products/bulk/async | Update Products in bulk
-*ProductsApi* | [**updateProductsMetadataInBulk**](docs/ProductsApi.md#updateProductsMetadataInBulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in bulk
+*ProductsApi* | [**updateProductsInBulk**](docs/ProductsApi.md#updateProductsInBulk) | **POST** /v1/products/bulk/async | Update Products in Bulk
+*ProductsApi* | [**updateProductsMetadataInBulk**](docs/ProductsApi.md#updateProductsMetadataInBulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in Bulk
 *ProductsApi* | [**updateSku**](docs/ProductsApi.md#updateSku) | **PUT** /v1/products/{productId}/skus/{skuId} | Update SKU
 *PromotionsApi* | [**addPromotionTierToCampaign**](docs/PromotionsApi.md#addPromotionTierToCampaign) | **POST** /v1/promotions/{campaignId}/tiers | Add Promotion Tier to Campaign
 *PromotionsApi* | [**createPromotionStack**](docs/PromotionsApi.md#createPromotionStack) | **POST** /v1/promotions/{campaignId}/stacks | Create Promotion Stack
@@ -393,8 +393,8 @@ Class | Method | HTTP request | Description
 *VouchersApi* | [**releaseValidationSession**](docs/VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
 *VouchersApi* | [**updateVoucher**](docs/VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher
 *VouchersApi* | [**updateVoucherBalance**](docs/VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
-*VouchersApi* | [**updateVouchersInBulk**](docs/VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in bulk
-*VouchersApi* | [**updateVouchersMetadataInBulk**](docs/VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; metadata in bulk
+*VouchersApi* | [**updateVouchersInBulk**](docs/VouchersApi.md#updateVouchersInBulk) | **POST** /v1/vouchers/bulk/async | Update Vouchers in Bulk
+*VouchersApi* | [**updateVouchersMetadataInBulk**](docs/VouchersApi.md#updateVouchersMetadataInBulk) | **POST** /v1/vouchers/metadata/async | Update Vouchers&#39; Metadata in Bulk
 
 
 ## Documentation for Models

@@ -40,6 +40,8 @@ tags:
   name: Campaigns
 - description: Manage promotions.
   name: Promotions
+- description: Manage templates.
+  name: Templates
 - description: Manage rewards.
   name: Rewards
 - description: Manage loyalty campaigns.
@@ -4157,20 +4159,17 @@ paths:
       x-accepts: application/json
   /v1/vouchers/bulk/async:
     post:
-      description: "Use this endpoint to update specific metadata parameters for each\
-        \ code, respectively. You can update each codes metadata property separately.\
-        \    \n- Update up to **100 records** in one request.\n- Upserts are not supported.\
-        \  \n 🚧 \n \n Currently only **metadata** updates are supported.\nThis API\
-        \ request starts a process that affects Voucherify data in bulk. \nIn case\
-        \ of small jobs (like bulk update) the request is put into a queue and processed\
-        \ once every other bulk request placed in the queue prior to this request\
-        \ is finished. However, when the job takes a longer time (like vouchers generation)\
-        \ then it is processed in small portions in a round-robin fashion. When there\
-        \ is a list of vouchers generation scheduled, then they will all have the\
-        \ IN_PROGRESS status shortly. This way, small jobs added just after scheduling\
-        \ big jobs of the same type will be processed in a short time window. \nThe\
-        \ result will return the async ID. You can verify the status of your request\
-        \ via this API request."
+      description: "Updates specific metadata parameters for each code, respectively,\
+        \ in one asynchronous operation.\nThe request can include up to **10 MB**\
+        \ of data.\nUpserts are not supported.\n 🚧\n \n Currently, only **metadata**\
+        \ updates are supported.\nThe response returns a unique asynchronous action\
+        \ ID. Use this ID in the query paramater of the GET Async Action endpoint\
+        \ to check, e.g.:\n- The status of your request (in queue, in progress, done,\
+        \ or failed)\n- Resources that failed to be updated\n- The report file with\
+        \ details about the update\nThis API request starts a process that affects\
+        \ Voucherify data in bulk. In the case of small jobs (like bulk update), the\
+        \ request is put into a queue and processed when every other bulk request\
+        \ placed in the queue prior to this request is finished."
       operationId: update-vouchers-in-bulk
       parameters: []
       requestBody:
@@ -4194,8 +4193,8 @@ paths:
                     update_value: 2
             schema:
               $ref: '#/components/schemas/VouchersUpdateInBulkRequestBody'
-        description: "List of objects, each containing a code that is being updated\
-          \ and the metadata key/value pairs for that code."
+        description: List the codes to be updated with the metadata key/value pairs
+          for that code.
         required: true
       responses:
         "202":
@@ -4206,34 +4205,30 @@ paths:
                   $ref: '#/components/examples/res_async_actions'
               schema:
                 $ref: '#/components/schemas/VouchersUpdateInBulkResponseBody'
-          description: "Returns the ID of the scheduled asynchronous action, informing\
-            \ you that your request has been accepted and the voucher(s) will be updated\
-            \ in the repository asynchronously. To check the status and result, copy\
-            \ the `async_action_id` from the response and pass it using <!-- [Get\
-            \ Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Vouchers in bulk
+      summary: Update Vouchers in Bulk
       tags:
       - Vouchers
       x-content-type: application/json
       x-accepts: application/json
   /v1/vouchers/metadata/async:
     post:
-      description: "Use this endpoint to update the same metadata parameters for a\
-        \ list of codes.   \nUpdate up to **100 records** in one request. Upserts\
-        \ are not supported. \nThis API request starts a process that affects Voucherify\
-        \ data in bulk. \nIn case of small jobs (like bulk update) the request is\
-        \ put into a queue and processed once every other bulk request placed in the\
-        \ queue prior to this request is finished. However, when the job takes a longer\
-        \ time (like vouchers generation) then it is processed in small portions in\
-        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
-        \ then they will all have the IN_PROGRESS status shortly. This way, small\
-        \ jobs added just after scheduling big jobs of the same type will be processed\
-        \ in a short time window. \nThe result will return the async ID. You can verify\
-        \ the status of your request via this API request."
+      description: |-
+        Updates metadata parameters for a list of codes. Every resource in the list will receive the metadata defined in the request.
+        The request can include up to **10 MB** of data.
+        Upserts are not supported.
+        The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.:
+        - The status of your request (in queue, in progress, done, or failed)
+        - Resources that failed to be updated
+        - The report file with details about the update
+        This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
       operationId: update-vouchers-metadata-in-bulk
       parameters: []
       requestBody:
@@ -4250,10 +4245,8 @@ paths:
                     authorized_internally: true
             schema:
               $ref: '#/components/schemas/VouchersMetadataUpdateInBulkRequestBody'
-        description: Request to update vouchers metadata in bulk. Provide an array
-          of voucher codes in the codes parameter along with the metadata object.
-          The metadata object should contain the key value pairs that you would like
-          to update for all the vouchers included in the codes parameter.
+        description: List the codes of the vouchers you would like to update with
+          the metadata key/value pairs.
         required: true
       responses:
         "202":
@@ -4264,16 +4257,15 @@ paths:
                   $ref: '#/components/examples/res_async_actions'
               schema:
                 $ref: '#/components/schemas/VouchersMetadataUpdateInBulkResponseBody'
-          description: "Returns the ID of the scheduled asynchronous action, informing\
-            \ you that your request has been accepted and the voucher(s) will be updated\
-            \ in the repository asynchronously. To check the status and result, copy\
-            \ the `async_action_id` from the response and pass it using <!-- [Get\
-            \ Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Vouchers' metadata in bulk
+      summary: Update Vouchers' Metadata in Bulk
       tags:
       - Vouchers
       x-content-type: application/json
@@ -12124,14 +12116,6 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is 1.
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          $ref: '#/components/schemas/ParameterPage'
-        style: form
       responses:
         "200":
           content:
@@ -18505,20 +18489,15 @@ paths:
       x-accepts: application/json
   /v1/customers/bulk/async:
     post:
-      description: "Update several customers in one asynchronous operation. \nIn one\
-        \ request, it is possible to update a maximum of **100** records. In the response\
-        \ body, you get a unique async action identifier.  \nIf a requested customer\
-        \ object is not found, then an **upsert** occurs. This is reflected in the\
-        \ Get Async Action endpoint as follows:  \n\nThis API request starts a process\
-        \ that affects Voucherify data in bulk. \nIn case of small jobs (like bulk\
-        \ update) the request is put into a queue and processed once every other bulk\
-        \ request placed in the queue prior to this request is finished. However,\
-        \ when the job takes a longer time (like vouchers generation) then it is processed\
-        \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
-        \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \nThe result will return the async\
-        \ ID. You can verify the status of your request via this API request."
+      description: |-
+        Updates customers in one asynchronous operation.
+        The request can include up to **10 MB** of data.
+        The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.:
+        - The status of your request (in queue, in progress, done, or failed)
+        - Resources that failed to be updated
+        - The report file with details about the update
+        If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column.
+        This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
       operationId: update-customers-in-bulk
       parameters: []
       requestBody:
@@ -18581,45 +18560,37 @@ paths:
                 $ref: '#/components/schemas/CustomersUpdateInBulkRequestBody'
               title: Update Customers in bulk Request Body
               type: array
-        description: Specify the customer fields that you would like to update in
-          each customer object.
+        description: List the customer fields to be updated in each customer object.
       responses:
         "202":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomersUpdateInBulkResponseBody'
-          description: "Returns ID of the scheduled async action. The response informs\
-            \ you that your request has been accepted and customers will be updated\
-            \ in the repository asynchronously. To check the update status and result,\
-            \ copy the `async_action_id` from the response and pass it using the <!--\
-            \ [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Customers in bulk
+      summary: Update Customers in Bulk
       tags:
       - Customers
       x-content-type: application/json
       x-accepts: application/json
   /v1/customers/metadata/async:
     post:
-      description: "Update several customers metadata properties in one asynchronous\
-        \ operation. \nIn one request, it is possible to update a maximum of **100**\
-        \ records. In the response body, you get a unique async action identifier.\
-        \  \nIf a requested customer object is not found, then an **upsert** occurs.\
-        \ This is reflected in the Get Async Action endpoint as follows:  \n\nThis\
-        \ API request starts a process that affects Voucherify data in bulk. \nIn\
-        \ case of small jobs (like bulk update) the request is put into a queue and\
-        \ processed once every other bulk request placed in the queue prior to this\
-        \ request is finished. However, when the job takes a longer time (like vouchers\
-        \ generation) then it is processed in small portions in a round-robin fashion.\
-        \ When there is a list of vouchers generation scheduled, then they will all\
-        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
-        \ scheduling big jobs of the same type will be processed in a short time window.\
-        \ \nThe result will return the async ID. You can verify the status of your\
-        \ request via this API request."
+      description: |-
+        Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request.
+        The request can include up to **10 MB** of data.
+        The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.:
+        - The status of your request (in queue, in progress, done, or failed)
+        - Resources that failed to be updated
+        - The report file with details about the update
+        If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column.
+        This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
       operationId: update-customers-metadata-in-bulk
       parameters: []
       requestBody:
@@ -18637,7 +18608,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CustomersMetadataUpdateInBulkRequestBody'
         description: List the source_ids of the customers you would like to update
-          along with the metadata key value pairs.
+          with the metadata key/value pairs.
       responses:
         "202":
           content:
@@ -18648,16 +18619,15 @@ paths:
                     async_action_id: aa_0a875d56c805df6601
               schema:
                 $ref: '#/components/schemas/CustomersMetadataUpdateInBulkResponseBody'
-          description: "Returns ID of the scheduled async action. The response informs\
-            \ you that your request has been accepted and customers will be updated\
-            \ in the repository asynchronously. To check the update status and result,\
-            \ copy the `async_action_id` from the response and pass it using the <!--\
-            \ [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Customers' Metadata in bulk
+      summary: Update Customers' Metadata in Bulk
       tags:
       - Customers
       x-content-type: application/json
@@ -20664,20 +20634,15 @@ paths:
       x-accepts: application/json
   /v1/products/bulk/async:
     post:
-      description: "Update several products in one asynchronous operation. \nIn one\
-        \ request, it is possible to update a maximum of **100** records. In the response\
-        \ body, you get a unique async action identifier. If a requested product object\
-        \ is not found, then an **upsert** occurs. This is reflected in the Get Async\
-        \ Action endpoint as follows:  \n\nThis API request starts a process that\
-        \ affects Voucherify data in bulk. \nIn case of small jobs (like bulk update)\
-        \ the request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
-        \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
-        \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \nThe result will return the async\
-        \ ID. You can verify the status of your request via this API request."
+      description: |-
+        Update products in one asynchronous operation.
+        The request can include up to **10 MB** of data.
+        The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.:
+        - The status of your request (in queue, in progress, done, or failed)
+        - Resources that failed to be updated
+        - The report file with details about the update
+        If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column.
+        This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
       operationId: update-products-in-bulk
       parameters: []
       requestBody:
@@ -20712,8 +20677,7 @@ paths:
               items:
                 $ref: '#/components/schemas/ProductsUpdateInBulkRequestBody'
               type: array
-        description: "Create an array of product objects, each with the parameters\
-          \ which you want to update."
+        description: List the product fields to be updated in each customer object.
       responses:
         "202":
           content:
@@ -20724,37 +20688,30 @@ paths:
                     async_action_id: aa_0a875d56c805df6601
               schema:
                 $ref: '#/components/schemas/ProductsUpdateInBulkResponseBody'
-          description: "Returns ID of the scheduled async action. The response informs\
-            \ you that your request has been accepted and updates will be added to\
-            \ the repository asynchronously. To check the update status and result,\
-            \ copy the `async_action_id` from the response and pass it using the <!--\
-            \ [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Products in bulk
+      summary: Update Products in Bulk
       tags:
       - Products
       x-content-type: application/json
       x-accepts: application/json
   /v1/products/metadata/async:
     post:
-      description: "Update several product metadata properties in one asynchronous\
-        \ operation. \nIn one request, it is possible to update a maximum of **100**\
-        \ records. In the response body, you get a unique async action identifier.\
-        \ If a requested product object is not found, then an **upsert** occurs. This\
-        \ is reflected in the Get Async Action endpoint as follows:  \n\nThis API\
-        \ request starts a process that affects Voucherify data in bulk. \nIn case\
-        \ of small jobs (like bulk update) the request is put into a queue and processed\
-        \ once every other bulk request placed in the queue prior to this request\
-        \ is finished. However, when the job takes a longer time (like vouchers generation)\
-        \ then it is processed in small portions in a round-robin fashion. When there\
-        \ is a list of vouchers generation scheduled, then they will all have the\
-        \ IN_PROGRESS status shortly. This way, small jobs added just after scheduling\
-        \ big jobs of the same type will be processed in a short time window. \nThe\
-        \ result will return the async ID. You can verify the status of your request\
-        \ via this API request."
+      description: |-
+        Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request.
+        The request can include up to **10 MB** of data.
+        The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.:
+        - The status of your request (in queue, in progress, done, or failed)
+        - Resources that failed to be updated
+        - The report file with details about the update
+        If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column.
+        This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
       operationId: update-products-metadata-in-bulk
       parameters: []
       requestBody:
@@ -20771,8 +20728,8 @@ paths:
                     origin: PL
             schema:
               $ref: '#/components/schemas/ProductsMetadataUpdateInBulkRequestBody'
-        description: Specify the list of product source IDs and the metadata key value
-          pairs to be udpated for these products.
+        description: List the source_ids of the products you would like to update
+          with the metadata key/value pairs.
       responses:
         "202":
           content:
@@ -20783,16 +20740,15 @@ paths:
                     async_action_id: aa_0a875d56c805df6601
               schema:
                 $ref: '#/components/schemas/ProductsMetadataUpdateInBulkResponseBody'
-          description: "Returns ID of the scheduled async action. The response informs\
-            \ you that your request has been accepted and updates will be added to\
-            \ the repository asynchronously. To check the update status and result,\
-            \ copy the `async_action_id` from the response and pass it using the <!--\
-            \ [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get)\
-            \ -->[Get Async Action](ref:get-async-action) endpoint."
+          description: "Returns the ID of the scheduled asynchronous action. The response\
+            \ informs you that the request has been accepted and the resources will\
+            \ be updated in the repository asynchronously. To check the status and\
+            \ result, copy the `async_action_id` from the response and use it as a\
+            \ query parameter in the [GET Async Action](ref:get-async-action) endpoint."
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Products' Metadata in bulk
+      summary: Update Products' Metadata in Bulk
       tags:
       - Products
       x-content-type: application/json
@@ -22975,18 +22931,14 @@ paths:
                     id: aa_0c5547cc5e17b617b6
                     type: CUSTOMERS.BULK_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - source_id: source_id_1
-                        updated: true
-                        found: true
-                      - source_id: source_id_2
-                        updated: true
-                        found: true
-                      - source_id: source_id_3
-                        updated: true
-                        found: true
                       done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T07:58:25.144Z
                     updated_at: 2023-01-20T07:58:25.869Z
                     request_id: v-0c5547cc4d8b0f5be4
@@ -22998,15 +22950,14 @@ paths:
                     id: aa_0c554a92030e576181
                     type: CUSTOMERS.METADATA_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - source_id: source_1
-                        updated: true
-                        found: true
-                      - source_id: source_2
-                        updated: true
-                        found: true
-                      done_count: 2
+                      done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T08:10:31.821Z
                     updated_at: 2023-01-20T08:10:32.564Z
                     request_id: v-0c554a91fb4b0f61a2
@@ -23032,15 +22983,14 @@ paths:
                     id: aa_0c5553f0f457b6328e
                     type: PRODUCTS.BULK_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - source_id: first_product
-                        updated: false
-                        found: true
-                      - source_id: second_product
-                        updated: false
-                        found: true
-                      done_count: 2
+                      done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T08:51:28.337Z
                     updated_at: 2023-01-20T08:51:28.439Z
                     request_id: v-0c5553f0e94b0f7502
@@ -23052,15 +23002,14 @@ paths:
                     id: aa_0c5554869b97b633b4
                     type: PRODUCTS.METADATA_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - source_id: 123-567-3433
-                        updated: false
-                        found: true
-                      - source_id: test_volleyball
-                        updated: false
-                        found: true
-                      done_count: 2
+                      done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T08:54:01.582Z
                     updated_at: 2023-01-20T08:54:02.436Z
                     request_id: v-0c55548694c418f9dd
@@ -23133,15 +23082,14 @@ paths:
                     id: aa_0c555e8115d7b64504
                     type: VOUCHERS.BULK_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - code: PROMO-CODE81019
-                        updated: false
-                        found: false
-                      - code: PROMO-CODE7264786
-                        updated: false
-                        found: false
-                      done_count: 2
+                      done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T09:37:37.367Z
                     updated_at: 2023-01-20T09:37:37.520Z
                     request_id: v-0c555e810904188aa4
@@ -23153,15 +23101,14 @@ paths:
                     id: aa_0c555ed40857b6463a
                     type: VOUCHERS.METADATA_UPDATE
                     status: DONE
+                    operation_status: SUCCESS
                     result:
-                      results:
-                      - code: v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u
-                        updated: false
-                        found: false
-                      - code: LOYALTY-CARD-xLPbpbXR
-                        updated: false
-                        found: false
-                      done_count: 2
+                      done_count: 3
+                      failed_count: 0
+                      reports:
+                      - "{{voucherify-link-to-report}}"
+                      reports_available_till: 2024-11-06T08:26:13.304Z
+                      errors: []
                     created_at: 2023-01-20T09:39:02.305Z
                     updated_at: 2023-01-20T09:39:02.640Z
                     request_id: v-0c555ed40084188b55
@@ -24474,7 +24421,7 @@ components:
           id: aa_0adad13d6f057f088e
           type: type
           request_id: v-0b45cee140c3c9b5ca
-          status: ENQUEUED
+          status: DONE
           object: async_action
         - processing_time: 1217
           updated_at: 2022-06-23T11:21:46.795Z
@@ -24484,7 +24431,7 @@ components:
           id: aa_0adad13d6f057f088e
           type: type
           request_id: v-0b45cee140c3c9b5ca
-          status: ENQUEUED
+          status: DONE
           object: async_action
         object: list
       properties:
@@ -24561,8 +24508,8 @@ components:
             expiration_rules:
               period_value: 7
               rounding_value: 9
-              rounding_type: rounding_type
-              period_type: period_type
+              rounding_type: END_OF_MONTH
+              period_type: MONTH
             points: 2
           code_config:
             charset: charset
@@ -24833,9 +24780,10 @@ components:
         validity_hours:
           $ref: '#/components/schemas/ValidityHours'
         activity_duration_after_publishing:
-          description: "Defines the amount of time the campaign will be active in\
-            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
-            \ of `P24D` will be valid for a duration of 24 days."
+          description: "Defines the amount of time the vouchers will be active after\
+            \ publishing. The value is shown in the ISO 8601 format. For example,\
+            \ a voucher with the value of P24D will be valid for a duration of 24\
+            \ days."
           nullable: true
           type: string
         validation_rules:
@@ -25325,9 +25273,10 @@ components:
           nullable: true
           type: string
         activity_duration_after_publishing:
-          description: "Defines the amount of time the campaign will be active in\
-            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
-            \ of `P24D` will be valid for a duration of 24 days."
+          description: "Defines the amount of time the vouchers will be active after\
+            \ publishing. The value is shown in the ISO 8601 format. For example,\
+            \ a voucher with the value of P24D will be valid for a duration of 24\
+            \ days."
           nullable: true
           type: string
         join_once:
@@ -28270,7 +28219,7 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBody
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBody:
-      description: 'This is an object representing an export of points expirations. '
+      description: 'Object representing an export of points expirations. '
       example:
         result: "{}"
         user_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0Fr
@@ -28353,14 +28302,14 @@ components:
         parameters:
           $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParameters'
         result:
-          description: Always null
+          description: Always null.
           nullable: true
           title: LoyaltiesPointsExpirationExportCreateResponseBodyResult
           type: object
         user_id:
-          description: The user_id identifies the specific user who initiated the
-            export through the Voucherify Dashboard; this `user_id` is returned when
-            the channel value is `WEBSITE`.
+          description: '`user_id` identifies the specific user who initiated the export
+            through the Voucherify Dashboard. `user_id` is returned when the channel
+            value is `WEBSITE`.'
           example: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0Fr
           nullable: true
           type: string
@@ -34040,7 +33989,7 @@ components:
         id: aa_0adad13d6f057f088e
         type: type
         request_id: v-0b45cee140c3c9b5ca
-        status: ENQUEUED
+        status: DONE
         object: async_action
       properties:
         id:
@@ -34053,19 +34002,18 @@ components:
           nullable: true
           type: string
         status:
-          description: Status of async action. Informs you whether the async action
+          description: Status of the async action. Informs you whether the async action
             has already been completed.
           enum:
-          - ENQUEUED
-          - IN_PROGRESS
           - DONE
+          - ENQUEUED
           - FAILED
+          - IN_PROGRESS
           nullable: true
           type: string
         operation_status:
           description: "Status of async action processing. Informs about the async\
-            \ action status, whether it failed, succeeded, or the status is unknown.\
-            \ Examples: \"FAILED\", \"SUCCESS\""
+            \ action status, whether it failed, succeeded, or the status is unknown."
           nullable: true
           type: string
         created_at:
@@ -34102,6 +34050,8 @@ components:
           default: async_action
           description: The type of the object represented by JSON. This object stores
             information about the `async_action`.
+          enum:
+          - async_action
           nullable: true
           type: string
       title: AsyncActionBase
@@ -34323,9 +34273,10 @@ components:
         validity_hours:
           $ref: '#/components/schemas/ValidityHours'
         activity_duration_after_publishing:
-          description: "Defines the amount of time the campaign will be active in\
-            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
-            \ of `P24D` will be valid for a duration of 24 days."
+          description: "Defines the amount of time the vouchers will be active after\
+            \ publishing. The value is shown in the ISO 8601 format. For example,\
+            \ a voucher with the value of P24D will be valid for a duration of 24\
+            \ days."
           nullable: true
           type: string
         vouchers_count:
@@ -34433,8 +34384,8 @@ components:
         expiration_rules:
           period_value: 7
           rounding_value: 9
-          rounding_type: rounding_type
-          period_type: period_type
+          rounding_type: END_OF_MONTH
+          period_type: MONTH
         points: 2
       properties:
         points:
@@ -35526,21 +35477,21 @@ components:
         conditions:
           allOf:
           - $ref: '#/components/schemas/FiltersCondition'
-          description: Data filters used to narrow the data records to be returned
+          description: Data filters used to narrow down the data records to be returned
             in the result.
       title: FieldConditions
       type: object
     FilterConditionsDateTime:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsDateTimeConditions'
       title: FilterConditionsDateTime
       type: object
     FilterConditionsString:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       properties:
         $in:
           description: Array of resource values that should be included in the results
@@ -40822,9 +40773,10 @@ components:
         validity_hours:
           $ref: '#/components/schemas/ValidityHours'
         activity_duration_after_publishing:
-          description: "Defines the amount of time the campaign will be active in\
-            \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
-            \ of `P24D` will be valid for a duration of 24 days."
+          description: "Defines the amount of time the vouchers will be active after\
+            \ publishing. The value is shown in the ISO 8601 format. For example,\
+            \ a voucher with the value of P24D will be valid for a duration of 24\
+            \ days."
           nullable: true
           type: string
         validation_rules:
@@ -40863,9 +40815,10 @@ components:
       - $ref: '#/components/schemas/CampaignsUpdateBase'
       - properties:
           activity_duration_after_publishing:
-            description: "Defines the amount of time the campaign will be active in\
-              \ ISO 8601 format after publishing. For example, a campaign with a `duration`\
-              \ of `P24D` will be valid for a duration of 24 days."
+            description: "Defines the amount of time the vouchers will be active after\
+              \ publishing. The value is shown in the ISO 8601 format. For example,\
+              \ a voucher with the value of P24D will be valid for a duration of 24\
+              \ days."
             nullable: true
             type: string
           join_once:
@@ -41112,8 +41065,8 @@ components:
       title: InapplicableTo
       type: object
     LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters:
-      description: Data filters used to narrow the data records to be returned in
-        the export.
+      description: Data filters used to narrow down the data records to be returned
+        in the export.
       example:
         junction: null
         voucher_id:
@@ -41146,8 +41099,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters:
-      description: Data filters used to narrow the data records to be returned in
-        the export.
+      description: Data filters used to narrow down the data records to be returned
+        in the export.
       example:
         junction: null
         voucher_id:
@@ -41655,7 +41608,7 @@ components:
         conditions:
           allOf:
           - $ref: '#/components/schemas/QualificationsFiltersCondition'
-          description: Data filters used to narrow the data records to be returned
+          description: Data filters used to narrow down the data records to be returned
             in the result.
       title: QualificationsFieldConditions
       type: object
@@ -43012,8 +42965,8 @@ components:
           expiration_rules:
             period_value: 7
             rounding_value: 9
-            rounding_type: rounding_type
-            period_type: period_type
+            rounding_type: END_OF_MONTH
+            period_type: MONTH
           points: 2
         code_config:
           charset: charset
@@ -48742,12 +48695,15 @@ components:
       example:
         period_value: 7
         rounding_value: 9
-        rounding_type: rounding_type
-        period_type: period_type
+        rounding_type: END_OF_MONTH
+        period_type: MONTH
       nullable: true
       properties:
         period_type:
+          default: MONTH
           description: Type of period
+          enum:
+          - MONTH
           nullable: true
           type: string
         period_value:
@@ -48756,6 +48712,12 @@ components:
           type: integer
         rounding_type:
           description: Type of rounding
+          enum:
+          - END_OF_MONTH
+          - END_OF_QUARTER
+          - END_OF_HALF_YEAR
+          - END_OF_YEAR
+          - PARTICULAR_MONTH
           nullable: true
           type: string
         rounding_value:
@@ -49363,8 +49325,8 @@ components:
       title: ExportOrderBaseParameters
       type: object
     FilterConditionsDateTimeConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         $after:
@@ -50520,8 +50482,8 @@ components:
       title: PromotionTierUpdateAction
       type: object
     QualificationsOptionFiltersCampaignTypeConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         $is:
@@ -50560,8 +50522,8 @@ components:
       title: QualificationsOptionFiltersCampaignType
       type: object
     QualificationsOptionFiltersResourceTypeConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         $is:
@@ -50598,8 +50560,8 @@ components:
       title: QualificationsOptionFiltersResourceType
       type: object
     QualificationsOptionFiltersHolderRoleConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         $is:
@@ -52759,8 +52721,8 @@ components:
       title: ExportVoucherTransactionsBaseParameters
       type: object
     LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         $not_in:
         - $not_in
@@ -52773,7 +52735,8 @@ components:
       nullable: true
       properties:
         $in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsInItem
             type: string
@@ -52781,7 +52744,8 @@ components:
           title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsIn
           type: array
         $not_in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditionsNotInItem
             type: string
@@ -52799,8 +52763,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions
       type: object
     LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         conditions:
           $not_in:
@@ -52818,8 +52782,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId
       type: object
     LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         $not_in:
         - $not_in
@@ -52832,7 +52796,8 @@ components:
       nullable: true
       properties:
         $in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsInItem
             type: string
@@ -52840,7 +52805,8 @@ components:
           title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsIn
           type: array
         $not_in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditionsNotInItem
             type: string
@@ -52858,8 +52824,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignIdConditions
       type: object
     LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignId:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         conditions:
           $not_in:
@@ -52877,8 +52843,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersCampaignId
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         $not_in:
         - $not_in
@@ -52891,7 +52857,8 @@ components:
       nullable: true
       properties:
         $in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsInItem
             type: string
@@ -52899,7 +52866,8 @@ components:
           title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsIn
           type: array
         $not_in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be excluded from the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditionsNotInItem
             type: string
@@ -52917,8 +52885,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         conditions:
           $not_in:
@@ -52936,8 +52904,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         $not_in:
         - $not_in
@@ -52950,7 +52918,8 @@ components:
       nullable: true
       properties:
         $in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsInItem
             type: string
@@ -52958,7 +52927,8 @@ components:
           title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsIn
           type: array
         $not_in:
-          description: Array of resource values that should be included in the results.
+          description: Array of the resource values that should be included in the
+            results.
           items:
             title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditionsNotInItem
             type: string
@@ -52976,8 +52946,8 @@ components:
       title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions
       type: object
     LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       example:
         conditions:
           $not_in:
@@ -53398,8 +53368,8 @@ components:
       title: RedeemableVoucherRedemption
       type: object
     VoucherTransactionsExportFilterConditionsVoucherIdConditions:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         $in:
@@ -53416,8 +53386,8 @@ components:
       title: VoucherTransactionsExportFilterConditionsVoucherIdConditions
       type: object
     VoucherTransactionsExportFilterConditionsVoucherId:
-      description: Data filters used to narrow the data records to be returned in
-        the result.
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
       nullable: true
       properties:
         conditions:

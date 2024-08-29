@@ -63,17 +63,17 @@ public class AsyncActionBase {
   private String type;
 
   /**
-   * Status of async action. Informs you whether the async action has already been completed.
+   * Status of the async action. Informs you whether the async action has already been completed.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    ENQUEUED("ENQUEUED"),
-    
-    IN_PROGRESS("IN_PROGRESS"),
-    
     DONE("DONE"),
     
-    FAILED("FAILED");
+    ENQUEUED("ENQUEUED"),
+    
+    FAILED("FAILED"),
+    
+    IN_PROGRESS("IN_PROGRESS");
 
     private String value;
 
@@ -141,9 +141,54 @@ public class AsyncActionBase {
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   private Integer progress;
 
+  /**
+   * The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    ASYNC_ACTION("async_action");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  private String _object = "async_action";
+  private ObjectEnum _object = ObjectEnum.ASYNC_ACTION;
 
   public AsyncActionBase() {
   }
@@ -197,7 +242,7 @@ public class AsyncActionBase {
   }
 
    /**
-   * Status of async action. Informs you whether the async action has already been completed.
+   * Status of the async action. Informs you whether the async action has already been completed.
    * @return status
   **/
   @javax.annotation.Nullable
@@ -218,7 +263,7 @@ public class AsyncActionBase {
   }
 
    /**
-   * Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown. Examples: \&quot;FAILED\&quot;, \&quot;SUCCESS\&quot;
+   * Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.
    * @return operationStatus
   **/
   @javax.annotation.Nullable
@@ -339,7 +384,7 @@ public class AsyncActionBase {
   }
 
 
-  public AsyncActionBase _object(String _object) {
+  public AsyncActionBase _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -350,12 +395,12 @@ public class AsyncActionBase {
    * @return _object
   **/
   @javax.annotation.Nullable
-  public String getObject() {
+  public ObjectEnum getObject() {
     return _object;
   }
 
 
-  public void setObject(String _object) {
+  public void setObject(ObjectEnum _object) {
     this._object = _object;
   }
 

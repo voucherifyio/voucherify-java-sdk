@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Data filters used to narrow the data records to be returned in the result.
+ * Data filters used to narrow down the data records to be returned in the result.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -89,7 +89,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersC
   }
 
    /**
-   * Array of resource values that should be included in the results.
+   * Array of the resource values that should be included in the results.
    * @return $in
   **/
   @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersC
   }
 
    /**
-   * Array of resource values that should be included in the results.
+   * Array of the resource values that should be included in the results.
    * @return $notIn
   **/
   @javax.annotation.Nullable

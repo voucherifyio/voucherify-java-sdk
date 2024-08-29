@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Data filters used to narrow the data records to be returned in the export.
+ * Data filters used to narrow down the data records to be returned in the export.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

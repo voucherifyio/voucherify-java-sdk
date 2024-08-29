@@ -2559,12 +2559,11 @@ public class LoyaltiesApi {
      * Build call for listLoyaltyCardTransactions
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2594,10 +2593,6 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2618,13 +2613,13 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
         if (memberId == null) {
             throw new ApiException("Missing the required parameter 'memberId' when calling listLoyaltyCardTransactions(Async)");
         }
 
-        return listLoyaltyCardTransactionsCall(memberId, limit, page, _callback);
+        return listLoyaltyCardTransactionsCall(memberId, limit, _callback);
 
     }
 
@@ -2633,12 +2628,11 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, Integer page) throws ApiException {
-        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, page);
+    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit) throws ApiException {
+        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit);
         return localVarResp.getData();
     }
 
@@ -2647,12 +2641,11 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, page, null);
+    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2662,14 +2655,13 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, page, _callback);
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

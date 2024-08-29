@@ -2,7 +2,7 @@
 
 # LoyaltiesPointsExpirationExportCreateResponseBody
 
-This is an object representing an export of points expirations. 
+Object representing an export of points expirations. 
 
 ## Properties
 
@@ -15,8 +15,8 @@ This is an object representing an export of points expirations.
 |**channel** | [**ChannelEnum**](#ChannelEnum) | The channel through which the export was triggered. |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) | The type of exported object. |
 |**parameters** | [**LoyaltiesPointsExpirationExportCreateResponseBodyParameters**](LoyaltiesPointsExpirationExportCreateResponseBodyParameters.md) |  |
-|**result** | **Object** | Always null |
-|**userId** | **String** | The user_id identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. |
+|**result** | **Object** | Always null. |
+|**userId** | **String** | &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard. &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. |
 
 
 

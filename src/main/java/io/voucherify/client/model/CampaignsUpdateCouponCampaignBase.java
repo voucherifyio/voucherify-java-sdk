@@ -454,7 +454,7 @@ public class CampaignsUpdateCouponCampaignBase {
   }
 
    /**
-   * Defines the amount of time the campaign will be active in ISO 8601 format after publishing. For example, a campaign with a &#x60;duration&#x60; of &#x60;P24D&#x60; will be valid for a duration of 24 days.
+   * Defines the amount of time the vouchers will be active after publishing. The value is shown in the ISO 8601 format. For example, a voucher with the value of P24D will be valid for a duration of 24 days.
    * @return activityDurationAfterPublishing
   **/
   @javax.annotation.Nullable
