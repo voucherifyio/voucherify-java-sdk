@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseCustomEvent;
-import io.voucherify.client.model.EarningRuleBaseLoyalty;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
-import io.voucherify.client.model.EarningRuleBaseSegment;
-import io.voucherify.client.model.EarningRuleBaseSource;
+import io.voucherify.client.model.EarningRuleCustomEvent;
+import io.voucherify.client.model.EarningRuleLoyalty;
+import io.voucherify.client.model.EarningRuleLoyaltyTier;
+import io.voucherify.client.model.EarningRuleSegment;
+import io.voucherify.client.model.EarningRuleSource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -73,7 +73,7 @@ public class EarningRule {
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private EarningRuleBaseLoyalty loyalty;
+  private EarningRuleLoyalty loyalty;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -81,19 +81,19 @@ public class EarningRule {
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseCustomEvent customEvent;
+  private EarningRuleCustomEvent customEvent;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
-  private EarningRuleBaseSegment segment;
+  private EarningRuleSegment segment;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
-  private EarningRuleBaseLoyaltyTier loyaltyTier;
+  private EarningRuleLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private EarningRuleBaseSource source;
+  private EarningRuleSource source;
 
   /**
    * The type of the object represented by JSON. Default is earning_rule.
@@ -286,7 +286,7 @@ public class EarningRule {
   }
 
 
-  public EarningRule loyalty(EarningRuleBaseLoyalty loyalty) {
+  public EarningRule loyalty(EarningRuleLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -297,12 +297,12 @@ public class EarningRule {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyalty getLoyalty() {
+  public EarningRuleLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(EarningRuleBaseLoyalty loyalty) {
+  public void setLoyalty(EarningRuleLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 
@@ -328,7 +328,7 @@ public class EarningRule {
   }
 
 
-  public EarningRule customEvent(EarningRuleBaseCustomEvent customEvent) {
+  public EarningRule customEvent(EarningRuleCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -339,17 +339,17 @@ public class EarningRule {
    * @return customEvent
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseCustomEvent getCustomEvent() {
+  public EarningRuleCustomEvent getCustomEvent() {
     return customEvent;
   }
 
 
-  public void setCustomEvent(EarningRuleBaseCustomEvent customEvent) {
+  public void setCustomEvent(EarningRuleCustomEvent customEvent) {
     this.customEvent = customEvent;
   }
 
 
-  public EarningRule segment(EarningRuleBaseSegment segment) {
+  public EarningRule segment(EarningRuleSegment segment) {
     
     this.segment = segment;
     return this;
@@ -360,17 +360,17 @@ public class EarningRule {
    * @return segment
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSegment getSegment() {
+  public EarningRuleSegment getSegment() {
     return segment;
   }
 
 
-  public void setSegment(EarningRuleBaseSegment segment) {
+  public void setSegment(EarningRuleSegment segment) {
     this.segment = segment;
   }
 
 
-  public EarningRule loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public EarningRule loyaltyTier(EarningRuleLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -381,17 +381,17 @@ public class EarningRule {
    * @return loyaltyTier
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+  public EarningRuleLoyaltyTier getLoyaltyTier() {
     return loyaltyTier;
   }
 
 
-  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public void setLoyaltyTier(EarningRuleLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
   }
 
 
-  public EarningRule source(EarningRuleBaseSource source) {
+  public EarningRule source(EarningRuleSource source) {
     
     this.source = source;
     return this;
@@ -402,12 +402,12 @@ public class EarningRule {
    * @return source
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSource getSource() {
+  public EarningRuleSource getSource() {
     return source;
   }
 
 
-  public void setSource(EarningRuleBaseSource source) {
+  public void setSource(EarningRuleSource source) {
     this.source = source;
   }
 

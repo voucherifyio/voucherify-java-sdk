@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucher;
 import io.voucherify.client.model.OrderCalculatedNoCustomerData;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionChannel;
@@ -26,7 +27,6 @@ import io.voucherify.client.model.RedemptionGift;
 import io.voucherify.client.model.RedemptionLoyaltyCard;
 import io.voucherify.client.model.RedemptionRelatedRedemptions;
 import io.voucherify.client.model.RedemptionRewardResult;
-import io.voucherify.client.model.RedemptionVoucher;
 import io.voucherify.client.model.SimpleCustomer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -327,7 +327,7 @@ public class Redemption {
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private RedemptionVoucher voucher;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher;
 
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
@@ -726,7 +726,7 @@ public class Redemption {
   }
 
 
-  public Redemption voucher(RedemptionVoucher voucher) {
+  public Redemption voucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
     
     this.voucher = voucher;
     return this;
@@ -737,12 +737,12 @@ public class Redemption {
    * @return voucher
   **/
   @javax.annotation.Nullable
-  public RedemptionVoucher getVoucher() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher getVoucher() {
     return voucher;
   }
 
 
-  public void setVoucher(RedemptionVoucher voucher) {
+  public void setVoucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
     this.voucher = voucher;
   }
 

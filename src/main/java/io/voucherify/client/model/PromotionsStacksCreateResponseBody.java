@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.PromotionStackBase;
-import io.voucherify.client.model.PromotionStackBaseTiers;
+import io.voucherify.client.model.PromotionsStacksCreateResponseBodyTiers;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -64,7 +64,7 @@ public class PromotionsStacksCreateResponseBody {
 
   public static final String SERIALIZED_NAME_TIERS = "tiers";
   @SerializedName(SERIALIZED_NAME_TIERS)
-  private PromotionStackBaseTiers tiers;
+  private PromotionsStacksCreateResponseBodyTiers tiers;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -159,7 +159,7 @@ public class PromotionsStacksCreateResponseBody {
   }
 
 
-  public PromotionsStacksCreateResponseBody tiers(PromotionStackBaseTiers tiers) {
+  public PromotionsStacksCreateResponseBody tiers(PromotionsStacksCreateResponseBodyTiers tiers) {
     
     this.tiers = tiers;
     return this;
@@ -170,12 +170,12 @@ public class PromotionsStacksCreateResponseBody {
    * @return tiers
   **/
   @javax.annotation.Nullable
-  public PromotionStackBaseTiers getTiers() {
+  public PromotionsStacksCreateResponseBodyTiers getTiers() {
     return tiers;
   }
 
 
-  public void setTiers(PromotionStackBaseTiers tiers) {
+  public void setTiers(PromotionsStacksCreateResponseBodyTiers tiers) {
     this.tiers = tiers;
   }
 

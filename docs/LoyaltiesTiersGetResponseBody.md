@@ -11,7 +11,7 @@ Response body schema for **GET** `v1/loyalties/{campaignId}/tiers/{loyaltyTierId
 |**name** | **String** | Loyalty Tier name. |
 |**earningRules** | [**Map&lt;String, MappingPoints&gt;**](MappingPoints.md) | Contains a list of earning rule IDs and their points mapping for the given earning rule. |
 |**rewards** | [**Map&lt;String, MappingPoints&gt;**](MappingPoints.md) | Contains a list of reward IDs and their points mapping for the given reward. |
-|**points** | [**LoyaltyTierBasePoints**](LoyaltyTierBasePoints.md) |  |
+|**points** | [**LoyaltiesTiersGetResponseBodyPoints**](LoyaltiesTiersGetResponseBodyPoints.md) |  |
 |**id** | **String** | Unique loyalty tier ID. |
 |**campaignId** | **String** | Unique parent campaign ID. |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the loyalty tier. A set of key/value pairs that you can attach to a loyalty tier object. It can be useful for storing additional information about the loyalty tier in a structured format. |

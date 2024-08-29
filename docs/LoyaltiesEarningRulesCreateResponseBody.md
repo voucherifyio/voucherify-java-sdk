@@ -10,12 +10,12 @@ Response body schema for **POST** `v1/loyalties/{campaignId}/earning-rules`.
 |------------ | ------------- | ------------- |
 |**id** | **String** | Assigned by the Voucherify API, identifies the earning rule object. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the earning rule was created. The value is shown in the ISO 8601 format. |
-|**loyalty** | [**EarningRuleBaseLoyalty**](EarningRuleBaseLoyalty.md) |  |
+|**loyalty** | [**LoyaltiesEarningRulesCreateResponseBodyLoyalty**](LoyaltiesEarningRulesCreateResponseBodyLoyalty.md) |  |
 |**event** | **String** |  |
-|**customEvent** | [**EarningRuleBaseCustomEvent**](EarningRuleBaseCustomEvent.md) |  |
-|**segment** | [**EarningRuleBaseSegment**](EarningRuleBaseSegment.md) |  |
-|**loyaltyTier** | [**EarningRuleBaseLoyaltyTier**](EarningRuleBaseLoyaltyTier.md) |  |
-|**source** | [**EarningRuleBaseSource**](EarningRuleBaseSource.md) |  |
+|**customEvent** | [**LoyaltiesEarningRulesCreateResponseBodyCustomEvent**](LoyaltiesEarningRulesCreateResponseBodyCustomEvent.md) |  |
+|**segment** | [**LoyaltiesEarningRulesCreateResponseBodySegment**](LoyaltiesEarningRulesCreateResponseBodySegment.md) |  |
+|**loyaltyTier** | [**LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier**](LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier.md) |  |
+|**source** | [**LoyaltiesEarningRulesCreateResponseBodySource**](LoyaltiesEarningRulesCreateResponseBodySource.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is earning_rule. |
 |**automationId** | **String** | For internal use by Voucherify. |
 |**startDate** | **String** | Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default. |

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardAssignmentParametersParameters;
+import io.voucherify.client.model.RewardAssignmentParametersLoyalty;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -49,36 +49,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * RewardAssignmentParameters
+ * Defines the cost of the reward.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class RewardAssignmentParameters {
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardAssignmentParametersParameters parameters;
+  public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
+  @SerializedName(SERIALIZED_NAME_LOYALTY)
+  private RewardAssignmentParametersLoyalty loyalty;
 
   public RewardAssignmentParameters() {
   }
 
-  public RewardAssignmentParameters parameters(RewardAssignmentParametersParameters parameters) {
+  public RewardAssignmentParameters loyalty(RewardAssignmentParametersLoyalty loyalty) {
     
-    this.parameters = parameters;
+    this.loyalty = loyalty;
     return this;
   }
 
    /**
-   * Get parameters
-   * @return parameters
+   * Get loyalty
+   * @return loyalty
   **/
   @javax.annotation.Nullable
-  public RewardAssignmentParametersParameters getParameters() {
-    return parameters;
+  public RewardAssignmentParametersLoyalty getLoyalty() {
+    return loyalty;
   }
 
 
-  public void setParameters(RewardAssignmentParametersParameters parameters) {
-    this.parameters = parameters;
+  public void setLoyalty(RewardAssignmentParametersLoyalty loyalty) {
+    this.loyalty = loyalty;
   }
 
   /**
@@ -136,7 +136,7 @@ public class RewardAssignmentParameters {
       return false;
     }
     RewardAssignmentParameters rewardAssignmentParameters = (RewardAssignmentParameters) o;
-    return Objects.equals(this.parameters, rewardAssignmentParameters.parameters)&&
+    return Objects.equals(this.loyalty, rewardAssignmentParameters.loyalty)&&
         Objects.equals(this.additionalProperties, rewardAssignmentParameters.additionalProperties);
   }
 
@@ -146,7 +146,7 @@ public class RewardAssignmentParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameters, additionalProperties);
+    return Objects.hash(loyalty, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -160,7 +160,7 @@ public class RewardAssignmentParameters {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RewardAssignmentParameters {\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,7 +184,7 @@ public class RewardAssignmentParameters {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("parameters");
+    openapiFields.add("loyalty");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

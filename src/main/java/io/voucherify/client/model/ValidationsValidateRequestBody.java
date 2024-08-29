@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.Session;
-import io.voucherify.client.model.StackableValidateRedeemBaseRedeemablesItem;
 import io.voucherify.client.model.ValidationsValidateRequestBodyOptions;
+import io.voucherify.client.model.ValidationsValidateRequestBodyRedeemablesItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,9 +60,13 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ValidationsValidateRequestBody {
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private ValidationsValidateRequestBodyOptions options;
+
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<StackableValidateRedeemBaseRedeemablesItem> redeemables;
+  private List<ValidationsValidateRequestBodyRedeemablesItem> redeemables;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -84,20 +88,37 @@ public class ValidationsValidateRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ValidationsValidateRequestBodyOptions options;
-
   public ValidationsValidateRequestBody() {
   }
 
-  public ValidationsValidateRequestBody redeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public ValidationsValidateRequestBody options(ValidationsValidateRequestBodyOptions options) {
+    
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  public ValidationsValidateRequestBodyOptions getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(ValidationsValidateRequestBodyOptions options) {
+    this.options = options;
+  }
+
+
+  public ValidationsValidateRequestBody redeemables(List<ValidationsValidateRequestBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
     return this;
   }
 
-  public ValidationsValidateRequestBody addRedeemablesItem(StackableValidateRedeemBaseRedeemablesItem redeemablesItem) {
+  public ValidationsValidateRequestBody addRedeemablesItem(ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
     if (this.redeemables == null) {
       this.redeemables = new ArrayList<>();
     }
@@ -110,12 +131,12 @@ public class ValidationsValidateRequestBody {
    * @return redeemables
   **/
   @javax.annotation.Nullable
-  public List<StackableValidateRedeemBaseRedeemablesItem> getRedeemables() {
+  public List<ValidationsValidateRequestBodyRedeemablesItem> getRedeemables() {
     return redeemables;
   }
 
 
-  public void setRedeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public void setRedeemables(List<ValidationsValidateRequestBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
   }
 
@@ -224,27 +245,6 @@ public class ValidationsValidateRequestBody {
     this.metadata = metadata;
   }
 
-
-  public ValidationsValidateRequestBody options(ValidationsValidateRequestBodyOptions options) {
-    
-    this.options = options;
-    return this;
-  }
-
-   /**
-   * Get options
-   * @return options
-  **/
-  @javax.annotation.Nullable
-  public ValidationsValidateRequestBodyOptions getOptions() {
-    return options;
-  }
-
-
-  public void setOptions(ValidationsValidateRequestBodyOptions options) {
-    this.options = options;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +300,13 @@ public class ValidationsValidateRequestBody {
       return false;
     }
     ValidationsValidateRequestBody validationsValidateRequestBody = (ValidationsValidateRequestBody) o;
-    return Objects.equals(this.redeemables, validationsValidateRequestBody.redeemables) &&
+    return Objects.equals(this.options, validationsValidateRequestBody.options) &&
+        Objects.equals(this.redeemables, validationsValidateRequestBody.redeemables) &&
         Objects.equals(this.order, validationsValidateRequestBody.order) &&
         Objects.equals(this.customer, validationsValidateRequestBody.customer) &&
         Objects.equals(this.session, validationsValidateRequestBody.session) &&
         Objects.equals(this.trackingId, validationsValidateRequestBody.trackingId) &&
-        Objects.equals(this.metadata, validationsValidateRequestBody.metadata) &&
-        Objects.equals(this.options, validationsValidateRequestBody.options)&&
+        Objects.equals(this.metadata, validationsValidateRequestBody.metadata)&&
         Objects.equals(this.additionalProperties, validationsValidateRequestBody.additionalProperties);
   }
 
@@ -316,7 +316,7 @@ public class ValidationsValidateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemables, order, customer, session, trackingId, metadata, options, additionalProperties);
+    return Objects.hash(options, redeemables, order, customer, session, trackingId, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -330,13 +330,13 @@ public class ValidationsValidateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidationsValidateRequestBody {\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    redeemables: ").append(toIndentedString(redeemables)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -360,13 +360,13 @@ public class ValidationsValidateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("options");
     openapiFields.add("redeemables");
     openapiFields.add("order");
     openapiFields.add("customer");
     openapiFields.add("session");
     openapiFields.add("tracking_id");
     openapiFields.add("metadata");
-    openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

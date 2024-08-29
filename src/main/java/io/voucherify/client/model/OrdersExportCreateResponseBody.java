@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ExportOrderBaseParameters;
+import io.voucherify.client.model.OrdersExportCreateResponseBodyParameters;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -224,7 +224,7 @@ public class OrdersExportCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private ExportOrderBaseParameters parameters;
+  private OrdersExportCreateResponseBodyParameters parameters;
 
   public OrdersExportCreateResponseBody() {
   }
@@ -397,7 +397,7 @@ public class OrdersExportCreateResponseBody {
   }
 
 
-  public OrdersExportCreateResponseBody parameters(ExportOrderBaseParameters parameters) {
+  public OrdersExportCreateResponseBody parameters(OrdersExportCreateResponseBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -408,12 +408,12 @@ public class OrdersExportCreateResponseBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public ExportOrderBaseParameters getParameters() {
+  public OrdersExportCreateResponseBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(ExportOrderBaseParameters parameters) {
+  public void setParameters(OrdersExportCreateResponseBodyParameters parameters) {
     this.parameters = parameters;
   }
 

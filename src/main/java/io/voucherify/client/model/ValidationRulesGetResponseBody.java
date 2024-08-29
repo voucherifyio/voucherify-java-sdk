@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationRuleBaseApplicableTo;
-import io.voucherify.client.model.ValidationRuleBaseError;
+import io.voucherify.client.model.ValidationRulesGetResponseBodyApplicableTo;
+import io.voucherify.client.model.ValidationRulesGetResponseBodyError;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -66,11 +66,11 @@ public class ValidationRulesGetResponseBody {
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
-  private ValidationRuleBaseError error;
+  private ValidationRulesGetResponseBodyError error;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
-  private ValidationRuleBaseApplicableTo applicableTo;
+  private ValidationRulesGetResponseBodyApplicableTo applicableTo;
 
   /**
    * Type of validation rule.
@@ -342,7 +342,7 @@ public class ValidationRulesGetResponseBody {
    * Contains all the rule definitions for the validation rule. It is a set of key value pairs representing the rules and logic between the rules. The keys are numbered consecutively beginning from &#x60;1&#x60;. The values are objects containing the rule conditions.
    * @return rules
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Object getRules() {
     return rules;
   }
@@ -353,7 +353,7 @@ public class ValidationRulesGetResponseBody {
   }
 
 
-  public ValidationRulesGetResponseBody error(ValidationRuleBaseError error) {
+  public ValidationRulesGetResponseBody error(ValidationRulesGetResponseBodyError error) {
     
     this.error = error;
     return this;
@@ -364,17 +364,17 @@ public class ValidationRulesGetResponseBody {
    * @return error
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseError getError() {
+  public ValidationRulesGetResponseBodyError getError() {
     return error;
   }
 
 
-  public void setError(ValidationRuleBaseError error) {
+  public void setError(ValidationRulesGetResponseBodyError error) {
     this.error = error;
   }
 
 
-  public ValidationRulesGetResponseBody applicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public ValidationRulesGetResponseBody applicableTo(ValidationRulesGetResponseBodyApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
     return this;
@@ -385,12 +385,12 @@ public class ValidationRulesGetResponseBody {
    * @return applicableTo
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseApplicableTo getApplicableTo() {
+  public ValidationRulesGetResponseBodyApplicableTo getApplicableTo() {
     return applicableTo;
   }
 
 
-  public void setApplicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public void setApplicableTo(ValidationRulesGetResponseBodyApplicableTo applicableTo) {
     this.applicableTo = applicableTo;
   }
 
@@ -678,11 +678,6 @@ public class ValidationRulesGetResponseBody {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("rules");
-    openapiRequiredFields.add("applicable_to");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("context_type");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

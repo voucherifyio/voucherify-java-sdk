@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerBaseAddress;
+import io.voucherify.client.model.CustomersUpdateInBulkRequestBodyAddress;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -55,6 +55,10 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CustomersUpdateInBulkRequestBody {
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -81,18 +85,35 @@ public class CustomersUpdateInBulkRequestBody {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
+  private CustomersUpdateInBulkRequestBodyAddress address;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public CustomersUpdateInBulkRequestBody() {
   }
+
+  public CustomersUpdateInBulkRequestBody sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Unique customer source ID.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
 
   public CustomersUpdateInBulkRequestBody name(String name) {
     
@@ -220,7 +241,7 @@ public class CustomersUpdateInBulkRequestBody {
   }
 
 
-  public CustomersUpdateInBulkRequestBody address(CustomerBaseAddress address) {
+  public CustomersUpdateInBulkRequestBody address(CustomersUpdateInBulkRequestBodyAddress address) {
     
     this.address = address;
     return this;
@@ -231,12 +252,12 @@ public class CustomersUpdateInBulkRequestBody {
    * @return address
   **/
   @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
+  public CustomersUpdateInBulkRequestBodyAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(CustomerBaseAddress address) {
+  public void setAddress(CustomersUpdateInBulkRequestBodyAddress address) {
     this.address = address;
   }
 
@@ -259,27 +280,6 @@ public class CustomersUpdateInBulkRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
-  }
-
-
-  public CustomersUpdateInBulkRequestBody sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * Unique customer source ID.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
   }
 
   /**
@@ -337,15 +337,15 @@ public class CustomersUpdateInBulkRequestBody {
       return false;
     }
     CustomersUpdateInBulkRequestBody customersUpdateInBulkRequestBody = (CustomersUpdateInBulkRequestBody) o;
-    return Objects.equals(this.name, customersUpdateInBulkRequestBody.name) &&
+    return Objects.equals(this.sourceId, customersUpdateInBulkRequestBody.sourceId) &&
+        Objects.equals(this.name, customersUpdateInBulkRequestBody.name) &&
         Objects.equals(this.description, customersUpdateInBulkRequestBody.description) &&
         Objects.equals(this.email, customersUpdateInBulkRequestBody.email) &&
         Objects.equals(this.phone, customersUpdateInBulkRequestBody.phone) &&
         Objects.equals(this.birthday, customersUpdateInBulkRequestBody.birthday) &&
         Objects.equals(this.birthdate, customersUpdateInBulkRequestBody.birthdate) &&
         Objects.equals(this.address, customersUpdateInBulkRequestBody.address) &&
-        Objects.equals(this.metadata, customersUpdateInBulkRequestBody.metadata) &&
-        Objects.equals(this.sourceId, customersUpdateInBulkRequestBody.sourceId)&&
+        Objects.equals(this.metadata, customersUpdateInBulkRequestBody.metadata)&&
         Objects.equals(this.additionalProperties, customersUpdateInBulkRequestBody.additionalProperties);
   }
 
@@ -355,7 +355,7 @@ public class CustomersUpdateInBulkRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, email, phone, birthday, birthdate, address, metadata, sourceId, additionalProperties);
+    return Objects.hash(sourceId, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -369,6 +369,7 @@ public class CustomersUpdateInBulkRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomersUpdateInBulkRequestBody {\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -377,7 +378,6 @@ public class CustomersUpdateInBulkRequestBody {
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -401,6 +401,7 @@ public class CustomersUpdateInBulkRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("source_id");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("email");
@@ -409,7 +410,6 @@ public class CustomersUpdateInBulkRequestBody {
     openapiFields.add("birthdate");
     openapiFields.add("address");
     openapiFields.add("metadata");
-    openapiFields.add("source_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardAssignmentParametersParameters;
+import io.voucherify.client.model.RewardsAssignmentsCreateResponseBodyParameters;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -175,7 +175,7 @@ public class RewardsAssignmentsCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardAssignmentParametersParameters parameters;
+  private RewardsAssignmentsCreateResponseBodyParameters parameters;
 
   public RewardsAssignmentsCreateResponseBody() {
   }
@@ -327,7 +327,7 @@ public class RewardsAssignmentsCreateResponseBody {
   }
 
 
-  public RewardsAssignmentsCreateResponseBody parameters(RewardAssignmentParametersParameters parameters) {
+  public RewardsAssignmentsCreateResponseBody parameters(RewardsAssignmentsCreateResponseBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -338,12 +338,12 @@ public class RewardsAssignmentsCreateResponseBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public RewardAssignmentParametersParameters getParameters() {
+  public RewardsAssignmentsCreateResponseBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(RewardAssignmentParametersParameters parameters) {
+  public void setParameters(RewardsAssignmentsCreateResponseBodyParameters parameters) {
     this.parameters = parameters;
   }
 

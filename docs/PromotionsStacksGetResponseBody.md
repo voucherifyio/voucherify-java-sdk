@@ -9,7 +9,7 @@ Response body schema for **GET** `v1/promotions/{campaignId}/stacks/{stackId}`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**name** | **String** | Promotion stack name. |
-|**tiers** | [**PromotionStackBaseTiers**](PromotionStackBaseTiers.md) |  |
+|**tiers** | [**PromotionsStacksGetResponseBodyTiers**](PromotionsStacksGetResponseBodyTiers.md) |  |
 |**id** | **String** | Unique promotion stack ID. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was updated. The value is shown in the ISO 8601 format. |

@@ -16,7 +16,7 @@ Response body schema for **POST** `v1/orders/export`.
 |**result** | **Object** | Contains the URL of the CSV file. |
 |**userId** | **String** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE. |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) | The type of object to be exported. |
-|**parameters** | [**ExportOrderBaseParameters**](ExportOrderBaseParameters.md) |  |
+|**parameters** | [**OrdersExportCreateResponseBodyParameters**](OrdersExportCreateResponseBodyParameters.md) |  |
 
 
 

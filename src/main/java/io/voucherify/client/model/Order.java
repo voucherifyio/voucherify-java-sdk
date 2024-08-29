@@ -58,6 +58,14 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class Order {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   /**
    * The order status.
    */
@@ -149,16 +157,50 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public Order() {
   }
+
+  public Order id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public Order sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
 
   public Order status(StatusEnum status) {
     
@@ -377,48 +419,6 @@ public class Order {
     this.metadata = metadata;
   }
 
-
-  public Order id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public Order sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -474,7 +474,9 @@ public class Order {
       return false;
     }
     Order order = (Order) o;
-    return Objects.equals(this.status, order.status) &&
+    return Objects.equals(this.id, order.id) &&
+        Objects.equals(this.sourceId, order.sourceId) &&
+        Objects.equals(this.status, order.status) &&
         Objects.equals(this.amount, order.amount) &&
         Objects.equals(this.discountAmount, order.discountAmount) &&
         Objects.equals(this.initialAmount, order.initialAmount) &&
@@ -483,9 +485,7 @@ public class Order {
         Objects.equals(this.customerId, order.customerId) &&
         Objects.equals(this.referrer, order.referrer) &&
         Objects.equals(this.referrerId, order.referrerId) &&
-        Objects.equals(this.metadata, order.metadata) &&
-        Objects.equals(this.id, order.id) &&
-        Objects.equals(this.sourceId, order.sourceId)&&
+        Objects.equals(this.metadata, order.metadata)&&
         Objects.equals(this.additionalProperties, order.additionalProperties);
   }
 
@@ -495,7 +495,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, id, sourceId, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -509,6 +509,8 @@ public class Order {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Order {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
@@ -519,8 +521,6 @@ public class Order {
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -544,6 +544,8 @@ public class Order {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("source_id");
     openapiFields.add("status");
     openapiFields.add("amount");
     openapiFields.add("discount_amount");
@@ -554,8 +556,6 @@ public class Order {
     openapiFields.add("referrer");
     openapiFields.add("referrer_id");
     openapiFields.add("metadata");
-    openapiFields.add("id");
-    openapiFields.add("source_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

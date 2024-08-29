@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerBaseAddress;
+import io.voucherify.client.model.ReferrerAddress;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -55,6 +55,14 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class Referrer {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -81,22 +89,56 @@ public class Referrer {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
+  private ReferrerAddress address;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public Referrer() {
   }
+
+  public Referrer id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ID of an existing customer.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public Referrer sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
 
   public Referrer name(String name) {
     
@@ -224,7 +266,7 @@ public class Referrer {
   }
 
 
-  public Referrer address(CustomerBaseAddress address) {
+  public Referrer address(ReferrerAddress address) {
     
     this.address = address;
     return this;
@@ -235,12 +277,12 @@ public class Referrer {
    * @return address
   **/
   @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
+  public ReferrerAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(CustomerBaseAddress address) {
+  public void setAddress(ReferrerAddress address) {
     this.address = address;
   }
 
@@ -263,48 +305,6 @@ public class Referrer {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
-  }
-
-
-  public Referrer id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of an existing customer.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public Referrer sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
   }
 
   /**
@@ -362,16 +362,16 @@ public class Referrer {
       return false;
     }
     Referrer referrer = (Referrer) o;
-    return Objects.equals(this.name, referrer.name) &&
+    return Objects.equals(this.id, referrer.id) &&
+        Objects.equals(this.sourceId, referrer.sourceId) &&
+        Objects.equals(this.name, referrer.name) &&
         Objects.equals(this.description, referrer.description) &&
         Objects.equals(this.email, referrer.email) &&
         Objects.equals(this.phone, referrer.phone) &&
         Objects.equals(this.birthday, referrer.birthday) &&
         Objects.equals(this.birthdate, referrer.birthdate) &&
         Objects.equals(this.address, referrer.address) &&
-        Objects.equals(this.metadata, referrer.metadata) &&
-        Objects.equals(this.id, referrer.id) &&
-        Objects.equals(this.sourceId, referrer.sourceId)&&
+        Objects.equals(this.metadata, referrer.metadata)&&
         Objects.equals(this.additionalProperties, referrer.additionalProperties);
   }
 
@@ -381,7 +381,7 @@ public class Referrer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, email, phone, birthday, birthdate, address, metadata, id, sourceId, additionalProperties);
+    return Objects.hash(id, sourceId, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -395,6 +395,8 @@ public class Referrer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Referrer {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -403,8 +405,6 @@ public class Referrer {
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -428,6 +428,8 @@ public class Referrer {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("source_id");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("email");
@@ -436,8 +438,6 @@ public class Referrer {
     openapiFields.add("birthdate");
     openapiFields.add("address");
     openapiFields.add("metadata");
-    openapiFields.add("id");
-    openapiFields.add("source_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
