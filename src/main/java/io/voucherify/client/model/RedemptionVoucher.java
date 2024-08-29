@@ -21,10 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
-import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift;
-import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard;
-import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish;
-import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption;
+import io.voucherify.client.model.RedemptionVoucherGift;
+import io.voucherify.client.model.RedemptionVoucherLoyaltyCard;
+import io.voucherify.client.model.RedemptionVoucherPublish;
+import io.voucherify.client.model.RedemptionVoucherRedemption;
 import io.voucherify.client.model.SimpleCustomer;
 import io.voucherify.client.model.ValidationRulesAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
@@ -66,7 +66,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
+public class RedemptionVoucher {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -150,11 +150,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift gift;
+  private RedemptionVoucherGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard loyaltyCard;
+  private RedemptionVoucherLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -275,11 +275,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish publish;
+  private RedemptionVoucherPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption redemption;
+  private RedemptionVoucherRedemption redemption;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -293,10 +293,10 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   @SerializedName(SERIALIZED_NAME_HOLDER)
   private SimpleCustomer holder;
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher() {
+  public RedemptionVoucher() {
   }
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher id(String id) {
+  public RedemptionVoucher id(String id) {
     
     this.id = id;
     return this;
@@ -317,7 +317,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher code(String code) {
+  public RedemptionVoucher code(String code) {
     
     this.code = code;
     return this;
@@ -338,7 +338,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher campaign(String campaign) {
+  public RedemptionVoucher campaign(String campaign) {
     
     this.campaign = campaign;
     return this;
@@ -359,7 +359,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher campaignId(String campaignId) {
+  public RedemptionVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
     return this;
@@ -380,7 +380,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher category(String category) {
+  public RedemptionVoucher category(String category) {
     
     this.category = category;
     return this;
@@ -401,7 +401,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categoryId(String categoryId) {
+  public RedemptionVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
     return this;
@@ -422,7 +422,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher type(TypeEnum type) {
+  public RedemptionVoucher type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -443,7 +443,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher discount(Discount discount) {
+  public RedemptionVoucher discount(Discount discount) {
     
     this.discount = discount;
     return this;
@@ -464,7 +464,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher gift(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift gift) {
+  public RedemptionVoucher gift(RedemptionVoucherGift gift) {
     
     this.gift = gift;
     return this;
@@ -475,17 +475,17 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift getGift() {
+  public RedemptionVoucherGift getGift() {
     return gift;
   }
 
 
-  public void setGift(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift gift) {
+  public void setGift(RedemptionVoucherGift gift) {
     this.gift = gift;
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher loyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard loyaltyCard) {
+  public RedemptionVoucher loyaltyCard(RedemptionVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -496,17 +496,17 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard getLoyaltyCard() {
+  public RedemptionVoucherLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(RedemptionVoucherLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher startDate(OffsetDateTime startDate) {
+  public RedemptionVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
     return this;
@@ -527,7 +527,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher expirationDate(OffsetDateTime expirationDate) {
+  public RedemptionVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
     return this;
@@ -548,7 +548,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
+  public RedemptionVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
     return this;
@@ -569,13 +569,13 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+  public RedemptionVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
     return this;
   }
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+  public RedemptionVoucher addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
     if (this.validityDayOfWeek == null) {
       this.validityDayOfWeek = new ArrayList<>();
     }
@@ -598,7 +598,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityHours(ValidityHours validityHours) {
+  public RedemptionVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
     return this;
@@ -619,7 +619,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher active(Boolean active) {
+  public RedemptionVoucher active(Boolean active) {
     
     this.active = active;
     return this;
@@ -640,7 +640,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher additionalInfo(String additionalInfo) {
+  public RedemptionVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
     return this;
@@ -661,7 +661,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher metadata(Object metadata) {
+  public RedemptionVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -682,7 +682,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher assets(VoucherAssets assets) {
+  public RedemptionVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
     return this;
@@ -703,7 +703,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher isReferralCode(Boolean isReferralCode) {
+  public RedemptionVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
     return this;
@@ -724,7 +724,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher createdAt(OffsetDateTime createdAt) {
+  public RedemptionVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -745,7 +745,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher updatedAt(OffsetDateTime updatedAt) {
+  public RedemptionVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
     return this;
@@ -766,7 +766,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher holderId(String holderId) {
+  public RedemptionVoucher holderId(String holderId) {
     
     this.holderId = holderId;
     return this;
@@ -787,7 +787,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher referrerId(String referrerId) {
+  public RedemptionVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
     return this;
@@ -808,7 +808,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher _object(String _object) {
+  public RedemptionVoucher _object(String _object) {
     
     this._object = _object;
     return this;
@@ -829,7 +829,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher publish(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish publish) {
+  public RedemptionVoucher publish(RedemptionVoucherPublish publish) {
     
     this.publish = publish;
     return this;
@@ -840,17 +840,17 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish getPublish() {
+  public RedemptionVoucherPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish publish) {
+  public void setPublish(RedemptionVoucherPublish publish) {
     this.publish = publish;
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher redemption(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption redemption) {
+  public RedemptionVoucher redemption(RedemptionVoucherRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -861,23 +861,23 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption getRedemption() {
+  public RedemptionVoucherRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption redemption) {
+  public void setRedemption(RedemptionVoucherRedemption redemption) {
     this.redemption = redemption;
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categories(List<Category> categories) {
+  public RedemptionVoucher categories(List<Category> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher addCategoriesItem(Category categoriesItem) {
+  public RedemptionVoucher addCategoriesItem(Category categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -900,7 +900,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+  public RedemptionVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
     return this;
@@ -921,7 +921,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher holder(SimpleCustomer holder) {
+  public RedemptionVoucher holder(SimpleCustomer holder) {
     
     this.holder = holder;
     return this;
@@ -954,9 +954,9 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the LoyaltiesMembersRedemptionRedeemResponseBodyVoucher instance itself
+   * @return the RedemptionVoucher instance itself
    */
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher putAdditionalProperty(String key, Object value) {
+  public RedemptionVoucher putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -995,38 +995,38 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoyaltiesMembersRedemptionRedeemResponseBodyVoucher loyaltiesMembersRedemptionRedeemResponseBodyVoucher = (LoyaltiesMembersRedemptionRedeemResponseBodyVoucher) o;
-    return Objects.equals(this.id, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.id) &&
-        Objects.equals(this.code, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.code) &&
-        Objects.equals(this.campaign, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.campaign) &&
-        Objects.equals(this.campaignId, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.campaignId) &&
-        Objects.equals(this.category, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.category) &&
-        Objects.equals(this.categoryId, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.categoryId) &&
-        Objects.equals(this.type, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.type) &&
-        Objects.equals(this.discount, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.discount) &&
-        Objects.equals(this.gift, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.gift) &&
-        Objects.equals(this.loyaltyCard, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.loyaltyCard) &&
-        Objects.equals(this.startDate, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.startDate) &&
-        Objects.equals(this.expirationDate, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.expirationDate) &&
-        Objects.equals(this.validityTimeframe, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.validityTimeframe) &&
-        Objects.equals(this.validityDayOfWeek, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.validityDayOfWeek) &&
-        Objects.equals(this.validityHours, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.validityHours) &&
-        Objects.equals(this.active, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.active) &&
-        Objects.equals(this.additionalInfo, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.additionalInfo) &&
-        Objects.equals(this.metadata, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.metadata) &&
-        Objects.equals(this.assets, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.assets) &&
-        Objects.equals(this.isReferralCode, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.isReferralCode) &&
-        Objects.equals(this.createdAt, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.createdAt) &&
-        Objects.equals(this.updatedAt, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.updatedAt) &&
-        Objects.equals(this.holderId, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.holderId) &&
-        Objects.equals(this.referrerId, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.referrerId) &&
-        Objects.equals(this._object, loyaltiesMembersRedemptionRedeemResponseBodyVoucher._object) &&
-        Objects.equals(this.publish, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.publish) &&
-        Objects.equals(this.redemption, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.redemption) &&
-        Objects.equals(this.categories, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.categories) &&
-        Objects.equals(this.validationRulesAssignments, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.validationRulesAssignments) &&
-        Objects.equals(this.holder, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.holder)&&
-        Objects.equals(this.additionalProperties, loyaltiesMembersRedemptionRedeemResponseBodyVoucher.additionalProperties);
+    RedemptionVoucher redemptionVoucher = (RedemptionVoucher) o;
+    return Objects.equals(this.id, redemptionVoucher.id) &&
+        Objects.equals(this.code, redemptionVoucher.code) &&
+        Objects.equals(this.campaign, redemptionVoucher.campaign) &&
+        Objects.equals(this.campaignId, redemptionVoucher.campaignId) &&
+        Objects.equals(this.category, redemptionVoucher.category) &&
+        Objects.equals(this.categoryId, redemptionVoucher.categoryId) &&
+        Objects.equals(this.type, redemptionVoucher.type) &&
+        Objects.equals(this.discount, redemptionVoucher.discount) &&
+        Objects.equals(this.gift, redemptionVoucher.gift) &&
+        Objects.equals(this.loyaltyCard, redemptionVoucher.loyaltyCard) &&
+        Objects.equals(this.startDate, redemptionVoucher.startDate) &&
+        Objects.equals(this.expirationDate, redemptionVoucher.expirationDate) &&
+        Objects.equals(this.validityTimeframe, redemptionVoucher.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, redemptionVoucher.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, redemptionVoucher.validityHours) &&
+        Objects.equals(this.active, redemptionVoucher.active) &&
+        Objects.equals(this.additionalInfo, redemptionVoucher.additionalInfo) &&
+        Objects.equals(this.metadata, redemptionVoucher.metadata) &&
+        Objects.equals(this.assets, redemptionVoucher.assets) &&
+        Objects.equals(this.isReferralCode, redemptionVoucher.isReferralCode) &&
+        Objects.equals(this.createdAt, redemptionVoucher.createdAt) &&
+        Objects.equals(this.updatedAt, redemptionVoucher.updatedAt) &&
+        Objects.equals(this.holderId, redemptionVoucher.holderId) &&
+        Objects.equals(this.referrerId, redemptionVoucher.referrerId) &&
+        Objects.equals(this._object, redemptionVoucher._object) &&
+        Objects.equals(this.publish, redemptionVoucher.publish) &&
+        Objects.equals(this.redemption, redemptionVoucher.redemption) &&
+        Objects.equals(this.categories, redemptionVoucher.categories) &&
+        Objects.equals(this.validationRulesAssignments, redemptionVoucher.validationRulesAssignments) &&
+        Objects.equals(this.holder, redemptionVoucher.holder)&&
+        Objects.equals(this.additionalProperties, redemptionVoucher.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1048,7 +1048,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {\n");
+    sb.append("class RedemptionVoucher {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
@@ -1141,16 +1141,16 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LoyaltiesMembersRedemptionRedeemResponseBodyVoucher.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LoyaltiesMembersRedemptionRedeemResponseBodyVoucher' and its subtypes
+       if (!RedemptionVoucher.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RedemptionVoucher' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LoyaltiesMembersRedemptionRedeemResponseBodyVoucher> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher.class));
+       final TypeAdapter<RedemptionVoucher> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RedemptionVoucher.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesMembersRedemptionRedeemResponseBodyVoucher>() {
+       return (TypeAdapter<T>) new TypeAdapter<RedemptionVoucher>() {
            @Override
-           public void write(JsonWriter out, LoyaltiesMembersRedemptionRedeemResponseBodyVoucher value) throws IOException {
+           public void write(JsonWriter out, RedemptionVoucher value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -1173,11 +1173,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
            }
 
            @Override
-           public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher read(JsonReader in) throws IOException {
+           public RedemptionVoucher read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             LoyaltiesMembersRedemptionRedeemResponseBodyVoucher instance = thisAdapter.fromJsonTree(jsonObj);
+             RedemptionVoucher instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -1204,18 +1204,18 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
  /**
-  * Create an instance of LoyaltiesMembersRedemptionRedeemResponseBodyVoucher given an JSON string
+  * Create an instance of RedemptionVoucher given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of LoyaltiesMembersRedemptionRedeemResponseBodyVoucher
-  * @throws IOException if the JSON string is invalid with respect to LoyaltiesMembersRedemptionRedeemResponseBodyVoucher
+  * @return An instance of RedemptionVoucher
+  * @throws IOException if the JSON string is invalid with respect to RedemptionVoucher
   */
-  public static LoyaltiesMembersRedemptionRedeemResponseBodyVoucher fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LoyaltiesMembersRedemptionRedeemResponseBodyVoucher.class);
+  public static RedemptionVoucher fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RedemptionVoucher.class);
   }
 
  /**
-  * Convert an instance of LoyaltiesMembersRedemptionRedeemResponseBodyVoucher to an JSON string
+  * Convert an instance of RedemptionVoucher to an JSON string
   *
   * @return JSON string
   */

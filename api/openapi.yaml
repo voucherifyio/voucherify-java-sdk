@@ -30028,12 +30028,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -30056,7 +30194,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -30089,12 +30227,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -30117,7 +30393,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -30151,12 +30427,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -30179,7 +30593,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -35715,12 +36129,150 @@ components:
           customer: ""
           object: reward
         gift:
-          amount: 0
+          amount: 5
         metadata: "{}"
         amount: 10000
         failure_code: customer_rules_violated
         related_object_type: voucher
-        voucher: null
+        voucher:
+          gift:
+            amount: 10000
+            balance: 500
+            effect: APPLY_TO_ORDER
+          metadata: "{}"
+          code: WVPblOYX
+          referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          validation_rules_assignments:
+            total: 0
+            data:
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            data_ref: data
+            object: list
+          validity_hours:
+            daily:
+            - days_of_week:
+              - 2
+              - 2
+              start_time: 12:00
+              expiration_time: 14:00
+            - days_of_week:
+              - 2
+              - 2
+              start_time: 12:00
+              expiration_time: 14:00
+          discount:
+            fixed_amount_formula: fixed_amount_formula
+            product: ""
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
+            units:
+            - product: ""
+              unit_off: 5.962133916683182
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku: ""
+              unit_off_formula: unit_off_formula
+            - product: ""
+              unit_off: 5.962133916683182
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku: ""
+              unit_off_formula: unit_off_formula
+            type: AMOUNT
+            unit_type: unit_type
+            unit_off_formula: unit_off_formula
+            percent_off_formula: percent_off_formula
+            amount_limit: 2.3021358869347655
+            amount_off_formula: amount_off_formula
+            effect: APPLY_TO_ORDER
+            is_dynamic: true
+            percent_off: 5.637376656633329
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            amount_off: 0.8008281904610115
+          created_at: 2021-12-22T10:13:06.487Z
+          type: GIFT_VOUCHER
+          expiration_date: 2021-12-31T00:00:00Z
+          is_referral_code: true
+          assets:
+            qr:
+              id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+              url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+            barcode:
+              id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+              url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+          category_id: cat_0bb343dee3cdb5ec0c
+          updated_at: 2021-12-22T10:14:45.316Z
+          id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 7
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 7
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          loyalty_card:
+            next_expiration_date: 2023-05-30T00:00:00.000+00:00
+            balance: 6970
+            next_expiration_points: 0
+            points: 7000
+          campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          validity_timeframe:
+            duration: PT1H
+            interval: P2D
+          start_date: 2021-12-01T00:00:00Z
+          active: true
+          holder:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
+          validity_day_of_week:
+          - 6
+          - 6
+          redemption:
+            quantity: 1
+            redeemed_quantity: 1
+            redeemed_points: 100000
+            url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+            object: list
+          additional_info: additional_info
+          holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+          publish:
+            count: 0
+            url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+            object: list
+          campaign: Gift Card Campaign
+          category: category
+          object: voucher
         channel:
           channel_type: USER
           channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -35743,7 +36295,7 @@ components:
         id: r_0bc92f81a6801f9bca
         customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
         loyalty_card:
-          points: 6
+          points: 5
         tracking_id: tracking_id
         object: redemption
         status: SUCCEEDED
@@ -35848,7 +36400,7 @@ components:
           nullable: true
           type: string
         voucher:
-          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBody_voucher'
+          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyVoucher'
         promotion_tier:
           allOf:
           - $ref: '#/components/schemas/PromotionTier'
@@ -46767,12 +47319,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -46795,7 +47485,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -46828,12 +47518,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -46856,7 +47684,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -46890,12 +47718,150 @@ components:
             customer: ""
             object: reward
           gift:
-            amount: 0
+            amount: 5
           metadata: "{}"
           amount: 10000
           failure_code: customer_rules_violated
           related_object_type: voucher
-          voucher: null
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 2
+                - 2
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product: ""
+              fixed_amount: 7.061401241503109
+              aggregated_amount_limit: 6
+              unit_off: 1
+              units:
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              - product: ""
+                unit_off: 5.962133916683182
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku: ""
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 2.3021358869347655
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 5.637376656633329
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 0.8008281904610115
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 7
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 0
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 1
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
           channel:
             channel_type: USER
             channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -46918,7 +47884,7 @@ components:
           id: r_0bc92f81a6801f9bca
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 5
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -60525,12 +61491,150 @@ components:
           customer: ""
           object: reward
         gift:
-          amount: 0
+          amount: 5
         metadata: "{}"
         amount: 10000
         failure_code: customer_rules_violated
         related_object_type: voucher
-        voucher: null
+        voucher:
+          gift:
+            amount: 10000
+            balance: 500
+            effect: APPLY_TO_ORDER
+          metadata: "{}"
+          code: WVPblOYX
+          referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          validation_rules_assignments:
+            total: 0
+            data:
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            data_ref: data
+            object: list
+          validity_hours:
+            daily:
+            - days_of_week:
+              - 2
+              - 2
+              start_time: 12:00
+              expiration_time: 14:00
+            - days_of_week:
+              - 2
+              - 2
+              start_time: 12:00
+              expiration_time: 14:00
+          discount:
+            fixed_amount_formula: fixed_amount_formula
+            product: ""
+            fixed_amount: 7.061401241503109
+            aggregated_amount_limit: 6
+            unit_off: 1
+            units:
+            - product: ""
+              unit_off: 5.962133916683182
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku: ""
+              unit_off_formula: unit_off_formula
+            - product: ""
+              unit_off: 5.962133916683182
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku: ""
+              unit_off_formula: unit_off_formula
+            type: AMOUNT
+            unit_type: unit_type
+            unit_off_formula: unit_off_formula
+            percent_off_formula: percent_off_formula
+            amount_limit: 2.3021358869347655
+            amount_off_formula: amount_off_formula
+            effect: APPLY_TO_ORDER
+            is_dynamic: true
+            percent_off: 5.637376656633329
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            amount_off: 0.8008281904610115
+          created_at: 2021-12-22T10:13:06.487Z
+          type: GIFT_VOUCHER
+          expiration_date: 2021-12-31T00:00:00Z
+          is_referral_code: true
+          assets:
+            qr:
+              id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+              url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+            barcode:
+              id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+              url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+          category_id: cat_0bb343dee3cdb5ec0c
+          updated_at: 2021-12-22T10:14:45.316Z
+          id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 7
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 7
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          loyalty_card:
+            next_expiration_date: 2023-05-30T00:00:00.000+00:00
+            balance: 6970
+            next_expiration_points: 0
+            points: 7000
+          campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          validity_timeframe:
+            duration: PT1H
+            interval: P2D
+          start_date: 2021-12-01T00:00:00Z
+          active: true
+          holder:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
+          validity_day_of_week:
+          - 6
+          - 6
+          redemption:
+            quantity: 1
+            redeemed_quantity: 1
+            redeemed_points: 100000
+            url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+            object: list
+          additional_info: additional_info
+          holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+          publish:
+            count: 0
+            url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+            object: list
+          campaign: Gift Card Campaign
+          category: category
+          object: voucher
         channel:
           channel_type: USER
           channel_id: user_g24UoRO3Caxu7FCT4n5tpYEa3zUG0FrH
@@ -60553,7 +61657,7 @@ components:
         id: r_0bc92f81a6801f9bca
         customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
         loyalty_card:
-          points: 6
+          points: 5
         tracking_id: tracking_id
         object: redemption
         status: SUCCEEDED
@@ -60658,7 +61762,7 @@ components:
           nullable: true
           type: string
         voucher:
-          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBody_voucher'
+          $ref: '#/components/schemas/RedemptionVoucher'
         promotion_tier:
           allOf:
           - $ref: '#/components/schemas/PromotionTier'
@@ -62574,13 +63678,6 @@ components:
         barcode:
           $ref: '#/components/schemas/VoucherAssetsBarcode'
       title: VoucherAssets
-      type: object
-    VoucherHolder:
-      description: This is an object representing a voucher holder.
-      properties:
-        holder:
-          $ref: '#/components/schemas/SimpleCustomer'
-      title: VoucherHolder
       type: object
     VoucherTransaction:
       example:
@@ -70384,15 +71481,449 @@ components:
           type: string
       title: LoyaltiesMembersRedemptionRedeemResponseBodyChannel
       type: object
-    LoyaltiesMembersRedemptionRedeemResponseBody_voucher:
-      allOf:
-      - $ref: '#/components/schemas/Voucher'
-      - $ref: '#/components/schemas/VoucherHolder'
+    LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift:
+      description: Object representing gift parameters. Child attributes are present
+        only if `type` is `GIFT_VOUCHER`. Defaults to `null`.
+      example:
+        amount: 10000
+        balance: 500
+        effect: APPLY_TO_ORDER
+      nullable: true
+      properties:
+        amount:
+          description: "Total gift card income over the lifetime of the card. Value\
+            \ is multiplied by 100 to precisely represent 2 decimal places. For example,\
+            \ $100 amount is written as 10000."
+          example: 10000
+          nullable: true
+          type: integer
+        balance:
+          description: "Available funds. Value is multiplied by 100 to precisely represent\
+            \ 2 decimal places. For example, $100 amount is written as 10000."
+          example: 500
+          nullable: true
+          type: integer
+        effect:
+          description: Defines how the credits are applied to the customer's order.
+          enum:
+          - APPLY_TO_ORDER
+          - APPLY_TO_ITEMS
+          nullable: true
+          type: string
+      title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift
+      type: object
+    LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard:
+      description: Object representing loyalty card parameters. Child attributes are
+        present only if `type` is `LOYALTY_CARD`. Defaults to `null`.
+      example:
+        next_expiration_date: 2023-05-30T00:00:00.000+00:00
+        balance: 6970
+        next_expiration_points: 0
+        points: 7000
+      nullable: true
+      properties:
+        points:
+          description: Total points incurred over the lifespan of the loyalty card.
+          example: 7000
+          nullable: true
+          type: integer
+        balance:
+          description: Points available for reward redemption.
+          example: 6970
+          nullable: true
+          type: integer
+        next_expiration_date:
+          description: The next closest date when the next set of points are due to
+            expire.
+          example: 2023-05-30
+          format: date
+          nullable: true
+          type: string
+        next_expiration_points:
+          description: The amount of points that are set to expire next.
+          nullable: true
+          type: integer
+      title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard
+      type: object
+    LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish:
+      description: "Stores a summary of publication events: an event counter and endpoint\
+        \ to return details of each event. Publication is an assignment of a code\
+        \ to a customer, e.g. through a distribution."
+      example:
+        count: 0
+        url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+        object: list
+      nullable: true
+      properties:
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ `url` attribute."
+          nullable: true
+          type: string
+        count:
+          description: Publication events counter.
+          example: 0
+          nullable: true
+          type: integer
+        url:
+          description: "The endpoint where this list of publications can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/publications`"
+          example: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          nullable: true
+          type: string
+      title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish
+      type: object
+    LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption:
+      description: Stores a summary of redemptions that have been applied to the voucher.
+      example:
+        quantity: 1
+        redeemed_quantity: 1
+        redeemed_points: 100000
+        url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+        object: list
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
+        redeemed_quantity:
+          description: How many times a voucher has already been redeemed.
+          example: 1
+          nullable: true
+          type: integer
+        redeemed_points:
+          description: Total loyalty points redeemed.
+          example: 100000
+          nullable: true
+          type: integer
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ url attribute."
+          nullable: true
+          type: string
+        url:
+          description: "The endpoint where this list of redemptions can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/redemptions`"
+          example: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          nullable: true
+          type: string
+      title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption
+      type: object
+    LoyaltiesMembersRedemptionRedeemResponseBodyVoucher:
       description: Defines the details of the voucher being redeemed.
+      example:
+        gift:
+          amount: 10000
+          balance: 500
+          effect: APPLY_TO_ORDER
+        metadata: "{}"
+        code: WVPblOYX
+        referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+        validation_rules_assignments:
+          total: 0
+          data:
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          data_ref: data
+          object: list
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product: ""
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
+          units:
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 2.3021358869347655
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 5.637376656633329
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 0.8008281904610115
+        created_at: 2021-12-22T10:13:06.487Z
+        type: GIFT_VOUCHER
+        expiration_date: 2021-12-31T00:00:00Z
+        is_referral_code: true
+        assets:
+          qr:
+            id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+            url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+          barcode:
+            id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+            url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+        category_id: cat_0bb343dee3cdb5ec0c
+        updated_at: 2021-12-22T10:14:45.316Z
+        id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+        categories:
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 7
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 7
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        loyalty_card:
+          next_expiration_date: 2023-05-30T00:00:00.000+00:00
+          balance: 6970
+          next_expiration_points: 0
+          points: 7000
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2021-12-01T00:00:00Z
+        active: true
+        holder:
+          metadata: "{}"
+          name: name
+          id: id
+          source_id: source_id
+          email: email
+          object: customer
+        validity_day_of_week:
+        - 6
+        - 6
+        redemption:
+          quantity: 1
+          redeemed_quantity: 1
+          redeemed_points: 100000
+          url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          object: list
+        additional_info: additional_info
+        holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+        publish:
+          count: 0
+          url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          object: list
+        campaign: Gift Card Campaign
+        category: category
+        object: voucher
+      nullable: true
+      properties:
+        id:
+          description: "Assigned by the Voucherify API, identifies the voucher."
+          example: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          nullable: true
+          type: string
+        code:
+          description: "A code that identifies a voucher. Pattern can use all letters\
+            \ of the English alphabet, Arabic numerals, and special characters."
+          example: WVPblOYX
+          nullable: true
+          type: string
+        campaign:
+          description: "A unique campaign name, identifies the voucher's parent campaign."
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: "Assigned by the Voucherify API, identifies the voucher's parent\
+            \ campaign."
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category:
+          description: Tag defining the category that this voucher belongs to. Useful
+            when listing vouchers using the List Vouchers endpoint.
+          nullable: true
+          type: string
+        category_id:
+          description: Unique category ID assigned by Voucherify.
+          example: cat_0bb343dee3cdb5ec0c
+          nullable: true
+          type: string
+        type:
+          description: 'Defines the type of the voucher. '
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        discount:
+          $ref: '#/components/schemas/Discount'
+        gift:
+          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift'
+        loyalty_card:
+          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard'
+        start_date:
+          description: 'Activation timestamp defines when the code starts to be active
+            in ISO 8601 format. Voucher is *inactive before* this date. '
+          example: 2021-12-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the code expires in ISO 8601
+            format.  Voucher is *inactive after* this date.
+          example: 2021-12-31T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            title: ValidityDayOfWeekItem
+            type: integer
+          title: ValidityDayOfWeek
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
+          nullable: true
+          type: boolean
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the code. A set of key/value pairs that you can attach to a voucher object.
+            It can be useful for storing additional information about the voucher
+            in a structured format.
+          nullable: true
+          title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherMetadata
+          type: object
+        assets:
+          $ref: '#/components/schemas/VoucherAssets'
+        is_referral_code:
+          description: Flag indicating whether this voucher is a referral code; `true`
+            for campaign type `REFERRAL_PROGRAM`.
+          nullable: true
+          type: boolean
+        created_at:
+          description: Timestamp representing the date and time when the voucher was
+            created. The value is shown in the ISO 8601 format.
+          example: 2021-12-22T10:13:06.487Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the voucher was
+            last updated in ISO 8601 format.
+          example: 2021-12-22T10:14:45.316Z
+          format: date-time
+          nullable: true
+          type: string
+        holder_id:
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
+          example: cust_eWgXlBBiY6THFRJwX45Iakv4
+          nullable: true
+          type: string
+        referrer_id:
+          description: Unique identifier of the referring person.
+          example: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          nullable: true
+          type: string
+        object:
+          default: voucher
+          description: The type of the object represented by JSON. Default is `voucher`.
+          nullable: true
+          type: string
+        publish:
+          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish'
+        redemption:
+          $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucherCategories
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
+        holder:
+          $ref: '#/components/schemas/SimpleCustomer'
+      title: LoyaltiesMembersRedemptionRedeemResponseBodyVoucher
+      type: object
     LoyaltiesMembersRedemptionRedeemResponseBodyGift:
       description: Contains the amount subtracted from the gift card for the redemption.
       example:
-        amount: 0
+        amount: 5
       nullable: true
       properties:
         amount:
@@ -70407,7 +71938,7 @@ components:
       description: Contains the number of points subtracted from the loyalty card
         for the redemption.
       example:
-        points: 6
+        points: 5
       nullable: true
       properties:
         points:
@@ -81419,10 +82950,449 @@ components:
           type: string
       title: RedemptionChannel
       type: object
+    RedemptionVoucherGift:
+      description: Object representing gift parameters. Child attributes are present
+        only if `type` is `GIFT_VOUCHER`. Defaults to `null`.
+      example:
+        amount: 10000
+        balance: 500
+        effect: APPLY_TO_ORDER
+      nullable: true
+      properties:
+        amount:
+          description: "Total gift card income over the lifetime of the card. Value\
+            \ is multiplied by 100 to precisely represent 2 decimal places. For example,\
+            \ $100 amount is written as 10000."
+          example: 10000
+          nullable: true
+          type: integer
+        balance:
+          description: "Available funds. Value is multiplied by 100 to precisely represent\
+            \ 2 decimal places. For example, $100 amount is written as 10000."
+          example: 500
+          nullable: true
+          type: integer
+        effect:
+          description: Defines how the credits are applied to the customer's order.
+          enum:
+          - APPLY_TO_ORDER
+          - APPLY_TO_ITEMS
+          nullable: true
+          type: string
+      title: RedemptionVoucherGift
+      type: object
+    RedemptionVoucherLoyaltyCard:
+      description: Object representing loyalty card parameters. Child attributes are
+        present only if `type` is `LOYALTY_CARD`. Defaults to `null`.
+      example:
+        next_expiration_date: 2023-05-30T00:00:00.000+00:00
+        balance: 6970
+        next_expiration_points: 0
+        points: 7000
+      nullable: true
+      properties:
+        points:
+          description: Total points incurred over the lifespan of the loyalty card.
+          example: 7000
+          nullable: true
+          type: integer
+        balance:
+          description: Points available for reward redemption.
+          example: 6970
+          nullable: true
+          type: integer
+        next_expiration_date:
+          description: The next closest date when the next set of points are due to
+            expire.
+          example: 2023-05-30
+          format: date
+          nullable: true
+          type: string
+        next_expiration_points:
+          description: The amount of points that are set to expire next.
+          nullable: true
+          type: integer
+      title: RedemptionVoucherLoyaltyCard
+      type: object
+    RedemptionVoucherPublish:
+      description: "Stores a summary of publication events: an event counter and endpoint\
+        \ to return details of each event. Publication is an assignment of a code\
+        \ to a customer, e.g. through a distribution."
+      example:
+        count: 0
+        url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+        object: list
+      nullable: true
+      properties:
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ `url` attribute."
+          nullable: true
+          type: string
+        count:
+          description: Publication events counter.
+          example: 0
+          nullable: true
+          type: integer
+        url:
+          description: "The endpoint where this list of publications can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/publications`"
+          example: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          nullable: true
+          type: string
+      title: RedemptionVoucherPublish
+      type: object
+    RedemptionVoucherRedemption:
+      description: Stores a summary of redemptions that have been applied to the voucher.
+      example:
+        quantity: 1
+        redeemed_quantity: 1
+        redeemed_points: 100000
+        url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+        object: list
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
+        redeemed_quantity:
+          description: How many times a voucher has already been redeemed.
+          example: 1
+          nullable: true
+          type: integer
+        redeemed_points:
+          description: Total loyalty points redeemed.
+          example: 100000
+          nullable: true
+          type: integer
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ url attribute."
+          nullable: true
+          type: string
+        url:
+          description: "The endpoint where this list of redemptions can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/redemptions`"
+          example: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          nullable: true
+          type: string
+      title: RedemptionVoucherRedemption
+      type: object
+    RedemptionVoucher:
+      description: Defines the details of the voucher being redeemed.
+      example:
+        gift:
+          amount: 10000
+          balance: 500
+          effect: APPLY_TO_ORDER
+        metadata: "{}"
+        code: WVPblOYX
+        referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+        validation_rules_assignments:
+          total: 0
+          data:
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          data_ref: data
+          object: list
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product: ""
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
+          units:
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 2.3021358869347655
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 5.637376656633329
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 0.8008281904610115
+        created_at: 2021-12-22T10:13:06.487Z
+        type: GIFT_VOUCHER
+        expiration_date: 2021-12-31T00:00:00Z
+        is_referral_code: true
+        assets:
+          qr:
+            id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+            url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+          barcode:
+            id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+            url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+        category_id: cat_0bb343dee3cdb5ec0c
+        updated_at: 2021-12-22T10:14:45.316Z
+        id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+        categories:
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 7
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 7
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        loyalty_card:
+          next_expiration_date: 2023-05-30T00:00:00.000+00:00
+          balance: 6970
+          next_expiration_points: 0
+          points: 7000
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2021-12-01T00:00:00Z
+        active: true
+        holder:
+          metadata: "{}"
+          name: name
+          id: id
+          source_id: source_id
+          email: email
+          object: customer
+        validity_day_of_week:
+        - 6
+        - 6
+        redemption:
+          quantity: 1
+          redeemed_quantity: 1
+          redeemed_points: 100000
+          url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          object: list
+        additional_info: additional_info
+        holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+        publish:
+          count: 0
+          url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          object: list
+        campaign: Gift Card Campaign
+        category: category
+        object: voucher
+      nullable: true
+      properties:
+        id:
+          description: "Assigned by the Voucherify API, identifies the voucher."
+          example: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          nullable: true
+          type: string
+        code:
+          description: "A code that identifies a voucher. Pattern can use all letters\
+            \ of the English alphabet, Arabic numerals, and special characters."
+          example: WVPblOYX
+          nullable: true
+          type: string
+        campaign:
+          description: "A unique campaign name, identifies the voucher's parent campaign."
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: "Assigned by the Voucherify API, identifies the voucher's parent\
+            \ campaign."
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category:
+          description: Tag defining the category that this voucher belongs to. Useful
+            when listing vouchers using the List Vouchers endpoint.
+          nullable: true
+          type: string
+        category_id:
+          description: Unique category ID assigned by Voucherify.
+          example: cat_0bb343dee3cdb5ec0c
+          nullable: true
+          type: string
+        type:
+          description: 'Defines the type of the voucher. '
+          enum:
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          - LOYALTY_CARD
+          nullable: true
+          type: string
+        discount:
+          $ref: '#/components/schemas/Discount'
+        gift:
+          $ref: '#/components/schemas/RedemptionVoucherGift'
+        loyalty_card:
+          $ref: '#/components/schemas/RedemptionVoucherLoyaltyCard'
+        start_date:
+          description: 'Activation timestamp defines when the code starts to be active
+            in ISO 8601 format. Voucher is *inactive before* this date. '
+          example: 2021-12-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration timestamp defines when the code expires in ISO 8601
+            format.  Voucher is *inactive after* this date.
+          example: 2021-12-31T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            title: ValidityDayOfWeekItem
+            type: integer
+          title: ValidityDayOfWeek
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
+          nullable: true
+          type: boolean
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        metadata:
+          description: The metadata object stores all custom attributes assigned to
+            the code. A set of key/value pairs that you can attach to a voucher object.
+            It can be useful for storing additional information about the voucher
+            in a structured format.
+          nullable: true
+          title: RedemptionVoucherMetadata
+          type: object
+        assets:
+          $ref: '#/components/schemas/VoucherAssets'
+        is_referral_code:
+          description: Flag indicating whether this voucher is a referral code; `true`
+            for campaign type `REFERRAL_PROGRAM`.
+          nullable: true
+          type: boolean
+        created_at:
+          description: Timestamp representing the date and time when the voucher was
+            created. The value is shown in the ISO 8601 format.
+          example: 2021-12-22T10:13:06.487Z
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Timestamp representing the date and time when the voucher was
+            last updated in ISO 8601 format.
+          example: 2021-12-22T10:14:45.316Z
+          format: date-time
+          nullable: true
+          type: string
+        holder_id:
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
+          example: cust_eWgXlBBiY6THFRJwX45Iakv4
+          nullable: true
+          type: string
+        referrer_id:
+          description: Unique identifier of the referring person.
+          example: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          nullable: true
+          type: string
+        object:
+          default: voucher
+          description: The type of the object represented by JSON. Default is `voucher`.
+          nullable: true
+          type: string
+        publish:
+          $ref: '#/components/schemas/RedemptionVoucherPublish'
+        redemption:
+          $ref: '#/components/schemas/RedemptionVoucherRedemption'
+        categories:
+          description: Contains details about the category.
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+          title: RedemptionVoucherCategories
+          type: array
+        validation_rules_assignments:
+          $ref: '#/components/schemas/ValidationRulesAssignmentsList'
+        holder:
+          $ref: '#/components/schemas/SimpleCustomer'
+      title: RedemptionVoucher
+      type: object
     RedemptionGift:
       description: Contains the amount subtracted from the gift card for the redemption.
       example:
-        amount: 0
+        amount: 5
       nullable: true
       properties:
         amount:
@@ -81437,7 +83407,7 @@ components:
       description: Contains the number of points subtracted from the loyalty card
         for the redemption.
       example:
-        points: 6
+        points: 5
       nullable: true
       properties:
         points:

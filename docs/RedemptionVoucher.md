@@ -1,6 +1,6 @@
 
 
-# LoyaltiesMembersRedemptionRedeemResponseBodyVoucher
+# RedemptionVoucher
 
 Defines the details of the voucher being redeemed.
 
@@ -16,8 +16,8 @@ Defines the details of the voucher being redeemed.
 |**categoryId** | **String** | Unique category ID assigned by Voucherify. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | [**Discount**](Discount.md) |  |
-|**gift** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift.md) |  |
-|**loyaltyCard** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard.md) |  |
+|**gift** | [**RedemptionVoucherGift**](RedemptionVoucherGift.md) |  |
+|**loyaltyCard** | [**RedemptionVoucherLoyaltyCard**](RedemptionVoucherLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -33,8 +33,8 @@ Defines the details of the voucher being redeemed.
 |**holderId** | **String** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. |
 |**referrerId** | **String** | Unique identifier of the referring person. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
-|**publish** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish.md) |  |
-|**redemption** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption.md) |  |
+|**publish** | [**RedemptionVoucherPublish**](RedemptionVoucherPublish.md) |  |
+|**redemption** | [**RedemptionVoucherRedemption**](RedemptionVoucherRedemption.md) |  |
 |**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
 |**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
 |**holder** | [**SimpleCustomer**](SimpleCustomer.md) |  |

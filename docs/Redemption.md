@@ -26,7 +26,7 @@ This is an object representing a redemption.
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |
 |**relatedObjectId** | **String** | Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher. |
-|**voucher** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucher**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucher.md) |  |
+|**voucher** | [**RedemptionVoucher**](RedemptionVoucher.md) |  |
 |**promotionTier** | [**PromotionTier**](PromotionTier.md) |  |
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
 |**gift** | [**RedemptionGift**](RedemptionGift.md) |  |

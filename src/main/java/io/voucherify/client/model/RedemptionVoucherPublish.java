@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.SimpleCustomer;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,36 +48,86 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * This is an object representing a voucher holder.
+ * Stores a summary of publication events: an event counter and endpoint to return details of each event. Publication is an assignment of a code to a customer, e.g. through a distribution.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class VoucherHolder {
-  public static final String SERIALIZED_NAME_HOLDER = "holder";
-  @SerializedName(SERIALIZED_NAME_HOLDER)
-  private SimpleCustomer holder;
+public class RedemptionVoucherPublish {
+  public static final String SERIALIZED_NAME_OBJECT = "object";
+  @SerializedName(SERIALIZED_NAME_OBJECT)
+  private String _object = "list";
 
-  public VoucherHolder() {
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  private Integer count;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public RedemptionVoucherPublish() {
   }
 
-  public VoucherHolder holder(SimpleCustomer holder) {
+  public RedemptionVoucherPublish _object(String _object) {
     
-    this.holder = holder;
+    this._object = _object;
     return this;
   }
 
    /**
-   * Get holder
-   * @return holder
+   * The type of the object represented is by default &#x60;list&#x60;. To get this list, you need to make a call to the endpoint returned in the &#x60;url&#x60; attribute.
+   * @return _object
   **/
   @javax.annotation.Nullable
-  public SimpleCustomer getHolder() {
-    return holder;
+  public String getObject() {
+    return _object;
   }
 
 
-  public void setHolder(SimpleCustomer holder) {
-    this.holder = holder;
+  public void setObject(String _object) {
+    this._object = _object;
+  }
+
+
+  public RedemptionVoucherPublish count(Integer count) {
+    
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Publication events counter.
+   * @return count
+  **/
+  @javax.annotation.Nullable
+  public Integer getCount() {
+    return count;
+  }
+
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+
+  public RedemptionVoucherPublish url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The endpoint where this list of publications can be accessed using a GET method. &#x60;/v1/vouchers/{voucher_code}/publications&#x60;
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   /**
@@ -93,9 +143,9 @@ public class VoucherHolder {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the VoucherHolder instance itself
+   * @return the RedemptionVoucherPublish instance itself
    */
-  public VoucherHolder putAdditionalProperty(String key, Object value) {
+  public RedemptionVoucherPublish putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,21 +184,36 @@ public class VoucherHolder {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VoucherHolder voucherHolder = (VoucherHolder) o;
-    return Objects.equals(this.holder, voucherHolder.holder)&&
-        Objects.equals(this.additionalProperties, voucherHolder.additionalProperties);
+    RedemptionVoucherPublish redemptionVoucherPublish = (RedemptionVoucherPublish) o;
+    return Objects.equals(this._object, redemptionVoucherPublish._object) &&
+        Objects.equals(this.count, redemptionVoucherPublish.count) &&
+        Objects.equals(this.url, redemptionVoucherPublish.url)&&
+        Objects.equals(this.additionalProperties, redemptionVoucherPublish.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(holder, additionalProperties);
+    return Objects.hash(_object, count, url, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VoucherHolder {\n");
-    sb.append("    holder: ").append(toIndentedString(holder)).append("\n");
+    sb.append("class RedemptionVoucherPublish {\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -172,7 +237,9 @@ public class VoucherHolder {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("holder");
+    openapiFields.add("object");
+    openapiFields.add("count");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -182,16 +249,16 @@ public class VoucherHolder {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VoucherHolder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VoucherHolder' and its subtypes
+       if (!RedemptionVoucherPublish.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RedemptionVoucherPublish' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VoucherHolder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VoucherHolder.class));
+       final TypeAdapter<RedemptionVoucherPublish> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RedemptionVoucherPublish.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VoucherHolder>() {
+       return (TypeAdapter<T>) new TypeAdapter<RedemptionVoucherPublish>() {
            @Override
-           public void write(JsonWriter out, VoucherHolder value) throws IOException {
+           public void write(JsonWriter out, RedemptionVoucherPublish value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -214,11 +281,11 @@ public class VoucherHolder {
            }
 
            @Override
-           public VoucherHolder read(JsonReader in) throws IOException {
+           public RedemptionVoucherPublish read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             VoucherHolder instance = thisAdapter.fromJsonTree(jsonObj);
+             RedemptionVoucherPublish instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -245,18 +312,18 @@ public class VoucherHolder {
   }
 
  /**
-  * Create an instance of VoucherHolder given an JSON string
+  * Create an instance of RedemptionVoucherPublish given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VoucherHolder
-  * @throws IOException if the JSON string is invalid with respect to VoucherHolder
+  * @return An instance of RedemptionVoucherPublish
+  * @throws IOException if the JSON string is invalid with respect to RedemptionVoucherPublish
   */
-  public static VoucherHolder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VoucherHolder.class);
+  public static RedemptionVoucherPublish fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RedemptionVoucherPublish.class);
   }
 
  /**
-  * Convert an instance of VoucherHolder to an JSON string
+  * Convert an instance of RedemptionVoucherPublish to an JSON string
   *
   * @return JSON string
   */
