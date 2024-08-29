@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * SimpleCustomer
+ * Simplified customer data.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -57,10 +57,6 @@ public class SimpleCustomer {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -68,6 +64,10 @@ public class SimpleCustomer {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -132,7 +132,7 @@ public class SimpleCustomer {
   }
 
    /**
-   * The ID of an existing customer that will be linked to redemption in this request.
+   * Unique identifier of an existing customer. It is assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -143,27 +143,6 @@ public class SimpleCustomer {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-
-  public SimpleCustomer sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
   }
 
 
@@ -209,6 +188,27 @@ public class SimpleCustomer {
   }
 
 
+  public SimpleCustomer sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
+
   public SimpleCustomer metadata(Object metadata) {
     
     this.metadata = metadata;
@@ -216,7 +216,7 @@ public class SimpleCustomer {
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+   * A set of custom key/value pairs that are attached to the customer. It stores all custom attributes assigned to the customer.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -306,9 +306,9 @@ public class SimpleCustomer {
     }
     SimpleCustomer simpleCustomer = (SimpleCustomer) o;
     return Objects.equals(this.id, simpleCustomer.id) &&
-        Objects.equals(this.sourceId, simpleCustomer.sourceId) &&
         Objects.equals(this.name, simpleCustomer.name) &&
         Objects.equals(this.email, simpleCustomer.email) &&
+        Objects.equals(this.sourceId, simpleCustomer.sourceId) &&
         Objects.equals(this.metadata, simpleCustomer.metadata) &&
         Objects.equals(this._object, simpleCustomer._object)&&
         Objects.equals(this.additionalProperties, simpleCustomer.additionalProperties);
@@ -320,7 +320,7 @@ public class SimpleCustomer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, name, email, metadata, _object, additionalProperties);
+    return Objects.hash(id, name, email, sourceId, metadata, _object, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -335,9 +335,9 @@ public class SimpleCustomer {
     StringBuilder sb = new StringBuilder();
     sb.append("class SimpleCustomer {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -364,9 +364,9 @@ public class SimpleCustomer {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("source_id");
     openapiFields.add("name");
     openapiFields.add("email");
+    openapiFields.add("source_id");
     openapiFields.add("metadata");
     openapiFields.add("object");
 

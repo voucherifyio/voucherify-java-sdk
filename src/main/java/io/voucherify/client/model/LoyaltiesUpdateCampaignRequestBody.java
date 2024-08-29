@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.CampaignsUpdateLoyaltyCampaignAllOfOptions;
 import io.voucherify.client.model.LoyaltyTiersExpirationAll;
-import io.voucherify.client.model.PropertiesForLoyaltyCampaignOptions;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -226,7 +226,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private PropertiesForLoyaltyCampaignOptions options;
+  private CampaignsUpdateLoyaltyCampaignAllOfOptions options;
 
   public LoyaltiesUpdateCampaignRequestBody() {
   }
@@ -562,7 +562,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   }
 
 
-  public LoyaltiesUpdateCampaignRequestBody options(PropertiesForLoyaltyCampaignOptions options) {
+  public LoyaltiesUpdateCampaignRequestBody options(CampaignsUpdateLoyaltyCampaignAllOfOptions options) {
     
     this.options = options;
     return this;
@@ -573,12 +573,12 @@ public class LoyaltiesUpdateCampaignRequestBody {
    * @return options
   **/
   @javax.annotation.Nullable
-  public PropertiesForLoyaltyCampaignOptions getOptions() {
+  public CampaignsUpdateLoyaltyCampaignAllOfOptions getOptions() {
     return options;
   }
 
 
-  public void setOptions(PropertiesForLoyaltyCampaignOptions options) {
+  public void setOptions(CampaignsUpdateLoyaltyCampaignAllOfOptions options) {
     this.options = options;
   }
 

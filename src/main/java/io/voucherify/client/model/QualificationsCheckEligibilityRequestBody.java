@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/qualifications&#x60;.
+ * Request body schema for **POST** &#x60;v1/qualifications&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

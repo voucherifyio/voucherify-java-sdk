@@ -49,7 +49,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response schema for **POST** &#x60;/loyalties/members/{memberId}/balance&#x60; and for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/balance&#x60;.
+ * Response schema for **POST** &#x60;v1/loyalties/members/{memberId}/balance&#x60; and for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/balance&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

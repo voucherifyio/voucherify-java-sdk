@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientEventsCreateRequestBodyLoyalty;
-import io.voucherify.client.model.ClientEventsCreateRequestBodyReferral;
 import io.voucherify.client.model.Customer;
+import io.voucherify.client.model.EventsCreateRequestBodyLoyalty;
+import io.voucherify.client.model.EventsCreateRequestBodyReferral;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/events&#x60;.
+ * Request body schema for **POST** &#x60;v1/events&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -66,11 +66,11 @@ public class EventsCreateRequestBody {
 
   public static final String SERIALIZED_NAME_REFERRAL = "referral";
   @SerializedName(SERIALIZED_NAME_REFERRAL)
-  private ClientEventsCreateRequestBodyReferral referral;
+  private EventsCreateRequestBodyReferral referral;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private ClientEventsCreateRequestBodyLoyalty loyalty;
+  private EventsCreateRequestBodyLoyalty loyalty;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -121,7 +121,7 @@ public class EventsCreateRequestBody {
   }
 
 
-  public EventsCreateRequestBody referral(ClientEventsCreateRequestBodyReferral referral) {
+  public EventsCreateRequestBody referral(EventsCreateRequestBodyReferral referral) {
     
     this.referral = referral;
     return this;
@@ -132,17 +132,17 @@ public class EventsCreateRequestBody {
    * @return referral
   **/
   @javax.annotation.Nullable
-  public ClientEventsCreateRequestBodyReferral getReferral() {
+  public EventsCreateRequestBodyReferral getReferral() {
     return referral;
   }
 
 
-  public void setReferral(ClientEventsCreateRequestBodyReferral referral) {
+  public void setReferral(EventsCreateRequestBodyReferral referral) {
     this.referral = referral;
   }
 
 
-  public EventsCreateRequestBody loyalty(ClientEventsCreateRequestBodyLoyalty loyalty) {
+  public EventsCreateRequestBody loyalty(EventsCreateRequestBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -153,12 +153,12 @@ public class EventsCreateRequestBody {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public ClientEventsCreateRequestBodyLoyalty getLoyalty() {
+  public EventsCreateRequestBodyLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(ClientEventsCreateRequestBodyLoyalty loyalty) {
+  public void setLoyalty(EventsCreateRequestBodyLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 

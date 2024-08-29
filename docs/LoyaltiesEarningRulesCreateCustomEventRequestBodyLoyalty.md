@@ -10,7 +10,7 @@
 |**type** | [**TypeEnum**](#TypeEnum) |  |
 |**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
 |**calculationType** | [**CalculationTypeEnum**](#CalculationTypeEnum) | CUSTOM_EVENT_METADATA: Custom event metadata (X points for every Y in metadata attribute). |
-|**customEvent** | [**EarningRuleBaseLoyaltyCustomEvent**](EarningRuleBaseLoyaltyCustomEvent.md) |  |
+|**customEvent** | [**LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent**](LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent.md) |  |
 
 
 

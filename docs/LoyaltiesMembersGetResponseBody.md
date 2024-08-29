@@ -17,7 +17,7 @@ Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}` an
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | **Object** |  |
 |**gift** | **Object** |  |
-|**loyaltyCard** | [**CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard**](CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md) |  |
+|**loyaltyCard** | [**LoyaltyMemberLoyaltyCard**](LoyaltyMemberLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -27,13 +27,13 @@ Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}` an
 |**additionalInfo** | **String** | An optional field to keep any extra textual information about the code such as a code description and details. |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format. |
 |**assets** | [**VoucherAssets**](VoucherAssets.md) |  |
-|**isReferralCode** | **Boolean** | This willbe alwatys false for loyalty member |
+|**isReferralCode** | **Boolean** | This is always false for loyalty members. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. |
 |**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
-|**publish** | [**CampaignsVouchersCreateCombinedResponseBodyPublish**](CampaignsVouchersCreateCombinedResponseBodyPublish.md) |  |
-|**redemption** | [**CampaignsVouchersCreateCombinedResponseBodyRedemption**](CampaignsVouchersCreateCombinedResponseBodyRedemption.md) |  |
+|**publish** | [**LoyaltyMemberPublish**](LoyaltyMemberPublish.md) |  |
+|**redemption** | [**LoyaltyMemberRedemption**](LoyaltyMemberRedemption.md) |  |
 
 
 

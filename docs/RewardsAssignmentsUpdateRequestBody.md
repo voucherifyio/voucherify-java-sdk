@@ -2,7 +2,7 @@
 
 # RewardsAssignmentsUpdateRequestBody
 
-Request body schema for **PUT** `/rewards/{rewardId}/assignments/{assignmentId}`.
+Request body schema for **PUT** `v1/rewards/{rewardId}/assignments/{assignmentId}`.
 
 ## Properties
 

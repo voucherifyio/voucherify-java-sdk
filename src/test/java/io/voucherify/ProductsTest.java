@@ -35,7 +35,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(1)
     public void createProductTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/CreatedProduct.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/CreatedProduct.snapshot.json";
 
         ProductsCreateRequestBody productsCreateRequestBody = new ProductsCreateRequestBody();
         List<String> attributes = new ArrayList<>();
@@ -66,7 +66,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void getProductTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/CreatedProduct.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/CreatedProduct.snapshot.json";
         try {
             ProductsGetResponseBody responseBody = products
                     .getProduct(VoucherifyStore.getInstance().getProducts().get(0).getId());
@@ -87,7 +87,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void updateProductTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/UpdatedProduct.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/UpdatedProduct.snapshot.json";
 
         ProductsUpdateRequestBody product = new ProductsUpdateRequestBody();
         product.setPrice(55000);
@@ -174,7 +174,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(7)
     public void addSkuToProductWithPrice5000Test() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/AddedSkuToProduct.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/AddedSkuToProduct.snapshot.json";
 
         ProductsSkusCreateRequestBody sku = new ProductsSkusCreateRequestBody();
         Map<String, String> attributes = new HashMap<>();
@@ -206,7 +206,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(8)
     public void updateProductSkuWithPrice2000() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/UpdatedProductSku.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/UpdatedProductSku.snapshot.json";
 
         ProductsSkusUpdateRequestBody sku = new ProductsSkusUpdateRequestBody();
         sku.setPrice(2000);
@@ -232,7 +232,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(9)
     public void getSkuTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/UpdatedProductSku.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/UpdatedProductSku.snapshot.json";
         try {
             SkusGetResponseBody responseBody = products.getSku(VoucherifyStore.getInstance().getSku().getId());
 
@@ -251,7 +251,7 @@ public class ProductsTest {
     @Test
     @org.junit.jupiter.api.Order(10)
     public void listProductSkus() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Products/ListedProductSkus.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/ListedProductSkus.snapshot.json";
         try {
             ProductsSkusListResponseBody responseBody = products.listSkusInProduct(
                 VoucherifyStore.getInstance().getProducts().get(0).getId(), null, null, null, null, null);

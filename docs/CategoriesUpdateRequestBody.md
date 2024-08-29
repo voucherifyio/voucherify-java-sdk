@@ -2,7 +2,7 @@
 
 # CategoriesUpdateRequestBody
 
-Request body schema for **PUT** `/categories/{categoryId}`.
+Request body schema for **PUT** `v1/categories/{categoryId}`.
 
 ## Properties
 

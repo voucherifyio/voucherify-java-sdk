@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsCreateRequestBodyAttributes;
+import io.voucherify.client.model.RewardsUpdateRequestBodyAttributes;
 import io.voucherify.client.model.RewardsUpdateRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
@@ -73,7 +73,7 @@ public class RewardsUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private RewardsCreateRequestBodyAttributes attributes;
+  private RewardsUpdateRequestBodyAttributes attributes;
 
   public RewardsUpdateRequestBody() {
   }
@@ -162,7 +162,7 @@ public class RewardsUpdateRequestBody {
   }
 
 
-  public RewardsUpdateRequestBody attributes(RewardsCreateRequestBodyAttributes attributes) {
+  public RewardsUpdateRequestBody attributes(RewardsUpdateRequestBodyAttributes attributes) {
     
     this.attributes = attributes;
     return this;
@@ -173,12 +173,12 @@ public class RewardsUpdateRequestBody {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  public RewardsCreateRequestBodyAttributes getAttributes() {
+  public RewardsUpdateRequestBodyAttributes getAttributes() {
     return attributes;
   }
 
 
-  public void setAttributes(RewardsCreateRequestBodyAttributes attributes) {
+  public void setAttributes(RewardsUpdateRequestBodyAttributes attributes) {
     this.attributes = attributes;
   }
 

@@ -44,7 +44,7 @@ public class ValidationsTest {
     @Test
     @org.junit.jupiter.api.Order(1)
     public void validateStackedInapplicableDiscountsTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Validations/InaplicableValidation.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Validations/InaplicableValidation.snapshot.json";
         validateStackedDiscounts(getValidationsValidateInapplicableVouchersRequestBody(),
                 snapshotPath);
     }
@@ -52,7 +52,7 @@ public class ValidationsTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void validateStackedApplicableDiscountsTest() {
-        String snaphsotPath = "src/test/java/org/example/snapshots/Validations/ApplicableValidation.snapshot.json";
+        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/ApplicableValidation.snapshot.json";
         validateStackedDiscounts(getValidationsValidateApplicableVouchersRequestBody(),
                 snaphsotPath);
     }
@@ -60,7 +60,7 @@ public class ValidationsTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void validateStackedSkippedDiscountsTest() {
-        String snaphsotPath = "src/test/java/org/example/snapshots/Validations/SkippedValidation.snapshot.json";
+        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/SkippedValidation.snapshot.json";
         ValidationsValidateRequestBody requestBody = getValidationsValidateApplicableVouchersRequestBody();
         addRedeemablesItemToBeginning(requestBody);
         validateStackedDiscounts(requestBody, snaphsotPath);

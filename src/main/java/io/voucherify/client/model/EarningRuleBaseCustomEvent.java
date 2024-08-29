@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * EarningRuleBaseCustomEvent
+ * Contains details about the custom event.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -67,7 +67,7 @@ public class EarningRuleBaseCustomEvent {
   }
 
    /**
-   * Get schemaId
+   * Unique identifier of the custom event schema
    * @return schemaId
   **/
   @javax.annotation.Nullable

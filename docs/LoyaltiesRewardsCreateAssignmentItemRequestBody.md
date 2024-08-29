@@ -7,8 +7,8 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**reward** | **String** | The reward ID of the campaign to which the campaign is to be assigned. |
-|**parameters** | [**RewardsAssignmentsCreateRequestBodyParameters**](RewardsAssignmentsCreateRequestBodyParameters.md) |  |
+|**reward** | **String** | The ID of the reward that will be assigned to the campaign. |
+|**parameters** | [**LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters**](LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters.md) |  |
 |**validationRules** | **List&lt;String&gt;** |  |
 
 

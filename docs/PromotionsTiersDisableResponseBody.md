@@ -2,7 +2,7 @@
 
 # PromotionsTiersDisableResponseBody
 
-Response body schema for **POST** `/promotions/tiers/{promotionTierId}/disable`.
+Response body schema for **POST** `v1/promotions/tiers/{promotionTierId}/disable`.
 
 ## Properties
 

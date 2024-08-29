@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **PUT** &#x60;/orders/{orderId}&#x60;.
+ * Request body schema for **PUT** &#x60;v1/orders/{orderId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

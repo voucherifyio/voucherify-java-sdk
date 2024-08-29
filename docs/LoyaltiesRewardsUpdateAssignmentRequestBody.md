@@ -2,7 +2,7 @@
 
 # LoyaltiesRewardsUpdateAssignmentRequestBody
 
-Response body schema for **PUT** `/v1/loyalties/{campaignId}/rewards/{assignmentId}`.
+Response body schema for **PUT** `v1/v1/loyalties/{campaignId}/rewards/{assignmentId}`.
 
 ## Properties
 

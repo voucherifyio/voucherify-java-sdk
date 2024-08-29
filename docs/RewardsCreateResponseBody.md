@@ -2,7 +2,7 @@
 
 # RewardsCreateResponseBody
 
-Response body schema for **POST** `/rewards`.
+Response body schema for **POST** `v1/rewards`.
 
 ## Properties
 

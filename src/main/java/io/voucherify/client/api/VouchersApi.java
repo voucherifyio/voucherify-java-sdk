@@ -34,7 +34,7 @@ import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 import io.voucherify.client.model.VouchersBalanceUpdateRequestBody;
 import io.voucherify.client.model.VouchersBalanceUpdateResponseBody;
 import io.voucherify.client.model.VouchersCreateResponseBody;
-import io.voucherify.client.model.VouchersCreateWithWithSpecificCodeRequestBody;
+import io.voucherify.client.model.VouchersCreateWithSpecificCodeRequestBody;
 import io.voucherify.client.model.VouchersDisableResponseBody;
 import io.voucherify.client.model.VouchersEnableResponseBody;
 import io.voucherify.client.model.VouchersGetResponseBody;
@@ -98,12 +98,12 @@ public class VouchersApi {
     /**
      * Build call for createVoucher
      * @param code A unique **code** that identifies the voucher. (required)
-     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call createVoucherCall(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createVoucherCall(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,7 +117,7 @@ public class VouchersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = vouchersCreateWithWithSpecificCodeRequestBody;
+        Object localVarPostBody = vouchersCreateWithSpecificCodeRequestBody;
 
         // create path and map variables
         String localVarPath = "/v1/vouchers/{code}"
@@ -150,13 +150,13 @@ public class VouchersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createVoucherValidateBeforeCall(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createVoucherValidateBeforeCall(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling createVoucher(Async)");
         }
 
-        return createVoucherCall(code, vouchersCreateWithWithSpecificCodeRequestBody, _callback);
+        return createVoucherCall(code, vouchersCreateWithSpecificCodeRequestBody, _callback);
 
     }
 
@@ -164,12 +164,12 @@ public class VouchersApi {
      * Create Voucher
      * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
      * @param code A unique **code** that identifies the voucher. (required)
-     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
      * @return VouchersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VouchersCreateResponseBody createVoucher(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody) throws ApiException {
-        ApiResponse<VouchersCreateResponseBody> localVarResp = createVoucherWithHttpInfo(code, vouchersCreateWithWithSpecificCodeRequestBody);
+    public VouchersCreateResponseBody createVoucher(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody) throws ApiException {
+        ApiResponse<VouchersCreateResponseBody> localVarResp = createVoucherWithHttpInfo(code, vouchersCreateWithSpecificCodeRequestBody);
         return localVarResp.getData();
     }
 
@@ -177,12 +177,12 @@ public class VouchersApi {
      * Create Voucher
      * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
      * @param code A unique **code** that identifies the voucher. (required)
-     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
      * @return ApiResponse&lt;VouchersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VouchersCreateResponseBody> createVoucherWithHttpInfo(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithWithSpecificCodeRequestBody, null);
+    public ApiResponse<VouchersCreateResponseBody> createVoucherWithHttpInfo(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithSpecificCodeRequestBody, null);
         Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -191,14 +191,14 @@ public class VouchersApi {
      * Create Voucher (asynchronously)
      * Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
      * @param code A unique **code** that identifies the voucher. (required)
-     * @param vouchersCreateWithWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
+     * @param vouchersCreateWithSpecificCodeRequestBody Specify the details of the voucher that you would like to create. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call createVoucherAsync(String code, VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
+    public okhttp3.Call createVoucherAsync(String code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody, final ApiCallback<VouchersCreateResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithWithSpecificCodeRequestBody, _callback);
+        okhttp3.Call localVarCall = createVoucherValidateBeforeCall(code, vouchersCreateWithSpecificCodeRequestBody, _callback);
         Type localVarReturnType = new TypeToken<VouchersCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

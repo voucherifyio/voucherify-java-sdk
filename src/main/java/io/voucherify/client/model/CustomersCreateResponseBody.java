@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerBaseAddress;
 import io.voucherify.client.model.CustomerLoyalty;
 import io.voucherify.client.model.CustomerReferrals;
-import io.voucherify.client.model.CustomerResponseDataAssets;
 import io.voucherify.client.model.CustomerSummary;
+import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAllOfAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -55,7 +55,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body for **POST** &#x60;/customers&#x60;.
+ * Response body for **POST** &#x60;v1/customers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -94,7 +94,7 @@ public class CustomersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
-  private CustomerResponseDataAssets assets;
+  private CustomerWithSummaryLoyaltyReferralsAllOfAssets assets;
 
   /**
    * The type of the object represented by JSON.
@@ -348,7 +348,7 @@ public class CustomersCreateResponseBody {
   }
 
 
-  public CustomersCreateResponseBody assets(CustomerResponseDataAssets assets) {
+  public CustomersCreateResponseBody assets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
     
     this.assets = assets;
     return this;
@@ -359,12 +359,12 @@ public class CustomersCreateResponseBody {
    * @return assets
   **/
   @javax.annotation.Nullable
-  public CustomerResponseDataAssets getAssets() {
+  public CustomerWithSummaryLoyaltyReferralsAllOfAssets getAssets() {
     return assets;
   }
 
 
-  public void setAssets(CustomerResponseDataAssets assets) {
+  public void setAssets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
     this.assets = assets;
   }
 

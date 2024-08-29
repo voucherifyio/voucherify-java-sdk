@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard;
-import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBodyPublish;
-import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBodyRedemption;
+import io.voucherify.client.model.LoyaltyMemberLoyaltyCard;
+import io.voucherify.client.model.LoyaltyMemberPublish;
+import io.voucherify.client.model.LoyaltyMemberRedemption;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
@@ -145,7 +145,7 @@ public class LoyaltyMember {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard;
+  private LoyaltyMemberLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -262,11 +262,11 @@ public class LoyaltyMember {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private CampaignsVouchersCreateCombinedResponseBodyPublish publish;
+  private LoyaltyMemberPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsVouchersCreateCombinedResponseBodyRedemption redemption;
+  private LoyaltyMemberRedemption redemption;
 
   public LoyaltyMember() {
   }
@@ -460,7 +460,7 @@ public class LoyaltyMember {
   }
 
 
-  public LoyaltyMember loyaltyCard(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard) {
+  public LoyaltyMember loyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -471,12 +471,12 @@ public class LoyaltyMember {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard getLoyaltyCard() {
+  public LoyaltyMemberLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -685,7 +685,7 @@ public class LoyaltyMember {
   }
 
    /**
-   * This willbe alwatys false for loyalty member
+   * This is always false for loyalty members.
    * @return isReferralCode
   **/
   @javax.annotation.Nullable
@@ -783,7 +783,7 @@ public class LoyaltyMember {
   }
 
 
-  public LoyaltyMember publish(CampaignsVouchersCreateCombinedResponseBodyPublish publish) {
+  public LoyaltyMember publish(LoyaltyMemberPublish publish) {
     
     this.publish = publish;
     return this;
@@ -794,17 +794,17 @@ public class LoyaltyMember {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateCombinedResponseBodyPublish getPublish() {
+  public LoyaltyMemberPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(CampaignsVouchersCreateCombinedResponseBodyPublish publish) {
+  public void setPublish(LoyaltyMemberPublish publish) {
     this.publish = publish;
   }
 
 
-  public LoyaltyMember redemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
+  public LoyaltyMember redemption(LoyaltyMemberRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -815,12 +815,12 @@ public class LoyaltyMember {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateCombinedResponseBodyRedemption getRedemption() {
+  public LoyaltyMemberRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsVouchersCreateCombinedResponseBodyRedemption redemption) {
+  public void setRedemption(LoyaltyMemberRedemption redemption) {
     this.redemption = redemption;
   }
 

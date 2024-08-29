@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ProductCollectionsCreateDynamicRequestBodyProductsItem;
 import io.voucherify.client.model.ProductCollectionsCreateRequestBodyFilter;
+import io.voucherify.client.model.ProductCollectionsCreateRequestBodyProductsItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +112,7 @@ public class ProductCollectionsCreateRequestBody {
 
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
-  private List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products;
+  private List<ProductCollectionsCreateRequestBodyProductsItem> products;
 
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
@@ -163,13 +163,13 @@ public class ProductCollectionsCreateRequestBody {
   }
 
 
-  public ProductCollectionsCreateRequestBody products(List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products) {
+  public ProductCollectionsCreateRequestBody products(List<ProductCollectionsCreateRequestBodyProductsItem> products) {
     
     this.products = products;
     return this;
   }
 
-  public ProductCollectionsCreateRequestBody addProductsItem(ProductCollectionsCreateDynamicRequestBodyProductsItem productsItem) {
+  public ProductCollectionsCreateRequestBody addProductsItem(ProductCollectionsCreateRequestBodyProductsItem productsItem) {
     if (this.products == null) {
       this.products = new ArrayList<>();
     }
@@ -182,12 +182,12 @@ public class ProductCollectionsCreateRequestBody {
    * @return products
   **/
   @javax.annotation.Nullable
-  public List<ProductCollectionsCreateDynamicRequestBodyProductsItem> getProducts() {
+  public List<ProductCollectionsCreateRequestBodyProductsItem> getProducts() {
     return products;
   }
 
 
-  public void setProducts(List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products) {
+  public void setProducts(List<ProductCollectionsCreateRequestBodyProductsItem> products) {
     this.products = products;
   }
 

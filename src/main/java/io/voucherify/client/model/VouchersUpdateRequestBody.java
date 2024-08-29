@@ -233,7 +233,7 @@ public class VouchersUpdateRequestBody {
   }
 
    /**
-   * The name of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
+   * The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class VouchersUpdateRequestBody {
   }
 
    /**
-   * The unique ID assigned by Voucherify of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
+   * Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
    * @return categoryId
   **/
   @javax.annotation.Nullable

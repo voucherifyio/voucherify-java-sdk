@@ -1177,7 +1177,9 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCustomersConsentsCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1223,6 +1225,7 @@ public class CustomersApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCustomersConsentsValidateBeforeCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerId' is set
@@ -1235,38 +1238,44 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customer&#39;s consents
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated]
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public void updateCustomersConsents(String customerId, Object body) throws ApiException {
         updateCustomersConsentsWithHttpInfo(customerId, body);
     }
 
     /**
-     * Update Customer&#39;s consents
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated]
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> updateCustomersConsentsWithHttpInfo(String customerId, Object body) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersConsentsValidateBeforeCall(customerId, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Update Customer&#39;s consents (asynchronously)
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated] (asynchronously)
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCustomersConsentsAsync(String customerId, Object body, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomersConsentsValidateBeforeCall(customerId, body, _callback);

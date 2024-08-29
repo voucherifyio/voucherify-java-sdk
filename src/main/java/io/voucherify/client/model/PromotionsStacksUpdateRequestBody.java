@@ -49,7 +49,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request Body schema for **PUT** &#x60;/promotions/{campaignId}/stacks/{stackId}&#x60;.
+ * Request Body schema for **PUT** &#x60;v1/promotions/{campaignId}/stacks/{stackId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

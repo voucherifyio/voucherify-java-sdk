@@ -87,7 +87,7 @@ public class RedeemableLoyaltyCard {
   }
 
    /**
-   * Total points incurred over lifespan of loyalty card.
+   * Total points incurred over the lifespan of the loyalty card.
    * @return points
   **/
   @javax.annotation.Nullable

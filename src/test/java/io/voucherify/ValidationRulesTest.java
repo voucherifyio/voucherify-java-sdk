@@ -2,23 +2,20 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.ValidationRulesApi;
 import io.voucherify.client.model.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(4)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ValidationRulesTest {
     public static ApiClient defaultClient = null;
     public static ValidationRulesApi validationRules = null;
@@ -81,12 +78,12 @@ public class ValidationRulesTest {
             validationRulesCreateRequestBody.setType(ValidationRulesCreateRequestBody.TypeEnum.ADVANCED);
 
             ValidationRulesCreateResponseBody validationRulesCreateResponseBody = validationRules.createValidationRules(
-                validationRulesCreateRequestBody
-            );
+                    validationRulesCreateRequestBody);
 
             assertNotNull(validationRulesCreateResponseBody);
 
-            VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds().add(validationRulesCreateResponseBody.getId());
+            VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds()
+                    .add(validationRulesCreateResponseBody.getId());
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

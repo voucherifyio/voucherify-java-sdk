@@ -19,8 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderAmount;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderMetadata;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -57,20 +58,20 @@ import io.voucherify.client.JSON;
 public class LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private EarningRuleBaseLoyaltyOrderAmount amount;
+  private LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount amount;
 
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private EarningRuleBaseLoyaltyOrderAmount totalAmount;
+  private LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount totalAmount;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private EarningRuleBaseLoyaltyOrderMetadata metadata;
+  private LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata metadata;
 
   public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder() {
   }
 
-  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder amount(EarningRuleBaseLoyaltyOrderAmount amount) {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder amount(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount amount) {
     
     this.amount = amount;
     return this;
@@ -81,17 +82,17 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder {
    * @return amount
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderAmount getAmount() {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount getAmount() {
     return amount;
   }
 
 
-  public void setAmount(EarningRuleBaseLoyaltyOrderAmount amount) {
+  public void setAmount(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount amount) {
     this.amount = amount;
   }
 
 
-  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder totalAmount(EarningRuleBaseLoyaltyOrderAmount totalAmount) {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder totalAmount(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount totalAmount) {
     
     this.totalAmount = totalAmount;
     return this;
@@ -102,17 +103,17 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder {
    * @return totalAmount
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderAmount getTotalAmount() {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount getTotalAmount() {
     return totalAmount;
   }
 
 
-  public void setTotalAmount(EarningRuleBaseLoyaltyOrderAmount totalAmount) {
+  public void setTotalAmount(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount totalAmount) {
     this.totalAmount = totalAmount;
   }
 
 
-  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder metadata(EarningRuleBaseLoyaltyOrderMetadata metadata) {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder metadata(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata metadata) {
     
     this.metadata = metadata;
     return this;
@@ -123,12 +124,12 @@ public class LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderMetadata getMetadata() {
+  public LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(EarningRuleBaseLoyaltyOrderMetadata metadata) {
+  public void setMetadata(LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata metadata) {
     this.metadata = metadata;
   }
 

@@ -114,7 +114,7 @@ public class CustomersTest {
     @Order(5)
     public void uploadCsvFileWithCustomersTest() {
         try {
-            File csvFile = new File("src/test/java/org/example/helpers/test-csv.csv");
+            File csvFile = new File("src/test/java/io/voucherify/helpers/test-csv.csv");
             List<String> lines = Files.readAllLines(csvFile.toPath(), StandardCharsets.UTF_8);
             StringBuilder csvContent = new StringBuilder();
             for (String line : lines) {

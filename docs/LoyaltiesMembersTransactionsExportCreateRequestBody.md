@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersTransactionsExportCreateRequestBody
 
-Request body schema for **POST** `/loyalties/members/{memberId}/transactions/export` and for **POST** `/loyalties/{campaignId}/members/{memberId}/transactions/export`.
+Request body schema for **POST** `v1/loyalties/members/{memberId}/transactions/export` and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transactions/export`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # CampaignsDisableResponseBody
 
-Response body schema for **POST** `/campaigns/{campaignId}/disable`.
+Response body schema for **POST** `v1/campaigns/{campaignId}/disable`.
 
 ## Properties
 

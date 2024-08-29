@@ -24,7 +24,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createVoucher"></a>
 # **createVoucher**
-> VouchersCreateResponseBody createVoucher(code, vouchersCreateWithWithSpecificCodeRequestBody)
+> VouchersCreateResponseBody createVoucher(code, vouchersCreateWithSpecificCodeRequestBody)
 
 Create Voucher
 
@@ -53,9 +53,9 @@ public class Example {
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A unique **code** that identifies the voucher.
-    VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody = new VouchersCreateWithWithSpecificCodeRequestBody(); // VouchersCreateWithWithSpecificCodeRequestBody | Specify the details of the voucher that you would like to create.
+    VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody = new VouchersCreateWithSpecificCodeRequestBody(); // VouchersCreateWithSpecificCodeRequestBody | Specify the details of the voucher that you would like to create.
     try {
-      VouchersCreateResponseBody result = apiInstance.createVoucher(code, vouchersCreateWithWithSpecificCodeRequestBody);
+      VouchersCreateResponseBody result = apiInstance.createVoucher(code, vouchersCreateWithSpecificCodeRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#createVoucher");
@@ -73,7 +73,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **code** | **String**| A unique **code** that identifies the voucher. |
-| **vouchersCreateWithWithSpecificCodeRequestBody** | [**VouchersCreateWithWithSpecificCodeRequestBody**](VouchersCreateWithWithSpecificCodeRequestBody.md)| Specify the details of the voucher that you would like to create. |
+| **vouchersCreateWithSpecificCodeRequestBody** | [**VouchersCreateWithSpecificCodeRequestBody**](VouchersCreateWithSpecificCodeRequestBody.md)| Specify the details of the voucher that you would like to create. |
 
 ### Return type
 

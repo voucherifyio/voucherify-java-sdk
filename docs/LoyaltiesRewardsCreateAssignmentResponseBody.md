@@ -2,7 +2,7 @@
 
 # LoyaltiesRewardsCreateAssignmentResponseBody
 
-Response body schema for **POST** `/v1/loyalties/{campaignId}/rewards`.
+Response body schema for **POST** `v1/v1/loyalties/{campaignId}/rewards`.
 
 ## Properties
 

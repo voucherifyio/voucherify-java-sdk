@@ -36,7 +36,7 @@ public class CategoriesTest {
     @Test
     @Order(1)
     public void createCategoryTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Categories/CreatedCategory.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/CreatedCategory.snapshot.json";
 
         CategoriesCreateRequestBody category = new CategoriesCreateRequestBody();
         category.setName(Utils.getAlphaNumericString(10));
@@ -61,7 +61,7 @@ public class CategoriesTest {
     @Test
     @Order(2)
     public void getCategoryTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Categories/GetCategory.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/GetCategory.snapshot.json";
 
         try {
             CategoriesGetResponseBody responseBody = categories
@@ -81,7 +81,7 @@ public class CategoriesTest {
     @Test
     @Order(3)
     public void updateCategoryTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Categories/UpdatedCategory.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/UpdatedCategory.snapshot.json";
 
         CategoriesUpdateRequestBody category = new CategoriesUpdateRequestBody();
         category.setName(Utils.getAlphaNumericString(10));

@@ -2,7 +2,7 @@
 
 # CampaignsUpdateCouponCampaignBase
 
-Base body schema for updating a campaign which contains coupon codes using **PUT** `/campaigns`.
+Base body schema for updating a campaign which contains coupon codes using **PUT** `v1/campaigns`.
 
 ## Properties
 

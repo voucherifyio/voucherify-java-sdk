@@ -2,7 +2,7 @@
 
 # PromotionsStacksCreateResponseBody
 
-Response body schema for **POST** `/promotions/{campaignId}/stacks`.
+Response body schema for **POST** `v1/promotions/{campaignId}/stacks`.
 
 ## Properties
 

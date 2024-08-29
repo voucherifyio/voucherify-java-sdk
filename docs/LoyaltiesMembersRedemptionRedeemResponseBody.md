@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersRedemptionRedeemResponseBody
 
-Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/redemption` and for **POST** `/loyalties/members/{memberId}/redemption`.
+Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/redemption` and for **POST** `v1/loyalties/members/{memberId}/redemption`.
 
 ## Properties
 

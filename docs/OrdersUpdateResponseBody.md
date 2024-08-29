@@ -2,7 +2,7 @@
 
 # OrdersUpdateResponseBody
 
-Response body schema for **PUT** `/orders/{orderId}`.
+Response body schema for **PUT** `v1/orders/{orderId}`.
 
 ## Properties
 
@@ -28,8 +28,8 @@ Response body schema for **PUT** `/orders/{orderId}`.
 |**referrerId** | **String** | Unique referrer ID. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 |**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
-|**customer** | [**CustomerId**](CustomerId.md) |  |
-|**referrer** | [**CustomerId**](CustomerId.md) |  |
+|**customer** | [**OrderCalculatedAllOfCustomer**](OrderCalculatedAllOfCustomer.md) |  |
+|**referrer** | [**OrderCalculatedAllOfCustomer**](OrderCalculatedAllOfCustomer.md) |  |
 
 
 

@@ -2,7 +2,7 @@
 
 # VouchersUpdateInBulkResponseBody
 
-Response body schema for **POST** `/vouchers/bulk/async`.
+Response body schema for **POST** `v1/vouchers/bulk/async`.
 
 ## Properties
 

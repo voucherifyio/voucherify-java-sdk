@@ -2,7 +2,7 @@
 
 # CustomersGetResponseBody
 
-Response body schema for **GET** `/customers/{customerId}`.
+Response body schema for **GET** `v1/customers/{customerId}`.
 
 ## Properties
 
@@ -16,7 +16,7 @@ Response body schema for **GET** `/customers/{customerId}`.
 |**systemMetadata** | **Object** | Object used to store system metadata information. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format. |
-|**assets** | [**CustomerResponseDataAssets**](CustomerResponseDataAssets.md) |  |
+|**assets** | [**CustomerWithSummaryLoyaltyReferralsAllOfAssets**](CustomerWithSummaryLoyaltyReferralsAllOfAssets.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 |**name** | **String** | Customer&#39;s first and last name. |
 |**description** | **String** | An arbitrary string that you can attach to a customer object. |

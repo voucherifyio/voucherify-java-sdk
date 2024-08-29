@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for listing publications using **GET** &#x60;/publications&#x60;.
+ * Response body schema for listing publications using **GET** &#x60;v1/publications&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

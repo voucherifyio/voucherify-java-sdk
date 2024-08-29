@@ -8,7 +8,7 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) | The type of object to be exported. |
-|**parameters** | [**OrdersExportCreateRequestBodyParameters**](OrdersExportCreateRequestBodyParameters.md) |  |
+|**parameters** | [**ExportOrderBaseParameters**](ExportOrderBaseParameters.md) |  |
 
 
 

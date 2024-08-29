@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyCustomEvent;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyCustomer;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer;
 import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder;
 import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems;
 import java.io.IOException;
@@ -181,11 +181,11 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyalty {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private EarningRuleBaseLoyaltyCustomer customer;
+  private LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer customer;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseLoyaltyCustomEvent customEvent;
+  private LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent customEvent;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
@@ -278,7 +278,7 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesUpdateRequestBodyLoyalty customer(EarningRuleBaseLoyaltyCustomer customer) {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyalty customer(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer customer) {
     
     this.customer = customer;
     return this;
@@ -289,17 +289,17 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyalty {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyCustomer getCustomer() {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(EarningRuleBaseLoyaltyCustomer customer) {
+  public void setCustomer(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer customer) {
     this.customer = customer;
   }
 
 
-  public LoyaltiesEarningRulesUpdateRequestBodyLoyalty customEvent(EarningRuleBaseLoyaltyCustomEvent customEvent) {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyalty customEvent(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -310,12 +310,12 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyalty {
    * @return customEvent
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyCustomEvent getCustomEvent() {
+  public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent getCustomEvent() {
     return customEvent;
   }
 
 
-  public void setCustomEvent(EarningRuleBaseLoyaltyCustomEvent customEvent) {
+  public void setCustomEvent(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent customEvent) {
     this.customEvent = customEvent;
   }
 

@@ -2,7 +2,7 @@
 
 # PromotionsStacksCreateRequestBody
 
-Request body schema for **POST** `/promotions/{campaignId}/stacks`.
+Request body schema for **POST** `v1/promotions/{campaignId}/stacks`.
 
 ## Properties
 

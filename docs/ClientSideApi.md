@@ -8,7 +8,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listPromotionTiersClientSide**](ClientSideApi.md#listPromotionTiersClientSide) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side) |
 | [**redeemStackedDiscountsClientSide**](ClientSideApi.md#redeemStackedDiscountsClientSide) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side) |
 | [**trackCustomEventClientSide**](ClientSideApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side) |
-| [**updateCustomersConsentsClientSide**](ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) |
+| [**updateCustomersConsentsClientSide**](ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) [Deprecated] |
 | [**validateStackedDiscountsClientSide**](ClientSideApi.md#validateStackedDiscountsClientSide) | **POST** /client/v1/validations | Validate Stackable Discounts (client-side) |
 
 
@@ -304,9 +304,9 @@ public class Example {
 # **updateCustomersConsentsClientSide**
 > updateCustomersConsentsClientSide(customerId, body)
 
-Update Customer&#39;s consents (client-side)
+Update Customer&#39;s consents (client-side) [Deprecated]
 
-Update marketing permissions for the specified customer.
+Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
 
 ### Example
 ```java

@@ -2,7 +2,7 @@
 
 # VouchersListResponseBody
 
-Response body schema for **GET** `/vouchers`.
+Response body schema for **GET** `v1/vouchers`.
 
 ## Properties
 

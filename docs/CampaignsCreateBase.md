@@ -2,7 +2,7 @@
 
 # CampaignsCreateBase
 
-Base body schema for creating a campaign using **POST** `/campaigns`.
+Base body schema for creating a campaign using **POST** `v1/campaigns`.
 
 ## Properties
 

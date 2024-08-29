@@ -2,7 +2,7 @@
 
 # LoyaltiesRewardAssignmentsRewardGetResponseBody
 
-Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward`
+Response body schema for **GET** `v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward`
 
 ## Properties
 

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderAmount;
 import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderMetadata;
+import io.voucherify.client.model.EarningRuleBaseLoyaltyOrderTotalAmount;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -61,7 +62,7 @@ public class EarningRuleBaseLoyaltyOrder {
 
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private EarningRuleBaseLoyaltyOrderAmount totalAmount;
+  private EarningRuleBaseLoyaltyOrderTotalAmount totalAmount;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -91,7 +92,7 @@ public class EarningRuleBaseLoyaltyOrder {
   }
 
 
-  public EarningRuleBaseLoyaltyOrder totalAmount(EarningRuleBaseLoyaltyOrderAmount totalAmount) {
+  public EarningRuleBaseLoyaltyOrder totalAmount(EarningRuleBaseLoyaltyOrderTotalAmount totalAmount) {
     
     this.totalAmount = totalAmount;
     return this;
@@ -102,12 +103,12 @@ public class EarningRuleBaseLoyaltyOrder {
    * @return totalAmount
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyOrderAmount getTotalAmount() {
+  public EarningRuleBaseLoyaltyOrderTotalAmount getTotalAmount() {
     return totalAmount;
   }
 
 
-  public void setTotalAmount(EarningRuleBaseLoyaltyOrderAmount totalAmount) {
+  public void setTotalAmount(EarningRuleBaseLoyaltyOrderTotalAmount totalAmount) {
     this.totalAmount = totalAmount;
   }
 

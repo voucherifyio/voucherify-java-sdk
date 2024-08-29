@@ -58,7 +58,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **PUT** &#x60;/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
+ * Response body schema for **PUT** &#x60;v1/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -461,7 +461,7 @@ public class LoyaltiesEarningRulesUpdateResponseBody {
   }
 
    /**
-   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is inactive before this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default.
+   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default.
    * @return startDate
   **/
   @javax.annotation.Nullable
@@ -482,7 +482,7 @@ public class LoyaltiesEarningRulesUpdateResponseBody {
   }
 
    /**
-   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. Earning rule is inactive after this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default.
    * @return expirationDate
   **/
   @javax.annotation.Nullable

@@ -2,7 +2,7 @@
 
 # CampaignsUpdateBase
 
-Base body schema for creating a campaign using **PUT** `/campaigns`.
+Base body schema for creating a campaign using **PUT** `v1/campaigns`.
 
 ## Properties
 

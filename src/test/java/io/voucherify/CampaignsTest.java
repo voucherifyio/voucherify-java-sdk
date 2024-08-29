@@ -32,6 +32,8 @@ public class CampaignsTest {
     public static void beforeAll() {
         defaultClient = Utils.getClient();
         campaigns = new CampaignsApi(defaultClient);
+        promotions = new PromotionsApi(defaultClient);
+        rewards = new RewardsApi(defaultClient);
     }
 
     @Test
@@ -45,14 +47,6 @@ public class CampaignsTest {
         voucher.setType(CampaignsCreateRequestBodyVoucher.TypeEnum.LOYALTY_CARD);
 
         CampaignsCreateRequestBody campaignsCreateRequestBody = new CampaignsCreateRequestBody();
-        // Voucher
-        // Vouchers
-        // CampaignsCreateRequestBody
-        // | Specify the
-        // details of the
-        // campaign that you
-        // would like to
-        // create.
         campaignsCreateRequestBody.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.LOYALTY_PROGRAM);
         campaignsCreateRequestBody.setType(CampaignsCreateRequestBody.TypeEnum.AUTO_UPDATE);
         campaignsCreateRequestBody.setName(Utils.getAlphaNumericString(20));
@@ -194,7 +188,7 @@ public class CampaignsTest {
         discount.setType(Discount.TypeEnum.AMOUNT);
         discount.setAmountOff(BigDecimal.valueOf(1));
 
-        PromotionTierAction promotionTierAction = new PromotionTierAction();
+        PromotionTierCreateAction promotionTierAction = new PromotionTierCreateAction();
         promotionTierAction.setDiscount(discount);
         promotionTierCreate.setAction(promotionTierAction);
 
@@ -263,24 +257,17 @@ public class CampaignsTest {
         rewardsCreateRequestBodyParametersCampaign.setId(campaignId);
         rewardsCreateRequestBodyParameters.setCampaign(rewardsCreateRequestBodyParametersCampaign);
         rewardsCreateRequestBody.setParameters(rewardsCreateRequestBodyParameters);
-        Reward reward = new Reward();
-        ;
 
         try {
-            reward = rewards.createReward(rewardsCreateRequestBody);
+            RewardsCreateResponseBody reward = rewards.createReward(rewardsCreateRequestBody);
 
-            assertNotNull(reward.getName());
-        } catch (ApiException | JsonSyntaxException e) {
-            fail();
-        }
+            assertNotNull(reward.getId());
 
-        RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
-        String newRewardName = Utils.getAlphaNumericString(20);
-        rewardsUpdateRequestBody.setName(newRewardName);
+            RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
+            String newRewardName = Utils.getAlphaNumericString(20);
+            rewardsUpdateRequestBody.setName(newRewardName);
 
-        Reward updatedReward;
-        try {
-            updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);
+            RewardsUpdateResponseBody updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);
 
             assertEquals(updatedReward.getName(), newRewardName);
             assertNotNull(updatedReward);

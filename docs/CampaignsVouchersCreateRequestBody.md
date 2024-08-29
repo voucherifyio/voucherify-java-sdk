@@ -2,7 +2,7 @@
 
 # CampaignsVouchersCreateRequestBody
 
-Request body schema for **POST** `/campaigns/{campaignId}/vouchers/{code}`.
+Request body schema for **POST** `v1/campaigns/{campaignId}/vouchers/{code}`.
 
 ## Properties
 

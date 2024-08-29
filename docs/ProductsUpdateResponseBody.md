@@ -2,7 +2,7 @@
 
 # ProductsUpdateResponseBody
 
-Response body schema for **PUT** `/products/{productId}`.
+Response body schema for **PUT** `v1/products/{productId}`.
 
 ## Properties
 

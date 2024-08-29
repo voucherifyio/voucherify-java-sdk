@@ -2,7 +2,7 @@
 
 # VouchersMetadataUpdateInBulkResponseBody
 
-Response body schema for **POST** `/vouchers/metadata/async`.
+Response body schema for **POST** `v1/vouchers/metadata/async`.
 
 ## Properties
 

@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Product;
 import io.voucherify.client.model.RedemptionRewardResultParameters;
-import io.voucherify.client.model.RedemptionRewardResultProduct;
-import io.voucherify.client.model.RedemptionRewardResultSku;
-import io.voucherify.client.model.RedemptionRewardResultVoucher;
 import io.voucherify.client.model.SimpleCustomer;
+import io.voucherify.client.model.Sku;
+import io.voucherify.client.model.Voucher;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -69,15 +69,15 @@ public class RedemptionRewardResult {
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private RedemptionRewardResultVoucher voucher;
+  private Voucher voucher;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private RedemptionRewardResultProduct product;
+  private Product product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
-  private RedemptionRewardResultSku sku;
+  private Sku sku;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER_ID = "loyalty_tier_id";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER_ID)
@@ -151,6 +151,10 @@ public class RedemptionRewardResult {
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private RedemptionRewardResultParameters parameters;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
 
   /**
    * Reward type.
@@ -250,7 +254,7 @@ public class RedemptionRewardResult {
   }
 
 
-  public RedemptionRewardResult voucher(RedemptionRewardResultVoucher voucher) {
+  public RedemptionRewardResult voucher(Voucher voucher) {
     
     this.voucher = voucher;
     return this;
@@ -261,17 +265,17 @@ public class RedemptionRewardResult {
    * @return voucher
   **/
   @javax.annotation.Nullable
-  public RedemptionRewardResultVoucher getVoucher() {
+  public Voucher getVoucher() {
     return voucher;
   }
 
 
-  public void setVoucher(RedemptionRewardResultVoucher voucher) {
+  public void setVoucher(Voucher voucher) {
     this.voucher = voucher;
   }
 
 
-  public RedemptionRewardResult product(RedemptionRewardResultProduct product) {
+  public RedemptionRewardResult product(Product product) {
     
     this.product = product;
     return this;
@@ -282,17 +286,17 @@ public class RedemptionRewardResult {
    * @return product
   **/
   @javax.annotation.Nullable
-  public RedemptionRewardResultProduct getProduct() {
+  public Product getProduct() {
     return product;
   }
 
 
-  public void setProduct(RedemptionRewardResultProduct product) {
+  public void setProduct(Product product) {
     this.product = product;
   }
 
 
-  public RedemptionRewardResult sku(RedemptionRewardResultSku sku) {
+  public RedemptionRewardResult sku(Sku sku) {
     
     this.sku = sku;
     return this;
@@ -303,12 +307,12 @@ public class RedemptionRewardResult {
    * @return sku
   **/
   @javax.annotation.Nullable
-  public RedemptionRewardResultSku getSku() {
+  public Sku getSku() {
     return sku;
   }
 
 
-  public void setSku(RedemptionRewardResultSku sku) {
+  public void setSku(Sku sku) {
     this.sku = sku;
   }
 
@@ -460,6 +464,27 @@ public class RedemptionRewardResult {
   }
 
 
+  public RedemptionRewardResult metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
+
   public RedemptionRewardResult type(TypeEnum type) {
     
     this.type = type;
@@ -547,6 +572,7 @@ public class RedemptionRewardResult {
         Objects.equals(this.createdAt, redemptionRewardResult.createdAt) &&
         Objects.equals(this.updatedAt, redemptionRewardResult.updatedAt) &&
         Objects.equals(this.parameters, redemptionRewardResult.parameters) &&
+        Objects.equals(this.metadata, redemptionRewardResult.metadata) &&
         Objects.equals(this.type, redemptionRewardResult.type)&&
         Objects.equals(this.additionalProperties, redemptionRewardResult.additionalProperties);
   }
@@ -557,7 +583,7 @@ public class RedemptionRewardResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customer, assignmentId, voucher, product, sku, loyaltyTierId, id, name, _object, createdAt, updatedAt, parameters, type, additionalProperties);
+    return Objects.hash(customer, assignmentId, voucher, product, sku, loyaltyTierId, id, name, _object, createdAt, updatedAt, parameters, metadata, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -583,6 +609,7 @@ public class RedemptionRewardResult {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -619,6 +646,7 @@ public class RedemptionRewardResult {
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("parameters");
+    openapiFields.add("metadata");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)

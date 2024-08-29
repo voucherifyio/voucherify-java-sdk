@@ -2,7 +2,7 @@
 
 # QualificationsCheckEligibilityResponseBody
 
-Response body schema for **POST** `/qualifications`.
+Response body schema for **POST** `v1/qualifications`.
 
 ## Properties
 

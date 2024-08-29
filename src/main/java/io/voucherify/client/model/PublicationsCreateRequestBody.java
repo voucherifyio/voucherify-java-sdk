@@ -71,6 +71,10 @@ public class PublicationsCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+  public static final String SERIALIZED_NAME_CHANNEL = "channel";
+  @SerializedName(SERIALIZED_NAME_CHANNEL)
+  private String channel;
+
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   private CreatePublicationCampaign campaign;
@@ -85,7 +89,7 @@ public class PublicationsCreateRequestBody {
   }
 
    /**
-   * Code of voucher being published.
+   * Code of the voucher being published.
    * @return voucher
   **/
   @javax.annotation.Nullable
@@ -159,6 +163,27 @@ public class PublicationsCreateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+  }
+
+
+  public PublicationsCreateRequestBody channel(String channel) {
+    
+    this.channel = channel;
+    return this;
+  }
+
+   /**
+   * Specify the distribution channel.
+   * @return channel
+  **/
+  @javax.annotation.Nullable
+  public String getChannel() {
+    return channel;
+  }
+
+
+  public void setChannel(String channel) {
+    this.channel = channel;
   }
 
 
@@ -241,6 +266,7 @@ public class PublicationsCreateRequestBody {
         Objects.equals(this.sourceId, publicationsCreateRequestBody.sourceId) &&
         Objects.equals(this.customer, publicationsCreateRequestBody.customer) &&
         Objects.equals(this.metadata, publicationsCreateRequestBody.metadata) &&
+        Objects.equals(this.channel, publicationsCreateRequestBody.channel) &&
         Objects.equals(this.campaign, publicationsCreateRequestBody.campaign)&&
         Objects.equals(this.additionalProperties, publicationsCreateRequestBody.additionalProperties);
   }
@@ -251,7 +277,7 @@ public class PublicationsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(voucher, sourceId, customer, metadata, campaign, additionalProperties);
+    return Objects.hash(voucher, sourceId, customer, metadata, channel, campaign, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -269,6 +295,7 @@ public class PublicationsCreateRequestBody {
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -297,6 +324,7 @@ public class PublicationsCreateRequestBody {
     openapiFields.add("source_id");
     openapiFields.add("customer");
     openapiFields.add("metadata");
+    openapiFields.add("channel");
     openapiFields.add("campaign");
 
     // a set of required properties/fields (JSON key names)

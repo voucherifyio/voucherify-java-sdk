@@ -4,6 +4,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**addMember**](LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member |
 | [**createEarningRule**](LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule |
 | [**createInBulkLoyaltyTiers**](LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers |
 | [**createLoyaltyProgram**](LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign |
@@ -30,6 +31,8 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listLoyaltyTierEarningRules**](LoyaltiesApi.md#listLoyaltyTierEarningRules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules |
 | [**listLoyaltyTierRewards**](LoyaltiesApi.md#listLoyaltyTierRewards) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards | List Loyalty Tier Rewards |
 | [**listLoyaltyTiers**](LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers |
+| [**listMemberActivity**](LoyaltiesApi.md#listMemberActivity) | **GET** /v1/loyalties/members/{memberId}/activity | List Member Activity |
+| [**listMemberActivity1**](LoyaltiesApi.md#listMemberActivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity |
 | [**listMemberLoyaltyTier**](LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers |
 | [**listMemberRewards**](LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards |
 | [**listMembers**](LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members |
@@ -46,9 +49,80 @@ All URIs are relative to *https://api.voucherify.io*
 | [**updateRewardAssignment1**](LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment |
 
 
+<a id="addMember"></a>
+# **addMember**
+> LoyaltiesMembersCreateResponseBody addMember(campaignId, loyaltiesMembersCreateRequestBody)
+
+Add Member
+
+This method assigns a loyalty card to a customer. It selects a loyalty card suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID of the loyalty program.
+    LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the List Publications endpoint.
+    try {
+      LoyaltiesMembersCreateResponseBody result = apiInstance.addMember(campaignId, loyaltiesMembersCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#addMember");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID of the loyalty program. |
+| **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md)| Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the List Publications endpoint. |
+
+### Return type
+
+[**LoyaltiesMembersCreateResponseBody**](LoyaltiesMembersCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the voucher object that was published to the customer provided in the request payload. |  -  |
+
 <a id="createEarningRule"></a>
 # **createEarningRule**
-> List&lt;LoyaltiesEarningRulesCreateResponseBody&gt; createEarningRule(campaignId, loyaltiesEarningRulesCreateRequestBodyInner)
+> List&lt;LoyaltiesEarningRulesCreateResponseBody&gt; createEarningRule(campaignId, loyaltiesEarningRulesCreateRequestBodyItem)
 
 Create Earning Rule
 
@@ -77,9 +151,9 @@ public class Example {
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String campaignId = "campaignId_example"; // String | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-    List<LoyaltiesEarningRulesCreateRequestBodyInner> loyaltiesEarningRulesCreateRequestBodyInner = Arrays.asList(); // List<LoyaltiesEarningRulesCreateRequestBodyInner> | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object
+    List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = Arrays.asList(); // List<LoyaltiesEarningRulesCreateRequestBodyItem> | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object
     try {
-      List<LoyaltiesEarningRulesCreateResponseBody> result = apiInstance.createEarningRule(campaignId, loyaltiesEarningRulesCreateRequestBodyInner);
+      List<LoyaltiesEarningRulesCreateResponseBody> result = apiInstance.createEarningRule(campaignId, loyaltiesEarningRulesCreateRequestBodyItem);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#createEarningRule");
@@ -97,7 +171,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **campaignId** | **String**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
-| **loyaltiesEarningRulesCreateRequestBodyInner** | [**List&lt;LoyaltiesEarningRulesCreateRequestBodyInner&gt;**](LoyaltiesEarningRulesCreateRequestBodyInner.md)| Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object |
+| **loyaltiesEarningRulesCreateRequestBodyItem** | [**List&lt;LoyaltiesEarningRulesCreateRequestBodyItem&gt;**](LoyaltiesEarningRulesCreateRequestBodyItem.md)| Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object |
 
 ### Return type
 
@@ -259,7 +333,7 @@ public class Example {
 
 <a id="createRewardAssignment1"></a>
 # **createRewardAssignment1**
-> List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt; createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentResponseBody)
+> LoyaltiesRewardsCreateAssignmentResponseBody createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody)
 
 Create Reward Assignment
 
@@ -288,9 +362,9 @@ public class Example {
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String campaignId = "campaignId_example"; // String | Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-    LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody = new LoyaltiesRewardsCreateAssignmentResponseBody(); // LoyaltiesRewardsCreateAssignmentResponseBody | Define the cost of the rewards in loyalty points.
+    List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = Arrays.asList(); // List<LoyaltiesRewardsCreateAssignmentItemRequestBody> | Define the cost of the rewards in loyalty points.
     try {
-      List<LoyaltiesRewardsCreateAssignmentItemRequestBody> result = apiInstance.createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentResponseBody);
+      LoyaltiesRewardsCreateAssignmentResponseBody result = apiInstance.createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#createRewardAssignment1");
@@ -308,11 +382,11 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **campaignId** | **String**| Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
-| **loyaltiesRewardsCreateAssignmentResponseBody** | [**LoyaltiesRewardsCreateAssignmentResponseBody**](LoyaltiesRewardsCreateAssignmentResponseBody.md)| Define the cost of the rewards in loyalty points. |
+| **loyaltiesRewardsCreateAssignmentItemRequestBody** | [**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md)| Define the cost of the rewards in loyalty points. |
 
 ### Return type
 
-[**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md)
+[**LoyaltiesRewardsCreateAssignmentResponseBody**](LoyaltiesRewardsCreateAssignmentResponseBody.md)
 
 ### Authorization
 
@@ -1903,6 +1977,158 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of loyalty tier objects. |  -  |
+
+<a id="listMemberActivity"></a>
+# **listMemberActivity**
+> LoyaltiesMemberActivityListResponseBody listMemberActivity(memberId, limit, order, startingAfterId)
+
+List Member Activity
+
+  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String memberId = "memberId_example"; // String | Unique loyalty card assigned to a particular customer.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderCreatedAt order = ParameterOrderCreatedAt.fromValue("created_at"); // ParameterOrderCreatedAt | Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+    try {
+      LoyaltiesMemberActivityListResponseBody result = apiInstance.listMemberActivity(memberId, limit, order, startingAfterId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#listMemberActivity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **memberId** | **String**| Unique loyalty card assigned to a particular customer. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderCreatedAt**](.md)| Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the events starting after an event with the given ID. |
+
+### Return type
+
+[**LoyaltiesMemberActivityListResponseBody**](LoyaltiesMemberActivityListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of event objects related to the loyalty card. |  -  |
+
+<a id="listMemberActivity1"></a>
+# **listMemberActivity1**
+> LoyaltiesMemberActivityListResponseBody listMemberActivity1(campaignId, memberId, limit, order, startingAfterId)
+
+List Member Activity
+
+Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | Unique campaign ID.
+    String memberId = "memberId_example"; // String | A code that identifies the loyalty card.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderCreatedAt order = ParameterOrderCreatedAt.fromValue("created_at"); // ParameterOrderCreatedAt | Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+    try {
+      LoyaltiesMemberActivityListResponseBody result = apiInstance.listMemberActivity1(campaignId, memberId, limit, order, startingAfterId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#listMemberActivity1");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| Unique campaign ID. |
+| **memberId** | **String**| A code that identifies the loyalty card. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderCreatedAt**](.md)| Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the events starting after an event with the given ID. |
+
+### Return type
+
+[**LoyaltiesMemberActivityListResponseBody**](LoyaltiesMemberActivityListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of event objects related to the loyalty card. |  -  |
 
 <a id="listMemberLoyaltyTier"></a>
 # **listMemberLoyaltyTier**

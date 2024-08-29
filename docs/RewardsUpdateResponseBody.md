@@ -2,7 +2,7 @@
 
 # RewardsUpdateResponseBody
 
-Response body schema for **PUT** `/rewards/{rewardId}`.
+Response body schema for **PUT** `v1/rewards/{rewardId}`.
 
 ## Properties
 

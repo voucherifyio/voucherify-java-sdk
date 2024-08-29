@@ -2,7 +2,7 @@
 
 # ExportsListResponseBody
 
-Response body schema for **GET** `/exports`.
+Response body schema for **GET** `v1/exports`.
 
 ## Properties
 

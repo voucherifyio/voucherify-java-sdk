@@ -2,7 +2,7 @@
 
 # LoyaltiesEarningRulesListResponseBody
 
-Response body schema for listing earning rules using **GET** `/loyalties/{campaignId}/earning-rules` endpoint.
+Response body schema for listing earning rules using **GET** `v1/loyalties/{campaignId}/earning-rules` endpoint.
 
 ## Properties
 

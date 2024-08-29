@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Base body schema for creating a campaign using **POST** &#x60;/campaigns&#x60;.
+ * Base body schema for creating a campaign using **POST** &#x60;v1/campaigns&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

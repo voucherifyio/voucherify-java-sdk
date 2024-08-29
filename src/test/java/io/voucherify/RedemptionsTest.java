@@ -63,7 +63,7 @@ public class RedemptionsTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void redeemStackedApplicableDiscountsTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Redemptions/ApplicableRedemption.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Redemptions/ApplicableRedemption.snapshot.json";
         RedemptionsRedeemRequestBody redemptionsBody = getRedemptionsRequestBody(1);
         redeemStackedDiscounts(redemptionsBody, snapshotPath);
     }
@@ -71,7 +71,7 @@ public class RedemptionsTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void redeemStackedSkippedDiscountsTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Redemptions/SkippedRedemption.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Redemptions/SkippedRedemption.snapshot.json";
         RedemptionsRedeemRequestBody redemptionsBody = getRedemptionsRequestBody(30);
         redeemStackedDiscounts(redemptionsBody, snapshotPath);
     }

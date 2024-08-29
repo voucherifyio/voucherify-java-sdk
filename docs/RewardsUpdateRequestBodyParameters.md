@@ -8,8 +8,8 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**campaign** | [**RewardsUpdateRequestBodyParametersCampaign**](RewardsUpdateRequestBodyParametersCampaign.md) |  |
-|**product** | [**RewardsCreateRequestBodyParametersProduct**](RewardsCreateRequestBodyParametersProduct.md) |  |
-|**coin** | [**RewardsCreateRequestBodyParametersCoin**](RewardsCreateRequestBodyParametersCoin.md) |  |
+|**product** | [**RewardsUpdateRequestBodyParametersProduct**](RewardsUpdateRequestBodyParametersProduct.md) |  |
+|**coin** | [**RewardsUpdateRequestBodyParametersCoin**](RewardsUpdateRequestBodyParametersCoin.md) |  |
 
 
 

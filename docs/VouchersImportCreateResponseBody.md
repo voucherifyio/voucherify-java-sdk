@@ -2,7 +2,7 @@
 
 # VouchersImportCreateResponseBody
 
-Response body schema for **POST** `/vouchers/import`.
+Response body schema for **POST** `v1/vouchers/import`.
 
 ## Properties
 

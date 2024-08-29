@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateRequestBodyParameters;
+import io.voucherify.client.model.ExportVoucherTransactionsBaseParameters;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
+ * Response body schema for **POST** &#x60;v1/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -224,7 +224,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private LoyaltiesMembersTransactionsExportCreateRequestBodyParameters parameters;
+  private ExportVoucherTransactionsBaseParameters parameters;
 
   public LoyaltiesMembersTransactionsExportCreateResponseBody() {
   }
@@ -397,7 +397,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   }
 
 
-  public LoyaltiesMembersTransactionsExportCreateResponseBody parameters(LoyaltiesMembersTransactionsExportCreateRequestBodyParameters parameters) {
+  public LoyaltiesMembersTransactionsExportCreateResponseBody parameters(ExportVoucherTransactionsBaseParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -408,12 +408,12 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public LoyaltiesMembersTransactionsExportCreateRequestBodyParameters getParameters() {
+  public ExportVoucherTransactionsBaseParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(LoyaltiesMembersTransactionsExportCreateRequestBodyParameters parameters) {
+  public void setParameters(ExportVoucherTransactionsBaseParameters parameters) {
     this.parameters = parameters;
   }
 

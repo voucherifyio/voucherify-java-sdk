@@ -2,7 +2,7 @@
 
 # ValidationRulesAssignmentsCreateResponseBody
 
-Response body for **POST** `/validation-rules/{validationRuleId}/assignments`.
+Response body for **POST** `v1/validation-rules/{validationRuleId}/assignments`.
 
 ## Properties
 

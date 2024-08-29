@@ -2,7 +2,7 @@
 
 # SegmentsGetResponseBody
 
-Response body schema for **GET** `/v1/segments/{segmentId}`.
+Response body schema for **GET** `v1/v1/segments/{segmentId}`.
 
 ## Properties
 

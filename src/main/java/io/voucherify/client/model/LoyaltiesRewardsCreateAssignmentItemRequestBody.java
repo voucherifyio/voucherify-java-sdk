@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsAssignmentsCreateRequestBodyParameters;
+import io.voucherify.client.model.LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,7 +62,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardsAssignmentsCreateRequestBodyParameters parameters;
+  private LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters parameters;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
@@ -78,7 +78,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
   }
 
    /**
-   * The reward ID of the campaign to which the campaign is to be assigned.
+   * The ID of the reward that will be assigned to the campaign.
    * @return reward
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
   }
 
 
-  public LoyaltiesRewardsCreateAssignmentItemRequestBody parameters(RewardsAssignmentsCreateRequestBodyParameters parameters) {
+  public LoyaltiesRewardsCreateAssignmentItemRequestBody parameters(LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -103,12 +103,12 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public RewardsAssignmentsCreateRequestBodyParameters getParameters() {
+  public LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(RewardsAssignmentsCreateRequestBodyParameters parameters) {
+  public void setParameters(LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters parameters) {
     this.parameters = parameters;
   }
 

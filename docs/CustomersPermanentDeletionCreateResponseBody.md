@@ -2,7 +2,7 @@
 
 # CustomersPermanentDeletionCreateResponseBody
 
-Response body schema for **POST** `/customers/{customerId}/permanent-deletion`.
+Response body schema for **POST** `v1/customers/{customerId}/permanent-deletion`.
 
 ## Properties
 

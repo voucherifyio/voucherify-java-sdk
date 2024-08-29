@@ -8,7 +8,7 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) | The type of object to be exported. |
-|**parameters** | [**LoyaltiesMembersTransactionsExportCreateRequestBodyParameters**](LoyaltiesMembersTransactionsExportCreateRequestBodyParameters.md) |  |
+|**parameters** | [**ExportVoucherTransactionsBaseParameters**](ExportVoucherTransactionsBaseParameters.md) |  |
 
 
 

@@ -7,8 +7,8 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**category** | **String** | The name of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint. |
-|**categoryId** | **String** | The unique ID assigned by Voucherify of the tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint. |
+|**category** | **String** | The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint. |
+|**categoryId** | **String** | Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint. |
 |**startDate** | **OffsetDateTime** | Start date defines when the code starts to be active. Activation timestamp is presented in the ISO 8601 format. Voucher is *inactive before* this date. |
 |**expirationDate** | **OffsetDateTime** | Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |

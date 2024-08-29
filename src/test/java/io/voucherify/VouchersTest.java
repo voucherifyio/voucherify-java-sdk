@@ -35,7 +35,7 @@ public class VouchersTest {
         @Test
         @org.junit.jupiter.api.Order(1)
         public void getVoucherTest() {
-                String snapshotPath = "src/test/java/org/example/snapshots/Vouchers/Voucher.snapshot.json";
+                String snapshotPath = "src/test/java/io/voucherify/snapshots/Vouchers/Voucher.snapshot.json";
                 try {
                         VouchersGetResponseBody responseBody = vouchers
                                         .getVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds()
@@ -59,7 +59,7 @@ public class VouchersTest {
         @Test
         @org.junit.jupiter.api.Order(2)
         public void disableVoucherTest() {
-                String snapshotPath = "src/test/java/org/example/snapshots/Vouchers/DisabledVoucher.snapshot.json";
+                String snapshotPath = "src/test/java/io/voucherify/snapshots/Vouchers/DisabledVoucher.snapshot.json";
                 try {
                         VouchersDisableResponseBody responseBody = vouchers
                                         .disableVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign()
@@ -83,7 +83,7 @@ public class VouchersTest {
         @Test
         @org.junit.jupiter.api.Order(3)
         public void enableVoucherTest() {
-                String snapshotPath = "src/test/java/org/example/snapshots/Vouchers/EnabledVoucher.snapshot.json";
+                String snapshotPath = "src/test/java/io/voucherify/snapshots/Vouchers/EnabledVoucher.snapshot.json";
                 try {
                         VouchersEnableResponseBody responseBody = vouchers
                                         .enableVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign()
@@ -107,7 +107,7 @@ public class VouchersTest {
         @Test
         @Order(4)
         public void updateLoyaltyCardBalanceTest() {
-                String snapshotPath = "src/test/java/org/example/snapshots/Vouchers/UpdatedLoyaltyCardBalance.snapshot.json";
+                String snapshotPath = "src/test/java/io/voucherify/snapshots/Vouchers/UpdatedLoyaltyCardBalance.snapshot.json";
 
                 VouchersBalanceUpdateRequestBody requestBody = new VouchersBalanceUpdateRequestBody();
                 requestBody.setSourceId(Utils.getAlphaNumericString(10));

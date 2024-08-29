@@ -2,7 +2,7 @@
 
 # CampaignsEnableResponseBody
 
-Response body schema for **POST** `/campaigns/{campaignId}/enable`.
+Response body schema for **POST** `v1/campaigns/{campaignId}/enable`.
 
 ## Properties
 

@@ -39,7 +39,7 @@ public class EventsTest {
     @Test
     @Order(1)
     public void createAndTrackCustomEventTest() {
-        String snapshotPath = "src/test/java/org/example/snapshots/Events/CreatedCustomEvent.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Events/CreatedCustomEvent.snapshot.json";
 
         EventsCreateRequestBody event = new EventsCreateRequestBody();
         Customer customer = new Customer();

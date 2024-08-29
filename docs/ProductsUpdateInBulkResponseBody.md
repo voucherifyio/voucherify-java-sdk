@@ -2,7 +2,7 @@
 
 # ProductsUpdateInBulkResponseBody
 
-Response body schema for **POST** `/products/bulk/async`.
+Response body schema for **POST** `v1/products/bulk/async`.
 
 ## Properties
 

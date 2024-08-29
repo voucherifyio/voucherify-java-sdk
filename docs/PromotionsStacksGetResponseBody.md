@@ -2,7 +2,7 @@
 
 # PromotionsStacksGetResponseBody
 
-Response body schema for **GET** `/promotions/{campaignId}/stacks/{stackId}`.
+Response body schema for **GET** `v1/promotions/{campaignId}/stacks/{stackId}`.
 
 ## Properties
 

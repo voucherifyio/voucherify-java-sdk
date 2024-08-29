@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersBalanceUpdateRequestBody
 
-Request Body schema for **POST** `/loyalties/members/{memberId}/balance` and **POST** `/loyalties/{campaignId}/members/{memberId}/balance`.
+Request Body schema for **POST** `v1/loyalties/members/{memberId}/balance` and **POST** `v1/loyalties/{campaignId}/members/{memberId}/balance`.
 
 ## Properties
 
