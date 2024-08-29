@@ -17,7 +17,7 @@ Respone body schema for assigning a loyalty card to a customer using **POST** `/
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | **Object** |  |
 |**gift** | **Object** |  |
-|**loyaltyCard** | [**LoyaltyMemberLoyaltyCard**](LoyaltyMemberLoyaltyCard.md) |  |
+|**loyaltyCard** | [**LoyaltiesMembersCreateResponseBodyLoyaltyCard**](LoyaltiesMembersCreateResponseBodyLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -32,8 +32,8 @@ Respone body schema for assigning a loyalty card to a customer using **POST** `/
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. |
 |**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
-|**publish** | [**LoyaltyMemberPublish**](LoyaltyMemberPublish.md) |  |
-|**redemption** | [**LoyaltyMemberRedemption**](LoyaltyMemberRedemption.md) |  |
+|**publish** | [**LoyaltiesMembersCreateResponseBodyPublish**](LoyaltiesMembersCreateResponseBodyPublish.md) |  |
+|**redemption** | [**LoyaltiesMembersCreateResponseBodyRedemption**](LoyaltiesMembersCreateResponseBodyRedemption.md) |  |
 
 
 

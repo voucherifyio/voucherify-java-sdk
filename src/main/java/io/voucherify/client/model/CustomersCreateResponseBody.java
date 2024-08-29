@@ -23,7 +23,7 @@ import io.voucherify.client.model.CustomerBaseAddress;
 import io.voucherify.client.model.CustomerLoyalty;
 import io.voucherify.client.model.CustomerReferrals;
 import io.voucherify.client.model.CustomerSummary;
-import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAllOfAssets;
+import io.voucherify.client.model.CustomersCreateResponseBodyAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -60,6 +60,38 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CustomersCreateResponseBody {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
+
+  public static final String SERIALIZED_NAME_BIRTHDAY = "birthday";
+  @SerializedName(SERIALIZED_NAME_BIRTHDAY)
+  private LocalDate birthday;
+
+  public static final String SERIALIZED_NAME_BIRTHDATE = "birthdate";
+  @SerializedName(SERIALIZED_NAME_BIRTHDATE)
+  private LocalDate birthdate;
+
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private CustomerBaseAddress address;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -94,7 +126,7 @@ public class CustomersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
-  private CustomerWithSummaryLoyaltyReferralsAllOfAssets assets;
+  private CustomersCreateResponseBodyAssets assets;
 
   /**
    * The type of the object represented by JSON.
@@ -145,40 +177,176 @@ public class CustomersCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.CUSTOMER;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
-  public static final String SERIALIZED_NAME_PHONE = "phone";
-  @SerializedName(SERIALIZED_NAME_PHONE)
-  private String phone;
-
-  public static final String SERIALIZED_NAME_BIRTHDAY = "birthday";
-  @SerializedName(SERIALIZED_NAME_BIRTHDAY)
-  private LocalDate birthday;
-
-  public static final String SERIALIZED_NAME_BIRTHDATE = "birthdate";
-  @SerializedName(SERIALIZED_NAME_BIRTHDATE)
-  private LocalDate birthdate;
-
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
-
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
-
   public CustomersCreateResponseBody() {
   }
+
+  public CustomersCreateResponseBody name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s first and last name.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public CustomersCreateResponseBody description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * An arbitrary string that you can attach to a customer object.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public CustomersCreateResponseBody email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s email address.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public CustomersCreateResponseBody phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  public String getPhone() {
+    return phone;
+  }
+
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
+  public CustomersCreateResponseBody birthday(LocalDate birthday) {
+    
+    this.birthday = birthday;
+    return this;
+  }
+
+   /**
+   * &#x60;Deprecated&#x60;. ~~Customer&#39;s birthdate; format YYYY-MM-DD~~.
+   * @return birthday
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getBirthday() {
+    return birthday;
+  }
+
+
+  public void setBirthday(LocalDate birthday) {
+    this.birthday = birthday;
+  }
+
+
+  public CustomersCreateResponseBody birthdate(LocalDate birthdate) {
+    
+    this.birthdate = birthdate;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s birthdate; format YYYY-MM-DD.
+   * @return birthdate
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getBirthdate() {
+    return birthdate;
+  }
+
+
+  public void setBirthdate(LocalDate birthdate) {
+    this.birthdate = birthdate;
+  }
+
+
+  public CustomersCreateResponseBody address(CustomerBaseAddress address) {
+    
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @javax.annotation.Nullable
+  public CustomerBaseAddress getAddress() {
+    return address;
+  }
+
+
+  public void setAddress(CustomerBaseAddress address) {
+    this.address = address;
+  }
+
+
+  public CustomersCreateResponseBody metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
 
   public CustomersCreateResponseBody id(String id) {
     
@@ -348,7 +516,7 @@ public class CustomersCreateResponseBody {
   }
 
 
-  public CustomersCreateResponseBody assets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public CustomersCreateResponseBody assets(CustomersCreateResponseBodyAssets assets) {
     
     this.assets = assets;
     return this;
@@ -359,12 +527,12 @@ public class CustomersCreateResponseBody {
    * @return assets
   **/
   @javax.annotation.Nullable
-  public CustomerWithSummaryLoyaltyReferralsAllOfAssets getAssets() {
+  public CustomersCreateResponseBodyAssets getAssets() {
     return assets;
   }
 
 
-  public void setAssets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public void setAssets(CustomersCreateResponseBodyAssets assets) {
     this.assets = assets;
   }
 
@@ -387,174 +555,6 @@ public class CustomersCreateResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
-  }
-
-
-  public CustomersCreateResponseBody name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Customer&#39;s first and last name.
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CustomersCreateResponseBody description(String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An arbitrary string that you can attach to a customer object.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public CustomersCreateResponseBody email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Customer&#39;s email address.
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CustomersCreateResponseBody phone(String phone) {
-    
-    this.phone = phone;
-    return this;
-  }
-
-   /**
-   * Customer&#39;s phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
-   * @return phone
-  **/
-  @javax.annotation.Nullable
-  public String getPhone() {
-    return phone;
-  }
-
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public CustomersCreateResponseBody birthday(LocalDate birthday) {
-    
-    this.birthday = birthday;
-    return this;
-  }
-
-   /**
-   * &#x60;Deprecated&#x60;. ~~Customer&#39;s birthdate; format YYYY-MM-DD~~.
-   * @return birthday
-  **/
-  @javax.annotation.Nullable
-  public LocalDate getBirthday() {
-    return birthday;
-  }
-
-
-  public void setBirthday(LocalDate birthday) {
-    this.birthday = birthday;
-  }
-
-
-  public CustomersCreateResponseBody birthdate(LocalDate birthdate) {
-    
-    this.birthdate = birthdate;
-    return this;
-  }
-
-   /**
-   * Customer&#39;s birthdate; format YYYY-MM-DD.
-   * @return birthdate
-  **/
-  @javax.annotation.Nullable
-  public LocalDate getBirthdate() {
-    return birthdate;
-  }
-
-
-  public void setBirthdate(LocalDate birthdate) {
-    this.birthdate = birthdate;
-  }
-
-
-  public CustomersCreateResponseBody address(CustomerBaseAddress address) {
-    
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * Get address
-   * @return address
-  **/
-  @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
-    return address;
-  }
-
-
-  public void setAddress(CustomerBaseAddress address) {
-    this.address = address;
-  }
-
-
-  public CustomersCreateResponseBody metadata(Object metadata) {
-    
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
-   * @return metadata
-  **/
-  @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
-  }
-
-
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
   }
 
   /**
@@ -612,7 +612,15 @@ public class CustomersCreateResponseBody {
       return false;
     }
     CustomersCreateResponseBody customersCreateResponseBody = (CustomersCreateResponseBody) o;
-    return Objects.equals(this.id, customersCreateResponseBody.id) &&
+    return Objects.equals(this.name, customersCreateResponseBody.name) &&
+        Objects.equals(this.description, customersCreateResponseBody.description) &&
+        Objects.equals(this.email, customersCreateResponseBody.email) &&
+        Objects.equals(this.phone, customersCreateResponseBody.phone) &&
+        Objects.equals(this.birthday, customersCreateResponseBody.birthday) &&
+        Objects.equals(this.birthdate, customersCreateResponseBody.birthdate) &&
+        Objects.equals(this.address, customersCreateResponseBody.address) &&
+        Objects.equals(this.metadata, customersCreateResponseBody.metadata) &&
+        Objects.equals(this.id, customersCreateResponseBody.id) &&
         Objects.equals(this.sourceId, customersCreateResponseBody.sourceId) &&
         Objects.equals(this.summary, customersCreateResponseBody.summary) &&
         Objects.equals(this.loyalty, customersCreateResponseBody.loyalty) &&
@@ -621,15 +629,7 @@ public class CustomersCreateResponseBody {
         Objects.equals(this.createdAt, customersCreateResponseBody.createdAt) &&
         Objects.equals(this.updatedAt, customersCreateResponseBody.updatedAt) &&
         Objects.equals(this.assets, customersCreateResponseBody.assets) &&
-        Objects.equals(this._object, customersCreateResponseBody._object) &&
-        Objects.equals(this.name, customersCreateResponseBody.name) &&
-        Objects.equals(this.description, customersCreateResponseBody.description) &&
-        Objects.equals(this.email, customersCreateResponseBody.email) &&
-        Objects.equals(this.phone, customersCreateResponseBody.phone) &&
-        Objects.equals(this.birthday, customersCreateResponseBody.birthday) &&
-        Objects.equals(this.birthdate, customersCreateResponseBody.birthdate) &&
-        Objects.equals(this.address, customersCreateResponseBody.address) &&
-        Objects.equals(this.metadata, customersCreateResponseBody.metadata)&&
+        Objects.equals(this._object, customersCreateResponseBody._object)&&
         Objects.equals(this.additionalProperties, customersCreateResponseBody.additionalProperties);
   }
 
@@ -639,7 +639,7 @@ public class CustomersCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, summary, loyalty, referrals, systemMetadata, createdAt, updatedAt, assets, _object, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
+    return Objects.hash(name, description, email, phone, birthday, birthdate, address, metadata, id, sourceId, summary, loyalty, referrals, systemMetadata, createdAt, updatedAt, assets, _object, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -653,6 +653,14 @@ public class CustomersCreateResponseBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomersCreateResponseBody {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
+    sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
@@ -663,14 +671,6 @@ public class CustomersCreateResponseBody {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
-    sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -694,6 +694,14 @@ public class CustomersCreateResponseBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("email");
+    openapiFields.add("phone");
+    openapiFields.add("birthday");
+    openapiFields.add("birthdate");
+    openapiFields.add("address");
+    openapiFields.add("metadata");
     openapiFields.add("id");
     openapiFields.add("source_id");
     openapiFields.add("summary");
@@ -704,14 +712,6 @@ public class CustomersCreateResponseBody {
     openapiFields.add("updated_at");
     openapiFields.add("assets");
     openapiFields.add("object");
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("email");
-    openapiFields.add("phone");
-    openapiFields.add("birthday");
-    openapiFields.add("birthdate");
-    openapiFields.add("address");
-    openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

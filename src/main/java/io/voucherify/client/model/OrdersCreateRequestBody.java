@@ -58,14 +58,6 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class OrdersCreateRequestBody {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   /**
    * The order status.
    */
@@ -157,50 +149,16 @@ public class OrdersCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   public OrdersCreateRequestBody() {
   }
-
-  public OrdersCreateRequestBody id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public OrdersCreateRequestBody sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
-  }
-
 
   public OrdersCreateRequestBody status(StatusEnum status) {
     
@@ -419,6 +377,48 @@ public class OrdersCreateRequestBody {
     this.metadata = metadata;
   }
 
+
+  public OrdersCreateRequestBody id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public OrdersCreateRequestBody sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -474,9 +474,7 @@ public class OrdersCreateRequestBody {
       return false;
     }
     OrdersCreateRequestBody ordersCreateRequestBody = (OrdersCreateRequestBody) o;
-    return Objects.equals(this.id, ordersCreateRequestBody.id) &&
-        Objects.equals(this.sourceId, ordersCreateRequestBody.sourceId) &&
-        Objects.equals(this.status, ordersCreateRequestBody.status) &&
+    return Objects.equals(this.status, ordersCreateRequestBody.status) &&
         Objects.equals(this.amount, ordersCreateRequestBody.amount) &&
         Objects.equals(this.discountAmount, ordersCreateRequestBody.discountAmount) &&
         Objects.equals(this.initialAmount, ordersCreateRequestBody.initialAmount) &&
@@ -485,7 +483,9 @@ public class OrdersCreateRequestBody {
         Objects.equals(this.customerId, ordersCreateRequestBody.customerId) &&
         Objects.equals(this.referrer, ordersCreateRequestBody.referrer) &&
         Objects.equals(this.referrerId, ordersCreateRequestBody.referrerId) &&
-        Objects.equals(this.metadata, ordersCreateRequestBody.metadata)&&
+        Objects.equals(this.metadata, ordersCreateRequestBody.metadata) &&
+        Objects.equals(this.id, ordersCreateRequestBody.id) &&
+        Objects.equals(this.sourceId, ordersCreateRequestBody.sourceId)&&
         Objects.equals(this.additionalProperties, ordersCreateRequestBody.additionalProperties);
   }
 
@@ -495,7 +495,7 @@ public class OrdersCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, additionalProperties);
+    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, id, sourceId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -509,8 +509,6 @@ public class OrdersCreateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrdersCreateRequestBody {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
@@ -521,6 +519,8 @@ public class OrdersCreateRequestBody {
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -544,8 +544,6 @@ public class OrdersCreateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("source_id");
     openapiFields.add("status");
     openapiFields.add("amount");
     openapiFields.add("discount_amount");
@@ -556,6 +554,8 @@ public class OrdersCreateRequestBody {
     openapiFields.add("referrer");
     openapiFields.add("referrer_id");
     openapiFields.add("metadata");
+    openapiFields.add("id");
+    openapiFields.add("source_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -2,7 +2,6 @@
 
 # ExportsGetResponseBody
 
-Response body schema for **GET** `v1/exports/{exportId}`.
 
 ## Properties
 
@@ -13,10 +12,10 @@ Response body schema for **GET** `v1/exports/{exportId}`.
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the export was scheduled in ISO 8601 format. |
 |**status** | [**StatusEnum**](#StatusEnum) | Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated. |
 |**channel** | **String** | The channel through which the export was triggered. |
-|**result** | [**ExportResult**](ExportResult.md) |  |
+|**result** | [**ExportsGetResponseBodyResult**](ExportsGetResponseBodyResult.md) |  |
 |**userId** | **String** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE. |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) |  |
-|**parameters** | [**ExportParameters**](ExportParameters.md) |  |
+|**parameters** | [**ExportsGetResponseBodyParameters**](ExportsGetResponseBodyParameters.md) |  |
 
 
 

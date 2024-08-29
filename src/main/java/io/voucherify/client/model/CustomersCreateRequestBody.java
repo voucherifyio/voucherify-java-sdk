@@ -55,14 +55,6 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CustomersCreateRequestBody {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -95,50 +87,16 @@ public class CustomersCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   public CustomersCreateRequestBody() {
   }
-
-  public CustomersCreateRequestBody id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of an existing customer.
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public CustomersCreateRequestBody sourceId(String sourceId) {
-    
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-   * @return sourceId
-  **/
-  @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
-  }
-
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
-  }
-
 
   public CustomersCreateRequestBody name(String name) {
     
@@ -307,6 +265,48 @@ public class CustomersCreateRequestBody {
     this.metadata = metadata;
   }
 
+
+  public CustomersCreateRequestBody id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ID of an existing customer.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public CustomersCreateRequestBody sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -362,16 +362,16 @@ public class CustomersCreateRequestBody {
       return false;
     }
     CustomersCreateRequestBody customersCreateRequestBody = (CustomersCreateRequestBody) o;
-    return Objects.equals(this.id, customersCreateRequestBody.id) &&
-        Objects.equals(this.sourceId, customersCreateRequestBody.sourceId) &&
-        Objects.equals(this.name, customersCreateRequestBody.name) &&
+    return Objects.equals(this.name, customersCreateRequestBody.name) &&
         Objects.equals(this.description, customersCreateRequestBody.description) &&
         Objects.equals(this.email, customersCreateRequestBody.email) &&
         Objects.equals(this.phone, customersCreateRequestBody.phone) &&
         Objects.equals(this.birthday, customersCreateRequestBody.birthday) &&
         Objects.equals(this.birthdate, customersCreateRequestBody.birthdate) &&
         Objects.equals(this.address, customersCreateRequestBody.address) &&
-        Objects.equals(this.metadata, customersCreateRequestBody.metadata)&&
+        Objects.equals(this.metadata, customersCreateRequestBody.metadata) &&
+        Objects.equals(this.id, customersCreateRequestBody.id) &&
+        Objects.equals(this.sourceId, customersCreateRequestBody.sourceId)&&
         Objects.equals(this.additionalProperties, customersCreateRequestBody.additionalProperties);
   }
 
@@ -381,7 +381,7 @@ public class CustomersCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
+    return Objects.hash(name, description, email, phone, birthday, birthdate, address, metadata, id, sourceId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -395,8 +395,6 @@ public class CustomersCreateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomersCreateRequestBody {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -405,6 +403,8 @@ public class CustomersCreateRequestBody {
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -428,8 +428,6 @@ public class CustomersCreateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("source_id");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("email");
@@ -438,6 +436,8 @@ public class CustomersCreateRequestBody {
     openapiFields.add("birthdate");
     openapiFields.add("address");
     openapiFields.add("metadata");
+    openapiFields.add("id");
+    openapiFields.add("source_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

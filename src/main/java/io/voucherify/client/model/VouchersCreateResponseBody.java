@@ -25,10 +25,10 @@ import io.voucherify.client.model.ValidationRulesAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
-import io.voucherify.client.model.VoucherGift;
-import io.voucherify.client.model.VoucherLoyaltyCard;
-import io.voucherify.client.model.VoucherPublish;
-import io.voucherify.client.model.VoucherRedemption;
+import io.voucherify.client.model.VouchersCreateResponseBodyGift;
+import io.voucherify.client.model.VouchersCreateResponseBodyLoyaltyCard;
+import io.voucherify.client.model.VouchersCreateResponseBodyPublish;
+import io.voucherify.client.model.VouchersCreateResponseBodyRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -149,11 +149,11 @@ public class VouchersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private VoucherGift gift;
+  private VouchersCreateResponseBodyGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private VoucherLoyaltyCard loyaltyCard;
+  private VouchersCreateResponseBodyLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -274,11 +274,11 @@ public class VouchersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private VoucherPublish publish;
+  private VouchersCreateResponseBodyPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private VoucherRedemption redemption;
+  private VouchersCreateResponseBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -459,7 +459,7 @@ public class VouchersCreateResponseBody {
   }
 
 
-  public VouchersCreateResponseBody gift(VoucherGift gift) {
+  public VouchersCreateResponseBody gift(VouchersCreateResponseBodyGift gift) {
     
     this.gift = gift;
     return this;
@@ -470,17 +470,17 @@ public class VouchersCreateResponseBody {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public VoucherGift getGift() {
+  public VouchersCreateResponseBodyGift getGift() {
     return gift;
   }
 
 
-  public void setGift(VoucherGift gift) {
+  public void setGift(VouchersCreateResponseBodyGift gift) {
     this.gift = gift;
   }
 
 
-  public VouchersCreateResponseBody loyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public VouchersCreateResponseBody loyaltyCard(VouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -491,12 +491,12 @@ public class VouchersCreateResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public VoucherLoyaltyCard getLoyaltyCard() {
+  public VouchersCreateResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(VouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -824,7 +824,7 @@ public class VouchersCreateResponseBody {
   }
 
 
-  public VouchersCreateResponseBody publish(VoucherPublish publish) {
+  public VouchersCreateResponseBody publish(VouchersCreateResponseBodyPublish publish) {
     
     this.publish = publish;
     return this;
@@ -835,17 +835,17 @@ public class VouchersCreateResponseBody {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public VoucherPublish getPublish() {
+  public VouchersCreateResponseBodyPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(VoucherPublish publish) {
+  public void setPublish(VouchersCreateResponseBodyPublish publish) {
     this.publish = publish;
   }
 
 
-  public VouchersCreateResponseBody redemption(VoucherRedemption redemption) {
+  public VouchersCreateResponseBody redemption(VouchersCreateResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -856,12 +856,12 @@ public class VouchersCreateResponseBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public VoucherRedemption getRedemption() {
+  public VouchersCreateResponseBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(VoucherRedemption redemption) {
+  public void setRedemption(VouchersCreateResponseBodyRedemption redemption) {
     this.redemption = redemption;
   }
 

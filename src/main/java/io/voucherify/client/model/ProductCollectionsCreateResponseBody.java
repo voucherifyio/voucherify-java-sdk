@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ProductCollectionsItemFilter;
-import io.voucherify.client.model.ProductCollectionsItemProductsItem;
+import io.voucherify.client.model.ProductCollectionsCreateResponseBodyFilter;
+import io.voucherify.client.model.ProductCollectionsCreateResponseBodyProductsItem;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -119,11 +119,11 @@ public class ProductCollectionsCreateResponseBody {
 
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  private ProductCollectionsItemFilter filter;
+  private ProductCollectionsCreateResponseBodyFilter filter;
 
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
-  private List<ProductCollectionsItemProductsItem> products;
+  private List<ProductCollectionsCreateResponseBodyProductsItem> products;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -244,7 +244,7 @@ public class ProductCollectionsCreateResponseBody {
   }
 
 
-  public ProductCollectionsCreateResponseBody filter(ProductCollectionsItemFilter filter) {
+  public ProductCollectionsCreateResponseBody filter(ProductCollectionsCreateResponseBodyFilter filter) {
     
     this.filter = filter;
     return this;
@@ -255,23 +255,23 @@ public class ProductCollectionsCreateResponseBody {
    * @return filter
   **/
   @javax.annotation.Nullable
-  public ProductCollectionsItemFilter getFilter() {
+  public ProductCollectionsCreateResponseBodyFilter getFilter() {
     return filter;
   }
 
 
-  public void setFilter(ProductCollectionsItemFilter filter) {
+  public void setFilter(ProductCollectionsCreateResponseBodyFilter filter) {
     this.filter = filter;
   }
 
 
-  public ProductCollectionsCreateResponseBody products(List<ProductCollectionsItemProductsItem> products) {
+  public ProductCollectionsCreateResponseBody products(List<ProductCollectionsCreateResponseBodyProductsItem> products) {
     
     this.products = products;
     return this;
   }
 
-  public ProductCollectionsCreateResponseBody addProductsItem(ProductCollectionsItemProductsItem productsItem) {
+  public ProductCollectionsCreateResponseBody addProductsItem(ProductCollectionsCreateResponseBodyProductsItem productsItem) {
     if (this.products == null) {
       this.products = new ArrayList<>();
     }
@@ -284,12 +284,12 @@ public class ProductCollectionsCreateResponseBody {
    * @return products
   **/
   @javax.annotation.Nullable
-  public List<ProductCollectionsItemProductsItem> getProducts() {
+  public List<ProductCollectionsCreateResponseBodyProductsItem> getProducts() {
     return products;
   }
 
 
-  public void setProducts(List<ProductCollectionsItemProductsItem> products) {
+  public void setProducts(List<ProductCollectionsCreateResponseBodyProductsItem> products) {
     this.products = products;
   }
 

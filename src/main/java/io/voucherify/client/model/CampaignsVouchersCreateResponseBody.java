@@ -19,16 +19,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.CampaignsVouchersCreateResponseBodyGift;
+import io.voucherify.client.model.CampaignsVouchersCreateResponseBodyLoyaltyCard;
+import io.voucherify.client.model.CampaignsVouchersCreateResponseBodyPublish;
+import io.voucherify.client.model.CampaignsVouchersCreateResponseBodyRedemption;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.ValidationRulesAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
-import io.voucherify.client.model.VoucherGift;
-import io.voucherify.client.model.VoucherLoyaltyCard;
-import io.voucherify.client.model.VoucherPublish;
-import io.voucherify.client.model.VoucherRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -149,11 +149,11 @@ public class CampaignsVouchersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private VoucherGift gift;
+  private CampaignsVouchersCreateResponseBodyGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private VoucherLoyaltyCard loyaltyCard;
+  private CampaignsVouchersCreateResponseBodyLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -274,11 +274,11 @@ public class CampaignsVouchersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private VoucherPublish publish;
+  private CampaignsVouchersCreateResponseBodyPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private VoucherRedemption redemption;
+  private CampaignsVouchersCreateResponseBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -459,7 +459,7 @@ public class CampaignsVouchersCreateResponseBody {
   }
 
 
-  public CampaignsVouchersCreateResponseBody gift(VoucherGift gift) {
+  public CampaignsVouchersCreateResponseBody gift(CampaignsVouchersCreateResponseBodyGift gift) {
     
     this.gift = gift;
     return this;
@@ -470,17 +470,17 @@ public class CampaignsVouchersCreateResponseBody {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public VoucherGift getGift() {
+  public CampaignsVouchersCreateResponseBodyGift getGift() {
     return gift;
   }
 
 
-  public void setGift(VoucherGift gift) {
+  public void setGift(CampaignsVouchersCreateResponseBodyGift gift) {
     this.gift = gift;
   }
 
 
-  public CampaignsVouchersCreateResponseBody loyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public CampaignsVouchersCreateResponseBody loyaltyCard(CampaignsVouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -491,12 +491,12 @@ public class CampaignsVouchersCreateResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public VoucherLoyaltyCard getLoyaltyCard() {
+  public CampaignsVouchersCreateResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(CampaignsVouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -824,7 +824,7 @@ public class CampaignsVouchersCreateResponseBody {
   }
 
 
-  public CampaignsVouchersCreateResponseBody publish(VoucherPublish publish) {
+  public CampaignsVouchersCreateResponseBody publish(CampaignsVouchersCreateResponseBodyPublish publish) {
     
     this.publish = publish;
     return this;
@@ -835,17 +835,17 @@ public class CampaignsVouchersCreateResponseBody {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public VoucherPublish getPublish() {
+  public CampaignsVouchersCreateResponseBodyPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(VoucherPublish publish) {
+  public void setPublish(CampaignsVouchersCreateResponseBodyPublish publish) {
     this.publish = publish;
   }
 
 
-  public CampaignsVouchersCreateResponseBody redemption(VoucherRedemption redemption) {
+  public CampaignsVouchersCreateResponseBody redemption(CampaignsVouchersCreateResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -856,12 +856,12 @@ public class CampaignsVouchersCreateResponseBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public VoucherRedemption getRedemption() {
+  public CampaignsVouchersCreateResponseBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(VoucherRedemption redemption) {
+  public void setRedemption(CampaignsVouchersCreateResponseBodyRedemption redemption) {
     this.redemption = redemption;
   }
 

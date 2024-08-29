@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientValidationsValidateRequestBodyAllOfOptions;
+import io.voucherify.client.model.ClientValidationsValidateRequestBodyOptions;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.Session;
@@ -86,7 +86,7 @@ public class ClientValidationsValidateRequestBody {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientValidationsValidateRequestBodyAllOfOptions options;
+  private ClientValidationsValidateRequestBodyOptions options;
 
   public ClientValidationsValidateRequestBody() {
   }
@@ -225,7 +225,7 @@ public class ClientValidationsValidateRequestBody {
   }
 
 
-  public ClientValidationsValidateRequestBody options(ClientValidationsValidateRequestBodyAllOfOptions options) {
+  public ClientValidationsValidateRequestBody options(ClientValidationsValidateRequestBodyOptions options) {
     
     this.options = options;
     return this;
@@ -236,12 +236,12 @@ public class ClientValidationsValidateRequestBody {
    * @return options
   **/
   @javax.annotation.Nullable
-  public ClientValidationsValidateRequestBodyAllOfOptions getOptions() {
+  public ClientValidationsValidateRequestBodyOptions getOptions() {
     return options;
   }
 
 
-  public void setOptions(ClientValidationsValidateRequestBodyAllOfOptions options) {
+  public void setOptions(ClientValidationsValidateRequestBodyOptions options) {
     this.options = options;
   }
 

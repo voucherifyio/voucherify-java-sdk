@@ -28,8 +28,8 @@ Response body schema for **POST** `v1/orders`.
 |**referrerId** | **String** | Unique referrer ID. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 |**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
-|**customer** | [**OrderCalculatedAllOfCustomer**](OrderCalculatedAllOfCustomer.md) |  |
-|**referrer** | [**OrderCalculatedAllOfCustomer**](OrderCalculatedAllOfCustomer.md) |  |
+|**customer** | [**OrdersCreateResponseBodyCustomer**](OrdersCreateResponseBodyCustomer.md) |  |
+|**referrer** | [**OrdersCreateResponseBodyReferrer**](OrdersCreateResponseBodyReferrer.md) |  |
 
 
 

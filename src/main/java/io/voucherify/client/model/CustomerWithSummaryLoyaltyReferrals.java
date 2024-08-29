@@ -23,7 +23,7 @@ import io.voucherify.client.model.CustomerBaseAddress;
 import io.voucherify.client.model.CustomerLoyalty;
 import io.voucherify.client.model.CustomerReferrals;
 import io.voucherify.client.model.CustomerSummary;
-import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAllOfAssets;
+import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -126,7 +126,7 @@ public class CustomerWithSummaryLoyaltyReferrals {
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
-  private CustomerWithSummaryLoyaltyReferralsAllOfAssets assets;
+  private CustomerWithSummaryLoyaltyReferralsAssets assets;
 
   /**
    * The type of the object represented by JSON.
@@ -516,7 +516,7 @@ public class CustomerWithSummaryLoyaltyReferrals {
   }
 
 
-  public CustomerWithSummaryLoyaltyReferrals assets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public CustomerWithSummaryLoyaltyReferrals assets(CustomerWithSummaryLoyaltyReferralsAssets assets) {
     
     this.assets = assets;
     return this;
@@ -527,12 +527,12 @@ public class CustomerWithSummaryLoyaltyReferrals {
    * @return assets
   **/
   @javax.annotation.Nullable
-  public CustomerWithSummaryLoyaltyReferralsAllOfAssets getAssets() {
+  public CustomerWithSummaryLoyaltyReferralsAssets getAssets() {
     return assets;
   }
 
 
-  public void setAssets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public void setAssets(CustomerWithSummaryLoyaltyReferralsAssets assets) {
     this.assets = assets;
   }
 

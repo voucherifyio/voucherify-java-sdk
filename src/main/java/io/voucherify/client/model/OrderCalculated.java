@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculatedAllOfCustomer;
+import io.voucherify.client.model.OrderCalculatedCustomer;
+import io.voucherify.client.model.OrderCalculatedReferrer;
 import io.voucherify.client.model.OrderItemCalculated;
 import io.voucherify.client.model.OrderRedemptions;
 import java.io.IOException;
@@ -239,11 +240,11 @@ public class OrderCalculated {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private OrderCalculatedAllOfCustomer customer;
+  private OrderCalculatedCustomer customer;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private OrderCalculatedAllOfCustomer referrer;
+  private OrderCalculatedReferrer referrer;
 
   public OrderCalculated() {
   }
@@ -684,7 +685,7 @@ public class OrderCalculated {
   }
 
 
-  public OrderCalculated customer(OrderCalculatedAllOfCustomer customer) {
+  public OrderCalculated customer(OrderCalculatedCustomer customer) {
     
     this.customer = customer;
     return this;
@@ -695,17 +696,17 @@ public class OrderCalculated {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getCustomer() {
+  public OrderCalculatedCustomer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(OrderCalculatedAllOfCustomer customer) {
+  public void setCustomer(OrderCalculatedCustomer customer) {
     this.customer = customer;
   }
 
 
-  public OrderCalculated referrer(OrderCalculatedAllOfCustomer referrer) {
+  public OrderCalculated referrer(OrderCalculatedReferrer referrer) {
     
     this.referrer = referrer;
     return this;
@@ -716,12 +717,12 @@ public class OrderCalculated {
    * @return referrer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getReferrer() {
+  public OrderCalculatedReferrer getReferrer() {
     return referrer;
   }
 
 
-  public void setReferrer(OrderCalculatedAllOfCustomer referrer) {
+  public void setReferrer(OrderCalculatedReferrer referrer) {
     this.referrer = referrer;
   }
 

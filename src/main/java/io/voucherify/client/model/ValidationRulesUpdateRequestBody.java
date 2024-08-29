@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationRuleBaseApplicableTo;
-import io.voucherify.client.model.ValidationRuleBaseError;
+import io.voucherify.client.model.ValidationRulesUpdateRequestBodyApplicableTo;
+import io.voucherify.client.model.ValidationRulesUpdateRequestBodyError;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -65,11 +65,11 @@ public class ValidationRulesUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
-  private ValidationRuleBaseError error;
+  private ValidationRulesUpdateRequestBodyError error;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
-  private ValidationRuleBaseApplicableTo applicableTo;
+  private ValidationRulesUpdateRequestBodyApplicableTo applicableTo;
 
   /**
    * Type of validation rule.
@@ -332,7 +332,7 @@ public class ValidationRulesUpdateRequestBody {
   }
 
 
-  public ValidationRulesUpdateRequestBody error(ValidationRuleBaseError error) {
+  public ValidationRulesUpdateRequestBody error(ValidationRulesUpdateRequestBodyError error) {
     
     this.error = error;
     return this;
@@ -343,17 +343,17 @@ public class ValidationRulesUpdateRequestBody {
    * @return error
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseError getError() {
+  public ValidationRulesUpdateRequestBodyError getError() {
     return error;
   }
 
 
-  public void setError(ValidationRuleBaseError error) {
+  public void setError(ValidationRulesUpdateRequestBodyError error) {
     this.error = error;
   }
 
 
-  public ValidationRulesUpdateRequestBody applicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public ValidationRulesUpdateRequestBody applicableTo(ValidationRulesUpdateRequestBodyApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
     return this;
@@ -364,12 +364,12 @@ public class ValidationRulesUpdateRequestBody {
    * @return applicableTo
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseApplicableTo getApplicableTo() {
+  public ValidationRulesUpdateRequestBodyApplicableTo getApplicableTo() {
     return applicableTo;
   }
 
 
-  public void setApplicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public void setApplicableTo(ValidationRulesUpdateRequestBodyApplicableTo applicableTo) {
     this.applicableTo = applicableTo;
   }
 

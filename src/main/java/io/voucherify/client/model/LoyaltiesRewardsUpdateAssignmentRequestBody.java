@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardsAssignmentsUpdateRequestBodyParameters;
+import io.voucherify.client.model.LoyaltiesRewardsUpdateAssignmentRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -56,12 +56,12 @@ import io.voucherify.client.JSON;
 public class LoyaltiesRewardsUpdateAssignmentRequestBody {
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private RewardsAssignmentsUpdateRequestBodyParameters parameters;
+  private LoyaltiesRewardsUpdateAssignmentRequestBodyParameters parameters;
 
   public LoyaltiesRewardsUpdateAssignmentRequestBody() {
   }
 
-  public LoyaltiesRewardsUpdateAssignmentRequestBody parameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
+  public LoyaltiesRewardsUpdateAssignmentRequestBody parameters(LoyaltiesRewardsUpdateAssignmentRequestBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -72,12 +72,12 @@ public class LoyaltiesRewardsUpdateAssignmentRequestBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public RewardsAssignmentsUpdateRequestBodyParameters getParameters() {
+  public LoyaltiesRewardsUpdateAssignmentRequestBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
+  public void setParameters(LoyaltiesRewardsUpdateAssignmentRequestBodyParameters parameters) {
     this.parameters = parameters;
   }
 

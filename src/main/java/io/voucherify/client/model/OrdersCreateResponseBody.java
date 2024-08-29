@@ -19,9 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculatedAllOfCustomer;
 import io.voucherify.client.model.OrderItemCalculated;
 import io.voucherify.client.model.OrderRedemptions;
+import io.voucherify.client.model.OrdersCreateResponseBodyCustomer;
+import io.voucherify.client.model.OrdersCreateResponseBodyReferrer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -239,11 +240,11 @@ public class OrdersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private OrderCalculatedAllOfCustomer customer;
+  private OrdersCreateResponseBodyCustomer customer;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private OrderCalculatedAllOfCustomer referrer;
+  private OrdersCreateResponseBodyReferrer referrer;
 
   public OrdersCreateResponseBody() {
   }
@@ -684,7 +685,7 @@ public class OrdersCreateResponseBody {
   }
 
 
-  public OrdersCreateResponseBody customer(OrderCalculatedAllOfCustomer customer) {
+  public OrdersCreateResponseBody customer(OrdersCreateResponseBodyCustomer customer) {
     
     this.customer = customer;
     return this;
@@ -695,17 +696,17 @@ public class OrdersCreateResponseBody {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getCustomer() {
+  public OrdersCreateResponseBodyCustomer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(OrderCalculatedAllOfCustomer customer) {
+  public void setCustomer(OrdersCreateResponseBodyCustomer customer) {
     this.customer = customer;
   }
 
 
-  public OrdersCreateResponseBody referrer(OrderCalculatedAllOfCustomer referrer) {
+  public OrdersCreateResponseBody referrer(OrdersCreateResponseBodyReferrer referrer) {
     
     this.referrer = referrer;
     return this;
@@ -716,12 +717,12 @@ public class OrdersCreateResponseBody {
    * @return referrer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getReferrer() {
+  public OrdersCreateResponseBodyReferrer getReferrer() {
     return referrer;
   }
 
 
-  public void setReferrer(OrderCalculatedAllOfCustomer referrer) {
+  public void setReferrer(OrdersCreateResponseBodyReferrer referrer) {
     this.referrer = referrer;
   }
 

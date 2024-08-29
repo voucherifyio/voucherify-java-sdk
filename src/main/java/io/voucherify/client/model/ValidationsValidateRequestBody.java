@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientValidationsValidateRequestBodyAllOfOptions;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.Session;
 import io.voucherify.client.model.StackableValidateRedeemBaseRedeemablesItem;
+import io.voucherify.client.model.ValidationsValidateRequestBodyOptions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,7 +86,7 @@ public class ValidationsValidateRequestBody {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientValidationsValidateRequestBodyAllOfOptions options;
+  private ValidationsValidateRequestBodyOptions options;
 
   public ValidationsValidateRequestBody() {
   }
@@ -225,7 +225,7 @@ public class ValidationsValidateRequestBody {
   }
 
 
-  public ValidationsValidateRequestBody options(ClientValidationsValidateRequestBodyAllOfOptions options) {
+  public ValidationsValidateRequestBody options(ValidationsValidateRequestBodyOptions options) {
     
     this.options = options;
     return this;
@@ -236,12 +236,12 @@ public class ValidationsValidateRequestBody {
    * @return options
   **/
   @javax.annotation.Nullable
-  public ClientValidationsValidateRequestBodyAllOfOptions getOptions() {
+  public ValidationsValidateRequestBodyOptions getOptions() {
     return options;
   }
 
 
-  public void setOptions(ClientValidationsValidateRequestBodyAllOfOptions options) {
+  public void setOptions(ValidationsValidateRequestBodyOptions options) {
     this.options = options;
   }
 

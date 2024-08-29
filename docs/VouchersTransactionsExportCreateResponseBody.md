@@ -15,7 +15,7 @@ Response body schema for **POST** `v1/vouchers/{code}/transactions/export`.
 |**channel** | **String** | The channel through which the export was triggered. |
 |**exportedObject** | [**ExportedObjectEnum**](#ExportedObjectEnum) | The type of exported object. |
 |**parameters** | [**VoucherTransactionsFilters**](VoucherTransactionsFilters.md) |  |
-|**result** | [**VoucherTransactionsExportResult**](VoucherTransactionsExportResult.md) |  |
+|**result** | [**VouchersTransactionsExportCreateResponseBodyResult**](VouchersTransactionsExportCreateResponseBodyResult.md) |  |
 |**userId** | **String** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the &#x60;channel&#x60; value is &#x60;WEBSITE&#x60;. |
 
 

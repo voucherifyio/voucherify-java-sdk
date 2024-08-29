@@ -23,7 +23,7 @@
 |**systemMetadata** | **Object** | Object used to store system metadata information. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format. |
-|**assets** | [**CustomerWithSummaryLoyaltyReferralsAllOfAssets**](CustomerWithSummaryLoyaltyReferralsAllOfAssets.md) |  |
+|**assets** | [**CustomerWithSummaryLoyaltyReferralsAssets**](CustomerWithSummaryLoyaltyReferralsAssets.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 
 

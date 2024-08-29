@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyAllOfOptions;
+import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyOptions;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.Session;
@@ -86,7 +86,7 @@ public class ClientRedemptionsRedeemRequestBody {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientRedemptionsRedeemRequestBodyAllOfOptions options;
+  private ClientRedemptionsRedeemRequestBodyOptions options;
 
   public ClientRedemptionsRedeemRequestBody() {
   }
@@ -225,7 +225,7 @@ public class ClientRedemptionsRedeemRequestBody {
   }
 
 
-  public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
+  public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyOptions options) {
     
     this.options = options;
     return this;
@@ -236,12 +236,12 @@ public class ClientRedemptionsRedeemRequestBody {
    * @return options
   **/
   @javax.annotation.Nullable
-  public ClientRedemptionsRedeemRequestBodyAllOfOptions getOptions() {
+  public ClientRedemptionsRedeemRequestBodyOptions getOptions() {
     return options;
   }
 
 
-  public void setOptions(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
+  public void setOptions(ClientRedemptionsRedeemRequestBodyOptions options) {
     this.options = options;
   }
 

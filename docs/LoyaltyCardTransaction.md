@@ -14,7 +14,7 @@
 |**source** | **String** | The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null. |
 |**reason** | **String** | Reason why the transaction occurred. In case of a redemption, this value is null. |
 |**type** | **LoyaltyCardTransactionsType** |  |
-|**details** | [**VoucherTransactionDetails**](VoucherTransactionDetails.md) |  |
+|**details** | [**LoyaltyCardTransactionDetails**](LoyaltyCardTransactionDetails.md) |  |
 |**relatedTransactionId** | **String** | The related transaction ID on the receiving card. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the transaction was created. The value is shown in the ISO 8601 format. |
 

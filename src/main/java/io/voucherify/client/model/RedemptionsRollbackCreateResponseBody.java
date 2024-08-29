@@ -22,10 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.OrderCalculatedNoCustomerData;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionRewardResult;
-import io.voucherify.client.model.RedemptionRollbackChannel;
-import io.voucherify.client.model.RedemptionRollbackGift;
-import io.voucherify.client.model.RedemptionRollbackLoyaltyCard;
-import io.voucherify.client.model.RedemptionRollbackRelatedRedemptions;
+import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyChannel;
+import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyGift;
+import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyLoyaltyCard;
+import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyRelatedRedemptions;
 import io.voucherify.client.model.SimpleCustomer;
 import io.voucherify.client.model.Voucher;
 import java.io.IOException;
@@ -248,7 +248,7 @@ public class RedemptionsRollbackCreateResponseBody {
 
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionRollbackRelatedRedemptions relatedRedemptions;
+  private RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
@@ -264,7 +264,7 @@ public class RedemptionsRollbackCreateResponseBody {
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
-  private RedemptionRollbackChannel channel;
+  private RedemptionsRollbackCreateResponseBodyChannel channel;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -341,11 +341,11 @@ public class RedemptionsRollbackCreateResponseBody {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private RedemptionRollbackGift gift;
+  private RedemptionsRollbackCreateResponseBodyGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private RedemptionRollbackLoyaltyCard loyaltyCard;
+  private RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard;
 
   public RedemptionsRollbackCreateResponseBody() {
   }
@@ -581,7 +581,7 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
-  public RedemptionsRollbackCreateResponseBody relatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
+  public RedemptionsRollbackCreateResponseBody relatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
     return this;
@@ -592,12 +592,12 @@ public class RedemptionsRollbackCreateResponseBody {
    * @return relatedRedemptions
   **/
   @javax.annotation.Nullable
-  public RedemptionRollbackRelatedRedemptions getRelatedRedemptions() {
+  public RedemptionsRollbackCreateResponseBodyRelatedRedemptions getRelatedRedemptions() {
     return relatedRedemptions;
   }
 
 
-  public void setRelatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
+  public void setRelatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
     this.relatedRedemptions = relatedRedemptions;
   }
 
@@ -665,7 +665,7 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
-  public RedemptionsRollbackCreateResponseBody channel(RedemptionRollbackChannel channel) {
+  public RedemptionsRollbackCreateResponseBody channel(RedemptionsRollbackCreateResponseBodyChannel channel) {
     
     this.channel = channel;
     return this;
@@ -676,12 +676,12 @@ public class RedemptionsRollbackCreateResponseBody {
    * @return channel
   **/
   @javax.annotation.Nullable
-  public RedemptionRollbackChannel getChannel() {
+  public RedemptionsRollbackCreateResponseBodyChannel getChannel() {
     return channel;
   }
 
 
-  public void setChannel(RedemptionRollbackChannel channel) {
+  public void setChannel(RedemptionsRollbackCreateResponseBodyChannel channel) {
     this.channel = channel;
   }
 
@@ -812,7 +812,7 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
-  public RedemptionsRollbackCreateResponseBody gift(RedemptionRollbackGift gift) {
+  public RedemptionsRollbackCreateResponseBody gift(RedemptionsRollbackCreateResponseBodyGift gift) {
     
     this.gift = gift;
     return this;
@@ -823,17 +823,17 @@ public class RedemptionsRollbackCreateResponseBody {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public RedemptionRollbackGift getGift() {
+  public RedemptionsRollbackCreateResponseBodyGift getGift() {
     return gift;
   }
 
 
-  public void setGift(RedemptionRollbackGift gift) {
+  public void setGift(RedemptionsRollbackCreateResponseBodyGift gift) {
     this.gift = gift;
   }
 
 
-  public RedemptionsRollbackCreateResponseBody loyaltyCard(RedemptionRollbackLoyaltyCard loyaltyCard) {
+  public RedemptionsRollbackCreateResponseBody loyaltyCard(RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -844,12 +844,12 @@ public class RedemptionsRollbackCreateResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public RedemptionRollbackLoyaltyCard getLoyaltyCard() {
+  public RedemptionsRollbackCreateResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(RedemptionRollbackLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 

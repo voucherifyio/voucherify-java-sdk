@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ExportParameters;
-import io.voucherify.client.model.ExportResult;
+import io.voucherify.client.model.ExportsGetResponseBodyParameters;
+import io.voucherify.client.model.ExportsGetResponseBodyResult;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;v1/exports/{exportId}&#x60;.
+ * ExportsGetResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -174,7 +174,7 @@ public class ExportsGetResponseBody {
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private ExportResult result;
+  private ExportsGetResponseBodyResult result;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -243,7 +243,7 @@ public class ExportsGetResponseBody {
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private ExportParameters parameters;
+  private ExportsGetResponseBodyParameters parameters;
 
   public ExportsGetResponseBody() {
   }
@@ -353,7 +353,7 @@ public class ExportsGetResponseBody {
   }
 
 
-  public ExportsGetResponseBody result(ExportResult result) {
+  public ExportsGetResponseBody result(ExportsGetResponseBodyResult result) {
     
     this.result = result;
     return this;
@@ -364,12 +364,12 @@ public class ExportsGetResponseBody {
    * @return result
   **/
   @javax.annotation.Nullable
-  public ExportResult getResult() {
+  public ExportsGetResponseBodyResult getResult() {
     return result;
   }
 
 
-  public void setResult(ExportResult result) {
+  public void setResult(ExportsGetResponseBodyResult result) {
     this.result = result;
   }
 
@@ -416,7 +416,7 @@ public class ExportsGetResponseBody {
   }
 
 
-  public ExportsGetResponseBody parameters(ExportParameters parameters) {
+  public ExportsGetResponseBody parameters(ExportsGetResponseBodyParameters parameters) {
     
     this.parameters = parameters;
     return this;
@@ -427,12 +427,12 @@ public class ExportsGetResponseBody {
    * @return parameters
   **/
   @javax.annotation.Nullable
-  public ExportParameters getParameters() {
+  public ExportsGetResponseBodyParameters getParameters() {
     return parameters;
   }
 
 
-  public void setParameters(ExportParameters parameters) {
+  public void setParameters(ExportsGetResponseBodyParameters parameters) {
     this.parameters = parameters;
   }
 

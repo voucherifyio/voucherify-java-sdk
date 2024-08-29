@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyMemberLoyaltyCard;
-import io.voucherify.client.model.LoyaltyMemberPublish;
-import io.voucherify.client.model.LoyaltyMemberRedemption;
+import io.voucherify.client.model.LoyaltiesMembersGetResponseBodyLoyaltyCard;
+import io.voucherify.client.model.LoyaltiesMembersGetResponseBodyPublish;
+import io.voucherify.client.model.LoyaltiesMembersGetResponseBodyRedemption;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
@@ -145,7 +145,7 @@ public class LoyaltiesMembersGetResponseBody {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private LoyaltyMemberLoyaltyCard loyaltyCard;
+  private LoyaltiesMembersGetResponseBodyLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -262,11 +262,11 @@ public class LoyaltiesMembersGetResponseBody {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private LoyaltyMemberPublish publish;
+  private LoyaltiesMembersGetResponseBodyPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private LoyaltyMemberRedemption redemption;
+  private LoyaltiesMembersGetResponseBodyRedemption redemption;
 
   public LoyaltiesMembersGetResponseBody() {
   }
@@ -460,7 +460,7 @@ public class LoyaltiesMembersGetResponseBody {
   }
 
 
-  public LoyaltiesMembersGetResponseBody loyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
+  public LoyaltiesMembersGetResponseBody loyaltyCard(LoyaltiesMembersGetResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -471,12 +471,12 @@ public class LoyaltiesMembersGetResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberLoyaltyCard getLoyaltyCard() {
+  public LoyaltiesMembersGetResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(LoyaltiesMembersGetResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -783,7 +783,7 @@ public class LoyaltiesMembersGetResponseBody {
   }
 
 
-  public LoyaltiesMembersGetResponseBody publish(LoyaltyMemberPublish publish) {
+  public LoyaltiesMembersGetResponseBody publish(LoyaltiesMembersGetResponseBodyPublish publish) {
     
     this.publish = publish;
     return this;
@@ -794,17 +794,17 @@ public class LoyaltiesMembersGetResponseBody {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberPublish getPublish() {
+  public LoyaltiesMembersGetResponseBodyPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(LoyaltyMemberPublish publish) {
+  public void setPublish(LoyaltiesMembersGetResponseBodyPublish publish) {
     this.publish = publish;
   }
 
 
-  public LoyaltiesMembersGetResponseBody redemption(LoyaltyMemberRedemption redemption) {
+  public LoyaltiesMembersGetResponseBody redemption(LoyaltiesMembersGetResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -815,12 +815,12 @@ public class LoyaltiesMembersGetResponseBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberRedemption getRedemption() {
+  public LoyaltiesMembersGetResponseBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(LoyaltyMemberRedemption redemption) {
+  public void setRedemption(LoyaltiesMembersGetResponseBodyRedemption redemption) {
     this.redemption = redemption;
   }
 
