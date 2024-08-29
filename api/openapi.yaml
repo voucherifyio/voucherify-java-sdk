@@ -42520,7 +42520,7 @@ components:
           description: Contains an empty array.
           items:
             title: RedeemableVoucherCategoriesItem
-            type: "null"
+            type: object
           nullable: true
           title: RedeemableVoucherCategories
           type: array

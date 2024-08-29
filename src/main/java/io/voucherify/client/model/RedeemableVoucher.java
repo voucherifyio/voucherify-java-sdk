@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Discount;
-import io.voucherify.client.model.ModelNull;
 import io.voucherify.client.model.RedeemableVoucherGift;
 import io.voucherify.client.model.RedeemableVoucherLoyaltyCard;
 import io.voucherify.client.model.RedeemableVoucherPublish;
@@ -91,7 +90,7 @@ public class RedeemableVoucher {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<ModelNull> categories;
+  private List<Object> categories;
 
   /**
    * Defines the type of the voucher. 
@@ -412,13 +411,13 @@ public class RedeemableVoucher {
   }
 
 
-  public RedeemableVoucher categories(List<ModelNull> categories) {
+  public RedeemableVoucher categories(List<Object> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public RedeemableVoucher addCategoriesItem(ModelNull categoriesItem) {
+  public RedeemableVoucher addCategoriesItem(Object categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -431,12 +430,12 @@ public class RedeemableVoucher {
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<ModelNull> getCategories() {
+  public List<Object> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<ModelNull> categories) {
+  public void setCategories(List<Object> categories) {
     this.categories = categories;
   }
 

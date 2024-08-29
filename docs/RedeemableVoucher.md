@@ -14,7 +14,7 @@ This is an object representing a voucher.
 |**campaignId** | **String** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. |
 |**category** | **String** | The value is null. |
 |**categoryId** | **String** | Unique category ID assigned by Voucherify. |
-|**categories** | **List&lt;ModelNull&gt;** | Contains an empty array. |
+|**categories** | **List&lt;Object&gt;** | Contains an empty array. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | [**Discount**](Discount.md) |  |
 |**gift** | [**RedeemableVoucherGift**](RedeemableVoucherGift.md) |  |
