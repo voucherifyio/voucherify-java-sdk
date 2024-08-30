@@ -48204,78 +48204,83 @@ components:
           source_id: source_id
           email: email
         order:
-          referrer: ""
+          total_applied_discount_amount: 3
           amount: 0
           metadata: "{}"
-          referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
-          initial_amount: 1
-          customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+          discount_amount: 1
+          initial_amount: 6
+          total_discount_amount: 5
+          applied_discount_amount: 7
+          total_amount: 2
+          items_applied_discount_amount: 9
+          id: id
+          source_id: source_id
           items:
-          - amount: 7
+          - amount: 1
             product:
               metadata: "{}"
-              price: 6.84685269835264
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 5
-            initial_quantity: 2
-            discount_amount: 9
+            quantity: 7
+            initial_quantity: 1
+            discount_amount: 6
             sku_id: sku_id
-            initial_amount: 3
-            applied_quantity: 7
-            subtotal_amount: 1
+            applied_quantity: 4
+            initial_amount: 9
+            subtotal_amount: 6
             related_object: product
-            applied_discount_amount: 2
-            price: 1
+            applied_discount_amount: 7
+            price: 9
             product_id: product_id
-            discount_quantity: 5
-            applied_discount_quantity: 4
+            discount_quantity: 1
+            applied_discount_quantity: 1
             source_id: source_id
             sku:
-              price: 7.457744773683766
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 1
+            applied_quantity_amount: 5
             object: order_item
-          - amount: 7
+          - amount: 1
             product:
               metadata: "{}"
-              price: 6.84685269835264
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 5
-            initial_quantity: 2
-            discount_amount: 9
+            quantity: 7
+            initial_quantity: 1
+            discount_amount: 6
             sku_id: sku_id
-            initial_amount: 3
-            applied_quantity: 7
-            subtotal_amount: 1
+            applied_quantity: 4
+            initial_amount: 9
+            subtotal_amount: 6
             related_object: product
-            applied_discount_amount: 2
-            price: 1
+            applied_discount_amount: 7
+            price: 9
             product_id: product_id
-            discount_quantity: 5
-            applied_discount_quantity: 4
+            discount_quantity: 1
+            applied_discount_quantity: 1
             source_id: source_id
             sku:
-              price: 7.457744773683766
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 1
+            applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          customer: ""
+          items_discount_amount: 5
+          object: order
       properties:
         reason:
           description: Reason for the rollback.
@@ -48504,78 +48509,83 @@ components:
           source_id: source_id
           email: email
         order:
-          referrer: ""
+          total_applied_discount_amount: 3
           amount: 0
           metadata: "{}"
-          referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
-          initial_amount: 1
-          customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+          discount_amount: 1
+          initial_amount: 6
+          total_discount_amount: 5
+          applied_discount_amount: 7
+          total_amount: 2
+          items_applied_discount_amount: 9
+          id: id
+          source_id: source_id
           items:
-          - amount: 7
+          - amount: 1
             product:
               metadata: "{}"
-              price: 6.84685269835264
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 5
-            initial_quantity: 2
-            discount_amount: 9
+            quantity: 7
+            initial_quantity: 1
+            discount_amount: 6
             sku_id: sku_id
-            initial_amount: 3
-            applied_quantity: 7
-            subtotal_amount: 1
+            applied_quantity: 4
+            initial_amount: 9
+            subtotal_amount: 6
             related_object: product
-            applied_discount_amount: 2
-            price: 1
+            applied_discount_amount: 7
+            price: 9
             product_id: product_id
-            discount_quantity: 5
-            applied_discount_quantity: 4
+            discount_quantity: 1
+            applied_discount_quantity: 1
             source_id: source_id
             sku:
-              price: 7.457744773683766
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 1
+            applied_quantity_amount: 5
             object: order_item
-          - amount: 7
+          - amount: 1
             product:
               metadata: "{}"
-              price: 6.84685269835264
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 5
-            initial_quantity: 2
-            discount_amount: 9
+            quantity: 7
+            initial_quantity: 1
+            discount_amount: 6
             sku_id: sku_id
-            initial_amount: 3
-            applied_quantity: 7
-            subtotal_amount: 1
+            applied_quantity: 4
+            initial_amount: 9
+            subtotal_amount: 6
             related_object: product
-            applied_discount_amount: 2
-            price: 1
+            applied_discount_amount: 7
+            price: 9
             product_id: product_id
-            discount_quantity: 5
-            applied_discount_quantity: 4
+            discount_quantity: 1
+            applied_discount_quantity: 1
             source_id: source_id
             sku:
-              price: 7.457744773683766
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 1
+            applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          customer: ""
+          items_discount_amount: 5
+          object: order
       properties:
         reason:
           description: Reason for the rollback.
@@ -58668,80 +58678,96 @@ components:
       title: OrderCalculated
       type: object
     OrderCalculatedEssential:
+      additionalProperties: false
       example:
-        referrer: ""
+        total_applied_discount_amount: 3
         amount: 0
         metadata: "{}"
-        referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-        discount_amount: 6
-        initial_amount: 1
-        customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+        discount_amount: 1
+        initial_amount: 6
+        total_discount_amount: 5
+        applied_discount_amount: 7
+        total_amount: 2
+        items_applied_discount_amount: 9
+        id: id
+        source_id: source_id
         items:
-        - amount: 7
+        - amount: 1
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
             override: true
           metadata: "{}"
-          quantity: 5
-          initial_quantity: 2
-          discount_amount: 9
+          quantity: 7
+          initial_quantity: 1
+          discount_amount: 6
           sku_id: sku_id
-          initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
+          applied_quantity: 4
+          initial_amount: 9
+          subtotal_amount: 6
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          applied_discount_amount: 7
+          price: 9
           product_id: product_id
-          discount_quantity: 5
-          applied_discount_quantity: 4
+          discount_quantity: 1
+          applied_discount_quantity: 1
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
+          applied_quantity_amount: 5
           object: order_item
-        - amount: 7
+        - amount: 1
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
             override: true
           metadata: "{}"
-          quantity: 5
-          initial_quantity: 2
-          discount_amount: 9
+          quantity: 7
+          initial_quantity: 1
+          discount_amount: 6
           sku_id: sku_id
-          initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
+          applied_quantity: 4
+          initial_amount: 9
+          subtotal_amount: 6
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          applied_discount_amount: 7
+          price: 9
           product_id: product_id
-          discount_quantity: 5
-          applied_discount_quantity: 4
+          discount_quantity: 1
+          applied_discount_quantity: 1
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
+          applied_quantity_amount: 5
           object: order_item
         status: CREATED
-        customer: ""
+        items_discount_amount: 5
+        object: order
       properties:
+        id:
+          description: Unique ID assigned by Voucherify of an existing order that
+            will be linked to the redemption of this request.
+          nullable: true
+          type: string
+        source_id:
+          description: Unique source ID of an existing order that will be linked to
+            the redemption of this request.
+          nullable: true
+          type: string
         status:
           description: The order status.
           enum:
@@ -58752,13 +58778,9 @@ components:
           nullable: true
           type: string
         amount:
-          description: |+
-            A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
-
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
           nullable: true
           type: integer
         initial_amount:
@@ -58767,31 +58789,46 @@ components:
             sum of the order items' amounts.
           nullable: true
           type: integer
+        discount_amount:
+          description: Sum of all order-level discounts applied to the order.
+          nullable: true
+          type: integer
+        items_discount_amount:
+          description: Sum of all product-specific discounts applied to the order.
+          nullable: true
+          type: integer
+        total_discount_amount:
+          description: Sum of all order-level AND all product-specific discounts applied
+            to the order.
+          nullable: true
+          type: integer
+        total_amount:
+          description: Order amount after undoing all the discounts through the rollback
+            redemption.
+          nullable: true
+          type: integer
+        applied_discount_amount:
+          description: This field shows the order-level discount applied.
+          nullable: true
+          type: integer
+        items_applied_discount_amount:
+          description: "Sum of all product-specific discounts applied in a particular\
+            \ request.  \n`sum(items, i => i.applied_discount_amount)`"
+          nullable: true
+          type: integer
+        total_applied_discount_amount:
+          description: "Sum of all order-level AND all product-specific discounts\
+            \ applied in a particular request.  \n`total_applied_discount_amount`\
+            \ = `applied_discount_amount` + `items_applied_discount_amount`"
+          nullable: true
+          type: integer
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItem'
+            $ref: '#/components/schemas/OrderItemCalculated'
           nullable: true
           title: OrderCalculatedEssentialItems
           type: array
-        customer:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-          description: This is an object containing information about the customer.
-        customer_id:
-          description: Unique customer ID of the customer making the purchase.
-          example: cust_7iUa6ICKyU6gH40dBU25kQU1
-          nullable: true
-          type: string
-        referrer:
-          allOf:
-          - $ref: '#/components/schemas/Referrer'
-          description: This is an object containing information about the referrer.
-        referrer_id:
-          description: Unique referrer ID.
-          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          nullable: true
-          type: string
         metadata:
           description: A set of custom key/value pairs that you can attach to an order.
             It can be useful for storing additional information about the order in
@@ -58799,6 +58836,13 @@ components:
           nullable: true
           title: OrderCalculatedEssentialMetadata
           type: object
+        object:
+          default: order
+          description: The type of the object represented by JSON.
+          enum:
+          - order
+          nullable: true
+          type: string
       title: OrderCalculatedEssential
       type: object
     OrderCalculatedNoCustomerData:
