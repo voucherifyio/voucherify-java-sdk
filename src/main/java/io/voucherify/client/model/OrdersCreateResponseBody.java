@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.CustomerId;
 import io.voucherify.client.model.OrderItemCalculated;
 import io.voucherify.client.model.OrderRedemptions;
-import io.voucherify.client.model.OrdersCreateResponseBodyCustomer;
-import io.voucherify.client.model.OrdersCreateResponseBodyReferrer;
+import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -236,11 +236,11 @@ public class OrdersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private OrdersCreateResponseBodyCustomer customer;
+  private CustomerId customer;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private OrdersCreateResponseBodyReferrer referrer;
+  private ReferrerId referrer;
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
@@ -656,7 +656,7 @@ public class OrdersCreateResponseBody {
   }
 
 
-  public OrdersCreateResponseBody customer(OrdersCreateResponseBodyCustomer customer) {
+  public OrdersCreateResponseBody customer(CustomerId customer) {
     
     this.customer = customer;
     return this;
@@ -667,17 +667,17 @@ public class OrdersCreateResponseBody {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public OrdersCreateResponseBodyCustomer getCustomer() {
+  public CustomerId getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(OrdersCreateResponseBodyCustomer customer) {
+  public void setCustomer(CustomerId customer) {
     this.customer = customer;
   }
 
 
-  public OrdersCreateResponseBody referrer(OrdersCreateResponseBodyReferrer referrer) {
+  public OrdersCreateResponseBody referrer(ReferrerId referrer) {
     
     this.referrer = referrer;
     return this;
@@ -688,12 +688,12 @@ public class OrdersCreateResponseBody {
    * @return referrer
   **/
   @javax.annotation.Nullable
-  public OrdersCreateResponseBodyReferrer getReferrer() {
+  public ReferrerId getReferrer() {
     return referrer;
   }
 
 
-  public void setReferrer(OrdersCreateResponseBodyReferrer referrer) {
+  public void setReferrer(ReferrerId referrer) {
     this.referrer = referrer;
   }
 

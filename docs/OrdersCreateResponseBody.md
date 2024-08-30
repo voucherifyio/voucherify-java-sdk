@@ -27,8 +27,8 @@ Response body schema for **POST** `v1/orders`.
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the order was last updated in ISO 8601 format. |
 |**customerId** | **String** | Unique customer ID of the customer making the purchase. |
 |**referrerId** | **String** | Unique referrer ID. |
-|**customer** | [**OrdersCreateResponseBodyCustomer**](OrdersCreateResponseBodyCustomer.md) |  |
-|**referrer** | [**OrdersCreateResponseBodyReferrer**](OrdersCreateResponseBodyReferrer.md) |  |
+|**customer** | [**CustomerId**](CustomerId.md) |  |
+|**referrer** | [**ReferrerId**](ReferrerId.md) |  |
 |**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
 
 

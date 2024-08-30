@@ -38844,23 +38844,7 @@ components:
         initial_amount: 6
         total_discount_amount: 5
         applied_discount_amount: 7
-        referrer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
         redemptions:
@@ -38947,23 +38931,7 @@ components:
         status: CREATED
         items_discount_amount: 5
         object: order
-        customer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        customer: ""
       properties:
         id:
           description: Unique ID assigned by Voucherify of an existing order that
@@ -39075,9 +39043,11 @@ components:
           nullable: true
           type: string
         customer:
-          $ref: '#/components/schemas/OrdersCreateResponseBodyCustomer'
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
         referrer:
-          $ref: '#/components/schemas/OrdersCreateResponseBodyReferrer'
+          allOf:
+          - $ref: '#/components/schemas/ReferrerId'
         redemptions:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
@@ -73053,224 +73023,6 @@ components:
           nullable: true
           type: boolean
       title: LoyaltiesUpdateCampaignRequestBodyOptions
-      type: object
-    OrdersCreateResponseBodyCustomerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrdersCreateResponseBodyCustomerAddress
-      type: object
-    OrdersCreateResponseBodyCustomer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrdersCreateResponseBodyCustomerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrdersCreateResponseBodyCustomerMetadata
-          type: object
-      title: OrdersCreateResponseBodyCustomer
-      type: object
-    OrdersCreateResponseBodyReferrerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrdersCreateResponseBodyReferrerAddress
-      type: object
-    OrdersCreateResponseBodyReferrer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrdersCreateResponseBodyReferrerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrdersCreateResponseBodyReferrerMetadata
-          type: object
-      title: OrdersCreateResponseBodyReferrer
       type: object
     OrdersExportCreateRequestBodyParameters:
       description: List of available fields and filters that can be exported with
