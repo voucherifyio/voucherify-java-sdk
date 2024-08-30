@@ -1,0 +1,106 @@
+{
+  "dataRef": "publications",
+  "publications": [
+    {
+      "id": "pub_NEBSmtL2R3Pvyl9FQ60N6I5A4kV1jDAi",
+      "createdAt": 1725015912.694,
+      "customerId": "cust_Cz2M0k71An4jpDxXZI2rfqu9",
+      "trackingId": null,
+      "metadata": {
+        "sourceType": null,
+        "sourceId": null,
+        "distributionId": null,
+        "additionalProperties": null
+      },
+      "channel": "API",
+      "sourceId": null,
+      "customer": {
+        "name": null,
+        "description": null,
+        "email": null,
+        "phone": null,
+        "birthday": null,
+        "birthdate": null,
+        "address": null,
+        "metadata": null,
+        "id": "cust_Cz2M0k71An4jpDxXZI2rfqu9",
+        "sourceId": null,
+        "summary": null,
+        "loyalty": null,
+        "referrals": null,
+        "systemMetadata": null,
+        "createdAt": null,
+        "updatedAt": null,
+        "assets": null,
+        "additionalProperties": null,
+        "object": "CUSTOMER"
+      },
+      "vouchers": ["KyDtKdQH", "VWRVJFCw"],
+      "vouchersId": [
+        "v_y3ZMGMsV4REuHb5vjsLKL9TrauSds1Nf",
+        "v_cWOadgyUoymdA6lAphggW4LP8zB74CGa"
+      ],
+      "result": "SUCCESS",
+      "voucher": null,
+      "failureCode": null,
+      "failureMessage": null,
+      "additionalProperties": null,
+      "object": "PUBLICATION"
+    },
+    {
+      "id": "pub_96PoxKNCFub7pl7jN7UU6wvY8bNkzs9S",
+      "createdAt": 1725015912.58,
+      "customerId": "cust_Cz2M0k71An4jpDxXZI2rfqu9",
+      "trackingId": null,
+      "metadata": {
+        "sourceType": null,
+        "sourceId": null,
+        "distributionId": null,
+        "additionalProperties": null
+      },
+      "channel": "API",
+      "sourceId": null,
+      "customer": {
+        "name": null,
+        "description": null,
+        "email": null,
+        "phone": null,
+        "birthday": null,
+        "birthdate": null,
+        "address": null,
+        "metadata": null,
+        "id": "cust_Cz2M0k71An4jpDxXZI2rfqu9",
+        "sourceId": null,
+        "summary": null,
+        "loyalty": null,
+        "referrals": null,
+        "systemMetadata": null,
+        "createdAt": null,
+        "updatedAt": null,
+        "assets": null,
+        "additionalProperties": null,
+        "object": "CUSTOMER"
+      },
+      "vouchers": null,
+      "vouchersId": ["v_jo8q44HE9JCiMIxUIbw1rnmAZ46aW5Iv"],
+      "result": "SUCCESS",
+      "voucher": {
+        "code": "DOlPXAWV",
+        "campaign": "n3QAzbcXWRMXgC0l4zjk",
+        "gift": null,
+        "loyaltyCard": { "points": 2500.0, "balance": 2500.0 },
+        "discount": null,
+        "isReferralCode": false,
+        "additionalProperties": null,
+        "object": "VOUCHER"
+      },
+      "failureCode": null,
+      "failureMessage": null,
+      "additionalProperties": null,
+      "object": "PUBLICATION"
+    }
+  ],
+  "total": 116,
+  "additionalProperties": null,
+  "object": "list"
+}

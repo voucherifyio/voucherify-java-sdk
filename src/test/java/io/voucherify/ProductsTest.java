@@ -9,14 +9,11 @@ import io.voucherify.client.ApiException;
 import io.voucherify.client.api.ProductsApi;
 import io.voucherify.client.model.*;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -48,17 +45,11 @@ public class ProductsTest {
             ProductsCreateResponseBody responseBody = products.createProduct(productsCreateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath,
-                    keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody,
-                    keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
             VoucherifyStore.getInstance().getProducts().add(
-                    new Product(responseBody.getId(), responseBody.getName(), responseBody.getSourceId()));
-        } catch (ApiException | IOException | JSONException e) {
+                    new Product(responseBody.getId(), responseBody.getSourceId(), responseBody.getName()));
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -72,14 +63,8 @@ public class ProductsTest {
                     .getProduct(VoucherifyStore.getInstance().getProducts().get(0).getId());
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath,
-                    keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody,
-                    keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -97,14 +82,8 @@ public class ProductsTest {
                     .updateProduct(VoucherifyStore.getInstance().getProducts().get(0).getId(), product);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "updatedAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath,
-                    keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody,
-                    keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -151,15 +130,16 @@ public class ProductsTest {
         ProductsMetadataUpdateInBulkRequestBody productsBody = new ProductsMetadataUpdateInBulkRequestBody();
 
         List<Product> allProducts = VoucherifyStore.getInstance().getProducts();
-        List<String> productIds = allProducts.stream()
-                .map(Product::getId)
+
+        List<String> randomProductSourceIds = allProducts.stream()
+                .map(product -> Utils.getAlphaNumericString(10))
                 .collect(Collectors.toList());
 
         Map<String, String> metadata = new HashMap<>();
         metadata.put("key1", "value1");
         metadata.put("key2", "value2");
 
-        productsBody.setSourceIds(productIds);
+        productsBody.setSourceIds(randomProductSourceIds);
         productsBody.setMetadata(metadata);
 
         try {
@@ -191,14 +171,10 @@ public class ProductsTest {
                     .createSku(VoucherifyStore.getInstance().getProducts().get(0).getId(), sku);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
             VoucherifyStore.getInstance().getSku().setId(responseBody.getId());
-        } catch (ApiException | IOException | JSONException e) {
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -218,13 +194,9 @@ public class ProductsTest {
             ProductsSkusUpdateResponseBody responseBody = products.updateSku(productId, skuId, sku);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt", "updatedAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-
-        } catch (ApiException | IOException | JSONException e) {
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -237,13 +209,9 @@ public class ProductsTest {
             SkusGetResponseBody responseBody = products.getSku(VoucherifyStore.getInstance().getSku().getId());
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt", "updatedAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-
-        } catch (ApiException | IOException | JSONException e) {
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -254,17 +222,13 @@ public class ProductsTest {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Products/ListedProductSkus.snapshot.json";
         try {
             ProductsSkusListResponseBody responseBody = products.listSkusInProduct(
-                VoucherifyStore.getInstance().getProducts().get(0).getId(), null, null, null, null, null);
+                    VoucherifyStore.getInstance().getProducts().get(0).getId(), null, null, null, null, null);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId",
                     "createdAt", "updatedAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-
-        } catch (ApiException | IOException | JSONException e) {
+        } catch (ApiException e) {
             fail();
         }
     }

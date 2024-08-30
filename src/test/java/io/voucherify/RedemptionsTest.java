@@ -18,11 +18,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(9)
@@ -83,13 +80,8 @@ public class RedemptionsTest {
 
             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId",
                     "createdAt", "redemptions", "parentRedemption");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            assertNotNull(responseBody);
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }

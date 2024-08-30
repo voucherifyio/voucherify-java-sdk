@@ -12,15 +12,8 @@ import io.voucherify.client.model.*;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.EventsApi;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
-
-import io.voucherify.client.model.EventsCreateRequestBody;
-import io.voucherify.client.model.EventsCreateResponseBody;
-
 import io.voucherify.helpers.JsonHelper;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,14 +48,8 @@ public class EventsTest {
             EventsCreateResponseBody responseBody = events.trackCustomEvent(event);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath,
-                    keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody,
-                    keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             System.out.println(e);
             fail();
         }

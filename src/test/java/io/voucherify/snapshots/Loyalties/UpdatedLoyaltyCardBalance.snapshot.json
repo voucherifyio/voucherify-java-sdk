@@ -1,0 +1,14 @@
+{
+  "points": 1000,
+  "total": 1500,
+  "balance": 1500,
+  "type": "LOYALTY_CARD",
+  "relatedObject": {
+    "type": "VOUCHER",
+    "id": "v_FY9VISCtYo6bVPIlX5M3Wi9bG6nnVj5N",
+    "additionalProperties": null
+  },
+  "operationType": "MANUAL",
+  "additionalProperties": null,
+  "object": "BALANCE"
+}

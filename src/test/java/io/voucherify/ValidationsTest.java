@@ -18,11 +18,8 @@ import io.voucherify.client.api.VouchersApi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(8)
@@ -52,18 +49,18 @@ public class ValidationsTest {
     @Test
     @org.junit.jupiter.api.Order(2)
     public void validateStackedApplicableDiscountsTest() {
-        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/ApplicableValidation.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Validations/ApplicableValidation.snapshot.json";
         validateStackedDiscounts(getValidationsValidateApplicableVouchersRequestBody(),
-                snaphsotPath);
+                snapshotPath);
     }
 
     @Test
     @org.junit.jupiter.api.Order(3)
     public void validateStackedSkippedDiscountsTest() {
-        String snaphsotPath = "src/test/java/io/voucherify/snapshots/Validations/SkippedValidation.snapshot.json";
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Validations/SkippedValidation.snapshot.json";
         ValidationsValidateRequestBody requestBody = getValidationsValidateApplicableVouchersRequestBody();
         addRedeemablesItemToBeginning(requestBody);
-        validateStackedDiscounts(requestBody, snaphsotPath);
+        validateStackedDiscounts(requestBody, snapshotPath);
     }
 
     private void validateStackedDiscounts(ValidationsValidateRequestBody requestBody, String snapshotPath) {
@@ -71,12 +68,8 @@ public class ValidationsTest {
             ValidationsValidateResponseBody responseBody = validationsApi.validateStackedDiscounts(requestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }

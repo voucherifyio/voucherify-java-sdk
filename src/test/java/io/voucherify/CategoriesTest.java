@@ -13,11 +13,8 @@ import io.voucherify.client.model.*;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CategoriesApi;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,14 +43,10 @@ public class CategoriesTest {
             CategoriesCreateResponseBody responseBody = categories.createCategory(category);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "name");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
             VoucherifyStore.getInstance().getCategory().setId(responseBody.getId());
-        } catch (ApiException | IOException | JSONException e) {
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -68,12 +61,8 @@ public class CategoriesTest {
                     .getCategory(VoucherifyStore.getInstance().getCategory().getId());
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "name");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody, keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }
@@ -92,14 +81,8 @@ public class CategoriesTest {
                     .updateCategory(VoucherifyStore.getInstance().getCategory().getId(), category);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "name", "updatedAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath,
-                    keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(responseBody,
-                    keysToRemove);
-
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }

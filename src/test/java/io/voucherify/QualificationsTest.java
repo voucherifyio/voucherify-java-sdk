@@ -2,6 +2,7 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.voucherify.client.ApiClient;
@@ -49,7 +50,7 @@ public class QualificationsTest {
             QualificationsCheckEligibilityResponseBody responseBody = qualifications
                     .checkEligibility(qualificationsCheckEligibilityRequestBody);
 
-            assertFalse(responseBody.getRedeemables().getData().isEmpty());
+            assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

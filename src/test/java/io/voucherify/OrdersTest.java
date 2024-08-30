@@ -16,10 +16,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.io.IOException;
 
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.JSONAssert;
 import io.voucherify.helpers.JsonHelper;
 
 import org.junit.jupiter.api.MethodOrderer;
@@ -48,13 +45,8 @@ public class OrdersTest {
             VoucherifyStore.getInstance().getOrder().setId(createdOrderResponseBody.getId());
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(createdOrderResponseBody, keysToRemove);
-
-            assertNotNull(createdOrderResponseBody);
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, createdOrderResponseBody, keysToRemove);
+        } catch (ApiException e) {
             System.out.println(e);
             fail();
         }
@@ -69,13 +61,8 @@ public class OrdersTest {
                     .getOrder(VoucherifyStore.getInstance().getOrder().getId());
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(orderResponseBody, keysToRemove);
-
-            assertNotNull(orderResponseBody);
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, orderResponseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
 
@@ -92,13 +79,8 @@ public class OrdersTest {
                     .updateOrder(VoucherifyStore.getInstance().getOrder().getId(), updatedOrderRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "updatedAt");
-
-            String filteredSnapshot = JsonHelper.validateSnapshotPayloads(snapshotPath, keysToRemove);
-            String filteredResponse = JsonHelper.validateClassPayloads(updatedOrderResponseBody, keysToRemove);
-
-            assertNotNull(updatedOrderResponseBody);
-            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
-        } catch (ApiException | IOException | JSONException | JsonSyntaxException e) {
+            JsonHelper.checkStrictAssertEquals(snapshotPath, updatedOrderResponseBody, keysToRemove);
+        } catch (ApiException e) {
             fail();
         }
     }

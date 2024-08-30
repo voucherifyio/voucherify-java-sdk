@@ -1,7 +1,8 @@
 package io.voucherify;
 
-import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
+import io.voucherify.helpers.JsonHelper;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
@@ -11,7 +12,6 @@ import io.voucherify.client.model.*;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(4)
@@ -27,7 +27,8 @@ public class ValidationRulesTest {
     }
 
     @Test
-    public void addValidationRuleTest() {
+    public void createValidationRuleTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/ValidationRules/CreatedValidationRule.snapshot.json";
 
         try {
             ValidationRulesCreateRequestBody validationRulesCreateRequestBody = new ValidationRulesCreateRequestBody();
@@ -80,11 +81,12 @@ public class ValidationRulesTest {
             ValidationRulesCreateResponseBody validationRulesCreateResponseBody = validationRules.createValidationRules(
                     validationRulesCreateRequestBody);
 
-            assertNotNull(validationRulesCreateResponseBody);
+            List<String> keysToRemove = Arrays.asList("name", "id", "createdAt", "source_id", "sourceId");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, validationRulesCreateResponseBody, keysToRemove);
 
             VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds()
                     .add(validationRulesCreateResponseBody.getId());
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (ApiException e) {
             fail();
         }
     }

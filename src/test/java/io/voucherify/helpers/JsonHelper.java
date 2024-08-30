@@ -8,6 +8,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.skyscreamer.jsonassert.JSONAssert;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -20,10 +25,6 @@ public class JsonHelper {
     public static String readJsonFile(String filePath) throws IOException {
         return new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
 
-    }
-
-    public static ObjectMapper getObjectMapper() {
-        return objectMapper;
     }
 
     public static String validateSnapshotPayloads(String filePath, List<String> keysToRemove) throws IOException {
@@ -64,8 +65,24 @@ public class JsonHelper {
         return objectMapper.writeValueAsString(response);
     }
 
-    public static <T> void logPureResponseBody(T response) throws IOException {
-        System.out.println(returnJsonResponse(response));
+    public static <T> void logPureResponseBody(T response) {
+        try {
+            System.out.println(returnJsonResponse(response));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public static <T> void checkStrictAssertEquals(String snapshotPath, T response, List<String> keysToRemove) {
+        try {
+            String filteredSnapshot = validateSnapshotPayloads(snapshotPath, keysToRemove);
+            String filteredResponse = validateClassPayloads(response, keysToRemove);
+
+            JSONAssert.assertEquals(filteredSnapshot, filteredResponse, true);
+        } catch (JSONException | IOException e) {
+            fail();
+        }
+
     }
 
 }
