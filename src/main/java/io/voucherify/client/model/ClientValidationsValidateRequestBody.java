@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ClientValidationsValidateRequestBodyOptions;
 import io.voucherify.client.model.ClientValidationsValidateRequestBodyRedeemablesItem;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.Order;
+import io.voucherify.client.model.OrderCalculatedEssential;
 import io.voucherify.client.model.Session;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class ClientValidationsValidateRequestBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private Order order;
+  private OrderCalculatedEssential order;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -141,7 +141,7 @@ public class ClientValidationsValidateRequestBody {
   }
 
 
-  public ClientValidationsValidateRequestBody order(Order order) {
+  public ClientValidationsValidateRequestBody order(OrderCalculatedEssential order) {
     
     this.order = order;
     return this;
@@ -152,12 +152,12 @@ public class ClientValidationsValidateRequestBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public Order getOrder() {
+  public OrderCalculatedEssential getOrder() {
     return order;
   }
 
 
-  public void setOrder(Order order) {
+  public void setOrder(OrderCalculatedEssential order) {
     this.order = order;
   }
 

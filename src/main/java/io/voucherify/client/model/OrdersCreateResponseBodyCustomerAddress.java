@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.OrderCalculatedEssential;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,136 +48,161 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;v1/redemptions/{redemptionId}/rollback&#x60;.
+ * Customer&#39;s address.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class RedemptionsRollbackCreateRequestBody {
-  public static final String SERIALIZED_NAME_REASON = "reason";
-  @SerializedName(SERIALIZED_NAME_REASON)
-  private String reason;
+public class OrdersCreateResponseBodyCustomerAddress {
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
 
-  public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
-  @SerializedName(SERIALIZED_NAME_TRACKING_ID)
-  private String trackingId;
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private String state;
 
-  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private Customer customer;
+  public static final String SERIALIZED_NAME_LINE1 = "line_1";
+  @SerializedName(SERIALIZED_NAME_LINE1)
+  private String line1;
 
-  public static final String SERIALIZED_NAME_ORDER = "order";
-  @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculatedEssential order;
+  public static final String SERIALIZED_NAME_LINE2 = "line_2";
+  @SerializedName(SERIALIZED_NAME_LINE2)
+  private String line2;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private String country;
 
-  public RedemptionsRollbackCreateRequestBody() {
+  public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
+  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  private String postalCode;
+
+  public OrdersCreateResponseBodyCustomerAddress() {
   }
 
-  public RedemptionsRollbackCreateRequestBody reason(String reason) {
+  public OrdersCreateResponseBodyCustomerAddress city(String city) {
     
-    this.reason = reason;
+    this.city = city;
     return this;
   }
 
    /**
-   * Reason for the rollback.
-   * @return reason
+   * City
+   * @return city
   **/
   @javax.annotation.Nullable
-  public String getReason() {
-    return reason;
+  public String getCity() {
+    return city;
   }
 
 
-  public void setReason(String reason) {
-    this.reason = reason;
+  public void setCity(String city) {
+    this.city = city;
   }
 
 
-  public RedemptionsRollbackCreateRequestBody trackingId(String trackingId) {
+  public OrdersCreateResponseBodyCustomerAddress state(String state) {
     
-    this.trackingId = trackingId;
+    this.state = state;
     return this;
   }
 
    /**
-   * Customer&#39;s &#x60;source_id&#x60;.
-   * @return trackingId
+   * State
+   * @return state
   **/
   @javax.annotation.Nullable
-  public String getTrackingId() {
-    return trackingId;
+  public String getState() {
+    return state;
   }
 
 
-  public void setTrackingId(String trackingId) {
-    this.trackingId = trackingId;
+  public void setState(String state) {
+    this.state = state;
   }
 
 
-  public RedemptionsRollbackCreateRequestBody customer(Customer customer) {
+  public OrdersCreateResponseBodyCustomerAddress line1(String line1) {
     
-    this.customer = customer;
+    this.line1 = line1;
     return this;
   }
 
    /**
-   * Get customer
-   * @return customer
+   * First line of address.
+   * @return line1
   **/
   @javax.annotation.Nullable
-  public Customer getCustomer() {
-    return customer;
+  public String getLine1() {
+    return line1;
   }
 
 
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
+  public void setLine1(String line1) {
+    this.line1 = line1;
   }
 
 
-  public RedemptionsRollbackCreateRequestBody order(OrderCalculatedEssential order) {
+  public OrdersCreateResponseBodyCustomerAddress line2(String line2) {
     
-    this.order = order;
+    this.line2 = line2;
     return this;
   }
 
    /**
-   * Get order
-   * @return order
+   * Second line of address.
+   * @return line2
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedEssential getOrder() {
-    return order;
+  public String getLine2() {
+    return line2;
   }
 
 
-  public void setOrder(OrderCalculatedEssential order) {
-    this.order = order;
+  public void setLine2(String line2) {
+    this.line2 = line2;
   }
 
 
-  public RedemptionsRollbackCreateRequestBody metadata(Object metadata) {
+  public OrdersCreateResponseBodyCustomerAddress country(String country) {
     
-    this.metadata = metadata;
+    this.country = country;
     return this;
   }
 
    /**
-   * A set of key/value pairs that you can send in the request body to update **redemption** metadata.
-   * @return metadata
+   * Country.
+   * @return country
   **/
   @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
+  public String getCountry() {
+    return country;
   }
 
 
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+
+  public OrdersCreateResponseBodyCustomerAddress postalCode(String postalCode) {
+    
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Postal code.
+   * @return postalCode
+  **/
+  @javax.annotation.Nullable
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
   }
 
   /**
@@ -195,9 +218,9 @@ public class RedemptionsRollbackCreateRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RedemptionsRollbackCreateRequestBody instance itself
+   * @return the OrdersCreateResponseBodyCustomerAddress instance itself
    */
-  public RedemptionsRollbackCreateRequestBody putAdditionalProperty(String key, Object value) {
+  public OrdersCreateResponseBodyCustomerAddress putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -236,13 +259,14 @@ public class RedemptionsRollbackCreateRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = (RedemptionsRollbackCreateRequestBody) o;
-    return Objects.equals(this.reason, redemptionsRollbackCreateRequestBody.reason) &&
-        Objects.equals(this.trackingId, redemptionsRollbackCreateRequestBody.trackingId) &&
-        Objects.equals(this.customer, redemptionsRollbackCreateRequestBody.customer) &&
-        Objects.equals(this.order, redemptionsRollbackCreateRequestBody.order) &&
-        Objects.equals(this.metadata, redemptionsRollbackCreateRequestBody.metadata)&&
-        Objects.equals(this.additionalProperties, redemptionsRollbackCreateRequestBody.additionalProperties);
+    OrdersCreateResponseBodyCustomerAddress ordersCreateResponseBodyCustomerAddress = (OrdersCreateResponseBodyCustomerAddress) o;
+    return Objects.equals(this.city, ordersCreateResponseBodyCustomerAddress.city) &&
+        Objects.equals(this.state, ordersCreateResponseBodyCustomerAddress.state) &&
+        Objects.equals(this.line1, ordersCreateResponseBodyCustomerAddress.line1) &&
+        Objects.equals(this.line2, ordersCreateResponseBodyCustomerAddress.line2) &&
+        Objects.equals(this.country, ordersCreateResponseBodyCustomerAddress.country) &&
+        Objects.equals(this.postalCode, ordersCreateResponseBodyCustomerAddress.postalCode)&&
+        Objects.equals(this.additionalProperties, ordersCreateResponseBodyCustomerAddress.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -251,7 +275,7 @@ public class RedemptionsRollbackCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, trackingId, customer, order, metadata, additionalProperties);
+    return Objects.hash(city, state, line1, line2, country, postalCode, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -264,12 +288,13 @@ public class RedemptionsRollbackCreateRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RedemptionsRollbackCreateRequestBody {\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
-    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("class OrdersCreateResponseBodyCustomerAddress {\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
+    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -293,11 +318,12 @@ public class RedemptionsRollbackCreateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("reason");
-    openapiFields.add("tracking_id");
-    openapiFields.add("customer");
-    openapiFields.add("order");
-    openapiFields.add("metadata");
+    openapiFields.add("city");
+    openapiFields.add("state");
+    openapiFields.add("line_1");
+    openapiFields.add("line_2");
+    openapiFields.add("country");
+    openapiFields.add("postal_code");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -307,16 +333,16 @@ public class RedemptionsRollbackCreateRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RedemptionsRollbackCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RedemptionsRollbackCreateRequestBody' and its subtypes
+       if (!OrdersCreateResponseBodyCustomerAddress.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrdersCreateResponseBodyCustomerAddress' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RedemptionsRollbackCreateRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RedemptionsRollbackCreateRequestBody.class));
+       final TypeAdapter<OrdersCreateResponseBodyCustomerAddress> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrdersCreateResponseBodyCustomerAddress.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RedemptionsRollbackCreateRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrdersCreateResponseBodyCustomerAddress>() {
            @Override
-           public void write(JsonWriter out, RedemptionsRollbackCreateRequestBody value) throws IOException {
+           public void write(JsonWriter out, OrdersCreateResponseBodyCustomerAddress value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -339,11 +365,11 @@ public class RedemptionsRollbackCreateRequestBody {
            }
 
            @Override
-           public RedemptionsRollbackCreateRequestBody read(JsonReader in) throws IOException {
+           public OrdersCreateResponseBodyCustomerAddress read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RedemptionsRollbackCreateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             OrdersCreateResponseBodyCustomerAddress instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -370,18 +396,18 @@ public class RedemptionsRollbackCreateRequestBody {
   }
 
  /**
-  * Create an instance of RedemptionsRollbackCreateRequestBody given an JSON string
+  * Create an instance of OrdersCreateResponseBodyCustomerAddress given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RedemptionsRollbackCreateRequestBody
-  * @throws IOException if the JSON string is invalid with respect to RedemptionsRollbackCreateRequestBody
+  * @return An instance of OrdersCreateResponseBodyCustomerAddress
+  * @throws IOException if the JSON string is invalid with respect to OrdersCreateResponseBodyCustomerAddress
   */
-  public static RedemptionsRollbackCreateRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RedemptionsRollbackCreateRequestBody.class);
+  public static OrdersCreateResponseBodyCustomerAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrdersCreateResponseBodyCustomerAddress.class);
   }
 
  /**
-  * Convert an instance of RedemptionsRollbackCreateRequestBody to an JSON string
+  * Convert an instance of OrdersCreateResponseBodyCustomerAddress to an JSON string
   *
   * @return JSON string
   */

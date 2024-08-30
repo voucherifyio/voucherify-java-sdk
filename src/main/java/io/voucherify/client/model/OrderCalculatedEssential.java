@@ -53,11 +53,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * OrderBase
+ * OrderCalculatedEssential
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderBase {
+public class OrderCalculatedEssential {
   /**
    * The order status.
    */
@@ -149,10 +149,10 @@ public class OrderBase {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public OrderBase() {
+  public OrderCalculatedEssential() {
   }
 
-  public OrderBase status(StatusEnum status) {
+  public OrderCalculatedEssential status(StatusEnum status) {
     
     this.status = status;
     return this;
@@ -173,7 +173,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase amount(Integer amount) {
+  public OrderCalculatedEssential amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -194,7 +194,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase discountAmount(Integer discountAmount) {
+  public OrderCalculatedEssential discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
     return this;
@@ -215,7 +215,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase initialAmount(Integer initialAmount) {
+  public OrderCalculatedEssential initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
     return this;
@@ -236,13 +236,13 @@ public class OrderBase {
   }
 
 
-  public OrderBase items(List<OrderItem> items) {
+  public OrderCalculatedEssential items(List<OrderItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrderBase addItemsItem(OrderItem itemsItem) {
+  public OrderCalculatedEssential addItemsItem(OrderItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -265,7 +265,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase customer(Customer customer) {
+  public OrderCalculatedEssential customer(Customer customer) {
     
     this.customer = customer;
     return this;
@@ -286,7 +286,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase customerId(String customerId) {
+  public OrderCalculatedEssential customerId(String customerId) {
     
     this.customerId = customerId;
     return this;
@@ -307,7 +307,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase referrer(Referrer referrer) {
+  public OrderCalculatedEssential referrer(Referrer referrer) {
     
     this.referrer = referrer;
     return this;
@@ -328,7 +328,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase referrerId(String referrerId) {
+  public OrderCalculatedEssential referrerId(String referrerId) {
     
     this.referrerId = referrerId;
     return this;
@@ -349,7 +349,7 @@ public class OrderBase {
   }
 
 
-  public OrderBase metadata(Object metadata) {
+  public OrderCalculatedEssential metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -382,9 +382,9 @@ public class OrderBase {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderBase instance itself
+   * @return the OrderCalculatedEssential instance itself
    */
-  public OrderBase putAdditionalProperty(String key, Object value) {
+  public OrderCalculatedEssential putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -423,18 +423,18 @@ public class OrderBase {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderBase orderBase = (OrderBase) o;
-    return Objects.equals(this.status, orderBase.status) &&
-        Objects.equals(this.amount, orderBase.amount) &&
-        Objects.equals(this.discountAmount, orderBase.discountAmount) &&
-        Objects.equals(this.initialAmount, orderBase.initialAmount) &&
-        Objects.equals(this.items, orderBase.items) &&
-        Objects.equals(this.customer, orderBase.customer) &&
-        Objects.equals(this.customerId, orderBase.customerId) &&
-        Objects.equals(this.referrer, orderBase.referrer) &&
-        Objects.equals(this.referrerId, orderBase.referrerId) &&
-        Objects.equals(this.metadata, orderBase.metadata)&&
-        Objects.equals(this.additionalProperties, orderBase.additionalProperties);
+    OrderCalculatedEssential orderCalculatedEssential = (OrderCalculatedEssential) o;
+    return Objects.equals(this.status, orderCalculatedEssential.status) &&
+        Objects.equals(this.amount, orderCalculatedEssential.amount) &&
+        Objects.equals(this.discountAmount, orderCalculatedEssential.discountAmount) &&
+        Objects.equals(this.initialAmount, orderCalculatedEssential.initialAmount) &&
+        Objects.equals(this.items, orderCalculatedEssential.items) &&
+        Objects.equals(this.customer, orderCalculatedEssential.customer) &&
+        Objects.equals(this.customerId, orderCalculatedEssential.customerId) &&
+        Objects.equals(this.referrer, orderCalculatedEssential.referrer) &&
+        Objects.equals(this.referrerId, orderCalculatedEssential.referrerId) &&
+        Objects.equals(this.metadata, orderCalculatedEssential.metadata)&&
+        Objects.equals(this.additionalProperties, orderCalculatedEssential.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -456,7 +456,7 @@ public class OrderBase {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderBase {\n");
+    sb.append("class OrderCalculatedEssential {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
@@ -509,16 +509,16 @@ public class OrderBase {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderBase.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderBase' and its subtypes
+       if (!OrderCalculatedEssential.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCalculatedEssential' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderBase> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderBase.class));
+       final TypeAdapter<OrderCalculatedEssential> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCalculatedEssential.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderBase>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedEssential>() {
            @Override
-           public void write(JsonWriter out, OrderBase value) throws IOException {
+           public void write(JsonWriter out, OrderCalculatedEssential value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -541,11 +541,11 @@ public class OrderBase {
            }
 
            @Override
-           public OrderBase read(JsonReader in) throws IOException {
+           public OrderCalculatedEssential read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderBase instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderCalculatedEssential instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -572,18 +572,18 @@ public class OrderBase {
   }
 
  /**
-  * Create an instance of OrderBase given an JSON string
+  * Create an instance of OrderCalculatedEssential given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderBase
-  * @throws IOException if the JSON string is invalid with respect to OrderBase
+  * @return An instance of OrderCalculatedEssential
+  * @throws IOException if the JSON string is invalid with respect to OrderCalculatedEssential
   */
-  public static OrderBase fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderBase.class);
+  public static OrderCalculatedEssential fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCalculatedEssential.class);
   }
 
  /**
-  * Convert an instance of OrderBase to an JSON string
+  * Convert an instance of OrderCalculatedEssential to an JSON string
   *
   * @return JSON string
   */

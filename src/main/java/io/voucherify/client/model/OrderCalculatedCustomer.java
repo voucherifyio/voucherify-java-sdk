@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.OrderCalculatedCustomerAddress;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -57,54 +59,41 @@ public class OrderCalculatedCustomer {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  /**
-   * The type of the object represented by JSON.
-   */
-  @JsonAdapter(ObjectEnum.Adapter.class)
-  public enum ObjectEnum {
-    CUSTOMER("customer");
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
 
-    private String value;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-    ObjectEnum(String value) {
-      this.value = value;
-    }
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-    public String getValue() {
-      return value;
-    }
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
 
-    public static ObjectEnum fromValue(String value) {
-      for (ObjectEnum b : ObjectEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
+  public static final String SERIALIZED_NAME_BIRTHDAY = "birthday";
+  @SerializedName(SERIALIZED_NAME_BIRTHDAY)
+  private LocalDate birthday;
 
-    public static class Adapter extends TypeAdapter<ObjectEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+  public static final String SERIALIZED_NAME_BIRTHDATE = "birthdate";
+  @SerializedName(SERIALIZED_NAME_BIRTHDATE)
+  private LocalDate birthdate;
 
-      @Override
-      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ObjectEnum.fromValue(value);
-      }
-    }
-  }
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private OrderCalculatedCustomerAddress address;
 
-  public static final String SERIALIZED_NAME_OBJECT = "object";
-  @SerializedName(SERIALIZED_NAME_OBJECT)
-  private ObjectEnum _object = ObjectEnum.CUSTOMER;
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
 
   public OrderCalculatedCustomer() {
   }
@@ -116,7 +105,7 @@ public class OrderCalculatedCustomer {
   }
 
    /**
-   * A unique identifier of an existing customer.
+   * The ID of an existing customer.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -130,24 +119,192 @@ public class OrderCalculatedCustomer {
   }
 
 
-  public OrderCalculatedCustomer _object(ObjectEnum _object) {
+  public OrderCalculatedCustomer sourceId(String sourceId) {
     
-    this._object = _object;
+    this.sourceId = sourceId;
     return this;
   }
 
    /**
-   * The type of the object represented by JSON.
-   * @return _object
+   * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
+   * @return sourceId
   **/
   @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
+  public String getSourceId() {
+    return sourceId;
   }
 
 
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
+
+  public OrderCalculatedCustomer name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s first and last name.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public OrderCalculatedCustomer description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * An arbitrary string that you can attach to a customer object.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public OrderCalculatedCustomer email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s email address.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public OrderCalculatedCustomer phone(String phone) {
+    
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
+   * @return phone
+  **/
+  @javax.annotation.Nullable
+  public String getPhone() {
+    return phone;
+  }
+
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
+  public OrderCalculatedCustomer birthday(LocalDate birthday) {
+    
+    this.birthday = birthday;
+    return this;
+  }
+
+   /**
+   * &#x60;Deprecated&#x60;. ~~Customer&#39;s birthdate; format YYYY-MM-DD~~.
+   * @return birthday
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getBirthday() {
+    return birthday;
+  }
+
+
+  public void setBirthday(LocalDate birthday) {
+    this.birthday = birthday;
+  }
+
+
+  public OrderCalculatedCustomer birthdate(LocalDate birthdate) {
+    
+    this.birthdate = birthdate;
+    return this;
+  }
+
+   /**
+   * Customer&#39;s birthdate; format YYYY-MM-DD.
+   * @return birthdate
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getBirthdate() {
+    return birthdate;
+  }
+
+
+  public void setBirthdate(LocalDate birthdate) {
+    this.birthdate = birthdate;
+  }
+
+
+  public OrderCalculatedCustomer address(OrderCalculatedCustomerAddress address) {
+    
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @javax.annotation.Nullable
+  public OrderCalculatedCustomerAddress getAddress() {
+    return address;
+  }
+
+
+  public void setAddress(OrderCalculatedCustomerAddress address) {
+    this.address = address;
+  }
+
+
+  public OrderCalculatedCustomer metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
   }
 
   /**
@@ -206,7 +363,15 @@ public class OrderCalculatedCustomer {
     }
     OrderCalculatedCustomer orderCalculatedCustomer = (OrderCalculatedCustomer) o;
     return Objects.equals(this.id, orderCalculatedCustomer.id) &&
-        Objects.equals(this._object, orderCalculatedCustomer._object)&&
+        Objects.equals(this.sourceId, orderCalculatedCustomer.sourceId) &&
+        Objects.equals(this.name, orderCalculatedCustomer.name) &&
+        Objects.equals(this.description, orderCalculatedCustomer.description) &&
+        Objects.equals(this.email, orderCalculatedCustomer.email) &&
+        Objects.equals(this.phone, orderCalculatedCustomer.phone) &&
+        Objects.equals(this.birthday, orderCalculatedCustomer.birthday) &&
+        Objects.equals(this.birthdate, orderCalculatedCustomer.birthdate) &&
+        Objects.equals(this.address, orderCalculatedCustomer.address) &&
+        Objects.equals(this.metadata, orderCalculatedCustomer.metadata)&&
         Objects.equals(this.additionalProperties, orderCalculatedCustomer.additionalProperties);
   }
 
@@ -216,7 +381,7 @@ public class OrderCalculatedCustomer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, additionalProperties);
+    return Objects.hash(id, sourceId, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -231,7 +396,15 @@ public class OrderCalculatedCustomer {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderCalculatedCustomer {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
+    sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -256,7 +429,15 @@ public class OrderCalculatedCustomer {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("object");
+    openapiFields.add("source_id");
+    openapiFields.add("name");
+    openapiFields.add("description");
+    openapiFields.add("email");
+    openapiFields.add("phone");
+    openapiFields.add("birthday");
+    openapiFields.add("birthdate");
+    openapiFields.add("address");
+    openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

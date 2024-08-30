@@ -10,7 +10,7 @@ Response body schema for **POST** `v1/redemptions`.
 |------------ | ------------- | ------------- |
 |**options** | [**ClientRedemptionsRedeemRequestBodyOptions**](ClientRedemptionsRedeemRequestBodyOptions.md) |  |
 |**redeemables** | [**List&lt;ClientRedemptionsRedeemRequestBodyRedeemablesItem&gt;**](ClientRedemptionsRedeemRequestBodyRedeemablesItem.md) |  |
-|**order** | [**Order**](Order.md) |  |
+|**order** | [**OrderCalculatedEssential**](OrderCalculatedEssential.md) |  |
 |**customer** | [**Customer**](Customer.md) |  |
 |**session** | [**Session**](Session.md) |  |
 |**trackingId** | **String** | Is correspondent to Customer&#39;s source_id |

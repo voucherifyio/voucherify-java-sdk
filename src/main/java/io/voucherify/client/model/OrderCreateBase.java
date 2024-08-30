@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyOptions;
-import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyRedeemablesItem;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.OrderCalculatedEssential;
-import io.voucherify.client.model.Session;
+import io.voucherify.client.model.OrderItem;
+import io.voucherify.client.model.Referrer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,114 +53,219 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;v1/redemptions&#x60;.
+ * OrderCreateBase
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ClientRedemptionsRedeemRequestBody {
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientRedemptionsRedeemRequestBodyOptions options;
+public class OrderCreateBase {
+  /**
+   * The order status.
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    CREATED("CREATED"),
+    
+    PAID("PAID"),
+    
+    CANCELED("CANCELED"),
+    
+    FULFILLED("FULFILLED");
 
-  public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
-  @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables;
+    private String value;
 
-  public static final String SERIALIZED_NAME_ORDER = "order";
-  @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculatedEssential order;
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Integer amount;
+
+  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
+  private Integer discountAmount;
+
+  public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
+  @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
+  private Integer initialAmount;
+
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<OrderItem> items;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
   private Customer customer;
 
-  public static final String SERIALIZED_NAME_SESSION = "session";
-  @SerializedName(SERIALIZED_NAME_SESSION)
-  private Session session;
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
-  public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
-  @SerializedName(SERIALIZED_NAME_TRACKING_ID)
-  private String trackingId;
+  public static final String SERIALIZED_NAME_REFERRER = "referrer";
+  @SerializedName(SERIALIZED_NAME_REFERRER)
+  private Referrer referrer;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public ClientRedemptionsRedeemRequestBody() {
+  public OrderCreateBase() {
   }
 
-  public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyOptions options) {
+  public OrderCreateBase status(StatusEnum status) {
     
-    this.options = options;
+    this.status = status;
     return this;
   }
 
    /**
-   * Get options
-   * @return options
+   * The order status.
+   * @return status
   **/
   @javax.annotation.Nullable
-  public ClientRedemptionsRedeemRequestBodyOptions getOptions() {
-    return options;
+  public StatusEnum getStatus() {
+    return status;
   }
 
 
-  public void setOptions(ClientRedemptionsRedeemRequestBodyOptions options) {
-    this.options = options;
+  public void setStatus(StatusEnum status) {
+    this.status = status;
   }
 
 
-  public ClientRedemptionsRedeemRequestBody redeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
+  public OrderCreateBase amount(Integer amount) {
     
-    this.redeemables = redeemables;
+    this.amount = amount;
     return this;
   }
 
-  public ClientRedemptionsRedeemRequestBody addRedeemablesItem(ClientRedemptionsRedeemRequestBodyRedeemablesItem redeemablesItem) {
-    if (this.redeemables == null) {
-      this.redeemables = new ArrayList<>();
+   /**
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.  
+   * @return amount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAmount() {
+    return amount;
+  }
+
+
+  public void setAmount(Integer amount) {
+    this.amount = amount;
+  }
+
+
+  public OrderCreateBase discountAmount(Integer discountAmount) {
+    
+    this.discountAmount = discountAmount;
+    return this;
+  }
+
+   /**
+   * Sum of all order-level discounts applied to the order.
+   * @return discountAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getDiscountAmount() {
+    return discountAmount;
+  }
+
+
+  public void setDiscountAmount(Integer discountAmount) {
+    this.discountAmount = discountAmount;
+  }
+
+
+  public OrderCreateBase initialAmount(Integer initialAmount) {
+    
+    this.initialAmount = initialAmount;
+    return this;
+  }
+
+   /**
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
+   * @return initialAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getInitialAmount() {
+    return initialAmount;
+  }
+
+
+  public void setInitialAmount(Integer initialAmount) {
+    this.initialAmount = initialAmount;
+  }
+
+
+  public OrderCreateBase items(List<OrderItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public OrderCreateBase addItemsItem(OrderItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
     }
-    this.redeemables.add(redeemablesItem);
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get redeemables
-   * @return redeemables
+   * Array of items applied to the order.
+   * @return items
   **/
   @javax.annotation.Nullable
-  public List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> getRedeemables() {
-    return redeemables;
+  public List<OrderItem> getItems() {
+    return items;
   }
 
 
-  public void setRedeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
-    this.redeemables = redeemables;
+  public void setItems(List<OrderItem> items) {
+    this.items = items;
   }
 
 
-  public ClientRedemptionsRedeemRequestBody order(OrderCalculatedEssential order) {
-    
-    this.order = order;
-    return this;
-  }
-
-   /**
-   * Get order
-   * @return order
-  **/
-  @javax.annotation.Nullable
-  public OrderCalculatedEssential getOrder() {
-    return order;
-  }
-
-
-  public void setOrder(OrderCalculatedEssential order) {
-    this.order = order;
-  }
-
-
-  public ClientRedemptionsRedeemRequestBody customer(Customer customer) {
+  public OrderCreateBase customer(Customer customer) {
     
     this.customer = customer;
     return this;
@@ -183,56 +286,77 @@ public class ClientRedemptionsRedeemRequestBody {
   }
 
 
-  public ClientRedemptionsRedeemRequestBody session(Session session) {
+  public OrderCreateBase customerId(String customerId) {
     
-    this.session = session;
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * Get session
-   * @return session
+   * Unique customer ID of the customer making the purchase.
+   * @return customerId
   **/
   @javax.annotation.Nullable
-  public Session getSession() {
-    return session;
+  public String getCustomerId() {
+    return customerId;
   }
 
 
-  public void setSession(Session session) {
-    this.session = session;
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
 
-  public ClientRedemptionsRedeemRequestBody trackingId(String trackingId) {
+  public OrderCreateBase referrer(Referrer referrer) {
     
-    this.trackingId = trackingId;
+    this.referrer = referrer;
     return this;
   }
 
    /**
-   * Is correspondent to Customer&#39;s source_id
-   * @return trackingId
+   * Get referrer
+   * @return referrer
   **/
   @javax.annotation.Nullable
-  public String getTrackingId() {
-    return trackingId;
+  public Referrer getReferrer() {
+    return referrer;
   }
 
 
-  public void setTrackingId(String trackingId) {
-    this.trackingId = trackingId;
+  public void setReferrer(Referrer referrer) {
+    this.referrer = referrer;
   }
 
 
-  public ClientRedemptionsRedeemRequestBody metadata(Object metadata) {
+  public OrderCreateBase referrerId(String referrerId) {
+    
+    this.referrerId = referrerId;
+    return this;
+  }
+
+   /**
+   * Unique referrer ID.
+   * @return referrerId
+  **/
+  @javax.annotation.Nullable
+  public String getReferrerId() {
+    return referrerId;
+  }
+
+
+  public void setReferrerId(String referrerId) {
+    this.referrerId = referrerId;
+  }
+
+
+  public OrderCreateBase metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
   }
 
    /**
-   * A set of key/value pairs that you can attach to a redemption object. It can be useful for storing additional information about the redemption in a structured format.
+   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -258,9 +382,9 @@ public class ClientRedemptionsRedeemRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ClientRedemptionsRedeemRequestBody instance itself
+   * @return the OrderCreateBase instance itself
    */
-  public ClientRedemptionsRedeemRequestBody putAdditionalProperty(String key, Object value) {
+  public OrderCreateBase putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -299,15 +423,18 @@ public class ClientRedemptionsRedeemRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = (ClientRedemptionsRedeemRequestBody) o;
-    return Objects.equals(this.options, clientRedemptionsRedeemRequestBody.options) &&
-        Objects.equals(this.redeemables, clientRedemptionsRedeemRequestBody.redeemables) &&
-        Objects.equals(this.order, clientRedemptionsRedeemRequestBody.order) &&
-        Objects.equals(this.customer, clientRedemptionsRedeemRequestBody.customer) &&
-        Objects.equals(this.session, clientRedemptionsRedeemRequestBody.session) &&
-        Objects.equals(this.trackingId, clientRedemptionsRedeemRequestBody.trackingId) &&
-        Objects.equals(this.metadata, clientRedemptionsRedeemRequestBody.metadata)&&
-        Objects.equals(this.additionalProperties, clientRedemptionsRedeemRequestBody.additionalProperties);
+    OrderCreateBase orderCreateBase = (OrderCreateBase) o;
+    return Objects.equals(this.status, orderCreateBase.status) &&
+        Objects.equals(this.amount, orderCreateBase.amount) &&
+        Objects.equals(this.discountAmount, orderCreateBase.discountAmount) &&
+        Objects.equals(this.initialAmount, orderCreateBase.initialAmount) &&
+        Objects.equals(this.items, orderCreateBase.items) &&
+        Objects.equals(this.customer, orderCreateBase.customer) &&
+        Objects.equals(this.customerId, orderCreateBase.customerId) &&
+        Objects.equals(this.referrer, orderCreateBase.referrer) &&
+        Objects.equals(this.referrerId, orderCreateBase.referrerId) &&
+        Objects.equals(this.metadata, orderCreateBase.metadata)&&
+        Objects.equals(this.additionalProperties, orderCreateBase.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -316,7 +443,7 @@ public class ClientRedemptionsRedeemRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(options, redeemables, order, customer, session, trackingId, metadata, additionalProperties);
+    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -329,13 +456,16 @@ public class ClientRedemptionsRedeemRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClientRedemptionsRedeemRequestBody {\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    redeemables: ").append(toIndentedString(redeemables)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("class OrderCreateBase {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
+    sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-    sb.append("    session: ").append(toIndentedString(session)).append("\n");
-    sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
+    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -360,12 +490,15 @@ public class ClientRedemptionsRedeemRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("options");
-    openapiFields.add("redeemables");
-    openapiFields.add("order");
+    openapiFields.add("status");
+    openapiFields.add("amount");
+    openapiFields.add("discount_amount");
+    openapiFields.add("initial_amount");
+    openapiFields.add("items");
     openapiFields.add("customer");
-    openapiFields.add("session");
-    openapiFields.add("tracking_id");
+    openapiFields.add("customer_id");
+    openapiFields.add("referrer");
+    openapiFields.add("referrer_id");
     openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
@@ -376,16 +509,16 @@ public class ClientRedemptionsRedeemRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ClientRedemptionsRedeemRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ClientRedemptionsRedeemRequestBody' and its subtypes
+       if (!OrderCreateBase.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCreateBase' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ClientRedemptionsRedeemRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ClientRedemptionsRedeemRequestBody.class));
+       final TypeAdapter<OrderCreateBase> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCreateBase.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ClientRedemptionsRedeemRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderCreateBase>() {
            @Override
-           public void write(JsonWriter out, ClientRedemptionsRedeemRequestBody value) throws IOException {
+           public void write(JsonWriter out, OrderCreateBase value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -408,11 +541,11 @@ public class ClientRedemptionsRedeemRequestBody {
            }
 
            @Override
-           public ClientRedemptionsRedeemRequestBody read(JsonReader in) throws IOException {
+           public OrderCreateBase read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ClientRedemptionsRedeemRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderCreateBase instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -439,18 +572,18 @@ public class ClientRedemptionsRedeemRequestBody {
   }
 
  /**
-  * Create an instance of ClientRedemptionsRedeemRequestBody given an JSON string
+  * Create an instance of OrderCreateBase given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ClientRedemptionsRedeemRequestBody
-  * @throws IOException if the JSON string is invalid with respect to ClientRedemptionsRedeemRequestBody
+  * @return An instance of OrderCreateBase
+  * @throws IOException if the JSON string is invalid with respect to OrderCreateBase
   */
-  public static ClientRedemptionsRedeemRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ClientRedemptionsRedeemRequestBody.class);
+  public static OrderCreateBase fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCreateBase.class);
   }
 
  /**
-  * Convert an instance of ClientRedemptionsRedeemRequestBody to an JSON string
+  * Convert an instance of OrderCreateBase to an JSON string
   *
   * @return JSON string
   */
