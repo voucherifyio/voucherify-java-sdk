@@ -1,6 +1,6 @@
 
 
-# CustomerLoyaltyCampaigns
+# CustomerLoyaltyCampaignsItem
 
 Contains details about the point balances left on loyalty cards and the number of referred customers in each campaign.
 
