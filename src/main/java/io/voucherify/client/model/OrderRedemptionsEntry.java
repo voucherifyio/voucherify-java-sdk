@@ -51,11 +51,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * OrderRedemptions
+ * OrderRedemptionsEntry
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderRedemptions {
+public class OrderRedemptionsEntry {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
@@ -88,10 +88,10 @@ public class OrderRedemptions {
   @SerializedName(SERIALIZED_NAME_ROLLBACK_STACKED)
   private List<String> rollbackStacked;
 
-  public OrderRedemptions() {
+  public OrderRedemptionsEntry() {
   }
 
-  public OrderRedemptions date(OffsetDateTime date) {
+  public OrderRedemptionsEntry date(OffsetDateTime date) {
     
     this.date = date;
     return this;
@@ -112,7 +112,7 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions rollbackId(String rollbackId) {
+  public OrderRedemptionsEntry rollbackId(String rollbackId) {
     
     this.rollbackId = rollbackId;
     return this;
@@ -133,7 +133,7 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions rollbackDate(OffsetDateTime rollbackDate) {
+  public OrderRedemptionsEntry rollbackDate(OffsetDateTime rollbackDate) {
     
     this.rollbackDate = rollbackDate;
     return this;
@@ -154,7 +154,7 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions relatedObjectType(String relatedObjectType) {
+  public OrderRedemptionsEntry relatedObjectType(String relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
     return this;
@@ -175,7 +175,7 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions relatedObjectId(String relatedObjectId) {
+  public OrderRedemptionsEntry relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
     return this;
@@ -196,7 +196,7 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions relatedObjectParentId(String relatedObjectParentId) {
+  public OrderRedemptionsEntry relatedObjectParentId(String relatedObjectParentId) {
     
     this.relatedObjectParentId = relatedObjectParentId;
     return this;
@@ -217,13 +217,13 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions stacked(List<String> stacked) {
+  public OrderRedemptionsEntry stacked(List<String> stacked) {
     
     this.stacked = stacked;
     return this;
   }
 
-  public OrderRedemptions addStackedItem(String stackedItem) {
+  public OrderRedemptionsEntry addStackedItem(String stackedItem) {
     if (this.stacked == null) {
       this.stacked = new ArrayList<>();
     }
@@ -246,13 +246,13 @@ public class OrderRedemptions {
   }
 
 
-  public OrderRedemptions rollbackStacked(List<String> rollbackStacked) {
+  public OrderRedemptionsEntry rollbackStacked(List<String> rollbackStacked) {
     
     this.rollbackStacked = rollbackStacked;
     return this;
   }
 
-  public OrderRedemptions addRollbackStackedItem(String rollbackStackedItem) {
+  public OrderRedemptionsEntry addRollbackStackedItem(String rollbackStackedItem) {
     if (this.rollbackStacked == null) {
       this.rollbackStacked = new ArrayList<>();
     }
@@ -287,9 +287,9 @@ public class OrderRedemptions {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderRedemptions instance itself
+   * @return the OrderRedemptionsEntry instance itself
    */
-  public OrderRedemptions putAdditionalProperty(String key, Object value) {
+  public OrderRedemptionsEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -328,16 +328,16 @@ public class OrderRedemptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderRedemptions orderRedemptions = (OrderRedemptions) o;
-    return Objects.equals(this.date, orderRedemptions.date) &&
-        Objects.equals(this.rollbackId, orderRedemptions.rollbackId) &&
-        Objects.equals(this.rollbackDate, orderRedemptions.rollbackDate) &&
-        Objects.equals(this.relatedObjectType, orderRedemptions.relatedObjectType) &&
-        Objects.equals(this.relatedObjectId, orderRedemptions.relatedObjectId) &&
-        Objects.equals(this.relatedObjectParentId, orderRedemptions.relatedObjectParentId) &&
-        Objects.equals(this.stacked, orderRedemptions.stacked) &&
-        Objects.equals(this.rollbackStacked, orderRedemptions.rollbackStacked)&&
-        Objects.equals(this.additionalProperties, orderRedemptions.additionalProperties);
+    OrderRedemptionsEntry orderRedemptionsEntry = (OrderRedemptionsEntry) o;
+    return Objects.equals(this.date, orderRedemptionsEntry.date) &&
+        Objects.equals(this.rollbackId, orderRedemptionsEntry.rollbackId) &&
+        Objects.equals(this.rollbackDate, orderRedemptionsEntry.rollbackDate) &&
+        Objects.equals(this.relatedObjectType, orderRedemptionsEntry.relatedObjectType) &&
+        Objects.equals(this.relatedObjectId, orderRedemptionsEntry.relatedObjectId) &&
+        Objects.equals(this.relatedObjectParentId, orderRedemptionsEntry.relatedObjectParentId) &&
+        Objects.equals(this.stacked, orderRedemptionsEntry.stacked) &&
+        Objects.equals(this.rollbackStacked, orderRedemptionsEntry.rollbackStacked)&&
+        Objects.equals(this.additionalProperties, orderRedemptionsEntry.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -359,7 +359,7 @@ public class OrderRedemptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderRedemptions {\n");
+    sb.append("class OrderRedemptionsEntry {\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    rollbackId: ").append(toIndentedString(rollbackId)).append("\n");
     sb.append("    rollbackDate: ").append(toIndentedString(rollbackDate)).append("\n");
@@ -408,16 +408,16 @@ public class OrderRedemptions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderRedemptions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderRedemptions' and its subtypes
+       if (!OrderRedemptionsEntry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderRedemptionsEntry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderRedemptions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderRedemptions.class));
+       final TypeAdapter<OrderRedemptionsEntry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderRedemptionsEntry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderRedemptions>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderRedemptionsEntry>() {
            @Override
-           public void write(JsonWriter out, OrderRedemptions value) throws IOException {
+           public void write(JsonWriter out, OrderRedemptionsEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -440,11 +440,11 @@ public class OrderRedemptions {
            }
 
            @Override
-           public OrderRedemptions read(JsonReader in) throws IOException {
+           public OrderRedemptionsEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderRedemptions instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderRedemptionsEntry instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -471,18 +471,18 @@ public class OrderRedemptions {
   }
 
  /**
-  * Create an instance of OrderRedemptions given an JSON string
+  * Create an instance of OrderRedemptionsEntry given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderRedemptions
-  * @throws IOException if the JSON string is invalid with respect to OrderRedemptions
+  * @return An instance of OrderRedemptionsEntry
+  * @throws IOException if the JSON string is invalid with respect to OrderRedemptionsEntry
   */
-  public static OrderRedemptions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderRedemptions.class);
+  public static OrderRedemptionsEntry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderRedemptionsEntry.class);
   }
 
  /**
-  * Convert an instance of OrderRedemptions to an JSON string
+  * Convert an instance of OrderRedemptionsEntry to an JSON string
   *
   * @return JSON string
   */

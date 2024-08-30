@@ -863,7 +863,7 @@ Class | Method | HTTP request | Description
 - [OrderItemCalculatedSku](docs/OrderItemCalculatedSku.md)
 - [OrderItemProduct](docs/OrderItemProduct.md)
 - [OrderItemSku](docs/OrderItemSku.md)
-- [OrderRedemptions](docs/OrderRedemptions.md)
+- [OrderRedemptionsEntry](docs/OrderRedemptionsEntry.md)
 - [OrdersCreateRequestBody](docs/OrdersCreateRequestBody.md)
 - [OrdersCreateResponseBody](docs/OrdersCreateResponseBody.md)
 - [OrdersExportCreateRequestBody](docs/OrdersExportCreateRequestBody.md)

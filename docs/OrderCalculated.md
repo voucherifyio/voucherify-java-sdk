@@ -28,7 +28,7 @@
 |**referrerId** | **String** | Unique referrer ID. |
 |**customer** | [**OrderCalculatedCustomer**](OrderCalculatedCustomer.md) |  |
 |**referrer** | [**OrderCalculatedReferrer**](OrderCalculatedReferrer.md) |  |
-|**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
+|**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
 
 
 

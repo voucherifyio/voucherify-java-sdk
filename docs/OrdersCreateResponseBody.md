@@ -29,7 +29,7 @@ Response body schema for **POST** `v1/orders`.
 |**referrerId** | **String** | Unique referrer ID. |
 |**customer** | [**CustomerId**](CustomerId.md) |  |
 |**referrer** | [**ReferrerId**](ReferrerId.md) |  |
-|**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
+|**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
 
 
 

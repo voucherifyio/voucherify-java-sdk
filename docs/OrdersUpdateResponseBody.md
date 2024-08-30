@@ -29,7 +29,7 @@ Response body schema for **PUT** `v1/orders/{orderId}`.
 |**referrerId** | **String** | Unique referrer ID. |
 |**customer** | [**OrdersUpdateResponseBodyCustomer**](OrdersUpdateResponseBodyCustomer.md) |  |
 |**referrer** | [**OrdersUpdateResponseBodyReferrer**](OrdersUpdateResponseBodyReferrer.md) |  |
-|**redemptions** | [**Map&lt;String, OrderRedemptions&gt;**](OrderRedemptions.md) |  |
+|**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
 
 
 

@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.OrderItemCalculated;
-import io.voucherify.client.model.OrderRedemptions;
+import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.OrdersUpdateResponseBodyCustomer;
 import io.voucherify.client.model.OrdersUpdateResponseBodyReferrer;
 import java.io.IOException;
@@ -244,7 +244,7 @@ public class OrdersUpdateResponseBody {
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Map<String, OrderRedemptions> redemptions;
+  private Map<String, OrderRedemptionsEntry> redemptions;
 
   public OrdersUpdateResponseBody() {
   }
@@ -698,13 +698,13 @@ public class OrdersUpdateResponseBody {
   }
 
 
-  public OrdersUpdateResponseBody redemptions(Map<String, OrderRedemptions> redemptions) {
+  public OrdersUpdateResponseBody redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     
     this.redemptions = redemptions;
     return this;
   }
 
-  public OrdersUpdateResponseBody putRedemptionsItem(String key, OrderRedemptions redemptionsItem) {
+  public OrdersUpdateResponseBody putRedemptionsItem(String key, OrderRedemptionsEntry redemptionsItem) {
     if (this.redemptions == null) {
       this.redemptions = new HashMap<>();
     }
@@ -717,12 +717,12 @@ public class OrdersUpdateResponseBody {
    * @return redemptions
   **/
   @javax.annotation.Nullable
-  public Map<String, OrderRedemptions> getRedemptions() {
+  public Map<String, OrderRedemptionsEntry> getRedemptions() {
     return redemptions;
   }
 
 
-  public void setRedemptions(Map<String, OrderRedemptions> redemptions) {
+  public void setRedemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     this.redemptions = redemptions;
   }
 

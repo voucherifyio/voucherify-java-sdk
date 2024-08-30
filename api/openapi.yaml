@@ -39050,7 +39050,7 @@ components:
           - $ref: '#/components/schemas/ReferrerId'
         redemptions:
           additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptions'
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
           title: OrdersCreateResponseBodyRedemptionsEntry
           type: object
@@ -39358,7 +39358,7 @@ components:
           - $ref: '#/components/schemas/ReferrerId'
         redemptions:
           additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptions'
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
           title: OrdersGetResponseBodyRedemptionsEntry
           type: object
@@ -39997,7 +39997,7 @@ components:
           $ref: '#/components/schemas/OrdersUpdateResponseBodyReferrer'
         redemptions:
           additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptions'
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
           title: OrdersUpdateResponseBodyRedemptionsEntry
           type: object
@@ -58661,7 +58661,7 @@ components:
           $ref: '#/components/schemas/OrderCalculatedReferrer'
         redemptions:
           additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptions'
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
           title: OrderCalculatedRedemptionsEntry
           type: object
@@ -59018,7 +59018,7 @@ components:
           - $ref: '#/components/schemas/ReferrerId'
         redemptions:
           additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptions'
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
           title: OrderCalculatedNoCustomerDataRedemptionsEntry
           type: object
@@ -59358,7 +59358,7 @@ components:
           type: object
       title: OrderItemCalculated
       type: object
-    OrderRedemptions:
+    OrderRedemptionsEntry:
       example:
         date: 2022-09-02T17:06:56.649Z
         rollback_stacked:
@@ -59413,20 +59413,20 @@ components:
           description: "Contains a list of unique IDs of child redemptions, which\
             \ belong to the stacked incentives."
           items:
-            title: OrderRedemptionsStackedItem
+            title: OrderRedemptionsEntryStackedItem
             type: string
           nullable: true
-          title: OrderRedemptionsStacked
+          title: OrderRedemptionsEntryStacked
           type: array
         rollback_stacked:
           description: Lists the rollback redemption IDs of the particular child redemptions.
           items:
-            title: OrderRedemptionsRollbackStackedItem
+            title: OrderRedemptionsEntryRollbackStackedItem
             type: string
           nullable: true
-          title: OrderRedemptionsRollbackStacked
+          title: OrderRedemptionsEntryRollbackStacked
           type: array
-      title: OrderRedemptions
+      title: OrderRedemptionsEntry
       type: object
     PointsExpirationTypes:
       enum:
