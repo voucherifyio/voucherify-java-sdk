@@ -111,18 +111,18 @@ public class Example {
     // Configure API key authorization: X-App-Token
     defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
 
-        AsyncActionsApi apiInstance = new AsyncActionsApi(defaultClient);
-        String asyncActionId = "asyncActionId_example"; // String | Unique ID of the asynchronous operation.
-        try {
-            AsyncActionGetResponseBody result = apiInstance.getAsyncAction(asyncActionId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AsyncActionsApi#getAsyncAction");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+      AsyncActionsApi apiInstance = new AsyncActionsApi(defaultClient);
+      String asyncActionId = "asyncActionId_example"; // String | Unique ID of the asynchronous operation.
+      try {
+        AsyncActionGetResponseBody result = apiInstance.getAsyncAction(asyncActionId
+         System.out.println(result);
+      } catch (ApiException e) {
+        System.err.println("Exception when calling AsyncActionsApi#getAsyncAction");
+        System.err.println("Status code: " + e.getCode());
+        System.err.println("Reason: " + e.getResponseBody());
+        System.err.println("Response headers: " + e.getResponseHeaders());
+        e.printStackTrace();
+      }
     }
 }
 
@@ -143,50 +143,229 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
-- **2024-08-XX** - `14.0.0`
-  - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItem` model
-  - Added `appliedDiscountAmount`, `appliedDiscountQuantity`, `appliedQuantity`, `subtotalAmount` to `OrderItemCalculated` model
-  - Added `holderRole` to `QualificationsOptionFilters` model
-  - Added support for POST `/v1/segments` and GET `/v1/segments/{segmentId}`
-  - Added support for GET `/v1/promotions/tiers` and GET `/client/v1/promotions/tiers`
-  - Added support for GET and POST `/v1/vouchers`
-  - Added support for GET and PUT `/v1/vouchers/{code}`
-  - Added `loyaltyTier` parameter to models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody`
-  - Added support for GET and POST `/v1/loyalties/{campaignId}/earning-rules`
-  - Added support for GET and PUT `/v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`
-  - Added support for POST `v1/vouchers/metadata/async`
-  - Added support for POST `/v1/vouchers/import`
-  - Added support for GET `/v1/customers/{customerId}/activity`
-  - Added support for POST `/v1/vouchers/bulk/async`
-  - Added support for GET `/v1/loyalties/{campaignId}/reward-assignments` and GET `/v1/loyalties/{campaignId}/rewards`
-  - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
-  - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
-  - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
-  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members` and GET `/v1/loyalties/members/{memberId}`
-  - Added new query option to GET `/v1/vouchers` - `code` and `ids`
-  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}/activity` and GET `/v1/loyalties/members/{memberId}/activity`
-  - Added support for POST `/v1/loyalties/{campaignId}/members`
-  - Added parameter `channel` to `PublicationsCreateRequestBody` model
-- ❗❗❗ BREAKING CHANGES ❗❗❗:
-    - Property `type` of Model `CampaignVoucher` has no default value anymore.
-    - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
-    - Model `RewardsCreateRequestBody`.attributes will now be `RewardsCreateRequestBodyAttributes` instead of `object`
-    - Model `RewardsUpdateRequestBody`.attributes will now be `RewardsUpdateRequestBodyAttributes` instead of `object`
-    - Method `createReward` will return `RewardsCreateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
-    - Method `updateReward` will return `RewardsUpdateResponseBody` instead of Reward - the new model is compatible with `Reward` model.
-    - Deleted model `EarningRuleEvent`
-    - Models `EarningRuleBase`, `EarningRule`, `LoyaltiesEarningRulesDisableResponseBody`, `LoyaltiesEarningRulesEnableResponseBody` and `LoyaltiesEarningRulesGetResponseBody` parameter `event` is no longer `EarningRuleEvent`, instead this is `String` now.
-    - Removed `CampaignsImportVoucherLoyaltyCard`, use `SimpleLoyaltyCard` instead.
-    - Property `type` in model `CampaignsImportVoucherItem` has no longer `LUCKY_DRAW_CODE` enum option.
+- **2024-09-05** - `14.0.0`
+  - Added support:
+    - /v1/vouchers, get - List Vouchers
+    - /v1/vouchers, post - Generate Random Code
+    - /v1/vouchers/{code}, put - Update Voucher
+    - /v1/vouchers/{code}, post - Create Voucher
+    - /v1/vouchers/import, post - Import Vouchers
+    - /v1/vouchers/bulk/async, post - Update Vouchers in Bulk
+    - /v1/vouchers/metadata/async, post - Update Vouchers' Metadata in Bulk
+    - /v1/promotions/tiers, get - List Promotion Tiers
+    - /v1/loyalties, get - List Loyalty Campaigns
+    - /v1/loyalties, post - Create Loyalty Campaign
+    - /v1/loyalties/{campaignId}, get - Get Loyalty Campaign
+    - /v1/loyalties/{campaignId}, put - Update Loyalty Campaign
+    - /v1/loyalties/{campaignId}/members, get - List Members
+    - /v1/loyalties/{campaignId}/members, post - Add Member
+    - /v1/loyalties/{campaignId}/members/{memberId}, get - Get Member
+    - /v1/loyalties/members/{memberId}, get - Get Member
+    - /v1/loyalties/{campaignId}/members/{memberId}/activity, get - List Member Activity
+    - /v1/loyalties/members/{memberId}/activity, get - List Member Activity
+    - /v1/loyalties/{campaignId}/points-expiration/export, post - Create Points Expiration Export
+    - /v1/loyalties/{campaignId}/earning-rules, get - List Earning Rules
+    - /v1/loyalties/{campaignId}/earning-rules, post - Create Earning Rule
+    - /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}, put - Update Earning Rule
+    - /v1/loyalties/{campaignId}/reward-assignments, get - List Reward Assignments
+    - /v1/loyalties/{campaignId}/rewards, get - List Reward Assignments
+    - /v1/loyalties/{campaignId}/rewards, post - Create Reward Assignment
+    - /v1/loyalties/{campaignId}/rewards/{assignmentId}, put - Update Reward Assignment
+    - /v1/customers/{customerId}/activity, get - List Customer Activity
+    - /v1/customers/{customerId}/redeemables, get - List Customer's Redeemables
+    - /v1/segments/{segmentId}, get - Get Segment
+    - /v1/segments, post - Create Segment
+    - /v1/async-actions, get - List Async Actions
+    - /v1/async-actions/{asyncActionId}, get - Get Async Action
+    - /client/v1/promotions/tiers, get - List Promotion Tiers (client-side)
+  - ❗ Breaking changes ❗ :
+    - CampaignsApi.disableCampaign returns `Object` instead of `CampaignsDisableResponseBody`, `CampaignsDisableResponseBody` was deleted
+    - CampaignsApi.enableCampaign returns `Object` instead of `CampaignsEnableResponseBody`, `CampaignsEnableResponseBody` was deleted
+    - CampaignsImportVoucherItem.loyaltyCard uses now `SimpleLoyaltyCard` instead of `CampaignsImportVoucherLoyaltyCard`, `CampaignsImportVoucherLoyaltyCard` was deleted
+    - CampaignsVouchersCreateInBulkRequestBody.redemption uses now `CampaignsVouchersCreateInBulkRequestBodyRedemption` instead of `CampaignsImportVoucherItemRedemption`
+    - CampaignsVouchersCreateRequestBody.redemption uses now `CampaignsVouchersCreateRequestBodyRedemption` instead of `CampaignsImportVoucherItemRedemption`
+    - CampaignsVouchersCreateResponseBody.gift uses now `CampaignsVouchersCreateResponseBodyGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - CampaignsVouchersCreateResponseBody.loyaltyCard uses now `CampaignsVouchersCreateResponseBodyLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - CampaignsVouchersCreateResponseBody.publish uses now `CampaignsVouchersCreateResponseBodyPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - CampaignsVouchersCreateResponseBody.redemption uses now `CampaignsVouchersCreateResponseBodyRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - ClientQualificationsCheckEligibilityRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ClientQualificationsCheckEligibilityResponseBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ClientRedemptionsRedeemRequestBody.redeemables uses now `ClientRedemptionsRedeemRequestBodyRedeemablesItem[]` instead of `StackableValidateRedeemBaseRedeemablesItem[]`
+    - ClientRedemptionsRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ClientRedemptionsRedeemRequestBody.options uses now `ClientRedemptionsRedeemRequestBodyOptions` instead of `ClientRedemptionsRedeemRequestBodyAllOfOptions`
+    - ClientValidationsValidateRequestBody.redeemables uses now `ClientValidationsValidateRequestBodyRedeemablesItem[]` instead of `StackableValidateRedeemBaseRedeemablesItem[]`
+    - ClientValidationsValidateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ClientValidationsValidateRequestBody.options uses now `ClientValidationsValidateRequestBodyOptions` instead of `ClientValidationsValidateRequestBodyAllOfOptions`
+    - ClientValidationsValidateResponseBody.redeemables uses now `ClientValidationsValidateResponseBodyRedeemablesItem` instead of `ValidationsValidateResponseBodyRedeemablesItem`
+    - ClientValidationsValidateResponseBody.order uses now `OrderCalculatedNoCustomerData` instead of `OrderCalculated`
+    - Customer.address uses now `CustomerAddress` instead of `CustomerBaseAddress`
+    - CustomerLoyalty.campaigns uses now `Map<String, CustomerLoyaltyCampaignsEntry>` instead of `Map<String, CustomerLoyaltyCampaignsValue>`
+    - CustomerWithSummaryLoyaltyReferrals.assets uses now `CustomerWithSummaryLoyaltyReferralsAssets` instead of `CustomerResponseDataAssets`
+    - CustomerWithSummaryLoyaltyReferrals.address uses now `CustomerWithSummaryLoyaltyReferralsAddress` instead of `CustomerBaseAddress`
+    - CustomersCreateRequestBody.address uses now `CustomersCreateRequestBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersCreateResponseBody.assets uses now `CustomersCreateResponseBodyAssets` instead of `CustomerResponseDataAssets`
+    - CustomersCreateResponseBody.address uses now `CustomersCreateResponseBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersGetResponseBody.assets uses now `CustomersGetResponseBodyAssets` instead of `CustomerResponseDataAssets`
+    - CustomersGetResponseBody.address uses now `CustomersGetResponseBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersUpdateInBulkRequestBody.address uses now `CustomersUpdateInBulkRequestBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersUpdateRequestBody.address uses now `CustomersUpdateRequestBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersUpdateResponseBody.address uses now `CustomersUpdateResponseBodyAddress` instead of `CustomerBaseAddress`
+    - CustomersUpdateResponseBody.assets uses now `CustomersUpdateResponseBodyAssets` instead of `CustomerResponseDataAssets`
+    - EarningRule.loyalty uses now `EarningRuleLoyalty` instead of `EarningRuleBaseLoyalty`
+    - EarningRule.customEvent uses now `EarningRuleCustomEvent` instead of `EarningRuleBaseCustomEvent`, `EarningRuleBaseCustomEvent` was deleted
+    - EarningRule.segment uses now `EarningRuleSegment` instead of `EarningRuleBaseSegment`
+    - EarningRule.loyalty uses now `EarningRuleSource` instead of `EarningRuleBaseSource`
+    - EventsCreateRequestBody.referral uses now `EventsCreateRequestBodyReferral` instead of `ClientEventsCreateRequestBodyReferral`
+    - EventsCreateRequestBody.loyalty uses now `EventsCreateRequestBodyLoyalty` instead of `ClientEventsCreateRequestBodyLoyalty`
+    - ExportsGetResponseBody.result uses now `ExportsGetResponseBodyResult` instead of `ExportResult`
+    - ExportsGetResponseBody.parameters uses now `ExportsGetResponseBodyParameters` instead of `ExportParameters`
+    - LoyaltiesEarningRulesDisableResponseBody.loyalty uses now `LoyaltiesEarningRulesDisableResponseBodyLoyalty` instead of `EarningRuleBaseLoyalty`
+    - LoyaltiesEarningRulesDisableResponseBody.event uses now `String` instead of `EarningRuleEvent`
+    - LoyaltiesEarningRulesDisableResponseBody.customEvent uses now `LoyaltiesEarningRulesDisableResponseBodyCustomEvent` instead of `EarningRuleBaseCustomEvent`
+    - LoyaltiesEarningRulesDisableResponseBody.segment uses now `LoyaltiesEarningRulesDisableResponseBodySegment` instead of `EarningRuleBaseSegment`
+    - LoyaltiesEarningRulesDisableResponseBody.source uses now `LoyaltiesEarningRulesDisableResponseBodySource` instead of `EarningRuleBaseSource`
+    - LoyaltiesEarningRulesEnableResponseBody.loyalty uses now `LoyaltiesEarningRulesEnableResponseBodyLoyalty` instead of `EarningRuleBaseLoyalty`
+    - LoyaltiesEarningRulesEnableResponseBody.event uses now `String` instead of `EarningRuleEvent`
+    - LoyaltiesEarningRulesEnableResponseBody.customEvent uses now `LoyaltiesEarningRulesEnableResponseBodyCustomEvent` instead of `EarningRuleBaseCustomEvent`
+    - LoyaltiesEarningRulesEnableResponseBody.segment uses now `LoyaltiesEarningRulesEnableResponseBodySegment` instead of `EarningRuleBaseSegment`
+    - LoyaltiesEarningRulesEnableResponseBody.source uses now `LoyaltiesEarningRulesEnableResponseBodySource` instead of `EarningRuleBaseSource`
+    - LoyaltiesEarningRulesGetResponseBody.loyalty uses now `LoyaltiesEarningRulesGetResponseBodyLoyalty` instead of `EarningRuleBaseLoyalty`
+    - LoyaltiesEarningRulesGetResponseBody.event uses now `String` instead of `EarningRuleEvent`
+    - LoyaltiesEarningRulesGetResponseBody.customEvent uses now `LoyaltiesEarningRulesGetResponseBodyCustomEvent` instead of `EarningRuleBaseCustomEvent`
+    - LoyaltiesEarningRulesGetResponseBody.segment uses now `LoyaltiesEarningRulesGetResponseBodySegment` instead of `EarningRuleBaseSegment`
+    - LoyaltiesEarningRulesGetResponseBody.source uses now `LoyaltiesEarningRulesGetResponseBodySource` instead of `EarningRuleBaseSource`
+    - LoyaltiesMembersRedemptionRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - LoyaltiesMembersRedemptionRedeemResponseBody.relatedRedemptions uses now `LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions` instead of `RedemptionRelatedRedemptions`
+    - LoyaltiesMembersRedemptionRedeemResponseBody.channel uses now `LoyaltiesMembersRedemptionRedeemResponseBodyChannel` instead of `RedemptionRelatedRedemptions`
+    - LoyaltiesMembersRedemptionRedeemResponseBody.voucher uses now `LoyaltiesMembersRedemptionRedeemResponseBodyVoucher` instead of `RedemptionVoucher`
+    - LoyaltiesMembersRedemptionRedeemResponseBody.gift uses now `LoyaltiesMembersRedemptionRedeemResponseBodyGift` instead of `RedemptionGift`
+    - LoyaltiesMembersRedemptionRedeemResponseBody.loyaltyCard uses now `LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard` instead of `RedemptionLoyaltyCard`
+    - LoyaltiesMembersTransactionsExportCreateResponseBody.parameters uses now `LoyaltiesMembersTransactionsExportCreateResponseBodyParameters` instead of `LoyaltiesMembersTransactionsExportCreateRequestBodyParameters`
+    - LoyaltiesRewardAssignmentsGetResponseBody.parameters uses now `LoyaltiesRewardAssignmentsGetResponseBodyParameters` instead of `RewardAssignmentParametersParameters`
+    - LoyaltiesRewardAssignmentsRewardGetResponseBody.attributes uses now `LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes` instead of `RewardAttributes`
+    - LoyaltiesRewardsGetResponseBody.parameters uses now `LoyaltiesRewardsGetResponseBodyParameters` instead of `RewardAssignmentParametersParameters`
+    - LoyaltiesTiersGetResponseBody.config uses now `LoyaltiesTiersGetResponseBodyConfig` instead of `LoyaltyTierAllOfConfig`
+    - LoyaltiesTiersGetResponseBody.points uses now `LoyaltiesTiersGetResponseBodyPoints` instead of `LoyaltyTierBasePoints`
+    - LoyaltyCardTransaction.details uses now `LoyaltyCardTransactionDetails` instead of `VoucherTransactionDetails`
+    - LoyaltyCardTransactionsType.CANCELLATION(POINTS_CANCELLATION) was removed
+    - LoyaltyTier.config uses now `LoyaltyTierConfig` instead of `LoyaltyTierAllOfConfig`
+    - LoyaltyTier.points uses now `LoyaltyTierPoints` instead of `LoyaltyTierBasePoints`
+    - OrderCalculated.customer uses now `OrderCalculatedCustomer` instead of `CustomerId`
+    - OrderCalculated.referrer uses now `OrderCalculatedReferrer` instead of `CustomerId`
+    - OrderCalculated.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
+    - OrderCalculatedNoCustomerData.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
+    - OrderItem.product uses now `OrderItemProduct` instead of `OrderItemCalculatedProduct`
+    - OrderItem.sku uses now `OrderItemSku` instead of `OrderItemCalculatedSku`
+    - OrderItemCalculated.totalAppliedDiscountAmount was removed (was never used)
+    - OrdersCreateResponseBody.referrer uses now `ReferrerId` instead of `CustomerId`
+    - OrdersCreateResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
+    - OrdersExportCreateResponseBody.parameters uses now `OrdersExportCreateResponseBodyParameters` instead of `OrdersExportCreateRequestBodyParameters`
+    - OrdersGetResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
+    - OrdersUpdateResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
+    - OrdersUpdateResponseBody.customer uses now `OrdersUpdateResponseBodyCustomer` instead of `CustomerId`
+    - OrdersUpdateResponseBody.referrer uses now `OrdersUpdateResponseBodyReferrer` instead of `CustomerId`
+    - ProductCollectionsCreateRequestBody.products uses now `List<ProductCollectionsCreateRequestBodyProductsItem>` instead of `List<ProductCollectionsCreateDynamicRequestBodyProductsItem>`
+    - ProductCollectionsCreateResponseBody.filter uses now `ProductCollectionsCreateResponseBodyFilter` instead of `ProductCollectionsCreateRequestBodyFilter`
+    - ProductCollectionsCreateResponseBody.products uses now `List<ProductCollectionsCreateResponseBodyProductsItem>` instead of `List<ProductCollectionsItemProductsItem>`
+    - ProductCollectionsGetResponseBod.filter uses now `ProductCollectionsGetResponseBodyFilter` instead of `ProductCollectionsCreateRequestBodyFilter`
+    - ProductCollectionsGetResponseBod.products uses now `List<ProductCollectionsGetResponseBodyProductsItem>` instead of `List<ProductCollectionsItemProductsItem>`
+    - ProductCollectionsItem.filter uses now `ProductCollectionsItemFilter` instead of `ProductCollectionsCreateRequestBodyFilter`
+    - ProductCollectionsProductsListResponseBody.data uses now `List<ProductCollectionsProductsListResponseBodyDataItem>` instead of `List<ProductCollectionsProductsListDataItem>`
+    - PromotionStack.tiers uses now `PromotionStackTiers` instead of `PromotionStackBaseTiers`
+    - PromotionTierCreateParams.action uses now `PromotionTierCreateParamsAction` instead of `PromotionTierAction`
+    - PromotionsStacksCreateRequestBody.tiers uses now `PromotionsStacksCreateRequestBodyTiers` instead of `PromotionStackBaseTiers`
+    - PromotionsStacksGetResponseBody.tiers uses now `PromotionsStacksGetResponseBodyTiers` instead of `PromotionStackBaseTiers`
+    - PromotionsStacksUpdateResponseBody.tiers uses now `PromotionsStacksUpdateResponseBodyTiers` instead of `PromotionStackBaseTiers`
+    - PromotionsTiersCreateRequestBody.action uses now `PromotionsTiersCreateRequestBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersCreateResponseBody.action uses now `PromotionsTiersCreateResponseBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersCreateResponseBody.campaign uses now `PromotionsTiersCreateResponseBodyCampaign` instead of `PromotionTierCampaign`
+    - PromotionsTiersCreateResponseBody.summary uses now `PromotionsTiersCreateResponseBodySummary` instead of `PromotionTierSummary`
+    - PromotionsTiersDisableResponseBody.action uses now `PromotionsTiersDisableResponseBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersDisableResponseBody.campaign uses now `PromotionsTiersDisableResponseBodyCampaign` instead of `PromotionTierCampaign`
+    - PromotionsTiersDisableResponseBody.summary uses now `PromotionsTiersDisableResponseBodySummary` instead of `PromotionTierSummary`
+    - PromotionsTiersEnableResponseBody.action uses now `PromotionsTiersEnableResponseBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersEnableResponseBody.campaign uses now `PromotionsTiersEnableResponseBodyCampaign` instead of `PromotionTierCampaign`
+    - PromotionsTiersEnableResponseBody.summary uses now `PromotionsTiersEnableResponseBodySummary` instead of `PromotionTierSummary`
+    - PromotionsTiersGetResponseBody.action uses now `PromotionsTiersGetResponseBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersGetResponseBody.campaign uses now `PromotionsTiersGetResponseBodyCampaign` instead of `PromotionTierCampaign`
+    - PromotionsTiersGetResponseBody.summary uses now `PromotionsTiersGetResponseBodySummary` instead of `PromotionTierSummary`
+    - PromotionsTiersUpdateRequestBody.action uses now `PromotionsTiersUpdateRequestBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersUpdateResponseBody.action uses now `PromotionsTiersUpdateResponseBodyAction` instead of `PromotionTierAction`
+    - PromotionsTiersUpdateResponseBody.campaign uses now `PromotionsTiersUpdateResponseBodyCampaign` instead of `PromotionTierCampaign`
+    - PromotionsTiersUpdateResponseBody.summary uses now `PromotionsTiersUpdateResponseBodySummary` instead of `PromotionTierSummary`
+    - QualificationsCheckEligibilityRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - QualificationsCheckEligibilityResponseBody.order uses now `QualificationsCheckEligibilityResponseBodyOrder` instead of `OrderCalculated`
+    - QualificationsOptionFilters.campaignType uses now `QualificationsOptionFiltersCampaignType` instead of `QualificationsCampaignTypeConditions`
+    - RedemptionRelatedRedemptions.redemptions uses now `List<RedemptionRelatedRedemptionsRedemptionsItem>` instead of `List<RedemptionRelatedRedemptionsItem>`
+    - RedemptionRollbackRelatedRedemptions.redemptions uses now `List<RedemptionRollbackRelatedRedemptionsRedemptionsItem>` instead of `List<RedemptionRollbackRelatedRedemptionsItem>`
+    - RedemptionVoucher.gift uses now `RedemptionVoucherGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - RedemptionVoucher.loyaltyCard uses now `RedemptionVoucherLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - RedemptionVoucher.publish uses now `RedemptionVoucherPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - RedemptionVoucher.redemption uses now `RedemptionVoucherRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - RedemptionsRedeemRequestBody.options uses now `RedemptionsRedeemRequestBodyOptions` instead of `ClientRedemptionsRedeemRequestBodyAllOfOptions`
+    - RedemptionsRedeemRequestBody.redeemables uses now `List<RedemptionsRedeemRequestBodyRedeemablesItem>` instead of `List<StackableValidateRedeemBaseRedeemablesItem>`
+    - RedemptionsRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - RedemptionsRollbackCreateRequestBody.order uses now `OrderCalculatedEssential` instead of `order`
+    - RedemptionsRollbackCreateResponseBody.relatedRedemptions uses now `RedemptionsRollbackCreateResponseBodyRelatedRedemptions` instead of `RedemptionRollbackRelatedRedemptions`
+    - RedemptionsRollbackCreateResponseBody.channel uses now `RedemptionsRollbackCreateResponseBodyChannel` instead of `RedemptionRollbackChannel`
+    - RedemptionsRollbackCreateResponseBody.gift uses now `RedemptionsRollbackCreateResponseBodyGift` instead of `RedemptionRollbackGift`
+    - RedemptionsRollbackCreateResponseBody.loyaltyCard uses now `RedemptionsRollbackCreateResponseBodyLoyaltyCard` instead of `RedemptionRollbackLoyaltyCard`
+    - RedemptionsRollbacksCreateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - Referrer.address uses now `ReferrerAddress` instead of `CustomerBaseAddress`
+    - RewardAssignment.parameters uses now `RewardAssignmentParameters` instead of `RewardAssignmentParametersParameters`
+    - RewardTypeCampaign.type has no longer `PROMOTION` and `REFERRAL_PROGRAM` since that make no sense
+    - RewardsAssignmentsCreateResponseBody.parameters uses now `RewardsAssignmentsCreateResponseBodyParameters` instead of `RewardAssignmentParametersParameters`
+    - RewardsAssignmentsGetResponseBody.parameters uses now `RewardsAssignmentsGetResponseBodyParameters` instead of `RewardAssignmentParametersParameters`
+    - RewardsAssignmentsUpdateResponseBody.parameters uses now `RewardsAssignmentsUpdateResponseBodyParameters` instead of `RewardAssignmentParametersParameters`
+    - RewardsCreateRequestBody.attributes uses now `RewardsCreateRequestBodyAttributes` instead of `Object`
+    - RewardsUpdateRequestBody.attributes uses now `RewardsUpdateRequestBodyAttributes` instead of `Object`
+    - RewardsUpdateRequestBodyParameters.product uses now `RewardsUpdateRequestBodyParametersProduct` instead of `RewardsCreateRequestBodyParametersProduct`
+    - RewardsUpdateRequestBodyParameters.coin uses now `RewardsUpdateRequestBodyParametersCoin` instead of `RewardsCreateRequestBodyParametersCoin`
+    - ValidationRule.error uses now `ValidationRuleError` instead of `ValidationRuleBaseError`
+    - ValidationRule.applicableTo uses now `ValidationRuleApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationRulesCreateRequestBody.error uses now `ValidationRulesCreateRequestBodyError` instead of `ValidationRuleBaseError`
+    - ValidationRulesCreateRequestBody.applicableTo uses now `ValidationRulesCreateRequestBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationRulesCreateResponseBody.error uses now `ValidationRulesCreateResponseBodyError` instead of `ValidationRuleBaseError`
+    - ValidationRulesCreateResponseBody.applicableTo uses now `ValidationRulesCreateResponseBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationRulesGetResponseBody.error uses now `ValidationRulesGetResponseBodyError` instead of `ValidationRuleBaseError`
+    - ValidationRulesGetResponseBody.applicableTo uses now `ValidationRulesGetResponseBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationRulesUpdateRequestBody.error uses now `ValidationRulesUpdateRequestBodyError` instead of `ValidationRuleBaseError`
+    - ValidationRulesUpdateRequestBody.applicableTo uses now `ValidationRulesUpdateRequestBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationRulesUpdateResponseBody.error uses now `ValidationRulesUpdateResponseBodyError` instead of `ValidationRuleBaseError`
+    - ValidationRulesUpdateResponseBody.applicableTo uses now `ValidationRulesUpdateResponseBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
+    - ValidationsValidateRequestBody.options uses now `ValidationsValidateRequestBodyOptions` instead of `ClientValidationsValidateRequestBodyAllOfOptions`
+    - ValidationsValidateRequestBody.redeemables uses now `List<ValidationsValidateRequestBodyRedeemablesItem>` instead of `List<StackableValidateRedeemBaseRedeemablesItem>`
+    - ValidationsValidateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ValidationsValidateResponseBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ValidityHours.daily uses now `List<ValidityHoursDailyItem>` instead of `List<ValidityHoursDailyInner>`
+    - Voucher.gift uses now `VoucherGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - Voucher.loyaltyCard uses now `VoucherLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - Voucher.publish uses now `VoucherPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - Voucher.redemption uses now `VoucherRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - VoucherAssets.qr uses now `VoucherAssetsQr` instead of `LoyaltiesMembersTransfersCreateResponseBodyAssetsQr`
+    - VoucherAssets.barcode uses now `VoucherAssetsBarcode` instead of `LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode`
+    - VouchersDisableResponseBody.gift uses now `VouchersDisableResponseBodyGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - VouchersDisableResponseBody.loyaltyCard uses now `VouchersDisableResponseBodyLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - VouchersDisableResponseBody.publish uses now `VouchersDisableResponseBodyPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - VouchersDisableResponseBody.redemption uses now `VouchersDisableResponseBodyRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - VouchersEnableResponseBody.gift uses now `VouchersEnableResponseBodyGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - VouchersEnableResponseBody.loyaltyCard uses now `VouchersEnableResponseBodyLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - VouchersEnableResponseBody.publish uses now `VouchersEnableResponseBodyPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - VouchersEnableResponseBody.redemption uses now `VouchersEnableResponseBodyRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - VouchersGetResponseBody.gift uses now `VouchersGetResponseBodyGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
+    - VouchersGetResponseBody.loyaltyCard uses now `VouchersGetResponseBodyLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
+    - VouchersGetResponseBody.publish uses now `VouchersGetResponseBodyPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
+    - VouchersGetResponseBody.redemption uses now `VouchersGetResponseBodyRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
+    - VouchersTransactionsExportCreateResponseBody.result uses now `VouchersTransactionsExportCreateResponseBodyResult` instead of `VoucherTransactionsExportResult`
 - **2024-07-22** - `13.0.0`
   - Added support for POST `/v1/promotions/{campaignId}/tiers` and PUT `/v1/promotions/tiers/{promotionTierId}`
   - Added support for GET and POST `/v1/rewards`
   - Added support for GET and PUT `/v1/rewards/{rewardId}`
-  - ❗❗❗ BREAKING CHANGES❗❗❗:
+  - ❗ BREAKING CHANGES❗:
     - Property `key` of model `Session` in now String, not Enum.
     - Renamed model `ValidationsRedeemableSkippedDetails` -> `ValidationsRedeemableSkippedResultDetails`
 - **2024-07-12** - `12.0.0`
-  -  The new version of the SKD includes coverage for all the most commonly used Voucherify endpoints and supports typed models.
+  -  The new version of the SDK includes coverage for all the most commonly used Voucherify endpoints and supports typed models.
 
 *Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*
 
@@ -202,15 +381,15 @@ import io.voucherify.client.Configuration;
 import io.voucherify.client.auth.ApiKeyAuth;
 
 public class Main {
-    public static ApiClient getClient() {}
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+  public static ApiClient getClient() {}
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        defaultClient.setBasePath("https://api.voucherify.io");
-        defaultClient.setAuthentication("X-App-Id", "YOUR_X_APP_ID");
-        defaultClient.setAuthentication("X-App-Token", "YOUR_X_APP_TOKEN");
+    defaultClient.setBasePath("https://api.voucherify.io");
+    defaultClient.setAuthentication("X-App-Id", "YOUR_X_APP_ID");
+    defaultClient.setAuthentication("X-App-Token", "YOUR_X_APP_TOKEN");
 
-        return defaultClient;
-    }
+    return defaultClient;
+  }
 }
 ```
 
