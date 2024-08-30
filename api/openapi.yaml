@@ -37968,7 +37968,7 @@ components:
           description: Contains a list of earning rule IDs and their points mapping
             for the given earning rule.
           nullable: true
-          title: LoyaltiesTiersGetResponseBodyEarningRulesItem
+          title: LoyaltiesTiersGetResponseBodyEarningRulesEntry
           type: object
         rewards:
           additionalProperties:
@@ -37976,7 +37976,7 @@ components:
           description: Contains a list of reward IDs and their points mapping for
             the given reward.
           nullable: true
-          title: LoyaltiesTiersGetResponseBodyRewardsItem
+          title: LoyaltiesTiersGetResponseBodyRewardsEntry
           type: object
         points:
           $ref: '#/components/schemas/LoyaltiesTiersGetResponseBodyPoints'
@@ -39082,7 +39082,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
           nullable: true
-          title: OrdersCreateResponseBodyRedemptionsItem
+          title: OrdersCreateResponseBodyRedemptionsEntry
           type: object
       title: OrdersCreateResponseBody
       type: object
@@ -39390,7 +39390,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
           nullable: true
-          title: OrdersGetResponseBodyRedemptionsItem
+          title: OrdersGetResponseBodyRedemptionsEntry
           type: object
       title: OrdersGetResponseBody
       type: object
@@ -40029,7 +40029,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
           nullable: true
-          title: OrdersUpdateResponseBodyRedemptionsItem
+          title: OrdersUpdateResponseBodyRedemptionsEntry
           type: object
       title: OrdersUpdateResponseBody
       type: object
@@ -55737,11 +55737,11 @@ components:
           type: integer
         campaigns:
           additionalProperties:
-            $ref: '#/components/schemas/CustomerLoyaltyCampaignsItem'
+            $ref: '#/components/schemas/CustomerLoyaltyCampaignsEntry'
           description: Contains campaigns with details about point balances and how
             many customers were referred by the customer.
           nullable: true
-          title: CustomerLoyaltyCampaignsItem
+          title: CustomerLoyaltyCampaignsEntry
           type: object
       title: CustomerLoyalty
       type: object
@@ -58168,7 +58168,7 @@ components:
           description: Contains a list of earning rule IDs and their points mapping
             for the given earning rule.
           nullable: true
-          title: LoyaltyTierEarningRulesItem
+          title: LoyaltyTierEarningRulesEntry
           type: object
         rewards:
           additionalProperties:
@@ -58176,7 +58176,7 @@ components:
           description: Contains a list of reward IDs and their points mapping for
             the given reward.
           nullable: true
-          title: LoyaltyTierRewardsItem
+          title: LoyaltyTierRewardsEntry
           type: object
         points:
           $ref: '#/components/schemas/LoyaltyTierPoints'
@@ -58234,7 +58234,7 @@ components:
           description: Contains a list of earning rule IDs and their points mapping
             for the given earning rule.
           nullable: true
-          title: LoyaltyTierBaseEarningRulesItem
+          title: LoyaltyTierBaseEarningRulesEntry
           type: object
         rewards:
           additionalProperties:
@@ -58242,7 +58242,7 @@ components:
           description: Contains a list of reward IDs and their points mapping for
             the given reward.
           nullable: true
-          title: LoyaltyTierBaseRewardsItem
+          title: LoyaltyTierBaseRewardsEntry
           type: object
         points:
           $ref: '#/components/schemas/LoyaltyTierBasePoints'
@@ -58693,7 +58693,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
           nullable: true
-          title: OrderCalculatedRedemptionsItem
+          title: OrderCalculatedRedemptionsEntry
           type: object
       title: OrderCalculated
       type: object
@@ -59050,7 +59050,7 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptions'
           nullable: true
-          title: OrderCalculatedNoCustomerDataRedemptionsItem
+          title: OrderCalculatedNoCustomerDataRedemptionsEntry
           type: object
       title: OrderCalculatedNoCustomerData
       type: object
@@ -81350,7 +81350,7 @@ components:
           type: integer
       title: CampaignsImportVoucherItemRedemption
       type: object
-    CustomerLoyaltyCampaignsItem:
+    CustomerLoyaltyCampaignsEntry:
       description: Contains details about the point balances left on loyalty cards
         and the number of referred customers in each campaign.
       properties:

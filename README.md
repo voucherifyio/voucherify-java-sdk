@@ -485,7 +485,7 @@ Class | Method | HTTP request | Description
 - [CustomerAddress](docs/CustomerAddress.md)
 - [CustomerId](docs/CustomerId.md)
 - [CustomerLoyalty](docs/CustomerLoyalty.md)
-- [CustomerLoyaltyCampaignsItem](docs/CustomerLoyaltyCampaignsItem.md)
+- [CustomerLoyaltyCampaignsEntry](docs/CustomerLoyaltyCampaignsEntry.md)
 - [CustomerRedeemable](docs/CustomerRedeemable.md)
 - [CustomerRedeemableRedeemable](docs/CustomerRedeemableRedeemable.md)
 - [CustomerReferrals](docs/CustomerReferrals.md)

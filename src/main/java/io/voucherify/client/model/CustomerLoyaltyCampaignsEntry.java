@@ -51,7 +51,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class CustomerLoyaltyCampaignsItem {
+public class CustomerLoyaltyCampaignsEntry {
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
@@ -64,10 +64,10 @@ public class CustomerLoyaltyCampaignsItem {
   @SerializedName(SERIALIZED_NAME_REFERRED_CUSTOMERS)
   private Integer referredCustomers;
 
-  public CustomerLoyaltyCampaignsItem() {
+  public CustomerLoyaltyCampaignsEntry() {
   }
 
-  public CustomerLoyaltyCampaignsItem points(Integer points) {
+  public CustomerLoyaltyCampaignsEntry points(Integer points) {
     
     this.points = points;
     return this;
@@ -88,7 +88,7 @@ public class CustomerLoyaltyCampaignsItem {
   }
 
 
-  public CustomerLoyaltyCampaignsItem loyaltyTier(String loyaltyTier) {
+  public CustomerLoyaltyCampaignsEntry loyaltyTier(String loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -109,7 +109,7 @@ public class CustomerLoyaltyCampaignsItem {
   }
 
 
-  public CustomerLoyaltyCampaignsItem referredCustomers(Integer referredCustomers) {
+  public CustomerLoyaltyCampaignsEntry referredCustomers(Integer referredCustomers) {
     
     this.referredCustomers = referredCustomers;
     return this;
@@ -142,9 +142,9 @@ public class CustomerLoyaltyCampaignsItem {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CustomerLoyaltyCampaignsItem instance itself
+   * @return the CustomerLoyaltyCampaignsEntry instance itself
    */
-  public CustomerLoyaltyCampaignsItem putAdditionalProperty(String key, Object value) {
+  public CustomerLoyaltyCampaignsEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -183,11 +183,11 @@ public class CustomerLoyaltyCampaignsItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomerLoyaltyCampaignsItem customerLoyaltyCampaignsItem = (CustomerLoyaltyCampaignsItem) o;
-    return Objects.equals(this.points, customerLoyaltyCampaignsItem.points) &&
-        Objects.equals(this.loyaltyTier, customerLoyaltyCampaignsItem.loyaltyTier) &&
-        Objects.equals(this.referredCustomers, customerLoyaltyCampaignsItem.referredCustomers)&&
-        Objects.equals(this.additionalProperties, customerLoyaltyCampaignsItem.additionalProperties);
+    CustomerLoyaltyCampaignsEntry customerLoyaltyCampaignsEntry = (CustomerLoyaltyCampaignsEntry) o;
+    return Objects.equals(this.points, customerLoyaltyCampaignsEntry.points) &&
+        Objects.equals(this.loyaltyTier, customerLoyaltyCampaignsEntry.loyaltyTier) &&
+        Objects.equals(this.referredCustomers, customerLoyaltyCampaignsEntry.referredCustomers)&&
+        Objects.equals(this.additionalProperties, customerLoyaltyCampaignsEntry.additionalProperties);
   }
 
   @Override
@@ -198,7 +198,7 @@ public class CustomerLoyaltyCampaignsItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomerLoyaltyCampaignsItem {\n");
+    sb.append("class CustomerLoyaltyCampaignsEntry {\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
     sb.append("    referredCustomers: ").append(toIndentedString(referredCustomers)).append("\n");
@@ -237,16 +237,16 @@ public class CustomerLoyaltyCampaignsItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomerLoyaltyCampaignsItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomerLoyaltyCampaignsItem' and its subtypes
+       if (!CustomerLoyaltyCampaignsEntry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CustomerLoyaltyCampaignsEntry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomerLoyaltyCampaignsItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomerLoyaltyCampaignsItem.class));
+       final TypeAdapter<CustomerLoyaltyCampaignsEntry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CustomerLoyaltyCampaignsEntry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CustomerLoyaltyCampaignsItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<CustomerLoyaltyCampaignsEntry>() {
            @Override
-           public void write(JsonWriter out, CustomerLoyaltyCampaignsItem value) throws IOException {
+           public void write(JsonWriter out, CustomerLoyaltyCampaignsEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -269,11 +269,11 @@ public class CustomerLoyaltyCampaignsItem {
            }
 
            @Override
-           public CustomerLoyaltyCampaignsItem read(JsonReader in) throws IOException {
+           public CustomerLoyaltyCampaignsEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CustomerLoyaltyCampaignsItem instance = thisAdapter.fromJsonTree(jsonObj);
+             CustomerLoyaltyCampaignsEntry instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -300,18 +300,18 @@ public class CustomerLoyaltyCampaignsItem {
   }
 
  /**
-  * Create an instance of CustomerLoyaltyCampaignsItem given an JSON string
+  * Create an instance of CustomerLoyaltyCampaignsEntry given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CustomerLoyaltyCampaignsItem
-  * @throws IOException if the JSON string is invalid with respect to CustomerLoyaltyCampaignsItem
+  * @return An instance of CustomerLoyaltyCampaignsEntry
+  * @throws IOException if the JSON string is invalid with respect to CustomerLoyaltyCampaignsEntry
   */
-  public static CustomerLoyaltyCampaignsItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomerLoyaltyCampaignsItem.class);
+  public static CustomerLoyaltyCampaignsEntry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CustomerLoyaltyCampaignsEntry.class);
   }
 
  /**
-  * Convert an instance of CustomerLoyaltyCampaignsItem to an JSON string
+  * Convert an instance of CustomerLoyaltyCampaignsEntry to an JSON string
   *
   * @return JSON string
   */
