@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerBaseAddress;
+import io.voucherify.client.model.CustomersCreateRequestBodyAddress;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -89,7 +89,7 @@ public class CustomersCreateRequestBody {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
+  private CustomersCreateRequestBodyAddress address;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -266,7 +266,7 @@ public class CustomersCreateRequestBody {
   }
 
 
-  public CustomersCreateRequestBody address(CustomerBaseAddress address) {
+  public CustomersCreateRequestBody address(CustomersCreateRequestBodyAddress address) {
     
     this.address = address;
     return this;
@@ -277,12 +277,12 @@ public class CustomersCreateRequestBody {
    * @return address
   **/
   @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
+  public CustomersCreateRequestBodyAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(CustomerBaseAddress address) {
+  public void setAddress(CustomersCreateRequestBodyAddress address) {
     this.address = address;
   }
 

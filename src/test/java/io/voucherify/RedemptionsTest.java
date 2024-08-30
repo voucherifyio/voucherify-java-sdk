@@ -8,7 +8,6 @@ import io.voucherify.client.ApiClient;
 import io.voucherify.client.api.*;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.model.*;
-import io.voucherify.client.model.Order;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -88,11 +87,11 @@ public class RedemptionsTest {
 
     @NotNull
     private static RedemptionsRedeemRequestBody getRedemptionsRequestBody(int voucherCount) {
-        Order order = getOrder();
+        OrderCalculatedEssential order = getOrder();
         RedemptionsRedeemRequestBody redeemRequestBody = new RedemptionsRedeemRequestBody();
         redeemRequestBody.setOrder(order);
         CampaignsCreateResponseBody campaign = createDiscountTypeCampaign();
-        List<StackableValidateRedeemBaseRedeemablesItem> redeemables = Stream
+        List<RedemptionsRedeemRequestBodyRedeemablesItem> redeemables = Stream
                 .generate(() -> createVoucherForRedeemable(campaign)).limit(voucherCount)
                 .collect(Collectors.toCollection(ArrayList::new));
         redeemRequestBody.setRedeemables(redeemables);
@@ -100,12 +99,12 @@ public class RedemptionsTest {
     }
 
     @NotNull
-    private static StackableValidateRedeemBaseRedeemablesItem createVoucherForRedeemable(
+    private static RedemptionsRedeemRequestBodyRedeemablesItem createVoucherForRedeemable(
             CampaignsCreateResponseBody campaign) {
         try {
             CampaignsVouchersCreateCombinedResponseBody voucher = campaigns.addVouchersToCampaign(campaign.getId(), 1,
                     null);
-            StackableValidateRedeemBaseRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
+            RedemptionsRedeemRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
             return redeemablesItem;
         } catch (ApiException | JsonSyntaxException e) {
             fail();
@@ -114,20 +113,20 @@ public class RedemptionsTest {
     }
 
     @NotNull
-    private static StackableValidateRedeemBaseRedeemablesItem createRedeemablesItem(String id) {
-        StackableValidateRedeemBaseRedeemablesItem redeemablesItem = new StackableValidateRedeemBaseRedeemablesItem();
-        redeemablesItem.setObject(StackableValidateRedeemBaseRedeemablesItem.ObjectEnum.VOUCHER);
+    private static RedemptionsRedeemRequestBodyRedeemablesItem createRedeemablesItem(String id) {
+        RedemptionsRedeemRequestBodyRedeemablesItem redeemablesItem = new RedemptionsRedeemRequestBodyRedeemablesItem();
+        redeemablesItem.setObject(RedemptionsRedeemRequestBodyRedeemablesItem.ObjectEnum.VOUCHER);
         redeemablesItem.setId(id);
         return redeemablesItem;
     }
 
     @NotNull
-    private static Order getOrder() {
+    private static OrderCalculatedEssential getOrder() {
         List<OrderItem> items = new ArrayList<>();
         items.add(createOrderItem("prod_003", 1));
         items.add(createOrderItem("prod_004", 1));
 
-        Order order = new Order();
+        OrderCalculatedEssential order = new OrderCalculatedEssential();
         order.setAmount(10000);
         order.setItems(items);
         return order;

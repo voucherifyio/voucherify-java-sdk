@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.PromotionTierUpdateAction;
+import io.voucherify.client.model.PromotionsTiersUpdateRequestBodyAction;
 import io.voucherify.client.model.ValidationRuleAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -70,7 +70,7 @@ public class PromotionsTiersUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  private PromotionTierUpdateAction action;
+  private PromotionsTiersUpdateRequestBodyAction action;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -214,7 +214,7 @@ public class PromotionsTiersUpdateRequestBody {
   }
 
 
-  public PromotionsTiersUpdateRequestBody action(PromotionTierUpdateAction action) {
+  public PromotionsTiersUpdateRequestBody action(PromotionsTiersUpdateRequestBodyAction action) {
     
     this.action = action;
     return this;
@@ -225,12 +225,12 @@ public class PromotionsTiersUpdateRequestBody {
    * @return action
   **/
   @javax.annotation.Nullable
-  public PromotionTierUpdateAction getAction() {
+  public PromotionsTiersUpdateRequestBodyAction getAction() {
     return action;
   }
 
 
-  public void setAction(PromotionTierUpdateAction action) {
+  public void setAction(PromotionsTiersUpdateRequestBodyAction action) {
     this.action = action;
   }
 

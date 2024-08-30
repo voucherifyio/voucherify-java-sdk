@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.RewardAttributes;
+import io.voucherify.client.model.LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes;
 import io.voucherify.client.model.RewardType;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -74,7 +74,7 @@ public class LoyaltiesRewardAssignmentsRewardGetResponseBody {
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private RewardAttributes attributes;
+  private LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes attributes;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -281,7 +281,7 @@ public class LoyaltiesRewardAssignmentsRewardGetResponseBody {
   }
 
 
-  public LoyaltiesRewardAssignmentsRewardGetResponseBody attributes(RewardAttributes attributes) {
+  public LoyaltiesRewardAssignmentsRewardGetResponseBody attributes(LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes attributes) {
     
     this.attributes = attributes;
     return this;
@@ -292,12 +292,12 @@ public class LoyaltiesRewardAssignmentsRewardGetResponseBody {
    * @return attributes
   **/
   @javax.annotation.Nullable
-  public RewardAttributes getAttributes() {
+  public LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes getAttributes() {
     return attributes;
   }
 
 
-  public void setAttributes(RewardAttributes attributes) {
+  public void setAttributes(LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes attributes) {
     this.attributes = attributes;
   }
 

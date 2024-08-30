@@ -4,7 +4,7 @@ import io.voucherify.data.VoucherifyStore;
 import io.voucherify.helpers.JsonHelper;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
+
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.ValidationRulesApi;
@@ -54,14 +54,14 @@ public class ValidationRulesTest {
             rules.put("1", rule);
             rules.put("logic", "1");
 
-            ValidationRuleBaseError validationRuleBaseError = new ValidationRuleBaseError();
+            ValidationRulesCreateRequestBodyError validationRuleBaseError = new ValidationRulesCreateRequestBodyError();
             validationRuleBaseError.setMessage("error message");
 
             validationRulesCreateRequestBody.setRules(rules);
             validationRulesCreateRequestBody.setName(Utils.getAlphaNumericString(10));
             validationRulesCreateRequestBody.setError(validationRuleBaseError);
 
-            ValidationRuleBaseApplicableTo validationRuleBaseApplicableTo = new ValidationRuleBaseApplicableTo();
+            ValidationRulesCreateRequestBodyApplicableTo validationRuleBaseApplicableTo = new ValidationRulesCreateRequestBodyApplicableTo();
 
             ApplicableTo applicableTo = new ApplicableTo();
             applicableTo.setObject(ApplicableTo.ObjectEnum.PRODUCT);

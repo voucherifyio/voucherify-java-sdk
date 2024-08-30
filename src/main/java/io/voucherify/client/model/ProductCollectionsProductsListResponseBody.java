@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ProductCollectionsProductsListDataItem;
+import io.voucherify.client.model.ProductCollectionsProductsListResponseBodyDataItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +66,7 @@ public class ProductCollectionsProductsListResponseBody {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<ProductCollectionsProductsListDataItem> data;
+  private List<ProductCollectionsProductsListResponseBodyDataItem> data;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -117,13 +117,13 @@ public class ProductCollectionsProductsListResponseBody {
   }
 
 
-  public ProductCollectionsProductsListResponseBody data(List<ProductCollectionsProductsListDataItem> data) {
+  public ProductCollectionsProductsListResponseBody data(List<ProductCollectionsProductsListResponseBodyDataItem> data) {
     
     this.data = data;
     return this;
   }
 
-  public ProductCollectionsProductsListResponseBody addDataItem(ProductCollectionsProductsListDataItem dataItem) {
+  public ProductCollectionsProductsListResponseBody addDataItem(ProductCollectionsProductsListResponseBodyDataItem dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -136,12 +136,12 @@ public class ProductCollectionsProductsListResponseBody {
    * @return data
   **/
   @javax.annotation.Nullable
-  public List<ProductCollectionsProductsListDataItem> getData() {
+  public List<ProductCollectionsProductsListResponseBodyDataItem> getData() {
     return data;
   }
 
 
-  public void setData(List<ProductCollectionsProductsListDataItem> data) {
+  public void setData(List<ProductCollectionsProductsListResponseBodyDataItem> data) {
     this.data = data;
   }
 

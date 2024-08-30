@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerBaseAddress;
+import io.voucherify.client.model.ReferrerAddress;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -89,7 +89,7 @@ public class Referrer {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
+  private ReferrerAddress address;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -266,7 +266,7 @@ public class Referrer {
   }
 
 
-  public Referrer address(CustomerBaseAddress address) {
+  public Referrer address(ReferrerAddress address) {
     
     this.address = address;
     return this;
@@ -277,12 +277,12 @@ public class Referrer {
    * @return address
   **/
   @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
+  public ReferrerAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(CustomerBaseAddress address) {
+  public void setAddress(ReferrerAddress address) {
     this.address = address;
   }
 

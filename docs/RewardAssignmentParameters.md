@@ -2,12 +2,13 @@
 
 # RewardAssignmentParameters
 
+Defines the cost of the reward.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**parameters** | [**RewardAssignmentParametersParameters**](RewardAssignmentParametersParameters.md) |  |
+|**loyalty** | [**RewardAssignmentParametersLoyalty**](RewardAssignmentParametersLoyalty.md) |  |
 
 
 

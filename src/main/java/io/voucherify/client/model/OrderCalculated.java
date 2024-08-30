@@ -19,7 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculatedAllOfCustomer;
+import io.voucherify.client.model.OrderCalculatedCustomer;
+import io.voucherify.client.model.OrderCalculatedReferrer;
 import io.voucherify.client.model.OrderItemCalculated;
 import io.voucherify.client.model.OrderRedemptions;
 import java.io.IOException;
@@ -68,14 +69,6 @@ public class OrderCalculated {
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
 
   /**
    * The order status.
@@ -176,14 +169,6 @@ public class OrderCalculated {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
-  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
-  private String referrerId;
-
   /**
    * The type of the object represented by JSON.
    */
@@ -233,17 +218,33 @@ public class OrderCalculated {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.ORDER;
 
-  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
-  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Map<String, OrderRedemptions> redemptions;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private OrderCalculatedAllOfCustomer customer;
+  private OrderCalculatedCustomer customer;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private OrderCalculatedAllOfCustomer referrer;
+  private OrderCalculatedReferrer referrer;
+
+  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
+  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
+  private Map<String, OrderRedemptions> redemptions;
 
   public OrderCalculated() {
   }
@@ -287,48 +288,6 @@ public class OrderCalculated {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
-  }
-
-
-  public OrderCalculated createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public OrderCalculated updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
 
@@ -592,6 +551,69 @@ public class OrderCalculated {
   }
 
 
+  public OrderCalculated _object(ObjectEnum _object) {
+    
+    this._object = _object;
+    return this;
+  }
+
+   /**
+   * The type of the object represented by JSON.
+   * @return _object
+  **/
+  @javax.annotation.Nullable
+  public ObjectEnum getObject() {
+    return _object;
+  }
+
+
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+  }
+
+
+  public OrderCalculated createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public OrderCalculated updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
   public OrderCalculated customerId(String customerId) {
     
     this.customerId = customerId;
@@ -634,24 +656,45 @@ public class OrderCalculated {
   }
 
 
-  public OrderCalculated _object(ObjectEnum _object) {
+  public OrderCalculated customer(OrderCalculatedCustomer customer) {
     
-    this._object = _object;
+    this.customer = customer;
     return this;
   }
 
    /**
-   * The type of the object represented by JSON.
-   * @return _object
+   * Get customer
+   * @return customer
   **/
   @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
+  public OrderCalculatedCustomer getCustomer() {
+    return customer;
   }
 
 
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
+  public void setCustomer(OrderCalculatedCustomer customer) {
+    this.customer = customer;
+  }
+
+
+  public OrderCalculated referrer(OrderCalculatedReferrer referrer) {
+    
+    this.referrer = referrer;
+    return this;
+  }
+
+   /**
+   * Get referrer
+   * @return referrer
+  **/
+  @javax.annotation.Nullable
+  public OrderCalculatedReferrer getReferrer() {
+    return referrer;
+  }
+
+
+  public void setReferrer(OrderCalculatedReferrer referrer) {
+    this.referrer = referrer;
   }
 
 
@@ -681,48 +724,6 @@ public class OrderCalculated {
 
   public void setRedemptions(Map<String, OrderRedemptions> redemptions) {
     this.redemptions = redemptions;
-  }
-
-
-  public OrderCalculated customer(OrderCalculatedAllOfCustomer customer) {
-    
-    this.customer = customer;
-    return this;
-  }
-
-   /**
-   * Get customer
-   * @return customer
-  **/
-  @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getCustomer() {
-    return customer;
-  }
-
-
-  public void setCustomer(OrderCalculatedAllOfCustomer customer) {
-    this.customer = customer;
-  }
-
-
-  public OrderCalculated referrer(OrderCalculatedAllOfCustomer referrer) {
-    
-    this.referrer = referrer;
-    return this;
-  }
-
-   /**
-   * Get referrer
-   * @return referrer
-  **/
-  @javax.annotation.Nullable
-  public OrderCalculatedAllOfCustomer getReferrer() {
-    return referrer;
-  }
-
-
-  public void setReferrer(OrderCalculatedAllOfCustomer referrer) {
-    this.referrer = referrer;
   }
 
   /**
@@ -782,8 +783,6 @@ public class OrderCalculated {
     OrderCalculated orderCalculated = (OrderCalculated) o;
     return Objects.equals(this.id, orderCalculated.id) &&
         Objects.equals(this.sourceId, orderCalculated.sourceId) &&
-        Objects.equals(this.createdAt, orderCalculated.createdAt) &&
-        Objects.equals(this.updatedAt, orderCalculated.updatedAt) &&
         Objects.equals(this.status, orderCalculated.status) &&
         Objects.equals(this.amount, orderCalculated.amount) &&
         Objects.equals(this.initialAmount, orderCalculated.initialAmount) &&
@@ -796,12 +795,14 @@ public class OrderCalculated {
         Objects.equals(this.totalAppliedDiscountAmount, orderCalculated.totalAppliedDiscountAmount) &&
         Objects.equals(this.items, orderCalculated.items) &&
         Objects.equals(this.metadata, orderCalculated.metadata) &&
+        Objects.equals(this._object, orderCalculated._object) &&
+        Objects.equals(this.createdAt, orderCalculated.createdAt) &&
+        Objects.equals(this.updatedAt, orderCalculated.updatedAt) &&
         Objects.equals(this.customerId, orderCalculated.customerId) &&
         Objects.equals(this.referrerId, orderCalculated.referrerId) &&
-        Objects.equals(this._object, orderCalculated._object) &&
-        Objects.equals(this.redemptions, orderCalculated.redemptions) &&
         Objects.equals(this.customer, orderCalculated.customer) &&
-        Objects.equals(this.referrer, orderCalculated.referrer)&&
+        Objects.equals(this.referrer, orderCalculated.referrer) &&
+        Objects.equals(this.redemptions, orderCalculated.redemptions)&&
         Objects.equals(this.additionalProperties, orderCalculated.additionalProperties);
   }
 
@@ -811,7 +812,7 @@ public class OrderCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, createdAt, updatedAt, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, customerId, referrerId, _object, redemptions, customer, referrer, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -827,8 +828,6 @@ public class OrderCalculated {
     sb.append("class OrderCalculated {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
@@ -841,12 +840,14 @@ public class OrderCalculated {
     sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
+    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -872,8 +873,6 @@ public class OrderCalculated {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("source_id");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
     openapiFields.add("status");
     openapiFields.add("amount");
     openapiFields.add("initial_amount");
@@ -886,12 +885,14 @@ public class OrderCalculated {
     openapiFields.add("total_applied_discount_amount");
     openapiFields.add("items");
     openapiFields.add("metadata");
+    openapiFields.add("object");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
     openapiFields.add("customer_id");
     openapiFields.add("referrer_id");
-    openapiFields.add("object");
-    openapiFields.add("redemptions");
     openapiFields.add("customer");
     openapiFields.add("referrer");
+    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

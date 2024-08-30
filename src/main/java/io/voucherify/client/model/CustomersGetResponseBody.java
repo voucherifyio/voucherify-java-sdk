@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CustomerBaseAddress;
 import io.voucherify.client.model.CustomerLoyalty;
 import io.voucherify.client.model.CustomerReferrals;
 import io.voucherify.client.model.CustomerSummary;
-import io.voucherify.client.model.CustomerWithSummaryLoyaltyReferralsAllOfAssets;
+import io.voucherify.client.model.CustomersGetResponseBodyAddress;
+import io.voucherify.client.model.CustomersGetResponseBodyAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -94,7 +94,7 @@ public class CustomersGetResponseBody {
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
-  private CustomerWithSummaryLoyaltyReferralsAllOfAssets assets;
+  private CustomersGetResponseBodyAssets assets;
 
   /**
    * The type of the object represented by JSON.
@@ -171,7 +171,7 @@ public class CustomersGetResponseBody {
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private CustomerBaseAddress address;
+  private CustomersGetResponseBodyAddress address;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -348,7 +348,7 @@ public class CustomersGetResponseBody {
   }
 
 
-  public CustomersGetResponseBody assets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public CustomersGetResponseBody assets(CustomersGetResponseBodyAssets assets) {
     
     this.assets = assets;
     return this;
@@ -359,12 +359,12 @@ public class CustomersGetResponseBody {
    * @return assets
   **/
   @javax.annotation.Nullable
-  public CustomerWithSummaryLoyaltyReferralsAllOfAssets getAssets() {
+  public CustomersGetResponseBodyAssets getAssets() {
     return assets;
   }
 
 
-  public void setAssets(CustomerWithSummaryLoyaltyReferralsAllOfAssets assets) {
+  public void setAssets(CustomersGetResponseBodyAssets assets) {
     this.assets = assets;
   }
 
@@ -516,7 +516,7 @@ public class CustomersGetResponseBody {
   }
 
 
-  public CustomersGetResponseBody address(CustomerBaseAddress address) {
+  public CustomersGetResponseBody address(CustomersGetResponseBodyAddress address) {
     
     this.address = address;
     return this;
@@ -527,12 +527,12 @@ public class CustomersGetResponseBody {
    * @return address
   **/
   @javax.annotation.Nullable
-  public CustomerBaseAddress getAddress() {
+  public CustomersGetResponseBodyAddress getAddress() {
     return address;
   }
 
 
-  public void setAddress(CustomerBaseAddress address) {
+  public void setAddress(CustomersGetResponseBodyAddress address) {
     this.address = address;
   }
 

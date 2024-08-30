@@ -19,12 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
+import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItem;
+import io.voucherify.client.model.OrderCalculatedNoCustomerData;
 import io.voucherify.client.model.Session;
 import io.voucherify.client.model.StackingRules;
 import io.voucherify.client.model.ValidationsRedeemableInapplicable;
 import io.voucherify.client.model.ValidationsRedeemableSkipped;
-import io.voucherify.client.model.ValidationsValidateResponseBodyRedeemablesItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ public class ClientValidationsValidateResponseBody {
 
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<ValidationsValidateResponseBodyRedeemablesItem> redeemables;
+  private List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables;
 
   public static final String SERIALIZED_NAME_SKIPPED_REDEEMABLES = "skipped_redeemables";
   @SerializedName(SERIALIZED_NAME_SKIPPED_REDEEMABLES)
@@ -79,7 +79,7 @@ public class ClientValidationsValidateResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private OrderCalculatedNoCustomerData order;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
@@ -117,13 +117,13 @@ public class ClientValidationsValidateResponseBody {
   }
 
 
-  public ClientValidationsValidateResponseBody redeemables(List<ValidationsValidateResponseBodyRedeemablesItem> redeemables) {
+  public ClientValidationsValidateResponseBody redeemables(List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
     return this;
   }
 
-  public ClientValidationsValidateResponseBody addRedeemablesItem(ValidationsValidateResponseBodyRedeemablesItem redeemablesItem) {
+  public ClientValidationsValidateResponseBody addRedeemablesItem(ClientValidationsValidateResponseBodyRedeemablesItem redeemablesItem) {
     if (this.redeemables == null) {
       this.redeemables = new ArrayList<>();
     }
@@ -136,12 +136,12 @@ public class ClientValidationsValidateResponseBody {
    * @return redeemables
   **/
   @javax.annotation.Nullable
-  public List<ValidationsValidateResponseBodyRedeemablesItem> getRedeemables() {
+  public List<ClientValidationsValidateResponseBodyRedeemablesItem> getRedeemables() {
     return redeemables;
   }
 
 
-  public void setRedeemables(List<ValidationsValidateResponseBodyRedeemablesItem> redeemables) {
+  public void setRedeemables(List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
   }
 
@@ -204,7 +204,7 @@ public class ClientValidationsValidateResponseBody {
   }
 
 
-  public ClientValidationsValidateResponseBody order(OrderCalculated order) {
+  public ClientValidationsValidateResponseBody order(OrderCalculatedNoCustomerData order) {
     
     this.order = order;
     return this;
@@ -215,12 +215,12 @@ public class ClientValidationsValidateResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public OrderCalculatedNoCustomerData getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(OrderCalculatedNoCustomerData order) {
     this.order = order;
   }
 

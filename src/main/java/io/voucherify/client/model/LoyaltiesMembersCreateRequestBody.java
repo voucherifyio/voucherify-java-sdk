@@ -54,6 +54,10 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class LoyaltiesMembersCreateRequestBody {
+  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
+  @SerializedName(SERIALIZED_NAME_VOUCHER)
+  private String voucher;
+
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
@@ -70,12 +74,29 @@ public class LoyaltiesMembersCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private String channel;
 
-  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
-  @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private String voucher;
-
   public LoyaltiesMembersCreateRequestBody() {
   }
+
+  public LoyaltiesMembersCreateRequestBody voucher(String voucher) {
+    
+    this.voucher = voucher;
+    return this;
+  }
+
+   /**
+   * Code of voucher being published.
+   * @return voucher
+  **/
+  @javax.annotation.Nullable
+  public String getVoucher() {
+    return voucher;
+  }
+
+
+  public void setVoucher(String voucher) {
+    this.voucher = voucher;
+  }
+
 
   public LoyaltiesMembersCreateRequestBody sourceId(String sourceId) {
     
@@ -108,7 +129,7 @@ public class LoyaltiesMembersCreateRequestBody {
    * Get customer
    * @return customer
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Customer getCustomer() {
     return customer;
   }
@@ -158,27 +179,6 @@ public class LoyaltiesMembersCreateRequestBody {
 
   public void setChannel(String channel) {
     this.channel = channel;
-  }
-
-
-  public LoyaltiesMembersCreateRequestBody voucher(String voucher) {
-    
-    this.voucher = voucher;
-    return this;
-  }
-
-   /**
-   * Code of voucher being published.
-   * @return voucher
-  **/
-  @javax.annotation.Nullable
-  public String getVoucher() {
-    return voucher;
-  }
-
-
-  public void setVoucher(String voucher) {
-    this.voucher = voucher;
   }
 
   /**
@@ -236,11 +236,11 @@ public class LoyaltiesMembersCreateRequestBody {
       return false;
     }
     LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = (LoyaltiesMembersCreateRequestBody) o;
-    return Objects.equals(this.sourceId, loyaltiesMembersCreateRequestBody.sourceId) &&
+    return Objects.equals(this.voucher, loyaltiesMembersCreateRequestBody.voucher) &&
+        Objects.equals(this.sourceId, loyaltiesMembersCreateRequestBody.sourceId) &&
         Objects.equals(this.customer, loyaltiesMembersCreateRequestBody.customer) &&
         Objects.equals(this.metadata, loyaltiesMembersCreateRequestBody.metadata) &&
-        Objects.equals(this.channel, loyaltiesMembersCreateRequestBody.channel) &&
-        Objects.equals(this.voucher, loyaltiesMembersCreateRequestBody.voucher)&&
+        Objects.equals(this.channel, loyaltiesMembersCreateRequestBody.channel)&&
         Objects.equals(this.additionalProperties, loyaltiesMembersCreateRequestBody.additionalProperties);
   }
 
@@ -250,7 +250,7 @@ public class LoyaltiesMembersCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceId, customer, metadata, channel, voucher, additionalProperties);
+    return Objects.hash(voucher, sourceId, customer, metadata, channel, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -264,11 +264,11 @@ public class LoyaltiesMembersCreateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoyaltiesMembersCreateRequestBody {\n");
+    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -292,15 +292,14 @@ public class LoyaltiesMembersCreateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("voucher");
     openapiFields.add("source_id");
     openapiFields.add("customer");
     openapiFields.add("metadata");
     openapiFields.add("channel");
-    openapiFields.add("voucher");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("customer");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

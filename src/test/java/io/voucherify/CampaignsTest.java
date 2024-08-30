@@ -5,7 +5,6 @@ import io.voucherify.data.VoucherifyStore;
 import io.voucherify.helpers.JsonHelper;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
 
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
@@ -201,7 +200,7 @@ public class CampaignsTest {
             discount.setType(Discount.TypeEnum.AMOUNT);
             discount.setAmountOff(BigDecimal.valueOf(1));
 
-            PromotionTierCreateAction promotionTierAction = new PromotionTierCreateAction();
+            PromotionsTiersCreateRequestBodyAction promotionTierAction = new PromotionsTiersCreateRequestBodyAction();
             promotionTierAction.setDiscount(discount);
             promotionTierCreate.setAction(promotionTierAction);
 

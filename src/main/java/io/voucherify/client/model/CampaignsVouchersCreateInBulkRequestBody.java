@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsVouchersCreateBaseRequestBodyRedemption;
+import io.voucherify.client.model.CampaignsVouchersCreateInBulkRequestBodyRedemption;
 import io.voucherify.client.model.CodeConfig;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -56,6 +56,14 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CampaignsVouchersCreateInBulkRequestBody {
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
+  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
+  private CodeConfig codeConfig;
+
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
@@ -66,7 +74,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsVouchersCreateBaseRequestBodyRedemption redemption;
+  private CampaignsVouchersCreateInBulkRequestBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
@@ -80,16 +88,50 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-
-  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
-  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
-  private CodeConfig codeConfig;
-
   public CampaignsVouchersCreateInBulkRequestBody() {
   }
+
+  public CampaignsVouchersCreateInBulkRequestBody code(String code) {
+    
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Unique voucher code.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public CampaignsVouchersCreateInBulkRequestBody codeConfig(CodeConfig codeConfig) {
+    
+    this.codeConfig = codeConfig;
+    return this;
+  }
+
+   /**
+   * Get codeConfig
+   * @return codeConfig
+  **/
+  @javax.annotation.Nullable
+  public CodeConfig getCodeConfig() {
+    return codeConfig;
+  }
+
+
+  public void setCodeConfig(CodeConfig codeConfig) {
+    this.codeConfig = codeConfig;
+  }
+
 
   public CampaignsVouchersCreateInBulkRequestBody category(String category) {
     
@@ -133,7 +175,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   }
 
 
-  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
+  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsVouchersCreateInBulkRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -144,12 +186,12 @@ public class CampaignsVouchersCreateInBulkRequestBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsVouchersCreateBaseRequestBodyRedemption getRedemption() {
+  public CampaignsVouchersCreateInBulkRequestBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsVouchersCreateBaseRequestBodyRedemption redemption) {
+  public void setRedemption(CampaignsVouchersCreateInBulkRequestBodyRedemption redemption) {
     this.redemption = redemption;
   }
 
@@ -216,48 +258,6 @@ public class CampaignsVouchersCreateInBulkRequestBody {
     this.expirationDate = expirationDate;
   }
 
-
-  public CampaignsVouchersCreateInBulkRequestBody code(String code) {
-    
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Unique voucher code.
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public CampaignsVouchersCreateInBulkRequestBody codeConfig(CodeConfig codeConfig) {
-    
-    this.codeConfig = codeConfig;
-    return this;
-  }
-
-   /**
-   * Get codeConfig
-   * @return codeConfig
-  **/
-  @javax.annotation.Nullable
-  public CodeConfig getCodeConfig() {
-    return codeConfig;
-  }
-
-
-  public void setCodeConfig(CodeConfig codeConfig) {
-    this.codeConfig = codeConfig;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -313,14 +313,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
       return false;
     }
     CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = (CampaignsVouchersCreateInBulkRequestBody) o;
-    return Objects.equals(this.category, campaignsVouchersCreateInBulkRequestBody.category) &&
+    return Objects.equals(this.code, campaignsVouchersCreateInBulkRequestBody.code) &&
+        Objects.equals(this.codeConfig, campaignsVouchersCreateInBulkRequestBody.codeConfig) &&
+        Objects.equals(this.category, campaignsVouchersCreateInBulkRequestBody.category) &&
         Objects.equals(this.metadata, campaignsVouchersCreateInBulkRequestBody.metadata) &&
         Objects.equals(this.redemption, campaignsVouchersCreateInBulkRequestBody.redemption) &&
         Objects.equals(this.additionalInfo, campaignsVouchersCreateInBulkRequestBody.additionalInfo) &&
         Objects.equals(this.startDate, campaignsVouchersCreateInBulkRequestBody.startDate) &&
-        Objects.equals(this.expirationDate, campaignsVouchersCreateInBulkRequestBody.expirationDate) &&
-        Objects.equals(this.code, campaignsVouchersCreateInBulkRequestBody.code) &&
-        Objects.equals(this.codeConfig, campaignsVouchersCreateInBulkRequestBody.codeConfig)&&
+        Objects.equals(this.expirationDate, campaignsVouchersCreateInBulkRequestBody.expirationDate)&&
         Objects.equals(this.additionalProperties, campaignsVouchersCreateInBulkRequestBody.additionalProperties);
   }
 
@@ -330,7 +330,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, metadata, redemption, additionalInfo, startDate, expirationDate, code, codeConfig, additionalProperties);
+    return Objects.hash(code, codeConfig, category, metadata, redemption, additionalInfo, startDate, expirationDate, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,14 +344,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CampaignsVouchersCreateInBulkRequestBody {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -375,14 +375,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("code");
+    openapiFields.add("code_config");
     openapiFields.add("category");
     openapiFields.add("metadata");
     openapiFields.add("redemption");
     openapiFields.add("additional_info");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
-    openapiFields.add("code");
-    openapiFields.add("code_config");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

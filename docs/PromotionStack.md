@@ -8,7 +8,7 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**name** | **String** | Promotion stack name. |
-|**tiers** | [**PromotionStackBaseTiers**](PromotionStackBaseTiers.md) |  |
+|**tiers** | [**PromotionStackTiers**](PromotionStackTiers.md) |  |
 |**id** | **String** | Unique promotion stack ID. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was updated. The value is shown in the ISO 8601 format. |

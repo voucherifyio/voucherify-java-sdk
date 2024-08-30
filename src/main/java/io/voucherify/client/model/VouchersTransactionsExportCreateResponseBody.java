@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.VoucherTransactionsExportResult;
 import io.voucherify.client.model.VoucherTransactionsFilters;
+import io.voucherify.client.model.VouchersTransactionsExportCreateResponseBodyResult;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -221,7 +221,7 @@ public class VouchersTransactionsExportCreateResponseBody {
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private VoucherTransactionsExportResult result;
+  private VouchersTransactionsExportCreateResponseBodyResult result;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -377,7 +377,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   }
 
 
-  public VouchersTransactionsExportCreateResponseBody result(VoucherTransactionsExportResult result) {
+  public VouchersTransactionsExportCreateResponseBody result(VouchersTransactionsExportCreateResponseBodyResult result) {
     
     this.result = result;
     return this;
@@ -388,12 +388,12 @@ public class VouchersTransactionsExportCreateResponseBody {
    * @return result
   **/
   @javax.annotation.Nullable
-  public VoucherTransactionsExportResult getResult() {
+  public VouchersTransactionsExportCreateResponseBodyResult getResult() {
     return result;
   }
 
 
-  public void setResult(VoucherTransactionsExportResult result) {
+  public void setResult(VouchersTransactionsExportCreateResponseBodyResult result) {
     this.result = result;
   }
 

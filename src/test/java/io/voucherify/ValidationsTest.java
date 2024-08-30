@@ -3,7 +3,6 @@ package io.voucherify;
 import com.google.gson.JsonSyntaxException;
 
 import io.voucherify.client.model.*;
-import io.voucherify.client.model.Order;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
@@ -76,17 +75,17 @@ public class ValidationsTest {
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateInapplicableVouchersRequestBody() {
-        Order order = getOrder();
-        StackableValidateRedeemBaseRedeemablesItem redeemablesItem = createRedeemablesItem(
+        OrderCalculatedEssential order = getOrder();
+        ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(
                 Utils.getAlphaNumericString(20));
         return createValidationsValidateRequestBody(order, redeemablesItem);
     }
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateApplicableVouchersRequestBody() {
-        Order order = getOrder();
+        OrderCalculatedEssential order = getOrder();
         CampaignsVouchersCreateCombinedResponseBody voucher = createCampaignVoucher();
-        StackableValidateRedeemBaseRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
+        ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
         return createValidationsValidateRequestBody(order, redeemablesItem);
     }
 
@@ -116,12 +115,12 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static Order getOrder() {
+    private static OrderCalculatedEssential getOrder() {
         List<OrderItem> items = new ArrayList<>();
         items.add(createOrderItem("prod_001", 1));
         items.add(createOrderItem("prod_002", 1));
 
-        Order order = new Order();
+        OrderCalculatedEssential order = new OrderCalculatedEssential();
         order.setAmount(10000);
         order.setItems(items);
         return order;
@@ -135,16 +134,16 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static StackableValidateRedeemBaseRedeemablesItem createRedeemablesItem(String id) {
-        StackableValidateRedeemBaseRedeemablesItem redeemablesItem = new StackableValidateRedeemBaseRedeemablesItem();
-        redeemablesItem.setObject(StackableValidateRedeemBaseRedeemablesItem.ObjectEnum.VOUCHER);
+    private static ValidationsValidateRequestBodyRedeemablesItem createRedeemablesItem(String id) {
+        ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = new ValidationsValidateRequestBodyRedeemablesItem();
+        redeemablesItem.setObject(ValidationsValidateRequestBodyRedeemablesItem.ObjectEnum.VOUCHER);
         redeemablesItem.setId(id);
         return redeemablesItem;
     }
 
     @NotNull
-    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(Order order,
-            StackableValidateRedeemBaseRedeemablesItem redeemablesItem) {
+    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(OrderCalculatedEssential order,
+            ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
         ValidationsValidateRequestBody requestBody = new ValidationsValidateRequestBody();
         requestBody.setOrder(order);
         requestBody.addRedeemablesItem(redeemablesItem);
@@ -153,9 +152,9 @@ public class ValidationsTest {
 
     @NotNull
     private void addRedeemablesItemToBeginning(ValidationsValidateRequestBody requestBody) {
-        List<StackableValidateRedeemBaseRedeemablesItem> redeemables = requestBody.getRedeemables();
-        List<StackableValidateRedeemBaseRedeemablesItem> newRedeemables = new ArrayList<>();
-        StackableValidateRedeemBaseRedeemablesItem redeemablesItem = createRedeemablesItem(
+        List<ValidationsValidateRequestBodyRedeemablesItem> redeemables = requestBody.getRedeemables();
+        List<ValidationsValidateRequestBodyRedeemablesItem> newRedeemables = new ArrayList<>();
+        ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(
                 Utils.getAlphaNumericString(20));
         newRedeemables.add(redeemablesItem);
         newRedeemables.addAll(redeemables);

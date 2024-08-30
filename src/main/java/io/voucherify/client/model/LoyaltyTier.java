@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyTierAllOfConfig;
-import io.voucherify.client.model.LoyaltyTierBasePoints;
+import io.voucherify.client.model.LoyaltyTierConfig;
 import io.voucherify.client.model.LoyaltyTierExpiration;
+import io.voucherify.client.model.LoyaltyTierPoints;
 import io.voucherify.client.model.MappingPoints;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -74,7 +74,7 @@ public class LoyaltyTier {
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
-  private LoyaltyTierBasePoints points;
+  private LoyaltyTierPoints points;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -98,7 +98,7 @@ public class LoyaltyTier {
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
-  private LoyaltyTierAllOfConfig config;
+  private LoyaltyTierConfig config;
 
   public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
@@ -235,7 +235,7 @@ public class LoyaltyTier {
   }
 
 
-  public LoyaltyTier points(LoyaltyTierBasePoints points) {
+  public LoyaltyTier points(LoyaltyTierPoints points) {
     
     this.points = points;
     return this;
@@ -246,12 +246,12 @@ public class LoyaltyTier {
    * @return points
   **/
   @javax.annotation.Nullable
-  public LoyaltyTierBasePoints getPoints() {
+  public LoyaltyTierPoints getPoints() {
     return points;
   }
 
 
-  public void setPoints(LoyaltyTierBasePoints points) {
+  public void setPoints(LoyaltyTierPoints points) {
     this.points = points;
   }
 
@@ -361,7 +361,7 @@ public class LoyaltyTier {
   }
 
 
-  public LoyaltyTier config(LoyaltyTierAllOfConfig config) {
+  public LoyaltyTier config(LoyaltyTierConfig config) {
     
     this.config = config;
     return this;
@@ -372,12 +372,12 @@ public class LoyaltyTier {
    * @return config
   **/
   @javax.annotation.Nullable
-  public LoyaltyTierAllOfConfig getConfig() {
+  public LoyaltyTierConfig getConfig() {
     return config;
   }
 
 
-  public void setConfig(LoyaltyTierAllOfConfig config) {
+  public void setConfig(LoyaltyTierConfig config) {
     this.config = config;
   }
 

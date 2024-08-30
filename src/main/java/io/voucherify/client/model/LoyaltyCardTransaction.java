@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.LoyaltyCardTransactionDetails;
 import io.voucherify.client.model.LoyaltyCardTransactionsType;
-import io.voucherify.client.model.VoucherTransactionDetails;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -86,7 +86,7 @@ public class LoyaltyCardTransaction {
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
-  private VoucherTransactionDetails details;
+  private LoyaltyCardTransactionDetails details;
 
   public static final String SERIALIZED_NAME_RELATED_TRANSACTION_ID = "related_transaction_id";
   @SerializedName(SERIALIZED_NAME_RELATED_TRANSACTION_ID)
@@ -246,7 +246,7 @@ public class LoyaltyCardTransaction {
   }
 
 
-  public LoyaltyCardTransaction details(VoucherTransactionDetails details) {
+  public LoyaltyCardTransaction details(LoyaltyCardTransactionDetails details) {
     
     this.details = details;
     return this;
@@ -257,12 +257,12 @@ public class LoyaltyCardTransaction {
    * @return details
   **/
   @javax.annotation.Nullable
-  public VoucherTransactionDetails getDetails() {
+  public LoyaltyCardTransactionDetails getDetails() {
     return details;
   }
 
 
-  public void setDetails(VoucherTransactionDetails details) {
+  public void setDetails(LoyaltyCardTransactionDetails details) {
     this.details = details;
   }
 

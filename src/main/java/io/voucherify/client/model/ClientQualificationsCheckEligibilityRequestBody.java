@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.Order;
+import io.voucherify.client.model.OrderCalculatedEssential;
 import io.voucherify.client.model.QualificationsOption;
 import java.io.IOException;
 import java.util.Arrays;
@@ -62,7 +62,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private Order order;
+  private OrderCalculatedEssential order;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
@@ -163,7 +163,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
   }
 
 
-  public ClientQualificationsCheckEligibilityRequestBody order(Order order) {
+  public ClientQualificationsCheckEligibilityRequestBody order(OrderCalculatedEssential order) {
     
     this.order = order;
     return this;
@@ -174,12 +174,12 @@ public class ClientQualificationsCheckEligibilityRequestBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public Order getOrder() {
+  public OrderCalculatedEssential getOrder() {
     return order;
   }
 
 
-  public void setOrder(Order order) {
+  public void setOrder(OrderCalculatedEssential order) {
     this.order = order;
   }
 

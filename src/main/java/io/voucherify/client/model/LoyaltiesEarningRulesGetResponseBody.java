@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseCustomEvent;
-import io.voucherify.client.model.EarningRuleBaseLoyalty;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
-import io.voucherify.client.model.EarningRuleBaseSegment;
-import io.voucherify.client.model.EarningRuleBaseSource;
+import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyCustomEvent;
+import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodySegment;
+import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -73,7 +73,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private EarningRuleBaseLoyalty loyalty;
+  private LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -81,19 +81,19 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseCustomEvent customEvent;
+  private LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
-  private EarningRuleBaseSegment segment;
+  private LoyaltiesEarningRulesGetResponseBodySegment segment;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
-  private EarningRuleBaseLoyaltyTier loyaltyTier;
+  private LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private EarningRuleBaseSource source;
+  private LoyaltiesEarningRulesGetResponseBodySource source;
 
   /**
    * The type of the object represented by JSON. Default is earning_rule.
@@ -286,7 +286,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody loyalty(EarningRuleBaseLoyalty loyalty) {
+  public LoyaltiesEarningRulesGetResponseBody loyalty(LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -297,12 +297,12 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyalty getLoyalty() {
+  public LoyaltiesEarningRulesGetResponseBodyLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(EarningRuleBaseLoyalty loyalty) {
+  public void setLoyalty(LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 
@@ -328,7 +328,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody customEvent(EarningRuleBaseCustomEvent customEvent) {
+  public LoyaltiesEarningRulesGetResponseBody customEvent(LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -339,17 +339,17 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return customEvent
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseCustomEvent getCustomEvent() {
+  public LoyaltiesEarningRulesGetResponseBodyCustomEvent getCustomEvent() {
     return customEvent;
   }
 
 
-  public void setCustomEvent(EarningRuleBaseCustomEvent customEvent) {
+  public void setCustomEvent(LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent) {
     this.customEvent = customEvent;
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody segment(EarningRuleBaseSegment segment) {
+  public LoyaltiesEarningRulesGetResponseBody segment(LoyaltiesEarningRulesGetResponseBodySegment segment) {
     
     this.segment = segment;
     return this;
@@ -360,17 +360,17 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return segment
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSegment getSegment() {
+  public LoyaltiesEarningRulesGetResponseBodySegment getSegment() {
     return segment;
   }
 
 
-  public void setSegment(EarningRuleBaseSegment segment) {
+  public void setSegment(LoyaltiesEarningRulesGetResponseBodySegment segment) {
     this.segment = segment;
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public LoyaltiesEarningRulesGetResponseBody loyaltyTier(LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -381,17 +381,17 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return loyaltyTier
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+  public LoyaltiesEarningRulesGetResponseBodyLoyaltyTier getLoyaltyTier() {
     return loyaltyTier;
   }
 
 
-  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public void setLoyaltyTier(LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
   }
 
 
-  public LoyaltiesEarningRulesGetResponseBody source(EarningRuleBaseSource source) {
+  public LoyaltiesEarningRulesGetResponseBody source(LoyaltiesEarningRulesGetResponseBodySource source) {
     
     this.source = source;
     return this;
@@ -402,12 +402,12 @@ public class LoyaltiesEarningRulesGetResponseBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSource getSource() {
+  public LoyaltiesEarningRulesGetResponseBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(EarningRuleBaseSource source) {
+  public void setSource(LoyaltiesEarningRulesGetResponseBodySource source) {
     this.source = source;
   }
 

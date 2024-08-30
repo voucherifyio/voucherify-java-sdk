@@ -19,14 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyChannel;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyGift;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucher;
 import io.voucherify.client.model.OrderCalculatedNoCustomerData;
 import io.voucherify.client.model.PromotionTier;
-import io.voucherify.client.model.RedemptionChannel;
-import io.voucherify.client.model.RedemptionGift;
-import io.voucherify.client.model.RedemptionLoyaltyCard;
-import io.voucherify.client.model.RedemptionRelatedRedemptions;
 import io.voucherify.client.model.RedemptionRewardResult;
-import io.voucherify.client.model.RedemptionVoucher;
 import io.voucherify.client.model.SimpleCustomer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -246,7 +246,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionRelatedRedemptions relatedRedemptions;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
@@ -262,7 +262,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
-  private RedemptionChannel channel;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -327,7 +327,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private RedemptionVoucher voucher;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher;
 
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
@@ -339,11 +339,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private RedemptionGift gift;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private RedemptionLoyaltyCard loyaltyCard;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard;
 
   public LoyaltiesMembersRedemptionRedeemResponseBody() {
   }
@@ -558,7 +558,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody relatedRedemptions(RedemptionRelatedRedemptions relatedRedemptions) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody relatedRedemptions(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
     return this;
@@ -569,12 +569,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return relatedRedemptions
   **/
   @javax.annotation.Nullable
-  public RedemptionRelatedRedemptions getRelatedRedemptions() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions getRelatedRedemptions() {
     return relatedRedemptions;
   }
 
 
-  public void setRelatedRedemptions(RedemptionRelatedRedemptions relatedRedemptions) {
+  public void setRelatedRedemptions(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions) {
     this.relatedRedemptions = relatedRedemptions;
   }
 
@@ -642,7 +642,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody channel(RedemptionChannel channel) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody channel(LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel) {
     
     this.channel = channel;
     return this;
@@ -653,12 +653,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return channel
   **/
   @javax.annotation.Nullable
-  public RedemptionChannel getChannel() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyChannel getChannel() {
     return channel;
   }
 
 
-  public void setChannel(RedemptionChannel channel) {
+  public void setChannel(LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel) {
     this.channel = channel;
   }
 
@@ -726,7 +726,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody voucher(RedemptionVoucher voucher) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody voucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
     
     this.voucher = voucher;
     return this;
@@ -737,12 +737,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return voucher
   **/
   @javax.annotation.Nullable
-  public RedemptionVoucher getVoucher() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher getVoucher() {
     return voucher;
   }
 
 
-  public void setVoucher(RedemptionVoucher voucher) {
+  public void setVoucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
     this.voucher = voucher;
   }
 
@@ -778,7 +778,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * Get reward
    * @return reward
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public RedemptionRewardResult getReward() {
     return reward;
   }
@@ -789,7 +789,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody gift(RedemptionGift gift) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody gift(LoyaltiesMembersRedemptionRedeemResponseBodyGift gift) {
     
     this.gift = gift;
     return this;
@@ -800,17 +800,17 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public RedemptionGift getGift() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyGift getGift() {
     return gift;
   }
 
 
-  public void setGift(RedemptionGift gift) {
+  public void setGift(LoyaltiesMembersRedemptionRedeemResponseBodyGift gift) {
     this.gift = gift;
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody loyaltyCard(RedemptionLoyaltyCard loyaltyCard) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody loyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -821,12 +821,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public RedemptionLoyaltyCard getLoyaltyCard() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(RedemptionLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -1003,7 +1003,6 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("reward");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

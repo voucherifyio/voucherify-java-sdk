@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.EarningRuleBaseCustomEvent;
-import io.voucherify.client.model.EarningRuleBaseLoyalty;
-import io.voucherify.client.model.EarningRuleBaseLoyaltyTier;
-import io.voucherify.client.model.EarningRuleBaseSegment;
-import io.voucherify.client.model.EarningRuleBaseSource;
+import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBodyCustomEvent;
+import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBodySegment;
+import io.voucherify.client.model.LoyaltiesEarningRulesDisableResponseBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -73,7 +73,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
-  private EarningRuleBaseLoyalty loyalty;
+  private LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -81,19 +81,19 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private EarningRuleBaseCustomEvent customEvent;
+  private LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
-  private EarningRuleBaseSegment segment;
+  private LoyaltiesEarningRulesDisableResponseBodySegment segment;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
-  private EarningRuleBaseLoyaltyTier loyaltyTier;
+  private LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  private EarningRuleBaseSource source;
+  private LoyaltiesEarningRulesDisableResponseBodySource source;
 
   /**
    * The type of the object represented by JSON. Default is earning_rule.
@@ -282,7 +282,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody loyalty(EarningRuleBaseLoyalty loyalty) {
+  public LoyaltiesEarningRulesDisableResponseBody loyalty(LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
     return this;
@@ -293,12 +293,12 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return loyalty
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyalty getLoyalty() {
+  public LoyaltiesEarningRulesDisableResponseBodyLoyalty getLoyalty() {
     return loyalty;
   }
 
 
-  public void setLoyalty(EarningRuleBaseLoyalty loyalty) {
+  public void setLoyalty(LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty) {
     this.loyalty = loyalty;
   }
 
@@ -324,7 +324,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody customEvent(EarningRuleBaseCustomEvent customEvent) {
+  public LoyaltiesEarningRulesDisableResponseBody customEvent(LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
     return this;
@@ -335,17 +335,17 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return customEvent
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseCustomEvent getCustomEvent() {
+  public LoyaltiesEarningRulesDisableResponseBodyCustomEvent getCustomEvent() {
     return customEvent;
   }
 
 
-  public void setCustomEvent(EarningRuleBaseCustomEvent customEvent) {
+  public void setCustomEvent(LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent) {
     this.customEvent = customEvent;
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody segment(EarningRuleBaseSegment segment) {
+  public LoyaltiesEarningRulesDisableResponseBody segment(LoyaltiesEarningRulesDisableResponseBodySegment segment) {
     
     this.segment = segment;
     return this;
@@ -356,17 +356,17 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return segment
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSegment getSegment() {
+  public LoyaltiesEarningRulesDisableResponseBodySegment getSegment() {
     return segment;
   }
 
 
-  public void setSegment(EarningRuleBaseSegment segment) {
+  public void setSegment(LoyaltiesEarningRulesDisableResponseBodySegment segment) {
     this.segment = segment;
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody loyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public LoyaltiesEarningRulesDisableResponseBody loyaltyTier(LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
     return this;
@@ -377,17 +377,17 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return loyaltyTier
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseLoyaltyTier getLoyaltyTier() {
+  public LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier getLoyaltyTier() {
     return loyaltyTier;
   }
 
 
-  public void setLoyaltyTier(EarningRuleBaseLoyaltyTier loyaltyTier) {
+  public void setLoyaltyTier(LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBody source(EarningRuleBaseSource source) {
+  public LoyaltiesEarningRulesDisableResponseBody source(LoyaltiesEarningRulesDisableResponseBodySource source) {
     
     this.source = source;
     return this;
@@ -398,12 +398,12 @@ public class LoyaltiesEarningRulesDisableResponseBody {
    * @return source
   **/
   @javax.annotation.Nullable
-  public EarningRuleBaseSource getSource() {
+  public LoyaltiesEarningRulesDisableResponseBodySource getSource() {
     return source;
   }
 
 
-  public void setSource(EarningRuleBaseSource source) {
+  public void setSource(LoyaltiesEarningRulesDisableResponseBodySource source) {
     this.source = source;
   }
 

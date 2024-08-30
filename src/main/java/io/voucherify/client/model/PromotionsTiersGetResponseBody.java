@@ -20,9 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
-import io.voucherify.client.model.PromotionTierAction;
-import io.voucherify.client.model.PromotionTierCampaign;
-import io.voucherify.client.model.PromotionTierSummary;
+import io.voucherify.client.model.PromotionsTiersGetResponseBodyAction;
+import io.voucherify.client.model.PromotionsTiersGetResponseBodyCampaign;
+import io.voucherify.client.model.PromotionsTiersGetResponseBodySummary;
 import io.voucherify.client.model.ValidationRuleAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -85,7 +85,7 @@ public class PromotionsTiersGetResponseBody {
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  private PromotionTierAction action;
+  private PromotionsTiersGetResponseBodyAction action;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -101,7 +101,7 @@ public class PromotionsTiersGetResponseBody {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  private PromotionTierCampaign campaign;
+  private PromotionsTiersGetResponseBodyCampaign campaign;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
@@ -190,7 +190,7 @@ public class PromotionsTiersGetResponseBody {
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)
-  private PromotionTierSummary summary;
+  private PromotionsTiersGetResponseBodySummary summary;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
@@ -316,7 +316,7 @@ public class PromotionsTiersGetResponseBody {
   }
 
 
-  public PromotionsTiersGetResponseBody action(PromotionTierAction action) {
+  public PromotionsTiersGetResponseBody action(PromotionsTiersGetResponseBodyAction action) {
     
     this.action = action;
     return this;
@@ -327,12 +327,12 @@ public class PromotionsTiersGetResponseBody {
    * @return action
   **/
   @javax.annotation.Nullable
-  public PromotionTierAction getAction() {
+  public PromotionsTiersGetResponseBodyAction getAction() {
     return action;
   }
 
 
-  public void setAction(PromotionTierAction action) {
+  public void setAction(PromotionsTiersGetResponseBodyAction action) {
     this.action = action;
   }
 
@@ -400,7 +400,7 @@ public class PromotionsTiersGetResponseBody {
   }
 
 
-  public PromotionsTiersGetResponseBody campaign(PromotionTierCampaign campaign) {
+  public PromotionsTiersGetResponseBody campaign(PromotionsTiersGetResponseBodyCampaign campaign) {
     
     this.campaign = campaign;
     return this;
@@ -411,12 +411,12 @@ public class PromotionsTiersGetResponseBody {
    * @return campaign
   **/
   @javax.annotation.Nullable
-  public PromotionTierCampaign getCampaign() {
+  public PromotionsTiersGetResponseBodyCampaign getCampaign() {
     return campaign;
   }
 
 
-  public void setCampaign(PromotionTierCampaign campaign) {
+  public void setCampaign(PromotionsTiersGetResponseBodyCampaign campaign) {
     this.campaign = campaign;
   }
 
@@ -576,7 +576,7 @@ public class PromotionsTiersGetResponseBody {
   }
 
 
-  public PromotionsTiersGetResponseBody summary(PromotionTierSummary summary) {
+  public PromotionsTiersGetResponseBody summary(PromotionsTiersGetResponseBodySummary summary) {
     
     this.summary = summary;
     return this;
@@ -587,12 +587,12 @@ public class PromotionsTiersGetResponseBody {
    * @return summary
   **/
   @javax.annotation.Nullable
-  public PromotionTierSummary getSummary() {
+  public PromotionsTiersGetResponseBodySummary getSummary() {
     return summary;
   }
 
 
-  public void setSummary(PromotionTierSummary summary) {
+  public void setSummary(PromotionsTiersGetResponseBodySummary summary) {
     this.summary = summary;
   }
 

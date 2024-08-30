@@ -21,15 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
+import io.voucherify.client.model.RedemptionVoucherGift;
+import io.voucherify.client.model.RedemptionVoucherLoyaltyCard;
+import io.voucherify.client.model.RedemptionVoucherPublish;
+import io.voucherify.client.model.RedemptionVoucherRedemption;
 import io.voucherify.client.model.SimpleCustomer;
 import io.voucherify.client.model.ValidationRulesAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
-import io.voucherify.client.model.VoucherGift;
-import io.voucherify.client.model.VoucherLoyaltyCard;
-import io.voucherify.client.model.VoucherPublish;
-import io.voucherify.client.model.VoucherRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -150,11 +150,11 @@ public class RedemptionVoucher {
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
-  private VoucherGift gift;
+  private RedemptionVoucherGift gift;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private VoucherLoyaltyCard loyaltyCard;
+  private RedemptionVoucherLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -275,11 +275,11 @@ public class RedemptionVoucher {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private VoucherPublish publish;
+  private RedemptionVoucherPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private VoucherRedemption redemption;
+  private RedemptionVoucherRedemption redemption;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
@@ -464,7 +464,7 @@ public class RedemptionVoucher {
   }
 
 
-  public RedemptionVoucher gift(VoucherGift gift) {
+  public RedemptionVoucher gift(RedemptionVoucherGift gift) {
     
     this.gift = gift;
     return this;
@@ -475,17 +475,17 @@ public class RedemptionVoucher {
    * @return gift
   **/
   @javax.annotation.Nullable
-  public VoucherGift getGift() {
+  public RedemptionVoucherGift getGift() {
     return gift;
   }
 
 
-  public void setGift(VoucherGift gift) {
+  public void setGift(RedemptionVoucherGift gift) {
     this.gift = gift;
   }
 
 
-  public RedemptionVoucher loyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public RedemptionVoucher loyaltyCard(RedemptionVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -496,12 +496,12 @@ public class RedemptionVoucher {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public VoucherLoyaltyCard getLoyaltyCard() {
+  public RedemptionVoucherLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(VoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(RedemptionVoucherLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -829,7 +829,7 @@ public class RedemptionVoucher {
   }
 
 
-  public RedemptionVoucher publish(VoucherPublish publish) {
+  public RedemptionVoucher publish(RedemptionVoucherPublish publish) {
     
     this.publish = publish;
     return this;
@@ -840,17 +840,17 @@ public class RedemptionVoucher {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public VoucherPublish getPublish() {
+  public RedemptionVoucherPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(VoucherPublish publish) {
+  public void setPublish(RedemptionVoucherPublish publish) {
     this.publish = publish;
   }
 
 
-  public RedemptionVoucher redemption(VoucherRedemption redemption) {
+  public RedemptionVoucher redemption(RedemptionVoucherRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -861,12 +861,12 @@ public class RedemptionVoucher {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public VoucherRedemption getRedemption() {
+  public RedemptionVoucherRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(VoucherRedemption redemption) {
+  public void setRedemption(RedemptionVoucherRedemption redemption) {
     this.redemption = redemption;
   }
 

@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyTierAllOfConfig;
-import io.voucherify.client.model.LoyaltyTierBasePoints;
+import io.voucherify.client.model.LoyaltiesTiersGetResponseBodyConfig;
+import io.voucherify.client.model.LoyaltiesTiersGetResponseBodyPoints;
 import io.voucherify.client.model.LoyaltyTierExpiration;
 import io.voucherify.client.model.MappingPoints;
 import java.io.IOException;
@@ -74,7 +74,7 @@ public class LoyaltiesTiersGetResponseBody {
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
-  private LoyaltyTierBasePoints points;
+  private LoyaltiesTiersGetResponseBodyPoints points;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -98,7 +98,7 @@ public class LoyaltiesTiersGetResponseBody {
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
-  private LoyaltyTierAllOfConfig config;
+  private LoyaltiesTiersGetResponseBodyConfig config;
 
   public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
@@ -235,7 +235,7 @@ public class LoyaltiesTiersGetResponseBody {
   }
 
 
-  public LoyaltiesTiersGetResponseBody points(LoyaltyTierBasePoints points) {
+  public LoyaltiesTiersGetResponseBody points(LoyaltiesTiersGetResponseBodyPoints points) {
     
     this.points = points;
     return this;
@@ -246,12 +246,12 @@ public class LoyaltiesTiersGetResponseBody {
    * @return points
   **/
   @javax.annotation.Nullable
-  public LoyaltyTierBasePoints getPoints() {
+  public LoyaltiesTiersGetResponseBodyPoints getPoints() {
     return points;
   }
 
 
-  public void setPoints(LoyaltyTierBasePoints points) {
+  public void setPoints(LoyaltiesTiersGetResponseBodyPoints points) {
     this.points = points;
   }
 
@@ -361,7 +361,7 @@ public class LoyaltiesTiersGetResponseBody {
   }
 
 
-  public LoyaltiesTiersGetResponseBody config(LoyaltyTierAllOfConfig config) {
+  public LoyaltiesTiersGetResponseBody config(LoyaltiesTiersGetResponseBodyConfig config) {
     
     this.config = config;
     return this;
@@ -372,12 +372,12 @@ public class LoyaltiesTiersGetResponseBody {
    * @return config
   **/
   @javax.annotation.Nullable
-  public LoyaltyTierAllOfConfig getConfig() {
+  public LoyaltiesTiersGetResponseBodyConfig getConfig() {
     return config;
   }
 
 
-  public void setConfig(LoyaltyTierAllOfConfig config) {
+  public void setConfig(LoyaltiesTiersGetResponseBodyConfig config) {
     this.config = config;
   }
 

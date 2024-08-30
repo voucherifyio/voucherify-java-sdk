@@ -8,7 +8,7 @@ Response body schema for **PUT** `v1/v1/loyalties/{campaignId}/rewards/{assignme
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**parameters** | [**RewardsAssignmentsUpdateRequestBodyParameters**](RewardsAssignmentsUpdateRequestBodyParameters.md) |  |
+|**parameters** | [**LoyaltiesRewardsUpdateAssignmentRequestBodyParameters**](LoyaltiesRewardsUpdateAssignmentRequestBodyParameters.md) |  |
 
 
 

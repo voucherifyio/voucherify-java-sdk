@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyAllOfOptions;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.Order;
+import io.voucherify.client.model.OrderCalculatedEssential;
+import io.voucherify.client.model.RedemptionsRedeemRequestBodyOptions;
+import io.voucherify.client.model.RedemptionsRedeemRequestBodyRedeemablesItem;
 import io.voucherify.client.model.Session;
-import io.voucherify.client.model.StackableValidateRedeemBaseRedeemablesItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,13 +60,17 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class RedemptionsRedeemRequestBody {
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private RedemptionsRedeemRequestBodyOptions options;
+
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<StackableValidateRedeemBaseRedeemablesItem> redeemables;
+  private List<RedemptionsRedeemRequestBodyRedeemablesItem> redeemables;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private Order order;
+  private OrderCalculatedEssential order;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -84,20 +88,37 @@ public class RedemptionsRedeemRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientRedemptionsRedeemRequestBodyAllOfOptions options;
-
   public RedemptionsRedeemRequestBody() {
   }
 
-  public RedemptionsRedeemRequestBody redeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public RedemptionsRedeemRequestBody options(RedemptionsRedeemRequestBodyOptions options) {
+    
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  public RedemptionsRedeemRequestBodyOptions getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(RedemptionsRedeemRequestBodyOptions options) {
+    this.options = options;
+  }
+
+
+  public RedemptionsRedeemRequestBody redeemables(List<RedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
     return this;
   }
 
-  public RedemptionsRedeemRequestBody addRedeemablesItem(StackableValidateRedeemBaseRedeemablesItem redeemablesItem) {
+  public RedemptionsRedeemRequestBody addRedeemablesItem(RedemptionsRedeemRequestBodyRedeemablesItem redeemablesItem) {
     if (this.redeemables == null) {
       this.redeemables = new ArrayList<>();
     }
@@ -110,17 +131,17 @@ public class RedemptionsRedeemRequestBody {
    * @return redeemables
   **/
   @javax.annotation.Nullable
-  public List<StackableValidateRedeemBaseRedeemablesItem> getRedeemables() {
+  public List<RedemptionsRedeemRequestBodyRedeemablesItem> getRedeemables() {
     return redeemables;
   }
 
 
-  public void setRedeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public void setRedeemables(List<RedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
   }
 
 
-  public RedemptionsRedeemRequestBody order(Order order) {
+  public RedemptionsRedeemRequestBody order(OrderCalculatedEssential order) {
     
     this.order = order;
     return this;
@@ -131,12 +152,12 @@ public class RedemptionsRedeemRequestBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public Order getOrder() {
+  public OrderCalculatedEssential getOrder() {
     return order;
   }
 
 
-  public void setOrder(Order order) {
+  public void setOrder(OrderCalculatedEssential order) {
     this.order = order;
   }
 
@@ -224,27 +245,6 @@ public class RedemptionsRedeemRequestBody {
     this.metadata = metadata;
   }
 
-
-  public RedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
-    
-    this.options = options;
-    return this;
-  }
-
-   /**
-   * Get options
-   * @return options
-  **/
-  @javax.annotation.Nullable
-  public ClientRedemptionsRedeemRequestBodyAllOfOptions getOptions() {
-    return options;
-  }
-
-
-  public void setOptions(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
-    this.options = options;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -300,13 +300,13 @@ public class RedemptionsRedeemRequestBody {
       return false;
     }
     RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = (RedemptionsRedeemRequestBody) o;
-    return Objects.equals(this.redeemables, redemptionsRedeemRequestBody.redeemables) &&
+    return Objects.equals(this.options, redemptionsRedeemRequestBody.options) &&
+        Objects.equals(this.redeemables, redemptionsRedeemRequestBody.redeemables) &&
         Objects.equals(this.order, redemptionsRedeemRequestBody.order) &&
         Objects.equals(this.customer, redemptionsRedeemRequestBody.customer) &&
         Objects.equals(this.session, redemptionsRedeemRequestBody.session) &&
         Objects.equals(this.trackingId, redemptionsRedeemRequestBody.trackingId) &&
-        Objects.equals(this.metadata, redemptionsRedeemRequestBody.metadata) &&
-        Objects.equals(this.options, redemptionsRedeemRequestBody.options)&&
+        Objects.equals(this.metadata, redemptionsRedeemRequestBody.metadata)&&
         Objects.equals(this.additionalProperties, redemptionsRedeemRequestBody.additionalProperties);
   }
 
@@ -316,7 +316,7 @@ public class RedemptionsRedeemRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemables, order, customer, session, trackingId, metadata, options, additionalProperties);
+    return Objects.hash(options, redeemables, order, customer, session, trackingId, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -330,13 +330,13 @@ public class RedemptionsRedeemRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedemptionsRedeemRequestBody {\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    redeemables: ").append(toIndentedString(redeemables)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -360,13 +360,13 @@ public class RedemptionsRedeemRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("options");
     openapiFields.add("redeemables");
     openapiFields.add("order");
     openapiFields.add("customer");
     openapiFields.add("session");
     openapiFields.add("tracking_id");
     openapiFields.add("metadata");
-    openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

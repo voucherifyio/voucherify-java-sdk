@@ -42,7 +42,7 @@ public class QualificationsTest {
             ArrayList<OrderItem> orderItems = new ArrayList<>();
             orderItems.add(orderItem);
 
-            Order order = new Order();
+            OrderCalculatedEssential order = new OrderCalculatedEssential();
             order.setItems(orderItems);
 
             qualificationsCheckEligibilityRequestBody.setOrder(order);

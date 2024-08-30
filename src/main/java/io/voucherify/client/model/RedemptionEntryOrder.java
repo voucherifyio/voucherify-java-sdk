@@ -67,14 +67,6 @@ public class RedemptionEntryOrder {
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
   /**
    * The order status.
    */
@@ -174,14 +166,6 @@ public class RedemptionEntryOrder {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
-  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
-  private String referrerId;
-
   /**
    * The type of the object represented by JSON.
    */
@@ -231,9 +215,21 @@ public class RedemptionEntryOrder {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.ORDER;
 
-  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
-  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Object redemptions;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -242,6 +238,10 @@ public class RedemptionEntryOrder {
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
   private RedemptionEntryOrderReferrer referrer;
+
+  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
+  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
+  private Object redemptions;
 
   public RedemptionEntryOrder() {
   }
@@ -285,48 +285,6 @@ public class RedemptionEntryOrder {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
-  }
-
-
-  public RedemptionEntryOrder createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public RedemptionEntryOrder updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
 
@@ -590,6 +548,69 @@ public class RedemptionEntryOrder {
   }
 
 
+  public RedemptionEntryOrder _object(ObjectEnum _object) {
+    
+    this._object = _object;
+    return this;
+  }
+
+   /**
+   * The type of the object represented by JSON.
+   * @return _object
+  **/
+  @javax.annotation.Nullable
+  public ObjectEnum getObject() {
+    return _object;
+  }
+
+
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+  }
+
+
+  public RedemptionEntryOrder createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public RedemptionEntryOrder updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
   public RedemptionEntryOrder customerId(String customerId) {
     
     this.customerId = customerId;
@@ -632,48 +653,6 @@ public class RedemptionEntryOrder {
   }
 
 
-  public RedemptionEntryOrder _object(ObjectEnum _object) {
-    
-    this._object = _object;
-    return this;
-  }
-
-   /**
-   * The type of the object represented by JSON.
-   * @return _object
-  **/
-  @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
-  }
-
-
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
-  }
-
-
-  public RedemptionEntryOrder redemptions(Object redemptions) {
-    
-    this.redemptions = redemptions;
-    return this;
-  }
-
-   /**
-   * Get redemptions
-   * @return redemptions
-  **/
-  @javax.annotation.Nullable
-  public Object getRedemptions() {
-    return redemptions;
-  }
-
-
-  public void setRedemptions(Object redemptions) {
-    this.redemptions = redemptions;
-  }
-
-
   public RedemptionEntryOrder customer(RedemptionEntryOrderCustomer customer) {
     
     this.customer = customer;
@@ -713,6 +692,27 @@ public class RedemptionEntryOrder {
 
   public void setReferrer(RedemptionEntryOrderReferrer referrer) {
     this.referrer = referrer;
+  }
+
+
+  public RedemptionEntryOrder redemptions(Object redemptions) {
+    
+    this.redemptions = redemptions;
+    return this;
+  }
+
+   /**
+   * Get redemptions
+   * @return redemptions
+  **/
+  @javax.annotation.Nullable
+  public Object getRedemptions() {
+    return redemptions;
+  }
+
+
+  public void setRedemptions(Object redemptions) {
+    this.redemptions = redemptions;
   }
 
   /**
@@ -772,8 +772,6 @@ public class RedemptionEntryOrder {
     RedemptionEntryOrder redemptionEntryOrder = (RedemptionEntryOrder) o;
     return Objects.equals(this.id, redemptionEntryOrder.id) &&
         Objects.equals(this.sourceId, redemptionEntryOrder.sourceId) &&
-        Objects.equals(this.createdAt, redemptionEntryOrder.createdAt) &&
-        Objects.equals(this.updatedAt, redemptionEntryOrder.updatedAt) &&
         Objects.equals(this.status, redemptionEntryOrder.status) &&
         Objects.equals(this.amount, redemptionEntryOrder.amount) &&
         Objects.equals(this.initialAmount, redemptionEntryOrder.initialAmount) &&
@@ -786,12 +784,14 @@ public class RedemptionEntryOrder {
         Objects.equals(this.totalAppliedDiscountAmount, redemptionEntryOrder.totalAppliedDiscountAmount) &&
         Objects.equals(this.items, redemptionEntryOrder.items) &&
         Objects.equals(this.metadata, redemptionEntryOrder.metadata) &&
+        Objects.equals(this._object, redemptionEntryOrder._object) &&
+        Objects.equals(this.createdAt, redemptionEntryOrder.createdAt) &&
+        Objects.equals(this.updatedAt, redemptionEntryOrder.updatedAt) &&
         Objects.equals(this.customerId, redemptionEntryOrder.customerId) &&
         Objects.equals(this.referrerId, redemptionEntryOrder.referrerId) &&
-        Objects.equals(this._object, redemptionEntryOrder._object) &&
-        Objects.equals(this.redemptions, redemptionEntryOrder.redemptions) &&
         Objects.equals(this.customer, redemptionEntryOrder.customer) &&
-        Objects.equals(this.referrer, redemptionEntryOrder.referrer)&&
+        Objects.equals(this.referrer, redemptionEntryOrder.referrer) &&
+        Objects.equals(this.redemptions, redemptionEntryOrder.redemptions)&&
         Objects.equals(this.additionalProperties, redemptionEntryOrder.additionalProperties);
   }
 
@@ -801,7 +801,7 @@ public class RedemptionEntryOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, createdAt, updatedAt, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, customerId, referrerId, _object, redemptions, customer, referrer, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -817,8 +817,6 @@ public class RedemptionEntryOrder {
     sb.append("class RedemptionEntryOrder {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
@@ -831,12 +829,14 @@ public class RedemptionEntryOrder {
     sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
+    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -862,8 +862,6 @@ public class RedemptionEntryOrder {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("source_id");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
     openapiFields.add("status");
     openapiFields.add("amount");
     openapiFields.add("initial_amount");
@@ -876,12 +874,14 @@ public class RedemptionEntryOrder {
     openapiFields.add("total_applied_discount_amount");
     openapiFields.add("items");
     openapiFields.add("metadata");
+    openapiFields.add("object");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
     openapiFields.add("customer_id");
     openapiFields.add("referrer_id");
-    openapiFields.add("object");
-    openapiFields.add("redemptions");
     openapiFields.add("customer");
     openapiFields.add("referrer");
+    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

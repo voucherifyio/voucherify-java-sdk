@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyMemberLoyaltyCard;
-import io.voucherify.client.model.LoyaltyMemberPublish;
-import io.voucherify.client.model.LoyaltyMemberRedemption;
+import io.voucherify.client.model.LoyaltiesMembersCreateResponseBodyLoyaltyCard;
+import io.voucherify.client.model.LoyaltiesMembersCreateResponseBodyPublish;
+import io.voucherify.client.model.LoyaltiesMembersCreateResponseBodyRedemption;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import io.voucherify.client.model.VoucherAssets;
@@ -145,7 +145,7 @@ public class LoyaltiesMembersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private LoyaltyMemberLoyaltyCard loyaltyCard;
+  private LoyaltiesMembersCreateResponseBodyLoyaltyCard loyaltyCard;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -262,11 +262,11 @@ public class LoyaltiesMembersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
-  private LoyaltyMemberPublish publish;
+  private LoyaltiesMembersCreateResponseBodyPublish publish;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private LoyaltyMemberRedemption redemption;
+  private LoyaltiesMembersCreateResponseBodyRedemption redemption;
 
   public LoyaltiesMembersCreateResponseBody() {
   }
@@ -460,7 +460,7 @@ public class LoyaltiesMembersCreateResponseBody {
   }
 
 
-  public LoyaltiesMembersCreateResponseBody loyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
+  public LoyaltiesMembersCreateResponseBody loyaltyCard(LoyaltiesMembersCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -471,12 +471,12 @@ public class LoyaltiesMembersCreateResponseBody {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberLoyaltyCard getLoyaltyCard() {
+  public LoyaltiesMembersCreateResponseBodyLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(LoyaltiesMembersCreateResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -783,7 +783,7 @@ public class LoyaltiesMembersCreateResponseBody {
   }
 
 
-  public LoyaltiesMembersCreateResponseBody publish(LoyaltyMemberPublish publish) {
+  public LoyaltiesMembersCreateResponseBody publish(LoyaltiesMembersCreateResponseBodyPublish publish) {
     
     this.publish = publish;
     return this;
@@ -794,17 +794,17 @@ public class LoyaltiesMembersCreateResponseBody {
    * @return publish
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberPublish getPublish() {
+  public LoyaltiesMembersCreateResponseBodyPublish getPublish() {
     return publish;
   }
 
 
-  public void setPublish(LoyaltyMemberPublish publish) {
+  public void setPublish(LoyaltiesMembersCreateResponseBodyPublish publish) {
     this.publish = publish;
   }
 
 
-  public LoyaltiesMembersCreateResponseBody redemption(LoyaltyMemberRedemption redemption) {
+  public LoyaltiesMembersCreateResponseBody redemption(LoyaltiesMembersCreateResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -815,12 +815,12 @@ public class LoyaltiesMembersCreateResponseBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public LoyaltyMemberRedemption getRedemption() {
+  public LoyaltiesMembersCreateResponseBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(LoyaltyMemberRedemption redemption) {
+  public void setRedemption(LoyaltiesMembersCreateResponseBodyRedemption redemption) {
     this.redemption = redemption;
   }
 
