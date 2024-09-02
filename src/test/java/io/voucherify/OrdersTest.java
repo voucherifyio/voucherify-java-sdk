@@ -111,16 +111,16 @@ public class OrdersTest {
         order.setAmount(10000);
         order.setStatus(OrdersCreateRequestBody.StatusEnum.CREATED);
 
-        List<OrderItem> items = new ArrayList<>();
-        items.add(createOrderItem("test_order_item1", 1));
-        items.add(createOrderItem("test_order_item2", 1));
+        List<OrderItemEssential> items = new ArrayList<>();
+        items.add(createOrderItemEssential("test_order_item1", 1));
+        items.add(createOrderItemEssential("test_order_item2", 1));
         order.setItems(items);
 
         return order;
     }
 
-    private static OrderItem createOrderItem(String productId, int quantity) {
-        OrderItem item = new OrderItem();
+    private static OrderItemEssential createOrderItemEssential(String productId, int quantity) {
+        OrderItemEssential item = new OrderItemEssential();
         item.setProductId(productId);
         item.setQuantity(quantity);
         return item;

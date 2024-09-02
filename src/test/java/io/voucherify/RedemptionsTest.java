@@ -79,6 +79,8 @@ public class RedemptionsTest {
 
             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId",
                     "createdAt", "redemptions", "parentRedemption");
+
+                    System.out.print(responseBody);
             JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
         } catch (ApiException e) {
             fail();
@@ -87,7 +89,7 @@ public class RedemptionsTest {
 
     @NotNull
     private static RedemptionsRedeemRequestBody getRedemptionsRequestBody(int voucherCount) {
-        OrderCalculatedEssential order = getOrder();
+        OrderEssential order = getOrder();
         RedemptionsRedeemRequestBody redeemRequestBody = new RedemptionsRedeemRequestBody();
         redeemRequestBody.setOrder(order);
         CampaignsCreateResponseBody campaign = createDiscountTypeCampaign();
@@ -121,20 +123,20 @@ public class RedemptionsTest {
     }
 
     @NotNull
-    private static OrderCalculatedEssential getOrder() {
-        List<OrderItemCalculated> items = new ArrayList<>();
-        items.add(createOrderItemCalculated("prod_003", 1));
-        items.add(createOrderItemCalculated("prod_004", 1));
+    private static OrderEssential getOrder() {
+        List<OrderItemEssential> items = new ArrayList<>();
+        items.add(createOrderItemEssential("prod_003", 1));
+        items.add(createOrderItemEssential("prod_004", 1));
 
-        OrderCalculatedEssential order = new OrderCalculatedEssential();
+        OrderEssential order = new OrderEssential();
         order.setAmount(10000);
         order.setItems(items);
         return order;
 
     }
 
-    private static OrderItemCalculated createOrderItemCalculated(String productId, int quantity) {
-        OrderItemCalculated item = new OrderItemCalculated();
+    private static OrderItemEssential createOrderItemEssential(String productId, int quantity) {
+        OrderItemEssential item = new OrderItemEssential();
         item.setProductId(productId);
         item.setQuantity(quantity);
         return item;

@@ -55,6 +55,10 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class OrderItemCalculated {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_SKU_ID = "sku_id";
   @SerializedName(SERIALIZED_NAME_SKU_ID)
   private String skuId;
@@ -229,6 +233,27 @@ public class OrderItemCalculated {
 
   public OrderItemCalculated() {
   }
+
+  public OrderItemCalculated id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique identifier of the order line item.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public OrderItemCalculated skuId(String skuId) {
     
@@ -704,7 +729,8 @@ public class OrderItemCalculated {
       return false;
     }
     OrderItemCalculated orderItemCalculated = (OrderItemCalculated) o;
-    return Objects.equals(this.skuId, orderItemCalculated.skuId) &&
+    return Objects.equals(this.id, orderItemCalculated.id) &&
+        Objects.equals(this.skuId, orderItemCalculated.skuId) &&
         Objects.equals(this.productId, orderItemCalculated.productId) &&
         Objects.equals(this.relatedObject, orderItemCalculated.relatedObject) &&
         Objects.equals(this.sourceId, orderItemCalculated.sourceId) &&
@@ -733,7 +759,7 @@ public class OrderItemCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
+    return Objects.hash(id, skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -747,6 +773,7 @@ public class OrderItemCalculated {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderItemCalculated {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    skuId: ").append(toIndentedString(skuId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    relatedObject: ").append(toIndentedString(relatedObject)).append("\n");
@@ -790,6 +817,7 @@ public class OrderItemCalculated {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("sku_id");
     openapiFields.add("product_id");
     openapiFields.add("related_object");

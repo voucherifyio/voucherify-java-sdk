@@ -75,7 +75,7 @@ public class ValidationsTest {
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateInapplicableVouchersRequestBody() {
-        OrderCalculatedEssential order = getOrder();
+        OrderEssential order = getOrder();
         ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(
                 Utils.getAlphaNumericString(20));
         return createValidationsValidateRequestBody(order, redeemablesItem);
@@ -83,7 +83,7 @@ public class ValidationsTest {
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateApplicableVouchersRequestBody() {
-        OrderCalculatedEssential order = getOrder();
+        OrderEssential order = getOrder();
         CampaignsVouchersCreateCombinedResponseBody voucher = createCampaignVoucher();
         ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
         return createValidationsValidateRequestBody(order, redeemablesItem);
@@ -115,19 +115,19 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static OrderCalculatedEssential getOrder() {
-        List<OrderItemCalculated> items = new ArrayList<>();
-        items.add(createOrderItemCalculated("prod_001", 1));
-        items.add(createOrderItemCalculated("prod_002", 1));
+    private static OrderEssential getOrder() {
+        List<OrderItemEssential> items = new ArrayList<>();
+        items.add(createOrderItemEssential("prod_001", 1));
+        items.add(createOrderItemEssential("prod_002", 1));
 
-        OrderCalculatedEssential order = new OrderCalculatedEssential();
+        OrderEssential order = new OrderEssential();
         order.setAmount(10000);
         order.setItems(items);
         return order;
     }
 
-    private static OrderItemCalculated createOrderItemCalculated(String productId, int quantity) {
-        OrderItemCalculated item = new OrderItemCalculated();
+    private static OrderItemEssential createOrderItemEssential(String productId, int quantity) {
+        OrderItemEssential item = new OrderItemEssential();
         item.setProductId(productId);
         item.setQuantity(quantity);
         return item;
@@ -142,7 +142,7 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(OrderCalculatedEssential order,
+    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(OrderEssential order,
             ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
         ValidationsValidateRequestBody requestBody = new ValidationsValidateRequestBody();
         requestBody.setOrder(order);

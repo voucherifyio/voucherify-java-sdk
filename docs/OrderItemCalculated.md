@@ -7,6 +7,7 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
+|**id** | **String** | Unique identifier of the order line item. |
 |**skuId** | **String** | Unique identifier of the SKU. It is assigned by Voucherify. |
 |**productId** | **String** | Unique identifier of the product. It is assigned by Voucherify. |
 |**relatedObject** | [**RelatedObjectEnum**](#RelatedObjectEnum) | Used along with the source_id property, can be set to either sku or product. |
