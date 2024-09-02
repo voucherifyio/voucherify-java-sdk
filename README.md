@@ -1026,6 +1026,7 @@ Class | Method | HTTP request | Description
 - [OrderItemEssential](docs/OrderItemEssential.md)
 - [OrderItemEssentialProduct](docs/OrderItemEssentialProduct.md)
 - [OrderItemEssentialSku](docs/OrderItemEssentialSku.md)
+- [OrderRedemptionsEntry](docs/OrderRedemptionsEntry.md)
 - [OrdersCreateRequestBody](docs/OrdersCreateRequestBody.md)
 - [OrdersCreateResponseBody](docs/OrdersCreateResponseBody.md)
 - [OrdersExportCreateRequestBody](docs/OrdersExportCreateRequestBody.md)

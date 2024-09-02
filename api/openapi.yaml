@@ -28703,6 +28703,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -28875,6 +28889,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29047,6 +29075,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -29220,6 +29262,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29392,6 +29448,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29564,6 +29634,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -30708,6 +30792,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -30939,6 +31037,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -31051,6 +31163,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -38457,6 +38583,7 @@ components:
       title: OrdersCreateRequestBody
       type: object
     OrdersCreateResponseBody:
+      additionalProperties: false
       description: Response body schema for **POST** `v1/orders`.
       example:
         total_applied_discount_amount: 3
@@ -38471,6 +38598,20 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
+        redemptions:
+          key:
+            date: 2022-09-02T17:06:56.649Z
+            rollback_stacked:
+            - rollback_stacked
+            - rollback_stacked
+            related_object_parent_id: related_object_parent_id
+            stacked:
+            - stacked
+            - stacked
+            related_object_type: redemption
+            related_object_id: r_0ba186c4824e4881e1
+            rollback_id: rr_0c63c84eb78ee0a6c0
+            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -38660,6 +38801,12 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
+        redemptions:
+          additionalProperties:
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
+          nullable: true
+          title: OrdersCreateResponseBodyRedemptionsEntry
+          type: object
       title: OrdersCreateResponseBody
       type: object
     OrdersExportCreateRequestBody:
@@ -38747,6 +38894,7 @@ components:
       title: OrdersExportCreateResponseBody
       type: object
     OrdersGetResponseBody:
+      additionalProperties: false
       description: "Response body schema for **GET** `v1/orders/{orderId}`."
       example:
         total_applied_discount_amount: 3
@@ -38761,6 +38909,20 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
+        redemptions:
+          key:
+            date: 2022-09-02T17:06:56.649Z
+            rollback_stacked:
+            - rollback_stacked
+            - rollback_stacked
+            related_object_parent_id: related_object_parent_id
+            stacked:
+            - stacked
+            - stacked
+            related_object_type: redemption
+            related_object_id: r_0ba186c4824e4881e1
+            rollback_id: rr_0c63c84eb78ee0a6c0
+            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -38950,6 +39112,12 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
+        redemptions:
+          additionalProperties:
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
+          nullable: true
+          title: OrdersGetResponseBodyRedemptionsEntry
+          type: object
       title: OrdersGetResponseBody
       type: object
     OrdersImportCreateRequestBody:
@@ -38989,6 +39157,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -39074,6 +39256,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -39308,6 +39504,7 @@ components:
       title: OrdersUpdateRequestBody
       type: object
     OrdersUpdateResponseBody:
+      additionalProperties: false
       description: "Response body schema for **PUT** `v1/orders/{orderId}`."
       example:
         total_applied_discount_amount: 3
@@ -39322,6 +39519,20 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
+        redemptions:
+          key:
+            date: 2022-09-02T17:06:56.649Z
+            rollback_stacked:
+            - rollback_stacked
+            - rollback_stacked
+            related_object_parent_id: related_object_parent_id
+            stacked:
+            - stacked
+            - stacked
+            related_object_type: redemption
+            related_object_id: r_0ba186c4824e4881e1
+            rollback_id: rr_0c63c84eb78ee0a6c0
+            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -39511,6 +39722,12 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
+        redemptions:
+          additionalProperties:
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
+          nullable: true
+          title: OrdersUpdateResponseBodyRedemptionsEntry
+          type: object
       title: OrdersUpdateResponseBody
       type: object
     ParameterActivityCategory:
@@ -44243,6 +44460,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -44415,6 +44646,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -44587,6 +44832,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -44760,6 +45019,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -44932,6 +45205,20 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
+                redemptions:
+                  key:
+                    date: 2022-09-02T17:06:56.649Z
+                    rollback_stacked:
+                    - rollback_stacked
+                    - rollback_stacked
+                    related_object_parent_id: related_object_parent_id
+                    stacked:
+                    - stacked
+                    - stacked
+                    related_object_type: redemption
+                    related_object_id: r_0ba186c4824e4881e1
+                    rollback_id: rr_0c63c84eb78ee0a6c0
+                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -45104,6 +45391,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -45556,6 +45857,7 @@ components:
             object: customer
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 7
+          redemptions: "{}"
           items_applied_discount_amount: 3
           id: id
           source_id: source_id
@@ -46088,6 +46390,7 @@ components:
               object: customer
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 7
+            redemptions: "{}"
             items_applied_discount_amount: 3
             id: id
             source_id: source_id
@@ -46512,6 +46815,7 @@ components:
               object: customer
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 7
+            redemptions: "{}"
             items_applied_discount_amount: 3
             id: id
             source_id: source_id
@@ -48022,6 +48326,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -50650,6 +50968,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -50881,6 +51213,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -50993,6 +51339,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -57158,6 +57518,8 @@ components:
       title: MemberActivity
       type: object
     OrderCalculated:
+      additionalProperties: false
+      description: Order information.
       example:
         total_applied_discount_amount: 4
         amount: 1
@@ -57171,6 +57533,20 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 9
+        redemptions:
+          key:
+            date: 2022-09-02T17:06:56.649Z
+            rollback_stacked:
+            - rollback_stacked
+            - rollback_stacked
+            related_object_parent_id: related_object_parent_id
+            stacked:
+            - stacked
+            - stacked
+            related_object_type: redemption
+            related_object_id: r_0ba186c4824e4881e1
+            rollback_id: rr_0c63c84eb78ee0a6c0
+            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 2
         id: id
         source_id: source_id
@@ -57360,6 +57736,12 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
+        redemptions:
+          additionalProperties:
+            $ref: '#/components/schemas/OrderRedemptionsEntry'
+          nullable: true
+          title: OrderCalculatedRedemptionsEntry
+          type: object
       title: OrderCalculated
       type: object
     OrderEssential:
@@ -57712,6 +58094,76 @@ components:
       required:
       - object
       title: OrderItemEssential
+      type: object
+    OrderRedemptionsEntry:
+      example:
+        date: 2022-09-02T17:06:56.649Z
+        rollback_stacked:
+        - rollback_stacked
+        - rollback_stacked
+        related_object_parent_id: related_object_parent_id
+        stacked:
+        - stacked
+        - stacked
+        related_object_type: redemption
+        related_object_id: r_0ba186c4824e4881e1
+        rollback_id: rr_0c63c84eb78ee0a6c0
+        rollback_date: 2023-01-31T14:18:37.15Z
+      properties:
+        date:
+          description: Timestamp representing the date and time when the redemption
+            was created. The value is shown in the ISO 8601 format.
+          example: 2022-09-02T17:06:56.649Z
+          format: date-time
+          nullable: true
+          type: string
+        rollback_id:
+          description: Unique ID of the redemption rollback.
+          example: rr_0c63c84eb78ee0a6c0
+          nullable: true
+          type: string
+        rollback_date:
+          description: Timestamp representing the date and tiem when the redemption
+            rollback was created. The value is shown in the ISO 8601 format.
+          example: 2023-01-31T14:18:37.15Z
+          format: date-time
+          nullable: true
+          type: string
+        related_object_type:
+          default: redemption
+          description: The source of the incentive.
+          nullable: true
+          type: string
+        related_object_id:
+          description: Unique ID of the parent redemption.
+          example: r_0ba186c4824e4881e1
+          nullable: true
+          type: string
+        related_object_parent_id:
+          description: "Represent's the campaign ID of the voucher if the redemption\
+            \ was based on a voucher that was part of bulk codes generated within\
+            \ a campaign. In case of a promotion tier, this represents the campaign\
+            \ ID of the promotion tier's parent campaign."
+          nullable: true
+          type: string
+        stacked:
+          description: "Contains a list of unique IDs of child redemptions, which\
+            \ belong to the stacked incentives."
+          items:
+            title: OrderRedemptionsEntryStackedItem
+            type: string
+          nullable: true
+          title: OrderRedemptionsEntryStacked
+          type: array
+        rollback_stacked:
+          description: Lists the rollback redemption IDs of the particular child redemptions.
+          items:
+            title: OrderRedemptionsEntryRollbackStackedItem
+            type: string
+          nullable: true
+          title: OrderRedemptionsEntryRollbackStacked
+          type: array
+      title: OrderRedemptionsEntry
       type: object
     PointsExpirationTypes:
       enum:
@@ -58944,6 +59396,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59116,6 +59582,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59288,6 +59768,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -59461,6 +59955,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59633,6 +60141,20 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
+              redemptions:
+                key:
+                  date: 2022-09-02T17:06:56.649Z
+                  rollback_stacked:
+                  - rollback_stacked
+                  - rollback_stacked
+                  related_object_parent_id: related_object_parent_id
+                  stacked:
+                  - stacked
+                  - stacked
+                  related_object_type: redemption
+                  related_object_id: r_0ba186c4824e4881e1
+                  rollback_id: rr_0c63c84eb78ee0a6c0
+                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59805,6 +60327,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -63329,6 +63865,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -63501,6 +64051,20 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
+            redemptions:
+              key:
+                date: 2022-09-02T17:06:56.649Z
+                rollback_stacked:
+                - rollback_stacked
+                - rollback_stacked
+                related_object_parent_id: related_object_parent_id
+                stacked:
+                - stacked
+                - stacked
+                related_object_type: redemption
+                related_object_id: r_0ba186c4824e4881e1
+                rollback_id: rr_0c63c84eb78ee0a6c0
+                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -63673,6 +64237,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -64288,6 +64866,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -65738,6 +66330,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -73798,6 +74404,7 @@ components:
           object: customer
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 7
+        redemptions: "{}"
         items_applied_discount_amount: 3
         id: id
         source_id: source_id
@@ -73985,6 +74592,10 @@ components:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyOrderReferrer'
+        redemptions:
+          nullable: true
+          title: RedemptionsGetResponseBodyOrderRedemptions
+          type: object
       title: RedemptionsGetResponseBodyOrder
       type: object
     RedemptionsGetResponseBodyChannel:
@@ -75047,6 +75658,7 @@ components:
           object: customer
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 7
+        redemptions: "{}"
         items_applied_discount_amount: 3
         id: id
         source_id: source_id
@@ -75232,6 +75844,9 @@ components:
           $ref: '#/components/schemas/RedemptionsListResponseBodyRedemptionsItemOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionsListResponseBodyRedemptionsItemOrderReferrer'
+        redemptions:
+          title: RedemptionsListResponseBodyRedemptionsItemOrderRedemptions
+          type: object
       title: RedemptionsListResponseBodyRedemptionsItemOrder
       type: object
     RedemptionsListResponseBodyRedemptionsItemChannel:
@@ -76507,6 +77122,7 @@ components:
             object: customer
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 7
+          redemptions: "{}"
           items_applied_discount_amount: 3
           id: id
           source_id: source_id
@@ -78286,6 +78902,20 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
+          redemptions:
+            key:
+              date: 2022-09-02T17:06:56.649Z
+              rollback_stacked:
+              - rollback_stacked
+              - rollback_stacked
+              related_object_parent_id: related_object_parent_id
+              stacked:
+              - stacked
+              - stacked
+              related_object_type: redemption
+              related_object_id: r_0ba186c4824e4881e1
+              rollback_id: rr_0c63c84eb78ee0a6c0
+              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -82042,6 +82672,10 @@ components:
           $ref: '#/components/schemas/RedemptionEntryOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionEntryOrderReferrer'
+        redemptions:
+          nullable: true
+          title: RedemptionEntryOrderRedemptions
+          type: object
       title: RedemptionEntryOrder
       type: object
     RedemptionEntryChannel:

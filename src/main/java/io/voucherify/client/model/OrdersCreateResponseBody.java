@@ -21,12 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerId;
 import io.voucherify.client.model.OrderItemCalculated;
+import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -238,6 +241,10 @@ public class OrdersCreateResponseBody {
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
   private ReferrerId referrer;
+
+  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
+  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
+  private Map<String, OrderRedemptionsEntry> redemptions;
 
   public OrdersCreateResponseBody() {
   }
@@ -690,50 +697,35 @@ public class OrdersCreateResponseBody {
     this.referrer = referrer;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the OrdersCreateResponseBody instance itself
-   */
-  public OrdersCreateResponseBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public OrdersCreateResponseBody redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
+    
+    this.redemptions = redemptions;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  public OrdersCreateResponseBody putRedemptionsItem(String key, OrderRedemptionsEntry redemptionsItem) {
+    if (this.redemptions == null) {
+      this.redemptions = new HashMap<>();
+    }
+    this.redemptions.put(key, redemptionsItem);
+    return this;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+   /**
+   * Get redemptions
+   * @return redemptions
+  **/
+  @javax.annotation.Nullable
+  public Map<String, OrderRedemptionsEntry> getRedemptions() {
+    return redemptions;
   }
+
+
+  public void setRedemptions(Map<String, OrderRedemptionsEntry> redemptions) {
+    this.redemptions = redemptions;
+  }
+
 
 
   @Override
@@ -765,8 +757,8 @@ public class OrdersCreateResponseBody {
         Objects.equals(this.customerId, ordersCreateResponseBody.customerId) &&
         Objects.equals(this.referrerId, ordersCreateResponseBody.referrerId) &&
         Objects.equals(this.customer, ordersCreateResponseBody.customer) &&
-        Objects.equals(this.referrer, ordersCreateResponseBody.referrer)&&
-        Objects.equals(this.additionalProperties, ordersCreateResponseBody.additionalProperties);
+        Objects.equals(this.referrer, ordersCreateResponseBody.referrer) &&
+        Objects.equals(this.redemptions, ordersCreateResponseBody.redemptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -775,7 +767,7 @@ public class OrdersCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -810,7 +802,7 @@ public class OrdersCreateResponseBody {
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -854,6 +846,7 @@ public class OrdersCreateResponseBody {
     openapiFields.add("referrer_id");
     openapiFields.add("customer");
     openapiFields.add("referrer");
+    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -874,51 +867,13 @@ public class OrdersCreateResponseBody {
            @Override
            public void write(JsonWriter out, OrdersCreateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public OrdersCreateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             OrdersCreateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
