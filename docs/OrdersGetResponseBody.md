@@ -29,7 +29,6 @@ Response body schema for **GET** `v1/orders/{orderId}`.
 |**referrerId** | **String** | Unique referrer ID. |
 |**customer** | [**CustomerId**](CustomerId.md) |  |
 |**referrer** | [**ReferrerId**](ReferrerId.md) |  |
-|**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
 
 
 

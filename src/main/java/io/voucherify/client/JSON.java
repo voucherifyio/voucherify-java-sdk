@@ -527,18 +527,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.MappingPoints.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.MemberActivity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderCalculated.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderCreateBase.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderEssential.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemCalculated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemCalculatedProduct.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemCalculatedSku.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemEssential.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemEssentialProduct.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemEssentialSku.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemProduct.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderItemSku.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrderRedemptionsEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrdersCreateRequestBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrdersCreateResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.OrdersExportCreateRequestBody.CustomTypeAdapterFactory());

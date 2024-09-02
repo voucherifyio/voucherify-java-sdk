@@ -239,10 +239,6 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
   @SerializedName(SERIALIZED_NAME_REFERRER)
   private RedemptionsListResponseBodyRedemptionsItemOrderReferrer referrer;
 
-  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
-  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Object redemptions;
-
   public RedemptionsListResponseBodyRedemptionsItemOrder() {
   }
 
@@ -694,27 +690,6 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
     this.referrer = referrer;
   }
 
-
-  public RedemptionsListResponseBodyRedemptionsItemOrder redemptions(Object redemptions) {
-    
-    this.redemptions = redemptions;
-    return this;
-  }
-
-   /**
-   * Get redemptions
-   * @return redemptions
-  **/
-  @javax.annotation.Nullable
-  public Object getRedemptions() {
-    return redemptions;
-  }
-
-
-  public void setRedemptions(Object redemptions) {
-    this.redemptions = redemptions;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -790,8 +765,7 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
         Objects.equals(this.customerId, redemptionsListResponseBodyRedemptionsItemOrder.customerId) &&
         Objects.equals(this.referrerId, redemptionsListResponseBodyRedemptionsItemOrder.referrerId) &&
         Objects.equals(this.customer, redemptionsListResponseBodyRedemptionsItemOrder.customer) &&
-        Objects.equals(this.referrer, redemptionsListResponseBodyRedemptionsItemOrder.referrer) &&
-        Objects.equals(this.redemptions, redemptionsListResponseBodyRedemptionsItemOrder.redemptions)&&
+        Objects.equals(this.referrer, redemptionsListResponseBodyRedemptionsItemOrder.referrer)&&
         Objects.equals(this.additionalProperties, redemptionsListResponseBodyRedemptionsItemOrder.additionalProperties);
   }
 
@@ -801,7 +775,7 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -836,7 +810,6 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -881,7 +854,6 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
     openapiFields.add("referrer_id");
     openapiFields.add("customer");
     openapiFields.add("referrer");
-    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

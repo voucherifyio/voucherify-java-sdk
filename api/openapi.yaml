@@ -28703,20 +28703,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -28887,20 +28873,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29071,20 +29043,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -29256,20 +29214,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29440,20 +29384,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -29624,20 +29554,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -30780,20 +30696,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -31023,20 +30925,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -31147,20 +31035,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -38436,16 +38310,16 @@ components:
         amount: 0
         metadata: "{}"
         referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-        discount_amount: 6
-        initial_amount: 1
+        discount_amount: 1
+        created_at: 2021-12-22T10:13:06.487Z
+        initial_amount: 6
         id: id
         source_id: source_id
-        customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
         - amount: 7
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 4.145608029883936
             name: name
             id: id
             source_id: source_id
@@ -38456,27 +38330,21 @@ components:
           discount_amount: 9
           sku_id: sku_id
           initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          price: 2
           product_id: product_id
           discount_quantity: 5
-          applied_discount_quantity: 4
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 7.386281948385884
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
-          object: order_item
         - amount: 7
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 4.145608029883936
             name: name
             id: id
             source_id: source_id
@@ -38487,23 +38355,17 @@ components:
           discount_amount: 9
           sku_id: sku_id
           initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          price: 2
           product_id: product_id
           discount_quantity: 5
-          applied_discount_quantity: 4
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 7.386281948385884
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
-          object: order_item
         status: CREATED
         customer: ""
       properties:
@@ -38527,13 +38389,9 @@ components:
           nullable: true
           type: string
         amount:
-          description: |+
-            A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
-
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
           nullable: true
           type: integer
         initial_amount:
@@ -38542,31 +38400,17 @@ components:
             sum of the order items' amounts.
           nullable: true
           type: integer
+        discount_amount:
+          description: Sum of all order-level discounts applied to the order.
+          nullable: true
+          type: integer
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItem'
+            $ref: '#/components/schemas/OrderItemEssential'
           nullable: true
           title: OrdersCreateRequestBodyItems
           type: array
-        customer:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-          description: This is an object containing information about the customer.
-        customer_id:
-          description: Unique customer ID of the customer making the purchase.
-          example: cust_7iUa6ICKyU6gH40dBU25kQU1
-          nullable: true
-          type: string
-        referrer:
-          allOf:
-          - $ref: '#/components/schemas/Referrer'
-          description: This is an object containing information about the referrer.
-        referrer_id:
-          description: Unique referrer ID.
-          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          nullable: true
-          type: string
         metadata:
           description: A set of custom key/value pairs that you can attach to an order.
             It can be useful for storing additional information about the order in
@@ -38574,6 +38418,24 @@ components:
           nullable: true
           title: OrdersCreateRequestBodyMetadata
           type: object
+        created_at:
+          description: Timestamp representing the date and time when the order was
+            created. The value is shown in the ISO 8601 format.
+          example: 2021-12-22T10:13:06.487Z
+          format: date-time
+          nullable: true
+          type: string
+        referrer_id:
+          description: Unique referrer ID.
+          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
+          nullable: true
+          type: string
+        customer:
+          allOf:
+          - $ref: '#/components/schemas/Customer'
+        referrer:
+          allOf:
+          - $ref: '#/components/schemas/Referrer'
       title: OrdersCreateRequestBody
       type: object
     OrdersCreateResponseBody:
@@ -38591,20 +38453,6 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
-        redemptions:
-          key:
-            date: 2022-09-02T17:06:56.649Z
-            rollback_stacked:
-            - rollback_stacked
-            - rollback_stacked
-            related_object_parent_id: related_object_parent_id
-            stacked:
-            - stacked
-            - stacked
-            related_object_type: redemption
-            related_object_id: r_0ba186c4824e4881e1
-            rollback_id: rr_0c63c84eb78ee0a6c0
-            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -38792,12 +38640,6 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
-        redemptions:
-          additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptionsEntry'
-          nullable: true
-          title: OrdersCreateResponseBodyRedemptionsEntry
-          type: object
       title: OrdersCreateResponseBody
       type: object
     OrdersExportCreateRequestBody:
@@ -38899,20 +38741,6 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
-        redemptions:
-          key:
-            date: 2022-09-02T17:06:56.649Z
-            rollback_stacked:
-            - rollback_stacked
-            - rollback_stacked
-            related_object_parent_id: related_object_parent_id
-            stacked:
-            - stacked
-            - stacked
-            related_object_type: redemption
-            related_object_id: r_0ba186c4824e4881e1
-            rollback_id: rr_0c63c84eb78ee0a6c0
-            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -39100,12 +38928,6 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
-        redemptions:
-          additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptionsEntry'
-          nullable: true
-          title: OrdersGetResponseBodyRedemptionsEntry
-          type: object
       title: OrdersGetResponseBody
       type: object
     OrdersImportCreateRequestBody:
@@ -39145,20 +38967,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -39242,20 +39050,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -39365,14 +39159,15 @@ components:
         amount: 0
         metadata: "{}"
         referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-        discount_amount: 6
-        initial_amount: 1
-        customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+        discount_amount: 1
+        created_at: 2021-12-22T10:13:06.487Z
+        initial_amount: 6
+        source_id: source_id
         items:
         - amount: 7
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 4.145608029883936
             name: name
             id: id
             source_id: source_id
@@ -39383,27 +39178,21 @@ components:
           discount_amount: 9
           sku_id: sku_id
           initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          price: 2
           product_id: product_id
           discount_quantity: 5
-          applied_discount_quantity: 4
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 7.386281948385884
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
-          object: order_item
         - amount: 7
           product:
             metadata: "{}"
-            price: 6.84685269835264
+            price: 4.145608029883936
             name: name
             id: id
             source_id: source_id
@@ -39414,26 +39203,25 @@ components:
           discount_amount: 9
           sku_id: sku_id
           initial_amount: 3
-          applied_quantity: 7
-          subtotal_amount: 1
           related_object: product
-          applied_discount_amount: 2
-          price: 1
+          price: 2
           product_id: product_id
           discount_quantity: 5
-          applied_discount_quantity: 4
           source_id: source_id
           sku:
-            price: 7.457744773683766
+            price: 7.386281948385884
             id: id
             source_id: source_id
             override: true
             sku: sku
-          applied_quantity_amount: 1
-          object: order_item
         status: CREATED
         customer: ""
       properties:
+        source_id:
+          description: Unique source ID of an existing order that will be linked to
+            the redemption of this request.
+          nullable: true
+          type: string
         status:
           description: The order status.
           enum:
@@ -39444,13 +39232,9 @@ components:
           nullable: true
           type: string
         amount:
-          description: |+
-            A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
-
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
           nullable: true
           type: integer
         initial_amount:
@@ -39459,31 +39243,17 @@ components:
             sum of the order items' amounts.
           nullable: true
           type: integer
+        discount_amount:
+          description: Sum of all order-level discounts applied to the order.
+          nullable: true
+          type: integer
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItem'
+            $ref: '#/components/schemas/OrderItemEssential'
           nullable: true
           title: OrdersUpdateRequestBodyItems
           type: array
-        customer:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-          description: This is an object containing information about the customer.
-        customer_id:
-          description: Unique customer ID of the customer making the purchase.
-          example: cust_7iUa6ICKyU6gH40dBU25kQU1
-          nullable: true
-          type: string
-        referrer:
-          allOf:
-          - $ref: '#/components/schemas/Referrer'
-          description: This is an object containing information about the referrer.
-        referrer_id:
-          description: Unique referrer ID.
-          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          nullable: true
-          type: string
         metadata:
           description: A set of custom key/value pairs that you can attach to an order.
             It can be useful for storing additional information about the order in
@@ -39491,6 +39261,24 @@ components:
           nullable: true
           title: OrdersUpdateRequestBodyMetadata
           type: object
+        created_at:
+          description: Timestamp representing the date and time when the order was
+            created. The value is shown in the ISO 8601 format.
+          example: 2021-12-22T10:13:06.487Z
+          format: date-time
+          nullable: true
+          type: string
+        referrer_id:
+          description: Unique referrer ID.
+          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
+          nullable: true
+          type: string
+        customer:
+          allOf:
+          - $ref: '#/components/schemas/Customer'
+        referrer:
+          allOf:
+          - $ref: '#/components/schemas/Referrer'
       title: OrdersUpdateRequestBody
       type: object
     OrdersUpdateResponseBody:
@@ -39508,20 +39296,6 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
-        redemptions:
-          key:
-            date: 2022-09-02T17:06:56.649Z
-            rollback_stacked:
-            - rollback_stacked
-            - rollback_stacked
-            related_object_parent_id: related_object_parent_id
-            stacked:
-            - stacked
-            - stacked
-            related_object_type: redemption
-            related_object_id: r_0ba186c4824e4881e1
-            rollback_id: rr_0c63c84eb78ee0a6c0
-            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 9
         id: id
         source_id: source_id
@@ -39709,12 +39483,6 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
-        redemptions:
-          additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptionsEntry'
-          nullable: true
-          title: OrdersUpdateResponseBodyRedemptionsEntry
-          type: object
       title: OrdersUpdateResponseBody
       type: object
     ParameterActivityCategory:
@@ -44447,20 +44215,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -44631,20 +44385,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -44815,20 +44555,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -45000,20 +44726,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -45184,20 +44896,6 @@ components:
                 referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
-                redemptions:
-                  key:
-                    date: 2022-09-02T17:06:56.649Z
-                    rollback_stacked:
-                    - rollback_stacked
-                    - rollback_stacked
-                    related_object_parent_id: related_object_parent_id
-                    stacked:
-                    - stacked
-                    - stacked
-                    related_object_type: redemption
-                    related_object_id: r_0ba186c4824e4881e1
-                    rollback_id: rr_0c63c84eb78ee0a6c0
-                    rollback_date: 2023-01-31T14:18:37.15Z
                 items_applied_discount_amount: 2
                 id: id
                 source_id: source_id
@@ -45368,20 +45066,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -45832,7 +45516,6 @@ components:
             object: customer
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 7
-          redemptions: "{}"
           items_applied_discount_amount: 3
           id: id
           source_id: source_id
@@ -46363,7 +46046,6 @@ components:
               object: customer
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 7
-            redemptions: "{}"
             items_applied_discount_amount: 3
             id: id
             source_id: source_id
@@ -46786,7 +46468,6 @@ components:
               object: customer
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 7
-            redemptions: "{}"
             items_applied_discount_amount: 3
             id: id
             source_id: source_id
@@ -48295,20 +47976,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -50935,20 +50602,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -51178,20 +50831,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -51302,20 +50941,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -57492,20 +57117,6 @@ components:
         referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 9
-        redemptions:
-          key:
-            date: 2022-09-02T17:06:56.649Z
-            rollback_stacked:
-            - rollback_stacked
-            - rollback_stacked
-            related_object_parent_id: related_object_parent_id
-            stacked:
-            - stacked
-            - stacked
-            related_object_type: redemption
-            related_object_id: r_0ba186c4824e4881e1
-            rollback_id: rr_0c63c84eb78ee0a6c0
-            rollback_date: 2023-01-31T14:18:37.15Z
         items_applied_discount_amount: 2
         id: id
         source_id: source_id
@@ -57693,77 +57304,9 @@ components:
         referrer:
           allOf:
           - $ref: '#/components/schemas/ReferrerId'
-        redemptions:
-          additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptionsEntry'
-          nullable: true
-          title: OrderCalculatedRedemptionsEntry
-          type: object
       title: OrderCalculated
       type: object
-    OrderCreateBase:
-      properties:
-        status:
-          description: The order status.
-          enum:
-          - CREATED
-          - PAID
-          - CANCELED
-          - FULFILLED
-          nullable: true
-          type: string
-        amount:
-          description: |+
-            A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
-
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        items:
-          description: Array of items applied to the order.
-          items:
-            $ref: '#/components/schemas/OrderItem'
-          nullable: true
-          title: OrderCreateBaseItems
-          type: array
-        customer:
-          allOf:
-          - $ref: '#/components/schemas/Customer'
-          description: This is an object containing information about the customer.
-        customer_id:
-          description: Unique customer ID of the customer making the purchase.
-          example: cust_7iUa6ICKyU6gH40dBU25kQU1
-          nullable: true
-          type: string
-        referrer:
-          allOf:
-          - $ref: '#/components/schemas/Referrer'
-          description: This is an object containing information about the referrer.
-        referrer_id:
-          description: Unique referrer ID.
-          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          nullable: true
-          type: string
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an order.
-            It can be useful for storing additional information about the order in
-            a structured format.
-          nullable: true
-          title: OrderCreateBaseMetadata
-          type: object
-      title: OrderCreateBase
-      type: object
     OrderEssential:
-      additionalProperties: false
       description: Order information.
       example:
         amount: 0
@@ -57875,144 +57418,6 @@ components:
           title: OrderEssentialMetadata
           type: object
       title: OrderEssential
-      type: object
-    OrderItem:
-      example:
-        amount: 7
-        product:
-          metadata: "{}"
-          price: 6.84685269835264
-          name: name
-          id: id
-          source_id: source_id
-          override: true
-        metadata: "{}"
-        quantity: 5
-        initial_quantity: 2
-        discount_amount: 9
-        sku_id: sku_id
-        initial_amount: 3
-        applied_quantity: 7
-        subtotal_amount: 1
-        related_object: product
-        applied_discount_amount: 2
-        price: 1
-        product_id: product_id
-        discount_quantity: 5
-        applied_discount_quantity: 4
-        source_id: source_id
-        sku:
-          price: 7.457744773683766
-          id: id
-          source_id: source_id
-          override: true
-          sku: sku
-        applied_quantity_amount: 1
-        object: order_item
-      properties:
-        object:
-          default: order_item
-          description: The type of the object represented by JSON. This object stores
-            information about the `order_item`.
-          enum:
-          - order_item
-          nullable: true
-          type: string
-        sku_id:
-          description: Unique identifier of the SKU. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        product_id:
-          description: Unique identifier of the product. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        related_object:
-          description: "Used along with the source_id property, can be set to either\
-            \ sku or product."
-          enum:
-          - product
-          - sku
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product/SKU ID (if it is different from the\
-            \ Voucherify product/SKU ID). It is useful in the integration between\
-            \ multiple systems. It can be an ID from an eCommerce site, a database,\
-            \ or a third-party service."
-          nullable: true
-          type: string
-        quantity:
-          description: The quantity of the particular item in the cart.
-          nullable: true
-          type: integer
-        discount_quantity:
-          description: Number of dicounted items.
-          nullable: true
-          type: integer
-        initial_quantity:
-          description: A positive integer in the smallest unit quantity representing
-            the total amount of the order; this is the sum of the order items' quantity.
-          nullable: true
-          type: integer
-        amount:
-          description: The total amount of the order item (price * quantity).
-          nullable: true
-          type: integer
-        discount_amount:
-          description: |2-
-
-            Sum of all order-item-level discounts applied to the order.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        applied_discount_amount:
-          description: Order-level discount amount applied in the transaction.
-          nullable: true
-          type: integer
-        applied_discount_quantity:
-          description: Number of the discounted items applied in the transaction.
-          nullable: true
-          type: integer
-        applied_quantity:
-          description: Quantity of items changed by the application of a new quantity
-            items. It can be positive when an item is added or negative if an item
-            is replaced.
-          nullable: true
-          type: integer
-        applied_quantity_amount:
-          description: Amount for the items changed by the application of a new quantity
-            items. It can be positive when an item is added or negative if an item
-            is replaced.
-          nullable: true
-          type: integer
-        price:
-          description: Unit price of an item. Value is multiplied by 100 to precisely
-            represent 2 decimal places. For example `10000 cents` for `$100.00`.
-          nullable: true
-          type: integer
-        subtotal_amount:
-          description: "Final order item amount after the applied item-level discount.\
-            \  If there are no item-level discounts applied, this item is equal to\
-            \ the `amount`.   \n`subtotal_amount`=`amount`-`discount_amount`"
-          nullable: true
-          type: integer
-        product:
-          $ref: '#/components/schemas/OrderItemProduct'
-        sku:
-          $ref: '#/components/schemas/OrderItemSku'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an order
-            item. It can be useful for storing additional information about the order
-            item in a structured format.
-          nullable: true
-          title: OrderItemMetadata
-          type: object
-      title: OrderItem
       type: object
     OrderItemCalculated:
       example:
@@ -58149,75 +57554,103 @@ components:
           type: object
       title: OrderItemCalculated
       type: object
-    OrderRedemptionsEntry:
+    OrderItemEssential:
       example:
-        date: 2022-09-02T17:06:56.649Z
-        rollback_stacked:
-        - rollback_stacked
-        - rollback_stacked
-        related_object_parent_id: related_object_parent_id
-        stacked:
-        - stacked
-        - stacked
-        related_object_type: redemption
-        related_object_id: r_0ba186c4824e4881e1
-        rollback_id: rr_0c63c84eb78ee0a6c0
-        rollback_date: 2023-01-31T14:18:37.15Z
+        amount: 7
+        product:
+          metadata: "{}"
+          price: 4.145608029883936
+          name: name
+          id: id
+          source_id: source_id
+          override: true
+        metadata: "{}"
+        quantity: 5
+        initial_quantity: 2
+        discount_amount: 9
+        sku_id: sku_id
+        initial_amount: 3
+        related_object: product
+        price: 2
+        product_id: product_id
+        discount_quantity: 5
+        source_id: source_id
+        sku:
+          price: 7.386281948385884
+          id: id
+          source_id: source_id
+          override: true
+          sku: sku
       properties:
-        date:
-          description: Timestamp representing the date and time when the redemption
-            was created. The value is shown in the ISO 8601 format.
-          example: 2022-09-02T17:06:56.649Z
-          format: date-time
+        sku_id:
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           nullable: true
           type: string
-        rollback_id:
-          description: Unique ID of the redemption rollback.
-          example: rr_0c63c84eb78ee0a6c0
+        product_id:
+          description: Unique identifier of the product. It is assigned by Voucherify.
           nullable: true
           type: string
-        rollback_date:
-          description: Timestamp representing the date and tiem when the redemption
-            rollback was created. The value is shown in the ISO 8601 format.
-          example: 2023-01-31T14:18:37.15Z
-          format: date-time
+        related_object:
+          description: "Used along with the source_id property, can be set to either\
+            \ sku or product."
+          enum:
+          - product
+          - sku
           nullable: true
           type: string
-        related_object_type:
-          default: redemption
-          description: The source of the incentive.
+        source_id:
+          description: "The merchant's product/SKU ID (if it is different from the\
+            \ Voucherify product/SKU ID). It is useful in the integration between\
+            \ multiple systems. It can be an ID from an eCommerce site, a database,\
+            \ or a third-party service."
           nullable: true
           type: string
-        related_object_id:
-          description: Unique ID of the parent redemption.
-          example: r_0ba186c4824e4881e1
+        quantity:
+          description: The quantity of the particular item in the cart.
           nullable: true
-          type: string
-        related_object_parent_id:
-          description: "Represent's the campaign ID of the voucher if the redemption\
-            \ was based on a voucher that was part of bulk codes generated within\
-            \ a campaign. In case of a promotion tier, this represents the campaign\
-            \ ID of the promotion tier's parent campaign."
+          type: integer
+        discount_quantity:
+          description: Number of dicounted items.
           nullable: true
-          type: string
-        stacked:
-          description: "Contains a list of unique IDs of child redemptions, which\
-            \ belong to the stacked incentives."
-          items:
-            title: OrderRedemptionsEntryStackedItem
-            type: string
+          type: integer
+        initial_quantity:
+          description: A positive integer in the smallest unit quantity representing
+            the total amount of the order; this is the sum of the order items' quantity.
           nullable: true
-          title: OrderRedemptionsEntryStacked
-          type: array
-        rollback_stacked:
-          description: Lists the rollback redemption IDs of the particular child redemptions.
-          items:
-            title: OrderRedemptionsEntryRollbackStackedItem
-            type: string
+          type: integer
+        amount:
+          description: The total amount of the order item (price * quantity).
           nullable: true
-          title: OrderRedemptionsEntryRollbackStacked
-          type: array
-      title: OrderRedemptionsEntry
+          type: integer
+        discount_amount:
+          description: xxxSum of all order-item-level discounts applied to the order.
+          nullable: true
+          type: integer
+        initial_amount:
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
+          nullable: true
+          type: integer
+        price:
+          description: Unit price of an item. Value is multiplied by 100 to precisely
+            represent 2 decimal places. For example `10000 cents` for `$100.00`.
+          nullable: true
+          type: integer
+        product:
+          $ref: '#/components/schemas/OrderItemEssentialProduct'
+        sku:
+          $ref: '#/components/schemas/OrderItemEssentialSku'
+        metadata:
+          description: A set of custom key/value pairs that you can attach to an SKU.
+            It can be useful for storing additional information about the SKU in a
+            structured format.
+          nullable: true
+          title: OrderItemEssentialMetadata
+          type: object
+      required:
+      - object
+      title: OrderItemEssential
       type: object
     PointsExpirationTypes:
       enum:
@@ -59450,20 +58883,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59634,20 +59053,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -59818,20 +59223,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -60003,20 +59394,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -60187,20 +59564,6 @@ components:
               referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
-              redemptions:
-                key:
-                  date: 2022-09-02T17:06:56.649Z
-                  rollback_stacked:
-                  - rollback_stacked
-                  - rollback_stacked
-                  related_object_parent_id: related_object_parent_id
-                  stacked:
-                  - stacked
-                  - stacked
-                  related_object_type: redemption
-                  related_object_id: r_0ba186c4824e4881e1
-                  rollback_id: rr_0c63c84eb78ee0a6c0
-                  rollback_date: 2023-01-31T14:18:37.15Z
               items_applied_discount_amount: 2
               id: id
               source_id: source_id
@@ -60371,20 +59734,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -63796,104 +63145,6 @@ components:
       - POINTS_TRANSFER_OUT
       title: LoyaltyCardTransactionsType
       type: string
-    OrderItemEssential:
-      example:
-        amount: 7
-        product:
-          metadata: "{}"
-          price: 4.145608029883936
-          name: name
-          id: id
-          source_id: source_id
-          override: true
-        metadata: "{}"
-        quantity: 5
-        initial_quantity: 2
-        discount_amount: 9
-        sku_id: sku_id
-        initial_amount: 3
-        related_object: product
-        price: 2
-        product_id: product_id
-        discount_quantity: 5
-        source_id: source_id
-        sku:
-          price: 7.386281948385884
-          id: id
-          source_id: source_id
-          override: true
-          sku: sku
-      properties:
-        sku_id:
-          description: Unique identifier of the SKU. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        product_id:
-          description: Unique identifier of the product. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        related_object:
-          description: "Used along with the source_id property, can be set to either\
-            \ sku or product."
-          enum:
-          - product
-          - sku
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product/SKU ID (if it is different from the\
-            \ Voucherify product/SKU ID). It is useful in the integration between\
-            \ multiple systems. It can be an ID from an eCommerce site, a database,\
-            \ or a third-party service."
-          nullable: true
-          type: string
-        quantity:
-          description: The quantity of the particular item in the cart.
-          nullable: true
-          type: integer
-        discount_quantity:
-          description: Number of dicounted items.
-          nullable: true
-          type: integer
-        initial_quantity:
-          description: A positive integer in the smallest unit quantity representing
-            the total amount of the order; this is the sum of the order items' quantity.
-          nullable: true
-          type: integer
-        amount:
-          description: The total amount of the order item (price * quantity).
-          nullable: true
-          type: integer
-        discount_amount:
-          description: xxxSum of all order-item-level discounts applied to the order.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        price:
-          description: Unit price of an item. Value is multiplied by 100 to precisely
-            represent 2 decimal places. For example `10000 cents` for `$100.00`.
-          nullable: true
-          type: integer
-        product:
-          $ref: '#/components/schemas/OrderItemEssentialProduct'
-        sku:
-          $ref: '#/components/schemas/OrderItemEssentialSku'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an SKU.
-            It can be useful for storing additional information about the SKU in a
-            structured format.
-          nullable: true
-          title: OrderItemEssentialMetadata
-          type: object
-      required:
-      - object
-      title: OrderItemEssential
-      type: object
     QualificationsFieldConditions:
       properties:
         conditions:
@@ -64005,20 +63256,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -64189,20 +63426,6 @@ components:
             referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
-            redemptions:
-              key:
-                date: 2022-09-02T17:06:56.649Z
-                rollback_stacked:
-                - rollback_stacked
-                - rollback_stacked
-                related_object_parent_id: related_object_parent_id
-                stacked:
-                - stacked
-                - stacked
-                related_object_type: redemption
-                related_object_id: r_0ba186c4824e4881e1
-                rollback_id: rr_0c63c84eb78ee0a6c0
-                rollback_date: 2023-01-31T14:18:37.15Z
             items_applied_discount_amount: 2
             id: id
             source_id: source_id
@@ -64373,20 +63596,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -65000,20 +64209,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -66462,20 +65657,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -72188,13 +71369,28 @@ components:
       type: object
     OrdersImportCreateRequestBodyItem:
       allOf:
-      - properties:
-          source_id:
-            description: Unique source ID of an existing order that will be linked
-              to the redemption of this request.
+      - $ref: '#/components/schemas/OrderEssential'
+      - additionalProperties: false
+        description: Order information.
+        properties:
+          created_at:
+            description: Timestamp representing the date and time when the order was
+              created. The value is shown in the ISO 8601 format.
+            example: 2021-12-22T10:13:06.487Z
+            format: date-time
             type: string
+          referrer_id:
+            description: Unique referrer ID.
+            example: cust_nM4jqPiaXUvQdVSA6vTRUnix
+            nullable: true
+            type: string
+          customer:
+            allOf:
+            - $ref: '#/components/schemas/Customer'
+          referrer:
+            allOf:
+            - $ref: '#/components/schemas/Referrer'
         type: object
-      - $ref: '#/components/schemas/OrderCreateBase'
       title: OrdersImportCreateRequestBodyItem
       type: object
     ParameterFiltersListCustomerRedeemablesId:
@@ -74519,7 +73715,6 @@ components:
           object: customer
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 7
-        redemptions: "{}"
         items_applied_discount_amount: 3
         id: id
         source_id: source_id
@@ -74705,10 +73900,6 @@ components:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionsGetResponseBodyOrderReferrer'
-        redemptions:
-          nullable: true
-          title: RedemptionsGetResponseBodyOrderRedemptions
-          type: object
       title: RedemptionsGetResponseBodyOrder
       type: object
     RedemptionsGetResponseBodyChannel:
@@ -75771,7 +74962,6 @@ components:
           object: customer
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 7
-        redemptions: "{}"
         items_applied_discount_amount: 3
         id: id
         source_id: source_id
@@ -75955,9 +75145,6 @@ components:
           $ref: '#/components/schemas/RedemptionsListResponseBodyRedemptionsItemOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionsListResponseBodyRedemptionsItemOrderReferrer'
-        redemptions:
-          title: RedemptionsListResponseBodyRedemptionsItemOrderRedemptions
-          type: object
       title: RedemptionsListResponseBodyRedemptionsItemOrder
       type: object
     RedemptionsListResponseBodyRedemptionsItemChannel:
@@ -77233,7 +76420,6 @@ components:
             object: customer
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 7
-          redemptions: "{}"
           items_applied_discount_amount: 3
           id: id
           source_id: source_id
@@ -79011,20 +78197,6 @@ components:
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
-          redemptions:
-            key:
-              date: 2022-09-02T17:06:56.649Z
-              rollback_stacked:
-              - rollback_stacked
-              - rollback_stacked
-              related_object_parent_id: related_object_parent_id
-              stacked:
-              - stacked
-              - stacked
-              related_object_type: redemption
-              related_object_id: r_0ba186c4824e4881e1
-              rollback_id: rr_0c63c84eb78ee0a6c0
-              rollback_date: 2023-01-31T14:18:37.15Z
           items_applied_discount_amount: 2
           id: id
           source_id: source_id
@@ -81355,96 +80527,6 @@ components:
           $ref: '#/components/schemas/LoyaltyTiersExpirationAllExpirationDate_rounding'
       title: LoyaltyTiersExpirationAllExpirationDate
       type: object
-    OrderItemProduct:
-      additionalProperties: false
-      description: An object containing details of the related product.
-      example:
-        metadata: "{}"
-        price: 6.84685269835264
-        name: name
-        id: id
-        source_id: source_id
-        override: true
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the product and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product ID (if it is different than Voucherify's\
-            \ product ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        name:
-          description: Product name.
-          nullable: true
-          type: string
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a product.
-            It can be useful for storing additional information about the product
-            in a structured format.
-          nullable: true
-          title: OrderItemProductMetadata
-          type: object
-        price:
-          description: Product price. A positive integer in the smallest currency
-            unit (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemProduct
-      type: object
-    OrderItemSku:
-      additionalProperties: false
-      description: An object containing details of the related SKU.
-      example:
-        price: 7.457744773683766
-        id: id
-        source_id: source_id
-        override: true
-        sku: sku
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the SKU and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's SKU ID (if it is different than Voucherify's\
-            \ SKU ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        sku:
-          description: The SKU name.
-          nullable: true
-          type: string
-        price:
-          description: SKU price. A positive integer in the smallest currency unit
-            (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemSku
-      type: object
     OrderItemCalculatedProduct:
       additionalProperties: false
       description: An object containing details of the related product.
@@ -81534,6 +80616,96 @@ components:
           nullable: true
           type: number
       title: OrderItemCalculatedSku
+      type: object
+    OrderItemEssentialProduct:
+      additionalProperties: false
+      description: An object containing details of the related product.
+      example:
+        metadata: "{}"
+        price: 4.145608029883936
+        name: name
+        id: id
+        source_id: source_id
+        override: true
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the product and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's product ID (if it is different than Voucherify's\
+            \ product ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        name:
+          description: Product name.
+          nullable: true
+          type: string
+        metadata:
+          description: A set of custom key/value pairs that you can attach to a product.
+            It can be useful for storing additional information about the product
+            in a structured format.
+          nullable: true
+          title: OrderItemEssentialProductMetadata
+          type: object
+        price:
+          description: Product price. A positive integer in the smallest currency
+            unit (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderItemEssentialProduct
+      type: object
+    OrderItemEssentialSku:
+      additionalProperties: false
+      description: An object containing details of the related SKU.
+      example:
+        price: 7.386281948385884
+        id: id
+        source_id: source_id
+        override: true
+        sku: sku
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the SKU and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's SKU ID (if it is different than Voucherify's\
+            \ SKU ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        sku:
+          description: The SKU name.
+          nullable: true
+          type: string
+        price:
+          description: SKU price. A positive integer in the smallest currency unit
+            (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderItemEssentialSku
       type: object
     ProductCollectionsItemFilter:
       additionalProperties: false
@@ -82779,10 +81951,6 @@ components:
           $ref: '#/components/schemas/RedemptionEntryOrderCustomer'
         referrer:
           $ref: '#/components/schemas/RedemptionEntryOrderReferrer'
-        redemptions:
-          nullable: true
-          title: RedemptionEntryOrderRedemptions
-          type: object
       title: RedemptionEntryOrder
       type: object
     RedemptionEntryChannel:
@@ -84903,96 +84071,6 @@ components:
         conditions:
           $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions'
       title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId
-      type: object
-    OrderItemEssentialProduct:
-      additionalProperties: false
-      description: An object containing details of the related product.
-      example:
-        metadata: "{}"
-        price: 4.145608029883936
-        name: name
-        id: id
-        source_id: source_id
-        override: true
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the product and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product ID (if it is different than Voucherify's\
-            \ product ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        name:
-          description: Product name.
-          nullable: true
-          type: string
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a product.
-            It can be useful for storing additional information about the product
-            in a structured format.
-          nullable: true
-          title: OrderItemEssentialProductMetadata
-          type: object
-        price:
-          description: Product price. A positive integer in the smallest currency
-            unit (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemEssentialProduct
-      type: object
-    OrderItemEssentialSku:
-      additionalProperties: false
-      description: An object containing details of the related SKU.
-      example:
-        price: 7.386281948385884
-        id: id
-        source_id: source_id
-        override: true
-        sku: sku
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the SKU and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's SKU ID (if it is different than Voucherify's\
-            \ SKU ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        sku:
-          description: The SKU name.
-          nullable: true
-          type: string
-        price:
-          description: SKU price. A positive integer in the smallest currency unit
-            (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemEssentialSku
       type: object
     RedeemableVoucherGift:
       description: Object representing gift parameters. Child attributes are present

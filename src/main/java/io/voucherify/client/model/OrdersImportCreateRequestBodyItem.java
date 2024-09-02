@@ -20,9 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.OrderItem;
+import io.voucherify.client.model.OrderItemEssential;
 import io.voucherify.client.model.Referrer;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -58,6 +59,14 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class OrdersImportCreateRequestBodyItem {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   /**
    * The order status.
    */
@@ -117,44 +126,82 @@ public class OrdersImportCreateRequestBodyItem {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
 
-  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
-  private Integer discountAmount;
-
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
 
+  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
+  private Integer discountAmount;
+
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItem> items;
-
-  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private Customer customer;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER = "referrer";
-  @SerializedName(SERIALIZED_NAME_REFERRER)
-  private Referrer referrer;
-
-  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
-  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
-  private String referrerId;
+  private List<OrderItemEssential> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
-  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-  private String sourceId;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
+
+  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER)
+  private Customer customer;
+
+  public static final String SERIALIZED_NAME_REFERRER = "referrer";
+  @SerializedName(SERIALIZED_NAME_REFERRER)
+  private Referrer referrer;
 
   public OrdersImportCreateRequestBodyItem() {
   }
+
+  public OrdersImportCreateRequestBodyItem id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
 
   public OrdersImportCreateRequestBodyItem status(StatusEnum status) {
     
@@ -184,7 +231,7 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
    /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.  
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -195,27 +242,6 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
-  }
-
-
-  public OrdersImportCreateRequestBodyItem discountAmount(Integer discountAmount) {
-    
-    this.discountAmount = discountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level discounts applied to the order.
-   * @return discountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getDiscountAmount() {
-    return discountAmount;
-  }
-
-
-  public void setDiscountAmount(Integer discountAmount) {
-    this.discountAmount = discountAmount;
   }
 
 
@@ -240,13 +266,34 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
 
-  public OrdersImportCreateRequestBodyItem items(List<OrderItem> items) {
+  public OrdersImportCreateRequestBodyItem discountAmount(Integer discountAmount) {
+    
+    this.discountAmount = discountAmount;
+    return this;
+  }
+
+   /**
+   * Sum of all order-level discounts applied to the order.
+   * @return discountAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getDiscountAmount() {
+    return discountAmount;
+  }
+
+
+  public void setDiscountAmount(Integer discountAmount) {
+    this.discountAmount = discountAmount;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem items(List<OrderItemEssential> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrdersImportCreateRequestBodyItem addItemsItem(OrderItem itemsItem) {
+  public OrdersImportCreateRequestBodyItem addItemsItem(OrderItemEssential itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -259,97 +306,13 @@ public class OrdersImportCreateRequestBodyItem {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItem> getItems() {
+  public List<OrderItemEssential> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItem> items) {
+  public void setItems(List<OrderItemEssential> items) {
     this.items = items;
-  }
-
-
-  public OrdersImportCreateRequestBodyItem customer(Customer customer) {
-    
-    this.customer = customer;
-    return this;
-  }
-
-   /**
-   * Get customer
-   * @return customer
-  **/
-  @javax.annotation.Nullable
-  public Customer getCustomer() {
-    return customer;
-  }
-
-
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
-  }
-
-
-  public OrdersImportCreateRequestBodyItem customerId(String customerId) {
-    
-    this.customerId = customerId;
-    return this;
-  }
-
-   /**
-   * Unique customer ID of the customer making the purchase.
-   * @return customerId
-  **/
-  @javax.annotation.Nullable
-  public String getCustomerId() {
-    return customerId;
-  }
-
-
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-  }
-
-
-  public OrdersImportCreateRequestBodyItem referrer(Referrer referrer) {
-    
-    this.referrer = referrer;
-    return this;
-  }
-
-   /**
-   * Get referrer
-   * @return referrer
-  **/
-  @javax.annotation.Nullable
-  public Referrer getReferrer() {
-    return referrer;
-  }
-
-
-  public void setReferrer(Referrer referrer) {
-    this.referrer = referrer;
-  }
-
-
-  public OrdersImportCreateRequestBodyItem referrerId(String referrerId) {
-    
-    this.referrerId = referrerId;
-    return this;
-  }
-
-   /**
-   * Unique referrer ID.
-   * @return referrerId
-  **/
-  @javax.annotation.Nullable
-  public String getReferrerId() {
-    return referrerId;
-  }
-
-
-  public void setReferrerId(String referrerId) {
-    this.referrerId = referrerId;
   }
 
 
@@ -374,24 +337,87 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
 
-  public OrdersImportCreateRequestBodyItem sourceId(String sourceId) {
+  public OrdersImportCreateRequestBodyItem createdAt(OffsetDateTime createdAt) {
     
-    this.sourceId = sourceId;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
-   * @return sourceId
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
   **/
   @javax.annotation.Nullable
-  public String getSourceId() {
-    return sourceId;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem referrerId(String referrerId) {
+    
+    this.referrerId = referrerId;
+    return this;
+  }
+
+   /**
+   * Unique referrer ID.
+   * @return referrerId
+  **/
+  @javax.annotation.Nullable
+  public String getReferrerId() {
+    return referrerId;
+  }
+
+
+  public void setReferrerId(String referrerId) {
+    this.referrerId = referrerId;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem customer(Customer customer) {
+    
+    this.customer = customer;
+    return this;
+  }
+
+   /**
+   * Get customer
+   * @return customer
+  **/
+  @javax.annotation.Nullable
+  public Customer getCustomer() {
+    return customer;
+  }
+
+
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem referrer(Referrer referrer) {
+    
+    this.referrer = referrer;
+    return this;
+  }
+
+   /**
+   * Get referrer
+   * @return referrer
+  **/
+  @javax.annotation.Nullable
+  public Referrer getReferrer() {
+    return referrer;
+  }
+
+
+  public void setReferrer(Referrer referrer) {
+    this.referrer = referrer;
   }
 
   /**
@@ -449,17 +475,18 @@ public class OrdersImportCreateRequestBodyItem {
       return false;
     }
     OrdersImportCreateRequestBodyItem ordersImportCreateRequestBodyItem = (OrdersImportCreateRequestBodyItem) o;
-    return Objects.equals(this.status, ordersImportCreateRequestBodyItem.status) &&
+    return Objects.equals(this.id, ordersImportCreateRequestBodyItem.id) &&
+        Objects.equals(this.sourceId, ordersImportCreateRequestBodyItem.sourceId) &&
+        Objects.equals(this.status, ordersImportCreateRequestBodyItem.status) &&
         Objects.equals(this.amount, ordersImportCreateRequestBodyItem.amount) &&
-        Objects.equals(this.discountAmount, ordersImportCreateRequestBodyItem.discountAmount) &&
         Objects.equals(this.initialAmount, ordersImportCreateRequestBodyItem.initialAmount) &&
+        Objects.equals(this.discountAmount, ordersImportCreateRequestBodyItem.discountAmount) &&
         Objects.equals(this.items, ordersImportCreateRequestBodyItem.items) &&
-        Objects.equals(this.customer, ordersImportCreateRequestBodyItem.customer) &&
-        Objects.equals(this.customerId, ordersImportCreateRequestBodyItem.customerId) &&
-        Objects.equals(this.referrer, ordersImportCreateRequestBodyItem.referrer) &&
-        Objects.equals(this.referrerId, ordersImportCreateRequestBodyItem.referrerId) &&
         Objects.equals(this.metadata, ordersImportCreateRequestBodyItem.metadata) &&
-        Objects.equals(this.sourceId, ordersImportCreateRequestBodyItem.sourceId)&&
+        Objects.equals(this.createdAt, ordersImportCreateRequestBodyItem.createdAt) &&
+        Objects.equals(this.referrerId, ordersImportCreateRequestBodyItem.referrerId) &&
+        Objects.equals(this.customer, ordersImportCreateRequestBodyItem.customer) &&
+        Objects.equals(this.referrer, ordersImportCreateRequestBodyItem.referrer)&&
         Objects.equals(this.additionalProperties, ordersImportCreateRequestBodyItem.additionalProperties);
   }
 
@@ -469,7 +496,7 @@ public class OrdersImportCreateRequestBodyItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, sourceId, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, createdAt, referrerId, customer, referrer, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -483,17 +510,18 @@ public class OrdersImportCreateRequestBodyItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrdersImportCreateRequestBodyItem {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
+    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
+    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -517,17 +545,18 @@ public class OrdersImportCreateRequestBodyItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("source_id");
     openapiFields.add("status");
     openapiFields.add("amount");
-    openapiFields.add("discount_amount");
     openapiFields.add("initial_amount");
+    openapiFields.add("discount_amount");
     openapiFields.add("items");
-    openapiFields.add("customer");
-    openapiFields.add("customer_id");
-    openapiFields.add("referrer");
-    openapiFields.add("referrer_id");
     openapiFields.add("metadata");
-    openapiFields.add("source_id");
+    openapiFields.add("created_at");
+    openapiFields.add("referrer_id");
+    openapiFields.add("customer");
+    openapiFields.add("referrer");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

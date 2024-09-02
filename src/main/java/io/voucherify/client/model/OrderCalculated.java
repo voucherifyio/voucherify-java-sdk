@@ -21,15 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerId;
 import io.voucherify.client.model.OrderItemCalculated;
-import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -241,10 +238,6 @@ public class OrderCalculated {
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
   private ReferrerId referrer;
-
-  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
-  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Map<String, OrderRedemptionsEntry> redemptions;
 
   public OrderCalculated() {
   }
@@ -697,35 +690,6 @@ public class OrderCalculated {
     this.referrer = referrer;
   }
 
-
-  public OrderCalculated redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
-    
-    this.redemptions = redemptions;
-    return this;
-  }
-
-  public OrderCalculated putRedemptionsItem(String key, OrderRedemptionsEntry redemptionsItem) {
-    if (this.redemptions == null) {
-      this.redemptions = new HashMap<>();
-    }
-    this.redemptions.put(key, redemptionsItem);
-    return this;
-  }
-
-   /**
-   * Get redemptions
-   * @return redemptions
-  **/
-  @javax.annotation.Nullable
-  public Map<String, OrderRedemptionsEntry> getRedemptions() {
-    return redemptions;
-  }
-
-
-  public void setRedemptions(Map<String, OrderRedemptionsEntry> redemptions) {
-    this.redemptions = redemptions;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -801,8 +765,7 @@ public class OrderCalculated {
         Objects.equals(this.customerId, orderCalculated.customerId) &&
         Objects.equals(this.referrerId, orderCalculated.referrerId) &&
         Objects.equals(this.customer, orderCalculated.customer) &&
-        Objects.equals(this.referrer, orderCalculated.referrer) &&
-        Objects.equals(this.redemptions, orderCalculated.redemptions)&&
+        Objects.equals(this.referrer, orderCalculated.referrer)&&
         Objects.equals(this.additionalProperties, orderCalculated.additionalProperties);
   }
 
@@ -812,7 +775,7 @@ public class OrderCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -847,7 +810,6 @@ public class OrderCalculated {
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -892,7 +854,6 @@ public class OrderCalculated {
     openapiFields.add("referrer_id");
     openapiFields.add("customer");
     openapiFields.add("referrer");
-    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

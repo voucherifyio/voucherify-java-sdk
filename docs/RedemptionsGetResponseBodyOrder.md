@@ -28,7 +28,6 @@
 |**referrerId** | **String** | Unique referrer ID. |
 |**customer** | [**RedemptionsGetResponseBodyOrderCustomer**](RedemptionsGetResponseBodyOrderCustomer.md) |  |
 |**referrer** | [**RedemptionsGetResponseBodyOrderReferrer**](RedemptionsGetResponseBodyOrderReferrer.md) |  |
-|**redemptions** | **Object** |  |
 
 
 
