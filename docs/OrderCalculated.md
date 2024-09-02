@@ -26,8 +26,8 @@
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the order was last updated in ISO 8601 format. |
 |**customerId** | **String** | Unique customer ID of the customer making the purchase. |
 |**referrerId** | **String** | Unique referrer ID. |
-|**customer** | [**OrderCalculatedCustomer**](OrderCalculatedCustomer.md) |  |
-|**referrer** | [**OrderCalculatedReferrer**](OrderCalculatedReferrer.md) |  |
+|**customer** | [**CustomerId**](CustomerId.md) |  |
+|**referrer** | [**ReferrerId**](ReferrerId.md) |  |
 |**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
 
 

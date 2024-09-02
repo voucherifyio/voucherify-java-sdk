@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItem;
-import io.voucherify.client.model.OrderCalculatedNoCustomerData;
+import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.Session;
 import io.voucherify.client.model.StackingRules;
 import io.voucherify.client.model.ValidationsRedeemableInapplicable;
@@ -79,7 +79,7 @@ public class ClientValidationsValidateResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculatedNoCustomerData order;
+  private OrderCalculated order;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
@@ -204,7 +204,7 @@ public class ClientValidationsValidateResponseBody {
   }
 
 
-  public ClientValidationsValidateResponseBody order(OrderCalculatedNoCustomerData order) {
+  public ClientValidationsValidateResponseBody order(OrderCalculated order) {
     
     this.order = order;
     return this;
@@ -215,12 +215,12 @@ public class ClientValidationsValidateResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedNoCustomerData getOrder() {
+  public OrderCalculated getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculatedNoCustomerData order) {
+  public void setOrder(OrderCalculated order) {
     this.order = order;
   }
 

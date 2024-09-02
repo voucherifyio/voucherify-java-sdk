@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculatedCustomer;
-import io.voucherify.client.model.OrderCalculatedReferrer;
+import io.voucherify.client.model.CustomerId;
 import io.voucherify.client.model.OrderItemCalculated;
 import io.voucherify.client.model.OrderRedemptionsEntry;
+import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -236,11 +236,11 @@ public class OrderCalculated {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private OrderCalculatedCustomer customer;
+  private CustomerId customer;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private OrderCalculatedReferrer referrer;
+  private ReferrerId referrer;
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
@@ -656,7 +656,7 @@ public class OrderCalculated {
   }
 
 
-  public OrderCalculated customer(OrderCalculatedCustomer customer) {
+  public OrderCalculated customer(CustomerId customer) {
     
     this.customer = customer;
     return this;
@@ -667,17 +667,17 @@ public class OrderCalculated {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedCustomer getCustomer() {
+  public CustomerId getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(OrderCalculatedCustomer customer) {
+  public void setCustomer(CustomerId customer) {
     this.customer = customer;
   }
 
 
-  public OrderCalculated referrer(OrderCalculatedReferrer referrer) {
+  public OrderCalculated referrer(ReferrerId referrer) {
     
     this.referrer = referrer;
     return this;
@@ -688,12 +688,12 @@ public class OrderCalculated {
    * @return referrer
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedReferrer getReferrer() {
+  public ReferrerId getReferrer() {
     return referrer;
   }
 
 
-  public void setReferrer(OrderCalculatedReferrer referrer) {
+  public void setReferrer(ReferrerId referrer) {
     this.referrer = referrer;
   }
 

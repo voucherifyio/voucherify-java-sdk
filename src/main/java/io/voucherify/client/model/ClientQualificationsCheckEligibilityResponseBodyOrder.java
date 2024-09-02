@@ -19,9 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemCalculated;
+import io.voucherify.client.model.OrderItemEssential;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -132,102 +131,13 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
   @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
   private Integer discountAmount;
 
-  public static final String SERIALIZED_NAME_ITEMS_DISCOUNT_AMOUNT = "items_discount_amount";
-  @SerializedName(SERIALIZED_NAME_ITEMS_DISCOUNT_AMOUNT)
-  private Integer itemsDiscountAmount;
-
-  public static final String SERIALIZED_NAME_TOTAL_DISCOUNT_AMOUNT = "total_discount_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_DISCOUNT_AMOUNT)
-  private Integer totalDiscountAmount;
-
-  public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
-  private Integer totalAmount;
-
-  public static final String SERIALIZED_NAME_APPLIED_DISCOUNT_AMOUNT = "applied_discount_amount";
-  @SerializedName(SERIALIZED_NAME_APPLIED_DISCOUNT_AMOUNT)
-  private Integer appliedDiscountAmount;
-
-  public static final String SERIALIZED_NAME_ITEMS_APPLIED_DISCOUNT_AMOUNT = "items_applied_discount_amount";
-  @SerializedName(SERIALIZED_NAME_ITEMS_APPLIED_DISCOUNT_AMOUNT)
-  private Integer itemsAppliedDiscountAmount;
-
-  public static final String SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT = "total_applied_discount_amount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT)
-  private Integer totalAppliedDiscountAmount;
-
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemCalculated> items;
+  private List<OrderItemEssential> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
-
-  /**
-   * The type of the object represented by JSON.
-   */
-  @JsonAdapter(ObjectEnum.Adapter.class)
-  public enum ObjectEnum {
-    ORDER("order");
-
-    private String value;
-
-    ObjectEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ObjectEnum fromValue(String value) {
-      for (ObjectEnum b : ObjectEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ObjectEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ObjectEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_OBJECT = "object";
-  @SerializedName(SERIALIZED_NAME_OBJECT)
-  private ObjectEnum _object = ObjectEnum.ORDER;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
-  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
-  private String referrerId;
 
   public ClientQualificationsCheckEligibilityResponseBodyOrder() {
   }
@@ -358,139 +268,13 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public ClientQualificationsCheckEligibilityResponseBodyOrder itemsDiscountAmount(Integer itemsDiscountAmount) {
-    
-    this.itemsDiscountAmount = itemsDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all product-specific discounts applied to the order.
-   * @return itemsDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getItemsDiscountAmount() {
-    return itemsDiscountAmount;
-  }
-
-
-  public void setItemsDiscountAmount(Integer itemsDiscountAmount) {
-    this.itemsDiscountAmount = itemsDiscountAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder totalDiscountAmount(Integer totalDiscountAmount) {
-    
-    this.totalDiscountAmount = totalDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level AND all product-specific discounts applied to the order.
-   * @return totalDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getTotalDiscountAmount() {
-    return totalDiscountAmount;
-  }
-
-
-  public void setTotalDiscountAmount(Integer totalDiscountAmount) {
-    this.totalDiscountAmount = totalDiscountAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder totalAmount(Integer totalAmount) {
-    
-    this.totalAmount = totalAmount;
-    return this;
-  }
-
-   /**
-   * Order amount after undoing all the discounts through the rollback redemption.
-   * @return totalAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getTotalAmount() {
-    return totalAmount;
-  }
-
-
-  public void setTotalAmount(Integer totalAmount) {
-    this.totalAmount = totalAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder appliedDiscountAmount(Integer appliedDiscountAmount) {
-    
-    this.appliedDiscountAmount = appliedDiscountAmount;
-    return this;
-  }
-
-   /**
-   * This field shows the order-level discount applied.
-   * @return appliedDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getAppliedDiscountAmount() {
-    return appliedDiscountAmount;
-  }
-
-
-  public void setAppliedDiscountAmount(Integer appliedDiscountAmount) {
-    this.appliedDiscountAmount = appliedDiscountAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder itemsAppliedDiscountAmount(Integer itemsAppliedDiscountAmount) {
-    
-    this.itemsAppliedDiscountAmount = itemsAppliedDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all product-specific discounts applied in a particular request.   &#x60;sum(items, i &#x3D;&gt; i.applied_discount_amount)&#x60;
-   * @return itemsAppliedDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getItemsAppliedDiscountAmount() {
-    return itemsAppliedDiscountAmount;
-  }
-
-
-  public void setItemsAppliedDiscountAmount(Integer itemsAppliedDiscountAmount) {
-    this.itemsAppliedDiscountAmount = itemsAppliedDiscountAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level AND all product-specific discounts applied in a particular request.   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;
-   * @return totalAppliedDiscountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getTotalAppliedDiscountAmount() {
-    return totalAppliedDiscountAmount;
-  }
-
-
-  public void setTotalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
-    this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder items(List<OrderItemCalculated> items) {
+  public ClientQualificationsCheckEligibilityResponseBodyOrder items(List<OrderItemEssential> items) {
     
     this.items = items;
     return this;
   }
 
-  public ClientQualificationsCheckEligibilityResponseBodyOrder addItemsItem(OrderItemCalculated itemsItem) {
+  public ClientQualificationsCheckEligibilityResponseBodyOrder addItemsItem(OrderItemEssential itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -503,12 +287,12 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItemCalculated> getItems() {
+  public List<OrderItemEssential> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItemCalculated> items) {
+  public void setItems(List<OrderItemEssential> items) {
     this.items = items;
   }
 
@@ -531,111 +315,6 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder _object(ObjectEnum _object) {
-    
-    this._object = _object;
-    return this;
-  }
-
-   /**
-   * The type of the object represented by JSON.
-   * @return _object
-  **/
-  @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
-  }
-
-
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder customerId(String customerId) {
-    
-    this.customerId = customerId;
-    return this;
-  }
-
-   /**
-   * Unique customer ID of the customer making the purchase.
-   * @return customerId
-  **/
-  @javax.annotation.Nullable
-  public String getCustomerId() {
-    return customerId;
-  }
-
-
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-  }
-
-
-  public ClientQualificationsCheckEligibilityResponseBodyOrder referrerId(String referrerId) {
-    
-    this.referrerId = referrerId;
-    return this;
-  }
-
-   /**
-   * Unique referrer ID.
-   * @return referrerId
-  **/
-  @javax.annotation.Nullable
-  public String getReferrerId() {
-    return referrerId;
-  }
-
-
-  public void setReferrerId(String referrerId) {
-    this.referrerId = referrerId;
   }
 
   /**
@@ -699,19 +378,8 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
         Objects.equals(this.amount, clientQualificationsCheckEligibilityResponseBodyOrder.amount) &&
         Objects.equals(this.initialAmount, clientQualificationsCheckEligibilityResponseBodyOrder.initialAmount) &&
         Objects.equals(this.discountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.discountAmount) &&
-        Objects.equals(this.itemsDiscountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.itemsDiscountAmount) &&
-        Objects.equals(this.totalDiscountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.totalDiscountAmount) &&
-        Objects.equals(this.totalAmount, clientQualificationsCheckEligibilityResponseBodyOrder.totalAmount) &&
-        Objects.equals(this.appliedDiscountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.appliedDiscountAmount) &&
-        Objects.equals(this.itemsAppliedDiscountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.itemsAppliedDiscountAmount) &&
-        Objects.equals(this.totalAppliedDiscountAmount, clientQualificationsCheckEligibilityResponseBodyOrder.totalAppliedDiscountAmount) &&
         Objects.equals(this.items, clientQualificationsCheckEligibilityResponseBodyOrder.items) &&
-        Objects.equals(this.metadata, clientQualificationsCheckEligibilityResponseBodyOrder.metadata) &&
-        Objects.equals(this._object, clientQualificationsCheckEligibilityResponseBodyOrder._object) &&
-        Objects.equals(this.createdAt, clientQualificationsCheckEligibilityResponseBodyOrder.createdAt) &&
-        Objects.equals(this.updatedAt, clientQualificationsCheckEligibilityResponseBodyOrder.updatedAt) &&
-        Objects.equals(this.customerId, clientQualificationsCheckEligibilityResponseBodyOrder.customerId) &&
-        Objects.equals(this.referrerId, clientQualificationsCheckEligibilityResponseBodyOrder.referrerId)&&
+        Objects.equals(this.metadata, clientQualificationsCheckEligibilityResponseBodyOrder.metadata)&&
         Objects.equals(this.additionalProperties, clientQualificationsCheckEligibilityResponseBodyOrder.additionalProperties);
   }
 
@@ -721,7 +389,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -741,19 +409,8 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
-    sb.append("    itemsDiscountAmount: ").append(toIndentedString(itemsDiscountAmount)).append("\n");
-    sb.append("    totalDiscountAmount: ").append(toIndentedString(totalDiscountAmount)).append("\n");
-    sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
-    sb.append("    appliedDiscountAmount: ").append(toIndentedString(appliedDiscountAmount)).append("\n");
-    sb.append("    itemsAppliedDiscountAmount: ").append(toIndentedString(itemsAppliedDiscountAmount)).append("\n");
-    sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -783,19 +440,8 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrder {
     openapiFields.add("amount");
     openapiFields.add("initial_amount");
     openapiFields.add("discount_amount");
-    openapiFields.add("items_discount_amount");
-    openapiFields.add("total_discount_amount");
-    openapiFields.add("total_amount");
-    openapiFields.add("applied_discount_amount");
-    openapiFields.add("items_applied_discount_amount");
-    openapiFields.add("total_applied_discount_amount");
     openapiFields.add("items");
     openapiFields.add("metadata");
-    openapiFields.add("object");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
-    openapiFields.add("customer_id");
-    openapiFields.add("referrer_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

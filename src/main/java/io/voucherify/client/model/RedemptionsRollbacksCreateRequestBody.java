@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.OrderCalculatedEssential;
+import io.voucherify.client.model.OrderEssential;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -69,7 +69,7 @@ public class RedemptionsRollbacksCreateRequestBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculatedEssential order;
+  private OrderEssential order;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -141,7 +141,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   }
 
 
-  public RedemptionsRollbacksCreateRequestBody order(OrderCalculatedEssential order) {
+  public RedemptionsRollbacksCreateRequestBody order(OrderEssential order) {
     
     this.order = order;
     return this;
@@ -152,12 +152,12 @@ public class RedemptionsRollbacksCreateRequestBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedEssential getOrder() {
+  public OrderEssential getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculatedEssential order) {
+  public void setOrder(OrderEssential order) {
     this.order = order;
   }
 

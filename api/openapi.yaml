@@ -28551,7 +28551,7 @@ components:
           description: Customer's information.
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         tracking_id:
           description: Is correspondent to Customer's source_id
@@ -28700,23 +28700,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -28803,23 +28787,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             - metadata: "{}"
               validation_rules_assignments:
                 total: 0
@@ -28916,23 +28884,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -29019,23 +28971,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -29132,23 +29068,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -29235,23 +29155,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           - redeemables:
             - metadata: "{}"
               validation_rules_assignments:
@@ -29349,23 +29253,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -29452,23 +29340,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             - metadata: "{}"
               validation_rules_assignments:
                 total: 0
@@ -29565,23 +29437,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -29668,23 +29524,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -29781,23 +29621,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -29884,23 +29708,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           more_starting_after: 2023-10-31T12:13:16.374Z
           data_ref: data
           has_more: true
@@ -29974,7 +29782,7 @@ components:
           type: array
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         customer:
           allOf:
@@ -30782,7 +30590,7 @@ components:
           type: array
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         customer:
           allOf:
@@ -30969,23 +30777,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -31072,23 +30864,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         - result:
             gift:
               credits: 7
@@ -31244,23 +31020,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -31347,23 +31107,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         inapplicable_redeemables:
         - ""
         - ""
@@ -31386,23 +31130,23 @@ components:
         - ""
         session:
           type: LOCK
-          ttl: 3.353193347011243
+          ttl: 6.438423552598547
           key: key
           ttl_unit: DAYS
         tracking_id: track_VAVo1/z+G2GI2LPw==
         order:
-          total_applied_discount_amount: 6
-          amount: 6
+          total_applied_discount_amount: 4
+          amount: 1
           metadata: "{}"
           referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
+          discount_amount: 5
           created_at: 2021-12-22T10:13:06.487Z
-          initial_amount: 3
-          total_discount_amount: 2
-          applied_discount_amount: 6
+          initial_amount: 5
+          total_discount_amount: 7
+          applied_discount_amount: 3
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
-          total_amount: 6
+          total_amount: 9
           redemptions:
             key:
               date: 2022-09-02T17:06:56.649Z
@@ -31417,7 +31161,7 @@ components:
               related_object_id: r_0ba186c4824e4881e1
               rollback_id: rr_0c63c84eb78ee0a6c0
               rollback_date: 2023-01-31T14:18:37.15Z
-          items_applied_discount_amount: 5
+          items_applied_discount_amount: 2
           id: id
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
@@ -31485,7 +31229,7 @@ components:
             applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          items_discount_amount: 1
+          items_discount_amount: 2
           object: order
           customer: ""
       properties:
@@ -31520,7 +31264,7 @@ components:
           title: ClientValidationsValidateResponseBodyInapplicableRedeemables
           type: array
         order:
-          $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          $ref: '#/components/schemas/OrderCalculated'
         tracking_id:
           description: Hashed customer source ID.
           example: track_VAVo1/z+G2GI2LPw==
@@ -36200,7 +35944,7 @@ components:
           $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemRequestBodyReward'
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order object that is **required** when redeeming a pay with
             points reward.
         metadata:
@@ -36497,7 +36241,7 @@ components:
           type: string
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          - $ref: '#/components/schemas/OrderCalculated'
           nullable: true
         channel:
           $ref: '#/components/schemas/LoyaltiesMembersRedemptionRedeemResponseBodyChannel'
@@ -39389,18 +39133,18 @@ components:
         total: 0
         data_ref: orders
         orders:
-        - total_applied_discount_amount: 6
-          amount: 6
+        - total_applied_discount_amount: 4
+          amount: 1
           metadata: "{}"
           referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
+          discount_amount: 5
           created_at: 2021-12-22T10:13:06.487Z
-          initial_amount: 3
-          total_discount_amount: 2
-          applied_discount_amount: 6
+          initial_amount: 5
+          total_discount_amount: 7
+          applied_discount_amount: 3
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
-          total_amount: 6
+          total_amount: 9
           redemptions:
             key:
               date: 2022-09-02T17:06:56.649Z
@@ -39415,7 +39159,7 @@ components:
               related_object_id: r_0ba186c4824e4881e1
               rollback_id: rr_0c63c84eb78ee0a6c0
               rollback_date: 2023-01-31T14:18:37.15Z
-          items_applied_discount_amount: 5
+          items_applied_discount_amount: 2
           id: id
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
@@ -39483,21 +39227,21 @@ components:
             applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          items_discount_amount: 1
+          items_discount_amount: 2
           object: order
           customer: ""
-        - total_applied_discount_amount: 6
-          amount: 6
+        - total_applied_discount_amount: 4
+          amount: 1
           metadata: "{}"
           referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
+          discount_amount: 5
           created_at: 2021-12-22T10:13:06.487Z
-          initial_amount: 3
-          total_discount_amount: 2
-          applied_discount_amount: 6
+          initial_amount: 5
+          total_discount_amount: 7
+          applied_discount_amount: 3
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
-          total_amount: 6
+          total_amount: 9
           redemptions:
             key:
               date: 2022-09-02T17:06:56.649Z
@@ -39512,7 +39256,7 @@ components:
               related_object_id: r_0ba186c4824e4881e1
               rollback_id: rr_0c63c84eb78ee0a6c0
               rollback_date: 2023-01-31T14:18:37.15Z
-          items_applied_discount_amount: 5
+          items_applied_discount_amount: 2
           id: id
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
@@ -39580,7 +39324,7 @@ components:
             applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          items_discount_amount: 1
+          items_discount_amount: 2
           object: order
           customer: ""
         object: list
@@ -39604,7 +39348,7 @@ components:
         orders:
           description: Contains array of order objects.
           items:
-            $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+            $ref: '#/components/schemas/OrderCalculated'
           nullable: true
           title: OrdersListResponseBodyOrders
           type: array
@@ -39761,23 +39505,7 @@ components:
         initial_amount: 6
         total_discount_amount: 5
         applied_discount_amount: 7
-        referrer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 2
         redemptions:
@@ -39864,23 +39592,7 @@ components:
         status: CREATED
         items_discount_amount: 5
         object: order
-        customer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        customer: ""
       properties:
         id:
           description: Unique ID assigned by Voucherify of an existing order that
@@ -39992,9 +39704,11 @@ components:
           nullable: true
           type: string
         customer:
-          $ref: '#/components/schemas/OrdersUpdateResponseBodyCustomer'
+          allOf:
+          - $ref: '#/components/schemas/CustomerId'
         referrer:
-          $ref: '#/components/schemas/OrdersUpdateResponseBodyReferrer'
+          allOf:
+          - $ref: '#/components/schemas/ReferrerId'
         redemptions:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptionsEntry'
@@ -44581,7 +44295,7 @@ components:
           description: Customer's information.
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         tracking_id:
           description: Is correspondent to Customer's source_id
@@ -44730,23 +44444,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -44833,23 +44531,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             - metadata: "{}"
               validation_rules_assignments:
                 total: 0
@@ -44946,23 +44628,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -45049,23 +44715,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -45162,23 +44812,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -45265,23 +44899,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           - redeemables:
             - metadata: "{}"
               validation_rules_assignments:
@@ -45379,23 +44997,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -45482,23 +45084,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             - metadata: "{}"
               validation_rules_assignments:
                 total: 0
@@ -45595,23 +45181,7 @@ components:
                 initial_amount: 5
                 total_discount_amount: 7
                 applied_discount_amount: 3
-                referrer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                referrer: ""
                 updated_at: 2021-12-22T10:14:45.316Z
                 total_amount: 9
                 redemptions:
@@ -45698,23 +45268,7 @@ components:
                 status: CREATED
                 items_discount_amount: 2
                 object: order
-                customer:
-                  birthday: 2000-01-23
-                  metadata: "{}"
-                  birthdate: 2000-01-23
-                  address:
-                    line_1: line_1
-                    line_2: line_2
-                    country: country
-                    city: city
-                    state: state
-                    postal_code: postal_code
-                  phone: phone
-                  name: name
-                  description: description
-                  id: id
-                  source_id: source_id
-                  email: email
+                customer: ""
             metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -45811,23 +45365,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -45914,23 +45452,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           more_starting_after: 2023-10-31T12:13:16.374Z
           data_ref: data
           has_more: true
@@ -47410,7 +46932,7 @@ components:
           type: array
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         customer:
           allOf:
@@ -48204,83 +47726,64 @@ components:
           source_id: source_id
           email: email
         order:
-          total_applied_discount_amount: 3
           amount: 0
           metadata: "{}"
           discount_amount: 1
           initial_amount: 6
-          total_discount_amount: 5
-          applied_discount_amount: 7
-          total_amount: 2
-          items_applied_discount_amount: 9
           id: id
           source_id: source_id
           items:
-          - amount: 1
+          - amount: 7
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 4.145608029883936
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 7
-            initial_quantity: 1
-            discount_amount: 6
+            quantity: 5
+            initial_quantity: 2
+            discount_amount: 9
             sku_id: sku_id
-            applied_quantity: 4
-            initial_amount: 9
-            subtotal_amount: 6
+            initial_amount: 3
             related_object: product
-            applied_discount_amount: 7
-            price: 9
+            price: 2
             product_id: product_id
-            discount_quantity: 1
-            applied_discount_quantity: 1
+            discount_quantity: 5
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 7.386281948385884
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 5
-            object: order_item
-          - amount: 1
+          - amount: 7
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 4.145608029883936
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 7
-            initial_quantity: 1
-            discount_amount: 6
+            quantity: 5
+            initial_quantity: 2
+            discount_amount: 9
             sku_id: sku_id
-            applied_quantity: 4
-            initial_amount: 9
-            subtotal_amount: 6
+            initial_amount: 3
             related_object: product
-            applied_discount_amount: 7
-            price: 9
+            price: 2
             product_id: product_id
-            discount_quantity: 1
-            applied_discount_quantity: 1
+            discount_quantity: 5
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 7.386281948385884
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 5
-            object: order_item
           status: CREATED
-          items_discount_amount: 5
-          object: order
       properties:
         reason:
           description: Reason for the rollback.
@@ -48293,7 +47796,7 @@ components:
         customer:
           $ref: '#/components/schemas/Customer'
         order:
-          $ref: '#/components/schemas/OrderCalculatedEssential'
+          $ref: '#/components/schemas/OrderEssential'
         metadata:
           description: A set of key/value pairs that you can send in the request body
             to update **redemption** metadata.
@@ -48448,7 +47951,7 @@ components:
           type: string
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          - $ref: '#/components/schemas/OrderCalculated'
           nullable: true
         channel:
           $ref: '#/components/schemas/RedemptionsRollbackCreateResponseBodyChannel'
@@ -48509,83 +48012,64 @@ components:
           source_id: source_id
           email: email
         order:
-          total_applied_discount_amount: 3
           amount: 0
           metadata: "{}"
           discount_amount: 1
           initial_amount: 6
-          total_discount_amount: 5
-          applied_discount_amount: 7
-          total_amount: 2
-          items_applied_discount_amount: 9
           id: id
           source_id: source_id
           items:
-          - amount: 1
+          - amount: 7
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 4.145608029883936
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 7
-            initial_quantity: 1
-            discount_amount: 6
+            quantity: 5
+            initial_quantity: 2
+            discount_amount: 9
             sku_id: sku_id
-            applied_quantity: 4
-            initial_amount: 9
-            subtotal_amount: 6
+            initial_amount: 3
             related_object: product
-            applied_discount_amount: 7
-            price: 9
+            price: 2
             product_id: product_id
-            discount_quantity: 1
-            applied_discount_quantity: 1
+            discount_quantity: 5
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 7.386281948385884
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 5
-            object: order_item
-          - amount: 1
+          - amount: 7
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 4.145608029883936
               name: name
               id: id
               source_id: source_id
               override: true
             metadata: "{}"
-            quantity: 7
-            initial_quantity: 1
-            discount_amount: 6
+            quantity: 5
+            initial_quantity: 2
+            discount_amount: 9
             sku_id: sku_id
-            applied_quantity: 4
-            initial_amount: 9
-            subtotal_amount: 6
+            initial_amount: 3
             related_object: product
-            applied_discount_amount: 7
-            price: 9
+            price: 2
             product_id: product_id
-            discount_quantity: 1
-            applied_discount_quantity: 1
+            discount_quantity: 5
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 7.386281948385884
               id: id
               source_id: source_id
               override: true
               sku: sku
-            applied_quantity_amount: 5
-            object: order_item
           status: CREATED
-          items_discount_amount: 5
-          object: order
       properties:
         reason:
           description: Reason for the rollback.
@@ -48598,7 +48082,7 @@ components:
         customer:
           $ref: '#/components/schemas/Customer'
         order:
-          $ref: '#/components/schemas/OrderCalculatedEssential'
+          $ref: '#/components/schemas/OrderEssential'
         metadata:
           description: A set of key/value pairs that you can send in the request body
             to update **redemption** metadata.
@@ -48799,18 +48283,18 @@ components:
           order: ""
           customer: ""
         order:
-          total_applied_discount_amount: 6
-          amount: 6
+          total_applied_discount_amount: 4
+          amount: 1
           metadata: "{}"
           referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
+          discount_amount: 5
           created_at: 2021-12-22T10:13:06.487Z
-          initial_amount: 3
-          total_discount_amount: 2
-          applied_discount_amount: 6
+          initial_amount: 5
+          total_discount_amount: 7
+          applied_discount_amount: 3
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
-          total_amount: 6
+          total_amount: 9
           redemptions:
             key:
               date: 2022-09-02T17:06:56.649Z
@@ -48825,7 +48309,7 @@ components:
               related_object_id: r_0ba186c4824e4881e1
               rollback_id: rr_0c63c84eb78ee0a6c0
               rollback_date: 2023-01-31T14:18:37.15Z
-          items_applied_discount_amount: 5
+          items_applied_discount_amount: 2
           id: id
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
@@ -48893,7 +48377,7 @@ components:
             applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          items_discount_amount: 1
+          items_discount_amount: 2
           object: order
           customer: ""
       properties:
@@ -48908,7 +48392,7 @@ components:
         parent_rollback:
           $ref: '#/components/schemas/RedemptionRollback'
         order:
-          $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          $ref: '#/components/schemas/OrderCalculated'
       title: RedemptionsRollbacksCreateResponseBody
       type: object
     Reward:
@@ -51261,7 +50745,7 @@ components:
           type: array
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedEssential'
+          - $ref: '#/components/schemas/OrderEssential'
           description: Order information.
         customer:
           allOf:
@@ -51448,23 +50932,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -51551,23 +51019,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         - result:
             gift:
               credits: 6
@@ -51723,23 +51175,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -51826,23 +51262,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         inapplicable_redeemables:
         - ""
         - ""
@@ -51865,23 +51285,23 @@ components:
         - ""
         session:
           type: LOCK
-          ttl: 3.353193347011243
+          ttl: 6.438423552598547
           key: key
           ttl_unit: DAYS
         tracking_id: track_VAVo1/z+G2GI2LPw==
         order:
-          total_applied_discount_amount: 6
-          amount: 6
+          total_applied_discount_amount: 4
+          amount: 1
           metadata: "{}"
           referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          discount_amount: 6
+          discount_amount: 5
           created_at: 2021-12-22T10:13:06.487Z
-          initial_amount: 3
-          total_discount_amount: 2
-          applied_discount_amount: 6
+          initial_amount: 5
+          total_discount_amount: 7
+          applied_discount_amount: 3
           referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
-          total_amount: 6
+          total_amount: 9
           redemptions:
             key:
               date: 2022-09-02T17:06:56.649Z
@@ -51896,7 +51316,7 @@ components:
               related_object_id: r_0ba186c4824e4881e1
               rollback_id: rr_0c63c84eb78ee0a6c0
               rollback_date: 2023-01-31T14:18:37.15Z
-          items_applied_discount_amount: 5
+          items_applied_discount_amount: 2
           id: id
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
@@ -51964,7 +51384,7 @@ components:
             applied_quantity_amount: 5
             object: order_item
           status: CREATED
-          items_discount_amount: 1
+          items_discount_amount: 2
           object: order
           customer: ""
       properties:
@@ -51999,7 +51419,7 @@ components:
           title: ValidationsValidateResponseBodyInapplicableRedeemables
           type: array
         order:
-          $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          $ref: '#/components/schemas/OrderCalculated'
         tracking_id:
           description: Hashed customer source ID.
           example: track_VAVo1/z+G2GI2LPw==
@@ -58069,23 +57489,7 @@ components:
         initial_amount: 5
         total_discount_amount: 7
         applied_discount_amount: 3
-        referrer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        referrer: ""
         updated_at: 2021-12-22T10:14:45.316Z
         total_amount: 9
         redemptions:
@@ -58172,23 +57576,7 @@ components:
         status: CREATED
         items_discount_amount: 2
         object: order
-        customer:
-          birthday: 2000-01-23
-          metadata: "{}"
-          birthdate: 2000-01-23
-          address:
-            line_1: line_1
-            line_2: line_2
-            country: country
-            city: city
-            state: state
-            postal_code: postal_code
-          phone: phone
-          name: name
-          description: description
-          id: id
-          source_id: source_id
-          email: email
+        customer: ""
       properties:
         id:
           description: Unique ID assigned by Voucherify of an existing order that
@@ -58300,395 +57688,6 @@ components:
           nullable: true
           type: string
         customer:
-          $ref: '#/components/schemas/OrderCalculatedCustomer'
-        referrer:
-          $ref: '#/components/schemas/OrderCalculatedReferrer'
-        redemptions:
-          additionalProperties:
-            $ref: '#/components/schemas/OrderRedemptionsEntry'
-          nullable: true
-          title: OrderCalculatedRedemptionsEntry
-          type: object
-      title: OrderCalculated
-      type: object
-    OrderCalculatedEssential:
-      additionalProperties: false
-      example:
-        total_applied_discount_amount: 3
-        amount: 0
-        metadata: "{}"
-        discount_amount: 1
-        initial_amount: 6
-        total_discount_amount: 5
-        applied_discount_amount: 7
-        total_amount: 2
-        items_applied_discount_amount: 9
-        id: id
-        source_id: source_id
-        items:
-        - amount: 1
-          product:
-            metadata: "{}"
-            price: 8.762042012749001
-            name: name
-            id: id
-            source_id: source_id
-            override: true
-          metadata: "{}"
-          quantity: 7
-          initial_quantity: 1
-          discount_amount: 6
-          sku_id: sku_id
-          applied_quantity: 4
-          initial_amount: 9
-          subtotal_amount: 6
-          related_object: product
-          applied_discount_amount: 7
-          price: 9
-          product_id: product_id
-          discount_quantity: 1
-          applied_discount_quantity: 1
-          source_id: source_id
-          sku:
-            price: 9.018348186070783
-            id: id
-            source_id: source_id
-            override: true
-            sku: sku
-          applied_quantity_amount: 5
-          object: order_item
-        - amount: 1
-          product:
-            metadata: "{}"
-            price: 8.762042012749001
-            name: name
-            id: id
-            source_id: source_id
-            override: true
-          metadata: "{}"
-          quantity: 7
-          initial_quantity: 1
-          discount_amount: 6
-          sku_id: sku_id
-          applied_quantity: 4
-          initial_amount: 9
-          subtotal_amount: 6
-          related_object: product
-          applied_discount_amount: 7
-          price: 9
-          product_id: product_id
-          discount_quantity: 1
-          applied_discount_quantity: 1
-          source_id: source_id
-          sku:
-            price: 9.018348186070783
-            id: id
-            source_id: source_id
-            override: true
-            sku: sku
-          applied_quantity_amount: 5
-          object: order_item
-        status: CREATED
-        items_discount_amount: 5
-        object: order
-      properties:
-        id:
-          description: Unique ID assigned by Voucherify of an existing order that
-            will be linked to the redemption of this request.
-          nullable: true
-          type: string
-        source_id:
-          description: Unique source ID of an existing order that will be linked to
-            the redemption of this request.
-          nullable: true
-          type: string
-        status:
-          description: The order status.
-          enum:
-          - CREATED
-          - PAID
-          - CANCELED
-          - FULFILLED
-          nullable: true
-          type: string
-        amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
-          nullable: true
-          type: integer
-        items_discount_amount:
-          description: Sum of all product-specific discounts applied to the order.
-          nullable: true
-          type: integer
-        total_discount_amount:
-          description: Sum of all order-level AND all product-specific discounts applied
-            to the order.
-          nullable: true
-          type: integer
-        total_amount:
-          description: Order amount after undoing all the discounts through the rollback
-            redemption.
-          nullable: true
-          type: integer
-        applied_discount_amount:
-          description: This field shows the order-level discount applied.
-          nullable: true
-          type: integer
-        items_applied_discount_amount:
-          description: "Sum of all product-specific discounts applied in a particular\
-            \ request.  \n`sum(items, i => i.applied_discount_amount)`"
-          nullable: true
-          type: integer
-        total_applied_discount_amount:
-          description: "Sum of all order-level AND all product-specific discounts\
-            \ applied in a particular request.  \n`total_applied_discount_amount`\
-            \ = `applied_discount_amount` + `items_applied_discount_amount`"
-          nullable: true
-          type: integer
-        items:
-          description: Array of items applied to the order.
-          items:
-            $ref: '#/components/schemas/OrderItemCalculated'
-          nullable: true
-          title: OrderCalculatedEssentialItems
-          type: array
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an order.
-            It can be useful for storing additional information about the order in
-            a structured format.
-          nullable: true
-          title: OrderCalculatedEssentialMetadata
-          type: object
-        object:
-          default: order
-          description: The type of the object represented by JSON.
-          enum:
-          - order
-          nullable: true
-          type: string
-      title: OrderCalculatedEssential
-      type: object
-    OrderCalculatedNoCustomerData:
-      example:
-        total_applied_discount_amount: 6
-        amount: 6
-        metadata: "{}"
-        referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
-        discount_amount: 6
-        created_at: 2021-12-22T10:13:06.487Z
-        initial_amount: 3
-        total_discount_amount: 2
-        applied_discount_amount: 6
-        referrer: ""
-        updated_at: 2021-12-22T10:14:45.316Z
-        total_amount: 6
-        redemptions:
-          key:
-            date: 2022-09-02T17:06:56.649Z
-            rollback_stacked:
-            - rollback_stacked
-            - rollback_stacked
-            related_object_parent_id: related_object_parent_id
-            stacked:
-            - stacked
-            - stacked
-            related_object_type: redemption
-            related_object_id: r_0ba186c4824e4881e1
-            rollback_id: rr_0c63c84eb78ee0a6c0
-            rollback_date: 2023-01-31T14:18:37.15Z
-        items_applied_discount_amount: 5
-        id: id
-        source_id: source_id
-        customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
-        items:
-        - amount: 1
-          product:
-            metadata: "{}"
-            price: 8.762042012749001
-            name: name
-            id: id
-            source_id: source_id
-            override: true
-          metadata: "{}"
-          quantity: 7
-          initial_quantity: 1
-          discount_amount: 6
-          sku_id: sku_id
-          applied_quantity: 4
-          initial_amount: 9
-          subtotal_amount: 6
-          related_object: product
-          applied_discount_amount: 7
-          price: 9
-          product_id: product_id
-          discount_quantity: 1
-          applied_discount_quantity: 1
-          source_id: source_id
-          sku:
-            price: 9.018348186070783
-            id: id
-            source_id: source_id
-            override: true
-            sku: sku
-          applied_quantity_amount: 5
-          object: order_item
-        - amount: 1
-          product:
-            metadata: "{}"
-            price: 8.762042012749001
-            name: name
-            id: id
-            source_id: source_id
-            override: true
-          metadata: "{}"
-          quantity: 7
-          initial_quantity: 1
-          discount_amount: 6
-          sku_id: sku_id
-          applied_quantity: 4
-          initial_amount: 9
-          subtotal_amount: 6
-          related_object: product
-          applied_discount_amount: 7
-          price: 9
-          product_id: product_id
-          discount_quantity: 1
-          applied_discount_quantity: 1
-          source_id: source_id
-          sku:
-            price: 9.018348186070783
-            id: id
-            source_id: source_id
-            override: true
-            sku: sku
-          applied_quantity_amount: 5
-          object: order_item
-        status: CREATED
-        items_discount_amount: 1
-        object: order
-        customer: ""
-      properties:
-        id:
-          description: Unique ID assigned by Voucherify of an existing order that
-            will be linked to the redemption of this request.
-          nullable: true
-          type: string
-        source_id:
-          description: Unique source ID of an existing order that will be linked to
-            the redemption of this request.
-          nullable: true
-          type: string
-        status:
-          description: The order status.
-          enum:
-          - CREATED
-          - PAID
-          - CANCELED
-          - FULFILLED
-          nullable: true
-          type: string
-        amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-level discounts applied to the order.
-          nullable: true
-          type: integer
-        items_discount_amount:
-          description: Sum of all product-specific discounts applied to the order.
-          nullable: true
-          type: integer
-        total_discount_amount:
-          description: Sum of all order-level AND all product-specific discounts applied
-            to the order.
-          nullable: true
-          type: integer
-        total_amount:
-          description: Order amount after undoing all the discounts through the rollback
-            redemption.
-          nullable: true
-          type: integer
-        applied_discount_amount:
-          description: This field shows the order-level discount applied.
-          nullable: true
-          type: integer
-        items_applied_discount_amount:
-          description: "Sum of all product-specific discounts applied in a particular\
-            \ request.  \n`sum(items, i => i.applied_discount_amount)`"
-          nullable: true
-          type: integer
-        total_applied_discount_amount:
-          description: "Sum of all order-level AND all product-specific discounts\
-            \ applied in a particular request.  \n`total_applied_discount_amount`\
-            \ = `applied_discount_amount` + `items_applied_discount_amount`"
-          nullable: true
-          type: integer
-        items:
-          description: Array of items applied to the order.
-          items:
-            $ref: '#/components/schemas/OrderItemCalculated'
-          nullable: true
-          title: OrderCalculatedNoCustomerDataItems
-          type: array
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an order.
-            It can be useful for storing additional information about the order in
-            a structured format.
-          nullable: true
-          title: OrderCalculatedNoCustomerDataMetadata
-          type: object
-        object:
-          default: order
-          description: The type of the object represented by JSON.
-          enum:
-          - order
-          nullable: true
-          type: string
-        created_at:
-          description: Timestamp representing the date and time when the order was
-            created. The value is shown in the ISO 8601 format.
-          example: 2021-12-22T10:13:06.487Z
-          format: date-time
-          nullable: true
-          type: string
-        updated_at:
-          description: Timestamp representing the date and time when the order was
-            last updated in ISO 8601 format.
-          example: 2021-12-22T10:14:45.316Z
-          format: date-time
-          nullable: true
-          type: string
-        customer_id:
-          description: Unique customer ID of the customer making the purchase.
-          example: cust_7iUa6ICKyU6gH40dBU25kQU1
-          nullable: true
-          type: string
-        referrer_id:
-          description: Unique referrer ID.
-          example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-          nullable: true
-          type: string
-        customer:
           allOf:
           - $ref: '#/components/schemas/CustomerId'
         referrer:
@@ -58698,9 +57697,9 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/OrderRedemptionsEntry'
           nullable: true
-          title: OrderCalculatedNoCustomerDataRedemptionsEntry
+          title: OrderCalculatedRedemptionsEntry
           type: object
-      title: OrderCalculatedNoCustomerData
+      title: OrderCalculated
       type: object
     OrderCreateBase:
       properties:
@@ -58762,6 +57761,120 @@ components:
           title: OrderCreateBaseMetadata
           type: object
       title: OrderCreateBase
+      type: object
+    OrderEssential:
+      additionalProperties: false
+      description: Order information.
+      example:
+        amount: 0
+        metadata: "{}"
+        discount_amount: 1
+        initial_amount: 6
+        id: id
+        source_id: source_id
+        items:
+        - amount: 7
+          product:
+            metadata: "{}"
+            price: 4.145608029883936
+            name: name
+            id: id
+            source_id: source_id
+            override: true
+          metadata: "{}"
+          quantity: 5
+          initial_quantity: 2
+          discount_amount: 9
+          sku_id: sku_id
+          initial_amount: 3
+          related_object: product
+          price: 2
+          product_id: product_id
+          discount_quantity: 5
+          source_id: source_id
+          sku:
+            price: 7.386281948385884
+            id: id
+            source_id: source_id
+            override: true
+            sku: sku
+        - amount: 7
+          product:
+            metadata: "{}"
+            price: 4.145608029883936
+            name: name
+            id: id
+            source_id: source_id
+            override: true
+          metadata: "{}"
+          quantity: 5
+          initial_quantity: 2
+          discount_amount: 9
+          sku_id: sku_id
+          initial_amount: 3
+          related_object: product
+          price: 2
+          product_id: product_id
+          discount_quantity: 5
+          source_id: source_id
+          sku:
+            price: 7.386281948385884
+            id: id
+            source_id: source_id
+            override: true
+            sku: sku
+        status: CREATED
+      properties:
+        id:
+          description: Unique ID assigned by Voucherify of an existing order that
+            will be linked to the redemption of this request.
+          nullable: true
+          type: string
+        source_id:
+          description: Unique source ID of an existing order that will be linked to
+            the redemption of this request.
+          nullable: true
+          type: string
+        status:
+          description: The order status.
+          enum:
+          - CREATED
+          - PAID
+          - CANCELED
+          - FULFILLED
+          nullable: true
+          type: string
+        amount:
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
+          nullable: true
+          type: integer
+        initial_amount:
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
+          nullable: true
+          type: integer
+        discount_amount:
+          description: Sum of all order-level discounts applied to the order.
+          nullable: true
+          type: integer
+        items:
+          description: Array of items applied to the order.
+          items:
+            $ref: '#/components/schemas/OrderItemEssential'
+          nullable: true
+          title: OrderEssentialItems
+          type: array
+        metadata:
+          description: A set of custom key/value pairs that you can attach to an order.
+            It can be useful for storing additional information about the order in
+            a structured format.
+          nullable: true
+          title: OrderEssentialMetadata
+          type: object
+      title: OrderEssential
       type: object
     OrderItem:
       example:
@@ -60334,23 +59447,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -60437,23 +59534,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           - metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -60550,23 +59631,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -60653,23 +59718,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           metadata: "{}"
           validation_rules_assignments:
             total: 0
@@ -60766,23 +59815,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -60869,23 +59902,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         - redeemables:
           - metadata: "{}"
             validation_rules_assignments:
@@ -60983,23 +60000,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -61086,23 +60087,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           - metadata: "{}"
             validation_rules_assignments:
               total: 0
@@ -61199,23 +60184,7 @@ components:
               initial_amount: 5
               total_discount_amount: 7
               applied_discount_amount: 3
-              referrer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              referrer: ""
               updated_at: 2021-12-22T10:14:45.316Z
               total_amount: 9
               redemptions:
@@ -61302,23 +60271,7 @@ components:
               status: CREATED
               items_discount_amount: 2
               object: order
-              customer:
-                birthday: 2000-01-23
-                metadata: "{}"
-                birthdate: 2000-01-23
-                address:
-                  line_1: line_1
-                  line_2: line_2
-                  country: country
-                  city: city
-                  state: state
-                  postal_code: postal_code
-                phone: phone
-                name: name
-                description: description
-                id: id
-                source_id: source_id
-                email: email
+              customer: ""
           metadata: "{}"
           validation_rules_assignments:
             total: 0
@@ -61415,23 +60368,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -61518,23 +60455,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         more_starting_after: 2023-10-31T12:13:16.374Z
         data_ref: data
         has_more: true
@@ -61862,7 +60783,7 @@ components:
           type: string
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          - $ref: '#/components/schemas/OrderCalculated'
           nullable: true
         channel:
           $ref: '#/components/schemas/RedemptionChannel'
@@ -62249,7 +61170,7 @@ components:
           type: string
         order:
           allOf:
-          - $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
+          - $ref: '#/components/schemas/OrderCalculated'
           nullable: true
         channel:
           $ref: '#/components/schemas/RedemptionRollbackChannel'
@@ -62458,7 +61379,7 @@ components:
     Session:
       example:
         type: LOCK
-        ttl: 3.353193347011243
+        ttl: 6.438423552598547
         key: key
         ttl_unit: DAYS
       properties:
@@ -64875,6 +63796,104 @@ components:
       - POINTS_TRANSFER_OUT
       title: LoyaltyCardTransactionsType
       type: string
+    OrderItemEssential:
+      example:
+        amount: 7
+        product:
+          metadata: "{}"
+          price: 4.145608029883936
+          name: name
+          id: id
+          source_id: source_id
+          override: true
+        metadata: "{}"
+        quantity: 5
+        initial_quantity: 2
+        discount_amount: 9
+        sku_id: sku_id
+        initial_amount: 3
+        related_object: product
+        price: 2
+        product_id: product_id
+        discount_quantity: 5
+        source_id: source_id
+        sku:
+          price: 7.386281948385884
+          id: id
+          source_id: source_id
+          override: true
+          sku: sku
+      properties:
+        sku_id:
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
+          nullable: true
+          type: string
+        product_id:
+          description: Unique identifier of the product. It is assigned by Voucherify.
+          nullable: true
+          type: string
+        related_object:
+          description: "Used along with the source_id property, can be set to either\
+            \ sku or product."
+          enum:
+          - product
+          - sku
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's product/SKU ID (if it is different from the\
+            \ Voucherify product/SKU ID). It is useful in the integration between\
+            \ multiple systems. It can be an ID from an eCommerce site, a database,\
+            \ or a third-party service."
+          nullable: true
+          type: string
+        quantity:
+          description: The quantity of the particular item in the cart.
+          nullable: true
+          type: integer
+        discount_quantity:
+          description: Number of dicounted items.
+          nullable: true
+          type: integer
+        initial_quantity:
+          description: A positive integer in the smallest unit quantity representing
+            the total amount of the order; this is the sum of the order items' quantity.
+          nullable: true
+          type: integer
+        amount:
+          description: The total amount of the order item (price * quantity).
+          nullable: true
+          type: integer
+        discount_amount:
+          description: xxxSum of all order-item-level discounts applied to the order.
+          nullable: true
+          type: integer
+        initial_amount:
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
+          nullable: true
+          type: integer
+        price:
+          description: Unit price of an item. Value is multiplied by 100 to precisely
+            represent 2 decimal places. For example `10000 cents` for `$100.00`.
+          nullable: true
+          type: integer
+        product:
+          $ref: '#/components/schemas/OrderItemEssentialProduct'
+        sku:
+          $ref: '#/components/schemas/OrderItemEssentialSku'
+        metadata:
+          description: A set of custom key/value pairs that you can attach to an SKU.
+            It can be useful for storing additional information about the SKU in a
+            structured format.
+          nullable: true
+          title: OrderItemEssentialMetadata
+          type: object
+      required:
+      - object
+      title: OrderItemEssential
+      type: object
     QualificationsFieldConditions:
       properties:
         conditions:
@@ -64983,23 +64002,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -65086,23 +64089,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         - metadata: "{}"
           validation_rules_assignments:
             total: 0
@@ -65199,23 +64186,7 @@ components:
             initial_amount: 5
             total_discount_amount: 7
             applied_discount_amount: 3
-            referrer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            referrer: ""
             updated_at: 2021-12-22T10:14:45.316Z
             total_amount: 9
             redemptions:
@@ -65302,23 +64273,7 @@ components:
             status: CREATED
             items_discount_amount: 2
             object: order
-            customer:
-              birthday: 2000-01-23
-              metadata: "{}"
-              birthdate: 2000-01-23
-              address:
-                line_1: line_1
-                line_2: line_2
-                country: country
-                city: city
-                state: state
-                postal_code: postal_code
-              phone: phone
-              name: name
-              description: description
-              id: id
-              source_id: source_id
-              email: email
+            customer: ""
         metadata: "{}"
         validation_rules_assignments:
           total: 0
@@ -65415,23 +64370,7 @@ components:
           initial_amount: 5
           total_discount_amount: 7
           applied_discount_amount: 3
-          referrer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
           redemptions:
@@ -65518,23 +64457,7 @@ components:
           status: CREATED
           items_discount_amount: 2
           object: order
-          customer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          customer: ""
       properties:
         id:
           description: Id of the redeemable.
@@ -66074,23 +64997,7 @@ components:
           initial_amount: 5
           total_discount_amount: 7
           applied_discount_amount: 3
-          referrer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
           redemptions:
@@ -66177,23 +65084,7 @@ components:
           status: CREATED
           items_discount_amount: 2
           object: order
-          customer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          customer: ""
       properties:
         id:
           description: Id of the redeemable.
@@ -66969,35 +65860,7 @@ components:
       type: object
     ClientQualificationsCheckEligibilityResponseBodyOrder:
       allOf:
-      - $ref: '#/components/schemas/OrderCalculatedEssential'
-      - additionalProperties: false
-        description: Order information.
-        properties:
-          created_at:
-            description: Timestamp representing the date and time when the order was
-              created. The value is shown in the ISO 8601 format.
-            example: 2021-12-22T10:13:06.487Z
-            format: date-time
-            nullable: true
-            type: string
-          updated_at:
-            description: Timestamp representing the date and time when the order was
-              last updated in ISO 8601 format.
-            example: 2021-12-22T10:14:45.316Z
-            format: date-time
-            nullable: true
-            type: string
-          customer_id:
-            description: Unique customer ID of the customer making the purchase.
-            example: cust_7iUa6ICKyU6gH40dBU25kQU1
-            nullable: true
-            type: string
-          referrer_id:
-            description: Unique referrer ID.
-            example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-            nullable: true
-            type: string
-        type: object
+      - $ref: '#/components/schemas/OrderEssential'
       nullable: true
       title: ClientQualificationsCheckEligibilityResponseBodyOrder
       type: object
@@ -67596,23 +66459,7 @@ components:
           initial_amount: 5
           total_discount_amount: 7
           applied_discount_amount: 3
-          referrer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
           redemptions:
@@ -67699,23 +66546,7 @@ components:
           status: CREATED
           items_discount_amount: 2
           object: order
-          customer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          customer: ""
       properties:
         status:
           enum:
@@ -73366,224 +72197,6 @@ components:
       - $ref: '#/components/schemas/OrderCreateBase'
       title: OrdersImportCreateRequestBodyItem
       type: object
-    OrdersUpdateResponseBodyCustomerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrdersUpdateResponseBodyCustomerAddress
-      type: object
-    OrdersUpdateResponseBodyCustomer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrdersUpdateResponseBodyCustomerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrdersUpdateResponseBodyCustomerMetadata
-          type: object
-      title: OrdersUpdateResponseBodyCustomer
-      type: object
-    OrdersUpdateResponseBodyReferrerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrdersUpdateResponseBodyReferrerAddress
-      type: object
-    OrdersUpdateResponseBodyReferrer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrdersUpdateResponseBodyReferrerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrdersUpdateResponseBodyReferrerMetadata
-          type: object
-      title: OrdersUpdateResponseBodyReferrer
-      type: object
     ParameterFiltersListCustomerRedeemablesId:
       description: "Unique redeemable holder ID, i.e. `rh_0e77502f84f0f4a6a8`."
       nullable: true
@@ -75788,35 +74401,7 @@ components:
       type: object
     QualificationsCheckEligibilityResponseBodyOrder:
       allOf:
-      - $ref: '#/components/schemas/OrderCalculatedEssential'
-      - additionalProperties: false
-        description: Order information.
-        properties:
-          created_at:
-            description: Timestamp representing the date and time when the order was
-              created. The value is shown in the ISO 8601 format.
-            example: 2021-12-22T10:13:06.487Z
-            format: date-time
-            nullable: true
-            type: string
-          updated_at:
-            description: Timestamp representing the date and time when the order was
-              last updated in ISO 8601 format.
-            example: 2021-12-22T10:14:45.316Z
-            format: date-time
-            nullable: true
-            type: string
-          customer_id:
-            description: Unique customer ID of the customer making the purchase.
-            example: cust_7iUa6ICKyU6gH40dBU25kQU1
-            nullable: true
-            type: string
-          referrer_id:
-            description: Unique referrer ID.
-            example: cust_nM4jqPiaXUvQdVSA6vTRUnix
-            nullable: true
-            type: string
-        type: object
+      - $ref: '#/components/schemas/OrderEssential'
       nullable: true
       title: QualificationsCheckEligibilityResponseBodyOrder
       type: object
@@ -80423,23 +79008,7 @@ components:
           initial_amount: 5
           total_discount_amount: 7
           applied_discount_amount: 3
-          referrer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          referrer: ""
           updated_at: 2021-12-22T10:14:45.316Z
           total_amount: 9
           redemptions:
@@ -80526,23 +79095,7 @@ components:
           status: CREATED
           items_discount_amount: 2
           object: order
-          customer:
-            birthday: 2000-01-23
-            metadata: "{}"
-            birthdate: 2000-01-23
-            address:
-              line_1: line_1
-              line_2: line_2
-              country: country
-              city: city
-              state: state
-              postal_code: postal_code
-            phone: phone
-            name: name
-            description: description
-            id: id
-            source_id: source_id
-            email: email
+          customer: ""
       properties:
         status:
           enum:
@@ -82801,224 +81354,6 @@ components:
         rounding:
           $ref: '#/components/schemas/LoyaltyTiersExpirationAllExpirationDate_rounding'
       title: LoyaltyTiersExpirationAllExpirationDate
-      type: object
-    OrderCalculatedCustomerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrderCalculatedCustomerAddress
-      type: object
-    OrderCalculatedCustomer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrderCalculatedCustomerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrderCalculatedCustomerMetadata
-          type: object
-      title: OrderCalculatedCustomer
-      type: object
-    OrderCalculatedReferrerAddress:
-      description: Customer's address.
-      example:
-        line_1: line_1
-        line_2: line_2
-        country: country
-        city: city
-        state: state
-        postal_code: postal_code
-      nullable: true
-      properties:
-        city:
-          description: City
-          nullable: true
-          type: string
-        state:
-          description: State
-          nullable: true
-          type: string
-        line_1:
-          description: First line of address.
-          nullable: true
-          type: string
-        line_2:
-          description: Second line of address.
-          nullable: true
-          type: string
-        country:
-          description: Country.
-          nullable: true
-          type: string
-        postal_code:
-          description: Postal code.
-          nullable: true
-          type: string
-      title: OrderCalculatedReferrerAddress
-      type: object
-    OrderCalculatedReferrer:
-      example:
-        birthday: 2000-01-23
-        metadata: "{}"
-        birthdate: 2000-01-23
-        address:
-          line_1: line_1
-          line_2: line_2
-          country: country
-          city: city
-          state: state
-          postal_code: postal_code
-        phone: phone
-        name: name
-        description: description
-        id: id
-        source_id: source_id
-        email: email
-      nullable: true
-      properties:
-        id:
-          description: The ID of an existing customer.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
-          nullable: true
-          type: string
-        name:
-          description: Customer's first and last name.
-          nullable: true
-          type: string
-        description:
-          description: An arbitrary string that you can attach to a customer object.
-          nullable: true
-          type: string
-        email:
-          description: Customer's email address.
-          nullable: true
-          type: string
-        phone:
-          description: Customer's phone number. This parameter is mandatory when you
-            try to send out codes to customers via an SMS channel.
-          nullable: true
-          type: string
-        birthday:
-          description: '`Deprecated`. ~~Customer''s birthdate; format YYYY-MM-DD~~.'
-          format: date
-          nullable: true
-          type: string
-        birthdate:
-          description: Customer's birthdate; format YYYY-MM-DD.
-          format: date
-          nullable: true
-          type: string
-        address:
-          $ref: '#/components/schemas/OrderCalculatedReferrerAddress'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
-          nullable: true
-          title: OrderCalculatedReferrerMetadata
-          type: object
-      title: OrderCalculatedReferrer
       type: object
     OrderItemProduct:
       additionalProperties: false
@@ -86568,6 +84903,96 @@ components:
         conditions:
           $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions'
       title: LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId
+      type: object
+    OrderItemEssentialProduct:
+      additionalProperties: false
+      description: An object containing details of the related product.
+      example:
+        metadata: "{}"
+        price: 4.145608029883936
+        name: name
+        id: id
+        source_id: source_id
+        override: true
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the product and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's product ID (if it is different than Voucherify's\
+            \ product ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        name:
+          description: Product name.
+          nullable: true
+          type: string
+        metadata:
+          description: A set of custom key/value pairs that you can attach to a product.
+            It can be useful for storing additional information about the product
+            in a structured format.
+          nullable: true
+          title: OrderItemEssentialProductMetadata
+          type: object
+        price:
+          description: Product price. A positive integer in the smallest currency
+            unit (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderItemEssentialProduct
+      type: object
+    OrderItemEssentialSku:
+      additionalProperties: false
+      description: An object containing details of the related SKU.
+      example:
+        price: 7.386281948385884
+        id: id
+        source_id: source_id
+        override: true
+        sku: sku
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the SKU and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's SKU ID (if it is different than Voucherify's\
+            \ SKU ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        sku:
+          description: The SKU name.
+          nullable: true
+          type: string
+        price:
+          description: SKU price. A positive integer in the smallest currency unit
+            (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderItemEssentialSku
       type: object
     RedeemableVoucherGift:
       description: Object representing gift parameters. Child attributes are present

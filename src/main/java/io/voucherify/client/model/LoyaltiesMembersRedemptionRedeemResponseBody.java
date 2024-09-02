@@ -24,7 +24,7 @@ import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyGi
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucher;
-import io.voucherify.client.model.OrderCalculatedNoCustomerData;
+import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionRewardResult;
 import io.voucherify.client.model.SimpleCustomer;
@@ -258,7 +258,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculatedNoCustomerData order;
+  private OrderCalculated order;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -621,7 +621,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody order(OrderCalculatedNoCustomerData order) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody order(OrderCalculated order) {
     
     this.order = order;
     return this;
@@ -632,12 +632,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculatedNoCustomerData getOrder() {
+  public OrderCalculated getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculatedNoCustomerData order) {
+  public void setOrder(OrderCalculated order) {
     this.order = order;
   }
 

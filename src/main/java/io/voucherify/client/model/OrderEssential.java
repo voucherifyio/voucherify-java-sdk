@@ -51,11 +51,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * QualificationsCheckEligibilityResponseBodyOrder
+ * Order information.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class QualificationsCheckEligibilityResponseBodyOrder {
+public class OrderEssential {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -139,10 +139,10 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public QualificationsCheckEligibilityResponseBodyOrder() {
+  public OrderEssential() {
   }
 
-  public QualificationsCheckEligibilityResponseBodyOrder id(String id) {
+  public OrderEssential id(String id) {
     
     this.id = id;
     return this;
@@ -163,7 +163,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder sourceId(String sourceId) {
+  public OrderEssential sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -184,7 +184,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder status(StatusEnum status) {
+  public OrderEssential status(StatusEnum status) {
     
     this.status = status;
     return this;
@@ -205,7 +205,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder amount(Integer amount) {
+  public OrderEssential amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -226,7 +226,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder initialAmount(Integer initialAmount) {
+  public OrderEssential initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
     return this;
@@ -247,7 +247,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder discountAmount(Integer discountAmount) {
+  public OrderEssential discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
     return this;
@@ -268,13 +268,13 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder items(List<OrderItemEssential> items) {
+  public OrderEssential items(List<OrderItemEssential> items) {
     
     this.items = items;
     return this;
   }
 
-  public QualificationsCheckEligibilityResponseBodyOrder addItemsItem(OrderItemEssential itemsItem) {
+  public OrderEssential addItemsItem(OrderItemEssential itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -297,7 +297,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder metadata(Object metadata) {
+  public OrderEssential metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -317,50 +317,6 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     this.metadata = metadata;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the QualificationsCheckEligibilityResponseBodyOrder instance itself
-   */
-  public QualificationsCheckEligibilityResponseBodyOrder putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -371,16 +327,15 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    QualificationsCheckEligibilityResponseBodyOrder qualificationsCheckEligibilityResponseBodyOrder = (QualificationsCheckEligibilityResponseBodyOrder) o;
-    return Objects.equals(this.id, qualificationsCheckEligibilityResponseBodyOrder.id) &&
-        Objects.equals(this.sourceId, qualificationsCheckEligibilityResponseBodyOrder.sourceId) &&
-        Objects.equals(this.status, qualificationsCheckEligibilityResponseBodyOrder.status) &&
-        Objects.equals(this.amount, qualificationsCheckEligibilityResponseBodyOrder.amount) &&
-        Objects.equals(this.initialAmount, qualificationsCheckEligibilityResponseBodyOrder.initialAmount) &&
-        Objects.equals(this.discountAmount, qualificationsCheckEligibilityResponseBodyOrder.discountAmount) &&
-        Objects.equals(this.items, qualificationsCheckEligibilityResponseBodyOrder.items) &&
-        Objects.equals(this.metadata, qualificationsCheckEligibilityResponseBodyOrder.metadata)&&
-        Objects.equals(this.additionalProperties, qualificationsCheckEligibilityResponseBodyOrder.additionalProperties);
+    OrderEssential orderEssential = (OrderEssential) o;
+    return Objects.equals(this.id, orderEssential.id) &&
+        Objects.equals(this.sourceId, orderEssential.sourceId) &&
+        Objects.equals(this.status, orderEssential.status) &&
+        Objects.equals(this.amount, orderEssential.amount) &&
+        Objects.equals(this.initialAmount, orderEssential.initialAmount) &&
+        Objects.equals(this.discountAmount, orderEssential.discountAmount) &&
+        Objects.equals(this.items, orderEssential.items) &&
+        Objects.equals(this.metadata, orderEssential.metadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -389,7 +344,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -402,7 +357,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class QualificationsCheckEligibilityResponseBodyOrder {\n");
+    sb.append("class OrderEssential {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -411,7 +366,6 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -451,62 +405,24 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!QualificationsCheckEligibilityResponseBodyOrder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'QualificationsCheckEligibilityResponseBodyOrder' and its subtypes
+       if (!OrderEssential.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderEssential' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<QualificationsCheckEligibilityResponseBodyOrder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(QualificationsCheckEligibilityResponseBodyOrder.class));
+       final TypeAdapter<OrderEssential> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderEssential.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<QualificationsCheckEligibilityResponseBodyOrder>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderEssential>() {
            @Override
-           public void write(JsonWriter out, QualificationsCheckEligibilityResponseBodyOrder value) throws IOException {
+           public void write(JsonWriter out, OrderEssential value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public QualificationsCheckEligibilityResponseBodyOrder read(JsonReader in) throws IOException {
+           public OrderEssential read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             QualificationsCheckEligibilityResponseBodyOrder instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
@@ -514,18 +430,18 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
  /**
-  * Create an instance of QualificationsCheckEligibilityResponseBodyOrder given an JSON string
+  * Create an instance of OrderEssential given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of QualificationsCheckEligibilityResponseBodyOrder
-  * @throws IOException if the JSON string is invalid with respect to QualificationsCheckEligibilityResponseBodyOrder
+  * @return An instance of OrderEssential
+  * @throws IOException if the JSON string is invalid with respect to OrderEssential
   */
-  public static QualificationsCheckEligibilityResponseBodyOrder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, QualificationsCheckEligibilityResponseBodyOrder.class);
+  public static OrderEssential fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderEssential.class);
   }
 
  /**
-  * Convert an instance of QualificationsCheckEligibilityResponseBodyOrder to an JSON string
+  * Convert an instance of OrderEssential to an JSON string
   *
   * @return JSON string
   */

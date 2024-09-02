@@ -10,7 +10,7 @@ Response body schema for **POST** `v1/validations`.
 |------------ | ------------- | ------------- |
 |**options** | [**ValidationsValidateRequestBodyOptions**](ValidationsValidateRequestBodyOptions.md) |  |
 |**redeemables** | [**List&lt;ValidationsValidateRequestBodyRedeemablesItem&gt;**](ValidationsValidateRequestBodyRedeemablesItem.md) |  |
-|**order** | [**OrderCalculatedEssential**](OrderCalculatedEssential.md) |  |
+|**order** | [**OrderEssential**](OrderEssential.md) |  |
 |**customer** | [**Customer**](Customer.md) |  |
 |**session** | [**Session**](Session.md) |  |
 |**trackingId** | **String** | Is correspondent to Customer&#39;s source_id |
