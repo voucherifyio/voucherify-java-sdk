@@ -188,16 +188,12 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - CampaignsVouchersCreateResponseBody.loyaltyCard uses now `CampaignsVouchersCreateResponseBodyLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
     - CampaignsVouchersCreateResponseBody.publish uses now `CampaignsVouchersCreateResponseBodyPublish` instead of `CampaignsVouchersCreateCombinedResponseBodyPublish`
     - CampaignsVouchersCreateResponseBody.redemption uses now `CampaignsVouchersCreateResponseBodyRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
-    - ClientQualificationsCheckEligibilityRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
-    - ClientQualificationsCheckEligibilityResponseBody.order uses now `OrderCalculatedEssential` instead of `Order`
+    - ClientQualificationsCheckEligibilityResponseBody.order uses now `OrderCalculated` instead of `Order`
     - ClientRedemptionsRedeemRequestBody.redeemables uses now `ClientRedemptionsRedeemRequestBodyRedeemablesItem[]` instead of `StackableValidateRedeemBaseRedeemablesItem[]`
-    - ClientRedemptionsRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
     - ClientRedemptionsRedeemRequestBody.options uses now `ClientRedemptionsRedeemRequestBodyOptions` instead of `ClientRedemptionsRedeemRequestBodyAllOfOptions`
     - ClientValidationsValidateRequestBody.redeemables uses now `ClientValidationsValidateRequestBodyRedeemablesItem[]` instead of `StackableValidateRedeemBaseRedeemablesItem[]`
-    - ClientValidationsValidateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
     - ClientValidationsValidateRequestBody.options uses now `ClientValidationsValidateRequestBodyOptions` instead of `ClientValidationsValidateRequestBodyAllOfOptions`
     - ClientValidationsValidateResponseBody.redeemables uses now `ClientValidationsValidateResponseBodyRedeemablesItem` instead of `ValidationsValidateResponseBodyRedeemablesItem`
-    - ClientValidationsValidateResponseBody.order uses now `OrderCalculatedNoCustomerData` instead of `OrderCalculated`
     - Customer.address uses now `CustomerAddress` instead of `CustomerBaseAddress`
     - CustomerLoyalty.campaigns uses now `Map<String, CustomerLoyaltyCampaignsEntry>` instead of `Map<String, CustomerLoyaltyCampaignsValue>`
     - CustomerWithSummaryLoyaltyReferrals.assets uses now `CustomerWithSummaryLoyaltyReferralsAssets` instead of `CustomerResponseDataAssets`
@@ -234,7 +230,6 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - LoyaltiesEarningRulesGetResponseBody.customEvent uses now `LoyaltiesEarningRulesGetResponseBodyCustomEvent` instead of `EarningRuleBaseCustomEvent`
     - LoyaltiesEarningRulesGetResponseBody.segment uses now `LoyaltiesEarningRulesGetResponseBodySegment` instead of `EarningRuleBaseSegment`
     - LoyaltiesEarningRulesGetResponseBody.source uses now `LoyaltiesEarningRulesGetResponseBodySource` instead of `EarningRuleBaseSource`
-    - LoyaltiesMembersRedemptionRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
     - LoyaltiesMembersRedemptionRedeemResponseBody.relatedRedemptions uses now `LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions` instead of `RedemptionRelatedRedemptions`
     - LoyaltiesMembersRedemptionRedeemResponseBody.channel uses now `LoyaltiesMembersRedemptionRedeemResponseBodyChannel` instead of `RedemptionRelatedRedemptions`
     - LoyaltiesMembersRedemptionRedeemResponseBody.voucher uses now `LoyaltiesMembersRedemptionRedeemResponseBodyVoucher` instead of `RedemptionVoucher`
@@ -250,20 +245,17 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - LoyaltyCardTransactionsType.CANCELLATION(POINTS_CANCELLATION) was removed
     - LoyaltyTier.config uses now `LoyaltyTierConfig` instead of `LoyaltyTierAllOfConfig`
     - LoyaltyTier.points uses now `LoyaltyTierPoints` instead of `LoyaltyTierBasePoints`
-    - OrderCalculated.customer uses now `OrderCalculatedCustomer` instead of `CustomerId`
-    - OrderCalculated.referrer uses now `OrderCalculatedReferrer` instead of `CustomerId`
+    - OrderCalculated.customer uses now `CustomerId` instead of `Customer`
+    - OrderCalculated.referrer uses now `ReferrerId` instead of `Customer`
     - OrderCalculated.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
-    - OrderCalculatedNoCustomerData.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
-    - OrderItem.product uses now `OrderItemProduct` instead of `OrderItemCalculatedProduct`
-    - OrderItem.sku uses now `OrderItemSku` instead of `OrderItemCalculatedSku`
+    - OrderCalculatedNoCustomer was deleted
     - OrderItemCalculated.totalAppliedDiscountAmount was removed (was never used)
     - OrdersCreateResponseBody.referrer uses now `ReferrerId` instead of `CustomerId`
     - OrdersCreateResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
     - OrdersExportCreateResponseBody.parameters uses now `OrdersExportCreateResponseBodyParameters` instead of `OrdersExportCreateRequestBodyParameters`
     - OrdersGetResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
     - OrdersUpdateResponseBody.redemptions uses now `Map<String, OrderRedemptionsEntry>` instead of `Map<String, OrderRedemptions>`
-    - OrdersUpdateResponseBody.customer uses now `OrdersUpdateResponseBodyCustomer` instead of `CustomerId`
-    - OrdersUpdateResponseBody.referrer uses now `OrdersUpdateResponseBodyReferrer` instead of `CustomerId`
+    - OrdersUpdateResponseBody.referrer uses now `ReferrerId` instead of `CustomerId`
     - ProductCollectionsCreateRequestBody.products uses now `List<ProductCollectionsCreateRequestBodyProductsItem>` instead of `List<ProductCollectionsCreateDynamicRequestBodyProductsItem>`
     - ProductCollectionsCreateResponseBody.filter uses now `ProductCollectionsCreateResponseBodyFilter` instead of `ProductCollectionsCreateRequestBodyFilter`
     - ProductCollectionsCreateResponseBody.products uses now `List<ProductCollectionsCreateResponseBodyProductsItem>` instead of `List<ProductCollectionsItemProductsItem>`
@@ -293,8 +285,6 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - PromotionsTiersUpdateResponseBody.action uses now `PromotionsTiersUpdateResponseBodyAction` instead of `PromotionTierAction`
     - PromotionsTiersUpdateResponseBody.campaign uses now `PromotionsTiersUpdateResponseBodyCampaign` instead of `PromotionTierCampaign`
     - PromotionsTiersUpdateResponseBody.summary uses now `PromotionsTiersUpdateResponseBodySummary` instead of `PromotionTierSummary`
-    - QualificationsCheckEligibilityRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
-    - QualificationsCheckEligibilityResponseBody.order uses now `QualificationsCheckEligibilityResponseBodyOrder` instead of `OrderCalculated`
     - QualificationsOptionFilters.campaignType uses now `QualificationsOptionFiltersCampaignType` instead of `QualificationsCampaignTypeConditions`
     - RedemptionRelatedRedemptions.redemptions uses now `List<RedemptionRelatedRedemptionsRedemptionsItem>` instead of `List<RedemptionRelatedRedemptionsItem>`
     - RedemptionRollbackRelatedRedemptions.redemptions uses now `List<RedemptionRollbackRelatedRedemptionsRedemptionsItem>` instead of `List<RedemptionRollbackRelatedRedemptionsItem>`
@@ -304,13 +294,10 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - RedemptionVoucher.redemption uses now `RedemptionVoucherRedemption` instead of `CampaignsVouchersCreateCombinedResponseBodyRedemption`
     - RedemptionsRedeemRequestBody.options uses now `RedemptionsRedeemRequestBodyOptions` instead of `ClientRedemptionsRedeemRequestBodyAllOfOptions`
     - RedemptionsRedeemRequestBody.redeemables uses now `List<RedemptionsRedeemRequestBodyRedeemablesItem>` instead of `List<StackableValidateRedeemBaseRedeemablesItem>`
-    - RedemptionsRedeemRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
-    - RedemptionsRollbackCreateRequestBody.order uses now `OrderCalculatedEssential` instead of `order`
     - RedemptionsRollbackCreateResponseBody.relatedRedemptions uses now `RedemptionsRollbackCreateResponseBodyRelatedRedemptions` instead of `RedemptionRollbackRelatedRedemptions`
     - RedemptionsRollbackCreateResponseBody.channel uses now `RedemptionsRollbackCreateResponseBodyChannel` instead of `RedemptionRollbackChannel`
     - RedemptionsRollbackCreateResponseBody.gift uses now `RedemptionsRollbackCreateResponseBodyGift` instead of `RedemptionRollbackGift`
     - RedemptionsRollbackCreateResponseBody.loyaltyCard uses now `RedemptionsRollbackCreateResponseBodyLoyaltyCard` instead of `RedemptionRollbackLoyaltyCard`
-    - RedemptionsRollbacksCreateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
     - Referrer.address uses now `ReferrerAddress` instead of `CustomerBaseAddress`
     - RewardAssignment.parameters uses now `RewardAssignmentParameters` instead of `RewardAssignmentParametersParameters`
     - RewardTypeCampaign.type has no longer `PROMOTION` and `REFERRAL_PROGRAM` since that make no sense
@@ -335,8 +322,6 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - ValidationRulesUpdateResponseBody.applicableTo uses now `ValidationRulesUpdateResponseBodyApplicableTo` instead of `ValidationRuleBaseApplicableTo`
     - ValidationsValidateRequestBody.options uses now `ValidationsValidateRequestBodyOptions` instead of `ClientValidationsValidateRequestBodyAllOfOptions`
     - ValidationsValidateRequestBody.redeemables uses now `List<ValidationsValidateRequestBodyRedeemablesItem>` instead of `List<StackableValidateRedeemBaseRedeemablesItem>`
-    - ValidationsValidateRequestBody.order uses now `OrderCalculatedEssential` instead of `Order`
-    - ValidationsValidateResponseBody.order uses now `OrderCalculatedEssential` instead of `Order`
     - ValidityHours.daily uses now `List<ValidityHoursDailyItem>` instead of `List<ValidityHoursDailyInner>`
     - Voucher.gift uses now `VoucherGift` instead of `CampaignsVouchersCreateCombinedResponseBodyGift`
     - Voucher.loyaltyCard uses now `VoucherLoyaltyCard` instead of `CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard`
@@ -637,7 +622,6 @@ Class | Method | HTTP request | Description
 - [ClientPromotionsTiersListResponseBody](docs/ClientPromotionsTiersListResponseBody.md)
 - [ClientQualificationsCheckEligibilityRequestBody](docs/ClientQualificationsCheckEligibilityRequestBody.md)
 - [ClientQualificationsCheckEligibilityResponseBody](docs/ClientQualificationsCheckEligibilityResponseBody.md)
-- [ClientQualificationsCheckEligibilityResponseBodyOrder](docs/ClientQualificationsCheckEligibilityResponseBodyOrder.md)
 - [ClientRedemptionsRedeemRequestBody](docs/ClientRedemptionsRedeemRequestBody.md)
 - [ClientRedemptionsRedeemRequestBodyOptions](docs/ClientRedemptionsRedeemRequestBodyOptions.md)
 - [ClientRedemptionsRedeemRequestBodyRedeemablesItem](docs/ClientRedemptionsRedeemRequestBodyRedeemablesItem.md)
@@ -748,8 +732,6 @@ Class | Method | HTTP request | Description
 - [ExportsGetResponseBodyResult](docs/ExportsGetResponseBodyResult.md)
 - [ExportsListResponseBody](docs/ExportsListResponseBody.md)
 - [FieldConditions](docs/FieldConditions.md)
-- [FilterConditionsDateTime](docs/FilterConditionsDateTime.md)
-- [FilterConditionsDateTimeConditions](docs/FilterConditionsDateTimeConditions.md)
 - [FilterConditionsString](docs/FilterConditionsString.md)
 - [FiltersCondition](docs/FiltersCondition.md)
 - [Gift](docs/Gift.md)
@@ -1018,14 +1000,14 @@ Class | Method | HTTP request | Description
 - [LuckyDraw](docs/LuckyDraw.md)
 - [MappingPoints](docs/MappingPoints.md)
 - [MemberActivity](docs/MemberActivity.md)
+- [Order](docs/Order.md)
 - [OrderCalculated](docs/OrderCalculated.md)
-- [OrderEssential](docs/OrderEssential.md)
+- [OrderItem](docs/OrderItem.md)
 - [OrderItemCalculated](docs/OrderItemCalculated.md)
 - [OrderItemCalculatedProduct](docs/OrderItemCalculatedProduct.md)
 - [OrderItemCalculatedSku](docs/OrderItemCalculatedSku.md)
-- [OrderItemEssential](docs/OrderItemEssential.md)
-- [OrderItemEssentialProduct](docs/OrderItemEssentialProduct.md)
-- [OrderItemEssentialSku](docs/OrderItemEssentialSku.md)
+- [OrderItemProduct](docs/OrderItemProduct.md)
+- [OrderItemSku](docs/OrderItemSku.md)
 - [OrderRedemptionsEntry](docs/OrderRedemptionsEntry.md)
 - [OrdersCreateRequestBody](docs/OrdersCreateRequestBody.md)
 - [OrdersCreateResponseBody](docs/OrdersCreateResponseBody.md)
@@ -1048,6 +1030,7 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesCampaignType](docs/ParameterFiltersListCustomerRedeemablesCampaignType.md)
 - [ParameterFiltersListCustomerRedeemablesCampaignTypeConditions](docs/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.md)
 - [ParameterFiltersListCustomerRedeemablesCreatedAt](docs/ParameterFiltersListCustomerRedeemablesCreatedAt.md)
+- [ParameterFiltersListCustomerRedeemablesCreatedAtConditions](docs/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.md)
 - [ParameterFiltersListCustomerRedeemablesHolderRole](docs/ParameterFiltersListCustomerRedeemablesHolderRole.md)
 - [ParameterFiltersListCustomerRedeemablesHolderRoleConditions](docs/ParameterFiltersListCustomerRedeemablesHolderRoleConditions.md)
 - [ParameterFiltersListCustomerRedeemablesId](docs/ParameterFiltersListCustomerRedeemablesId.md)
@@ -1189,7 +1172,6 @@ Class | Method | HTTP request | Description
 - [PublicationsListResponseBodyPublicationsItemMetadata](docs/PublicationsListResponseBodyPublicationsItemMetadata.md)
 - [QualificationsCheckEligibilityRequestBody](docs/QualificationsCheckEligibilityRequestBody.md)
 - [QualificationsCheckEligibilityResponseBody](docs/QualificationsCheckEligibilityResponseBody.md)
-- [QualificationsCheckEligibilityResponseBodyOrder](docs/QualificationsCheckEligibilityResponseBodyOrder.md)
 - [QualificationsFieldConditions](docs/QualificationsFieldConditions.md)
 - [QualificationsFiltersCondition](docs/QualificationsFiltersCondition.md)
 - [QualificationsOption](docs/QualificationsOption.md)
@@ -1379,7 +1361,6 @@ Class | Method | HTTP request | Description
 - [SimpleSegment](docs/SimpleSegment.md)
 - [SimpleSkuDiscountUnit](docs/SimpleSkuDiscountUnit.md)
 - [SimpleVoucher](docs/SimpleVoucher.md)
-- [SimpleVoucherLoyaltyCard](docs/SimpleVoucherLoyaltyCard.md)
 - [SimpleVoucherRedemption](docs/SimpleVoucherRedemption.md)
 - [Sku](docs/Sku.md)
 - [SkusGetResponseBody](docs/SkusGetResponseBody.md)

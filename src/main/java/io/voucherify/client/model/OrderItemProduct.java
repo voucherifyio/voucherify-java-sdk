@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemEssential;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -51,11 +49,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * QualificationsCheckEligibilityResponseBodyOrder
+ * An object containing details of the related product.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class QualificationsCheckEligibilityResponseBodyOrder {
+public class OrderItemProduct {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -64,92 +62,33 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
 
-  /**
-   * The order status.
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    CREATED("CREATED"),
-    
-    PAID("PAID"),
-    
-    CANCELED("CANCELED"),
-    
-    FULFILLED("FULFILLED");
+  public static final String SERIALIZED_NAME_OVERRIDE = "override";
+  @SerializedName(SERIALIZED_NAME_OVERRIDE)
+  private Boolean override;
 
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Integer amount;
-
-  public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
-  @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
-  private Integer initialAmount;
-
-  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
-  private Integer discountAmount;
-
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemEssential> items;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public QualificationsCheckEligibilityResponseBodyOrder() {
+  public static final String SERIALIZED_NAME_PRICE = "price";
+  @SerializedName(SERIALIZED_NAME_PRICE)
+  private BigDecimal price;
+
+  public OrderItemProduct() {
   }
 
-  public QualificationsCheckEligibilityResponseBodyOrder id(String id) {
+  public OrderItemProduct id(String id) {
     
     this.id = id;
     return this;
   }
 
    /**
-   * Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+   * A unique identifier that represents the product and is assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -163,14 +102,14 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder sourceId(String sourceId) {
+  public OrderItemProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
   }
 
    /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * The merchant&#39;s product ID (if it is different than Voucherify&#39;s product ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -184,127 +123,56 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder status(StatusEnum status) {
+  public OrderItemProduct override(Boolean override) {
     
-    this.status = status;
+    this.override = override;
     return this;
   }
 
    /**
-   * The order status.
-   * @return status
+   * The override set to &#x60;true&#x60; is used to store the product information in the system. If the product does not exist, it will be created with a source_id; if it does exist, the provided values for the name, price, and metadata will replace those already stored in the system.
+   * @return override
   **/
   @javax.annotation.Nullable
-  public StatusEnum getStatus() {
-    return status;
+  public Boolean getOverride() {
+    return override;
   }
 
 
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setOverride(Boolean override) {
+    this.override = override;
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder amount(Integer amount) {
+  public OrderItemProduct name(String name) {
     
-    this.amount = amount;
+    this.name = name;
     return this;
   }
 
    /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
-   * @return amount
+   * Product name.
+   * @return name
   **/
   @javax.annotation.Nullable
-  public Integer getAmount() {
-    return amount;
+  public String getName() {
+    return name;
   }
 
 
-  public void setAmount(Integer amount) {
-    this.amount = amount;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public QualificationsCheckEligibilityResponseBodyOrder initialAmount(Integer initialAmount) {
-    
-    this.initialAmount = initialAmount;
-    return this;
-  }
-
-   /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
-   * @return initialAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getInitialAmount() {
-    return initialAmount;
-  }
-
-
-  public void setInitialAmount(Integer initialAmount) {
-    this.initialAmount = initialAmount;
-  }
-
-
-  public QualificationsCheckEligibilityResponseBodyOrder discountAmount(Integer discountAmount) {
-    
-    this.discountAmount = discountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level discounts applied to the order.
-   * @return discountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getDiscountAmount() {
-    return discountAmount;
-  }
-
-
-  public void setDiscountAmount(Integer discountAmount) {
-    this.discountAmount = discountAmount;
-  }
-
-
-  public QualificationsCheckEligibilityResponseBodyOrder items(List<OrderItemEssential> items) {
-    
-    this.items = items;
-    return this;
-  }
-
-  public QualificationsCheckEligibilityResponseBodyOrder addItemsItem(OrderItemEssential itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-   /**
-   * Array of items applied to the order.
-   * @return items
-  **/
-  @javax.annotation.Nullable
-  public List<OrderItemEssential> getItems() {
-    return items;
-  }
-
-
-  public void setItems(List<OrderItemEssential> items) {
-    this.items = items;
-  }
-
-
-  public QualificationsCheckEligibilityResponseBodyOrder metadata(Object metadata) {
+  public OrderItemProduct metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
+   * A set of custom key/value pairs that you can attach to a product. It can be useful for storing additional information about the product in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -315,6 +183,27 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+  }
+
+
+  public OrderItemProduct price(BigDecimal price) {
+    
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * Product price. A positive integer in the smallest currency unit (e.g. 100 cents for $1.00).
+   * @return price
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
   }
 
   /**
@@ -330,9 +219,9 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the QualificationsCheckEligibilityResponseBodyOrder instance itself
+   * @return the OrderItemProduct instance itself
    */
-  public QualificationsCheckEligibilityResponseBodyOrder putAdditionalProperty(String key, Object value) {
+  public OrderItemProduct putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -371,16 +260,14 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    QualificationsCheckEligibilityResponseBodyOrder qualificationsCheckEligibilityResponseBodyOrder = (QualificationsCheckEligibilityResponseBodyOrder) o;
-    return Objects.equals(this.id, qualificationsCheckEligibilityResponseBodyOrder.id) &&
-        Objects.equals(this.sourceId, qualificationsCheckEligibilityResponseBodyOrder.sourceId) &&
-        Objects.equals(this.status, qualificationsCheckEligibilityResponseBodyOrder.status) &&
-        Objects.equals(this.amount, qualificationsCheckEligibilityResponseBodyOrder.amount) &&
-        Objects.equals(this.initialAmount, qualificationsCheckEligibilityResponseBodyOrder.initialAmount) &&
-        Objects.equals(this.discountAmount, qualificationsCheckEligibilityResponseBodyOrder.discountAmount) &&
-        Objects.equals(this.items, qualificationsCheckEligibilityResponseBodyOrder.items) &&
-        Objects.equals(this.metadata, qualificationsCheckEligibilityResponseBodyOrder.metadata)&&
-        Objects.equals(this.additionalProperties, qualificationsCheckEligibilityResponseBodyOrder.additionalProperties);
+    OrderItemProduct orderItemProduct = (OrderItemProduct) o;
+    return Objects.equals(this.id, orderItemProduct.id) &&
+        Objects.equals(this.sourceId, orderItemProduct.sourceId) &&
+        Objects.equals(this.override, orderItemProduct.override) &&
+        Objects.equals(this.name, orderItemProduct.name) &&
+        Objects.equals(this.metadata, orderItemProduct.metadata) &&
+        Objects.equals(this.price, orderItemProduct.price)&&
+        Objects.equals(this.additionalProperties, orderItemProduct.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -389,7 +276,7 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, additionalProperties);
+    return Objects.hash(id, sourceId, override, name, metadata, price, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -402,15 +289,13 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class QualificationsCheckEligibilityResponseBodyOrder {\n");
+    sb.append("class OrderItemProduct {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
-    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    override: ").append(toIndentedString(override)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -436,12 +321,10 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("source_id");
-    openapiFields.add("status");
-    openapiFields.add("amount");
-    openapiFields.add("initial_amount");
-    openapiFields.add("discount_amount");
-    openapiFields.add("items");
+    openapiFields.add("override");
+    openapiFields.add("name");
     openapiFields.add("metadata");
+    openapiFields.add("price");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -451,16 +334,16 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!QualificationsCheckEligibilityResponseBodyOrder.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'QualificationsCheckEligibilityResponseBodyOrder' and its subtypes
+       if (!OrderItemProduct.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderItemProduct' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<QualificationsCheckEligibilityResponseBodyOrder> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(QualificationsCheckEligibilityResponseBodyOrder.class));
+       final TypeAdapter<OrderItemProduct> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemProduct.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<QualificationsCheckEligibilityResponseBodyOrder>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderItemProduct>() {
            @Override
-           public void write(JsonWriter out, QualificationsCheckEligibilityResponseBodyOrder value) throws IOException {
+           public void write(JsonWriter out, OrderItemProduct value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -483,11 +366,11 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
            }
 
            @Override
-           public QualificationsCheckEligibilityResponseBodyOrder read(JsonReader in) throws IOException {
+           public OrderItemProduct read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             QualificationsCheckEligibilityResponseBodyOrder instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderItemProduct instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -514,18 +397,18 @@ public class QualificationsCheckEligibilityResponseBodyOrder {
   }
 
  /**
-  * Create an instance of QualificationsCheckEligibilityResponseBodyOrder given an JSON string
+  * Create an instance of OrderItemProduct given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of QualificationsCheckEligibilityResponseBodyOrder
-  * @throws IOException if the JSON string is invalid with respect to QualificationsCheckEligibilityResponseBodyOrder
+  * @return An instance of OrderItemProduct
+  * @throws IOException if the JSON string is invalid with respect to OrderItemProduct
   */
-  public static QualificationsCheckEligibilityResponseBodyOrder fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, QualificationsCheckEligibilityResponseBodyOrder.class);
+  public static OrderItemProduct fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderItemProduct.class);
   }
 
  /**
-  * Convert an instance of QualificationsCheckEligibilityResponseBodyOrder to an JSON string
+  * Convert an instance of OrderItemProduct to an JSON string
   *
   * @return JSON string
   */

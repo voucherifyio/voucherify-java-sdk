@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
-import io.voucherify.client.model.SimpleVoucherLoyaltyCard;
+import io.voucherify.client.model.SimpleLoyaltyCard;
 import io.voucherify.client.model.SimpleVoucherRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -79,7 +79,7 @@ public class SimpleVoucher {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private SimpleVoucherLoyaltyCard loyaltyCard;
+  private SimpleLoyaltyCard loyaltyCard;
 
   /**
    * Type of the voucher.
@@ -326,7 +326,7 @@ public class SimpleVoucher {
   }
 
 
-  public SimpleVoucher loyaltyCard(SimpleVoucherLoyaltyCard loyaltyCard) {
+  public SimpleVoucher loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -337,12 +337,12 @@ public class SimpleVoucher {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public SimpleVoucherLoyaltyCard getLoyaltyCard() {
+  public SimpleLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(SimpleVoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 

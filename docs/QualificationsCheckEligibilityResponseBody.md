@@ -10,7 +10,7 @@ Response body schema for **POST** `v1/qualifications`.
 |------------ | ------------- | ------------- |
 |**redeemables** | [**QualificationsRedeemables**](QualificationsRedeemables.md) |  |
 |**trackingId** | **String** | This identifier is generated during voucher qualification based on your internal id (e.g., email, database ID). This is a hashed customer source ID. |
-|**order** | [**QualificationsCheckEligibilityResponseBodyOrder**](QualificationsCheckEligibilityResponseBodyOrder.md) |  |
+|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
 |**stackingRules** | [**StackingRules**](StackingRules.md) |  |
 
 

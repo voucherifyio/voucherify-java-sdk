@@ -1,6 +1,6 @@
 
 
-# OrderItemEssentialSku
+# OrderItemSku
 
 An object containing details of the related SKU.
 

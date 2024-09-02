@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemEssential;
+import io.voucherify.client.model.OrderItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +55,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderEssential {
+public class Order {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -133,16 +133,16 @@ public class OrderEssential {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemEssential> items;
+  private List<OrderItem> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public OrderEssential() {
+  public Order() {
   }
 
-  public OrderEssential id(String id) {
+  public Order id(String id) {
     
     this.id = id;
     return this;
@@ -163,7 +163,7 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential sourceId(String sourceId) {
+  public Order sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -184,7 +184,7 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential status(StatusEnum status) {
+  public Order status(StatusEnum status) {
     
     this.status = status;
     return this;
@@ -205,7 +205,7 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential amount(Integer amount) {
+  public Order amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -226,7 +226,7 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential initialAmount(Integer initialAmount) {
+  public Order initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
     return this;
@@ -247,7 +247,7 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential discountAmount(Integer discountAmount) {
+  public Order discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
     return this;
@@ -268,13 +268,13 @@ public class OrderEssential {
   }
 
 
-  public OrderEssential items(List<OrderItemEssential> items) {
+  public Order items(List<OrderItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrderEssential addItemsItem(OrderItemEssential itemsItem) {
+  public Order addItemsItem(OrderItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -287,17 +287,17 @@ public class OrderEssential {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItemEssential> getItems() {
+  public List<OrderItem> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItemEssential> items) {
+  public void setItems(List<OrderItem> items) {
     this.items = items;
   }
 
 
-  public OrderEssential metadata(Object metadata) {
+  public Order metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -330,9 +330,9 @@ public class OrderEssential {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderEssential instance itself
+   * @return the Order instance itself
    */
-  public OrderEssential putAdditionalProperty(String key, Object value) {
+  public Order putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -371,16 +371,16 @@ public class OrderEssential {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderEssential orderEssential = (OrderEssential) o;
-    return Objects.equals(this.id, orderEssential.id) &&
-        Objects.equals(this.sourceId, orderEssential.sourceId) &&
-        Objects.equals(this.status, orderEssential.status) &&
-        Objects.equals(this.amount, orderEssential.amount) &&
-        Objects.equals(this.initialAmount, orderEssential.initialAmount) &&
-        Objects.equals(this.discountAmount, orderEssential.discountAmount) &&
-        Objects.equals(this.items, orderEssential.items) &&
-        Objects.equals(this.metadata, orderEssential.metadata)&&
-        Objects.equals(this.additionalProperties, orderEssential.additionalProperties);
+    Order order = (Order) o;
+    return Objects.equals(this.id, order.id) &&
+        Objects.equals(this.sourceId, order.sourceId) &&
+        Objects.equals(this.status, order.status) &&
+        Objects.equals(this.amount, order.amount) &&
+        Objects.equals(this.initialAmount, order.initialAmount) &&
+        Objects.equals(this.discountAmount, order.discountAmount) &&
+        Objects.equals(this.items, order.items) &&
+        Objects.equals(this.metadata, order.metadata)&&
+        Objects.equals(this.additionalProperties, order.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -402,7 +402,7 @@ public class OrderEssential {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderEssential {\n");
+    sb.append("class Order {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -451,16 +451,16 @@ public class OrderEssential {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderEssential.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderEssential' and its subtypes
+       if (!Order.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Order' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderEssential> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderEssential.class));
+       final TypeAdapter<Order> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Order.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderEssential>() {
+       return (TypeAdapter<T>) new TypeAdapter<Order>() {
            @Override
-           public void write(JsonWriter out, OrderEssential value) throws IOException {
+           public void write(JsonWriter out, Order value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -483,11 +483,11 @@ public class OrderEssential {
            }
 
            @Override
-           public OrderEssential read(JsonReader in) throws IOException {
+           public Order read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderEssential instance = thisAdapter.fromJsonTree(jsonObj);
+             Order instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -514,18 +514,18 @@ public class OrderEssential {
   }
 
  /**
-  * Create an instance of OrderEssential given an JSON string
+  * Create an instance of Order given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderEssential
-  * @throws IOException if the JSON string is invalid with respect to OrderEssential
+  * @return An instance of Order
+  * @throws IOException if the JSON string is invalid with respect to Order
   */
-  public static OrderEssential fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderEssential.class);
+  public static Order fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Order.class);
   }
 
  /**
-  * Convert an instance of OrderEssential to an JSON string
+  * Convert an instance of Order to an JSON string
   *
   * @return JSON string
   */

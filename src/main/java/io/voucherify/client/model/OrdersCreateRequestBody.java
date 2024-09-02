@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Customer;
-import io.voucherify.client.model.OrderItemEssential;
+import io.voucherify.client.model.OrderItem;
 import io.voucherify.client.model.Referrer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -136,7 +136,7 @@ public class OrdersCreateRequestBody {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemEssential> items;
+  private List<OrderItem> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -287,13 +287,13 @@ public class OrdersCreateRequestBody {
   }
 
 
-  public OrdersCreateRequestBody items(List<OrderItemEssential> items) {
+  public OrdersCreateRequestBody items(List<OrderItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrdersCreateRequestBody addItemsItem(OrderItemEssential itemsItem) {
+  public OrdersCreateRequestBody addItemsItem(OrderItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -306,12 +306,12 @@ public class OrdersCreateRequestBody {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItemEssential> getItems() {
+  public List<OrderItem> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItemEssential> items) {
+  public void setItems(List<OrderItem> items) {
     this.items = items;
   }
 

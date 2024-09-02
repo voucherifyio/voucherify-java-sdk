@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientQualificationsCheckEligibilityResponseBodyOrder;
+import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.QualificationsRedeemables;
 import io.voucherify.client.model.StackingRules;
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class ClientQualificationsCheckEligibilityResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private ClientQualificationsCheckEligibilityResponseBodyOrder order;
+  private OrderCalculated order;
 
   public static final String SERIALIZED_NAME_STACKING_RULES = "stacking_rules";
   @SerializedName(SERIALIZED_NAME_STACKING_RULES)
@@ -117,7 +117,7 @@ public class ClientQualificationsCheckEligibilityResponseBody {
   }
 
 
-  public ClientQualificationsCheckEligibilityResponseBody order(ClientQualificationsCheckEligibilityResponseBodyOrder order) {
+  public ClientQualificationsCheckEligibilityResponseBody order(OrderCalculated order) {
     
     this.order = order;
     return this;
@@ -128,12 +128,12 @@ public class ClientQualificationsCheckEligibilityResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public ClientQualificationsCheckEligibilityResponseBodyOrder getOrder() {
+  public OrderCalculated getOrder() {
     return order;
   }
 
 
-  public void setOrder(ClientQualificationsCheckEligibilityResponseBodyOrder order) {
+  public void setOrder(OrderCalculated order) {
     this.order = order;
   }
 

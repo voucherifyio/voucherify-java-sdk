@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.FilterConditionsDateTimeConditions;
 import io.voucherify.client.model.Junction;
+import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCreatedAtConditions;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -57,7 +57,7 @@ import io.voucherify.client.JSON;
 public class ParameterFiltersListCustomerRedeemablesCreatedAt {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private FilterConditionsDateTimeConditions conditions;
+  private ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions;
 
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
@@ -66,7 +66,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
   public ParameterFiltersListCustomerRedeemablesCreatedAt() {
   }
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(FilterConditionsDateTimeConditions conditions) {
+  public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
     
     this.conditions = conditions;
     return this;
@@ -77,12 +77,12 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public FilterConditionsDateTimeConditions getConditions() {
+  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(FilterConditionsDateTimeConditions conditions) {
+  public void setConditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
     this.conditions = conditions;
   }
 

@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemEssentialProduct;
-import io.voucherify.client.model.OrderItemEssentialSku;
+import io.voucherify.client.model.OrderItemProduct;
+import io.voucherify.client.model.OrderItemSku;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,11 +50,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * OrderItemEssential
+ * OrderItem
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderItemEssential {
+public class OrderItem {
   public static final String SERIALIZED_NAME_SKU_ID = "sku_id";
   @SerializedName(SERIALIZED_NAME_SKU_ID)
   private String skuId;
@@ -148,20 +148,20 @@ public class OrderItemEssential {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private OrderItemEssentialProduct product;
+  private OrderItemProduct product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
-  private OrderItemEssentialSku sku;
+  private OrderItemSku sku;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public OrderItemEssential() {
+  public OrderItem() {
   }
 
-  public OrderItemEssential skuId(String skuId) {
+  public OrderItem skuId(String skuId) {
     
     this.skuId = skuId;
     return this;
@@ -182,7 +182,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential productId(String productId) {
+  public OrderItem productId(String productId) {
     
     this.productId = productId;
     return this;
@@ -203,7 +203,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential relatedObject(RelatedObjectEnum relatedObject) {
+  public OrderItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
     return this;
@@ -224,7 +224,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential sourceId(String sourceId) {
+  public OrderItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -245,7 +245,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential quantity(Integer quantity) {
+  public OrderItem quantity(Integer quantity) {
     
     this.quantity = quantity;
     return this;
@@ -266,7 +266,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential discountQuantity(Integer discountQuantity) {
+  public OrderItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
     return this;
@@ -287,7 +287,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential initialQuantity(Integer initialQuantity) {
+  public OrderItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
     return this;
@@ -308,7 +308,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential amount(Integer amount) {
+  public OrderItem amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -329,14 +329,14 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential discountAmount(Integer discountAmount) {
+  public OrderItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
     return this;
   }
 
    /**
-   * xxxSum of all order-item-level discounts applied to the order.
+   * Sum of all order-item-level discounts applied to the order.
    * @return discountAmount
   **/
   @javax.annotation.Nullable
@@ -350,7 +350,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential initialAmount(Integer initialAmount) {
+  public OrderItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
     return this;
@@ -371,7 +371,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential price(Integer price) {
+  public OrderItem price(Integer price) {
     
     this.price = price;
     return this;
@@ -392,7 +392,7 @@ public class OrderItemEssential {
   }
 
 
-  public OrderItemEssential product(OrderItemEssentialProduct product) {
+  public OrderItem product(OrderItemProduct product) {
     
     this.product = product;
     return this;
@@ -403,17 +403,17 @@ public class OrderItemEssential {
    * @return product
   **/
   @javax.annotation.Nullable
-  public OrderItemEssentialProduct getProduct() {
+  public OrderItemProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(OrderItemEssentialProduct product) {
+  public void setProduct(OrderItemProduct product) {
     this.product = product;
   }
 
 
-  public OrderItemEssential sku(OrderItemEssentialSku sku) {
+  public OrderItem sku(OrderItemSku sku) {
     
     this.sku = sku;
     return this;
@@ -424,24 +424,24 @@ public class OrderItemEssential {
    * @return sku
   **/
   @javax.annotation.Nullable
-  public OrderItemEssentialSku getSku() {
+  public OrderItemSku getSku() {
     return sku;
   }
 
 
-  public void setSku(OrderItemEssentialSku sku) {
+  public void setSku(OrderItemSku sku) {
     this.sku = sku;
   }
 
 
-  public OrderItemEssential metadata(Object metadata) {
+  public OrderItem metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format.
+   * A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -467,9 +467,9 @@ public class OrderItemEssential {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderItemEssential instance itself
+   * @return the OrderItem instance itself
    */
-  public OrderItemEssential putAdditionalProperty(String key, Object value) {
+  public OrderItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -508,22 +508,22 @@ public class OrderItemEssential {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderItemEssential orderItemEssential = (OrderItemEssential) o;
-    return Objects.equals(this.skuId, orderItemEssential.skuId) &&
-        Objects.equals(this.productId, orderItemEssential.productId) &&
-        Objects.equals(this.relatedObject, orderItemEssential.relatedObject) &&
-        Objects.equals(this.sourceId, orderItemEssential.sourceId) &&
-        Objects.equals(this.quantity, orderItemEssential.quantity) &&
-        Objects.equals(this.discountQuantity, orderItemEssential.discountQuantity) &&
-        Objects.equals(this.initialQuantity, orderItemEssential.initialQuantity) &&
-        Objects.equals(this.amount, orderItemEssential.amount) &&
-        Objects.equals(this.discountAmount, orderItemEssential.discountAmount) &&
-        Objects.equals(this.initialAmount, orderItemEssential.initialAmount) &&
-        Objects.equals(this.price, orderItemEssential.price) &&
-        Objects.equals(this.product, orderItemEssential.product) &&
-        Objects.equals(this.sku, orderItemEssential.sku) &&
-        Objects.equals(this.metadata, orderItemEssential.metadata)&&
-        Objects.equals(this.additionalProperties, orderItemEssential.additionalProperties);
+    OrderItem orderItem = (OrderItem) o;
+    return Objects.equals(this.skuId, orderItem.skuId) &&
+        Objects.equals(this.productId, orderItem.productId) &&
+        Objects.equals(this.relatedObject, orderItem.relatedObject) &&
+        Objects.equals(this.sourceId, orderItem.sourceId) &&
+        Objects.equals(this.quantity, orderItem.quantity) &&
+        Objects.equals(this.discountQuantity, orderItem.discountQuantity) &&
+        Objects.equals(this.initialQuantity, orderItem.initialQuantity) &&
+        Objects.equals(this.amount, orderItem.amount) &&
+        Objects.equals(this.discountAmount, orderItem.discountAmount) &&
+        Objects.equals(this.initialAmount, orderItem.initialAmount) &&
+        Objects.equals(this.price, orderItem.price) &&
+        Objects.equals(this.product, orderItem.product) &&
+        Objects.equals(this.sku, orderItem.sku) &&
+        Objects.equals(this.metadata, orderItem.metadata)&&
+        Objects.equals(this.additionalProperties, orderItem.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -545,7 +545,7 @@ public class OrderItemEssential {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderItemEssential {\n");
+    sb.append("class OrderItem {\n");
     sb.append("    skuId: ").append(toIndentedString(skuId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    relatedObject: ").append(toIndentedString(relatedObject)).append("\n");
@@ -606,16 +606,16 @@ public class OrderItemEssential {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderItemEssential.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderItemEssential' and its subtypes
+       if (!OrderItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderItemEssential> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemEssential.class));
+       final TypeAdapter<OrderItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderItemEssential>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderItem>() {
            @Override
-           public void write(JsonWriter out, OrderItemEssential value) throws IOException {
+           public void write(JsonWriter out, OrderItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -638,11 +638,11 @@ public class OrderItemEssential {
            }
 
            @Override
-           public OrderItemEssential read(JsonReader in) throws IOException {
+           public OrderItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderItemEssential instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -669,18 +669,18 @@ public class OrderItemEssential {
   }
 
  /**
-  * Create an instance of OrderItemEssential given an JSON string
+  * Create an instance of OrderItem given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderItemEssential
-  * @throws IOException if the JSON string is invalid with respect to OrderItemEssential
+  * @return An instance of OrderItem
+  * @throws IOException if the JSON string is invalid with respect to OrderItem
   */
-  public static OrderItemEssential fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderItemEssential.class);
+  public static OrderItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderItem.class);
   }
 
  /**
-  * Convert an instance of OrderItemEssential to an JSON string
+  * Convert an instance of OrderItem to an JSON string
   *
   * @return JSON string
   */

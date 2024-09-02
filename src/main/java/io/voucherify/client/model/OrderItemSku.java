@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -48,111 +49,136 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Defines the loyalty card details.
+ * An object containing details of the related SKU.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class SimpleVoucherLoyaltyCard {
-  public static final String SERIALIZED_NAME_POINTS = "points";
-  @SerializedName(SERIALIZED_NAME_POINTS)
-  private Integer points;
+public class OrderItemSku {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
-  private Integer balance;
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
 
-  public static final String SERIALIZED_NAME_NEXT_EXPIRATION_DATE = "next_expiration_date";
-  @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION_DATE)
-  private String nextExpirationDate;
+  public static final String SERIALIZED_NAME_OVERRIDE = "override";
+  @SerializedName(SERIALIZED_NAME_OVERRIDE)
+  private Boolean override;
 
-  public static final String SERIALIZED_NAME_NEXT_EXPIRATION_POINTS = "next_expiration_points";
-  @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION_POINTS)
-  private Integer nextExpirationPoints;
+  public static final String SERIALIZED_NAME_SKU = "sku";
+  @SerializedName(SERIALIZED_NAME_SKU)
+  private String sku;
 
-  public SimpleVoucherLoyaltyCard() {
+  public static final String SERIALIZED_NAME_PRICE = "price";
+  @SerializedName(SERIALIZED_NAME_PRICE)
+  private BigDecimal price;
+
+  public OrderItemSku() {
   }
 
-  public SimpleVoucherLoyaltyCard points(Integer points) {
+  public OrderItemSku id(String id) {
     
-    this.points = points;
+    this.id = id;
     return this;
   }
 
    /**
-   * Total points incurred over the lifespan of the loyalty card.
-   * @return points
+   * A unique identifier that represents the SKU and is assigned by Voucherify.
+   * @return id
   **/
   @javax.annotation.Nullable
-  public Integer getPoints() {
-    return points;
+  public String getId() {
+    return id;
   }
 
 
-  public void setPoints(Integer points) {
-    this.points = points;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public SimpleVoucherLoyaltyCard balance(Integer balance) {
+  public OrderItemSku sourceId(String sourceId) {
     
-    this.balance = balance;
+    this.sourceId = sourceId;
     return this;
   }
 
    /**
-   * Points available for reward redemption.
-   * @return balance
+   * The merchant&#39;s SKU ID (if it is different than Voucherify&#39;s SKU ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
+   * @return sourceId
   **/
   @javax.annotation.Nullable
-  public Integer getBalance() {
-    return balance;
+  public String getSourceId() {
+    return sourceId;
   }
 
 
-  public void setBalance(Integer balance) {
-    this.balance = balance;
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
   }
 
 
-  public SimpleVoucherLoyaltyCard nextExpirationDate(String nextExpirationDate) {
+  public OrderItemSku override(Boolean override) {
     
-    this.nextExpirationDate = nextExpirationDate;
+    this.override = override;
     return this;
   }
 
    /**
-   * The next closest date when the next set of points are due to expire.
-   * @return nextExpirationDate
+   * The override set to &#x60;true&#x60; is used to store the product information in the system. If the product does not exist, it will be created with a source_id; if it does exist, the provided values for the name, price, and metadata will replace those already stored in the system.
+   * @return override
   **/
   @javax.annotation.Nullable
-  public String getNextExpirationDate() {
-    return nextExpirationDate;
+  public Boolean getOverride() {
+    return override;
   }
 
 
-  public void setNextExpirationDate(String nextExpirationDate) {
-    this.nextExpirationDate = nextExpirationDate;
+  public void setOverride(Boolean override) {
+    this.override = override;
   }
 
 
-  public SimpleVoucherLoyaltyCard nextExpirationPoints(Integer nextExpirationPoints) {
+  public OrderItemSku sku(String sku) {
     
-    this.nextExpirationPoints = nextExpirationPoints;
+    this.sku = sku;
     return this;
   }
 
    /**
-   * The amount of points that are set to expire next.
-   * @return nextExpirationPoints
+   * The SKU name.
+   * @return sku
   **/
   @javax.annotation.Nullable
-  public Integer getNextExpirationPoints() {
-    return nextExpirationPoints;
+  public String getSku() {
+    return sku;
   }
 
 
-  public void setNextExpirationPoints(Integer nextExpirationPoints) {
-    this.nextExpirationPoints = nextExpirationPoints;
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
+
+
+  public OrderItemSku price(BigDecimal price) {
+    
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * SKU price. A positive integer in the smallest currency unit (e.g. 100 cents for $1.00).
+   * @return price
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
   }
 
   /**
@@ -168,9 +194,9 @@ public class SimpleVoucherLoyaltyCard {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SimpleVoucherLoyaltyCard instance itself
+   * @return the OrderItemSku instance itself
    */
-  public SimpleVoucherLoyaltyCard putAdditionalProperty(String key, Object value) {
+  public OrderItemSku putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -209,12 +235,13 @@ public class SimpleVoucherLoyaltyCard {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SimpleVoucherLoyaltyCard simpleVoucherLoyaltyCard = (SimpleVoucherLoyaltyCard) o;
-    return Objects.equals(this.points, simpleVoucherLoyaltyCard.points) &&
-        Objects.equals(this.balance, simpleVoucherLoyaltyCard.balance) &&
-        Objects.equals(this.nextExpirationDate, simpleVoucherLoyaltyCard.nextExpirationDate) &&
-        Objects.equals(this.nextExpirationPoints, simpleVoucherLoyaltyCard.nextExpirationPoints)&&
-        Objects.equals(this.additionalProperties, simpleVoucherLoyaltyCard.additionalProperties);
+    OrderItemSku orderItemSku = (OrderItemSku) o;
+    return Objects.equals(this.id, orderItemSku.id) &&
+        Objects.equals(this.sourceId, orderItemSku.sourceId) &&
+        Objects.equals(this.override, orderItemSku.override) &&
+        Objects.equals(this.sku, orderItemSku.sku) &&
+        Objects.equals(this.price, orderItemSku.price)&&
+        Objects.equals(this.additionalProperties, orderItemSku.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -223,7 +250,7 @@ public class SimpleVoucherLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints, additionalProperties);
+    return Objects.hash(id, sourceId, override, sku, price, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -236,11 +263,12 @@ public class SimpleVoucherLoyaltyCard {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SimpleVoucherLoyaltyCard {\n");
-    sb.append("    points: ").append(toIndentedString(points)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
-    sb.append("    nextExpirationDate: ").append(toIndentedString(nextExpirationDate)).append("\n");
-    sb.append("    nextExpirationPoints: ").append(toIndentedString(nextExpirationPoints)).append("\n");
+    sb.append("class OrderItemSku {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+    sb.append("    override: ").append(toIndentedString(override)).append("\n");
+    sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -264,10 +292,11 @@ public class SimpleVoucherLoyaltyCard {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("points");
-    openapiFields.add("balance");
-    openapiFields.add("next_expiration_date");
-    openapiFields.add("next_expiration_points");
+    openapiFields.add("id");
+    openapiFields.add("source_id");
+    openapiFields.add("override");
+    openapiFields.add("sku");
+    openapiFields.add("price");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -277,16 +306,16 @@ public class SimpleVoucherLoyaltyCard {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SimpleVoucherLoyaltyCard.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SimpleVoucherLoyaltyCard' and its subtypes
+       if (!OrderItemSku.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderItemSku' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SimpleVoucherLoyaltyCard> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SimpleVoucherLoyaltyCard.class));
+       final TypeAdapter<OrderItemSku> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemSku.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SimpleVoucherLoyaltyCard>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderItemSku>() {
            @Override
-           public void write(JsonWriter out, SimpleVoucherLoyaltyCard value) throws IOException {
+           public void write(JsonWriter out, OrderItemSku value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -309,11 +338,11 @@ public class SimpleVoucherLoyaltyCard {
            }
 
            @Override
-           public SimpleVoucherLoyaltyCard read(JsonReader in) throws IOException {
+           public OrderItemSku read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SimpleVoucherLoyaltyCard instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderItemSku instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -340,18 +369,18 @@ public class SimpleVoucherLoyaltyCard {
   }
 
  /**
-  * Create an instance of SimpleVoucherLoyaltyCard given an JSON string
+  * Create an instance of OrderItemSku given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SimpleVoucherLoyaltyCard
-  * @throws IOException if the JSON string is invalid with respect to SimpleVoucherLoyaltyCard
+  * @return An instance of OrderItemSku
+  * @throws IOException if the JSON string is invalid with respect to OrderItemSku
   */
-  public static SimpleVoucherLoyaltyCard fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SimpleVoucherLoyaltyCard.class);
+  public static OrderItemSku fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderItemSku.class);
   }
 
  /**
-  * Convert an instance of SimpleVoucherLoyaltyCard to an JSON string
+  * Convert an instance of OrderItemSku to an JSON string
   *
   * @return JSON string
   */

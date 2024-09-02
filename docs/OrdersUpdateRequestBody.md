@@ -13,7 +13,7 @@ Request body schema for **PUT** `v1/orders/{orderId}`.
 |**amount** | **Integer** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. |
 |**initialAmount** | **Integer** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. |
 |**discountAmount** | **Integer** | Sum of all order-level discounts applied to the order. |
-|**items** | [**List&lt;OrderItemEssential&gt;**](OrderItemEssential.md) | Array of items applied to the order. |
+|**items** | [**List&lt;OrderItem&gt;**](OrderItem.md) | Array of items applied to the order. |
 |**metadata** | **Object** | A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format. |
 |**referrerId** | **String** | Unique referrer ID. |
