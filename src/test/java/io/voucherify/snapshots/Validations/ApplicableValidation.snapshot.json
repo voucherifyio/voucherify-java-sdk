@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "APPLICABLE",
+      "id": "DLpYJWo5",
       "order": {
         "id": null,
         "sourceId": null,
@@ -30,8 +31,10 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
@@ -51,8 +54,10 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
@@ -147,8 +152,10 @@
         "amount": null,
         "discountAmount": null,
         "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
@@ -168,8 +175,10 @@
         "amount": null,
         "discountAmount": null,
         "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
@@ -200,7 +209,10 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
+    "additionalProperties": {
+      "redeemables_products_application_mode": "STACK",
+      "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+    }
   },
   "additionalProperties": null
 }

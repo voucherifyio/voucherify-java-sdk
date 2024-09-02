@@ -1,0 +1,19 @@
+{
+  "id": "sku_0f2fa9e56013f57387",
+  "sourceId": "kXEDPTNy6O",
+  "productId": "prod_0f2fa9e4bb93f57380",
+  "sku": null,
+  "price": 2000,
+  "currency": null,
+  "attributes": {
+    "memory": "16GB",
+    "color": "red",
+    "processor": "Intel Core i7"
+  },
+  "imageUrl": null,
+  "metadata": {},
+  "createdAt": 1723216691.584,
+  "updatedAt": 1723216691.663,
+  "additionalProperties": null,
+  "object": "SKU"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cust_aMOe9lN8J9PlK7lqu8JV2onc",
+  "sourceId": null,
+  "summary": {
+    "redemptions": {
+      "totalRedeemed": 0,
+      "totalFailed": 0,
+      "totalSucceeded": 0,
+      "totalRolledBack": 0,
+      "totalRollbackFailed": 0,
+      "totalRollbackSucceeded": 0,
+      "gift": {
+        "redeemedAmount": 0,
+        "amountToGo": 0,
+        "additionalProperties": null
+      },
+      "loyaltyCard": {
+        "redeemedPoints": 0,
+        "pointsToGo": 0,
+        "additionalProperties": null
+      },
+      "additionalProperties": null
+    },
+    "orders": {
+      "totalAmount": 0,
+      "totalCount": 0,
+      "averageAmount": 0,
+      "lastOrderAmount": 0,
+      "lastOrderDate": null,
+      "additionalProperties": null
+    },
+    "additionalProperties": null
+  },
+  "loyalty": {
+    "points": 0,
+    "referredCustomers": 0,
+    "campaigns": {},
+    "additionalProperties": null
+  },
+  "referrals": { "total": 0, "campaigns": [], "additionalProperties": null },
+  "systemMetadata": {},
+  "createdAt": 1725012684.435,
+  "updatedAt": null,
+  "assets": null,
+  "name": null,
+  "description": null,
+  "email": null,
+  "phone": null,
+  "birthday": null,
+  "birthdate": null,
+  "address": null,
+  "metadata": null,
+  "additionalProperties": null,
+  "object": "CUSTOMER"
+}

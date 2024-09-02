@@ -2,23 +2,28 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
+import io.voucherify.helpers.JsonHelper;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
-import io.voucherify.client.api.CampaignsApi;
 import io.voucherify.client.api.LoyaltiesApi;
 import io.voucherify.client.api.VouchersApi;
 import io.voucherify.client.model.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(5)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoyaltiesTest {
     public static ApiClient defaultClient = null;
     public static LoyaltiesApi loyalties = null;
@@ -33,6 +38,8 @@ public class LoyaltiesTest {
 
     @Test
     public void updateLoyaltyCardBalanceTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Loyalties/UpdatedLoyaltyCardBalance.snapshot.json";
+
         try {
             LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody();
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
@@ -41,7 +48,8 @@ public class LoyaltiesTest {
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
 
-            assertNotNull(responseBody);
+            List<String> keysToRemove = Arrays.asList("id");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }
@@ -49,6 +57,8 @@ public class LoyaltiesTest {
 
     @Test
     public void updateLoyaltyCardBalance2Test() {
+
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Loyalties/UpdatedLoyaltyCardBalance.snapshot.json";
         try {
             LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody();
             loyaltiesMembersBalanceUpdateRequestBody.setPoints(1000);
@@ -57,6 +67,9 @@ public class LoyaltiesTest {
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getId(),
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     loyaltiesMembersBalanceUpdateRequestBody);
+
+            List<String> keysToRemove = Arrays.asList("id", "balance", "total");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
@@ -69,10 +82,9 @@ public class LoyaltiesTest {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
-                    10,
-                    1);
+                    10);
 
-            assertNotNull(responseBody);
+            assertNotNull(responseBody);    
         } catch (ApiException | JsonSyntaxException e) {
             System.out.println(e);
             fail();

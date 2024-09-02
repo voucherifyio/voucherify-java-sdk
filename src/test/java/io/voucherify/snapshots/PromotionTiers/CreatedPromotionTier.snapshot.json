@@ -1,0 +1,66 @@
+{
+  "id": "promo_iAobqiBDVMAC5TBh4vqaqtOI",
+  "createdAt": 1725009153.064,
+  "updatedAt": null,
+  "name": "YDpHlbd2kI2Hb6geJb69",
+  "banner": null,
+  "action": {
+    "discount": {
+      "type": "AMOUNT",
+      "amountOff": 1,
+      "amountOffFormula": null,
+      "aggregatedAmountLimit": null,
+      "effect": null,
+      "isDynamic": null,
+      "unitOff": null,
+      "unitOffFormula": null,
+      "unitType": null,
+      "product": null,
+      "sku": null,
+      "units": null,
+      "percentOff": null,
+      "percentOffFormula": null,
+      "amountLimit": null,
+      "fixedAmount": null,
+      "fixedAmountFormula": null,
+      "additionalProperties": null
+    },
+    "additionalProperties": null
+  },
+  "metadata": {},
+  "hierarchy": 1,
+  "promotionId": null,
+  "campaign": {
+    "id": "camp_Mcn5vpGrpMktg9EdrvwidlgU",
+    "startDate": null,
+    "expirationDate": null,
+    "validityTimeframe": null,
+    "validityDayOfWeek": null,
+    "validityHours": null,
+    "active": true,
+    "categoryId": null,
+    "additionalProperties": null,
+    "object": "campaign"
+  },
+  "campaignId": "camp_Mcn5vpGrpMktg9EdrvwidlgU",
+  "active": true,
+  "startDate": null,
+  "expirationDate": null,
+  "validityTimeframe": null,
+  "validityDayOfWeek": null,
+  "validityHours": null,
+  "summary": {
+    "redemptions": { "totalRedeemed": 0, "additionalProperties": null },
+    "orders": {
+      "totalAmount": 0,
+      "totalDiscountAmount": 0,
+      "additionalProperties": null
+    },
+    "additionalProperties": null
+  },
+  "validationRuleAssignments": null,
+  "categoryId": null,
+  "categories": [],
+  "additionalProperties": null,
+  "object": "promotion_tier"
+}

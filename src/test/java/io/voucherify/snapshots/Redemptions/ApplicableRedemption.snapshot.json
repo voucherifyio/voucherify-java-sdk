@@ -1,6 +1,8 @@
 {
   "redemptions": [
     {
+      "id": "r_0f49739f4358a43533",
+      "date": 1724947294.477,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
@@ -12,7 +14,9 @@
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f49739f3c98a4352a",
         "sourceId": null,
+        "createdAt": 1724947294.46,
         "updatedAt": null,
         "status": "PAID",
         "amount": 10000,
@@ -22,7 +26,7 @@
         "totalDiscountAmount": 1,
         "totalAmount": 9999,
         "appliedDiscountAmount": 1,
-        "itemsAppliedDiscountAmount": 0,
+        "itemsAppliedDiscountAmount": null,
         "totalAppliedDiscountAmount": 1,
         "items": [
           {
@@ -35,15 +39,17 @@
             "initialQuantity": null,
             "amount": null,
             "discountAmount": null,
-            "appliedDiscountAmount": 0,
+            "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "additionalProperties": { "id": "ordli_0f49739f3c98a4352b" },
             "object": "ORDER_ITEM"
           },
           {
@@ -56,15 +62,17 @@
             "initialQuantity": null,
             "amount": null,
             "discountAmount": null,
-            "appliedDiscountAmount": 0,
+            "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "additionalProperties": { "id": "ordli_0f49739f3c98a4352c" },
             "object": "ORDER_ITEM"
           }
         ],
@@ -82,9 +90,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_WX2Qzw08aZS3dNMx42vssKbH7MaUxKea",
+        "code": "4LS1VzqS",
+        "campaign": "OEyu5QmgmYKZhkjAIe5R",
+        "campaignId": "camp_JDzA3tv3n6G38DpEsEDk5kzX",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -118,9 +129,10 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947294.344,
+        "updatedAt": 1724947294.474,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
@@ -130,6 +142,8 @@
           "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
         "additionalProperties": null,
         "object": "voucher"
@@ -144,7 +158,9 @@
   ],
   "parentRedemption": null,
   "order": {
+    "id": "ord_0f49739f3c98a4352a",
     "sourceId": null,
+    "createdAt": 1724947294.46,
     "updatedAt": null,
     "status": "PAID",
     "amount": 10000,
@@ -154,7 +170,7 @@
     "totalDiscountAmount": 1,
     "totalAmount": 9999,
     "appliedDiscountAmount": 1,
-    "itemsAppliedDiscountAmount": 0,
+    "itemsAppliedDiscountAmount": null,
     "totalAppliedDiscountAmount": 1,
     "items": [
       {
@@ -167,9 +183,11 @@
         "initialQuantity": null,
         "amount": null,
         "discountAmount": null,
-        "appliedDiscountAmount": 0,
+        "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
@@ -188,9 +206,11 @@
         "initialQuantity": null,
         "amount": null,
         "discountAmount": null,
-        "appliedDiscountAmount": 0,
+        "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
@@ -203,7 +223,19 @@
     "metadata": {},
     "customerId": null,
     "referrerId": null,
-    "redemptions": {},
+    "redemptions": {
+      "r_0f49739f4358a43533": {
+        "date": 1724947294.477,
+        "rollbackId": null,
+        "rollbackDate": null,
+        "relatedObjectType": "voucher",
+        "relatedObjectId": "v_WX2Qzw08aZS3dNMx42vssKbH7MaUxKea",
+        "relatedObjectParentId": "camp_JDzA3tv3n6G38DpEsEDk5kzX",
+        "stacked": null,
+        "rollbackStacked": null,
+        "additionalProperties": null
+      }
+    },
     "customer": null,
     "referrer": null,
     "additionalProperties": null,

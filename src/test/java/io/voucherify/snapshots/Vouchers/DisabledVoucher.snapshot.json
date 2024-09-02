@@ -1,0 +1,68 @@
+{
+  "id": "v_9iLlZhlKyQqX318Oi84MnqRW2F4q58xD",
+  "code": "wpzVnzyp",
+  "campaign": "OgQOfSqUdyY90YARz5XR",
+  "campaignId": "camp_Kt0BK0sAUg439fJ6QrW520NY",
+  "category": null,
+  "categoryId": null,
+  "categories": [],
+  "type": "LOYALTY_CARD",
+  "discount": null,
+  "gift": null,
+  "loyaltyCard": {
+    "points": 2500,
+    "balance": 2500,
+    "nextExpirationDate": null,
+    "nextExpirationPoints": null,
+    "additionalProperties": null
+  },
+  "startDate": null,
+  "expirationDate": null,
+  "validityTimeframe": null,
+  "validityDayOfWeek": null,
+  "validityHours": null,
+  "active": false,
+  "additionalInfo": null,
+  "metadata": {},
+  "assets": {
+    "qr": {
+      "id": "8ab17b13-c81a-47ac-86b7-67a8ac9664ae",
+      "url": "https://dl.voucherify.io/api/v1/assets/qr/8ab17b13-c81a-47ac-86b7-67a8ac9664ae",
+      "additionalProperties": null
+    },
+    "barcode": {
+      "id": "5bcfb769-3df8-4b0c-9a5f-5c7402eccabc",
+      "url": "https://dl.voucherify.io/api/v1/assets/barcode/5bcfb769-3df8-4b0c-9a5f-5c7402eccabc",
+      "additionalProperties": null
+    },
+    "additionalProperties": null
+  },
+  "isReferralCode": false,
+  "createdAt": 1723113105.865,
+  "updatedAt": 1723113112.112,
+  "holderId": "cust_bXmE9tIDs8XPAv8axcVYxxIb",
+  "referrerId": null,
+  "validationRulesAssignments": {
+    "dataRef": "DATA",
+    "data": [],
+    "total": 0,
+    "additionalProperties": null,
+    "object": "LIST"
+  },
+  "publish": {
+    "count": 1,
+    "url": "/v1/vouchers/wpzVnzyp/publications?page=1&limit=10",
+    "additionalProperties": null,
+    "object": "list"
+  },
+  "redemption": {
+    "quantity": null,
+    "redeemedQuantity": 0,
+    "redeemedPoints": 0,
+    "url": "/v1/vouchers/wpzVnzyp/redemptions?page=1&limit=10",
+    "additionalProperties": null,
+    "object": "list"
+  },
+  "additionalProperties": null,
+  "object": "voucher"
+}

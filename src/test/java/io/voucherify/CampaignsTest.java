@@ -2,8 +2,10 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
+import io.voucherify.helpers.JsonHelper;
+
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
+
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CampaignsApi;
@@ -12,9 +14,10 @@ import io.voucherify.client.api.RewardsApi;
 import io.voucherify.client.model.*;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Order(1)
@@ -39,6 +42,8 @@ public class CampaignsTest {
     @Test
     @Order(1)
     public void createLoyaltyProgramTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedLoyaltyCampaign.snapshot.json";
+
         CampaignLoyaltyCard campaignLoyaltyCard = new CampaignLoyaltyCard();
         campaignLoyaltyCard.setPoints(500);
 
@@ -58,8 +63,8 @@ public class CampaignsTest {
             String loyaltyProgramId = result.getId();
             String campaignName = result.getName();
 
-            assertNotNull(loyaltyProgramId);
-            assertNotNull(campaignName);
+            List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
 
             VoucherifyStore.getInstance().getLoyaltyCampaign().setId(loyaltyProgramId);
             VoucherifyStore.getInstance().getLoyaltyCampaign().setName(campaignName);
@@ -72,7 +77,9 @@ public class CampaignsTest {
 
     @Test
     @Order(2)
-    public void createDiscountCampaign() {
+    public void createDiscountCampaignTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedDiscountCampaign.snapshot.json";
+
         Discount discount = new Discount();
         discount.setType(Discount.TypeEnum.AMOUNT);
         discount.setAmountOff(BigDecimal.valueOf(1));
@@ -92,8 +99,8 @@ public class CampaignsTest {
             String discountCampaignId = result.getId();
             String campaignName = result.getName();
 
-            assertNotNull(discountCampaignId);
-            assertNotNull(campaignName);
+            List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
 
             VoucherifyStore.getInstance().getCouponCampaign().setId(discountCampaignId);
             VoucherifyStore.getInstance().getCouponCampaign().setName(campaignName);
@@ -104,11 +111,13 @@ public class CampaignsTest {
 
     @Test
     @Order(3)
-    public void getCampaignTest() {
+    public void getLoyaltyCampaignTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedLoyaltyCampaign.snapshot.json";
         try {
             CampaignsGetResponseBody responseBody = campaigns.getCampaign(loyaltyProgramId);
+            List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
 
-            assertNotNull(responseBody);
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }
@@ -116,26 +125,29 @@ public class CampaignsTest {
 
     @Test
     @Order(4)
-    public void addVoucherToCampaign() {
+    public void addVoucherToCampaignTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/AddedVoucherToCampaign.snapshot.json";
         try {
             Integer vouchersCount = 1; // Integer | Number of vouchers that should be added.
             CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody();
+            // CampaignsVouchersCreateInBulkRequestBody | Specify the voucher parameters
+            // that you would like to overwrite.
 
             CampaignsVouchersCreateCombinedResponseBody result = campaigns.addVouchersToCampaign(loyaltyProgramId,
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
-            assertNotNull(result);
-            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
-                result.getId()
-            );
+            List<String> keysToRemove = Arrays.asList("id", "code", "campaign", "campaignId", "url", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
 
-            //NEED TWO VOUCHERS FOR PUBLICATION
-            CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
-
-            assertNotNull(result2);
             VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
-                result2.getId()
-            );
+                    result.getId());
+
+            // NEED TWO VOUCHERS FOR PUBLICATION
+            CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId,
+                    vouchersCount, campaignsVouchersCreateInBulkRequestBody);
+
+            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
+                    result2.getId());
 
         } catch (ApiException | JsonSyntaxException e) {
             fail();
@@ -144,76 +156,70 @@ public class CampaignsTest {
 
     @Test
     @Order(5)
-    public void addVouchersToCampaign() {
+    public void addVouchersToCampaignTest() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/AddedMultipleVouchersToCampaign.snapshot.json";
         try {
             Integer vouchersCount = 2; // Integer | Number of vouchers that should be added.
-            CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody(); //
+            CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody();
             CampaignsVouchersCreateCombinedResponseBody responseBody = campaigns.addVouchersToCampaign(loyaltyProgramId,
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
+            List<String> keysToRemove = Arrays.asList("asyncActionId");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
+            System.out.println(e);
             fail();
         }
     }
 
-
     @Test
     @Order(6)
     public void createPromotionCampaignWithSinglePromotionTier() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedPromotionCampaign.snapshot.json";
+        String snapshotPath2 = "src/test/java/io/voucherify/snapshots/PromotionTiers/CreatedPromotionTier.snapshot.json";
+
         CampaignsCreateRequestBody campaign = new CampaignsCreateRequestBody();
         campaign.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.PROMOTION);
         campaign.setName(Utils.getAlphaNumericString(20));
-        String campaignId = "";
-        CampaignsCreateResponseBody campaignResult;
+
         try {
-            campaignResult = campaigns.createCampaign(campaign);
-            campaignId = campaignResult.getId();
-            String campaignName = campaignResult.getName();
+            CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
 
-            assertNotNull(campaignId);
-            assertNotNull(campaignName);
+            List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, campaignResult, keysToRemove);
 
+            PromotionsTiersCreateRequestBody promotionTierCreate = new PromotionsTiersCreateRequestBody();
+            promotionTierCreate.setActive(true);
+            String promotionTierCreateName = Utils.getAlphaNumericString(20);
+            promotionTierCreate.setName(promotionTierCreateName);
+            String promotionTierCreateId = "";
 
-        } catch (ApiException | JsonSyntaxException e) {
-            fail();
-        }
+            Discount discount = new Discount();
+            discount.setType(Discount.TypeEnum.AMOUNT);
+            discount.setAmountOff(BigDecimal.valueOf(1));
 
-        PromotionsTiersCreateRequestBody promotionTierCreate = new PromotionsTiersCreateRequestBody();
-        promotionTierCreate.setActive(true);
-        String promotionTierCreateName = Utils.getAlphaNumericString(20);
-        promotionTierCreate.setName(promotionTierCreateName);
-        String promotionTierCreateId = "";
+            PromotionsTiersCreateRequestBodyAction promotionTierAction = new PromotionsTiersCreateRequestBodyAction();
+            promotionTierAction.setDiscount(discount);
+            promotionTierCreate.setAction(promotionTierAction);
 
-        Discount discount = new Discount();
-        discount.setType(Discount.TypeEnum.AMOUNT);
-        discount.setAmountOff(BigDecimal.valueOf(1));
-
-        PromotionTierAction promotionTierAction = new PromotionTierAction();
-        promotionTierAction.setDiscount(discount);
-        promotionTierCreate.setAction(promotionTierAction);
-        
-        try {
-            PromotionsTiersCreateResponseBody promotionTierCreateResult = promotions.addPromotionTierToCampaign(campaignId, promotionTierCreate);
+            PromotionsTiersCreateResponseBody promotionTierCreateResult = promotions
+                    .addPromotionTierToCampaign(campaignResult.getId(), promotionTierCreate);
             promotionTierCreateId = promotionTierCreateResult.getId();
 
-            assertNotNull(promotionTierCreateId);
-            assertEquals(promotionTierCreateResult.getName(), promotionTierCreateName);
-            assertEquals(promotionTierCreateResult.getActive(), true);
-        } catch (ApiException | JsonSyntaxException e) {
-            fail();
-        }
+            List<String> keysToRemove2 = Arrays.asList("id", "name", "createdAt", "campaignId");
+            JsonHelper.checkStrictAssertEquals(snapshotPath2, promotionTierCreateResult, keysToRemove2);
 
-        PromotionsTiersUpdateRequestBody promotionTierUpdate = new PromotionsTiersUpdateRequestBody();
-        String promotionTierUpdateBanner = Utils.getAlphaNumericString(20);
-        promotionTierUpdate.setBanner(promotionTierUpdateBanner);
-        
-        try {
-            PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions.updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
+            PromotionsTiersUpdateRequestBody promotionTierUpdate = new PromotionsTiersUpdateRequestBody();
+            String promotionTierUpdateBanner = Utils.getAlphaNumericString(20);
+            promotionTierUpdate.setBanner(promotionTierUpdateBanner);
 
-            assertEquals(promotionTierUpdateResult.getBanner(), promotionTierUpdateBanner);
-            assertNotNull(promotionTierUpdateResult);
-            assertNotNull(promotionTierUpdateResult.getName());
+            PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions
+                    .updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
+
+            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt", "campaignId", "updatedAt", "banner");
+            JsonHelper.checkStrictAssertEquals(snapshotPath2, promotionTierUpdateResult, keysToRemove3);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }
@@ -222,6 +228,9 @@ public class CampaignsTest {
     @Test
     @Order(7)
     public void createDiscountCampaignWithReward() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedDiscountCampaign.snapshot.json";
+        String snapshotPath2 = "src/test/java/io/voucherify/snapshots/Rewards/CreatedReward.snapshot.json";
+
         Discount discount = new Discount();
         discount.setType(Discount.TypeEnum.AMOUNT);
         discount.setAmountOff(BigDecimal.valueOf(1));
@@ -235,49 +244,33 @@ public class CampaignsTest {
         campaign.setType(CampaignsCreateRequestBody.TypeEnum.AUTO_UPDATE);
         campaign.setName(Utils.getAlphaNumericString(20));
         campaign.setVoucher(voucher);
-        String campaignId = "";
-        CampaignsCreateResponseBody campaignResult;
         try {
-            campaignResult = campaigns.createCampaign(campaign);
-            campaignId = campaignResult.getId();
-            String campaignName = campaignResult.getName();
+            CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
 
-            assertNotNull(campaignId);
-            assertNotNull(campaignName);
+            List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath, campaignResult, keysToRemove);
 
+            RewardsCreateRequestBody rewardsCreateRequestBody = new RewardsCreateRequestBody();
+            rewardsCreateRequestBody.setName(Utils.getAlphaNumericString(20));
+            RewardsCreateRequestBodyParameters rewardsCreateRequestBodyParameters = new RewardsCreateRequestBodyParameters();
+            RewardsCreateRequestBodyParametersCampaign rewardsCreateRequestBodyParametersCampaign = new RewardsCreateRequestBodyParametersCampaign();
+            rewardsCreateRequestBodyParametersCampaign.setId(campaignResult.getId());
+            rewardsCreateRequestBodyParameters.setCampaign(rewardsCreateRequestBodyParametersCampaign);
+            rewardsCreateRequestBody.setParameters(rewardsCreateRequestBodyParameters);
 
-        } catch (ApiException | JsonSyntaxException e) {
-            fail();
-        }
+            RewardsCreateResponseBody reward = rewards.createReward(rewardsCreateRequestBody);
 
-        RewardsCreateRequestBody rewardsCreateRequestBody = new RewardsCreateRequestBody();
-        rewardsCreateRequestBody.setName(Utils.getAlphaNumericString(20));
-        RewardsCreateRequestBodyParameters rewardsCreateRequestBodyParameters = new RewardsCreateRequestBodyParameters();
-        RewardsCreateRequestBodyParametersCampaign rewardsCreateRequestBodyParametersCampaign = new RewardsCreateRequestBodyParametersCampaign();
-        rewardsCreateRequestBodyParametersCampaign.setId(campaignId);
-        rewardsCreateRequestBodyParameters.setCampaign(rewardsCreateRequestBodyParametersCampaign);
-        rewardsCreateRequestBody.setParameters(rewardsCreateRequestBodyParameters);
-        Reward reward = new Reward();;
-        
-        try {
-            reward = rewards.createReward(rewardsCreateRequestBody);
+            List<String> keysToRemove2 = Arrays.asList("id", "name", "createdAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath2, reward, keysToRemove2);
 
-            assertNotNull(reward.getName());
-        } catch (ApiException | JsonSyntaxException e) {
-            fail();
-        }
+            RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
+            String newRewardName = Utils.getAlphaNumericString(20);
+            rewardsUpdateRequestBody.setName(newRewardName);
 
-        RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
-        String newRewardName = Utils.getAlphaNumericString(20);
-        rewardsUpdateRequestBody.setName(newRewardName);
-        
-        Reward updatedReward;
-        try {
-            updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);
+            RewardsUpdateResponseBody updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);
 
-            assertEquals(updatedReward.getName(), newRewardName);
-            assertNotNull(updatedReward);
-            assertNotNull(updatedReward.getId());
+            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt", "updatedAt");
+            JsonHelper.checkStrictAssertEquals(snapshotPath2, updatedReward, keysToRemove3);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

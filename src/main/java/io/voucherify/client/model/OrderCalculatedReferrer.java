@@ -50,6 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
  * OrderCalculatedReferrer
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -90,21 +91,124 @@ public class OrderCalculatedReferrer {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private OrderCalculatedReferrerAddress address;
+========
+ * OrderCalculatedEssential
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
+public class OrderCalculatedEssential {
+  /**
+   * The order status.
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    CREATED("CREATED"),
+    
+    PAID("PAID"),
+    
+    CANCELED("CANCELED"),
+    
+    FULFILLED("FULFILLED");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Integer amount;
+
+  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
+  private Integer discountAmount;
+
+  public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
+  @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
+  private Integer initialAmount;
+
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<OrderItem> items;
+
+  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER)
+  private Customer customer;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+
+  public static final String SERIALIZED_NAME_REFERRER = "referrer";
+  @SerializedName(SERIALIZED_NAME_REFERRER)
+  private Referrer referrer;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
   public OrderCalculatedReferrer() {
   }
 
   public OrderCalculatedReferrer id(String id) {
     
     this.id = id;
+========
+  public OrderCalculatedEssential() {
+  }
+
+  public OrderCalculatedEssential status(StatusEnum status) {
+    
+    this.status = status;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * The ID of an existing customer.
    * @return id
   **/
@@ -122,10 +226,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+========
+   * The order status.
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
+  public OrderCalculatedEssential amount(Integer amount) {
+    
+    this.amount = amount;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
    * @return sourceId
   **/
@@ -143,10 +267,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer name(String name) {
     
     this.name = name;
+========
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.  
+   * @return amount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAmount() {
+    return amount;
+  }
+
+
+  public void setAmount(Integer amount) {
+    this.amount = amount;
+  }
+
+
+  public OrderCalculatedEssential discountAmount(Integer discountAmount) {
+    
+    this.discountAmount = discountAmount;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * Customer&#39;s first and last name.
    * @return name
   **/
@@ -164,10 +308,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer description(String description) {
     
     this.description = description;
+========
+   * Sum of all order-level discounts applied to the order.
+   * @return discountAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getDiscountAmount() {
+    return discountAmount;
+  }
+
+
+  public void setDiscountAmount(Integer discountAmount) {
+    this.discountAmount = discountAmount;
+  }
+
+
+  public OrderCalculatedEssential initialAmount(Integer initialAmount) {
+    
+    this.initialAmount = initialAmount;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * An arbitrary string that you can attach to a customer object.
    * @return description
   **/
@@ -185,10 +349,38 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer email(String email) {
     
     this.email = email;
+========
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
+   * @return initialAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getInitialAmount() {
+    return initialAmount;
+  }
+
+
+  public void setInitialAmount(Integer initialAmount) {
+    this.initialAmount = initialAmount;
+  }
+
+
+  public OrderCalculatedEssential items(List<OrderItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public OrderCalculatedEssential addItemsItem(OrderItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * Customer&#39;s email address.
    * @return email
   **/
@@ -206,10 +398,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer phone(String phone) {
     
     this.phone = phone;
+========
+   * Array of items applied to the order.
+   * @return items
+  **/
+  @javax.annotation.Nullable
+  public List<OrderItem> getItems() {
+    return items;
+  }
+
+
+  public void setItems(List<OrderItem> items) {
+    this.items = items;
+  }
+
+
+  public OrderCalculatedEssential customer(Customer customer) {
+    
+    this.customer = customer;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * Customer&#39;s phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
    * @return phone
   **/
@@ -227,10 +439,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer birthday(LocalDate birthday) {
     
     this.birthday = birthday;
+========
+   * Get customer
+   * @return customer
+  **/
+  @javax.annotation.Nullable
+  public Customer getCustomer() {
+    return customer;
+  }
+
+
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
+
+  public OrderCalculatedEssential customerId(String customerId) {
+    
+    this.customerId = customerId;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * &#x60;Deprecated&#x60;. ~~Customer&#39;s birthdate; format YYYY-MM-DD~~.
    * @return birthday
   **/
@@ -248,10 +480,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer birthdate(LocalDate birthdate) {
     
     this.birthdate = birthdate;
+========
+   * Unique customer ID of the customer making the purchase.
+   * @return customerId
+  **/
+  @javax.annotation.Nullable
+  public String getCustomerId() {
+    return customerId;
+  }
+
+
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
+
+
+  public OrderCalculatedEssential referrer(Referrer referrer) {
+    
+    this.referrer = referrer;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * Customer&#39;s birthdate; format YYYY-MM-DD.
    * @return birthdate
   **/
@@ -269,10 +521,30 @@ public class OrderCalculatedReferrer {
   public OrderCalculatedReferrer address(OrderCalculatedReferrerAddress address) {
     
     this.address = address;
+========
+   * Get referrer
+   * @return referrer
+  **/
+  @javax.annotation.Nullable
+  public Referrer getReferrer() {
+    return referrer;
+  }
+
+
+  public void setReferrer(Referrer referrer) {
+    this.referrer = referrer;
+  }
+
+
+  public OrderCalculatedEssential referrerId(String referrerId) {
+    
+    this.referrerId = referrerId;
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * Get address
    * @return address
   **/
@@ -288,13 +560,34 @@ public class OrderCalculatedReferrer {
 
 
   public OrderCalculatedReferrer metadata(Object metadata) {
+========
+   * Unique referrer ID.
+   * @return referrerId
+  **/
+  @javax.annotation.Nullable
+  public String getReferrerId() {
+    return referrerId;
+  }
+
+
+  public void setReferrerId(String referrerId) {
+    this.referrerId = referrerId;
+  }
+
+
+  public OrderCalculatedEssential metadata(Object metadata) {
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     
     this.metadata = metadata;
     return this;
   }
 
    /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+========
+   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -320,9 +613,15 @@ public class OrderCalculatedReferrer {
    *
    * @param key name of the property
    * @param value value of the property
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
    * @return the OrderCalculatedReferrer instance itself
    */
   public OrderCalculatedReferrer putAdditionalProperty(String key, Object value) {
+========
+   * @return the OrderCalculatedEssential instance itself
+   */
+  public OrderCalculatedEssential putAdditionalProperty(String key, Object value) {
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -361,6 +660,7 @@ public class OrderCalculatedReferrer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
     OrderCalculatedReferrer orderCalculatedReferrer = (OrderCalculatedReferrer) o;
     return Objects.equals(this.id, orderCalculatedReferrer.id) &&
         Objects.equals(this.sourceId, orderCalculatedReferrer.sourceId) &&
@@ -373,6 +673,20 @@ public class OrderCalculatedReferrer {
         Objects.equals(this.address, orderCalculatedReferrer.address) &&
         Objects.equals(this.metadata, orderCalculatedReferrer.metadata)&&
         Objects.equals(this.additionalProperties, orderCalculatedReferrer.additionalProperties);
+========
+    OrderCalculatedEssential orderCalculatedEssential = (OrderCalculatedEssential) o;
+    return Objects.equals(this.status, orderCalculatedEssential.status) &&
+        Objects.equals(this.amount, orderCalculatedEssential.amount) &&
+        Objects.equals(this.discountAmount, orderCalculatedEssential.discountAmount) &&
+        Objects.equals(this.initialAmount, orderCalculatedEssential.initialAmount) &&
+        Objects.equals(this.items, orderCalculatedEssential.items) &&
+        Objects.equals(this.customer, orderCalculatedEssential.customer) &&
+        Objects.equals(this.customerId, orderCalculatedEssential.customerId) &&
+        Objects.equals(this.referrer, orderCalculatedEssential.referrer) &&
+        Objects.equals(this.referrerId, orderCalculatedEssential.referrerId) &&
+        Objects.equals(this.metadata, orderCalculatedEssential.metadata)&&
+        Objects.equals(this.additionalProperties, orderCalculatedEssential.additionalProperties);
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -381,7 +695,11 @@ public class OrderCalculatedReferrer {
 
   @Override
   public int hashCode() {
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
     return Objects.hash(id, sourceId, name, description, email, phone, birthday, birthdate, address, metadata, additionalProperties);
+========
+    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, additionalProperties);
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -394,6 +712,7 @@ public class OrderCalculatedReferrer {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
     sb.append("class OrderCalculatedReferrer {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
@@ -404,6 +723,18 @@ public class OrderCalculatedReferrer {
     sb.append("    birthday: ").append(toIndentedString(birthday)).append("\n");
     sb.append("    birthdate: ").append(toIndentedString(birthdate)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+========
+    sb.append("class OrderCalculatedEssential {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
+    sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
+    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -428,6 +759,7 @@ public class OrderCalculatedReferrer {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
     openapiFields.add("id");
     openapiFields.add("source_id");
     openapiFields.add("name");
@@ -437,6 +769,17 @@ public class OrderCalculatedReferrer {
     openapiFields.add("birthday");
     openapiFields.add("birthdate");
     openapiFields.add("address");
+========
+    openapiFields.add("status");
+    openapiFields.add("amount");
+    openapiFields.add("discount_amount");
+    openapiFields.add("initial_amount");
+    openapiFields.add("items");
+    openapiFields.add("customer");
+    openapiFields.add("customer_id");
+    openapiFields.add("referrer");
+    openapiFields.add("referrer_id");
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
     openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
@@ -447,6 +790,7 @@ public class OrderCalculatedReferrer {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
        if (!OrderCalculatedReferrer.class.isAssignableFrom(type.getRawType())) {
          return null; // this class only serializes 'OrderCalculatedReferrer' and its subtypes
        }
@@ -457,6 +801,18 @@ public class OrderCalculatedReferrer {
        return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedReferrer>() {
            @Override
            public void write(JsonWriter out, OrderCalculatedReferrer value) throws IOException {
+========
+       if (!OrderCalculatedEssential.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCalculatedEssential' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<OrderCalculatedEssential> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCalculatedEssential.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedEssential>() {
+           @Override
+           public void write(JsonWriter out, OrderCalculatedEssential value) throws IOException {
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -479,11 +835,19 @@ public class OrderCalculatedReferrer {
            }
 
            @Override
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
            public OrderCalculatedReferrer read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              OrderCalculatedReferrer instance = thisAdapter.fromJsonTree(jsonObj);
+========
+           public OrderCalculatedEssential read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             OrderCalculatedEssential instance = thisAdapter.fromJsonTree(jsonObj);
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -510,6 +874,7 @@ public class OrderCalculatedReferrer {
   }
 
  /**
+<<<<<<<< HEAD:src/main/java/io/voucherify/client/model/OrderCalculatedReferrer.java
   * Create an instance of OrderCalculatedReferrer given an JSON string
   *
   * @param jsonString JSON string
@@ -522,6 +887,20 @@ public class OrderCalculatedReferrer {
 
  /**
   * Convert an instance of OrderCalculatedReferrer to an JSON string
+========
+  * Create an instance of OrderCalculatedEssential given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of OrderCalculatedEssential
+  * @throws IOException if the JSON string is invalid with respect to OrderCalculatedEssential
+  */
+  public static OrderCalculatedEssential fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCalculatedEssential.class);
+  }
+
+ /**
+  * Convert an instance of OrderCalculatedEssential to an JSON string
+>>>>>>>> v14.0.0/ps:src/main/java/io/voucherify/client/model/OrderCalculatedEssential.java
   *
   * @return JSON string
   */

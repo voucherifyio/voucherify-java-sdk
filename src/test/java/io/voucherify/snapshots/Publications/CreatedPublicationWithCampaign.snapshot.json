@@ -1,0 +1,39 @@
+{
+  "id": "pub_sYzlWWA95VV9a8FWqMMv6uW0CXv6Q5mQ",
+  "createdAt": 1725016405.307,
+  "customerId": "cust_G3wwo1M3v5UeKmAoIqpaP7qN",
+  "trackingId": null,
+  "metadata": {},
+  "channel": "API",
+  "sourceId": null,
+  "result": "SUCCESS",
+  "customer": {
+    "name": null,
+    "description": null,
+    "email": null,
+    "phone": null,
+    "birthday": null,
+    "birthdate": null,
+    "address": null,
+    "metadata": null,
+    "id": "cust_G3wwo1M3v5UeKmAoIqpaP7qN",
+    "sourceId": null,
+    "summary": null,
+    "loyalty": null,
+    "referrals": null,
+    "systemMetadata": null,
+    "createdAt": null,
+    "updatedAt": null,
+    "assets": null,
+    "additionalProperties": null,
+    "object": "CUSTOMER"
+  },
+  "vouchersId": [
+    "v_MBmopE3AIE6JEnVlg5ZIIXl4oEeyhDtC",
+    "v_CYBD2XlhG0xH024t7F7DRwx9FixPzTsM"
+  ],
+  "voucher": null,
+  "vouchers": ["c0SXGtbM", "vQido5z6"],
+  "additionalProperties": null,
+  "object": "PUBLICATION"
+}

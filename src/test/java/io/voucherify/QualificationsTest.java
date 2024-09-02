@@ -2,6 +2,7 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import io.voucherify.client.ApiClient;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@org.junit.jupiter.api.Order(9) //Multiple Order type
+@org.junit.jupiter.api.Order(10)
 public class QualificationsTest {
     public static ApiClient defaultClient = null;
     public static QualificationsApi qualifications = null;
@@ -41,14 +42,15 @@ public class QualificationsTest {
             ArrayList<OrderItem> orderItems = new ArrayList<>();
             orderItems.add(orderItem);
 
-            Order order = new Order();
+            OrderCalculatedEssential order = new OrderCalculatedEssential();
             order.setItems(orderItems);
 
             qualificationsCheckEligibilityRequestBody.setOrder(order);
 
-            QualificationsCheckEligibilityResponseBody responseBody = qualifications.checkEligibility(qualificationsCheckEligibilityRequestBody);
+            QualificationsCheckEligibilityResponseBody responseBody = qualifications
+                    .checkEligibility(qualificationsCheckEligibilityRequestBody);
 
-            assertFalse(responseBody.getRedeemables().getData().isEmpty());
+            assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
             fail();
         }

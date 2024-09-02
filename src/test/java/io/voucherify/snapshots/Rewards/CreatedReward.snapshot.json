@@ -1,0 +1,24 @@
+{
+  "id": "rew_7UrOnMdQthTCUQv1G2gGAniK",
+  "name": "oVJ4hk2a17pNahlqoyTO",
+  "stock": null,
+  "redeemed": null,
+  "attributes": null,
+  "metadata": {},
+  "type": "CAMPAIGN",
+  "parameters": {
+    "campaign": {
+      "id": "camp_USL23bUrCGdya4LjwNBtLGwd",
+      "balance": null,
+      "type": "DISCOUNT_COUPONS",
+      "additionalProperties": null
+    },
+    "coin": null,
+    "product": null,
+    "additionalProperties": null
+  },
+  "createdAt": 1725012261.861,
+  "updatedAt": null,
+  "additionalProperties": null,
+  "object": "REWARD"
+}

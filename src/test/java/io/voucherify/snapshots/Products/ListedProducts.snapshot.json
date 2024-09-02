@@ -1,0 +1,36 @@
+{
+  "dataRef": "products",
+  "products": [
+    {
+      "id": "prod_5h1pp1ng",
+      "sourceId": "5h1pp1ng",
+      "name": "Shipping",
+      "price": null,
+      "attributes": [],
+      "metadata": {},
+      "imageUrl": null,
+      "createdAt": 1723201204.328,
+      "updatedAt": null,
+      "skus": null,
+      "additionalProperties": null,
+      "object": "PRODUCT"
+    },
+    {
+      "id": "prod_0f2f72cdda56cb0934",
+      "sourceId": "OCReuXmLZn",
+      "name": "Test product",
+      "price": 55000,
+      "attributes": [],
+      "metadata": {},
+      "imageUrl": null,
+      "createdAt": 1723202249.577,
+      "updatedAt": 1723202249.805,
+      "skus": null,
+      "additionalProperties": null,
+      "object": "PRODUCT"
+    }
+  ],
+  "total": 2,
+  "additionalProperties": null,
+  "object": "list"
+}
