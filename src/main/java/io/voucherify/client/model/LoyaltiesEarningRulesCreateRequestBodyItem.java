@@ -19,15 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBody;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBody;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateOrderPaidRequestBody;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBody;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier;
-import io.voucherify.client.model.LoyaltiesEarningRulesCreateTierChangeRequestBodySource;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemSegment;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemSource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -37,331 +33,664 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import io.voucherify.client.JSON;
 
+/**
+ * LoyaltiesEarningRulesCreateRequestBodyItem
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class LoyaltiesEarningRulesCreateRequestBodyItem extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(LoyaltiesEarningRulesCreateRequestBodyItem.class.getName());
+public class LoyaltiesEarningRulesCreateRequestBodyItem {
+  public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
+  private String validationRuleId;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!LoyaltiesEarningRulesCreateRequestBodyItem.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'LoyaltiesEarningRulesCreateRequestBodyItem' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<LoyaltiesEarningRulesCreateOrderPaidRequestBody> adapterLoyaltiesEarningRulesCreateOrderPaidRequestBody = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateOrderPaidRequestBody.class));
-            final TypeAdapter<LoyaltiesEarningRulesCreateEnteredSegmentRequestBody> adapterLoyaltiesEarningRulesCreateEnteredSegmentRequestBody = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.class));
-            final TypeAdapter<LoyaltiesEarningRulesCreateCustomEventRequestBody> adapterLoyaltiesEarningRulesCreateCustomEventRequestBody = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateCustomEventRequestBody.class));
-            final TypeAdapter<LoyaltiesEarningRulesCreateTierChangeRequestBody> adapterLoyaltiesEarningRulesCreateTierChangeRequestBody = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateTierChangeRequestBody.class));
+  public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
+  @SerializedName(SERIALIZED_NAME_LOYALTY)
+  private LoyaltiesEarningRulesCreateRequestBodyItemLoyalty loyalty;
 
-            return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateRequestBodyItem>() {
-                @Override
-                public void write(JsonWriter out, LoyaltiesEarningRulesCreateRequestBodyItem value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_EVENT = "event";
+  @SerializedName(SERIALIZED_NAME_EVENT)
+  private String event;
 
-                    // check if the actual instance is of the type `LoyaltiesEarningRulesCreateOrderPaidRequestBody`
-                    if (value.getActualInstance() instanceof LoyaltiesEarningRulesCreateOrderPaidRequestBody) {
-                      JsonElement element = adapterLoyaltiesEarningRulesCreateOrderPaidRequestBody.toJsonTree((LoyaltiesEarningRulesCreateOrderPaidRequestBody)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
-                    }
-                    // check if the actual instance is of the type `LoyaltiesEarningRulesCreateEnteredSegmentRequestBody`
-                    if (value.getActualInstance() instanceof LoyaltiesEarningRulesCreateEnteredSegmentRequestBody) {
-                      JsonElement element = adapterLoyaltiesEarningRulesCreateEnteredSegmentRequestBody.toJsonTree((LoyaltiesEarningRulesCreateEnteredSegmentRequestBody)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
-                    }
-                    // check if the actual instance is of the type `LoyaltiesEarningRulesCreateCustomEventRequestBody`
-                    if (value.getActualInstance() instanceof LoyaltiesEarningRulesCreateCustomEventRequestBody) {
-                      JsonElement element = adapterLoyaltiesEarningRulesCreateCustomEventRequestBody.toJsonTree((LoyaltiesEarningRulesCreateCustomEventRequestBody)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
-                    }
-                    // check if the actual instance is of the type `LoyaltiesEarningRulesCreateTierChangeRequestBody`
-                    if (value.getActualInstance() instanceof LoyaltiesEarningRulesCreateTierChangeRequestBody) {
-                      JsonElement element = adapterLoyaltiesEarningRulesCreateTierChangeRequestBody.toJsonTree((LoyaltiesEarningRulesCreateTierChangeRequestBody)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody");
-                }
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private LoyaltiesEarningRulesCreateRequestBodyItemSource source;
 
-                @Override
-                public LoyaltiesEarningRulesCreateRequestBodyItem read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
 
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  public static final String SERIALIZED_NAME_START_DATE = "start_date";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private OffsetDateTime startDate;
 
-                    // deserialize LoyaltiesEarningRulesCreateOrderPaidRequestBody
-                    try {
-                      // validate the JSON object to see if any exception is thrown
-                      LoyaltiesEarningRulesCreateOrderPaidRequestBody.validateJsonElement(jsonElement);
-                      actualAdapter = adapterLoyaltiesEarningRulesCreateOrderPaidRequestBody;
-                      match++;
-                      log.log(Level.FINER, "Input data matches schema 'LoyaltiesEarningRulesCreateOrderPaidRequestBody'");
-                    } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateOrderPaidRequestBody failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'LoyaltiesEarningRulesCreateOrderPaidRequestBody'", e);
-                    }
-                    // deserialize LoyaltiesEarningRulesCreateEnteredSegmentRequestBody
-                    try {
-                      // validate the JSON object to see if any exception is thrown
-                      LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.validateJsonElement(jsonElement);
-                      actualAdapter = adapterLoyaltiesEarningRulesCreateEnteredSegmentRequestBody;
-                      match++;
-                      log.log(Level.FINER, "Input data matches schema 'LoyaltiesEarningRulesCreateEnteredSegmentRequestBody'");
-                    } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateEnteredSegmentRequestBody failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'LoyaltiesEarningRulesCreateEnteredSegmentRequestBody'", e);
-                    }
-                    // deserialize LoyaltiesEarningRulesCreateCustomEventRequestBody
-                    try {
-                      // validate the JSON object to see if any exception is thrown
-                      LoyaltiesEarningRulesCreateCustomEventRequestBody.validateJsonElement(jsonElement);
-                      actualAdapter = adapterLoyaltiesEarningRulesCreateCustomEventRequestBody;
-                      match++;
-                      log.log(Level.FINER, "Input data matches schema 'LoyaltiesEarningRulesCreateCustomEventRequestBody'");
-                    } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateCustomEventRequestBody failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'LoyaltiesEarningRulesCreateCustomEventRequestBody'", e);
-                    }
-                    // deserialize LoyaltiesEarningRulesCreateTierChangeRequestBody
-                    try {
-                      // validate the JSON object to see if any exception is thrown
-                      LoyaltiesEarningRulesCreateTierChangeRequestBody.validateJsonElement(jsonElement);
-                      actualAdapter = adapterLoyaltiesEarningRulesCreateTierChangeRequestBody;
-                      match++;
-                      log.log(Level.FINER, "Input data matches schema 'LoyaltiesEarningRulesCreateTierChangeRequestBody'");
-                    } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateTierChangeRequestBody failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'LoyaltiesEarningRulesCreateTierChangeRequestBody'", e);
-                    }
+  public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
+  private OffsetDateTime expirationDate;
 
-                    if (match == 1) {
-                        LoyaltiesEarningRulesCreateRequestBodyItem ret = new LoyaltiesEarningRulesCreateRequestBodyItem();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    }
+  public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
+  private ValidityTimeframe validityTimeframe;
 
-                    throw new IOException(String.format("Failed deserialization for LoyaltiesEarningRulesCreateRequestBodyItem: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
-        }
+  /**
+   * Gets or Sets validityDayOfWeek
+   */
+  @JsonAdapter(ValidityDayOfWeekEnum.Adapter.class)
+  public enum ValidityDayOfWeekEnum {
+    NUMBER_0(0),
+    
+    NUMBER_1(1),
+    
+    NUMBER_2(2),
+    
+    NUMBER_3(3),
+    
+    NUMBER_4(4),
+    
+    NUMBER_5(5),
+    
+    NUMBER_6(6);
+
+    private Integer value;
+
+    ValidityDayOfWeekEnum(Integer value) {
+      this.value = value;
     }
 
-    // store a list of schema names defined in oneOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public LoyaltiesEarningRulesCreateRequestBodyItem() {
-        super("oneOf", Boolean.FALSE);
-    }
-
-    public LoyaltiesEarningRulesCreateRequestBodyItem(LoyaltiesEarningRulesCreateCustomEventRequestBody o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public LoyaltiesEarningRulesCreateRequestBodyItem(LoyaltiesEarningRulesCreateEnteredSegmentRequestBody o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public LoyaltiesEarningRulesCreateRequestBodyItem(LoyaltiesEarningRulesCreateOrderPaidRequestBody o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public LoyaltiesEarningRulesCreateRequestBodyItem(LoyaltiesEarningRulesCreateTierChangeRequestBody o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("LoyaltiesEarningRulesCreateOrderPaidRequestBody", LoyaltiesEarningRulesCreateOrderPaidRequestBody.class);
-        schemas.put("LoyaltiesEarningRulesCreateEnteredSegmentRequestBody", LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.class);
-        schemas.put("LoyaltiesEarningRulesCreateCustomEventRequestBody", LoyaltiesEarningRulesCreateCustomEventRequestBody.class);
-        schemas.put("LoyaltiesEarningRulesCreateTierChangeRequestBody", LoyaltiesEarningRulesCreateTierChangeRequestBody.class);
+    public Integer getValue() {
+      return value;
     }
 
     @Override
-    public Map<String, Class<?>> getSchemas() {
-        return LoyaltiesEarningRulesCreateRequestBodyItem.schemas;
+    public String toString() {
+      return String.valueOf(value);
     }
 
-    /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody
-     *
-     * It could be an instance of the 'oneOf' schemas.
-     */
+    public static ValidityDayOfWeekEnum fromValue(Integer value) {
+      for (ValidityDayOfWeekEnum b : ValidityDayOfWeekEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ValidityDayOfWeekEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ValidityDayOfWeekEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ValidityDayOfWeekEnum read(final JsonReader jsonReader) throws IOException {
+        Integer value =  jsonReader.nextInt();
+        return ValidityDayOfWeekEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK = "validity_day_of_week";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK)
+  private List<ValidityDayOfWeekEnum> validityDayOfWeek;
+
+  public static final String SERIALIZED_NAME_VALIDITY_HOURS = "validity_hours";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
+  private ValidityHours validityHours;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
+
+  public static final String SERIALIZED_NAME_SEGMENT = "segment";
+  @SerializedName(SERIALIZED_NAME_SEGMENT)
+  private LoyaltiesEarningRulesCreateRequestBodyItemSegment segment;
+
+  public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
+  private LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent customEvent;
+
+  public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
+  private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier loyaltyTier;
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem() {
+  }
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem validationRuleId(String validationRuleId) {
+    
+    this.validationRuleId = validationRuleId;
+    return this;
+  }
+
+   /**
+   * A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.
+   * @return validationRuleId
+  **/
+  @javax.annotation.Nullable
+  public String getValidationRuleId() {
+    return validationRuleId;
+  }
+
+
+  public void setValidationRuleId(String validationRuleId) {
+    this.validationRuleId = validationRuleId;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem loyalty(LoyaltiesEarningRulesCreateRequestBodyItemLoyalty loyalty) {
+    
+    this.loyalty = loyalty;
+    return this;
+  }
+
+   /**
+   * Get loyalty
+   * @return loyalty
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty getLoyalty() {
+    return loyalty;
+  }
+
+
+  public void setLoyalty(LoyaltiesEarningRulesCreateRequestBodyItemLoyalty loyalty) {
+    this.loyalty = loyalty;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem event(String event) {
+    
+    this.event = event;
+    return this;
+  }
+
+   /**
+   * Get event
+   * @return event
+  **/
+  @javax.annotation.Nullable
+  public String getEvent() {
+    return event;
+  }
+
+
+  public void setEvent(String event) {
+    this.event = event;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem source(LoyaltiesEarningRulesCreateRequestBodyItemSource source) {
+    
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemSource getSource() {
+    return source;
+  }
+
+
+  public void setSource(LoyaltiesEarningRulesCreateRequestBodyItemSource source) {
+    this.source = source;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem active(Boolean active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; of the campaign or the earning rule&#39;s own &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* earning rule - &#x60;false&#x60; indicates an *inactive* earning rule
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  public Boolean getActive() {
+    return active;
+  }
+
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem startDate(OffsetDateTime startDate) {
+    
+    this.startDate = startDate;
+    return this;
+  }
+
+   /**
+   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. 
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getStartDate() {
+    return startDate;
+  }
+
+
+  public void setStartDate(OffsetDateTime startDate) {
+    this.startDate = startDate;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem expirationDate(OffsetDateTime expirationDate) {
+    
+    this.expirationDate = expirationDate;
+    return this;
+  }
+
+   /**
+   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+   * @return expirationDate
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpirationDate() {
+    return expirationDate;
+  }
+
+
+  public void setExpirationDate(OffsetDateTime expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem validityTimeframe(ValidityTimeframe validityTimeframe) {
+    
+    this.validityTimeframe = validityTimeframe;
+    return this;
+  }
+
+   /**
+   * Get validityTimeframe
+   * @return validityTimeframe
+  **/
+  @javax.annotation.Nullable
+  public ValidityTimeframe getValidityTimeframe() {
+    return validityTimeframe;
+  }
+
+
+  public void setValidityTimeframe(ValidityTimeframe validityTimeframe) {
+    this.validityTimeframe = validityTimeframe;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+    
+    this.validityDayOfWeek = validityDayOfWeek;
+    return this;
+  }
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem addValidityDayOfWeekItem(ValidityDayOfWeekEnum validityDayOfWeekItem) {
+    if (this.validityDayOfWeek == null) {
+      this.validityDayOfWeek = new ArrayList<>();
+    }
+    this.validityDayOfWeek.add(validityDayOfWeekItem);
+    return this;
+  }
+
+   /**
+   * Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday
+   * @return validityDayOfWeek
+  **/
+  @javax.annotation.Nullable
+  public List<ValidityDayOfWeekEnum> getValidityDayOfWeek() {
+    return validityDayOfWeek;
+  }
+
+
+  public void setValidityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
+    this.validityDayOfWeek = validityDayOfWeek;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem validityHours(ValidityHours validityHours) {
+    
+    this.validityHours = validityHours;
+    return this;
+  }
+
+   /**
+   * Get validityHours
+   * @return validityHours
+  **/
+  @javax.annotation.Nullable
+  public ValidityHours getValidityHours() {
+    return validityHours;
+  }
+
+
+  public void setValidityHours(ValidityHours validityHours) {
+    this.validityHours = validityHours;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem segment(LoyaltiesEarningRulesCreateRequestBodyItemSegment segment) {
+    
+    this.segment = segment;
+    return this;
+  }
+
+   /**
+   * Get segment
+   * @return segment
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemSegment getSegment() {
+    return segment;
+  }
+
+
+  public void setSegment(LoyaltiesEarningRulesCreateRequestBodyItemSegment segment) {
+    this.segment = segment;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem customEvent(LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent customEvent) {
+    
+    this.customEvent = customEvent;
+    return this;
+  }
+
+   /**
+   * Get customEvent
+   * @return customEvent
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent getCustomEvent() {
+    return customEvent;
+  }
+
+
+  public void setCustomEvent(LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent customEvent) {
+    this.customEvent = customEvent;
+  }
+
+
+  public LoyaltiesEarningRulesCreateRequestBodyItem loyaltyTier(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier loyaltyTier) {
+    
+    this.loyaltyTier = loyaltyTier;
+    return this;
+  }
+
+   /**
+   * Get loyaltyTier
+   * @return loyaltyTier
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier getLoyaltyTier() {
+    return loyaltyTier;
+  }
+
+
+  public void setLoyaltyTier(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier loyaltyTier) {
+    this.loyaltyTier = loyaltyTier;
+  }
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the LoyaltiesEarningRulesCreateRequestBodyItem instance itself
+   */
+  public LoyaltiesEarningRulesCreateRequestBodyItem putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LoyaltiesEarningRulesCreateRequestBodyItem loyaltiesEarningRulesCreateRequestBodyItem = (LoyaltiesEarningRulesCreateRequestBodyItem) o;
+    return Objects.equals(this.validationRuleId, loyaltiesEarningRulesCreateRequestBodyItem.validationRuleId) &&
+        Objects.equals(this.loyalty, loyaltiesEarningRulesCreateRequestBodyItem.loyalty) &&
+        Objects.equals(this.event, loyaltiesEarningRulesCreateRequestBodyItem.event) &&
+        Objects.equals(this.source, loyaltiesEarningRulesCreateRequestBodyItem.source) &&
+        Objects.equals(this.active, loyaltiesEarningRulesCreateRequestBodyItem.active) &&
+        Objects.equals(this.startDate, loyaltiesEarningRulesCreateRequestBodyItem.startDate) &&
+        Objects.equals(this.expirationDate, loyaltiesEarningRulesCreateRequestBodyItem.expirationDate) &&
+        Objects.equals(this.validityTimeframe, loyaltiesEarningRulesCreateRequestBodyItem.validityTimeframe) &&
+        Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesCreateRequestBodyItem.validityDayOfWeek) &&
+        Objects.equals(this.validityHours, loyaltiesEarningRulesCreateRequestBodyItem.validityHours) &&
+        Objects.equals(this.metadata, loyaltiesEarningRulesCreateRequestBodyItem.metadata) &&
+        Objects.equals(this.segment, loyaltiesEarningRulesCreateRequestBodyItem.segment) &&
+        Objects.equals(this.customEvent, loyaltiesEarningRulesCreateRequestBodyItem.customEvent) &&
+        Objects.equals(this.loyaltyTier, loyaltiesEarningRulesCreateRequestBodyItem.loyaltyTier)&&
+        Objects.equals(this.additionalProperties, loyaltiesEarningRulesCreateRequestBodyItem.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(validationRuleId, loyalty, event, source, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, segment, customEvent, loyaltyTier, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LoyaltiesEarningRulesCreateRequestBodyItem {\n");
+    sb.append("    validationRuleId: ").append(toIndentedString(validationRuleId)).append("\n");
+    sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
+    sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
+    sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
+    sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("validation_rule_id");
+    openapiFields.add("loyalty");
+    openapiFields.add("event");
+    openapiFields.add("source");
+    openapiFields.add("active");
+    openapiFields.add("start_date");
+    openapiFields.add("expiration_date");
+    openapiFields.add("validity_timeframe");
+    openapiFields.add("validity_day_of_week");
+    openapiFields.add("validity_hours");
+    openapiFields.add("metadata");
+    openapiFields.add("segment");
+    openapiFields.add("custom_event");
+    openapiFields.add("loyalty_tier");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
     @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof LoyaltiesEarningRulesCreateOrderPaidRequestBody) {
-            super.setActualInstance(instance);
-            return;
-        }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!LoyaltiesEarningRulesCreateRequestBodyItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesEarningRulesCreateRequestBodyItem' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<LoyaltiesEarningRulesCreateRequestBodyItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesEarningRulesCreateRequestBodyItem.class));
 
-        if (instance instanceof LoyaltiesEarningRulesCreateEnteredSegmentRequestBody) {
-            super.setActualInstance(instance);
-            return;
-        }
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateRequestBodyItem>() {
+           @Override
+           public void write(JsonWriter out, LoyaltiesEarningRulesCreateRequestBodyItem value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                 }
+               }
+             }
+             elementAdapter.write(out, obj);
+           }
 
-        if (instance instanceof LoyaltiesEarningRulesCreateCustomEventRequestBody) {
-            super.setActualInstance(instance);
-            return;
-        }
+           @Override
+           public LoyaltiesEarningRulesCreateRequestBodyItem read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             LoyaltiesEarningRulesCreateRequestBodyItem instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     return null;
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
+           }
 
-        if (instance instanceof LoyaltiesEarningRulesCreateTierChangeRequestBody) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody
-     *
-     * @return The actual instance (LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody)
-     */
-    @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `LoyaltiesEarningRulesCreateOrderPaidRequestBody`. If the actual instance is not `LoyaltiesEarningRulesCreateOrderPaidRequestBody`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `LoyaltiesEarningRulesCreateOrderPaidRequestBody`
-     * @throws ClassCastException if the instance is not `LoyaltiesEarningRulesCreateOrderPaidRequestBody`
-     */
-    public LoyaltiesEarningRulesCreateOrderPaidRequestBody getLoyaltiesEarningRulesCreateOrderPaidRequestBody() throws ClassCastException {
-        return (LoyaltiesEarningRulesCreateOrderPaidRequestBody)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `LoyaltiesEarningRulesCreateEnteredSegmentRequestBody`. If the actual instance is not `LoyaltiesEarningRulesCreateEnteredSegmentRequestBody`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `LoyaltiesEarningRulesCreateEnteredSegmentRequestBody`
-     * @throws ClassCastException if the instance is not `LoyaltiesEarningRulesCreateEnteredSegmentRequestBody`
-     */
-    public LoyaltiesEarningRulesCreateEnteredSegmentRequestBody getLoyaltiesEarningRulesCreateEnteredSegmentRequestBody() throws ClassCastException {
-        return (LoyaltiesEarningRulesCreateEnteredSegmentRequestBody)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `LoyaltiesEarningRulesCreateCustomEventRequestBody`. If the actual instance is not `LoyaltiesEarningRulesCreateCustomEventRequestBody`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `LoyaltiesEarningRulesCreateCustomEventRequestBody`
-     * @throws ClassCastException if the instance is not `LoyaltiesEarningRulesCreateCustomEventRequestBody`
-     */
-    public LoyaltiesEarningRulesCreateCustomEventRequestBody getLoyaltiesEarningRulesCreateCustomEventRequestBody() throws ClassCastException {
-        return (LoyaltiesEarningRulesCreateCustomEventRequestBody)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `LoyaltiesEarningRulesCreateTierChangeRequestBody`. If the actual instance is not `LoyaltiesEarningRulesCreateTierChangeRequestBody`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `LoyaltiesEarningRulesCreateTierChangeRequestBody`
-     * @throws ClassCastException if the instance is not `LoyaltiesEarningRulesCreateTierChangeRequestBody`
-     */
-    public LoyaltiesEarningRulesCreateTierChangeRequestBody getLoyaltiesEarningRulesCreateTierChangeRequestBody() throws ClassCastException {
-        return (LoyaltiesEarningRulesCreateTierChangeRequestBody)super.getActualInstance();
-    }
-
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to LoyaltiesEarningRulesCreateRequestBodyItem
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with LoyaltiesEarningRulesCreateOrderPaidRequestBody
-    try {
-      LoyaltiesEarningRulesCreateOrderPaidRequestBody.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateOrderPaidRequestBody failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with LoyaltiesEarningRulesCreateEnteredSegmentRequestBody
-    try {
-      LoyaltiesEarningRulesCreateEnteredSegmentRequestBody.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateEnteredSegmentRequestBody failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with LoyaltiesEarningRulesCreateCustomEventRequestBody
-    try {
-      LoyaltiesEarningRulesCreateCustomEventRequestBody.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateCustomEventRequestBody failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with LoyaltiesEarningRulesCreateTierChangeRequestBody
-    try {
-      LoyaltiesEarningRulesCreateTierChangeRequestBody.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for LoyaltiesEarningRulesCreateTierChangeRequestBody failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for LoyaltiesEarningRulesCreateRequestBodyItem with oneOf schemas: LoyaltiesEarningRulesCreateCustomEventRequestBody, LoyaltiesEarningRulesCreateEnteredSegmentRequestBody, LoyaltiesEarningRulesCreateOrderPaidRequestBody, LoyaltiesEarningRulesCreateTierChangeRequestBody. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
   }
 

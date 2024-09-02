@@ -56769,372 +56769,6 @@ components:
           type: boolean
       title: ListPublicationsItemVoucher
       type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBody:
-      description: This is an object representing an earning rule triggered by a custom
-        event.
-      properties:
-        validation_rule_id:
-          description: A unique validation rule identifier assigned by the Voucherify
-            API. The validation rule is verified before points are added to the balance.
-          example: val_248vs7tUjlIE
-          nullable: true
-          type: string
-        loyalty:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty'
-        custom_event:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent'
-        event:
-          description: "Defines the event which triggers the earning rule to add points\
-            \ to a loyalty card.  \n\n- `custom_event_name` the name of a custom event\
-            \ defined in the Dashboard &rarr; **Project Settings** &rarr; **EVENT\
-            \ SCHEMA** &rarr; **Add event definition**. Read more on defining [custom\
-            \ events](https://support.voucherify.io/article/111-custom-events). "
-          nullable: true
-          type: string
-        source:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBodySource'
-        active:
-          description: "A flag to toggle the earning rule on or off. You can disable\
-            \ an earning rule even though it's within the active period defined by\
-            \ the `start_date` and `expiration_date` of the campaign or the earning\
-            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
-            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
-            \ rule"
-          nullable: true
-          type: boolean
-        start_date:
-          description: "Start date defines when the earning rule starts to be active.\
-            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
-            \ is *inactive before* this date. If you don't define the start date for\
-            \ an earning rule, it'll inherit the campaign start date by default. "
-          example: 2022-02-02T13:00:00Z
-          format: date-time
-          nullable: true
-          type: string
-        expiration_date:
-          description: "Expiration date defines when the earning rule expires. Expiration\
-            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
-            \ after* this date.If you don't define the expiration date for an earning\
-            \ rule, it'll inherit the campaign expiration date by default."
-          example: 2022-03-03T14:30:00Z
-          format: date-time
-          nullable: true
-          type: string
-        validity_timeframe:
-          $ref: '#/components/schemas/ValidityTimeframe'
-        validity_day_of_week:
-          description: |-
-            Integer array corresponding to the particular days of the week in which the voucher is valid.
-
-            - `0` Sunday
-            - `1` Monday
-            - `2` Tuesday
-            - `3` Wednesday
-            - `4` Thursday
-            - `5` Friday
-            - `6` Saturday
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            title: ValidityDayOfWeekItem
-            type: integer
-          title: ValidityDayOfWeek
-          type: array
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the earning rule. A set of key/value pairs that you can attach to an earning
-            rule object. It can be useful for storing additional information about
-            the earning rule in a structured format.
-          nullable: true
-          title: LoyaltiesEarningRulesCreateCustomEventRequestBodyMetadata
-          type: object
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBody
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBody:
-      description: This is an object representing an earning rule for entering a customer
-        segment.
-      properties:
-        validation_rule_id:
-          description: A unique validation rule identifier assigned by the Voucherify
-            API. The validation rule is verified before points are added to the balance.
-          example: val_248vs7tUjlIE
-          nullable: true
-          type: string
-        loyalty:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty'
-        segment:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment'
-        event:
-          default: customer.segment.entered
-          description: "Defines the event which triggers the earning rule to add points\
-            \ to a loyalty card.  \n\n- `customer.segment.entered` an event defined\
-            \ by the Voucherify API corresponding to a customer entering a pre-defined\
-            \ customer segment."
-          enum:
-          - customer.segment.entered
-          nullable: true
-          type: string
-        source:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource'
-        active:
-          description: "A flag to toggle the earning rule on or off. You can disable\
-            \ an earning rule even though it's within the active period defined by\
-            \ the `start_date` and `expiration_date` of the campaign or the earning\
-            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
-            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
-            \ rule"
-          nullable: true
-          type: boolean
-        start_date:
-          description: "Start date defines when the earning rule starts to be active.\
-            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
-            \ is *inactive before* this date. If you don't define the start date for\
-            \ an earning rule, it'll inherit the campaign start date by default. "
-          example: 2022-02-02T13:00:00Z
-          format: date-time
-          nullable: true
-          type: string
-        expiration_date:
-          description: "Expiration date defines when the earning rule expires. Expiration\
-            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
-            \ after* this date.If you don't define the expiration date for an earning\
-            \ rule, it'll inherit the campaign expiration date by default."
-          example: 2022-03-03T14:30:00Z
-          format: date-time
-          nullable: true
-          type: string
-        validity_timeframe:
-          $ref: '#/components/schemas/ValidityTimeframe'
-        validity_day_of_week:
-          description: |-
-            Integer array corresponding to the particular days of the week in which the voucher is valid.
-
-            - `0` Sunday
-            - `1` Monday
-            - `2` Tuesday
-            - `3` Wednesday
-            - `4` Thursday
-            - `5` Friday
-            - `6` Saturday
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            title: ValidityDayOfWeekItem
-            type: integer
-          title: ValidityDayOfWeek
-          type: array
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the earning rule. A set of key/value pairs that you can attach to an earning
-            rule object. It can be useful for storing additional information about
-            the earning rule in a structured format.
-          nullable: true
-          title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyMetadata
-          type: object
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBody
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBody:
-      description: This is an object representing an earning rule for a paid order.
-      properties:
-        validation_rule_id:
-          description: A unique validation rule identifier assigned by the Voucherify
-            API. The validation rule is verified before points are added to the balance.
-          example: val_248vs7tUjlIE
-          nullable: true
-          type: string
-        loyalty:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty'
-        event:
-          default: order.paid
-          description: "Defines the event which triggers the earning rule to add points\
-            \ to a loyalty card.  \n\n- `order.paid` an event defined by the Voucherify\
-            \ API corresponding to an order status `PAID`. "
-          enum:
-          - order.paid
-          nullable: true
-          type: string
-        source:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodySource'
-        active:
-          description: "A flag to toggle the earning rule on or off. You can disable\
-            \ an earning rule even though it's within the active period defined by\
-            \ the `start_date` and `expiration_date` of the campaign or the earning\
-            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
-            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
-            \ rule"
-          nullable: true
-          type: boolean
-        start_date:
-          description: "Start date defines when the earning rule starts to be active.\
-            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
-            \ is *inactive before* this date. If you don't define the start date for\
-            \ an earning rule, it'll inherit the campaign start date by default. "
-          example: 2022-02-02T13:00:00Z
-          format: date-time
-          nullable: true
-          type: string
-        expiration_date:
-          description: "Expiration date defines when the earning rule expires. Expiration\
-            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
-            \ after* this date.If you don't define the expiration date for an earning\
-            \ rule, it'll inherit the campaign expiration date by default."
-          example: 2022-03-03T14:30:00Z
-          format: date-time
-          nullable: true
-          type: string
-        validity_timeframe:
-          $ref: '#/components/schemas/ValidityTimeframe'
-        validity_day_of_week:
-          description: |-
-            Integer array corresponding to the particular days of the week in which the voucher is valid.
-
-            - `0` Sunday
-            - `1` Monday
-            - `2` Tuesday
-            - `3` Wednesday
-            - `4` Thursday
-            - `5` Friday
-            - `6` Saturday
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            title: ValidityDayOfWeekItem
-            type: integer
-          title: ValidityDayOfWeek
-          type: array
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the earning rule. A set of key/value pairs that you can attach to an earning
-            rule object. It can be useful for storing additional information about
-            the earning rule in a structured format.
-          nullable: true
-          title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyMetadata
-          type: object
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBody
-      type: object
-    LoyaltiesEarningRulesCreateTierChangeRequestBody:
-      description: This is an object representing an earning rule for tiers.
-      properties:
-        validation_rule_id:
-          description: A unique validation rule identifier assigned by the Voucherify
-            API. The validation rule is verified before points are added to the balance.
-          example: val_248vs7tUjlIE
-          nullable: true
-          type: string
-        loyalty:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty'
-        event:
-          description: "Defines the event which triggers the earning rule to add points\
-            \ to a loyalty card.  \n\n- `customer.loyalty.tier.joined` an event defined\
-            \ by the Voucherify API corresponding to a customer joining a tier   \
-            \ \n- `customer.loyalty.tier.left` an event defined by the Voucherify\
-            \ API corresponding to a customer leaving a tier    \n- `customer.loyalty.tier.upgraded`\
-            \ an event defined by the Voucherify API corresponding to a customer's\
-            \ tier being upgraded    \n- `customer.loyalty.tier.downgraded` an event\
-            \ defined by the Voucherify API corresponding to a customer's tier being\
-            \ upgraded    \n- `customer.loyalty.tier.prolonged` an event defined by\
-            \ the Voucherify API corresponding to a customer's tier being prolonged"
-          enum:
-          - customer.loyalty.tier.joined
-          - customer.loyalty.tier.left
-          - customer.loyalty.tier.upgraded
-          - customer.loyalty.tier.downgraded
-          - customer.loyalty.tier.prolonged
-          nullable: true
-          type: string
-        loyalty_tier:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier'
-        source:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateTierChangeRequestBodySource'
-        active:
-          description: "A flag to toggle the earning rule on or off. You can disable\
-            \ an earning rule even though it's within the active period defined by\
-            \ the `start_date` and `expiration_date` of the campaign or the earning\
-            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
-            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
-            \ rule"
-          nullable: true
-          type: boolean
-        start_date:
-          description: "Start date defines when the earning rule starts to be active.\
-            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
-            \ is *inactive before* this date. If you don't define the start date for\
-            \ an earning rule, it'll inherit the campaign start date by default. "
-          example: 2022-02-02T13:00:00Z
-          format: date-time
-          nullable: true
-          type: string
-        expiration_date:
-          description: "Expiration date defines when the earning rule expires. Expiration\
-            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
-            \ after* this date.If you don't define the expiration date for an earning\
-            \ rule, it'll inherit the campaign expiration date by default."
-          example: 2022-03-03T14:30:00Z
-          format: date-time
-          nullable: true
-          type: string
-        validity_timeframe:
-          $ref: '#/components/schemas/ValidityTimeframe'
-        validity_day_of_week:
-          description: |-
-            Integer array corresponding to the particular days of the week in which the voucher is valid.
-
-            - `0` Sunday
-            - `1` Monday
-            - `2` Tuesday
-            - `3` Wednesday
-            - `4` Thursday
-            - `5` Friday
-            - `6` Saturday
-          items:
-            enum:
-            - 0
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            title: ValidityDayOfWeekItem
-            type: integer
-          title: ValidityDayOfWeek
-          type: array
-        validity_hours:
-          $ref: '#/components/schemas/ValidityHours'
-        metadata:
-          description: The metadata object stores all custom attributes assigned to
-            the earning rule. A set of key/value pairs that you can attach to an earning
-            rule object. It can be useful for storing additional information about
-            the earning rule in a structured format.
-          nullable: true
-          title: LoyaltiesEarningRulesCreateTierChangeRequestBodyMetadata
-          type: object
-      title: LoyaltiesEarningRulesCreateTierChangeRequestBody
-      type: object
     LoyaltiesLoyaltyTierReward:
       description: This is an object representing a loyalty tier reward.
       example:
@@ -68983,13 +68617,606 @@ components:
           $ref: '#/components/schemas/ExportsGetResponseBodyParametersFilters'
       title: ExportsGetResponseBodyParameters
       type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every given increment of value (1, 10, etc) defined in the\
+        \ every parameter for the property defined in calculation_type, give the customer\
+        \ the number of points defined in the points parameter. In other words, for\
+        \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 6
+        points: 1
+      nullable: true
+      properties:
+        every:
+          description: For how many increments of the customer metadata property to
+            grant points for.
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        property:
+          description: |2-
+
+            Custom event metadata property.
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent:
+      example:
+        metadata:
+          property: property
+          every: 6
+          points: 1
+      nullable: true
+      properties:
+        metadata:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata'
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsQuantity:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
+        \ for the property defined in calculation_type, give the customer the number\
+        \ of points defined in the points parameter. In other words, for every calculation_type,\
+        \ give points."
+      example:
+        id: id
+        every: 5
+        points: 5
+        object: products_collection
+      nullable: true
+      properties:
+        every:
+          description: "Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, a $10 order amount is written as 1000."
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        object:
+          description: Type of object taken under consideration.
+          enum:
+          - products_collection
+          - product
+          - sku
+          nullable: true
+          type: string
+        id:
+          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
+            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsQuantity
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsAmount:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
+        \ for the property defined in calculation_type, give the customer the number\
+        \ of points defined in the points parameter. In other words, for every calculation_type,\
+        \ give points."
+      example:
+        id: id
+        every: 2
+        points: 7
+        object: products_collection
+      nullable: true
+      properties:
+        every:
+          description: "Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, a $10 order amount is written as 1000."
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        object:
+          description: Type of object taken under consideration.
+          enum:
+          - products_collection
+          - product
+          - sku
+          nullable: true
+          type: string
+        id:
+          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
+            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsAmount
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsSubtotalAmount:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
+        \ for the property defined in calculation_type, give the customer the number\
+        \ of points defined in the points parameter. In other words, for every calculation_type,\
+        \ give points."
+      example:
+        id: id
+        every: 9
+        points: 3
+        object: products_collection
+      nullable: true
+      properties:
+        every:
+          description: "Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, a $10 order amount is written as 1000."
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        object:
+          description: Type of object taken under consideration.
+          enum:
+          - products_collection
+          - product
+          - sku
+          nullable: true
+          type: string
+        id:
+          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
+            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsSubtotalAmount
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems:
+      example:
+        amount:
+          id: id
+          every: 2
+          points: 7
+          object: products_collection
+        quantity:
+          id: id
+          every: 5
+          points: 5
+          object: products_collection
+        subtotal_amount:
+          id: id
+          every: 9
+          points: 3
+          object: products_collection
+      properties:
+        quantity:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsQuantity'
+        amount:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsAmount'
+        subtotal_amount:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItemsSubtotalAmount'
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
+        \ for the property defined in calculation_type, give the customer the number\
+        \ of points defined in the points parameter. In other words, for every calculation_type,\
+        \ give points."
+      example:
+        every: 2
+        points: 4
+      nullable: true
+      properties:
+        every:
+          description: "Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, a $10 order amount is written as 1000."
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderTotalAmount:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
+        \ for the property defined in calculation_type, give the customer the number\
+        \ of points defined in the points parameter. In other words, for every calculation_type,\
+        \ give points."
+      example:
+        every: 7
+        points: 1
+      nullable: true
+      properties:
+        every:
+          description: "Value is multiplied by 100 to precisely represent 2 decimal\
+            \ places. For example, a $10 order amount is written as 1000."
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderTotalAmount
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderMetadata:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every given increment of value (1, 10, etc) defined in the\
+        \ every parameter for the property defined in calculation_type, give the customer\
+        \ the number of points defined in the points parameter. In other words, for\
+        \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 1
+        points: 1
+      nullable: true
+      properties:
+        every:
+          description: For how many increments of the order metadata property to grant
+            points for.
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        property:
+          description: Order metadata property.
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderMetadata
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder:
+      example:
+        amount:
+          every: 2
+          points: 4
+        metadata:
+          property: property
+          every: 1
+          points: 1
+        total_amount:
+          every: 7
+          points: 1
+      properties:
+        amount:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount'
+        total_amount:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderTotalAmount'
+        metadata:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderMetadata'
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomerMetadata:
+      description: "Defines the ratio based on the property defined in the calculation_type\
+        \ parameter. For every given increment of value (1, 10, etc) defined in the\
+        \ every parameter for the property defined in calculation_type, give the customer\
+        \ the number of points defined in the points parameter. In other words, for\
+        \ every order metadata property value, give points."
+      example:
+        property: property
+        every: 6
+        points: 7
+      nullable: true
+      properties:
+        every:
+          description: For how many increments of the customer metadata property to
+            grant points for.
+          nullable: true
+          type: integer
+        points:
+          description: "Number of points to be awarded, i.e. how many points to be\
+            \ added to the loyalty card."
+          nullable: true
+          type: integer
+        property:
+          description: Customer metadata property.
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomerMetadata
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer:
+      example:
+        metadata:
+          property: property
+          every: 6
+          points: 7
+      nullable: true
+      properties:
+        metadata:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomerMetadata'
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyalty:
+      example:
+        calculation_type: CUSTOM_EVENT_METADATA
+        custom_event:
+          metadata:
+            property: property
+            every: 6
+            points: 1
+        type: FIXED
+        points: 0
+        order_items:
+          amount:
+            id: id
+            every: 2
+            points: 7
+            object: products_collection
+          quantity:
+            id: id
+            every: 5
+            points: 5
+            object: products_collection
+          subtotal_amount:
+            id: id
+            every: 9
+            points: 3
+            object: products_collection
+        order:
+          amount:
+            every: 2
+            points: 4
+          metadata:
+            property: property
+            every: 1
+            points: 1
+          total_amount:
+            every: 7
+            points: 1
+        customer:
+          metadata:
+            property: property
+            every: 6
+            points: 7
+      properties:
+        type:
+          enum:
+          - FIXED
+          - PROPORTIONAL
+          type: string
+        points:
+          description: Defines how the points will be added to the loyalty card. FIXED
+            adds a fixed number of points.
+          nullable: true
+          type: integer
+        calculation_type:
+          enum:
+          - CUSTOM_EVENT_METADATA
+          - ORDER_ITEMS_QUANTITY
+          - ORDER_ITEMS_AMOUNT
+          - ORDER_ITEMS_SUBTOTAL_AMOUNT
+          - ORDER_AMOUNT
+          - ORDER_TOTAL_AMOUNT
+          - ORDER_METADATA
+          - CUSTOMER_METADATA
+          type: string
+        custom_event:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent'
+        order_items:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems'
+        order:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder'
+        customer:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer'
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyalty
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemSource:
+      example:
+        banner: Order Paid - You will get 100 points
+      properties:
+        banner:
+          description: Name of the earning rule. This is displayed as a header for
+            the earning rule in the Dashboard.
+          example: Order Paid - You will get 100 points
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemSource
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemSegment:
+      description: Contains the ID of a customer segment. **Required** for the `customer.segment.entered`
+        option in `event`.
+      example:
+        id: id
+      nullable: true
+      properties:
+        id:
+          description: Contains a unique identifier of a customer segment. Assigned
+            by the Voucherify API.
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemSegment
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent:
+      description: Contains the schema id of a custom event. **Required** for the
+        custom event option in `event`.
+      example:
+        schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+      nullable: true
+      properties:
+        schema_id:
+          description: Contains a unique identifier of a custom event schema. Assigned
+            by the Voucherify API.
+          example: ms_gn4Qe4xsFPf7orCArCiNVY13
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent
+      type: object
+    LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier:
+      description: Defines the tier associated with the earning rule definition.
+      example:
+        id: ltr_pudTGWasuIqxdiDM0go31OV1
+      nullable: true
+      properties:
+        id:
+          description: "Unique loyalty tier ID associated with the earning rule. \
+            \   \n\n- `__ANY__`: any loyalty tier within the campaign"
+          example: ltr_pudTGWasuIqxdiDM0go31OV1
+          nullable: true
+          type: string
+      title: LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier
+      type: object
     LoyaltiesEarningRulesCreateRequestBodyItem:
-      oneOf:
-      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBody'
-      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBody'
-      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBody'
-      - $ref: '#/components/schemas/LoyaltiesEarningRulesCreateTierChangeRequestBody'
+      example:
+        metadata: "{}"
+        loyalty_tier:
+          id: ltr_pudTGWasuIqxdiDM0go31OV1
+        loyalty:
+          calculation_type: CUSTOM_EVENT_METADATA
+          custom_event:
+            metadata:
+              property: property
+              every: 6
+              points: 1
+          type: FIXED
+          points: 0
+          order_items:
+            amount:
+              id: id
+              every: 2
+              points: 7
+              object: products_collection
+            quantity:
+              id: id
+              every: 5
+              points: 5
+              object: products_collection
+            subtotal_amount:
+              id: id
+              every: 9
+              points: 3
+              object: products_collection
+          order:
+            amount:
+              every: 2
+              points: 4
+            metadata:
+              property: property
+              every: 1
+              points: 1
+            total_amount:
+              every: 7
+              points: 1
+          customer:
+            metadata:
+              property: property
+              every: 6
+              points: 7
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        custom_event:
+          schema_id: ms_gn4Qe4xsFPf7orCArCiNVY13
+        source:
+          banner: Order Paid - You will get 100 points
+        expiration_date: 2022-03-03T14:30:00Z
+        validation_rule_id: val_248vs7tUjlIE
+        validity_day_of_week:
+        - 1
+        - 1
+        segment:
+          id: id
+        event: event
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2022-02-02T13:00:00Z
+      properties:
+        validation_rule_id:
+          description: A unique validation rule identifier assigned by the Voucherify
+            API. The validation rule is verified before points are added to the balance.
+          example: val_248vs7tUjlIE
+          nullable: true
+          type: string
+        loyalty:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyalty'
+        event:
+          type: string
+        source:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemSource'
+        active:
+          description: "A flag to toggle the earning rule on or off. You can disable\
+            \ an earning rule even though it's within the active period defined by\
+            \ the `start_date` and `expiration_date` of the campaign or the earning\
+            \ rule's own `start_date` and `expiration_date`.  \n\n- `true` indicates\
+            \ an *active* earning rule\n- `false` indicates an *inactive* earning\
+            \ rule"
+          nullable: true
+          type: boolean
+        start_date:
+          description: "Start date defines when the earning rule starts to be active.\
+            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
+            \ is *inactive before* this date. If you don't define the start date for\
+            \ an earning rule, it'll inherit the campaign start date by default. "
+          example: 2022-02-02T13:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: "Expiration date defines when the earning rule expires. Expiration\
+            \ timestamp is presented in the ISO 8601 format.  Earning rule is *inactive\
+            \ after* this date.If you don't define the expiration date for an earning\
+            \ rule, it'll inherit the campaign expiration date by default."
+          example: 2022-03-03T14:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            title: ValidityDayOfWeekItem
+            type: integer
+          title: ValidityDayOfWeek
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        metadata:
+          title: LoyaltiesEarningRulesCreateRequestBodyItemMetadata
+          type: object
+        segment:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemSegment'
+        custom_event:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent'
+        loyalty_tier:
+          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier'
       title: LoyaltiesEarningRulesCreateRequestBodyItem
+      type: object
     LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderAmount:
       description: "Defines the ratio based on the property defined in the calculation_type\
         \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
@@ -81947,440 +82174,6 @@ components:
           nullable: true
           type: integer
       title: FilterConditionsDateTimeConditions
-      type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEventMetadata:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every given increment of value (1, 10, etc) defined in the\
-        \ every parameter for the property defined in calculation_type, give the customer\
-        \ the number of points defined in the points parameter. In other words, for\
-        \ every order metadata property value, give points."
-      nullable: true
-      properties:
-        every:
-          description: For how many increments of the customer metadata property to
-            grant points for.
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        property:
-          description: |2-
-
-            Custom event metadata property.
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEventMetadata
-      type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent:
-      nullable: true
-      properties:
-        metadata:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEventMetadata'
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent
-      type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty:
-      nullable: true
-      properties:
-        type:
-          enum:
-          - FIXED
-          - PROPORTIONAL
-          nullable: true
-          type: string
-        points:
-          description: Defines how the points will be added to the loyalty card. FIXED
-            adds a fixed number of points.
-          nullable: true
-          type: integer
-        calculation_type:
-          default: CUSTOM_EVENT_METADATA
-          description: "CUSTOM_EVENT_METADATA: Custom event metadata (X points for\
-            \ every Y in metadata attribute)."
-          enum:
-          - CUSTOM_EVENT_METADATA
-          nullable: true
-          type: string
-        custom_event:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyaltyCustomEvent'
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBodyLoyalty
-      type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent:
-      description: Contains the schema id of a custom event. **Required** for the
-        custom event option in `event`.
-      nullable: true
-      properties:
-        schema_id:
-          description: Contains a unique identifier of a custom event schema. Assigned
-            by the Voucherify API.
-          example: ms_gn4Qe4xsFPf7orCArCiNVY13
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBodyCustomEvent
-      type: object
-    LoyaltiesEarningRulesCreateCustomEventRequestBodySource:
-      description: Contains the custom earning rule name and parent campaign.
-      nullable: true
-      properties:
-        banner:
-          description: Name of the earning rule. This is displayed as a header for
-            the earning rule in the Dashboard.
-          example: Order Paid - You will get 100 points
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateCustomEventRequestBodySource
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomerMetadata:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every given increment of value (1, 10, etc) defined in the\
-        \ every parameter for the property defined in calculation_type, give the customer\
-        \ the number of points defined in the points parameter. In other words, for\
-        \ every order metadata property value, give points."
-      nullable: true
-      properties:
-        every:
-          description: For how many increments of the customer metadata property to
-            grant points for.
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        property:
-          description: Customer metadata property.
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomerMetadata
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer:
-      nullable: true
-      properties:
-        metadata:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomerMetadata'
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty:
-      nullable: true
-      properties:
-        type:
-          enum:
-          - FIXED
-          - PROPORTIONAL
-          nullable: true
-          type: string
-        points:
-          description: Defines how the points will be added to the loyalty card. FIXED
-            adds a fixed number of points.
-          nullable: true
-          type: integer
-        calculation_type:
-          default: CUSTOMER_METADATA
-          description: "CUSTOMER_METADATA: Customer Metadata (X points for every Y\
-            \ in metadata attribute, defined in the property key under the customer.metadata\
-            \ object)"
-          enum:
-          - CUSTOMER_METADATA
-          nullable: true
-          type: string
-        customer:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyaltyCustomer'
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodyLoyalty
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment:
-      description: Contains the ID of a customer segment. **Required** for the `customer.segment.entered`
-        option in `event`.
-      nullable: true
-      properties:
-        id:
-          description: Contains a unique identifier of a customer segment. Assigned
-            by the Voucherify API.
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySegment
-      type: object
-    LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource:
-      description: Contains the custom earning rule name and parent campaign.
-      nullable: true
-      properties:
-        banner:
-          description: Name of the earning rule. This is displayed as a header for
-            the earning rule in the Dashboard.
-          example: Order Paid - You will get 100 points
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateEnteredSegmentRequestBodySource
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsQuantity:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
-        \ for the property defined in calculation_type, give the customer the number\
-        \ of points defined in the points parameter. In other words, for every calculation_type,\
-        \ give points."
-      nullable: true
-      properties:
-        every:
-          description: "Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, a $10 order amount is written as 1000."
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        object:
-          description: Type of object taken under consideration.
-          enum:
-          - products_collection
-          - product
-          - sku
-          nullable: true
-          type: string
-        id:
-          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
-            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsQuantity
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsAmount:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
-        \ for the property defined in calculation_type, give the customer the number\
-        \ of points defined in the points parameter. In other words, for every calculation_type,\
-        \ give points."
-      nullable: true
-      properties:
-        every:
-          description: "Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, a $10 order amount is written as 1000."
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        object:
-          description: Type of object taken under consideration.
-          enum:
-          - products_collection
-          - product
-          - sku
-          nullable: true
-          type: string
-        id:
-          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
-            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsAmount
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsSubtotalAmount:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
-        \ for the property defined in calculation_type, give the customer the number\
-        \ of points defined in the points parameter. In other words, for every calculation_type,\
-        \ give points."
-      nullable: true
-      properties:
-        every:
-          description: "Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, a $10 order amount is written as 1000."
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        object:
-          description: Type of object taken under consideration.
-          enum:
-          - products_collection
-          - product
-          - sku
-          nullable: true
-          type: string
-        id:
-          description: "Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6,\
-            \ prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619."
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsSubtotalAmount
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems:
-      nullable: true
-      properties:
-        quantity:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsQuantity'
-        amount:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsAmount'
-        subtotal_amount:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItemsSubtotalAmount'
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
-        \ for the property defined in calculation_type, give the customer the number\
-        \ of points defined in the points parameter. In other words, for every calculation_type,\
-        \ give points."
-      nullable: true
-      properties:
-        every:
-          description: "Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, a $10 order amount is written as 1000."
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every set of value (1, 10, etc) defined in the every parameter\
-        \ for the property defined in calculation_type, give the customer the number\
-        \ of points defined in the points parameter. In other words, for every calculation_type,\
-        \ give points."
-      nullable: true
-      properties:
-        every:
-          description: "Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, a $10 order amount is written as 1000."
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata:
-      description: "Defines the ratio based on the property defined in the calculation_type\
-        \ parameter. For every given increment of value (1, 10, etc) defined in the\
-        \ every parameter for the property defined in calculation_type, give the customer\
-        \ the number of points defined in the points parameter. In other words, for\
-        \ every order metadata property value, give points."
-      nullable: true
-      properties:
-        every:
-          description: For how many increments of the order metadata property to grant
-            points for.
-          nullable: true
-          type: integer
-        points:
-          description: "Number of points to be awarded, i.e. how many points to be\
-            \ added to the loyalty card."
-          nullable: true
-          type: integer
-        property:
-          description: Order metadata property.
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder:
-      nullable: true
-      properties:
-        amount:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderAmount'
-        total_amount:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderTotalAmount'
-        metadata:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderMetadata'
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty:
-      nullable: true
-      properties:
-        type:
-          enum:
-          - PROPORTIONAL
-          - FIXED
-          nullable: true
-          type: string
-        calculation_type:
-          enum:
-          - ORDER_ITEMS_QUANTITY
-          - ORDER_ITEMS_AMOUNT
-          - ORDER_ITEMS_SUBTOTAL_AMOUNT
-          - ORDER_AMOUNT
-          - ORDER_TOTAL_AMOUNT
-          - ORDER_METADATA
-          nullable: true
-          type: string
-        order_items:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrderItems'
-        order:
-          $ref: '#/components/schemas/LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyaltyOrder'
-        points:
-          description: Defines how the points will be added to the loyalty card. FIXED
-            adds a fixed number of points.
-          nullable: true
-          type: integer
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodyLoyalty
-      type: object
-    LoyaltiesEarningRulesCreateOrderPaidRequestBodySource:
-      description: Contains the custom earning rule name and parent campaign.
-      nullable: true
-      properties:
-        banner:
-          description: Name of the earning rule. This is displayed as a header for
-            the earning rule in the Dashboard.
-          example: Order Paid - You will get 100 points
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateOrderPaidRequestBodySource
-      type: object
-    LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty:
-      nullable: true
-      properties:
-        type:
-          default: FIXED
-          description: The number of points to be added to the loyalty card.
-          enum:
-          - FIXED
-          nullable: true
-          type: string
-        points:
-          description: Defines how the points will be added to the loyalty card. FIXED
-            adds a fixed number of points.
-          nullable: true
-          type: integer
-      title: LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyalty
-      type: object
-    LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier:
-      description: Defines the tier associated with the earning rule definition.
-      nullable: true
-      properties:
-        id:
-          description: "Unique loyalty tier ID associated with the earning rule. \
-            \   \n\n- `__ANY__`: any loyalty tier within the campaign"
-          example: ltr_pudTGWasuIqxdiDM0go31OV1
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateTierChangeRequestBodyLoyaltyTier
-      type: object
-    LoyaltiesEarningRulesCreateTierChangeRequestBodySource:
-      description: Contains the custom earning rule name and parent campaign.
-      nullable: true
-      properties:
-        banner:
-          description: Name of the earning rule. This is displayed as a header for
-            the earning rule in the Dashboard.
-          example: Order Paid - You will get 100 points
-          nullable: true
-          type: string
-      title: LoyaltiesEarningRulesCreateTierChangeRequestBodySource
       type: object
     LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty:
       description: Defines the equivalent points value of the reward.
