@@ -20,7 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Order(1)
+@org.junit.jupiter.api.Order(1)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CampaignsTest {
@@ -40,7 +40,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(1)
+    @org.junit.jupiter.api.Order(1)
     public void createLoyaltyProgramTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedLoyaltyCampaign.snapshot.json";
 
@@ -76,7 +76,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(2)
+    @org.junit.jupiter.api.Order(2)
     public void createDiscountCampaignTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedDiscountCampaign.snapshot.json";
 
@@ -110,7 +110,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(3)
+    @org.junit.jupiter.api.Order(3)
     public void getLoyaltyCampaignTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedLoyaltyCampaign.snapshot.json";
         try {
@@ -124,7 +124,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(4)
+    @org.junit.jupiter.api.Order(4)
     public void addVoucherToCampaignTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/AddedVoucherToCampaign.snapshot.json";
         try {
@@ -155,7 +155,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(5)
+    @org.junit.jupiter.api.Order(5)
     public void addVouchersToCampaignTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/AddedMultipleVouchersToCampaign.snapshot.json";
         try {
@@ -175,7 +175,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(6)
+    @org.junit.jupiter.api.Order(6)
     public void createPromotionCampaignWithSinglePromotionTier() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedPromotionCampaign.snapshot.json";
         String snapshotPath2 = "src/test/java/io/voucherify/snapshots/PromotionTiers/CreatedPromotionTier.snapshot.json";
@@ -226,7 +226,7 @@ public class CampaignsTest {
     }
 
     @Test
-    @Order(7)
+    @org.junit.jupiter.api.Order(7)
     public void createDiscountCampaignWithReward() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/CreatedDiscountCampaign.snapshot.json";
         String snapshotPath2 = "src/test/java/io/voucherify/snapshots/Rewards/CreatedReward.snapshot.json";

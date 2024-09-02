@@ -22,7 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Order(2)
+@org.junit.jupiter.api.Order(2)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CustomersTest {
@@ -37,7 +37,7 @@ public class CustomersTest {
     }
 
     @Test
-    @Order(1)
+    @org.junit.jupiter.api.Order(1)
     public void createCustomersTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Customers/CreatedCustomer.snapshot.json";
 
@@ -58,7 +58,7 @@ public class CustomersTest {
     }
 
     @Test
-    @Order(2)
+    @org.junit.jupiter.api.Order(2)
     public void updateCustomersInBulkTest() {
         try {
             List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = new ArrayList<>();
@@ -82,7 +82,7 @@ public class CustomersTest {
     }
 
     @Test
-    @Order(3)
+    @org.junit.jupiter.api.Order(3)
     public void getCustomersTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Customers/ListedCustomers.snapshot.json";
         try {
@@ -109,7 +109,7 @@ public class CustomersTest {
     }
 
     @Test
-    @Order(4)
+    @org.junit.jupiter.api.Order(4)
     public void deleteCustomerTest() {
         try {
             customers.deleteCustomer(this.sourceIdToDelete);
@@ -119,7 +119,7 @@ public class CustomersTest {
     }
 
     @Test
-    @Order(5)
+    @org.junit.jupiter.api.Order(5)
     public void uploadCsvFileWithCustomersTest() {
         try {
             File csvFile = new File("src/test/java/io/voucherify/helpers/test-csv.csv");

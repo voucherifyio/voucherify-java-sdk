@@ -53,7 +53,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderItemCalculatedSku {
+public class OrderCalculatedItemSku {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -74,10 +74,10 @@ public class OrderItemCalculatedSku {
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
 
-  public OrderItemCalculatedSku() {
+  public OrderCalculatedItemSku() {
   }
 
-  public OrderItemCalculatedSku id(String id) {
+  public OrderCalculatedItemSku id(String id) {
     
     this.id = id;
     return this;
@@ -98,7 +98,7 @@ public class OrderItemCalculatedSku {
   }
 
 
-  public OrderItemCalculatedSku sourceId(String sourceId) {
+  public OrderCalculatedItemSku sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -119,7 +119,7 @@ public class OrderItemCalculatedSku {
   }
 
 
-  public OrderItemCalculatedSku override(Boolean override) {
+  public OrderCalculatedItemSku override(Boolean override) {
     
     this.override = override;
     return this;
@@ -140,7 +140,7 @@ public class OrderItemCalculatedSku {
   }
 
 
-  public OrderItemCalculatedSku sku(String sku) {
+  public OrderCalculatedItemSku sku(String sku) {
     
     this.sku = sku;
     return this;
@@ -161,7 +161,7 @@ public class OrderItemCalculatedSku {
   }
 
 
-  public OrderItemCalculatedSku price(BigDecimal price) {
+  public OrderCalculatedItemSku price(BigDecimal price) {
     
     this.price = price;
     return this;
@@ -194,9 +194,9 @@ public class OrderItemCalculatedSku {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderItemCalculatedSku instance itself
+   * @return the OrderCalculatedItemSku instance itself
    */
-  public OrderItemCalculatedSku putAdditionalProperty(String key, Object value) {
+  public OrderCalculatedItemSku putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -235,13 +235,13 @@ public class OrderItemCalculatedSku {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderItemCalculatedSku orderItemCalculatedSku = (OrderItemCalculatedSku) o;
-    return Objects.equals(this.id, orderItemCalculatedSku.id) &&
-        Objects.equals(this.sourceId, orderItemCalculatedSku.sourceId) &&
-        Objects.equals(this.override, orderItemCalculatedSku.override) &&
-        Objects.equals(this.sku, orderItemCalculatedSku.sku) &&
-        Objects.equals(this.price, orderItemCalculatedSku.price)&&
-        Objects.equals(this.additionalProperties, orderItemCalculatedSku.additionalProperties);
+    OrderCalculatedItemSku orderCalculatedItemSku = (OrderCalculatedItemSku) o;
+    return Objects.equals(this.id, orderCalculatedItemSku.id) &&
+        Objects.equals(this.sourceId, orderCalculatedItemSku.sourceId) &&
+        Objects.equals(this.override, orderCalculatedItemSku.override) &&
+        Objects.equals(this.sku, orderCalculatedItemSku.sku) &&
+        Objects.equals(this.price, orderCalculatedItemSku.price)&&
+        Objects.equals(this.additionalProperties, orderCalculatedItemSku.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -263,7 +263,7 @@ public class OrderItemCalculatedSku {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderItemCalculatedSku {\n");
+    sb.append("class OrderCalculatedItemSku {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    override: ").append(toIndentedString(override)).append("\n");
@@ -306,16 +306,16 @@ public class OrderItemCalculatedSku {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderItemCalculatedSku.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderItemCalculatedSku' and its subtypes
+       if (!OrderCalculatedItemSku.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCalculatedItemSku' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderItemCalculatedSku> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemCalculatedSku.class));
+       final TypeAdapter<OrderCalculatedItemSku> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCalculatedItemSku.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderItemCalculatedSku>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedItemSku>() {
            @Override
-           public void write(JsonWriter out, OrderItemCalculatedSku value) throws IOException {
+           public void write(JsonWriter out, OrderCalculatedItemSku value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -338,11 +338,11 @@ public class OrderItemCalculatedSku {
            }
 
            @Override
-           public OrderItemCalculatedSku read(JsonReader in) throws IOException {
+           public OrderCalculatedItemSku read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderItemCalculatedSku instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderCalculatedItemSku instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -369,18 +369,18 @@ public class OrderItemCalculatedSku {
   }
 
  /**
-  * Create an instance of OrderItemCalculatedSku given an JSON string
+  * Create an instance of OrderCalculatedItemSku given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderItemCalculatedSku
-  * @throws IOException if the JSON string is invalid with respect to OrderItemCalculatedSku
+  * @return An instance of OrderCalculatedItemSku
+  * @throws IOException if the JSON string is invalid with respect to OrderCalculatedItemSku
   */
-  public static OrderItemCalculatedSku fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderItemCalculatedSku.class);
+  public static OrderCalculatedItemSku fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCalculatedItemSku.class);
   }
 
  /**
-  * Convert an instance of OrderItemCalculatedSku to an JSON string
+  * Convert an instance of OrderCalculatedItemSku to an JSON string
   *
   * @return JSON string
   */

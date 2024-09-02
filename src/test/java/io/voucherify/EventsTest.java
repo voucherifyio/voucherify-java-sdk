@@ -17,7 +17,7 @@ import io.voucherify.helpers.JsonHelper;
 import java.util.Arrays;
 import java.util.List;
 
-@Order(12)
+@org.junit.jupiter.api.Order(12)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EventsTest {
     public static ApiClient defaultClient = null;
@@ -30,7 +30,7 @@ public class EventsTest {
     }
 
     @Test
-    @Order(1)
+    @org.junit.jupiter.api.Order(1)
     public void createAndTrackCustomEventTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Events/CreatedCustomEvent.snapshot.json";
 

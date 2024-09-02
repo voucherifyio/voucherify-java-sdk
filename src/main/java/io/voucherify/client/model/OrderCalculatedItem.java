@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemCalculatedProduct;
-import io.voucherify.client.model.OrderItemCalculatedSku;
+import io.voucherify.client.model.OrderCalculatedItemProduct;
+import io.voucherify.client.model.OrderCalculatedItemSku;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,11 +50,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * OrderItemCalculated
+ * OrderCalculatedItem
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderItemCalculated {
+public class OrderCalculatedItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -172,11 +172,11 @@ public class OrderItemCalculated {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private OrderItemCalculatedProduct product;
+  private OrderCalculatedItemProduct product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
-  private OrderItemCalculatedSku sku;
+  private OrderCalculatedItemSku sku;
 
   /**
    * The type of the object represented by JSON.
@@ -231,10 +231,10 @@ public class OrderItemCalculated {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public OrderItemCalculated() {
+  public OrderCalculatedItem() {
   }
 
-  public OrderItemCalculated id(String id) {
+  public OrderCalculatedItem id(String id) {
     
     this.id = id;
     return this;
@@ -255,7 +255,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated skuId(String skuId) {
+  public OrderCalculatedItem skuId(String skuId) {
     
     this.skuId = skuId;
     return this;
@@ -276,7 +276,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated productId(String productId) {
+  public OrderCalculatedItem productId(String productId) {
     
     this.productId = productId;
     return this;
@@ -297,7 +297,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated relatedObject(RelatedObjectEnum relatedObject) {
+  public OrderCalculatedItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
     return this;
@@ -318,7 +318,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated sourceId(String sourceId) {
+  public OrderCalculatedItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -339,7 +339,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated quantity(Integer quantity) {
+  public OrderCalculatedItem quantity(Integer quantity) {
     
     this.quantity = quantity;
     return this;
@@ -360,7 +360,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated discountQuantity(Integer discountQuantity) {
+  public OrderCalculatedItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
     return this;
@@ -381,7 +381,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated initialQuantity(Integer initialQuantity) {
+  public OrderCalculatedItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
     return this;
@@ -402,7 +402,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated amount(Integer amount) {
+  public OrderCalculatedItem amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -423,7 +423,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated discountAmount(Integer discountAmount) {
+  public OrderCalculatedItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
     return this;
@@ -444,7 +444,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated appliedDiscountAmount(Integer appliedDiscountAmount) {
+  public OrderCalculatedItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
     return this;
@@ -465,7 +465,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated appliedDiscountQuantity(Integer appliedDiscountQuantity) {
+  public OrderCalculatedItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
     return this;
@@ -486,7 +486,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated appliedQuantity(Integer appliedQuantity) {
+  public OrderCalculatedItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
     return this;
@@ -507,7 +507,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated appliedQuantityAmount(Integer appliedQuantityAmount) {
+  public OrderCalculatedItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
     return this;
@@ -528,7 +528,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated initialAmount(Integer initialAmount) {
+  public OrderCalculatedItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
     return this;
@@ -549,7 +549,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated price(Integer price) {
+  public OrderCalculatedItem price(Integer price) {
     
     this.price = price;
     return this;
@@ -570,7 +570,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated subtotalAmount(Integer subtotalAmount) {
+  public OrderCalculatedItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
     return this;
@@ -591,7 +591,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated product(OrderItemCalculatedProduct product) {
+  public OrderCalculatedItem product(OrderCalculatedItemProduct product) {
     
     this.product = product;
     return this;
@@ -602,17 +602,17 @@ public class OrderItemCalculated {
    * @return product
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedProduct getProduct() {
+  public OrderCalculatedItemProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(OrderItemCalculatedProduct product) {
+  public void setProduct(OrderCalculatedItemProduct product) {
     this.product = product;
   }
 
 
-  public OrderItemCalculated sku(OrderItemCalculatedSku sku) {
+  public OrderCalculatedItem sku(OrderCalculatedItemSku sku) {
     
     this.sku = sku;
     return this;
@@ -623,17 +623,17 @@ public class OrderItemCalculated {
    * @return sku
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedSku getSku() {
+  public OrderCalculatedItemSku getSku() {
     return sku;
   }
 
 
-  public void setSku(OrderItemCalculatedSku sku) {
+  public void setSku(OrderCalculatedItemSku sku) {
     this.sku = sku;
   }
 
 
-  public OrderItemCalculated _object(ObjectEnum _object) {
+  public OrderCalculatedItem _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -654,7 +654,7 @@ public class OrderItemCalculated {
   }
 
 
-  public OrderItemCalculated metadata(Object metadata) {
+  public OrderCalculatedItem metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -687,9 +687,9 @@ public class OrderItemCalculated {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderItemCalculated instance itself
+   * @return the OrderCalculatedItem instance itself
    */
-  public OrderItemCalculated putAdditionalProperty(String key, Object value) {
+  public OrderCalculatedItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -728,29 +728,29 @@ public class OrderItemCalculated {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderItemCalculated orderItemCalculated = (OrderItemCalculated) o;
-    return Objects.equals(this.id, orderItemCalculated.id) &&
-        Objects.equals(this.skuId, orderItemCalculated.skuId) &&
-        Objects.equals(this.productId, orderItemCalculated.productId) &&
-        Objects.equals(this.relatedObject, orderItemCalculated.relatedObject) &&
-        Objects.equals(this.sourceId, orderItemCalculated.sourceId) &&
-        Objects.equals(this.quantity, orderItemCalculated.quantity) &&
-        Objects.equals(this.discountQuantity, orderItemCalculated.discountQuantity) &&
-        Objects.equals(this.initialQuantity, orderItemCalculated.initialQuantity) &&
-        Objects.equals(this.amount, orderItemCalculated.amount) &&
-        Objects.equals(this.discountAmount, orderItemCalculated.discountAmount) &&
-        Objects.equals(this.appliedDiscountAmount, orderItemCalculated.appliedDiscountAmount) &&
-        Objects.equals(this.appliedDiscountQuantity, orderItemCalculated.appliedDiscountQuantity) &&
-        Objects.equals(this.appliedQuantity, orderItemCalculated.appliedQuantity) &&
-        Objects.equals(this.appliedQuantityAmount, orderItemCalculated.appliedQuantityAmount) &&
-        Objects.equals(this.initialAmount, orderItemCalculated.initialAmount) &&
-        Objects.equals(this.price, orderItemCalculated.price) &&
-        Objects.equals(this.subtotalAmount, orderItemCalculated.subtotalAmount) &&
-        Objects.equals(this.product, orderItemCalculated.product) &&
-        Objects.equals(this.sku, orderItemCalculated.sku) &&
-        Objects.equals(this._object, orderItemCalculated._object) &&
-        Objects.equals(this.metadata, orderItemCalculated.metadata)&&
-        Objects.equals(this.additionalProperties, orderItemCalculated.additionalProperties);
+    OrderCalculatedItem orderCalculatedItem = (OrderCalculatedItem) o;
+    return Objects.equals(this.id, orderCalculatedItem.id) &&
+        Objects.equals(this.skuId, orderCalculatedItem.skuId) &&
+        Objects.equals(this.productId, orderCalculatedItem.productId) &&
+        Objects.equals(this.relatedObject, orderCalculatedItem.relatedObject) &&
+        Objects.equals(this.sourceId, orderCalculatedItem.sourceId) &&
+        Objects.equals(this.quantity, orderCalculatedItem.quantity) &&
+        Objects.equals(this.discountQuantity, orderCalculatedItem.discountQuantity) &&
+        Objects.equals(this.initialQuantity, orderCalculatedItem.initialQuantity) &&
+        Objects.equals(this.amount, orderCalculatedItem.amount) &&
+        Objects.equals(this.discountAmount, orderCalculatedItem.discountAmount) &&
+        Objects.equals(this.appliedDiscountAmount, orderCalculatedItem.appliedDiscountAmount) &&
+        Objects.equals(this.appliedDiscountQuantity, orderCalculatedItem.appliedDiscountQuantity) &&
+        Objects.equals(this.appliedQuantity, orderCalculatedItem.appliedQuantity) &&
+        Objects.equals(this.appliedQuantityAmount, orderCalculatedItem.appliedQuantityAmount) &&
+        Objects.equals(this.initialAmount, orderCalculatedItem.initialAmount) &&
+        Objects.equals(this.price, orderCalculatedItem.price) &&
+        Objects.equals(this.subtotalAmount, orderCalculatedItem.subtotalAmount) &&
+        Objects.equals(this.product, orderCalculatedItem.product) &&
+        Objects.equals(this.sku, orderCalculatedItem.sku) &&
+        Objects.equals(this._object, orderCalculatedItem._object) &&
+        Objects.equals(this.metadata, orderCalculatedItem.metadata)&&
+        Objects.equals(this.additionalProperties, orderCalculatedItem.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -772,7 +772,7 @@ public class OrderItemCalculated {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderItemCalculated {\n");
+    sb.append("class OrderCalculatedItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    skuId: ").append(toIndentedString(skuId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
@@ -847,16 +847,16 @@ public class OrderItemCalculated {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderItemCalculated.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderItemCalculated' and its subtypes
+       if (!OrderCalculatedItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCalculatedItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderItemCalculated> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemCalculated.class));
+       final TypeAdapter<OrderCalculatedItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCalculatedItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderItemCalculated>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedItem>() {
            @Override
-           public void write(JsonWriter out, OrderItemCalculated value) throws IOException {
+           public void write(JsonWriter out, OrderCalculatedItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -879,11 +879,11 @@ public class OrderItemCalculated {
            }
 
            @Override
-           public OrderItemCalculated read(JsonReader in) throws IOException {
+           public OrderCalculatedItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderItemCalculated instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderCalculatedItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -910,18 +910,18 @@ public class OrderItemCalculated {
   }
 
  /**
-  * Create an instance of OrderItemCalculated given an JSON string
+  * Create an instance of OrderCalculatedItem given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderItemCalculated
-  * @throws IOException if the JSON string is invalid with respect to OrderItemCalculated
+  * @return An instance of OrderCalculatedItem
+  * @throws IOException if the JSON string is invalid with respect to OrderCalculatedItem
   */
-  public static OrderItemCalculated fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderItemCalculated.class);
+  public static OrderCalculatedItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCalculatedItem.class);
   }
 
  /**
-  * Convert an instance of OrderItemCalculated to an JSON string
+  * Convert an instance of OrderCalculatedItem to an JSON string
   *
   * @return JSON string
   */

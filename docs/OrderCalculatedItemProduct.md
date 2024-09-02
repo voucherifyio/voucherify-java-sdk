@@ -1,6 +1,6 @@
 
 
-# OrderItemCalculatedProduct
+# OrderCalculatedItemProduct
 
 An object containing details of the related product.
 

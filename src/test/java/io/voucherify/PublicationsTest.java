@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.Arrays;
 import java.util.List;
 
-@Order(6)
+@org.junit.jupiter.api.Order(6)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PublicationsTest {
     public static ApiClient defaultClient = null;
@@ -28,7 +28,7 @@ public class PublicationsTest {
     }
 
     @Test
-    @Order(1)
+    @org.junit.jupiter.api.Order(1)
     public void listPublicationsTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Publications/ListedPublications.snapshot.json";
 
@@ -55,7 +55,7 @@ public class PublicationsTest {
     }
 
     @Test
-    @Order(2)
+    @org.junit.jupiter.api.Order(2)
     public void CreatePublicationWithSpecificVoucherTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Publications/CreatedPublication.snapshot.json";
 
@@ -80,7 +80,7 @@ public class PublicationsTest {
     }
 
     @Test
-    @Order(3)
+    @org.junit.jupiter.api.Order(3)
     public void CreatePublicationWithCampaignTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Publications/CreatedPublicationWithCampaign.snapshot.json";
 

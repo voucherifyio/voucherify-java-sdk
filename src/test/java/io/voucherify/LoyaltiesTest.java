@@ -22,7 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Order(5)
+@org.junit.jupiter.api.Order(5)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoyaltiesTest {
     public static ApiClient defaultClient = null;
@@ -84,7 +84,7 @@ public class LoyaltiesTest {
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
                     10);
 
-            assertNotNull(responseBody);    
+            assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
             System.out.println(e);
             fail();

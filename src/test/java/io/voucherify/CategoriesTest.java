@@ -18,7 +18,7 @@ import io.voucherify.helpers.JsonHelper;
 import java.util.Arrays;
 import java.util.List;
 
-@Order(13)
+@org.junit.jupiter.api.Order(13)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CategoriesTest {
     public static ApiClient defaultClient = null;
@@ -31,7 +31,7 @@ public class CategoriesTest {
     }
 
     @Test
-    @Order(1)
+    @org.junit.jupiter.api.Order(1)
     public void createCategoryTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/CreatedCategory.snapshot.json";
 
@@ -52,7 +52,7 @@ public class CategoriesTest {
     }
 
     @Test
-    @Order(2)
+    @org.junit.jupiter.api.Order(2)
     public void getCategoryTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/GetCategory.snapshot.json";
 
@@ -68,7 +68,7 @@ public class CategoriesTest {
     }
 
     @Test
-    @Order(3)
+    @org.junit.jupiter.api.Order(3)
     public void updateCategoryTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Categories/UpdatedCategory.snapshot.json";
 

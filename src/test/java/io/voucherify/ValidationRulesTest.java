@@ -14,7 +14,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Order(4)
+@org.junit.jupiter.api.Order(4)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ValidationRulesTest {
     public static ApiClient defaultClient = null;

@@ -82,7 +82,7 @@ public class VouchersTest {
     }
 
     @Test
-    @Order(4)
+    @org.junit.jupiter.api.Order(4)
     public void updateLoyaltyCardBalanceTest() {
         String snapshotPath = "src/test/java/io/voucherify/snapshots/Vouchers/UpdatedLoyaltyCardBalance.snapshot.json";
 

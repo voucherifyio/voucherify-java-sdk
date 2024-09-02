@@ -34,15 +34,15 @@ public class QualificationsTest {
             customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
             qualificationsCheckEligibilityRequestBody.setCustomer(customer);
 
-            OrderItemEssential orderItem = new OrderItemEssential();
+            OrderItem orderItem = new OrderItem();
             orderItem.setProductId(VoucherifyStore.getInstance().getProducts().get(0).getId());
             orderItem.setQuantity(1);
             orderItem.setAmount(100);
 
-            ArrayList<OrderItemEssential> orderItems = new ArrayList<>();
+            ArrayList<OrderItem> orderItems = new ArrayList<>();
             orderItems.add(orderItem);
 
-            OrderEssential order = new OrderEssential();
+            io.voucherify.client.model.Order order = new io.voucherify.client.model.Order();
             order.setItems(orderItems);
 
             qualificationsCheckEligibilityRequestBody.setOrder(order);

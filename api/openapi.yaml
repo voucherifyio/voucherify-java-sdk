@@ -43988,7 +43988,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: OrdersCreateResponseBodyItems
           type: array
@@ -44300,7 +44300,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: OrdersGetResponseBodyItems
           type: array
@@ -44948,7 +44948,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: OrdersUpdateResponseBodyItems
           type: array
@@ -71317,7 +71317,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: OrderCalculatedItems
           type: array
@@ -71371,105 +71371,7 @@ components:
           type: object
       title: OrderCalculated
       type: object
-    OrderItem:
-      example:
-        amount: 7
-        product:
-          metadata: "{}"
-          price: 4.145608029883936
-          name: name
-          id: id
-          source_id: source_id
-          override: true
-        metadata: "{}"
-        quantity: 5
-        initial_quantity: 2
-        discount_amount: 9
-        sku_id: sku_id
-        initial_amount: 3
-        related_object: product
-        price: 2
-        product_id: product_id
-        discount_quantity: 5
-        source_id: source_id
-        sku:
-          price: 7.386281948385884
-          id: id
-          source_id: source_id
-          override: true
-          sku: sku
-      properties:
-        sku_id:
-          description: Unique identifier of the SKU. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        product_id:
-          description: Unique identifier of the product. It is assigned by Voucherify.
-          nullable: true
-          type: string
-        related_object:
-          description: "Used along with the source_id property, can be set to either\
-            \ sku or product."
-          enum:
-          - product
-          - sku
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product/SKU ID (if it is different from the\
-            \ Voucherify product/SKU ID). It is useful in the integration between\
-            \ multiple systems. It can be an ID from an eCommerce site, a database,\
-            \ or a third-party service."
-          nullable: true
-          type: string
-        quantity:
-          description: The quantity of the particular item in the cart.
-          nullable: true
-          type: integer
-        discount_quantity:
-          description: Number of dicounted items.
-          nullable: true
-          type: integer
-        initial_quantity:
-          description: A positive integer in the smallest unit quantity representing
-            the total amount of the order; this is the sum of the order items' quantity.
-          nullable: true
-          type: integer
-        amount:
-          description: The total amount of the order item (price * quantity).
-          nullable: true
-          type: integer
-        discount_amount:
-          description: Sum of all order-item-level discounts applied to the order.
-          nullable: true
-          type: integer
-        initial_amount:
-          description: A positive integer in the smallest currency unit (e.g. 100
-            cents for $1.00) representing the total amount of the order. This is the
-            sum of the order items' amounts.
-          nullable: true
-          type: integer
-        price:
-          description: Unit price of an item. Value is multiplied by 100 to precisely
-            represent 2 decimal places. For example `10000 cents` for `$100.00`.
-          nullable: true
-          type: integer
-        product:
-          $ref: '#/components/schemas/OrderItemProduct'
-        sku:
-          $ref: '#/components/schemas/OrderItemSku'
-        metadata:
-          description: A set of custom key/value pairs that you can attach to an order
-            item. It can be useful for storing additional information about the order
-            item in a structured format.
-          nullable: true
-          title: OrderItemMetadata
-          type: object
-      required:
-      - object
-      title: OrderItem
-      type: object
-    OrderItemCalculated:
+    OrderCalculatedItem:
       example:
         amount: 4
         product:
@@ -71590,9 +71492,9 @@ components:
           nullable: true
           type: integer
         product:
-          $ref: '#/components/schemas/OrderItemCalculatedProduct'
+          $ref: '#/components/schemas/OrderCalculatedItemProduct'
         sku:
-          $ref: '#/components/schemas/OrderItemCalculatedSku'
+          $ref: '#/components/schemas/OrderCalculatedItemSku'
         object:
           default: order_item
           description: The type of the object represented by JSON.
@@ -71605,9 +71507,107 @@ components:
             It can be useful for storing additional information about the SKU in a
             structured format.
           nullable: true
-          title: OrderItemCalculatedMetadata
+          title: OrderCalculatedItemMetadata
           type: object
-      title: OrderItemCalculated
+      title: OrderCalculatedItem
+      type: object
+    OrderItem:
+      example:
+        amount: 7
+        product:
+          metadata: "{}"
+          price: 4.145608029883936
+          name: name
+          id: id
+          source_id: source_id
+          override: true
+        metadata: "{}"
+        quantity: 5
+        initial_quantity: 2
+        discount_amount: 9
+        sku_id: sku_id
+        initial_amount: 3
+        related_object: product
+        price: 2
+        product_id: product_id
+        discount_quantity: 5
+        source_id: source_id
+        sku:
+          price: 7.386281948385884
+          id: id
+          source_id: source_id
+          override: true
+          sku: sku
+      properties:
+        sku_id:
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
+          nullable: true
+          type: string
+        product_id:
+          description: Unique identifier of the product. It is assigned by Voucherify.
+          nullable: true
+          type: string
+        related_object:
+          description: "Used along with the source_id property, can be set to either\
+            \ sku or product."
+          enum:
+          - product
+          - sku
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's product/SKU ID (if it is different from the\
+            \ Voucherify product/SKU ID). It is useful in the integration between\
+            \ multiple systems. It can be an ID from an eCommerce site, a database,\
+            \ or a third-party service."
+          nullable: true
+          type: string
+        quantity:
+          description: The quantity of the particular item in the cart.
+          nullable: true
+          type: integer
+        discount_quantity:
+          description: Number of dicounted items.
+          nullable: true
+          type: integer
+        initial_quantity:
+          description: A positive integer in the smallest unit quantity representing
+            the total amount of the order; this is the sum of the order items' quantity.
+          nullable: true
+          type: integer
+        amount:
+          description: The total amount of the order item (price * quantity).
+          nullable: true
+          type: integer
+        discount_amount:
+          description: Sum of all order-item-level discounts applied to the order.
+          nullable: true
+          type: integer
+        initial_amount:
+          description: A positive integer in the smallest currency unit (e.g. 100
+            cents for $1.00) representing the total amount of the order. This is the
+            sum of the order items' amounts.
+          nullable: true
+          type: integer
+        price:
+          description: Unit price of an item. Value is multiplied by 100 to precisely
+            represent 2 decimal places. For example `10000 cents` for `$100.00`.
+          nullable: true
+          type: integer
+        product:
+          $ref: '#/components/schemas/OrderItemProduct'
+        sku:
+          $ref: '#/components/schemas/OrderItemSku'
+        metadata:
+          description: A set of custom key/value pairs that you can attach to an order
+            item. It can be useful for storing additional information about the order
+            item in a structured format.
+          nullable: true
+          title: OrderItemMetadata
+          type: object
+      required:
+      - object
+      title: OrderItem
       type: object
     OrderRedemptionsEntry:
       example:
@@ -93006,7 +93006,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: RedemptionsGetResponseBodyOrderItems
           type: array
@@ -94304,7 +94304,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: RedemptionsListResponseBodyRedemptionsItemOrderItems
           type: array
@@ -100479,6 +100479,94 @@ components:
           $ref: '#/components/schemas/LoyaltyTiersExpirationAllExpirationDate_rounding'
       title: LoyaltyTiersExpirationAllExpirationDate
       type: object
+    OrderCalculatedItemProduct:
+      description: An object containing details of the related product.
+      example:
+        metadata: "{}"
+        price: 6.965117697638846
+        name: name
+        id: id
+        source_id: source_id
+        override: true
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the product and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's product ID (if it is different than Voucherify's\
+            \ product ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        name:
+          description: Product name.
+          nullable: true
+          type: string
+        metadata:
+          description: A set of custom key/value pairs that you can attach to a product.
+            It can be useful for storing additional information about the product
+            in a structured format.
+          nullable: true
+          title: OrderCalculatedItemProductMetadata
+          type: object
+        price:
+          description: Product price. A positive integer in the smallest currency
+            unit (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderCalculatedItemProduct
+      type: object
+    OrderCalculatedItemSku:
+      description: An object containing details of the related SKU.
+      example:
+        price: 1.284659006116532
+        id: id
+        source_id: source_id
+        override: true
+        sku: sku
+      nullable: true
+      properties:
+        id:
+          description: A unique identifier that represents the SKU and is assigned
+            by Voucherify.
+          nullable: true
+          type: string
+        source_id:
+          description: "The merchant's SKU ID (if it is different than Voucherify's\
+            \ SKU ID). It is really useful in case of integration between multiple\
+            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
+            \ party service."
+          nullable: true
+          type: string
+        override:
+          description: "The override set to `true` is used to store the product information\
+            \ in the system. If the product does not exist, it will be created with\
+            \ a source_id; if it does exist, the provided values for the name, price,\
+            \ and metadata will replace those already stored in the system."
+          nullable: true
+          type: boolean
+        sku:
+          description: The SKU name.
+          nullable: true
+          type: string
+        price:
+          description: SKU price. A positive integer in the smallest currency unit
+            (e.g. 100 cents for $1.00).
+          nullable: true
+          type: number
+      title: OrderCalculatedItemSku
+      type: object
     OrderItemProduct:
       description: An object containing details of the related product.
       example:
@@ -100566,94 +100654,6 @@ components:
           nullable: true
           type: number
       title: OrderItemSku
-      type: object
-    OrderItemCalculatedProduct:
-      description: An object containing details of the related product.
-      example:
-        metadata: "{}"
-        price: 6.965117697638846
-        name: name
-        id: id
-        source_id: source_id
-        override: true
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the product and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's product ID (if it is different than Voucherify's\
-            \ product ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        name:
-          description: Product name.
-          nullable: true
-          type: string
-        metadata:
-          description: A set of custom key/value pairs that you can attach to a product.
-            It can be useful for storing additional information about the product
-            in a structured format.
-          nullable: true
-          title: OrderItemCalculatedProductMetadata
-          type: object
-        price:
-          description: Product price. A positive integer in the smallest currency
-            unit (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemCalculatedProduct
-      type: object
-    OrderItemCalculatedSku:
-      description: An object containing details of the related SKU.
-      example:
-        price: 1.284659006116532
-        id: id
-        source_id: source_id
-        override: true
-        sku: sku
-      nullable: true
-      properties:
-        id:
-          description: A unique identifier that represents the SKU and is assigned
-            by Voucherify.
-          nullable: true
-          type: string
-        source_id:
-          description: "The merchant's SKU ID (if it is different than Voucherify's\
-            \ SKU ID). It is really useful in case of integration between multiple\
-            \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
-            \ party service."
-          nullable: true
-          type: string
-        override:
-          description: "The override set to `true` is used to store the product information\
-            \ in the system. If the product does not exist, it will be created with\
-            \ a source_id; if it does exist, the provided values for the name, price,\
-            \ and metadata will replace those already stored in the system."
-          nullable: true
-          type: boolean
-        sku:
-          description: The SKU name.
-          nullable: true
-          type: string
-        price:
-          description: SKU price. A positive integer in the smallest currency unit
-            (e.g. 100 cents for $1.00).
-          nullable: true
-          type: number
-      title: OrderItemCalculatedSku
       type: object
     ProductCollectionsItemFilter:
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
@@ -102104,7 +102104,7 @@ components:
         items:
           description: Array of items applied to the order.
           items:
-            $ref: '#/components/schemas/OrderItemCalculated'
+            $ref: '#/components/schemas/OrderCalculatedItem'
           nullable: true
           title: RedemptionEntryOrderItems
           type: array

@@ -19,7 +19,7 @@
 |**appliedDiscountAmount** | **Integer** | This field shows the order-level discount applied. |
 |**itemsAppliedDiscountAmount** | **Integer** | Sum of all product-specific discounts applied in a particular request.   &#x60;sum(items, i &#x3D;&gt; i.applied_discount_amount)&#x60; |
 |**totalAppliedDiscountAmount** | **Integer** | Sum of all order-level AND all product-specific discounts applied in a particular request.   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60; |
-|**items** | [**List&lt;OrderItemCalculated&gt;**](OrderItemCalculated.md) | Array of items applied to the order. |
+|**items** | [**List&lt;OrderCalculatedItem&gt;**](OrderCalculatedItem.md) | Array of items applied to the order. |
 |**metadata** | **Object** |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format. |

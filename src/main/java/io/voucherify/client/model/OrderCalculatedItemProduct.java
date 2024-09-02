@@ -53,7 +53,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class OrderItemCalculatedProduct {
+public class OrderCalculatedItemProduct {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -78,10 +78,10 @@ public class OrderItemCalculatedProduct {
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
 
-  public OrderItemCalculatedProduct() {
+  public OrderCalculatedItemProduct() {
   }
 
-  public OrderItemCalculatedProduct id(String id) {
+  public OrderCalculatedItemProduct id(String id) {
     
     this.id = id;
     return this;
@@ -102,7 +102,7 @@ public class OrderItemCalculatedProduct {
   }
 
 
-  public OrderItemCalculatedProduct sourceId(String sourceId) {
+  public OrderCalculatedItemProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -123,7 +123,7 @@ public class OrderItemCalculatedProduct {
   }
 
 
-  public OrderItemCalculatedProduct override(Boolean override) {
+  public OrderCalculatedItemProduct override(Boolean override) {
     
     this.override = override;
     return this;
@@ -144,7 +144,7 @@ public class OrderItemCalculatedProduct {
   }
 
 
-  public OrderItemCalculatedProduct name(String name) {
+  public OrderCalculatedItemProduct name(String name) {
     
     this.name = name;
     return this;
@@ -165,7 +165,7 @@ public class OrderItemCalculatedProduct {
   }
 
 
-  public OrderItemCalculatedProduct metadata(Object metadata) {
+  public OrderCalculatedItemProduct metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
@@ -186,7 +186,7 @@ public class OrderItemCalculatedProduct {
   }
 
 
-  public OrderItemCalculatedProduct price(BigDecimal price) {
+  public OrderCalculatedItemProduct price(BigDecimal price) {
     
     this.price = price;
     return this;
@@ -219,9 +219,9 @@ public class OrderItemCalculatedProduct {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the OrderItemCalculatedProduct instance itself
+   * @return the OrderCalculatedItemProduct instance itself
    */
-  public OrderItemCalculatedProduct putAdditionalProperty(String key, Object value) {
+  public OrderCalculatedItemProduct putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -260,14 +260,14 @@ public class OrderItemCalculatedProduct {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderItemCalculatedProduct orderItemCalculatedProduct = (OrderItemCalculatedProduct) o;
-    return Objects.equals(this.id, orderItemCalculatedProduct.id) &&
-        Objects.equals(this.sourceId, orderItemCalculatedProduct.sourceId) &&
-        Objects.equals(this.override, orderItemCalculatedProduct.override) &&
-        Objects.equals(this.name, orderItemCalculatedProduct.name) &&
-        Objects.equals(this.metadata, orderItemCalculatedProduct.metadata) &&
-        Objects.equals(this.price, orderItemCalculatedProduct.price)&&
-        Objects.equals(this.additionalProperties, orderItemCalculatedProduct.additionalProperties);
+    OrderCalculatedItemProduct orderCalculatedItemProduct = (OrderCalculatedItemProduct) o;
+    return Objects.equals(this.id, orderCalculatedItemProduct.id) &&
+        Objects.equals(this.sourceId, orderCalculatedItemProduct.sourceId) &&
+        Objects.equals(this.override, orderCalculatedItemProduct.override) &&
+        Objects.equals(this.name, orderCalculatedItemProduct.name) &&
+        Objects.equals(this.metadata, orderCalculatedItemProduct.metadata) &&
+        Objects.equals(this.price, orderCalculatedItemProduct.price)&&
+        Objects.equals(this.additionalProperties, orderCalculatedItemProduct.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -289,7 +289,7 @@ public class OrderItemCalculatedProduct {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderItemCalculatedProduct {\n");
+    sb.append("class OrderCalculatedItemProduct {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    override: ").append(toIndentedString(override)).append("\n");
@@ -334,16 +334,16 @@ public class OrderItemCalculatedProduct {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrderItemCalculatedProduct.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrderItemCalculatedProduct' and its subtypes
+       if (!OrderCalculatedItemProduct.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OrderCalculatedItemProduct' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrderItemCalculatedProduct> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrderItemCalculatedProduct.class));
+       final TypeAdapter<OrderCalculatedItemProduct> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OrderCalculatedItemProduct.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrderItemCalculatedProduct>() {
+       return (TypeAdapter<T>) new TypeAdapter<OrderCalculatedItemProduct>() {
            @Override
-           public void write(JsonWriter out, OrderItemCalculatedProduct value) throws IOException {
+           public void write(JsonWriter out, OrderCalculatedItemProduct value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -366,11 +366,11 @@ public class OrderItemCalculatedProduct {
            }
 
            @Override
-           public OrderItemCalculatedProduct read(JsonReader in) throws IOException {
+           public OrderCalculatedItemProduct read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             OrderItemCalculatedProduct instance = thisAdapter.fromJsonTree(jsonObj);
+             OrderCalculatedItemProduct instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -397,18 +397,18 @@ public class OrderItemCalculatedProduct {
   }
 
  /**
-  * Create an instance of OrderItemCalculatedProduct given an JSON string
+  * Create an instance of OrderCalculatedItemProduct given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of OrderItemCalculatedProduct
-  * @throws IOException if the JSON string is invalid with respect to OrderItemCalculatedProduct
+  * @return An instance of OrderCalculatedItemProduct
+  * @throws IOException if the JSON string is invalid with respect to OrderCalculatedItemProduct
   */
-  public static OrderItemCalculatedProduct fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrderItemCalculatedProduct.class);
+  public static OrderCalculatedItemProduct fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OrderCalculatedItemProduct.class);
   }
 
  /**
-  * Convert an instance of OrderItemCalculatedProduct to an JSON string
+  * Convert an instance of OrderCalculatedItemProduct to an JSON string
   *
   * @return JSON string
   */

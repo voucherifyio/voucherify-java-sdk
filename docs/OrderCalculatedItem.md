@@ -1,6 +1,6 @@
 
 
-# OrderItemCalculated
+# OrderCalculatedItem
 
 
 ## Properties
@@ -24,8 +24,8 @@
 |**initialAmount** | **Integer** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. |
 |**price** | **Integer** | Unit price of an item. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. |
 |**subtotalAmount** | **Integer** | Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;applied_discount_amount&#x60; |
-|**product** | [**OrderItemCalculatedProduct**](OrderItemCalculatedProduct.md) |  |
-|**sku** | [**OrderItemCalculatedSku**](OrderItemCalculatedSku.md) |  |
+|**product** | [**OrderCalculatedItemProduct**](OrderCalculatedItemProduct.md) |  |
+|**sku** | [**OrderCalculatedItemSku**](OrderCalculatedItemSku.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
 |**metadata** | **Object** | A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format. |
 

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemCalculated;
+import io.voucherify.client.model.OrderCalculatedItem;
 import io.voucherify.client.model.RedemptionsGetResponseBodyOrderCustomer;
 import io.voucherify.client.model.RedemptionsGetResponseBodyOrderReferrer;
 import java.io.IOException;
@@ -160,7 +160,7 @@ public class RedemptionsGetResponseBodyOrder {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemCalculated> items;
+  private List<OrderCalculatedItem> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -498,13 +498,13 @@ public class RedemptionsGetResponseBodyOrder {
   }
 
 
-  public RedemptionsGetResponseBodyOrder items(List<OrderItemCalculated> items) {
+  public RedemptionsGetResponseBodyOrder items(List<OrderCalculatedItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public RedemptionsGetResponseBodyOrder addItemsItem(OrderItemCalculated itemsItem) {
+  public RedemptionsGetResponseBodyOrder addItemsItem(OrderCalculatedItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -517,12 +517,12 @@ public class RedemptionsGetResponseBodyOrder {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItemCalculated> getItems() {
+  public List<OrderCalculatedItem> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItemCalculated> items) {
+  public void setItems(List<OrderCalculatedItem> items) {
     this.items = items;
   }
 

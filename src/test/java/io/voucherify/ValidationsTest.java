@@ -75,7 +75,7 @@ public class ValidationsTest {
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateInapplicableVouchersRequestBody() {
-        OrderEssential order = getOrder();
+        io.voucherify.client.model.Order order = getOrder();
         ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(
                 Utils.getAlphaNumericString(20));
         return createValidationsValidateRequestBody(order, redeemablesItem);
@@ -83,7 +83,7 @@ public class ValidationsTest {
 
     @NotNull
     private static ValidationsValidateRequestBody getValidationsValidateApplicableVouchersRequestBody() {
-        OrderEssential order = getOrder();
+        io.voucherify.client.model.Order order = getOrder();
         CampaignsVouchersCreateCombinedResponseBody voucher = createCampaignVoucher();
         ValidationsValidateRequestBodyRedeemablesItem redeemablesItem = createRedeemablesItem(voucher.getCode());
         return createValidationsValidateRequestBody(order, redeemablesItem);
@@ -115,19 +115,19 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static OrderEssential getOrder() {
-        List<OrderItemEssential> items = new ArrayList<>();
-        items.add(createOrderItemEssential("prod_001", 1));
-        items.add(createOrderItemEssential("prod_002", 1));
+    private static io.voucherify.client.model.Order getOrder() {
+        List<OrderItem> items = new ArrayList<>();
+        items.add(createOrderItem("prod_001", 1));
+        items.add(createOrderItem("prod_002", 1));
 
-        OrderEssential order = new OrderEssential();
+        io.voucherify.client.model.Order order = new io.voucherify.client.model.Order();
         order.setAmount(10000);
         order.setItems(items);
         return order;
     }
 
-    private static OrderItemEssential createOrderItemEssential(String productId, int quantity) {
-        OrderItemEssential item = new OrderItemEssential();
+    private static OrderItem createOrderItem(String productId, int quantity) {
+        OrderItem item = new OrderItem();
         item.setProductId(productId);
         item.setQuantity(quantity);
         return item;
@@ -142,7 +142,7 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(OrderEssential order,
+    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(io.voucherify.client.model.Order order,
             ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
         ValidationsValidateRequestBody requestBody = new ValidationsValidateRequestBody();
         requestBody.setOrder(order);

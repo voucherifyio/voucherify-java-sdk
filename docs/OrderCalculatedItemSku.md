@@ -1,6 +1,6 @@
 
 
-# OrderItemCalculatedSku
+# OrderCalculatedItemSku
 
 An object containing details of the related SKU.
 
