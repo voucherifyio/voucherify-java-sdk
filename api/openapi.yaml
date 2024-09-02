@@ -26146,7 +26146,6 @@ components:
       title: CampaignsImportCreateRequestBody
       type: array
     CampaignsImportCreateResponseBody:
-      additionalProperties: false
       description: "Response body schema for **POST** `v1/campaigns/{campaignId}/import`."
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -26159,7 +26158,6 @@ components:
       title: CampaignsImportCreateResponseBody
       type: object
     CampaignsImportCsvCreateResponseBody:
-      additionalProperties: false
       description: "Response body schema for **POST** `v1/campaigns/{campaignId}/importCSV`."
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -31775,7 +31773,6 @@ components:
       title: CustomersImportCSVRequestBody
       type: object
     CustomersImportCsvCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/customers/importCSV`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -31906,7 +31903,6 @@ components:
       title: CustomersMetadataUpdateInBulkRequestBody
       type: object
     CustomersMetadataUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/customers/metadata/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -32151,7 +32147,6 @@ components:
       title: CustomersUpdateInBulkRequestBody
       type: object
     CustomersUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/customers/bulk/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -33199,7 +33194,6 @@ components:
           $ref: '#/components/schemas/AccessSettingsCampaignAssignmentsList'
       title: LoyaltiesCreateCampaignResponseBody
     LoyaltiesDeleteResponseBody:
-      additionalProperties: false
       description: "Response body schema for **DELETE** `/loyalties/{campaignId}`."
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -38583,7 +38577,6 @@ components:
       title: OrdersCreateRequestBody
       type: object
     OrdersCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/orders`.
       example:
         total_applied_discount_amount: 3
@@ -38894,7 +38887,6 @@ components:
       title: OrdersExportCreateResponseBody
       type: object
     OrdersGetResponseBody:
-      additionalProperties: false
       description: "Response body schema for **GET** `v1/orders/{orderId}`."
       example:
         total_applied_discount_amount: 3
@@ -39127,7 +39119,6 @@ components:
       title: OrdersImportCreateRequestBody
       type: array
     OrdersImportCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/orders/import`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -39504,7 +39495,6 @@ components:
       title: OrdersUpdateRequestBody
       type: object
     OrdersUpdateResponseBody:
-      additionalProperties: false
       description: "Response body schema for **PUT** `v1/orders/{orderId}`."
       example:
         total_applied_discount_amount: 3
@@ -40733,7 +40723,6 @@ components:
       title: ProductsImportCSVRequestBody
       type: object
     ProductsImportCsvCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/products/importCSV`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -40887,7 +40876,6 @@ components:
       title: ProductsMetadataUpdateInBulkRequestBody
       type: object
     ProductsMetadataUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/products/metadata/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -41304,7 +41292,6 @@ components:
       title: ProductsUpdateInBulkRequestBody
       type: object
     ProductsUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/products/bulk/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -49339,7 +49326,6 @@ components:
       title: SkusImportCSVRequestBody
       type: object
     SkusImportCsvCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/skus/importCSV`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -52945,7 +52931,6 @@ components:
       title: VouchersImportCreateRequestBody
       type: array
     VouchersImportCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/vouchers/import`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -52958,7 +52943,6 @@ components:
       title: VouchersImportCreateResponseBody
       type: object
     VouchersImportCsvCreateResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/vouchers/importCSV`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -53266,7 +53250,6 @@ components:
         example-2:
           $ref: '#/components/examples/req_vouchers_metadata_2'
     VouchersMetadataUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/vouchers/metadata/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -53563,7 +53546,6 @@ components:
       title: VouchersUpdateInBulkRequestBody
       type: array
     VouchersUpdateInBulkResponseBody:
-      additionalProperties: false
       description: Response body schema for **POST** `v1/vouchers/bulk/async`.
       example:
         async_action_id: aa_0a875d56c805df6601
@@ -56046,7 +56028,6 @@ components:
       title: FilterConditionsString
       type: object
     Gift:
-      additionalProperties: false
       description: Contains current gift card balance information.
       example:
         amount: 5.637376656633329
@@ -57518,7 +57499,6 @@ components:
       title: MemberActivity
       type: object
     OrderCalculated:
-      additionalProperties: false
       description: Order information.
       example:
         total_applied_discount_amount: 4
@@ -65093,7 +65073,6 @@ components:
           description: Error in result
       title: RedeemableResult
     RedeemableGift:
-      additionalProperties: false
       description: Contains current gift card balance information.
       example:
         balance: 0.8008281904610115
@@ -72059,8 +72038,7 @@ components:
     OrdersImportCreateRequestBodyItem:
       allOf:
       - $ref: '#/components/schemas/OrderEssential'
-      - additionalProperties: false
-        description: Order information.
+      - description: Order information.
         properties:
           created_at:
             description: Timestamp representing the date and time when the order was
@@ -72530,7 +72508,6 @@ components:
       title: ProductCollectionsCreateRequestBodyProductsItem
       type: object
     ProductCollectionsCreateRequestBodyFilter:
-      additionalProperties: false
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
         product collection type.
       example:
@@ -72592,7 +72569,6 @@ components:
       title: ProductCollectionsCreateRequestBodyFilter
       type: object
     ProductCollectionsCreateResponseBodyFilter:
-      additionalProperties: false
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
         product collection type.
       example:
@@ -72678,7 +72654,6 @@ components:
       title: ProductCollectionsCreateResponseBodyProductsItem
       type: object
     ProductCollectionsGetResponseBodyFilter:
-      additionalProperties: false
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
         product collection type.
       example:
@@ -81249,7 +81224,6 @@ components:
       title: LoyaltyTiersExpirationAllExpirationDate
       type: object
     OrderItemCalculatedProduct:
-      additionalProperties: false
       description: An object containing details of the related product.
       example:
         metadata: "{}"
@@ -81298,7 +81272,6 @@ components:
       title: OrderItemCalculatedProduct
       type: object
     OrderItemCalculatedSku:
-      additionalProperties: false
       description: An object containing details of the related SKU.
       example:
         price: 9.018348186070783
@@ -81339,7 +81312,6 @@ components:
       title: OrderItemCalculatedSku
       type: object
     OrderItemEssentialProduct:
-      additionalProperties: false
       description: An object containing details of the related product.
       example:
         metadata: "{}"
@@ -81388,7 +81360,6 @@ components:
       title: OrderItemEssentialProduct
       type: object
     OrderItemEssentialSku:
-      additionalProperties: false
       description: An object containing details of the related SKU.
       example:
         price: 7.386281948385884
@@ -81429,7 +81400,6 @@ components:
       title: OrderItemEssentialSku
       type: object
     ProductCollectionsItemFilter:
-      additionalProperties: false
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
         product collection type.
       nullable: true
@@ -81905,7 +81875,6 @@ components:
       title: QualificationsOptionFiltersHolderRole
       type: object
     QualificationsOptionFilters:
-      additionalProperties: false
       description: A set of filters to return only a specific category or type of
         redeemable.
       nullable: true
