@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersPointsExpirationListResponseBody
 
-Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}/points-expiration`.
+Response body schema for **GET** `v1/loyalties/{campaignId}/members/{memberId}/points-expiration`.
 
 ## Properties
 

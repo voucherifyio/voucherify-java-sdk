@@ -2,7 +2,7 @@
 
 # ValidationRulesAssignmentsCreateRequestBody
 
-Request body schema for **POST** `/validation-rules/{validationRuleId}/assignments`.
+Request body schema for **POST** `v1/validation-rules/{validationRuleId}/assignments`.
 
 ## Properties
 

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
-import io.voucherify.client.model.SimpleVoucherLoyaltyCard;
+import io.voucherify.client.model.SimpleLoyaltyCard;
 import io.voucherify.client.model.SimpleVoucherRedemption;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -79,7 +79,7 @@ public class SimpleVoucher {
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private SimpleVoucherLoyaltyCard loyaltyCard;
+  private SimpleLoyaltyCard loyaltyCard;
 
   /**
    * Type of the voucher.
@@ -326,7 +326,7 @@ public class SimpleVoucher {
   }
 
 
-  public SimpleVoucher loyaltyCard(SimpleVoucherLoyaltyCard loyaltyCard) {
+  public SimpleVoucher loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
     return this;
@@ -337,12 +337,12 @@ public class SimpleVoucher {
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable
-  public SimpleVoucherLoyaltyCard getLoyaltyCard() {
+  public SimpleLoyaltyCard getLoyaltyCard() {
     return loyaltyCard;
   }
 
 
-  public void setLoyaltyCard(SimpleVoucherLoyaltyCard loyaltyCard) {
+  public void setLoyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
   }
 
@@ -438,7 +438,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Unique customer ID of the campaign owner.
+   * Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
    * @return holderId
   **/
   @javax.annotation.Nullable
@@ -551,7 +551,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Timestamp representing the date and time when the order was created. Timestamp is presented in the ISO 8601 format.
+   * Timestamp representing the date and time when the order was created in the ISO 8601 format.
    * @return createdAt
   **/
   @javax.annotation.Nullable
@@ -572,7 +572,7 @@ public class SimpleVoucher {
   }
 
    /**
-   * Timestamp representing the date and time when the voucher was updated in the ISO 8601 format.
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
@@ -690,50 +690,6 @@ public class SimpleVoucher {
     this._object = _object;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the SimpleVoucher instance itself
-   */
-  public SimpleVoucher putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -765,8 +721,7 @@ public class SimpleVoucher {
         Objects.equals(this.startDate, simpleVoucher.startDate) &&
         Objects.equals(this.expirationDate, simpleVoucher.expirationDate) &&
         Objects.equals(this.metadata, simpleVoucher.metadata) &&
-        Objects.equals(this._object, simpleVoucher._object)&&
-        Objects.equals(this.additionalProperties, simpleVoucher.additionalProperties);
+        Objects.equals(this._object, simpleVoucher._object);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -775,7 +730,7 @@ public class SimpleVoucher {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, gift, discount, loyaltyCard, type, campaign, campaignId, isReferralCode, holderId, referrerId, categoryId, categories, active, createdAt, updatedAt, redemption, startDate, expirationDate, metadata, _object, additionalProperties);
+    return Objects.hash(id, code, gift, discount, loyaltyCard, type, campaign, campaignId, isReferralCode, holderId, referrerId, categoryId, categories, active, createdAt, updatedAt, redemption, startDate, expirationDate, metadata, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -810,7 +765,6 @@ public class SimpleVoucher {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -874,51 +828,13 @@ public class SimpleVoucher {
            @Override
            public void write(JsonWriter out, SimpleVoucher value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public SimpleVoucher read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             SimpleVoucher instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

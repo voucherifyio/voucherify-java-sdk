@@ -8,8 +8,8 @@ Stores links to images of QR and barcode that correspond to an encrypted voucher
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**qr** | [**LoyaltiesMembersTransfersCreateResponseBodyAssetsQr**](LoyaltiesMembersTransfersCreateResponseBodyAssetsQr.md) |  |
-|**barcode** | [**LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode**](LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode.md) |  |
+|**qr** | [**VoucherAssetsQr**](VoucherAssetsQr.md) |  |
+|**barcode** | [**VoucherAssetsBarcode**](VoucherAssetsBarcode.md) |  |
 
 
 

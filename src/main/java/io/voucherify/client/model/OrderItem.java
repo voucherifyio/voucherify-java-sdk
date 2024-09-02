@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderItemCalculatedProduct;
-import io.voucherify.client.model.OrderItemCalculatedSku;
+import io.voucherify.client.model.OrderItemProduct;
+import io.voucherify.client.model.OrderItemSku;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -148,11 +148,11 @@ public class OrderItem {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private OrderItemCalculatedProduct product;
+  private OrderItemProduct product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
-  private OrderItemCalculatedSku sku;
+  private OrderItemSku sku;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -168,7 +168,7 @@ public class OrderItem {
   }
 
    /**
-   * A unique SKU ID assigned by Voucherify.
+   * Unique identifier of the SKU. It is assigned by Voucherify.
    * @return skuId
   **/
   @javax.annotation.Nullable
@@ -189,7 +189,7 @@ public class OrderItem {
   }
 
    /**
-   * A unique product ID assigned by Voucherify.
+   * Unique identifier of the product. It is assigned by Voucherify.
    * @return productId
   **/
   @javax.annotation.Nullable
@@ -231,7 +231,7 @@ public class OrderItem {
   }
 
    /**
-   * The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+   * The merchant&#39;s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -336,7 +336,7 @@ public class OrderItem {
   }
 
    /**
-   *  Sum of all order-item-level discounts applied to the order.
+   * Sum of all order-item-level discounts applied to the order.
    * @return discountAmount
   **/
   @javax.annotation.Nullable
@@ -392,7 +392,7 @@ public class OrderItem {
   }
 
 
-  public OrderItem product(OrderItemCalculatedProduct product) {
+  public OrderItem product(OrderItemProduct product) {
     
     this.product = product;
     return this;
@@ -403,17 +403,17 @@ public class OrderItem {
    * @return product
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedProduct getProduct() {
+  public OrderItemProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(OrderItemCalculatedProduct product) {
+  public void setProduct(OrderItemProduct product) {
     this.product = product;
   }
 
 
-  public OrderItem sku(OrderItemCalculatedSku sku) {
+  public OrderItem sku(OrderItemSku sku) {
     
     this.sku = sku;
     return this;
@@ -424,12 +424,12 @@ public class OrderItem {
    * @return sku
   **/
   @javax.annotation.Nullable
-  public OrderItemCalculatedSku getSku() {
+  public OrderItemSku getSku() {
     return sku;
   }
 
 
-  public void setSku(OrderItemCalculatedSku sku) {
+  public void setSku(OrderItemSku sku) {
     this.sku = sku;
   }
 
@@ -441,7 +441,7 @@ public class OrderItem {
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format.
+   * A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -454,50 +454,6 @@ public class OrderItem {
     this.metadata = metadata;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the OrderItem instance itself
-   */
-  public OrderItem putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -522,8 +478,7 @@ public class OrderItem {
         Objects.equals(this.price, orderItem.price) &&
         Objects.equals(this.product, orderItem.product) &&
         Objects.equals(this.sku, orderItem.sku) &&
-        Objects.equals(this.metadata, orderItem.metadata)&&
-        Objects.equals(this.additionalProperties, orderItem.additionalProperties);
+        Objects.equals(this.metadata, orderItem.metadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -532,7 +487,7 @@ public class OrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, initialAmount, price, product, sku, metadata, additionalProperties);
+    return Objects.hash(skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, initialAmount, price, product, sku, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -560,7 +515,6 @@ public class OrderItem {
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -617,51 +571,13 @@ public class OrderItem {
            @Override
            public void write(JsonWriter out, OrderItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public OrderItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             OrderItem instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

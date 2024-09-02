@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "ap1G0buLshDz9J32ZT6D",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -14,24 +15,23 @@
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id ap1G0buLshDz9J32ZT6D",
+          "requestId": "v-0f2e15ed3e57470273",
           "resourceId": null,
-          "resourceType": null,
-          "additionalProperties": null
+          "resourceType": null
         },
         "details": {
           "key": "not_found",
-          "message": "Resource not found",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Resource not found"
+        }
       },
       "metadata": null,
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "2f1jojzx",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -42,56 +42,50 @@
         "error": null,
         "details": {
           "key": "preceding_validation_failed",
-          "message": "Redeemable cannot be applied due to preceding validation failure",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Redeemable cannot be applied due to preceding validation failure"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
   "skippedRedeemables": [
     {
       "status": "SKIPPED",
+      "id": "2f1jojzx",
       "result": {
         "details": {
           "key": "PRECEDING_VALIDATION_FAILED",
-          "message": "Redeemable cannot be applied due to preceding validation failure",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Redeemable cannot be applied due to preceding validation failure"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
   "inapplicableRedeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "ap1G0buLshDz9J32ZT6D",
       "result": {
         "error": {
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id ap1G0buLshDz9J32ZT6D",
+          "requestId": "v-0f2e15ed3e57470273",
           "resourceId": null,
-          "resourceType": null,
-          "additionalProperties": null
+          "resourceType": null
         },
         "details": {
           "message": "Resource not found",
-          "key": "not_found",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "key": "not_found"
+        }
       },
       "metadata": null,
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
@@ -108,7 +102,7 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
-  },
-  "additionalProperties": null
+    "redeemables_products_application_mode": "STACK",
+    "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+  }
 }

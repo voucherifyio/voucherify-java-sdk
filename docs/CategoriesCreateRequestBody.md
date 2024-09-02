@@ -2,7 +2,7 @@
 
 # CategoriesCreateRequestBody
 
-Request body schema for **POST** `/categories`.
+Request body schema for **POST** `v1/categories`.
 
 ## Properties
 

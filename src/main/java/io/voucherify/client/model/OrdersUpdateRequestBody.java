@@ -23,6 +23,7 @@ import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.OrderItem;
 import io.voucherify.client.model.Referrer;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,11 +54,15 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **PUT** &#x60;/orders/{orderId}&#x60;.
+ * Request body schema for **PUT** &#x60;v1/orders/{orderId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class OrdersUpdateRequestBody {
+  public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+  private String sourceId;
+
   /**
    * The order status.
    */
@@ -117,40 +122,61 @@ public class OrdersUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
 
-  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
-  private Integer discountAmount;
-
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
+
+  public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
+  private Integer discountAmount;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<OrderItem> items;
 
-  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private Customer customer;
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
 
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER = "referrer";
-  @SerializedName(SERIALIZED_NAME_REFERRER)
-  private Referrer referrer;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
 
   public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
   @SerializedName(SERIALIZED_NAME_REFERRER_ID)
   private String referrerId;
 
-  public static final String SERIALIZED_NAME_METADATA = "metadata";
-  @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
+  public static final String SERIALIZED_NAME_CUSTOMER = "customer";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER)
+  private Customer customer;
+
+  public static final String SERIALIZED_NAME_REFERRER = "referrer";
+  @SerializedName(SERIALIZED_NAME_REFERRER)
+  private Referrer referrer;
 
   public OrdersUpdateRequestBody() {
   }
+
+  public OrdersUpdateRequestBody sourceId(String sourceId) {
+    
+    this.sourceId = sourceId;
+    return this;
+  }
+
+   /**
+   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * @return sourceId
+  **/
+  @javax.annotation.Nullable
+  public String getSourceId() {
+    return sourceId;
+  }
+
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
 
   public OrdersUpdateRequestBody status(StatusEnum status) {
     
@@ -180,7 +206,7 @@ public class OrdersUpdateRequestBody {
   }
 
    /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.  
+   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -191,27 +217,6 @@ public class OrdersUpdateRequestBody {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
-  }
-
-
-  public OrdersUpdateRequestBody discountAmount(Integer discountAmount) {
-    
-    this.discountAmount = discountAmount;
-    return this;
-  }
-
-   /**
-   * Sum of all order-level discounts applied to the order.
-   * @return discountAmount
-  **/
-  @javax.annotation.Nullable
-  public Integer getDiscountAmount() {
-    return discountAmount;
-  }
-
-
-  public void setDiscountAmount(Integer discountAmount) {
-    this.discountAmount = discountAmount;
   }
 
 
@@ -233,6 +238,27 @@ public class OrdersUpdateRequestBody {
 
   public void setInitialAmount(Integer initialAmount) {
     this.initialAmount = initialAmount;
+  }
+
+
+  public OrdersUpdateRequestBody discountAmount(Integer discountAmount) {
+    
+    this.discountAmount = discountAmount;
+    return this;
+  }
+
+   /**
+   * Sum of all order-level discounts applied to the order.
+   * @return discountAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getDiscountAmount() {
+    return discountAmount;
+  }
+
+
+  public void setDiscountAmount(Integer discountAmount) {
+    this.discountAmount = discountAmount;
   }
 
 
@@ -265,66 +291,45 @@ public class OrdersUpdateRequestBody {
   }
 
 
-  public OrdersUpdateRequestBody customer(Customer customer) {
+  public OrdersUpdateRequestBody metadata(Object metadata) {
     
-    this.customer = customer;
+    this.metadata = metadata;
     return this;
   }
 
    /**
-   * Get customer
-   * @return customer
+   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
+   * @return metadata
   **/
   @javax.annotation.Nullable
-  public Customer getCustomer() {
-    return customer;
+  public Object getMetadata() {
+    return metadata;
   }
 
 
-  public void setCustomer(Customer customer) {
-    this.customer = customer;
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
   }
 
 
-  public OrdersUpdateRequestBody customerId(String customerId) {
+  public OrdersUpdateRequestBody createdAt(OffsetDateTime createdAt) {
     
-    this.customerId = customerId;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Unique customer ID of the customer making the purchase.
-   * @return customerId
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
   **/
   @javax.annotation.Nullable
-  public String getCustomerId() {
-    return customerId;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-  }
-
-
-  public OrdersUpdateRequestBody referrer(Referrer referrer) {
-    
-    this.referrer = referrer;
-    return this;
-  }
-
-   /**
-   * Get referrer
-   * @return referrer
-  **/
-  @javax.annotation.Nullable
-  public Referrer getReferrer() {
-    return referrer;
-  }
-
-
-  public void setReferrer(Referrer referrer) {
-    this.referrer = referrer;
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -349,70 +354,47 @@ public class OrdersUpdateRequestBody {
   }
 
 
-  public OrdersUpdateRequestBody metadata(Object metadata) {
+  public OrdersUpdateRequestBody customer(Customer customer) {
     
-    this.metadata = metadata;
+    this.customer = customer;
     return this;
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
-   * @return metadata
+   * Get customer
+   * @return customer
   **/
   @javax.annotation.Nullable
-  public Object getMetadata() {
-    return metadata;
+  public Customer getCustomer() {
+    return customer;
   }
 
 
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the OrdersUpdateRequestBody instance itself
-   */
-  public OrdersUpdateRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public OrdersUpdateRequestBody referrer(Referrer referrer) {
+    
+    this.referrer = referrer;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+   /**
+   * Get referrer
+   * @return referrer
+  **/
+  @javax.annotation.Nullable
+  public Referrer getReferrer() {
+    return referrer;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+
+  public void setReferrer(Referrer referrer) {
+    this.referrer = referrer;
   }
+
 
 
   @Override
@@ -424,17 +406,17 @@ public class OrdersUpdateRequestBody {
       return false;
     }
     OrdersUpdateRequestBody ordersUpdateRequestBody = (OrdersUpdateRequestBody) o;
-    return Objects.equals(this.status, ordersUpdateRequestBody.status) &&
+    return Objects.equals(this.sourceId, ordersUpdateRequestBody.sourceId) &&
+        Objects.equals(this.status, ordersUpdateRequestBody.status) &&
         Objects.equals(this.amount, ordersUpdateRequestBody.amount) &&
-        Objects.equals(this.discountAmount, ordersUpdateRequestBody.discountAmount) &&
         Objects.equals(this.initialAmount, ordersUpdateRequestBody.initialAmount) &&
+        Objects.equals(this.discountAmount, ordersUpdateRequestBody.discountAmount) &&
         Objects.equals(this.items, ordersUpdateRequestBody.items) &&
-        Objects.equals(this.customer, ordersUpdateRequestBody.customer) &&
-        Objects.equals(this.customerId, ordersUpdateRequestBody.customerId) &&
-        Objects.equals(this.referrer, ordersUpdateRequestBody.referrer) &&
+        Objects.equals(this.metadata, ordersUpdateRequestBody.metadata) &&
+        Objects.equals(this.createdAt, ordersUpdateRequestBody.createdAt) &&
         Objects.equals(this.referrerId, ordersUpdateRequestBody.referrerId) &&
-        Objects.equals(this.metadata, ordersUpdateRequestBody.metadata)&&
-        Objects.equals(this.additionalProperties, ordersUpdateRequestBody.additionalProperties);
+        Objects.equals(this.customer, ordersUpdateRequestBody.customer) &&
+        Objects.equals(this.referrer, ordersUpdateRequestBody.referrer);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -443,7 +425,7 @@ public class OrdersUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, amount, discountAmount, initialAmount, items, customer, customerId, referrer, referrerId, metadata, additionalProperties);
+    return Objects.hash(sourceId, status, amount, initialAmount, discountAmount, items, metadata, createdAt, referrerId, customer, referrer);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -457,17 +439,17 @@ public class OrdersUpdateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrdersUpdateRequestBody {\n");
+    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
+    sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
+    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
+    sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -490,16 +472,17 @@ public class OrdersUpdateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("source_id");
     openapiFields.add("status");
     openapiFields.add("amount");
-    openapiFields.add("discount_amount");
     openapiFields.add("initial_amount");
+    openapiFields.add("discount_amount");
     openapiFields.add("items");
-    openapiFields.add("customer");
-    openapiFields.add("customer_id");
-    openapiFields.add("referrer");
-    openapiFields.add("referrer_id");
     openapiFields.add("metadata");
+    openapiFields.add("created_at");
+    openapiFields.add("referrer_id");
+    openapiFields.add("customer");
+    openapiFields.add("referrer");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -520,51 +503,13 @@ public class OrdersUpdateRequestBody {
            @Override
            public void write(JsonWriter out, OrdersUpdateRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public OrdersUpdateRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             OrdersUpdateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

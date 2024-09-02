@@ -20,9 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Category;
-import io.voucherify.client.model.PromotionTierAction;
-import io.voucherify.client.model.PromotionTierCampaign;
-import io.voucherify.client.model.PromotionTierSummary;
+import io.voucherify.client.model.PromotionsTiersUpdateResponseBodyAction;
+import io.voucherify.client.model.PromotionsTiersUpdateResponseBodyCampaign;
+import io.voucherify.client.model.PromotionsTiersUpdateResponseBodySummary;
 import io.voucherify.client.model.ValidationRuleAssignmentsList;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -58,7 +58,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **put** &#x60;/promotions/tiers/{promotionTierId}&#x60;.
+ * Response body schema for **PUT** &#x60;v1/promotions/tiers/{promotionTierId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -85,7 +85,7 @@ public class PromotionsTiersUpdateResponseBody {
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  private PromotionTierAction action;
+  private PromotionsTiersUpdateResponseBodyAction action;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -101,7 +101,7 @@ public class PromotionsTiersUpdateResponseBody {
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  private PromotionTierCampaign campaign;
+  private PromotionsTiersUpdateResponseBodyCampaign campaign;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
@@ -190,7 +190,7 @@ public class PromotionsTiersUpdateResponseBody {
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)
-  private PromotionTierSummary summary;
+  private PromotionsTiersUpdateResponseBodySummary summary;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
@@ -316,7 +316,7 @@ public class PromotionsTiersUpdateResponseBody {
   }
 
 
-  public PromotionsTiersUpdateResponseBody action(PromotionTierAction action) {
+  public PromotionsTiersUpdateResponseBody action(PromotionsTiersUpdateResponseBodyAction action) {
     
     this.action = action;
     return this;
@@ -327,12 +327,12 @@ public class PromotionsTiersUpdateResponseBody {
    * @return action
   **/
   @javax.annotation.Nullable
-  public PromotionTierAction getAction() {
+  public PromotionsTiersUpdateResponseBodyAction getAction() {
     return action;
   }
 
 
-  public void setAction(PromotionTierAction action) {
+  public void setAction(PromotionsTiersUpdateResponseBodyAction action) {
     this.action = action;
   }
 
@@ -400,7 +400,7 @@ public class PromotionsTiersUpdateResponseBody {
   }
 
 
-  public PromotionsTiersUpdateResponseBody campaign(PromotionTierCampaign campaign) {
+  public PromotionsTiersUpdateResponseBody campaign(PromotionsTiersUpdateResponseBodyCampaign campaign) {
     
     this.campaign = campaign;
     return this;
@@ -411,12 +411,12 @@ public class PromotionsTiersUpdateResponseBody {
    * @return campaign
   **/
   @javax.annotation.Nullable
-  public PromotionTierCampaign getCampaign() {
+  public PromotionsTiersUpdateResponseBodyCampaign getCampaign() {
     return campaign;
   }
 
 
-  public void setCampaign(PromotionTierCampaign campaign) {
+  public void setCampaign(PromotionsTiersUpdateResponseBodyCampaign campaign) {
     this.campaign = campaign;
   }
 
@@ -576,7 +576,7 @@ public class PromotionsTiersUpdateResponseBody {
   }
 
 
-  public PromotionsTiersUpdateResponseBody summary(PromotionTierSummary summary) {
+  public PromotionsTiersUpdateResponseBody summary(PromotionsTiersUpdateResponseBodySummary summary) {
     
     this.summary = summary;
     return this;
@@ -587,12 +587,12 @@ public class PromotionsTiersUpdateResponseBody {
    * @return summary
   **/
   @javax.annotation.Nullable
-  public PromotionTierSummary getSummary() {
+  public PromotionsTiersUpdateResponseBodySummary getSummary() {
     return summary;
   }
 
 
-  public void setSummary(PromotionTierSummary summary) {
+  public void setSummary(PromotionsTiersUpdateResponseBodySummary summary) {
     this.summary = summary;
   }
 
@@ -688,50 +688,6 @@ public class PromotionsTiersUpdateResponseBody {
     this.categories = categories;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the PromotionsTiersUpdateResponseBody instance itself
-   */
-  public PromotionsTiersUpdateResponseBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -764,8 +720,7 @@ public class PromotionsTiersUpdateResponseBody {
         Objects.equals(this._object, promotionsTiersUpdateResponseBody._object) &&
         Objects.equals(this.validationRuleAssignments, promotionsTiersUpdateResponseBody.validationRuleAssignments) &&
         Objects.equals(this.categoryId, promotionsTiersUpdateResponseBody.categoryId) &&
-        Objects.equals(this.categories, promotionsTiersUpdateResponseBody.categories)&&
-        Objects.equals(this.additionalProperties, promotionsTiersUpdateResponseBody.additionalProperties);
+        Objects.equals(this.categories, promotionsTiersUpdateResponseBody.categories);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -774,7 +729,7 @@ public class PromotionsTiersUpdateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, name, banner, action, metadata, hierarchy, promotionId, campaign, campaignId, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, summary, _object, validationRuleAssignments, categoryId, categories, additionalProperties);
+    return Objects.hash(id, createdAt, updatedAt, name, banner, action, metadata, hierarchy, promotionId, campaign, campaignId, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, summary, _object, validationRuleAssignments, categoryId, categories);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -810,7 +765,6 @@ public class PromotionsTiersUpdateResponseBody {
     sb.append("    validationRuleAssignments: ").append(toIndentedString(validationRuleAssignments)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -875,51 +829,13 @@ public class PromotionsTiersUpdateResponseBody {
            @Override
            public void write(JsonWriter out, PromotionsTiersUpdateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public PromotionsTiersUpdateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             PromotionsTiersUpdateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

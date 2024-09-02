@@ -14,7 +14,7 @@
 |**trackingId** | **String** | Customer&#39;s &#x60;source_id&#x60;. |
 |**metadata** | [**PublicationsListResponseBodyPublicationsItemMetadata**](PublicationsListResponseBodyPublicationsItemMetadata.md) |  |
 |**channel** | **String** | How the publication was originated. It can be your own custom channel or an example value provided here. |
-|**sourceId** | **String** | The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.  |
+|**sourceId** | **String** | The merchant&#39;s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.  |
 |**customer** | [**CustomerWithSummaryLoyaltyReferrals**](CustomerWithSummaryLoyaltyReferrals.md) |  |
 |**vouchers** | **List&lt;String&gt;** | Contains the voucher IDs that was assigned by Voucherify. and Contains the unique voucher codes that was assigned by Voucherify. |
 |**vouchersId** | **List&lt;String&gt;** | Contains the unique internal voucher IDs that was assigned by Voucherify. |

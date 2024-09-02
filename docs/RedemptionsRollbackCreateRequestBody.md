@@ -2,7 +2,7 @@
 
 # RedemptionsRollbackCreateRequestBody
 
-Request body schema for **POST** `/redemptions/{redemptionId}/rollback`.
+Request body schema for **POST** `v1/redemptions/{redemptionId}/rollback`.
 
 ## Properties
 

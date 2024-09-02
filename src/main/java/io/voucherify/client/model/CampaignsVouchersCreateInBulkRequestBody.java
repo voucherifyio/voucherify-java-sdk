@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CampaignsImportVoucherItemRedemption;
+import io.voucherify.client.model.CampaignsVouchersCreateInBulkRequestBodyRedemption;
 import io.voucherify.client.model.CodeConfig;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -51,11 +51,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers&#x60;.
+ * Request body schema for **POST** &#x60;v1/campaigns/{campaignId}/vouchers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CampaignsVouchersCreateInBulkRequestBody {
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
+  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
+  private CodeConfig codeConfig;
+
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
@@ -66,7 +74,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
-  private CampaignsImportVoucherItemRedemption redemption;
+  private CampaignsVouchersCreateInBulkRequestBodyRedemption redemption;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
@@ -80,16 +88,50 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-
-  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
-  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
-  private CodeConfig codeConfig;
-
   public CampaignsVouchersCreateInBulkRequestBody() {
   }
+
+  public CampaignsVouchersCreateInBulkRequestBody code(String code) {
+    
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Unique voucher code.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public CampaignsVouchersCreateInBulkRequestBody codeConfig(CodeConfig codeConfig) {
+    
+    this.codeConfig = codeConfig;
+    return this;
+  }
+
+   /**
+   * Get codeConfig
+   * @return codeConfig
+  **/
+  @javax.annotation.Nullable
+  public CodeConfig getCodeConfig() {
+    return codeConfig;
+  }
+
+
+  public void setCodeConfig(CodeConfig codeConfig) {
+    this.codeConfig = codeConfig;
+  }
+
 
   public CampaignsVouchersCreateInBulkRequestBody category(String category) {
     
@@ -133,7 +175,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   }
 
 
-  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsImportVoucherItemRedemption redemption) {
+  public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsVouchersCreateInBulkRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
     return this;
@@ -144,12 +186,12 @@ public class CampaignsVouchersCreateInBulkRequestBody {
    * @return redemption
   **/
   @javax.annotation.Nullable
-  public CampaignsImportVoucherItemRedemption getRedemption() {
+  public CampaignsVouchersCreateInBulkRequestBodyRedemption getRedemption() {
     return redemption;
   }
 
 
-  public void setRedemption(CampaignsImportVoucherItemRedemption redemption) {
+  public void setRedemption(CampaignsVouchersCreateInBulkRequestBodyRedemption redemption) {
     this.redemption = redemption;
   }
 
@@ -217,92 +259,6 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   }
 
 
-  public CampaignsVouchersCreateInBulkRequestBody code(String code) {
-    
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Unique voucher code.
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public CampaignsVouchersCreateInBulkRequestBody codeConfig(CodeConfig codeConfig) {
-    
-    this.codeConfig = codeConfig;
-    return this;
-  }
-
-   /**
-   * Get codeConfig
-   * @return codeConfig
-  **/
-  @javax.annotation.Nullable
-  public CodeConfig getCodeConfig() {
-    return codeConfig;
-  }
-
-
-  public void setCodeConfig(CodeConfig codeConfig) {
-    this.codeConfig = codeConfig;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the CampaignsVouchersCreateInBulkRequestBody instance itself
-   */
-  public CampaignsVouchersCreateInBulkRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -313,15 +269,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
       return false;
     }
     CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = (CampaignsVouchersCreateInBulkRequestBody) o;
-    return Objects.equals(this.category, campaignsVouchersCreateInBulkRequestBody.category) &&
+    return Objects.equals(this.code, campaignsVouchersCreateInBulkRequestBody.code) &&
+        Objects.equals(this.codeConfig, campaignsVouchersCreateInBulkRequestBody.codeConfig) &&
+        Objects.equals(this.category, campaignsVouchersCreateInBulkRequestBody.category) &&
         Objects.equals(this.metadata, campaignsVouchersCreateInBulkRequestBody.metadata) &&
         Objects.equals(this.redemption, campaignsVouchersCreateInBulkRequestBody.redemption) &&
         Objects.equals(this.additionalInfo, campaignsVouchersCreateInBulkRequestBody.additionalInfo) &&
         Objects.equals(this.startDate, campaignsVouchersCreateInBulkRequestBody.startDate) &&
-        Objects.equals(this.expirationDate, campaignsVouchersCreateInBulkRequestBody.expirationDate) &&
-        Objects.equals(this.code, campaignsVouchersCreateInBulkRequestBody.code) &&
-        Objects.equals(this.codeConfig, campaignsVouchersCreateInBulkRequestBody.codeConfig)&&
-        Objects.equals(this.additionalProperties, campaignsVouchersCreateInBulkRequestBody.additionalProperties);
+        Objects.equals(this.expirationDate, campaignsVouchersCreateInBulkRequestBody.expirationDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -330,7 +285,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, metadata, redemption, additionalInfo, startDate, expirationDate, code, codeConfig, additionalProperties);
+    return Objects.hash(code, codeConfig, category, metadata, redemption, additionalInfo, startDate, expirationDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,15 +299,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CampaignsVouchersCreateInBulkRequestBody {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -375,14 +329,14 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("code");
+    openapiFields.add("code_config");
     openapiFields.add("category");
     openapiFields.add("metadata");
     openapiFields.add("redemption");
     openapiFields.add("additional_info");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
-    openapiFields.add("code");
-    openapiFields.add("code_config");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -403,51 +357,13 @@ public class CampaignsVouchersCreateInBulkRequestBody {
            @Override
            public void write(JsonWriter out, CampaignsVouchersCreateInBulkRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public CampaignsVouchersCreateInBulkRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             CampaignsVouchersCreateInBulkRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

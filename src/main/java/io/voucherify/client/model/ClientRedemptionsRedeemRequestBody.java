@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyAllOfOptions;
+import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyOptions;
+import io.voucherify.client.model.ClientRedemptionsRedeemRequestBodyRedeemablesItem;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.Session;
-import io.voucherify.client.model.StackableValidateRedeemBaseRedeemablesItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,14 +55,18 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/redemptions&#x60;.
+ * Response body schema for **POST** &#x60;v1/redemptions&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ClientRedemptionsRedeemRequestBody {
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private ClientRedemptionsRedeemRequestBodyOptions options;
+
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<StackableValidateRedeemBaseRedeemablesItem> redeemables;
+  private List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -84,20 +88,37 @@ public class ClientRedemptionsRedeemRequestBody {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private ClientRedemptionsRedeemRequestBodyAllOfOptions options;
-
   public ClientRedemptionsRedeemRequestBody() {
   }
 
-  public ClientRedemptionsRedeemRequestBody redeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyOptions options) {
+    
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  public ClientRedemptionsRedeemRequestBodyOptions getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(ClientRedemptionsRedeemRequestBodyOptions options) {
+    this.options = options;
+  }
+
+
+  public ClientRedemptionsRedeemRequestBody redeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
     return this;
   }
 
-  public ClientRedemptionsRedeemRequestBody addRedeemablesItem(StackableValidateRedeemBaseRedeemablesItem redeemablesItem) {
+  public ClientRedemptionsRedeemRequestBody addRedeemablesItem(ClientRedemptionsRedeemRequestBodyRedeemablesItem redeemablesItem) {
     if (this.redeemables == null) {
       this.redeemables = new ArrayList<>();
     }
@@ -110,12 +131,12 @@ public class ClientRedemptionsRedeemRequestBody {
    * @return redeemables
   **/
   @javax.annotation.Nullable
-  public List<StackableValidateRedeemBaseRedeemablesItem> getRedeemables() {
+  public List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> getRedeemables() {
     return redeemables;
   }
 
 
-  public void setRedeemables(List<StackableValidateRedeemBaseRedeemablesItem> redeemables) {
+  public void setRedeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
   }
 
@@ -225,71 +246,6 @@ public class ClientRedemptionsRedeemRequestBody {
   }
 
 
-  public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
-    
-    this.options = options;
-    return this;
-  }
-
-   /**
-   * Get options
-   * @return options
-  **/
-  @javax.annotation.Nullable
-  public ClientRedemptionsRedeemRequestBodyAllOfOptions getOptions() {
-    return options;
-  }
-
-
-  public void setOptions(ClientRedemptionsRedeemRequestBodyAllOfOptions options) {
-    this.options = options;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ClientRedemptionsRedeemRequestBody instance itself
-   */
-  public ClientRedemptionsRedeemRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -300,14 +256,13 @@ public class ClientRedemptionsRedeemRequestBody {
       return false;
     }
     ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = (ClientRedemptionsRedeemRequestBody) o;
-    return Objects.equals(this.redeemables, clientRedemptionsRedeemRequestBody.redeemables) &&
+    return Objects.equals(this.options, clientRedemptionsRedeemRequestBody.options) &&
+        Objects.equals(this.redeemables, clientRedemptionsRedeemRequestBody.redeemables) &&
         Objects.equals(this.order, clientRedemptionsRedeemRequestBody.order) &&
         Objects.equals(this.customer, clientRedemptionsRedeemRequestBody.customer) &&
         Objects.equals(this.session, clientRedemptionsRedeemRequestBody.session) &&
         Objects.equals(this.trackingId, clientRedemptionsRedeemRequestBody.trackingId) &&
-        Objects.equals(this.metadata, clientRedemptionsRedeemRequestBody.metadata) &&
-        Objects.equals(this.options, clientRedemptionsRedeemRequestBody.options)&&
-        Objects.equals(this.additionalProperties, clientRedemptionsRedeemRequestBody.additionalProperties);
+        Objects.equals(this.metadata, clientRedemptionsRedeemRequestBody.metadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -316,7 +271,7 @@ public class ClientRedemptionsRedeemRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemables, order, customer, session, trackingId, metadata, options, additionalProperties);
+    return Objects.hash(options, redeemables, order, customer, session, trackingId, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -330,14 +285,13 @@ public class ClientRedemptionsRedeemRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClientRedemptionsRedeemRequestBody {\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    redeemables: ").append(toIndentedString(redeemables)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -360,13 +314,13 @@ public class ClientRedemptionsRedeemRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("options");
     openapiFields.add("redeemables");
     openapiFields.add("order");
     openapiFields.add("customer");
     openapiFields.add("session");
     openapiFields.add("tracking_id");
     openapiFields.add("metadata");
-    openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -387,51 +341,13 @@ public class ClientRedemptionsRedeemRequestBody {
            @Override
            public void write(JsonWriter out, ClientRedemptionsRedeemRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ClientRedemptionsRedeemRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ClientRedemptionsRedeemRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

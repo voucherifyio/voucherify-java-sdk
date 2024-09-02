@@ -2,7 +2,7 @@
 
 # RewardsAssignmentsGetResponseBody
 
-Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}`.
+Response body schema for **GET** `v1/rewards/{rewardId}/assignments/{assignmentId}`.
 
 ## Properties
 
@@ -15,7 +15,7 @@ Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by the JSON. This object stores information about the reward assignment. |
 |**relatedObjectId** | **String** | Related object ID to which the reward was assigned. |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Related object type to which the reward was assigned. |
-|**parameters** | [**RewardAssignmentParametersParameters**](RewardAssignmentParametersParameters.md) |  |
+|**parameters** | [**RewardsAssignmentsGetResponseBodyParameters**](RewardsAssignmentsGetResponseBodyParameters.md) |  |
 
 
 

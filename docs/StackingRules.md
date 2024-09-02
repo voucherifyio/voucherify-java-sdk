@@ -17,6 +17,8 @@ Defines stacking rules for redeemables. Read more in the [Help Center](https://s
 |**jointCategories** | **List&lt;String&gt;** | Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns. |
 |**redeemablesApplicationMode** | [**RedeemablesApplicationModeEnum**](#RedeemablesApplicationModeEnum) | Defines redeemables application mode. |
 |**redeemablesSortingRule** | [**RedeemablesSortingRuleEnum**](#RedeemablesSortingRuleEnum) | Defines redeemables sorting rule. |
+|**redeemablesProductsApplicationMode** | [**RedeemablesProductsApplicationModeEnum**](#RedeemablesProductsApplicationModeEnum) | Defines redeemables products application mode. |
+|**redeemablesNoEffectRule** | [**RedeemablesNoEffectRuleEnum**](#RedeemablesNoEffectRuleEnum) | Defines redeemables no effect rule. |
 
 
 
@@ -35,6 +37,24 @@ Defines stacking rules for redeemables. Read more in the [Help Center](https://s
 |---- | -----|
 | CATEGORY_HIERARCHY | &quot;CATEGORY_HIERARCHY&quot; |
 | REQUESTED_ORDER | &quot;REQUESTED_ORDER&quot; |
+
+
+
+## Enum: RedeemablesProductsApplicationModeEnum
+
+| Name | Value |
+|---- | -----|
+| STACK | &quot;STACK&quot; |
+| ONCE | &quot;ONCE&quot; |
+
+
+
+## Enum: RedeemablesNoEffectRuleEnum
+
+| Name | Value |
+|---- | -----|
+| REDEEM_ANYWAY | &quot;REDEEM_ANYWAY&quot; |
+| SKIP | &quot;SKIP&quot; |
 
 
 

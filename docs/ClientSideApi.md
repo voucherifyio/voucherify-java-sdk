@@ -5,9 +5,9 @@ All URIs are relative to *https://api.voucherify.io*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**checkEligibilityClientSide**](ClientSideApi.md#checkEligibilityClientSide) | **POST** /client/v1/qualifications | Check Eligibility (client-side) |
+| [**listPromotionTiersClientSide**](ClientSideApi.md#listPromotionTiersClientSide) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side) |
 | [**redeemStackedDiscountsClientSide**](ClientSideApi.md#redeemStackedDiscountsClientSide) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side) |
 | [**trackCustomEventClientSide**](ClientSideApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side) |
-| [**updateCustomersConsentsClientSide**](ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) |
 | [**validateStackedDiscountsClientSide**](ClientSideApi.md#validateStackedDiscountsClientSide) | **POST** /client/v1/validations | Validate Stackable Discounts (client-side) |
 
 
@@ -79,6 +79,83 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a qualifications object. |  -  |
+
+<a id="listPromotionTiersClientSide"></a>
+# **listPromotionTiersClientSide**
+> ClientPromotionsTiersListResponseBody listPromotionTiersClientSide(origin, isAvailable, limit, page, order)
+
+List Promotion Tiers (client-side)
+
+This method enables you to list promotion tiers.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ClientSideApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-Client-Application-Id
+    defaultClient.setAuthentication("X-Client-Application-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-Client-Token
+    defaultClient.setAuthentication("X-Client-Token", "YOUR API KEY");
+
+    ClientSideApi apiInstance = new ClientSideApi(defaultClient);
+    String origin = "origin_example"; // String | Indicates the origin (scheme, hostname, and port).
+    Boolean isAvailable = true; // Boolean | This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrderListPromotionTiersClientSide order = ParameterOrderListPromotionTiersClientSide.fromValue("created_at"); // ParameterOrderListPromotionTiersClientSide | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    try {
+      ClientPromotionsTiersListResponseBody result = apiInstance.listPromotionTiersClientSide(origin, isAvailable, limit, page, order);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ClientSideApi#listPromotionTiersClientSide");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **origin** | **String**| Indicates the origin (scheme, hostname, and port). |
+| **isAvailable** | **Boolean**| This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrderListPromotionTiersClientSide**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+
+### Return type
+
+[**ClientPromotionsTiersListResponseBody**](ClientPromotionsTiersListResponseBody.md)
+
+### Authorization
+
+[X-Client-Application-Id](../README.md#X-Client-Application-Id), [X-Client-Token](../README.md#X-Client-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. |  -  |
 
 <a id="redeemStackedDiscountsClientSide"></a>
 # **redeemStackedDiscountsClientSide**
@@ -221,76 +298,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns the event type if the event was received by the application. |  -  |
-
-<a id="updateCustomersConsentsClientSide"></a>
-# **updateCustomersConsentsClientSide**
-> updateCustomersConsentsClientSide(customerId, body)
-
-Update Customer&#39;s consents (client-side)
-
-Update marketing permissions for the specified customer.
-
-### Example
-```java
-// Import classes:
-import io.voucherify.client.ApiClient;
-import io.voucherify.client.ApiException;
-import io.voucherify.client.Configuration;
-import io.voucherify.client.auth.*;
-import io.voucherify.client.models.*;
-import io.voucherify.client.api.ClientSideApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.voucherify.io");
-    
-    // Configure API key authorization: X-Client-Application-Id
-    defaultClient.setAuthentication("X-Client-Application-Id", "YOUR API KEY");
-
-    // Configure API key authorization: X-Client-Token
-    defaultClient.setAuthentication("X-Client-Token", "YOUR API KEY");
-
-    ClientSideApi apiInstance = new ClientSideApi(defaultClient);
-    String customerId = "customerId_example"; // String | A Voucherify customer identifier or source_id
-    Object body = {"cnst_6jQ5XcUOLnj5L7ImQAdBsJ1I":true,"cnst_VCmucIvAsmDYw2PPAok6bcYy":false}; // Object | Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: 
-    try {
-      apiInstance.updateCustomersConsentsClientSide(customerId, body);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ClientSideApi#updateCustomersConsentsClientSide");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  |
-|------------- | ------------- | ------------- |
-| **customerId** | **String**| A Voucherify customer identifier or source_id |
-| **body** | **Object**| Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[X-Client-Application-Id](../README.md#X-Client-Application-Id), [X-Client-Token](../README.md#X-Client-Token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Returns no content if the consents were updated successfully. |  -  |
 
 <a id="validateStackedDiscountsClientSide"></a>
 # **validateStackedDiscountsClientSide**

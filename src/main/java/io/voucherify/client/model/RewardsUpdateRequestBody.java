@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.RewardsUpdateRequestBodyAttributes;
 import io.voucherify.client.model.RewardsUpdateRequestBodyParameters;
 import java.io.IOException;
 import java.util.Arrays;
@@ -62,10 +63,6 @@ public class RewardsUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private RewardsUpdateRequestBodyParameters parameters;
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Object attributes;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -73,6 +70,10 @@ public class RewardsUpdateRequestBody {
   public static final String SERIALIZED_NAME_STOCK = "stock";
   @SerializedName(SERIALIZED_NAME_STOCK)
   private Integer stock;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private RewardsUpdateRequestBodyAttributes attributes;
 
   public RewardsUpdateRequestBody() {
   }
@@ -119,27 +120,6 @@ public class RewardsUpdateRequestBody {
   }
 
 
-  public RewardsUpdateRequestBody attributes(Object attributes) {
-    
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @javax.annotation.Nullable
-  public Object getAttributes() {
-    return attributes;
-  }
-
-
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
-  }
-
-
   public RewardsUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
@@ -181,50 +161,27 @@ public class RewardsUpdateRequestBody {
     this.stock = stock;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the RewardsUpdateRequestBody instance itself
-   */
-  public RewardsUpdateRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public RewardsUpdateRequestBody attributes(RewardsUpdateRequestBodyAttributes attributes) {
+    
+    this.attributes = attributes;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @javax.annotation.Nullable
+  public RewardsUpdateRequestBodyAttributes getAttributes() {
+    return attributes;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+
+  public void setAttributes(RewardsUpdateRequestBodyAttributes attributes) {
+    this.attributes = attributes;
   }
+
 
 
   @Override
@@ -238,10 +195,9 @@ public class RewardsUpdateRequestBody {
     RewardsUpdateRequestBody rewardsUpdateRequestBody = (RewardsUpdateRequestBody) o;
     return Objects.equals(this.name, rewardsUpdateRequestBody.name) &&
         Objects.equals(this.parameters, rewardsUpdateRequestBody.parameters) &&
-        Objects.equals(this.attributes, rewardsUpdateRequestBody.attributes) &&
         Objects.equals(this.metadata, rewardsUpdateRequestBody.metadata) &&
-        Objects.equals(this.stock, rewardsUpdateRequestBody.stock)&&
-        Objects.equals(this.additionalProperties, rewardsUpdateRequestBody.additionalProperties);
+        Objects.equals(this.stock, rewardsUpdateRequestBody.stock) &&
+        Objects.equals(this.attributes, rewardsUpdateRequestBody.attributes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -250,7 +206,7 @@ public class RewardsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, parameters, attributes, metadata, stock, additionalProperties);
+    return Objects.hash(name, parameters, metadata, stock, attributes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -266,10 +222,9 @@ public class RewardsUpdateRequestBody {
     sb.append("class RewardsUpdateRequestBody {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    stock: ").append(toIndentedString(stock)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -294,9 +249,9 @@ public class RewardsUpdateRequestBody {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("parameters");
-    openapiFields.add("attributes");
     openapiFields.add("metadata");
     openapiFields.add("stock");
+    openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -317,51 +272,13 @@ public class RewardsUpdateRequestBody {
            @Override
            public void write(JsonWriter out, RewardsUpdateRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public RewardsUpdateRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             RewardsUpdateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

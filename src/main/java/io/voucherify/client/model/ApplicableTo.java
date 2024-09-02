@@ -162,6 +162,18 @@ public class ApplicableTo {
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_INDICES)
   private List<Integer> orderItemIndices;
 
+  public static final String SERIALIZED_NAME_REPEAT = "repeat";
+  @SerializedName(SERIALIZED_NAME_REPEAT)
+  private Integer repeat;
+
+  public static final String SERIALIZED_NAME_SKIP_INITIALLY = "skip_initially";
+  @SerializedName(SERIALIZED_NAME_SKIP_INITIALLY)
+  private Integer skipInitially;
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  private String target;
+
   public ApplicableTo() {
   }
 
@@ -466,50 +478,69 @@ public class ApplicableTo {
     this.orderItemIndices = orderItemIndices;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ApplicableTo instance itself
-   */
-  public ApplicableTo putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public ApplicableTo repeat(Integer repeat) {
+    
+    this.repeat = repeat;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+   /**
+   * Get repeat
+   * @return repeat
+  **/
+  @javax.annotation.Nullable
+  public Integer getRepeat() {
+    return repeat;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+
+  public void setRepeat(Integer repeat) {
+    this.repeat = repeat;
   }
+
+
+  public ApplicableTo skipInitially(Integer skipInitially) {
+    
+    this.skipInitially = skipInitially;
+    return this;
+  }
+
+   /**
+   * Get skipInitially
+   * @return skipInitially
+  **/
+  @javax.annotation.Nullable
+  public Integer getSkipInitially() {
+    return skipInitially;
+  }
+
+
+  public void setSkipInitially(Integer skipInitially) {
+    this.skipInitially = skipInitially;
+  }
+
+
+  public ApplicableTo target(String target) {
+    
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Get target
+   * @return target
+  **/
+  @javax.annotation.Nullable
+  public String getTarget() {
+    return target;
+  }
+
+
+  public void setTarget(String target) {
+    this.target = target;
+  }
+
 
 
   @Override
@@ -534,8 +565,10 @@ public class ApplicableTo {
         Objects.equals(this.aggregatedQuantityLimit, applicableTo.aggregatedQuantityLimit) &&
         Objects.equals(this.amountLimit, applicableTo.amountLimit) &&
         Objects.equals(this.aggregatedAmountLimit, applicableTo.aggregatedAmountLimit) &&
-        Objects.equals(this.orderItemIndices, applicableTo.orderItemIndices)&&
-        Objects.equals(this.additionalProperties, applicableTo.additionalProperties);
+        Objects.equals(this.orderItemIndices, applicableTo.orderItemIndices) &&
+        Objects.equals(this.repeat, applicableTo.repeat) &&
+        Objects.equals(this.skipInitially, applicableTo.skipInitially) &&
+        Objects.equals(this.target, applicableTo.target);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -544,7 +577,7 @@ public class ApplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, additionalProperties);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, repeat, skipInitially, target);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -572,7 +605,9 @@ public class ApplicableTo {
     sb.append("    amountLimit: ").append(toIndentedString(amountLimit)).append("\n");
     sb.append("    aggregatedAmountLimit: ").append(toIndentedString(aggregatedAmountLimit)).append("\n");
     sb.append("    orderItemIndices: ").append(toIndentedString(orderItemIndices)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    repeat: ").append(toIndentedString(repeat)).append("\n");
+    sb.append("    skipInitially: ").append(toIndentedString(skipInitially)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -609,6 +644,9 @@ public class ApplicableTo {
     openapiFields.add("amount_limit");
     openapiFields.add("aggregated_amount_limit");
     openapiFields.add("order_item_indices");
+    openapiFields.add("repeat");
+    openapiFields.add("skip_initially");
+    openapiFields.add("target");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -630,51 +668,13 @@ public class ApplicableTo {
            @Override
            public void write(JsonWriter out, ApplicableTo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ApplicableTo read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ApplicableTo instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

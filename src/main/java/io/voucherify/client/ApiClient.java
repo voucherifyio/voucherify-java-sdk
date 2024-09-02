@@ -118,8 +118,6 @@ public class ApiClient {
         authentications.put("X-App-Token", new ApiKeyAuth("header", "X-App-Token"));
         authentications.put("X-Client-Token", new ApiKeyAuth("header", "X-Client-Token"));
         authentications.put("X-Client-Application-Id", new ApiKeyAuth("header", "X-Client-Application-Id"));
-        authentications.put("X-Management-Id", new ApiKeyAuth("header", "X-Management-Id"));
-        authentications.put("X-Management-Token", new ApiKeyAuth("header", "X-Management-Token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -139,8 +137,6 @@ public class ApiClient {
         authentications.put("X-App-Token", new ApiKeyAuth("header", "X-App-Token"));
         authentications.put("X-Client-Token", new ApiKeyAuth("header", "X-Client-Token"));
         authentications.put("X-Client-Application-Id", new ApiKeyAuth("header", "X-Client-Application-Id"));
-        authentications.put("X-Management-Id", new ApiKeyAuth("header", "X-Management-Id"));
-        authentications.put("X-Management-Token", new ApiKeyAuth("header", "X-Management-Token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -165,7 +161,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Java-SDK/13.0.0");
+        setUserAgent("OpenAPI-Java-SDK/14.0.0");
         addDefaultHeader("X-Voucherify-Channel", "Java-SDK");
 
         authentications = new HashMap<String, Authentication>();

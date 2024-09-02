@@ -2,7 +2,7 @@
 
 # RedemptionsListResponseBody
 
-Response body schema for **GET** `/redemptions`.
+Response body schema for **GET** `v1/redemptions`.
 
 ## Properties
 

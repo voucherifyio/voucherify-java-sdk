@@ -21,6 +21,9 @@
 |**amountLimit** | **Integer** | Upper limit allowed to be applied as a discount per order line item. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount is written as 600. |
 |**aggregatedAmountLimit** | **Integer** | Maximum discount amount per order. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount on the entire order is written as 600. This value is definable for the following discount effects: - &#x60;APPLY_TO_ITEMS&#x60; (each item subtotal is discounted equally) - &#x60;APPLY_TO_ITEMS_BY_QUANTITY&#x60; (each unit of matched products has the same discount value) |
 |**orderItemIndices** | **List&lt;Integer&gt;** |  |
+|**repeat** | **Integer** |  |
+|**skipInitially** | **Integer** |  |
+|**target** | **String** |  |
 
 
 

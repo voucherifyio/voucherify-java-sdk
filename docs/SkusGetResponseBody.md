@@ -2,7 +2,7 @@
 
 # SkusGetResponseBody
 
-Response body schema for **GET** `/skus/{skuId}`.
+Response body schema for **GET** `v1/skus/{skuId}`.
 
 ## Properties
 

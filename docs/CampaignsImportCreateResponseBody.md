@@ -2,7 +2,7 @@
 
 # CampaignsImportCreateResponseBody
 
-Response body schema for **POST** `/campaigns/{campaignId}/import`.
+Response body schema for **POST** `v1/campaigns/{campaignId}/import`.
 
 ## Properties
 

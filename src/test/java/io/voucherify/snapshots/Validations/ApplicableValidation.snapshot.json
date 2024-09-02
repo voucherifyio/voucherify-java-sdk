@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "APPLICABLE",
+      "id": "DLpYJWo5",
       "order": {
         "id": null,
         "sourceId": null,
@@ -30,14 +31,15 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": null,
             "object": "ORDER_ITEM"
           },
           {
@@ -51,14 +53,15 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": null,
             "object": "ORDER_ITEM"
           }
         ],
@@ -68,21 +71,18 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "applicableTo": {
         "data": [],
         "total": 0,
         "dataRef": "DATA",
-        "additionalProperties": null,
         "object": "LIST"
       },
       "inapplicableTo": {
         "data": [],
         "total": 0,
         "dataRef": "DATA",
-        "additionalProperties": null,
         "object": "LIST"
       },
       "result": {
@@ -103,18 +103,15 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
         "error": null,
-        "details": null,
-        "additionalProperties": null
+        "details": null
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
@@ -147,14 +144,15 @@
         "amount": null,
         "discountAmount": null,
         "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
         "sku": null,
         "metadata": null,
-        "additionalProperties": null,
         "object": "ORDER_ITEM"
       },
       {
@@ -168,14 +166,15 @@
         "amount": null,
         "discountAmount": null,
         "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
         "sku": null,
         "metadata": null,
-        "additionalProperties": null,
         "object": "ORDER_ITEM"
       }
     ],
@@ -185,7 +184,6 @@
     "redemptions": null,
     "customer": null,
     "referrer": null,
-    "additionalProperties": null,
     "object": "ORDER"
   },
   "trackingId": null,
@@ -200,7 +198,7 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
-  },
-  "additionalProperties": null
+    "redeemables_products_application_mode": "STACK",
+    "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+  }
 }

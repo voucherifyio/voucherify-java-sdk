@@ -20,8 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerId;
-import io.voucherify.client.model.OrderItemCalculated;
-import io.voucherify.client.model.OrderRedemptions;
+import io.voucherify.client.model.OrderCalculatedItem;
+import io.voucherify.client.model.OrderRedemptionsEntry;
+import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/orders&#x60;.
+ * Response body schema for **POST** &#x60;v1/orders&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -68,14 +69,6 @@ public class OrdersCreateResponseBody {
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
 
   /**
    * The order status.
@@ -170,19 +163,11 @@ public class OrdersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderItemCalculated> items;
+  private List<OrderCalculatedItem> items;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-
-  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
-  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
-  private String referrerId;
 
   /**
    * The type of the object represented by JSON.
@@ -233,9 +218,21 @@ public class OrdersCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.ORDER;
 
-  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
-  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Map<String, OrderRedemptions> redemptions;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+
+  public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
+  @SerializedName(SERIALIZED_NAME_REFERRER_ID)
+  private String referrerId;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -243,7 +240,11 @@ public class OrdersCreateResponseBody {
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
-  private CustomerId referrer;
+  private ReferrerId referrer;
+
+  public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
+  @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
+  private Map<String, OrderRedemptionsEntry> redemptions;
 
   public OrdersCreateResponseBody() {
   }
@@ -287,48 +288,6 @@ public class OrdersCreateResponseBody {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
-  }
-
-
-  public OrdersCreateResponseBody createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public OrdersCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
-    
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
 
@@ -542,13 +501,13 @@ public class OrdersCreateResponseBody {
   }
 
 
-  public OrdersCreateResponseBody items(List<OrderItemCalculated> items) {
+  public OrdersCreateResponseBody items(List<OrderCalculatedItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public OrdersCreateResponseBody addItemsItem(OrderItemCalculated itemsItem) {
+  public OrdersCreateResponseBody addItemsItem(OrderCalculatedItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -561,12 +520,12 @@ public class OrdersCreateResponseBody {
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderItemCalculated> getItems() {
+  public List<OrderCalculatedItem> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderItemCalculated> items) {
+  public void setItems(List<OrderCalculatedItem> items) {
     this.items = items;
   }
 
@@ -589,6 +548,69 @@ public class OrdersCreateResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+  }
+
+
+  public OrdersCreateResponseBody _object(ObjectEnum _object) {
+    
+    this._object = _object;
+    return this;
+  }
+
+   /**
+   * The type of the object represented by JSON.
+   * @return _object
+  **/
+  @javax.annotation.Nullable
+  public ObjectEnum getObject() {
+    return _object;
+  }
+
+
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+  }
+
+
+  public OrdersCreateResponseBody createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public OrdersCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was last updated in ISO 8601 format.
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
   }
 
 
@@ -634,56 +656,6 @@ public class OrdersCreateResponseBody {
   }
 
 
-  public OrdersCreateResponseBody _object(ObjectEnum _object) {
-    
-    this._object = _object;
-    return this;
-  }
-
-   /**
-   * The type of the object represented by JSON.
-   * @return _object
-  **/
-  @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
-  }
-
-
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
-  }
-
-
-  public OrdersCreateResponseBody redemptions(Map<String, OrderRedemptions> redemptions) {
-    
-    this.redemptions = redemptions;
-    return this;
-  }
-
-  public OrdersCreateResponseBody putRedemptionsItem(String key, OrderRedemptions redemptionsItem) {
-    if (this.redemptions == null) {
-      this.redemptions = new HashMap<>();
-    }
-    this.redemptions.put(key, redemptionsItem);
-    return this;
-  }
-
-   /**
-   * Get redemptions
-   * @return redemptions
-  **/
-  @javax.annotation.Nullable
-  public Map<String, OrderRedemptions> getRedemptions() {
-    return redemptions;
-  }
-
-
-  public void setRedemptions(Map<String, OrderRedemptions> redemptions) {
-    this.redemptions = redemptions;
-  }
-
-
   public OrdersCreateResponseBody customer(CustomerId customer) {
     
     this.customer = customer;
@@ -705,7 +677,7 @@ public class OrdersCreateResponseBody {
   }
 
 
-  public OrdersCreateResponseBody referrer(CustomerId referrer) {
+  public OrdersCreateResponseBody referrer(ReferrerId referrer) {
     
     this.referrer = referrer;
     return this;
@@ -716,59 +688,44 @@ public class OrdersCreateResponseBody {
    * @return referrer
   **/
   @javax.annotation.Nullable
-  public CustomerId getReferrer() {
+  public ReferrerId getReferrer() {
     return referrer;
   }
 
 
-  public void setReferrer(CustomerId referrer) {
+  public void setReferrer(ReferrerId referrer) {
     this.referrer = referrer;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the OrdersCreateResponseBody instance itself
-   */
-  public OrdersCreateResponseBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public OrdersCreateResponseBody redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
+    
+    this.redemptions = redemptions;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  public OrdersCreateResponseBody putRedemptionsItem(String key, OrderRedemptionsEntry redemptionsItem) {
+    if (this.redemptions == null) {
+      this.redemptions = new HashMap<>();
+    }
+    this.redemptions.put(key, redemptionsItem);
+    return this;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+   /**
+   * Get redemptions
+   * @return redemptions
+  **/
+  @javax.annotation.Nullable
+  public Map<String, OrderRedemptionsEntry> getRedemptions() {
+    return redemptions;
   }
+
+
+  public void setRedemptions(Map<String, OrderRedemptionsEntry> redemptions) {
+    this.redemptions = redemptions;
+  }
+
 
 
   @Override
@@ -782,8 +739,6 @@ public class OrdersCreateResponseBody {
     OrdersCreateResponseBody ordersCreateResponseBody = (OrdersCreateResponseBody) o;
     return Objects.equals(this.id, ordersCreateResponseBody.id) &&
         Objects.equals(this.sourceId, ordersCreateResponseBody.sourceId) &&
-        Objects.equals(this.createdAt, ordersCreateResponseBody.createdAt) &&
-        Objects.equals(this.updatedAt, ordersCreateResponseBody.updatedAt) &&
         Objects.equals(this.status, ordersCreateResponseBody.status) &&
         Objects.equals(this.amount, ordersCreateResponseBody.amount) &&
         Objects.equals(this.initialAmount, ordersCreateResponseBody.initialAmount) &&
@@ -796,13 +751,14 @@ public class OrdersCreateResponseBody {
         Objects.equals(this.totalAppliedDiscountAmount, ordersCreateResponseBody.totalAppliedDiscountAmount) &&
         Objects.equals(this.items, ordersCreateResponseBody.items) &&
         Objects.equals(this.metadata, ordersCreateResponseBody.metadata) &&
+        Objects.equals(this._object, ordersCreateResponseBody._object) &&
+        Objects.equals(this.createdAt, ordersCreateResponseBody.createdAt) &&
+        Objects.equals(this.updatedAt, ordersCreateResponseBody.updatedAt) &&
         Objects.equals(this.customerId, ordersCreateResponseBody.customerId) &&
         Objects.equals(this.referrerId, ordersCreateResponseBody.referrerId) &&
-        Objects.equals(this._object, ordersCreateResponseBody._object) &&
-        Objects.equals(this.redemptions, ordersCreateResponseBody.redemptions) &&
         Objects.equals(this.customer, ordersCreateResponseBody.customer) &&
-        Objects.equals(this.referrer, ordersCreateResponseBody.referrer)&&
-        Objects.equals(this.additionalProperties, ordersCreateResponseBody.additionalProperties);
+        Objects.equals(this.referrer, ordersCreateResponseBody.referrer) &&
+        Objects.equals(this.redemptions, ordersCreateResponseBody.redemptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -811,7 +767,7 @@ public class OrdersCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, createdAt, updatedAt, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, customerId, referrerId, _object, redemptions, customer, referrer, additionalProperties);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -827,8 +783,6 @@ public class OrdersCreateResponseBody {
     sb.append("class OrdersCreateResponseBody {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
@@ -841,13 +795,14 @@ public class OrdersCreateResponseBody {
     sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -872,8 +827,6 @@ public class OrdersCreateResponseBody {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("source_id");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
     openapiFields.add("status");
     openapiFields.add("amount");
     openapiFields.add("initial_amount");
@@ -886,12 +839,14 @@ public class OrdersCreateResponseBody {
     openapiFields.add("total_applied_discount_amount");
     openapiFields.add("items");
     openapiFields.add("metadata");
+    openapiFields.add("object");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
     openapiFields.add("customer_id");
     openapiFields.add("referrer_id");
-    openapiFields.add("object");
-    openapiFields.add("redemptions");
     openapiFields.add("customer");
     openapiFields.add("referrer");
+    openapiFields.add("redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -912,51 +867,13 @@ public class OrdersCreateResponseBody {
            @Override
            public void write(JsonWriter out, OrdersCreateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public OrdersCreateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             OrdersCreateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

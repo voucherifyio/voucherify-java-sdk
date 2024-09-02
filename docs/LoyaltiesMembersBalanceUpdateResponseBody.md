@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersBalanceUpdateResponseBody
 
-Response schema for **POST** `/loyalties/members/{memberId}/balance` and for **POST** `/loyalties/{campaignId}/members/{memberId}/balance`.
+Response schema for **POST** `v1/loyalties/members/{memberId}/balance` and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/balance`.
 
 ## Properties
 

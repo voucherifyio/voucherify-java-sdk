@@ -114,7 +114,7 @@ public class Example {
     Boolean joinOnce = true; // Boolean | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer.
     String voucher = "voucher_example"; // String | Code of voucher being published.
     CreatePublicationCampaign campaign = new CreatePublicationCampaign(); // CreatePublicationCampaign | Create publication with campaign.
-    String sourceId = "sourceId_example"; // String | The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request.
+    String sourceId = "sourceId_example"; // String | The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request.
     Object metadata = null; // Object | The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format.
     try {
       PublicationsCreateResponseBody result = apiInstance.createPublication1(customer, joinOnce, voucher, campaign, sourceId, metadata);
@@ -138,7 +138,7 @@ public class Example {
 | **joinOnce** | **Boolean**| Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. |
 | **voucher** | **String**| Code of voucher being published. |
 | **campaign** | [**CreatePublicationCampaign**](.md)| Create publication with campaign. |
-| **sourceId** | **String**| The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. |
+| **sourceId** | **String**| The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. |
 | **metadata** | [**Object**](.md)| The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. |
 
 ### Return type
@@ -246,5 +246,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of publications you’ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. |  -  |
+| **200** | Returns a list of publications you&#39;ve previously created with &lt;!-- [create publication](OpenAPI.json/paths/~1publications/post) --&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. |  -  |
 

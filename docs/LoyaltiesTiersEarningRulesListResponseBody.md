@@ -2,7 +2,7 @@
 
 # LoyaltiesTiersEarningRulesListResponseBody
 
-Response body schema for **GET** `/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules`.
+Response body schema for **GET** `v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules`.
 
 ## Properties
 

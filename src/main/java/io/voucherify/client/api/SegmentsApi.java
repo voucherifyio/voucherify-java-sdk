@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.voucherify.client.model.SegmentsCreateRequestBody;
+import io.voucherify.client.model.SegmentsCreateResponseBody;
+import io.voucherify.client.model.SegmentsGetResponseBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -71,6 +74,104 @@ public class SegmentsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createSegment
+     * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createSegmentCall(SegmentsCreateRequestBody segmentsCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = segmentsCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/segments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSegmentValidateBeforeCall(SegmentsCreateRequestBody segmentsCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        return createSegmentCall(segmentsCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Create Segment
+     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
+     * @return SegmentsCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SegmentsCreateResponseBody createSegment(SegmentsCreateRequestBody segmentsCreateRequestBody) throws ApiException {
+        ApiResponse<SegmentsCreateResponseBody> localVarResp = createSegmentWithHttpInfo(segmentsCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Segment
+     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
+     * @return ApiResponse&lt;SegmentsCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SegmentsCreateResponseBody> createSegmentWithHttpInfo(SegmentsCreateRequestBody segmentsCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createSegmentValidateBeforeCall(segmentsCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<SegmentsCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Segment (asynchronously)
+     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createSegmentAsync(SegmentsCreateRequestBody segmentsCreateRequestBody, final ApiCallback<SegmentsCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSegmentValidateBeforeCall(segmentsCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<SegmentsCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteSegment
      * @param segmentId A unique customer segment ID. (required)
@@ -167,6 +268,109 @@ public class SegmentsApi {
 
         okhttp3.Call localVarCall = deleteSegmentValidateBeforeCall(segmentId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSegment
+     * @param segmentId A unique customer segment ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getSegmentCall(String segmentId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/segments/{segmentId}"
+            .replace("{" + "segmentId" + "}", localVarApiClient.escapeString(segmentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSegmentValidateBeforeCall(String segmentId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'segmentId' is set
+        if (segmentId == null) {
+            throw new ApiException("Missing the required parameter 'segmentId' when calling getSegment(Async)");
+        }
+
+        return getSegmentCall(segmentId, _callback);
+
+    }
+
+    /**
+     * Get Segment
+     * Retrieves the segment with given segment ID.
+     * @param segmentId A unique customer segment ID. (required)
+     * @return SegmentsGetResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SegmentsGetResponseBody getSegment(String segmentId) throws ApiException {
+        ApiResponse<SegmentsGetResponseBody> localVarResp = getSegmentWithHttpInfo(segmentId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Segment
+     * Retrieves the segment with given segment ID.
+     * @param segmentId A unique customer segment ID. (required)
+     * @return ApiResponse&lt;SegmentsGetResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SegmentsGetResponseBody> getSegmentWithHttpInfo(String segmentId) throws ApiException {
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(segmentId, null);
+        Type localVarReturnType = new TypeToken<SegmentsGetResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Segment (asynchronously)
+     * Retrieves the segment with given segment ID.
+     * @param segmentId A unique customer segment ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getSegmentAsync(String segmentId, final ApiCallback<SegmentsGetResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSegmentValidateBeforeCall(segmentId, _callback);
+        Type localVarReturnType = new TypeToken<SegmentsGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }

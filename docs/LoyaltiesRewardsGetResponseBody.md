@@ -2,7 +2,7 @@
 
 # LoyaltiesRewardsGetResponseBody
 
-Response body schema for **GET** `/loyalties/{campaignId}/rewards/{assignmentId}`
+Response body schema for **GET** `v1/loyalties/{campaignId}/rewards/{assignmentId}`
 
 ## Properties
 
@@ -15,7 +15,7 @@ Response body schema for **GET** `/loyalties/{campaignId}/rewards/{assignmentId}
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by the JSON. This object stores information about the reward assignment. |
 |**relatedObjectId** | **String** | Related object ID to which the reward was assigned. |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Related object type to which the reward was assigned. |
-|**parameters** | [**RewardAssignmentParametersParameters**](RewardAssignmentParametersParameters.md) |  |
+|**parameters** | [**LoyaltiesRewardsGetResponseBodyParameters**](LoyaltiesRewardsGetResponseBodyParameters.md) |  |
 
 
 

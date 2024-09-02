@@ -2,7 +2,7 @@
 
 # EventsCreateResponseBody
 
-Response body schema for **POST** `/events`.
+Response body schema for **POST** `v1/events`.
 
 ## Properties
 
@@ -13,6 +13,7 @@ Response body schema for **POST** `/events`.
 |**customer** | [**SimpleCustomerRequiredObjectType**](SimpleCustomerRequiredObjectType.md) |  |
 |**referral** | **Object** | A &#x60;null&#x60; referral object. |
 |**loyalty** | **Object** | A &#x60;null&#x60; loyalty object. |
+|**metadata** | **Object** |  |
 
 
 

@@ -2,7 +2,7 @@
 
 # ProductsSkusUpdateRequestBody
 
-Request body schema for **PUT** `/products/{productId}/skus/{skuId}`.
+Request body schema for **PUT** `v1/products/{productId}/skus/{skuId}`.
 
 ## Properties
 

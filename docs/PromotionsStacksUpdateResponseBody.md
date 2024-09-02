@@ -2,14 +2,14 @@
 
 # PromotionsStacksUpdateResponseBody
 
-Response body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`.
+Response body schema for **PUT** `v1/promotions/{campaignId}/stacks/{stackId}`.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**name** | **String** | Promotion stack name. |
-|**tiers** | [**PromotionStackBaseTiers**](PromotionStackBaseTiers.md) |  |
+|**tiers** | [**PromotionsStacksUpdateResponseBodyTiers**](PromotionsStacksUpdateResponseBodyTiers.md) |  |
 |**id** | **String** | Unique promotion stack ID. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the promotion stack was updated. The value is shown in the ISO 8601 format. |

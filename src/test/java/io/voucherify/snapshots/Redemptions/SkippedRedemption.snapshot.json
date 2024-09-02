@@ -1,16 +1,20 @@
 {
   "redemptions": [
     {
+      "id": "r_0f4974ac76a73f5358",
+      "date": 1724947570.138,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
       "amount": null,
+      "redemption": "r_0f4974ac73673f5357",
       "result": "SUCCESS",
       "status": "SUCCEEDED",
       "relatedRedemptions": null,
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f4974ac61e73f534e",
         "sourceId": null,
         "createdAt": null,
         "updatedAt": null,
@@ -36,14 +40,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           },
           {
@@ -57,14 +63,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           }
         ],
@@ -74,7 +82,6 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "channel": null,
@@ -82,9 +89,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_B6F3eCzMrY9K43uRBalNsIIfpXCO83BP",
+        "code": "S5k30WST",
+        "campaign": "Zzo8LomtO0Qy3mbka7AB",
+        "campaignId": "camp_y9BWYsTwZsueo4OF2SbiLS10",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -103,8 +113,7 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
@@ -118,40 +127,44 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947567.244,
+        "updatedAt": 1724947570.126,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
           "redeemedQuantity": 1,
           "redeemedPoints": null,
           "url": null,
-          "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
-        "additionalProperties": null,
         "object": "voucher"
       },
       "promotionTier": null,
       "reward": null,
       "gift": null,
       "loyaltyCard": null,
-      "additionalProperties": null,
       "object": "REDEMPTION"
     },
     {
+      "id": "r_0f4974ac76a73f5359",
+      "date": 1724947570.138,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
       "amount": null,
+      "redemption": "r_0f4974ac73673f5357",
       "result": "SUCCESS",
       "status": "SUCCEEDED",
       "relatedRedemptions": null,
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f4974ac61e73f534e",
         "sourceId": null,
         "createdAt": null,
         "updatedAt": null,
@@ -177,14 +190,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           },
           {
@@ -198,14 +213,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           }
         ],
@@ -215,7 +232,6 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "channel": null,
@@ -223,9 +239,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_QKgKEzsktsB51xfoNrldXT1ekuKJq1Qe",
+        "code": "4yLk2I4A",
+        "campaign": "Zzo8LomtO0Qy3mbka7AB",
+        "campaignId": "camp_y9BWYsTwZsueo4OF2SbiLS10",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -244,8 +263,7 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
@@ -259,40 +277,44 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947567.319,
+        "updatedAt": 1724947570.126,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
           "redeemedQuantity": 1,
           "redeemedPoints": null,
           "url": null,
-          "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
-        "additionalProperties": null,
         "object": "voucher"
       },
       "promotionTier": null,
       "reward": null,
       "gift": null,
       "loyaltyCard": null,
-      "additionalProperties": null,
       "object": "REDEMPTION"
     },
     {
+      "id": "r_0f4974ac76a73f535a",
+      "date": 1724947570.138,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
       "amount": null,
+      "redemption": "r_0f4974ac73673f5357",
       "result": "SUCCESS",
       "status": "SUCCEEDED",
       "relatedRedemptions": null,
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f4974ac61e73f534e",
         "sourceId": null,
         "createdAt": null,
         "updatedAt": null,
@@ -318,14 +340,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           },
           {
@@ -339,14 +363,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           }
         ],
@@ -356,7 +382,6 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "channel": null,
@@ -364,9 +389,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_ic17Iu74gzO2fbqI0st0mQyyU5AWtSzc",
+        "code": "gxGT6YZ3",
+        "campaign": "Zzo8LomtO0Qy3mbka7AB",
+        "campaignId": "camp_y9BWYsTwZsueo4OF2SbiLS10",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -385,8 +413,7 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
@@ -400,40 +427,44 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947567.412,
+        "updatedAt": 1724947570.126,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
           "redeemedQuantity": 1,
           "redeemedPoints": null,
           "url": null,
-          "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
-        "additionalProperties": null,
         "object": "voucher"
       },
       "promotionTier": null,
       "reward": null,
       "gift": null,
       "loyaltyCard": null,
-      "additionalProperties": null,
       "object": "REDEMPTION"
     },
     {
+      "id": "r_0f4974ac76a73f535b",
+      "date": 1724947570.138,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
       "amount": null,
+      "redemption": "r_0f4974ac73673f5357",
       "result": "SUCCESS",
       "status": "SUCCEEDED",
       "relatedRedemptions": null,
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f4974ac61e73f534e",
         "sourceId": null,
         "createdAt": null,
         "updatedAt": null,
@@ -459,14 +490,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           },
           {
@@ -480,14 +513,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           }
         ],
@@ -497,7 +532,6 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "channel": null,
@@ -505,9 +539,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_VH45cb2i62ttSpOv6wYZXAMJS1T09DXu",
+        "code": "U11v036b",
+        "campaign": "Zzo8LomtO0Qy3mbka7AB",
+        "campaignId": "camp_y9BWYsTwZsueo4OF2SbiLS10",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -526,8 +563,7 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
@@ -541,40 +577,44 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947567.496,
+        "updatedAt": 1724947570.126,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
           "redeemedQuantity": 1,
           "redeemedPoints": null,
           "url": null,
-          "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
-        "additionalProperties": null,
         "object": "voucher"
       },
       "promotionTier": null,
       "reward": null,
       "gift": null,
       "loyaltyCard": null,
-      "additionalProperties": null,
       "object": "REDEMPTION"
     },
     {
+      "id": "r_0f4974ac76a73f535c",
+      "date": 1724947570.138,
       "customerId": null,
       "trackingId": null,
       "metadata": null,
       "amount": null,
+      "redemption": "r_0f4974ac73673f5357",
       "result": "SUCCESS",
       "status": "SUCCEEDED",
       "relatedRedemptions": null,
       "failureCode": null,
       "failureMessage": null,
       "order": {
+        "id": "ord_0f4974ac61e73f534e",
         "sourceId": null,
         "createdAt": null,
         "updatedAt": null,
@@ -600,14 +640,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           },
           {
@@ -621,14 +663,16 @@
             "amount": null,
             "discountAmount": null,
             "appliedDiscountAmount": null,
+            "appliedDiscountQuantity": null,
+            "appliedQuantity": null,
+            "appliedQuantityAmount": null,
             "initialAmount": null,
-            "totalAppliedDiscountAmount": null,
             "price": null,
             "subtotalAmount": null,
             "product": null,
             "sku": null,
             "metadata": null,
-            "additionalProperties": {},
+            "id": "ordli_0f4974ac61e73f534f",
             "object": "ORDER_ITEM"
           }
         ],
@@ -638,7 +682,6 @@
         "redemptions": null,
         "customer": null,
         "referrer": null,
-        "additionalProperties": null,
         "object": "ORDER"
       },
       "channel": null,
@@ -646,9 +689,12 @@
       "relatedObjectType": null,
       "relatedObjectId": null,
       "voucher": {
+        "id": "v_XHjdIdxWzymz2jfKd94U57gsxfiBzEc1",
+        "code": "tt1jBz97",
+        "campaign": "Zzo8LomtO0Qy3mbka7AB",
+        "campaignId": "camp_y9BWYsTwZsueo4OF2SbiLS10",
         "category": null,
         "categoryId": null,
-        "categories": null,
         "type": "DISCOUNT_VOUCHER",
         "discount": {
           "type": "AMOUNT",
@@ -667,8 +713,7 @@
           "percentOffFormula": null,
           "amountLimit": null,
           "fixedAmount": null,
-          "fixedAmountFormula": null,
-          "additionalProperties": null
+          "fixedAmountFormula": null
         },
         "gift": null,
         "loyaltyCard": null,
@@ -682,31 +727,33 @@
         "metadata": {},
         "assets": null,
         "isReferralCode": false,
+        "createdAt": 1724947567.579,
+        "updatedAt": 1724947570.126,
         "holderId": null,
         "referrerId": null,
-        "validationRulesAssignments": null,
         "publish": null,
         "redemption": {
           "quantity": null,
           "redeemedQuantity": 1,
           "redeemedPoints": null,
           "url": null,
-          "additionalProperties": null,
           "object": "list"
         },
+        "categories": null,
+        "validationRulesAssignments": null,
         "holder": null,
-        "additionalProperties": null,
         "object": "voucher"
       },
       "promotionTier": null,
       "reward": null,
       "gift": null,
       "loyaltyCard": null,
-      "additionalProperties": null,
       "object": "REDEMPTION"
     }
   ],
   "parentRedemption": {
+    "id": "r_0f4974ac73673f5357",
+    "date": 1724947570.139,
     "customerId": null,
     "trackingId": null,
     "metadata": null,
@@ -718,7 +765,9 @@
     "failureCode": null,
     "failureMessage": null,
     "order": {
+      "id": "ord_0f4974ac61e73f534e",
       "sourceId": null,
+      "createdAt": 1724947570.103,
       "updatedAt": null,
       "status": "PAID",
       "amount": 10000,
@@ -728,7 +777,7 @@
       "totalDiscountAmount": 5,
       "totalAmount": 9995,
       "appliedDiscountAmount": 5,
-      "itemsAppliedDiscountAmount": 0,
+      "itemsAppliedDiscountAmount": null,
       "totalAppliedDiscountAmount": 5,
       "items": [
         {
@@ -741,15 +790,17 @@
           "initialQuantity": null,
           "amount": null,
           "discountAmount": null,
-          "appliedDiscountAmount": 0,
+          "appliedDiscountAmount": null,
+          "appliedDiscountQuantity": null,
+          "appliedQuantity": null,
+          "appliedQuantityAmount": null,
           "initialAmount": null,
-          "totalAppliedDiscountAmount": null,
           "price": null,
           "subtotalAmount": null,
           "product": null,
           "sku": null,
           "metadata": null,
-          "additionalProperties": {},
+          "id": "ordli_0f4974ac61e73f534f",
           "object": "ORDER_ITEM"
         },
         {
@@ -762,15 +813,17 @@
           "initialQuantity": null,
           "amount": null,
           "discountAmount": null,
-          "appliedDiscountAmount": 0,
+          "appliedDiscountAmount": null,
+          "appliedDiscountQuantity": null,
+          "appliedQuantity": null,
+          "appliedQuantityAmount": null,
           "initialAmount": null,
-          "totalAppliedDiscountAmount": null,
           "price": null,
           "subtotalAmount": null,
           "product": null,
           "sku": null,
           "metadata": null,
-          "additionalProperties": {},
+          "id": "ordli_0f4974ac61e73f534f",
           "object": "ORDER_ITEM"
         }
       ],
@@ -780,7 +833,6 @@
       "redemptions": null,
       "customer": null,
       "referrer": null,
-      "additionalProperties": null,
       "object": "ORDER"
     },
     "channel": null,
@@ -792,11 +844,12 @@
     "reward": null,
     "gift": null,
     "loyaltyCard": null,
-    "additionalProperties": null,
     "object": "REDEMPTION"
   },
   "order": {
+    "id": "ord_0f4974ac61e73f534e",
     "sourceId": null,
+    "createdAt": 1724947570.103,
     "updatedAt": null,
     "status": "PAID",
     "amount": 10000,
@@ -806,7 +859,7 @@
     "totalDiscountAmount": 5,
     "totalAmount": 9995,
     "appliedDiscountAmount": 5,
-    "itemsAppliedDiscountAmount": 0,
+    "itemsAppliedDiscountAmount": null,
     "totalAppliedDiscountAmount": 5,
     "items": [
       {
@@ -819,15 +872,16 @@
         "initialQuantity": null,
         "amount": null,
         "discountAmount": null,
-        "appliedDiscountAmount": 0,
+        "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
         "sku": null,
         "metadata": null,
-        "additionalProperties": null,
         "object": "ORDER_ITEM"
       },
       {
@@ -840,404 +894,370 @@
         "initialQuantity": null,
         "amount": null,
         "discountAmount": null,
-        "appliedDiscountAmount": 0,
+        "appliedDiscountAmount": null,
+        "appliedDiscountQuantity": null,
+        "appliedQuantity": null,
+        "appliedQuantityAmount": null,
         "initialAmount": null,
-        "totalAppliedDiscountAmount": null,
         "price": null,
         "subtotalAmount": null,
         "product": null,
         "sku": null,
         "metadata": null,
-        "additionalProperties": null,
         "object": "ORDER_ITEM"
       }
     ],
     "metadata": {},
     "customerId": null,
     "referrerId": null,
-    "redemptions": {},
+    "redemptions": {
+      "r_0f4974ac73673f5357": {
+        "date": 1724947570.139,
+        "rollbackId": null,
+        "rollbackDate": null,
+        "relatedObjectType": "redemption",
+        "relatedObjectId": "r_0f4974ac73673f5357",
+        "relatedObjectParentId": null,
+        "stacked": [
+          "r_0f4974ac76a73f5358",
+          "r_0f4974ac76a73f5359",
+          "r_0f4974ac76a73f535a",
+          "r_0f4974ac76a73f535b",
+          "r_0f4974ac76a73f535c"
+        ],
+        "rollbackStacked": null
+      }
+    },
     "customer": null,
     "referrer": null,
-    "additionalProperties": null,
     "object": "ORDER"
   },
   "inapplicableRedeemables": [],
   "skippedRedeemables": [
     {
       "status": "SKIPPED",
+      "id": "ziuXcrAx",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "m7rRJ6nd",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "H6MMxNGl",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "E85nmZ1o",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "EpEpuRJ8",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "RUSQNZxQ",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "FHECCAlc",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "nZjQN0FN",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "Se6aEx9k",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "i0MAxyO0",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "avNF9XWm",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "7AavlBd8",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "8eSuY1Y1",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "Oye1LqJA",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "BsJRiDE7",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "P9I7TdgK",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "Y7UVxsBg",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "EUVqDbMB",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "ZvB9y2WG",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "RXc4X3Qx",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "g46T0App",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "HvsHarDK",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "RF0YDn4z",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "qXkm8qkt",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     },
     {
       "status": "SKIPPED",
+      "id": "xbh2CytE",
       "result": {
         "details": {
           "key": "APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED",
-          "message": "Applicable redeemables limit exceeded",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Applicable redeemables limit exceeded"
+        }
       },
       "metadata": {},
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
-  ],
-  "additionalProperties": null
+  ]
 }

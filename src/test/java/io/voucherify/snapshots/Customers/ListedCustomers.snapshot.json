@@ -1,0 +1,110 @@
+{
+  "dataRef": "customers",
+  "customers": [
+    {
+      "name": null,
+      "description": null,
+      "email": null,
+      "phone": null,
+      "birthday": null,
+      "birthdate": null,
+      "address": null,
+      "metadata": null,
+      "id": "cust_Yd5yoPejijCKvxwjEX0X2p3e",
+      "sourceId": "Cl2hlVbsC2",
+      "summary": {
+        "redemptions": {
+          "totalRedeemed": 0,
+          "totalFailed": 0,
+          "totalSucceeded": 0,
+          "totalRolledBack": 0,
+          "totalRollbackFailed": 0,
+          "totalRollbackSucceeded": 0,
+          "gift": {
+            "redeemedAmount": 0,
+            "amountToGo": 0
+          },
+          "loyaltyCard": {
+            "redeemedPoints": 0,
+            "pointsToGo": 0
+          }
+        },
+        "orders": {
+          "totalAmount": 0,
+          "totalCount": 0,
+          "averageAmount": 0,
+          "lastOrderAmount": 0,
+          "lastOrderDate": null
+        }
+      },
+      "loyalty": {
+        "points": 0,
+        "referredCustomers": 0,
+        "campaigns": {}
+      },
+      "referrals": {
+        "total": 0,
+        "campaigns": []
+      },
+      "systemMetadata": {},
+      "createdAt": 1725012896.817,
+      "updatedAt": null,
+      "assets": null,
+      "object": "CUSTOMER"
+    },
+    {
+      "name": null,
+      "description": null,
+      "email": null,
+      "phone": null,
+      "birthday": null,
+      "birthdate": null,
+      "address": null,
+      "metadata": null,
+      "id": "cust_iRwTktm93fwEwhaUekWyOVXU",
+      "sourceId": "QV0kPX3ex3",
+      "summary": {
+        "redemptions": {
+          "totalRedeemed": 0,
+          "totalFailed": 0,
+          "totalSucceeded": 0,
+          "totalRolledBack": 0,
+          "totalRollbackFailed": 0,
+          "totalRollbackSucceeded": 0,
+          "gift": {
+            "redeemedAmount": 0,
+            "amountToGo": 0
+          },
+          "loyaltyCard": {
+            "redeemedPoints": 0,
+            "pointsToGo": 0
+          }
+        },
+        "orders": {
+          "totalAmount": 0,
+          "totalCount": 0,
+          "averageAmount": 0,
+          "lastOrderAmount": 0,
+          "lastOrderDate": null
+        }
+      },
+      "loyalty": {
+        "points": 0,
+        "referredCustomers": 0,
+        "campaigns": {}
+      },
+      "referrals": {
+        "total": 0,
+        "campaigns": []
+      },
+      "systemMetadata": {},
+      "createdAt": 1725012896.78,
+      "updatedAt": null,
+      "assets": null,
+      "object": "CUSTOMER"
+    }
+  ],
+  "total": 184,
+  "hasMore": true,
+  "object": "list"
+}

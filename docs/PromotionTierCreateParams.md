@@ -10,7 +10,7 @@ This is an object representing a promotion tier create params. Promotion tiers a
 |------------ | ------------- | ------------- |
 |**name** | **String** | Name of the promotion tier. |
 |**banner** | **String** | Text to be displayed to your customers on your website. |
-|**action** | [**PromotionTierAction**](PromotionTierAction.md) |  |
+|**action** | [**PromotionTierCreateParamsAction**](PromotionTierCreateParamsAction.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the promotion tier. A set of key/value pairs that you can attach to a promotion tier object. It can be useful for storing additional information about the promotion tier in a structured format. |
 |**validationRules** | **List&lt;String&gt;** | Array containing the ID of the validation rule associated with the promotion tier. |
 |**active** | **Boolean** | A flag to toggle the promotion tier on or off. You can disable a promotion tier even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* promotion tier - &#x60;false&#x60; indicates an *inactive* promotion tier |

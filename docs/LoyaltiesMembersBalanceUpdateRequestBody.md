@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersBalanceUpdateRequestBody
 
-Request Body schema for **post** `/loyalties/members/{memberId}/balance` and **POST** `/loyalties/{campaignId}/members/{memberId}/balance`.
+Request Body schema for **POST** `v1/loyalties/members/{memberId}/balance` and **POST** `v1/loyalties/{campaignId}/members/{memberId}/balance`.
 
 ## Properties
 
@@ -12,7 +12,7 @@ Request Body schema for **post** `/loyalties/members/{memberId}/balance` and **P
 |**expirationType** | **PointsExpirationTypes** |  |
 |**expirationDate** | **OffsetDateTime** | Set expiration date for added points, i.e. &#x60;YYYY-MM-DD&#x60;. This parameter is required only when expiration_type is set to &#x60;CUSTOM_DATE&#x60;. |
 |**reason** | **String** | Reason for the transfer. |
-|**sourceId** | **String** | The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. |
+|**sourceId** | **String** | The merchant&#39;s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. |
 
 
 

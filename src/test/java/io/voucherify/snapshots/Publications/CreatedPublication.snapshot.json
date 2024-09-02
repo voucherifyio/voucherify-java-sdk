@@ -1,0 +1,90 @@
+{
+  "id": "pub_O1vMlwygK0PsiaLq0u9pxT0n7J7sc6u3",
+  "createdAt": 1725016081.808,
+  "customerId": "cust_5Hdz43y3Kotaxfx138aIcwfP",
+  "trackingId": null,
+  "metadata": {},
+  "channel": "API",
+  "sourceId": null,
+  "result": "SUCCESS",
+  "customer": {
+    "name": null,
+    "description": null,
+    "email": null,
+    "phone": null,
+    "birthday": null,
+    "birthdate": null,
+    "address": null,
+    "metadata": null,
+    "id": "cust_5Hdz43y3Kotaxfx138aIcwfP",
+    "sourceId": null,
+    "summary": null,
+    "loyalty": null,
+    "referrals": null,
+    "systemMetadata": null,
+    "createdAt": null,
+    "updatedAt": null,
+    "assets": null,
+    "object": "CUSTOMER"
+  },
+  "vouchersId": [
+    "v_0iGs9ZjZm3uCjtiDTHe1quQ6Qol2tqJY"
+  ],
+  "voucher": {
+    "id": "v_0iGs9ZjZm3uCjtiDTHe1quQ6Qol2tqJY",
+    "code": "O2SQGnXh",
+    "campaign": "e4NIuMqkbA448ysMEnFF",
+    "campaignId": "camp_axupm8yP6OAUraEoKTZmpUbz",
+    "category": null,
+    "categoryId": null,
+    "type": "LOYALTY_CARD",
+    "discount": null,
+    "gift": null,
+    "loyaltyCard": {
+      "points": 2500,
+      "balance": 2500,
+      "nextExpirationDate": null,
+      "nextExpirationPoints": null
+    },
+    "startDate": null,
+    "expirationDate": null,
+    "validityTimeframe": null,
+    "validityDayOfWeek": null,
+    "validityHours": null,
+    "active": true,
+    "additionalInfo": null,
+    "metadata": {},
+    "assets": {
+      "qr": {
+        "id": "16745e34-c6f5-4674-a1ce-5bf48dc3c02b",
+        "url": "https://dev2.dl.voucherify.io/api/v1/assets/qr/16745e34-c6f5-4674-a1ce-5bf48dc3c02b"
+      },
+      "barcode": {
+        "id": "c4169d10-0aa3-43a6-9f8a-44662a67db54",
+        "url": "https://dev2.dl.voucherify.io/api/v1/assets/barcode/c4169d10-0aa3-43a6-9f8a-44662a67db54"
+      }
+    },
+    "isReferralCode": false,
+    "createdAt": 1725016078.489,
+    "updatedAt": 1725016081.81,
+    "holderId": "cust_5Hdz43y3Kotaxfx138aIcwfP",
+    "referrerId": null,
+    "publish": {
+      "count": 1,
+      "url": "/v1/vouchers/O2SQGnXh/publications?page=1&limit=10",
+      "object": "list"
+    },
+    "redemption": {
+      "quantity": null,
+      "redeemedQuantity": 0,
+      "redeemedPoints": 0,
+      "url": "/v1/vouchers/O2SQGnXh/redemptions?page=1&limit=10",
+      "object": "list"
+    },
+    "categories": [],
+    "validationRulesAssignments": null,
+    "object": "voucher"
+  },
+  "vouchers": null,
+  "object": "PUBLICATION"
+}

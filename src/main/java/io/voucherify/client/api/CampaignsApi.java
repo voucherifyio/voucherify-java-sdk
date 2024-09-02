@@ -30,8 +30,6 @@ import java.io.IOException;
 import io.voucherify.client.model.CampaignsCreateRequestBody;
 import io.voucherify.client.model.CampaignsCreateResponseBody;
 import io.voucherify.client.model.CampaignsDeleteResponseBody;
-import io.voucherify.client.model.CampaignsDisableResponseBody;
-import io.voucherify.client.model.CampaignsEnableResponseBody;
 import io.voucherify.client.model.CampaignsGetResponseBody;
 import io.voucherify.client.model.CampaignsImportCreateResponseBody;
 import io.voucherify.client.model.CampaignsImportCsvCreateResponseBody;
@@ -601,11 +599,11 @@ public class CampaignsApi {
      * Disable Campaign
      * There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
      * @param campaignId The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @return CampaignsDisableResponseBody
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CampaignsDisableResponseBody disableCampaign(String campaignId) throws ApiException {
-        ApiResponse<CampaignsDisableResponseBody> localVarResp = disableCampaignWithHttpInfo(campaignId);
+    public Object disableCampaign(String campaignId) throws ApiException {
+        ApiResponse<Object> localVarResp = disableCampaignWithHttpInfo(campaignId);
         return localVarResp.getData();
     }
 
@@ -613,12 +611,12 @@ public class CampaignsApi {
      * Disable Campaign
      * There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
      * @param campaignId The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @return ApiResponse&lt;CampaignsDisableResponseBody&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CampaignsDisableResponseBody> disableCampaignWithHttpInfo(String campaignId) throws ApiException {
+    public ApiResponse<Object> disableCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = disableCampaignValidateBeforeCall(campaignId, null);
-        Type localVarReturnType = new TypeToken<CampaignsDisableResponseBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -630,10 +628,10 @@ public class CampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call disableCampaignAsync(String campaignId, final ApiCallback<CampaignsDisableResponseBody> _callback) throws ApiException {
+    public okhttp3.Call disableCampaignAsync(String campaignId, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = disableCampaignValidateBeforeCall(campaignId, _callback);
-        Type localVarReturnType = new TypeToken<CampaignsDisableResponseBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -704,11 +702,11 @@ public class CampaignsApi {
      * Enable Campaign
      * There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
      * @param campaignId The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @return CampaignsEnableResponseBody
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CampaignsEnableResponseBody enableCampaign(String campaignId) throws ApiException {
-        ApiResponse<CampaignsEnableResponseBody> localVarResp = enableCampaignWithHttpInfo(campaignId);
+    public Object enableCampaign(String campaignId) throws ApiException {
+        ApiResponse<Object> localVarResp = enableCampaignWithHttpInfo(campaignId);
         return localVarResp.getData();
     }
 
@@ -716,12 +714,12 @@ public class CampaignsApi {
      * Enable Campaign
      * There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
      * @param campaignId The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @return ApiResponse&lt;CampaignsEnableResponseBody&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CampaignsEnableResponseBody> enableCampaignWithHttpInfo(String campaignId) throws ApiException {
+    public ApiResponse<Object> enableCampaignWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = enableCampaignValidateBeforeCall(campaignId, null);
-        Type localVarReturnType = new TypeToken<CampaignsEnableResponseBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -733,10 +731,10 @@ public class CampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call enableCampaignAsync(String campaignId, final ApiCallback<CampaignsEnableResponseBody> _callback) throws ApiException {
+    public okhttp3.Call enableCampaignAsync(String campaignId, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = enableCampaignValidateBeforeCall(campaignId, _callback);
-        Type localVarReturnType = new TypeToken<CampaignsEnableResponseBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

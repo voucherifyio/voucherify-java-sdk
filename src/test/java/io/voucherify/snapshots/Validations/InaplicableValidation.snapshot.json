@@ -3,6 +3,7 @@
   "redeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "5Wu5Cai2krvdtZ4Llrpy",
       "order": null,
       "applicableTo": null,
       "inapplicableTo": null,
@@ -14,20 +15,18 @@
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id 5Wu5Cai2krvdtZ4Llrpy",
+          "requestId": "v-0f2e15d1f755ec6cdc",
           "resourceId": null,
-          "resourceType": null,
-          "additionalProperties": null
+          "resourceType": null
         },
         "details": {
           "key": "not_found",
-          "message": "Resource not found",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "message": "Resource not found"
+        }
       },
       "metadata": null,
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
@@ -35,25 +34,24 @@
   "inapplicableRedeemables": [
     {
       "status": "INAPPLICABLE",
+      "id": "5Wu5Cai2krvdtZ4Llrpy",
       "result": {
         "error": {
           "code": 404,
           "key": "not_found",
           "message": "Resource not found",
+          "details": "Cannot find voucher with id 5Wu5Cai2krvdtZ4Llrpy",
+          "requestId": "v-0f2e15d1f755ec6cdc",
           "resourceId": null,
-          "resourceType": null,
-          "additionalProperties": null
+          "resourceType": null
         },
         "details": {
           "message": "Resource not found",
-          "key": "not_found",
-          "additionalProperties": null
-        },
-        "additionalProperties": null
+          "key": "not_found"
+        }
       },
       "metadata": null,
       "categories": null,
-      "additionalProperties": null,
       "object": "VOUCHER"
     }
   ],
@@ -70,7 +68,7 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "additionalProperties": null
-  },
-  "additionalProperties": null
+    "redeemables_products_application_mode": "STACK",
+    "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+  }
 }

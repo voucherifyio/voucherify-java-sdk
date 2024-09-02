@@ -2,7 +2,7 @@
 
 # PromotionsTiersCreateRequestBody
 
-Request body schema for **post** `/v1/promotions/{campaignId}/tiers`.
+Request body schema for **POST** `v1/v1/promotions/{campaignId}/tiers`.
 
 ## Properties
 
@@ -10,7 +10,7 @@ Request body schema for **post** `/v1/promotions/{campaignId}/tiers`.
 |------------ | ------------- | ------------- |
 |**name** | **String** | Name of the promotion tier. |
 |**banner** | **String** | Text to be displayed to your customers on your website. |
-|**action** | [**PromotionTierAction**](PromotionTierAction.md) |  |
+|**action** | [**PromotionsTiersCreateRequestBodyAction**](PromotionsTiersCreateRequestBodyAction.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the promotion tier. A set of key/value pairs that you can attach to a promotion tier object. It can be useful for storing additional information about the promotion tier in a structured format. |
 |**hierarchy** | **Integer** | The promotions hierarchy defines the order in which the discounts from different tiers will be applied to a customer&#39;s order. If a customer qualifies for discounts from more than one tier, discounts will be applied in the order defined in the hierarchy. |
 |**active** | **Boolean** | A flag to toggle the promotion tier on or off. You can disable a promotion tier even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* promotion tier - &#x60;false&#x60; indicates an *inactive* promotion tier |

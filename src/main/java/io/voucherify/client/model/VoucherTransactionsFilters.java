@@ -221,7 +221,7 @@ public class VoucherTransactionsFilters {
   }
 
    /**
-   * Array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;CREDITS_REMOVAL&#x60; &lt;br&gt; - &#x60;CREDITS_ADDITION&#x60; &lt;br&gt; - &#x60;CREDITS_REFUND&#x60; &lt;br&gt; - &#x60;CREDITS_REDEMPTION&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60; &lt;br&gt; - &#x60;POINTS_CANCELLATION&#x60; &lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60;&lt;br&gt; - &#x60;POINTS_REFUND&#x60;&lt;br&gt; - &#x60;POINTS_ADDITION&#x60;&lt;br&gt; - &#x60;POINTS_REMOVAL&#x60;&lt;br&gt; - &#x60;POINTS_EXPIRATION&#x60;&lt;br&gt; - &#x60;POINTS_TRANSFER_IN&#x60;&lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; | | source_id | Unique transaction source ID. | 8638 | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The gift card or loyalty card balance after the transaction. |  | | amount | The amount of gift card or loyalty card credits being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | API | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+   * Array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - &#x60;CREDITS_REMOVAL&#x60; &lt;br&gt; - &#x60;CREDITS_ADDITION&#x60; &lt;br&gt; - &#x60;CREDITS_REFUND&#x60; &lt;br&gt; - &#x60;CREDITS_REDEMPTION&#x60; &lt;br&gt; - &#x60;POINTS_ACCRUAL&#x60;&lt;br&gt; - &#x60;POINTS_REDEMPTION&#x60;&lt;br&gt; - &#x60;POINTS_REFUND&#x60;&lt;br&gt; - &#x60;POINTS_ADDITION&#x60;&lt;br&gt; - &#x60;POINTS_REMOVAL&#x60;&lt;br&gt; - &#x60;POINTS_EXPIRATION&#x60;&lt;br&gt; - &#x60;POINTS_TRANSFER_IN&#x60;&lt;br&gt; - &#x60;POINTS_TRANSFER_OUT&#x60; | | source_id | Unique transaction source ID. | 8638 | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The gift card or loyalty card balance after the transaction. |  | | amount | The amount of gift card or loyalty card credits being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | API | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
    * @return fields
   **/
   @javax.annotation.Nullable
@@ -255,50 +255,6 @@ public class VoucherTransactionsFilters {
     this.filters = filters;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the VoucherTransactionsFilters instance itself
-   */
-  public VoucherTransactionsFilters putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -312,8 +268,7 @@ public class VoucherTransactionsFilters {
     VoucherTransactionsFilters voucherTransactionsFilters = (VoucherTransactionsFilters) o;
     return Objects.equals(this.order, voucherTransactionsFilters.order) &&
         Objects.equals(this.fields, voucherTransactionsFilters.fields) &&
-        Objects.equals(this.filters, voucherTransactionsFilters.filters)&&
-        Objects.equals(this.additionalProperties, voucherTransactionsFilters.additionalProperties);
+        Objects.equals(this.filters, voucherTransactionsFilters.filters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -322,7 +277,7 @@ public class VoucherTransactionsFilters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, fields, filters, additionalProperties);
+    return Objects.hash(order, fields, filters);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -339,7 +294,6 @@ public class VoucherTransactionsFilters {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -386,51 +340,13 @@ public class VoucherTransactionsFilters {
            @Override
            public void write(JsonWriter out, VoucherTransactionsFilters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public VoucherTransactionsFilters read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             VoucherTransactionsFilters instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- |
 |**id** | **String** | The product ID. |
 |**productId** | **String** | Product ID for SKUs. |
-|**_object** | [**ObjectEnum**](#ObjectEnum) | Denotes the type of object represented by the ID. |
+|**_object** | [**ObjectEnum**](#ObjectEnum) | Denotes the type of the object represented by the ID. |
 
 
 

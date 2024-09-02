@@ -18,7 +18,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createReward"></a>
 # **createReward**
-> Reward createReward(rewardsCreateRequestBody)
+> RewardsCreateResponseBody createReward(rewardsCreateRequestBody)
 
 Create Reward
 
@@ -48,7 +48,7 @@ public class Example {
     RewardsApi apiInstance = new RewardsApi(defaultClient);
     RewardsCreateRequestBody rewardsCreateRequestBody = new RewardsCreateRequestBody(); // RewardsCreateRequestBody | Define parameters of the new reward.
     try {
-      Reward result = apiInstance.createReward(rewardsCreateRequestBody);
+      RewardsCreateResponseBody result = apiInstance.createReward(rewardsCreateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RewardsApi#createReward");
@@ -69,7 +69,7 @@ public class Example {
 
 ### Return type
 
-[**Reward**](Reward.md)
+[**RewardsCreateResponseBody**](RewardsCreateResponseBody.md)
 
 ### Authorization
 
@@ -582,7 +582,7 @@ public class Example {
 
 <a id="updateReward"></a>
 # **updateReward**
-> Reward updateReward(rewardId, rewardsUpdateRequestBody)
+> RewardsUpdateResponseBody updateReward(rewardId, rewardsUpdateRequestBody)
 
 Update Reward
 
@@ -613,7 +613,7 @@ public class Example {
     String rewardId = "rewardId_example"; // String | A unique reward ID.
     RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody(); // RewardsUpdateRequestBody | Define the parameters to be updated for the reward.
     try {
-      Reward result = apiInstance.updateReward(rewardId, rewardsUpdateRequestBody);
+      RewardsUpdateResponseBody result = apiInstance.updateReward(rewardId, rewardsUpdateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RewardsApi#updateReward");
@@ -635,7 +635,7 @@ public class Example {
 
 ### Return type
 
-[**Reward**](Reward.md)
+[**RewardsUpdateResponseBody**](RewardsUpdateResponseBody.md)
 
 ### Authorization
 

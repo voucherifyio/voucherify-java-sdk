@@ -1,0 +1,60 @@
+{
+  "id": "v_cEg6QUCz2lDB480nuhwuVVMDp1LMo76o",
+  "code": "NwaVCLr7",
+  "campaign": "LIUjLTCLGxKlxsxkjzhT",
+  "campaignId": "camp_YknXtlcnDUXnChogLi5faHvZ",
+  "category": null,
+  "categoryId": null,
+  "categories": [],
+  "type": "LOYALTY_CARD",
+  "discount": null,
+  "gift": null,
+  "loyaltyCard": {
+    "points": 2500,
+    "balance": 2500,
+    "nextExpirationDate": null,
+    "nextExpirationPoints": null
+  },
+  "startDate": null,
+  "expirationDate": null,
+  "validityTimeframe": null,
+  "validityDayOfWeek": null,
+  "validityHours": null,
+  "active": true,
+  "additionalInfo": null,
+  "metadata": {},
+  "assets": {
+    "qr": {
+      "id": "f7a97766-b51e-4cd9-92ea-c0df715a7b54",
+      "url": "https://dl.voucherify.io/api/v1/assets/qr/f7a97766-b51e-4cd9-92ea-c0df715a7b54"
+    },
+    "barcode": {
+      "id": "26ed5a80-ee60-422d-8c48-2fc9af85a7b4",
+      "url": "https://dl.voucherify.io/api/v1/assets/barcode/26ed5a80-ee60-422d-8c48-2fc9af85a7b4"
+    }
+  },
+  "isReferralCode": false,
+  "createdAt": 1723110923.926,
+  "updatedAt": 1723110925.248,
+  "holderId": "cust_LSkvFik3HsZNdD9eKVhkJyNW",
+  "referrerId": null,
+  "validationRulesAssignments": {
+    "dataRef": "DATA",
+    "data": [],
+    "total": 0,
+    "object": "LIST"
+  },
+  "publish": {
+    "count": 1,
+    "url": "/v1/vouchers/NwaVCLr7/publications?page=1&limit=10",
+    "object": "list"
+  },
+  "redemption": {
+    "quantity": null,
+    "redeemedQuantity": 0,
+    "redeemedPoints": 0,
+    "url": "/v1/vouchers/NwaVCLr7/redemptions?page=1&limit=10",
+    "object": "list"
+  },
+  "object": "voucher"
+}

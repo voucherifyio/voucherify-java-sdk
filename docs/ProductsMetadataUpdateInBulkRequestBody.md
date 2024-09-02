@@ -2,7 +2,7 @@
 
 # ProductsMetadataUpdateInBulkRequestBody
 
-Request schema for **POST** `/products/metadata/async`.
+Request schema for **POST** `v1/products/metadata/async`.
 
 ## Properties
 
