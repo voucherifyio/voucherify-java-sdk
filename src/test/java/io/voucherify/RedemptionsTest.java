@@ -122,9 +122,9 @@ public class RedemptionsTest {
 
     @NotNull
     private static OrderCalculatedEssential getOrder() {
-        List<OrderItem> items = new ArrayList<>();
-        items.add(createOrderItem("prod_003", 1));
-        items.add(createOrderItem("prod_004", 1));
+        List<OrderItemCalculated> items = new ArrayList<>();
+        items.add(createOrderItemCalculated("prod_003", 1));
+        items.add(createOrderItemCalculated("prod_004", 1));
 
         OrderCalculatedEssential order = new OrderCalculatedEssential();
         order.setAmount(10000);
@@ -133,8 +133,8 @@ public class RedemptionsTest {
 
     }
 
-    private static OrderItem createOrderItem(String productId, int quantity) {
-        OrderItem item = new OrderItem();
+    private static OrderItemCalculated createOrderItemCalculated(String productId, int quantity) {
+        OrderItemCalculated item = new OrderItemCalculated();
         item.setProductId(productId);
         item.setQuantity(quantity);
         return item;
