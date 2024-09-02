@@ -80,7 +80,6 @@ public class RedemptionsTest {
             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId",
                     "createdAt", "redemptions", "parentRedemption");
 
-                    System.out.print(responseBody);
             JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
         } catch (ApiException e) {
             fail();
