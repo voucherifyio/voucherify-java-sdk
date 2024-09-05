@@ -21,7 +21,7 @@ This is an object representing a redemption.
 |**relatedRedemptions** | [**RedemptionRelatedRedemptions**](RedemptionRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |
-|**order** | [**OrderCalculatedNoCustomerData**](OrderCalculatedNoCustomerData.md) |  |
+|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
 |**channel** | [**RedemptionChannel**](RedemptionChannel.md) |  |
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |

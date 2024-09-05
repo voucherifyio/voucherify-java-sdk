@@ -29,12 +29,14 @@ import java.io.IOException;
 
 import io.voucherify.client.model.ClientEventsCreateRequestBody;
 import io.voucherify.client.model.ClientEventsCreateResponseBody;
+import io.voucherify.client.model.ClientPromotionsTiersListResponseBody;
 import io.voucherify.client.model.ClientQualificationsCheckEligibilityRequestBody;
 import io.voucherify.client.model.ClientQualificationsCheckEligibilityResponseBody;
 import io.voucherify.client.model.ClientRedemptionsRedeemRequestBody;
 import io.voucherify.client.model.ClientRedemptionsRedeemResponseBody;
 import io.voucherify.client.model.ClientValidationsValidateRequestBody;
 import io.voucherify.client.model.ClientValidationsValidateResponseBody;
+import io.voucherify.client.model.ParameterOrderListPromotionTiersClientSide;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -174,6 +176,144 @@ public class ClientSideApi {
 
         okhttp3.Call localVarCall = checkEligibilityClientSideValidateBeforeCall(clientQualificationsCheckEligibilityRequestBody, _callback);
         Type localVarReturnType = new TypeToken<ClientQualificationsCheckEligibilityResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listPromotionTiersClientSide
+     * @param origin Indicates the origin (scheme, hostname, and port). (required)
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listPromotionTiersClientSideCall(String origin, Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiersClientSide order, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/client/v1/promotions/tiers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (isAvailable != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_available", isAvailable));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (origin != null) {
+            localVarHeaderParams.put("origin", localVarApiClient.parameterToString(origin));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-Client-Application-Id", "X-Client-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPromotionTiersClientSideValidateBeforeCall(String origin, Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiersClientSide order, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'origin' is set
+        if (origin == null) {
+            throw new ApiException("Missing the required parameter 'origin' when calling listPromotionTiersClientSide(Async)");
+        }
+
+        return listPromotionTiersClientSideCall(origin, isAvailable, limit, page, order, _callback);
+
+    }
+
+    /**
+     * List Promotion Tiers (client-side)
+     * This method enables you to list promotion tiers.
+     * @param origin Indicates the origin (scheme, hostname, and port). (required)
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return ClientPromotionsTiersListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ClientPromotionsTiersListResponseBody listPromotionTiersClientSide(String origin, Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiersClientSide order) throws ApiException {
+        ApiResponse<ClientPromotionsTiersListResponseBody> localVarResp = listPromotionTiersClientSideWithHttpInfo(origin, isAvailable, limit, page, order);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Promotion Tiers (client-side)
+     * This method enables you to list promotion tiers.
+     * @param origin Indicates the origin (scheme, hostname, and port). (required)
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return ApiResponse&lt;ClientPromotionsTiersListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ClientPromotionsTiersListResponseBody> listPromotionTiersClientSideWithHttpInfo(String origin, Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiersClientSide order) throws ApiException {
+        okhttp3.Call localVarCall = listPromotionTiersClientSideValidateBeforeCall(origin, isAvailable, limit, page, order, null);
+        Type localVarReturnType = new TypeToken<ClientPromotionsTiersListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Promotion Tiers (client-side) (asynchronously)
+     * This method enables you to list promotion tiers.
+     * @param origin Indicates the origin (scheme, hostname, and port). (required)
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listPromotionTiersClientSideAsync(String origin, Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiersClientSide order, final ApiCallback<ClientPromotionsTiersListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listPromotionTiersClientSideValidateBeforeCall(origin, isAvailable, limit, page, order, _callback);
+        Type localVarReturnType = new TypeToken<ClientPromotionsTiersListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -397,109 +537,6 @@ public class ClientSideApi {
         okhttp3.Call localVarCall = trackCustomEventClientSideValidateBeforeCall(origin, clientEventsCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<ClientEventsCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateCustomersConsentsClientSide
-     * @param customerId A Voucherify customer identifier or source_id (required)
-     * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call updateCustomersConsentsClientSideCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/client/v1/customers/{customerId}/consents"
-            .replace("{" + "customerId" + "}", localVarApiClient.escapeString(customerId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "X-Client-Application-Id", "X-Client-Token" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCustomersConsentsClientSideValidateBeforeCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customerId' is set
-        if (customerId == null) {
-            throw new ApiException("Missing the required parameter 'customerId' when calling updateCustomersConsentsClientSide(Async)");
-        }
-
-        return updateCustomersConsentsClientSideCall(customerId, body, _callback);
-
-    }
-
-    /**
-     * Update Customer&#39;s consents (client-side)
-     * Update marketing permissions for the specified customer.
-     * @param customerId A Voucherify customer identifier or source_id (required)
-     * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void updateCustomersConsentsClientSide(String customerId, Object body) throws ApiException {
-        updateCustomersConsentsClientSideWithHttpInfo(customerId, body);
-    }
-
-    /**
-     * Update Customer&#39;s consents (client-side)
-     * Update marketing permissions for the specified customer.
-     * @param customerId A Voucherify customer identifier or source_id (required)
-     * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> updateCustomersConsentsClientSideWithHttpInfo(String customerId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = updateCustomersConsentsClientSideValidateBeforeCall(customerId, body, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Update Customer&#39;s consents (client-side) (asynchronously)
-     * Update marketing permissions for the specified customer.
-     * @param customerId A Voucherify customer identifier or source_id (required)
-     * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call updateCustomersConsentsClientSideAsync(String customerId, Object body, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateCustomersConsentsClientSideValidateBeforeCall(customerId, body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

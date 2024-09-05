@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.LoyaltyCardTransactionDetails;
 import io.voucherify.client.model.LoyaltyCardTransactionsType;
-import io.voucherify.client.model.VoucherTransactionDetails;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -86,7 +86,7 @@ public class LoyaltyCardTransaction {
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
-  private VoucherTransactionDetails details;
+  private LoyaltyCardTransactionDetails details;
 
   public static final String SERIALIZED_NAME_RELATED_TRANSACTION_ID = "related_transaction_id";
   @SerializedName(SERIALIZED_NAME_RELATED_TRANSACTION_ID)
@@ -127,7 +127,7 @@ public class LoyaltyCardTransaction {
   }
 
    /**
-   * The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. In case of a redemption, this value is null.
+   * The merchant&#39;s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. In case of a redemption, this value is null.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -246,7 +246,7 @@ public class LoyaltyCardTransaction {
   }
 
 
-  public LoyaltyCardTransaction details(VoucherTransactionDetails details) {
+  public LoyaltyCardTransaction details(LoyaltyCardTransactionDetails details) {
     
     this.details = details;
     return this;
@@ -257,12 +257,12 @@ public class LoyaltyCardTransaction {
    * @return details
   **/
   @javax.annotation.Nullable
-  public VoucherTransactionDetails getDetails() {
+  public LoyaltyCardTransactionDetails getDetails() {
     return details;
   }
 
 
-  public void setDetails(VoucherTransactionDetails details) {
+  public void setDetails(LoyaltyCardTransactionDetails details) {
     this.details = details;
   }
 
@@ -308,50 +308,6 @@ public class LoyaltyCardTransaction {
     this.createdAt = createdAt;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the LoyaltyCardTransaction instance itself
-   */
-  public LoyaltyCardTransaction putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -372,8 +328,7 @@ public class LoyaltyCardTransaction {
         Objects.equals(this.type, loyaltyCardTransaction.type) &&
         Objects.equals(this.details, loyaltyCardTransaction.details) &&
         Objects.equals(this.relatedTransactionId, loyaltyCardTransaction.relatedTransactionId) &&
-        Objects.equals(this.createdAt, loyaltyCardTransaction.createdAt)&&
-        Objects.equals(this.additionalProperties, loyaltyCardTransaction.additionalProperties);
+        Objects.equals(this.createdAt, loyaltyCardTransaction.createdAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -382,7 +337,7 @@ public class LoyaltyCardTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, type, details, relatedTransactionId, createdAt, additionalProperties);
+    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, type, details, relatedTransactionId, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -406,7 +361,6 @@ public class LoyaltyCardTransaction {
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    relatedTransactionId: ").append(toIndentedString(relatedTransactionId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -460,51 +414,13 @@ public class LoyaltyCardTransaction {
            @Override
            public void write(JsonWriter out, LoyaltyCardTransaction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public LoyaltyCardTransaction read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             LoyaltyCardTransaction instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

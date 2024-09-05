@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.voucherify.client.model.CustomersActivityListResponseBody;
 import io.voucherify.client.model.CustomersCreateRequestBody;
 import io.voucherify.client.model.CustomersCreateResponseBody;
 import io.voucherify.client.model.CustomersGetResponseBody;
@@ -35,6 +36,7 @@ import io.voucherify.client.model.CustomersListResponseBody;
 import io.voucherify.client.model.CustomersMetadataUpdateInBulkRequestBody;
 import io.voucherify.client.model.CustomersMetadataUpdateInBulkResponseBody;
 import io.voucherify.client.model.CustomersPermanentDeletionCreateResponseBody;
+import io.voucherify.client.model.CustomersRedeemablesListResponseBody;
 import io.voucherify.client.model.CustomersSegmentsListResponseBody;
 import io.voucherify.client.model.CustomersUpdateInBulkRequestBody;
 import io.voucherify.client.model.CustomersUpdateInBulkResponseBody;
@@ -42,7 +44,12 @@ import io.voucherify.client.model.CustomersUpdateRequestBody;
 import io.voucherify.client.model.CustomersUpdateResponseBody;
 import java.io.File;
 import java.time.OffsetDateTime;
+import io.voucherify.client.model.ParameterActivityCategory;
+import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterFiltersListCustomerRedeemables;
+import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCustomers;
+import io.voucherify.client.model.ParameterOrderListRedeemables;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -592,6 +599,316 @@ public class CustomersApi {
         return localVarCall;
     }
     /**
+     * Build call for listCustomerActivity
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCustomerActivityCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/customers/{customerId}/activity"
+            .replace("{" + "customerId" + "}", localVarApiClient.escapeString(customerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (campaignId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_id", campaignId));
+        }
+
+        if (campaignType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_type", campaignType));
+        }
+
+        if (category != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("category", category));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomerActivityValidateBeforeCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'customerId' is set
+        if (customerId == null) {
+            throw new ApiException("Missing the required parameter 'customerId' when calling listCustomerActivity(Async)");
+        }
+
+        return listCustomerActivityCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
+
+    }
+
+    /**
+     * List Customer Activity
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @return CustomersActivityListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomersActivityListResponseBody listCustomerActivity(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+        ApiResponse<CustomersActivityListResponseBody> localVarResp = listCustomerActivityWithHttpInfo(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Customer Activity
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @return ApiResponse&lt;CustomersActivityListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomersActivityListResponseBody> listCustomerActivityWithHttpInfo(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+        okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, null);
+        Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Customer Activity (asynchronously)
+     * Retrieve customer activities.
+     * @param customerId A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created.  (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param type Event name of the customer event. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCustomerActivityAsync(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback<CustomersActivityListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
+        Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCustomerRedeemables
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCustomerRedeemablesCall(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/customers/{customerId}/redeemables"
+            .replace("{" + "customerId" + "}", localVarApiClient.escapeString(customerId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomerRedeemablesValidateBeforeCall(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'customerId' is set
+        if (customerId == null) {
+            throw new ApiException("Missing the required parameter 'customerId' when calling listCustomerRedeemables(Async)");
+        }
+
+        return listCustomerRedeemablesCall(customerId, limit, order, startingAfterId, filters, _callback);
+
+    }
+
+    /**
+     * List Customer&#39;s Redeemables
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @return CustomersRedeemablesListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CustomersRedeemablesListResponseBody listCustomerRedeemables(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters) throws ApiException {
+        ApiResponse<CustomersRedeemablesListResponseBody> localVarResp = listCustomerRedeemablesWithHttpInfo(customerId, limit, order, startingAfterId, filters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Customer&#39;s Redeemables
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @return ApiResponse&lt;CustomersRedeemablesListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CustomersRedeemablesListResponseBody> listCustomerRedeemablesWithHttpInfo(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters) throws ApiException {
+        okhttp3.Call localVarCall = listCustomerRedeemablesValidateBeforeCall(customerId, limit, order, startingAfterId, filters, null);
+        Type localVarReturnType = new TypeToken<CustomersRedeemablesListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Customer&#39;s Redeemables (asynchronously)
+     * Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
+     * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param filters Filters for listing customer redeemables. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCustomerRedeemablesAsync(String customerId, Integer limit, ParameterOrderListRedeemables order, String startingAfterId, ParameterFiltersListCustomerRedeemables filters, final ApiCallback<CustomersRedeemablesListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomerRedeemablesValidateBeforeCall(customerId, limit, order, startingAfterId, filters, _callback);
+        Type localVarReturnType = new TypeToken<CustomersRedeemablesListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listCustomerSegments
      * @param customerId Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
      * @param _callback Callback for upload/download progress
@@ -998,7 +1315,9 @@ public class CustomersApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCustomersConsentsCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1044,6 +1363,7 @@ public class CustomersApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCustomersConsentsValidateBeforeCall(String customerId, Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerId' is set
@@ -1056,38 +1376,44 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customer&#39;s consents
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated]
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public void updateCustomersConsents(String customerId, Object body) throws ApiException {
         updateCustomersConsentsWithHttpInfo(customerId, body);
     }
 
     /**
-     * Update Customer&#39;s consents
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated]
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> updateCustomersConsentsWithHttpInfo(String customerId, Object body) throws ApiException {
         okhttp3.Call localVarCall = updateCustomersConsentsValidateBeforeCall(customerId, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Update Customer&#39;s consents (asynchronously)
-     * Update marketing permissions for the specified customer.
+     * Update Customer&#39;s consents [Deprecated] (asynchronously)
+     * Update marketing permissions for the specified customer. ❗️ Deprecated  This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
      * @param customerId A Voucherify unique customer identifier or source ID. (required)
      * @param body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCustomersConsentsAsync(String customerId, Object body, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCustomersConsentsValidateBeforeCall(customerId, body, _callback);
@@ -1096,7 +1422,7 @@ public class CustomersApi {
     }
     /**
      * Build call for updateCustomersInBulk
-     * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param customersUpdateInBulkRequestBody List the customer fields to be updated in each customer object. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1153,9 +1479,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers in bulk
-     * Update several customers in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
+     * Update Customers in Bulk
+     * Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersUpdateInBulkRequestBody List the customer fields to be updated in each customer object. (optional)
      * @return CustomersUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1165,9 +1491,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers in bulk
-     * Update several customers in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
+     * Update Customers in Bulk
+     * Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersUpdateInBulkRequestBody List the customer fields to be updated in each customer object. (optional)
      * @return ApiResponse&lt;CustomersUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1178,9 +1504,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers in bulk (asynchronously)
-     * Update several customers in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersUpdateInBulkRequestBody Specify the customer fields that you would like to update in each customer object. (optional)
+     * Update Customers in Bulk (asynchronously)
+     * Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersUpdateInBulkRequestBody List the customer fields to be updated in each customer object. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1194,7 +1520,7 @@ public class CustomersApi {
     }
     /**
      * Build call for updateCustomersMetadataInBulk
-     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
+     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1251,9 +1577,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers&#39; Metadata in bulk
-     * Update several customers metadata properties in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
+     * Update Customers&#39; Metadata in Bulk
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @return CustomersMetadataUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1263,9 +1589,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers&#39; Metadata in bulk
-     * Update several customers metadata properties in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
+     * Update Customers&#39; Metadata in Bulk
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @return ApiResponse&lt;CustomersMetadataUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1276,9 +1602,9 @@ public class CustomersApi {
     }
 
     /**
-     * Update Customers&#39; Metadata in bulk (asynchronously)
-     * Update several customers metadata properties in one asynchronous operation.  In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.   If a requested customer object is not found, then an **upsert** occurs. This is reflected in the Get Async Action endpoint as follows:    This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
-     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
+     * Update Customers&#39; Metadata in Bulk (asynchronously)
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

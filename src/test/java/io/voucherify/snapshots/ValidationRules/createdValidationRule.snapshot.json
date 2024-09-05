@@ -1,0 +1,55 @@
+{
+  "name": "qUjq2novCi",
+  "rules": {
+    "1": {
+      "name": "order.items.any",
+      "conditions": {
+        "$is": [
+          {
+            "id": "prod_0f4a7345e7273f1e00",
+            "type": "product_or_sku",
+            "object": "product",
+            "source_id": "Test product"
+          }
+        ]
+      },
+      "rules": {}
+    },
+    "logic": "1"
+  },
+  "error": {
+    "message": "error message"
+  },
+  "applicableTo": {
+    "excluded": null,
+    "included": [
+      {
+        "id": "prod_0f4a7345e7273f1e00",
+        "sourceId": "Test product",
+        "productId": null,
+        "productSourceId": null,
+        "strict": false,
+        "price": null,
+        "priceFormula": null,
+        "effect": "EVERY",
+        "quantityLimit": null,
+        "aggregatedQuantityLimit": null,
+        "amountLimit": null,
+        "aggregatedAmountLimit": null,
+        "orderItemIndices": null,
+        "object": "PRODUCT",
+        "repeat": 1,
+        "skip_initially": 0,
+        "target": "ITEM"
+      }
+    ],
+    "includedAll": false
+  },
+  "type": "ADVANCED",
+  "contextType": "GLOBAL",
+  "id": "val_HRopBYchj6iq",
+  "createdAt": 1725014312.945,
+  "updatedAt": null,
+  "assignmentsCount": null,
+  "object": "validation_rules"
+}

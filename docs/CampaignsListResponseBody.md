@@ -2,7 +2,7 @@
 
 # CampaignsListResponseBody
 
-Schema model for **GET** `/campaigns`.
+Schema model for **GET** `v1/campaigns`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # CategoriesCreateResponseBody
 
-Response body schema for **POST** `/categories`.
+Response body schema for **POST** `v1/categories`.
 
 ## Properties
 

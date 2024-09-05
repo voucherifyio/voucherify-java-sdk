@@ -2,7 +2,7 @@
 
 # LoyaltiesMembersRedemptionRedeemResponseBody
 
-Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/redemption` and for **POST** `/loyalties/members/{memberId}/redemption`.
+Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/redemption` and for **POST** `v1/loyalties/members/{memberId}/redemption`.
 
 ## Properties
 
@@ -18,19 +18,19 @@ Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/re
 |**redemption** | **String** | Unique redemption ID of the parent redemption. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |
 |**status** | [**StatusEnum**](#StatusEnum) | Redemption status. |
-|**relatedRedemptions** | [**RedemptionRelatedRedemptions**](RedemptionRelatedRedemptions.md) |  |
+|**relatedRedemptions** | [**LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions**](LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |
-|**order** | [**OrderCalculatedNoCustomerData**](OrderCalculatedNoCustomerData.md) |  |
-|**channel** | [**RedemptionChannel**](RedemptionChannel.md) |  |
+|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**channel** | [**LoyaltiesMembersRedemptionRedeemResponseBodyChannel**](LoyaltiesMembersRedemptionRedeemResponseBodyChannel.md) |  |
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |
 |**relatedObjectId** | **String** | Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher. |
-|**voucher** | [**RedemptionVoucher**](RedemptionVoucher.md) |  |
+|**voucher** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucher**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucher.md) |  |
 |**promotionTier** | [**PromotionTier**](PromotionTier.md) |  |
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
-|**gift** | [**RedemptionGift**](RedemptionGift.md) |  |
-|**loyaltyCard** | [**RedemptionLoyaltyCard**](RedemptionLoyaltyCard.md) |  |
+|**gift** | [**LoyaltiesMembersRedemptionRedeemResponseBodyGift**](LoyaltiesMembersRedemptionRedeemResponseBodyGift.md) |  |
+|**loyaltyCard** | [**LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard**](LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard.md) |  |
 
 
 

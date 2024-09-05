@@ -2,7 +2,7 @@
 
 # ValidationRulesListResponseBody
 
-Response body schema for **GET** `/validation-rules`.
+Response body schema for **GET** `v1/validation-rules`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # RewardsAssignmentsListResponseBody
 
-Response body schema for **GET** `/rewards/{rewardID}/assignments`.
+Response body schema for **GET** `v1/rewards/{rewardID}/assignments`.
 
 ## Properties
 

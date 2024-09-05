@@ -2,7 +2,7 @@
 
 # PromotionsStacksUpdateRequestBodyTiers
 
-Contains the tier configuration.
+Contains the tier configuration. A promotion stack can include up to 30 tiers.
 
 ## Properties
 

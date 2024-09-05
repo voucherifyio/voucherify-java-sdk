@@ -305,7 +305,7 @@ public class Example {
 
 <a id="disableCampaign"></a>
 # **disableCampaign**
-> CampaignsDisableResponseBody disableCampaign(campaignId)
+> Object disableCampaign(campaignId)
 
 Disable Campaign
 
@@ -335,7 +335,7 @@ public class Example {
     CampaignsApi apiInstance = new CampaignsApi(defaultClient);
     String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
     try {
-      CampaignsDisableResponseBody result = apiInstance.disableCampaign(campaignId);
+      Object result = apiInstance.disableCampaign(campaignId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CampaignsApi#disableCampaign");
@@ -356,7 +356,7 @@ public class Example {
 
 ### Return type
 
-[**CampaignsDisableResponseBody**](CampaignsDisableResponseBody.md)
+**Object**
 
 ### Authorization
 
@@ -374,7 +374,7 @@ public class Example {
 
 <a id="enableCampaign"></a>
 # **enableCampaign**
-> CampaignsEnableResponseBody enableCampaign(campaignId)
+> Object enableCampaign(campaignId)
 
 Enable Campaign
 
@@ -404,7 +404,7 @@ public class Example {
     CampaignsApi apiInstance = new CampaignsApi(defaultClient);
     String campaignId = "campaignId_example"; // String | The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.
     try {
-      CampaignsEnableResponseBody result = apiInstance.enableCampaign(campaignId);
+      Object result = apiInstance.enableCampaign(campaignId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CampaignsApi#enableCampaign");
@@ -425,7 +425,7 @@ public class Example {
 
 ### Return type
 
-[**CampaignsEnableResponseBody**](CampaignsEnableResponseBody.md)
+**Object**
 
 ### Authorization
 

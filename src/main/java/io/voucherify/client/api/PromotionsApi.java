@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.voucherify.client.model.ParameterCreatedBeforeAfter;
 import io.voucherify.client.model.ParameterOrderListAllPromotionStacks;
+import io.voucherify.client.model.ParameterOrderListPromotionTiers;
 import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 import io.voucherify.client.model.PromotionsStacksCreateRequestBody;
 import io.voucherify.client.model.PromotionsStacksCreateResponseBody;
@@ -1165,6 +1166,131 @@ public class PromotionsApi {
 
         okhttp3.Call localVarCall = listPromotionStacksInCampaignValidateBeforeCall(campaignId, _callback);
         Type localVarReturnType = new TypeToken<PromotionsStacksListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listPromotionTiers
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listPromotionTiersCall(Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiers order, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/promotions/tiers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (isAvailable != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_available", isAvailable));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPromotionTiersValidateBeforeCall(Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiers order, final ApiCallback _callback) throws ApiException {
+        return listPromotionTiersCall(isAvailable, limit, page, order, _callback);
+
+    }
+
+    /**
+     * List Promotion Tiers
+     * This method enables you to list promotion tiers.
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return PromotionsTiersListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PromotionsTiersListResponseBody listPromotionTiers(Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiers order) throws ApiException {
+        ApiResponse<PromotionsTiersListResponseBody> localVarResp = listPromotionTiersWithHttpInfo(isAvailable, limit, page, order);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Promotion Tiers
+     * This method enables you to list promotion tiers.
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @return ApiResponse&lt;PromotionsTiersListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PromotionsTiersListResponseBody> listPromotionTiersWithHttpInfo(Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiers order) throws ApiException {
+        okhttp3.Call localVarCall = listPromotionTiersValidateBeforeCall(isAvailable, limit, page, order, null);
+        Type localVarReturnType = new TypeToken<PromotionsTiersListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Promotion Tiers (asynchronously)
+     * This method enables you to list promotion tiers.
+     * @param isAvailable This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. (optional)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. (optional)
+     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listPromotionTiersAsync(Boolean isAvailable, Integer limit, Integer page, ParameterOrderListPromotionTiers order, final ApiCallback<PromotionsTiersListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listPromotionTiersValidateBeforeCall(isAvailable, limit, page, order, _callback);
+        Type localVarReturnType = new TypeToken<PromotionsTiersListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

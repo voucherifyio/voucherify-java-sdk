@@ -2,7 +2,7 @@
 
 # PromotionsTiersListResponseBody
 
-Response body schema for **GET** `/promotions/{campaignId}/tiers`.
+Response body schema for **GET** `v1/promotions/{campaignId}/tiers` and **GET** `v1/promotions/tiers`.
 
 ## Properties
 

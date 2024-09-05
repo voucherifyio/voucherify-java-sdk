@@ -2,7 +2,7 @@
 
 # VoucherTransactionsExportFilterConditionsVoucherIdConditions
 
-Data filters used to narrow the data records to be returned in the result.
+Data filters used to narrow down the data records to be returned in the result.
 
 ## Properties
 

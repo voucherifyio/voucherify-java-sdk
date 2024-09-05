@@ -2,7 +2,7 @@
 
 # CampaignsImportCsvCreateResponseBody
 
-Response body schema for **POST** `/campaigns/{campaignId}/importCSV`.
+Response body schema for **POST** `v1/campaigns/{campaignId}/importCSV`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # ProductsListResponseBody
 
-Response body schema for **GET** `/products`.
+Response body schema for **GET** `v1/products`.
 
 ## Properties
 

@@ -2,7 +2,6 @@
 
 # CampaignsImportVoucherItemRedemption
 
-Stores the quantity of redemptions that can be applied to the voucher.
 
 ## Properties
 

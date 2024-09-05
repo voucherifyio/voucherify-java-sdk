@@ -91,10 +91,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
 
-  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-  @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
-
   /**
    * Defines the type of the voucher. 
    */
@@ -277,10 +273,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "voucher";
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
-  private ValidationRulesAssignmentsList validationRulesAssignments;
-
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
   private RedemptionsListResponseBodyRedemptionsItemVoucherPublish publish;
@@ -288,6 +280,14 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private RedemptionsListResponseBodyRedemptionsItemVoucherRedemption redemption;
+
+  public static final String SERIALIZED_NAME_CATEGORIES = "categories";
+  @SerializedName(SERIALIZED_NAME_CATEGORIES)
+  private List<Category> categories;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
+  private ValidationRulesAssignmentsList validationRulesAssignments;
 
   public static final String SERIALIZED_NAME_HOLDER = "holder";
   @SerializedName(SERIALIZED_NAME_HOLDER)
@@ -419,35 +419,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
-  }
-
-
-  public RedemptionsListResponseBodyRedemptionsItemVoucher categories(List<Category> categories) {
-    
-    this.categories = categories;
-    return this;
-  }
-
-  public RedemptionsListResponseBodyRedemptionsItemVoucher addCategoriesItem(Category categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<>();
-    }
-    this.categories.add(categoriesItem);
-    return this;
-  }
-
-   /**
-   * Contains details about the category.
-   * @return categories
-  **/
-  @javax.annotation.Nullable
-  public List<Category> getCategories() {
-    return categories;
-  }
-
-
-  public void setCategories(List<Category> categories) {
-    this.categories = categories;
   }
 
 
@@ -802,7 +773,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   }
 
    /**
-   * Unique identifier of the customer who owns the voucher.
+   * Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
    * @return holderId
   **/
   @javax.annotation.Nullable
@@ -858,27 +829,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   }
 
 
-  public RedemptionsListResponseBodyRedemptionsItemVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    
-    this.validationRulesAssignments = validationRulesAssignments;
-    return this;
-  }
-
-   /**
-   * Get validationRulesAssignments
-   * @return validationRulesAssignments
-  **/
-  @javax.annotation.Nullable
-  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
-    return validationRulesAssignments;
-  }
-
-
-  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
-    this.validationRulesAssignments = validationRulesAssignments;
-  }
-
-
   public RedemptionsListResponseBodyRedemptionsItemVoucher publish(RedemptionsListResponseBodyRedemptionsItemVoucherPublish publish) {
     
     this.publish = publish;
@@ -921,6 +871,56 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   }
 
 
+  public RedemptionsListResponseBodyRedemptionsItemVoucher categories(List<Category> categories) {
+    
+    this.categories = categories;
+    return this;
+  }
+
+  public RedemptionsListResponseBodyRedemptionsItemVoucher addCategoriesItem(Category categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<>();
+    }
+    this.categories.add(categoriesItem);
+    return this;
+  }
+
+   /**
+   * Contains details about the category.
+   * @return categories
+  **/
+  @javax.annotation.Nullable
+  public List<Category> getCategories() {
+    return categories;
+  }
+
+
+  public void setCategories(List<Category> categories) {
+    this.categories = categories;
+  }
+
+
+  public RedemptionsListResponseBodyRedemptionsItemVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    
+    this.validationRulesAssignments = validationRulesAssignments;
+    return this;
+  }
+
+   /**
+   * Get validationRulesAssignments
+   * @return validationRulesAssignments
+  **/
+  @javax.annotation.Nullable
+  public ValidationRulesAssignmentsList getValidationRulesAssignments() {
+    return validationRulesAssignments;
+  }
+
+
+  public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
+    this.validationRulesAssignments = validationRulesAssignments;
+  }
+
+
   public RedemptionsListResponseBodyRedemptionsItemVoucher holder(SimpleCustomer holder) {
     
     this.holder = holder;
@@ -941,50 +941,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
     this.holder = holder;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the RedemptionsListResponseBodyRedemptionsItemVoucher instance itself
-   */
-  public RedemptionsListResponseBodyRedemptionsItemVoucher putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -1002,7 +958,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
         Objects.equals(this.campaignId, redemptionsListResponseBodyRedemptionsItemVoucher.campaignId) &&
         Objects.equals(this.category, redemptionsListResponseBodyRedemptionsItemVoucher.category) &&
         Objects.equals(this.categoryId, redemptionsListResponseBodyRedemptionsItemVoucher.categoryId) &&
-        Objects.equals(this.categories, redemptionsListResponseBodyRedemptionsItemVoucher.categories) &&
         Objects.equals(this.type, redemptionsListResponseBodyRedemptionsItemVoucher.type) &&
         Objects.equals(this.discount, redemptionsListResponseBodyRedemptionsItemVoucher.discount) &&
         Objects.equals(this.gift, redemptionsListResponseBodyRedemptionsItemVoucher.gift) &&
@@ -1022,11 +977,11 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
         Objects.equals(this.holderId, redemptionsListResponseBodyRedemptionsItemVoucher.holderId) &&
         Objects.equals(this.referrerId, redemptionsListResponseBodyRedemptionsItemVoucher.referrerId) &&
         Objects.equals(this._object, redemptionsListResponseBodyRedemptionsItemVoucher._object) &&
-        Objects.equals(this.validationRulesAssignments, redemptionsListResponseBodyRedemptionsItemVoucher.validationRulesAssignments) &&
         Objects.equals(this.publish, redemptionsListResponseBodyRedemptionsItemVoucher.publish) &&
         Objects.equals(this.redemption, redemptionsListResponseBodyRedemptionsItemVoucher.redemption) &&
-        Objects.equals(this.holder, redemptionsListResponseBodyRedemptionsItemVoucher.holder)&&
-        Objects.equals(this.additionalProperties, redemptionsListResponseBodyRedemptionsItemVoucher.additionalProperties);
+        Objects.equals(this.categories, redemptionsListResponseBodyRedemptionsItemVoucher.categories) &&
+        Objects.equals(this.validationRulesAssignments, redemptionsListResponseBodyRedemptionsItemVoucher.validationRulesAssignments) &&
+        Objects.equals(this.holder, redemptionsListResponseBodyRedemptionsItemVoucher.holder);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1035,7 +990,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, code, campaign, campaignId, category, categoryId, categories, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, validationRulesAssignments, publish, redemption, holder, additionalProperties);
+    return Objects.hash(id, code, campaign, campaignId, category, categoryId, type, discount, gift, loyaltyCard, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, assets, isReferralCode, createdAt, updatedAt, holderId, referrerId, _object, publish, redemption, categories, validationRulesAssignments, holder);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1055,7 +1010,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
@@ -1075,11 +1029,11 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
     sb.append("    holderId: ").append(toIndentedString(holderId)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
-    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    publish: ").append(toIndentedString(publish)).append("\n");
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
     sb.append("    holder: ").append(toIndentedString(holder)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1108,7 +1062,6 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
     openapiFields.add("campaign_id");
     openapiFields.add("category");
     openapiFields.add("category_id");
-    openapiFields.add("categories");
     openapiFields.add("type");
     openapiFields.add("discount");
     openapiFields.add("gift");
@@ -1128,9 +1081,10 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
     openapiFields.add("holder_id");
     openapiFields.add("referrer_id");
     openapiFields.add("object");
-    openapiFields.add("validation_rules_assignments");
     openapiFields.add("publish");
     openapiFields.add("redemption");
+    openapiFields.add("categories");
+    openapiFields.add("validation_rules_assignments");
     openapiFields.add("holder");
 
     // a set of required properties/fields (JSON key names)
@@ -1152,51 +1106,13 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
            @Override
            public void write(JsonWriter out, RedemptionsListResponseBodyRedemptionsItemVoucher value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public RedemptionsListResponseBodyRedemptionsItemVoucher read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             RedemptionsListResponseBodyRedemptionsItemVoucher instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

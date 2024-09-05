@@ -1,0 +1,69 @@
+{
+  "id": "camp_vMadluDmj1xg88nNXp0tf7BM",
+  "name": "1v1fOWc2aDvsggEvRQsc",
+  "description": null,
+  "campaignType": "LOYALTY_PROGRAM",
+  "type": "AUTO_UPDATE",
+  "voucher": {
+    "type": "LOYALTY_CARD",
+    "discount": null,
+    "gift": null,
+    "loyaltyCard": {
+      "points": 500,
+      "expirationRules": null
+    },
+    "redemption": {
+      "quantity": null
+    },
+    "codeConfig": {
+      "length": 8,
+      "charset": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "prefix": null,
+      "postfix": null,
+      "pattern": "########",
+      "initialCount": null
+    },
+    "isReferralCode": false,
+    "startDate": null,
+    "expirationDate": null,
+    "validityTimeframe": null,
+    "validityDayOfWeek": null,
+    "validityHours": null
+  },
+  "autoJoin": false,
+  "joinOnce": false,
+  "useVoucherMetadataSchema": true,
+  "validityTimeframe": null,
+  "validityDayOfWeek": null,
+  "validityHours": null,
+  "activityDurationAfterPublishing": null,
+  "vouchersCount": 0,
+  "startDate": null,
+  "expirationDate": null,
+  "active": true,
+  "metadata": null,
+  "createdAt": 1725001702.86,
+  "updatedAt": null,
+  "category": null,
+  "creationStatus": "DONE",
+  "vouchersGenerationStatus": "DONE",
+  "categoryId": null,
+  "categories": [],
+  "referralProgram": null,
+  "loyaltyTiersExpiration": null,
+  "promotion": null,
+  "validationRulesAssignments": {
+    "dataRef": "DATA",
+    "data": [],
+    "total": 0,
+    "object": "LIST"
+  },
+  "accessSettingsAssignments": {
+    "dataRef": "DATA",
+    "data": [],
+    "total": 0,
+    "object": "LIST"
+  },
+  "object": "campaign",
+  "protected": false
+}

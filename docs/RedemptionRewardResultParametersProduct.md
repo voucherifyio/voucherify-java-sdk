@@ -9,7 +9,7 @@ Defines the product redeemed as a reward.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**id** | **String** | Unique product ID, assigned by Voucherify.  |
-|**skuId** | **String** | A unique SKU ID assigned by Voucherify. |
+|**skuId** | **String** | Unique identifier of the SKU. It is assigned by Voucherify. |
 
 
 

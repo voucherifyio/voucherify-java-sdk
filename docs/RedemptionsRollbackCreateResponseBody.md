@@ -2,7 +2,7 @@
 
 # RedemptionsRollbackCreateResponseBody
 
-Response body schema for **POST** `/redemptions/{redemptionId}/rollback`.
+Response body schema for **POST** `v1/redemptions/{redemptionId}/rollback`.
 
 ## Properties
 
@@ -19,19 +19,19 @@ Response body schema for **POST** `/redemptions/{redemptionId}/rollback`.
 |**reason** | **String** | System generated cause for the redemption being invalid in the context of the provided parameters. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |
 |**status** | [**StatusEnum**](#StatusEnum) | Redemption status. |
-|**relatedRedemptions** | [**RedemptionRollbackRelatedRedemptions**](RedemptionRollbackRelatedRedemptions.md) |  |
+|**relatedRedemptions** | [**RedemptionsRollbackCreateResponseBodyRelatedRedemptions**](RedemptionsRollbackCreateResponseBodyRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |
-|**order** | [**OrderCalculatedNoCustomerData**](OrderCalculatedNoCustomerData.md) |  |
-|**channel** | [**RedemptionRollbackChannel**](RedemptionRollbackChannel.md) |  |
+|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**channel** | [**RedemptionsRollbackCreateResponseBodyChannel**](RedemptionsRollbackCreateResponseBodyChannel.md) |  |
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |
 |**relatedObjectId** | **String** | Unique identifier of the related object. It is assigned by Voucherify, i.e. &#x60;v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno&#x60; for a voucher. |
 |**voucher** | [**Voucher**](Voucher.md) |  |
 |**promotionTier** | [**PromotionTier**](PromotionTier.md) |  |
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
-|**gift** | [**RedemptionRollbackGift**](RedemptionRollbackGift.md) |  |
-|**loyaltyCard** | [**RedemptionRollbackLoyaltyCard**](RedemptionRollbackLoyaltyCard.md) |  |
+|**gift** | [**RedemptionsRollbackCreateResponseBodyGift**](RedemptionsRollbackCreateResponseBodyGift.md) |  |
+|**loyaltyCard** | [**RedemptionsRollbackCreateResponseBodyLoyaltyCard**](RedemptionsRollbackCreateResponseBodyLoyaltyCard.md) |  |
 
 
 

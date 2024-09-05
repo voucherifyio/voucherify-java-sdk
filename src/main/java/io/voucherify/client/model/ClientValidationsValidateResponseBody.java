@@ -19,12 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItem;
 import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.Session;
 import io.voucherify.client.model.StackingRules;
 import io.voucherify.client.model.ValidationsRedeemableInapplicable;
 import io.voucherify.client.model.ValidationsRedeemableSkipped;
-import io.voucherify.client.model.ValidationsValidateResponseBodyRedeemablesItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ public class ClientValidationsValidateResponseBody {
 
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
-  private List<ValidationsValidateResponseBodyRedeemablesItem> redeemables;
+  private List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables;
 
   public static final String SERIALIZED_NAME_SKIPPED_REDEEMABLES = "skipped_redeemables";
   @SerializedName(SERIALIZED_NAME_SKIPPED_REDEEMABLES)
@@ -117,13 +117,13 @@ public class ClientValidationsValidateResponseBody {
   }
 
 
-  public ClientValidationsValidateResponseBody redeemables(List<ValidationsValidateResponseBodyRedeemablesItem> redeemables) {
+  public ClientValidationsValidateResponseBody redeemables(List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
     return this;
   }
 
-  public ClientValidationsValidateResponseBody addRedeemablesItem(ValidationsValidateResponseBodyRedeemablesItem redeemablesItem) {
+  public ClientValidationsValidateResponseBody addRedeemablesItem(ClientValidationsValidateResponseBodyRedeemablesItem redeemablesItem) {
     if (this.redeemables == null) {
       this.redeemables = new ArrayList<>();
     }
@@ -136,12 +136,12 @@ public class ClientValidationsValidateResponseBody {
    * @return redeemables
   **/
   @javax.annotation.Nullable
-  public List<ValidationsValidateResponseBodyRedeemablesItem> getRedeemables() {
+  public List<ClientValidationsValidateResponseBodyRedeemablesItem> getRedeemables() {
     return redeemables;
   }
 
 
-  public void setRedeemables(List<ValidationsValidateResponseBodyRedeemablesItem> redeemables) {
+  public void setRedeemables(List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
   }
 
@@ -287,50 +287,6 @@ public class ClientValidationsValidateResponseBody {
     this.stackingRules = stackingRules;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ClientValidationsValidateResponseBody instance itself
-   */
-  public ClientValidationsValidateResponseBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -349,8 +305,7 @@ public class ClientValidationsValidateResponseBody {
         Objects.equals(this.order, clientValidationsValidateResponseBody.order) &&
         Objects.equals(this.trackingId, clientValidationsValidateResponseBody.trackingId) &&
         Objects.equals(this.session, clientValidationsValidateResponseBody.session) &&
-        Objects.equals(this.stackingRules, clientValidationsValidateResponseBody.stackingRules)&&
-        Objects.equals(this.additionalProperties, clientValidationsValidateResponseBody.additionalProperties);
+        Objects.equals(this.stackingRules, clientValidationsValidateResponseBody.stackingRules);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -359,7 +314,7 @@ public class ClientValidationsValidateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(valid, redeemables, skippedRedeemables, inapplicableRedeemables, order, trackingId, session, stackingRules, additionalProperties);
+    return Objects.hash(valid, redeemables, skippedRedeemables, inapplicableRedeemables, order, trackingId, session, stackingRules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -381,7 +336,6 @@ public class ClientValidationsValidateResponseBody {
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    stackingRules: ").append(toIndentedString(stackingRules)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -433,51 +387,13 @@ public class ClientValidationsValidateResponseBody {
            @Override
            public void write(JsonWriter out, ClientValidationsValidateResponseBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ClientValidationsValidateResponseBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ClientValidationsValidateResponseBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -185,6 +185,108 @@ public class StackingRules {
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_SORTING_RULE)
   private RedeemablesSortingRuleEnum redeemablesSortingRule = RedeemablesSortingRuleEnum.REQUESTED_ORDER;
 
+  /**
+   * Defines redeemables products application mode.
+   */
+  @JsonAdapter(RedeemablesProductsApplicationModeEnum.Adapter.class)
+  public enum RedeemablesProductsApplicationModeEnum {
+    STACK("STACK"),
+    
+    ONCE("ONCE");
+
+    private String value;
+
+    RedeemablesProductsApplicationModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesProductsApplicationModeEnum fromValue(String value) {
+      for (RedeemablesProductsApplicationModeEnum b : RedeemablesProductsApplicationModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesProductsApplicationModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesProductsApplicationModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesProductsApplicationModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesProductsApplicationModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE = "redeemables_products_application_mode";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE)
+  private RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode;
+
+  /**
+   * Defines redeemables no effect rule.
+   */
+  @JsonAdapter(RedeemablesNoEffectRuleEnum.Adapter.class)
+  public enum RedeemablesNoEffectRuleEnum {
+    REDEEM_ANYWAY("REDEEM_ANYWAY"),
+    
+    SKIP("SKIP");
+
+    private String value;
+
+    RedeemablesNoEffectRuleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesNoEffectRuleEnum fromValue(String value) {
+      for (RedeemablesNoEffectRuleEnum b : RedeemablesNoEffectRuleEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesNoEffectRuleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesNoEffectRuleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesNoEffectRuleEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesNoEffectRuleEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE = "redeemables_no_effect_rule";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE)
+  private RedeemablesNoEffectRuleEnum redeemablesNoEffectRule;
+
   public StackingRules() {
   }
 
@@ -402,50 +504,48 @@ public class StackingRules {
     this.redeemablesSortingRule = redeemablesSortingRule;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the StackingRules instance itself
-   */
-  public StackingRules putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
+  public StackingRules redeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
+    
+    this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
     return this;
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+   /**
+   * Defines redeemables products application mode.
+   * @return redeemablesProductsApplicationMode
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesProductsApplicationModeEnum getRedeemablesProductsApplicationMode() {
+    return redeemablesProductsApplicationMode;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+
+  public void setRedeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
+    this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
   }
+
+
+  public StackingRules redeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
+    
+    this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+    return this;
+  }
+
+   /**
+   * Defines redeemables no effect rule.
+   * @return redeemablesNoEffectRule
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesNoEffectRuleEnum getRedeemablesNoEffectRule() {
+    return redeemablesNoEffectRule;
+  }
+
+
+  public void setRedeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
+    this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+  }
+
 
 
   @Override
@@ -465,8 +565,9 @@ public class StackingRules {
         Objects.equals(this.exclusiveCategories, stackingRules.exclusiveCategories) &&
         Objects.equals(this.jointCategories, stackingRules.jointCategories) &&
         Objects.equals(this.redeemablesApplicationMode, stackingRules.redeemablesApplicationMode) &&
-        Objects.equals(this.redeemablesSortingRule, stackingRules.redeemablesSortingRule)&&
-        Objects.equals(this.additionalProperties, stackingRules.additionalProperties);
+        Objects.equals(this.redeemablesSortingRule, stackingRules.redeemablesSortingRule) &&
+        Objects.equals(this.redeemablesProductsApplicationMode, stackingRules.redeemablesProductsApplicationMode) &&
+        Objects.equals(this.redeemablesNoEffectRule, stackingRules.redeemablesNoEffectRule);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -475,7 +576,7 @@ public class StackingRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, additionalProperties);
+    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -498,7 +599,8 @@ public class StackingRules {
     sb.append("    jointCategories: ").append(toIndentedString(jointCategories)).append("\n");
     sb.append("    redeemablesApplicationMode: ").append(toIndentedString(redeemablesApplicationMode)).append("\n");
     sb.append("    redeemablesSortingRule: ").append(toIndentedString(redeemablesSortingRule)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    redeemablesProductsApplicationMode: ").append(toIndentedString(redeemablesProductsApplicationMode)).append("\n");
+    sb.append("    redeemablesNoEffectRule: ").append(toIndentedString(redeemablesNoEffectRule)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -530,6 +632,8 @@ public class StackingRules {
     openapiFields.add("joint_categories");
     openapiFields.add("redeemables_application_mode");
     openapiFields.add("redeemables_sorting_rule");
+    openapiFields.add("redeemables_products_application_mode");
+    openapiFields.add("redeemables_no_effect_rule");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -550,51 +654,13 @@ public class StackingRules {
            @Override
            public void write(JsonWriter out, StackingRules value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public StackingRules read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             StackingRules instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

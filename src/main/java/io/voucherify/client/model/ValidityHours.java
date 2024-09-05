@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidityHoursDailyInner;
+import io.voucherify.client.model.ValidityHoursDailyItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,18 +58,18 @@ import io.voucherify.client.JSON;
 public class ValidityHours {
   public static final String SERIALIZED_NAME_DAILY = "daily";
   @SerializedName(SERIALIZED_NAME_DAILY)
-  private List<ValidityHoursDailyInner> daily;
+  private List<ValidityHoursDailyItem> daily;
 
   public ValidityHours() {
   }
 
-  public ValidityHours daily(List<ValidityHoursDailyInner> daily) {
+  public ValidityHours daily(List<ValidityHoursDailyItem> daily) {
     
     this.daily = daily;
     return this;
   }
 
-  public ValidityHours addDailyItem(ValidityHoursDailyInner dailyItem) {
+  public ValidityHours addDailyItem(ValidityHoursDailyItem dailyItem) {
     if (this.daily == null) {
       this.daily = new ArrayList<>();
     }
@@ -82,59 +82,15 @@ public class ValidityHours {
    * @return daily
   **/
   @javax.annotation.Nullable
-  public List<ValidityHoursDailyInner> getDaily() {
+  public List<ValidityHoursDailyItem> getDaily() {
     return daily;
   }
 
 
-  public void setDaily(List<ValidityHoursDailyInner> daily) {
+  public void setDaily(List<ValidityHoursDailyItem> daily) {
     this.daily = daily;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ValidityHours instance itself
-   */
-  public ValidityHours putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -146,8 +102,7 @@ public class ValidityHours {
       return false;
     }
     ValidityHours validityHours = (ValidityHours) o;
-    return Objects.equals(this.daily, validityHours.daily)&&
-        Objects.equals(this.additionalProperties, validityHours.additionalProperties);
+    return Objects.equals(this.daily, validityHours.daily);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -156,7 +111,7 @@ public class ValidityHours {
 
   @Override
   public int hashCode() {
-    return Objects.hash(daily, additionalProperties);
+    return Objects.hash(daily);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,7 +126,6 @@ public class ValidityHours {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidityHours {\n");
     sb.append("    daily: ").append(toIndentedString(daily)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -215,51 +169,13 @@ public class ValidityHours {
            @Override
            public void write(JsonWriter out, ValidityHours value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ValidityHours read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ValidityHours instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

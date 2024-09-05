@@ -1,5 +1,6 @@
 {
   "sourceId": null,
+  "createdAt": 1.724945717888e9,
   "updatedAt": null,
   "status": "CREATED",
   "amount": 10000,
@@ -23,14 +24,15 @@
       "amount": null,
       "discountAmount": null,
       "appliedDiscountAmount": null,
+      "appliedDiscountQuantity": null,
+      "appliedQuantity": null,
+      "appliedQuantityAmount": null,
       "initialAmount": null,
-      "totalAppliedDiscountAmount": null,
       "price": null,
       "subtotalAmount": null,
       "product": null,
       "sku": null,
       "metadata": null,
-      "additionalProperties": null,
       "object": "ORDER_ITEM"
     },
     {
@@ -44,14 +46,15 @@
       "amount": null,
       "discountAmount": null,
       "appliedDiscountAmount": null,
+      "appliedDiscountQuantity": null,
+      "appliedQuantity": null,
+      "appliedQuantityAmount": null,
       "initialAmount": null,
-      "totalAppliedDiscountAmount": null,
       "price": null,
       "subtotalAmount": null,
       "product": null,
       "sku": null,
       "metadata": null,
-      "additionalProperties": null,
       "object": "ORDER_ITEM"
     }
   ],
@@ -61,6 +64,5 @@
   "redemptions": null,
   "customer": null,
   "referrer": null,
-  "additionalProperties": null,
   "object": "ORDER"
 }

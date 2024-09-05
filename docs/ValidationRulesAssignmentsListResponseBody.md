@@ -2,7 +2,7 @@
 
 # ValidationRulesAssignmentsListResponseBody
 
-Response body for **GET** `/validation-rules-assignments` and **GET** `/validation-rules/{validationRuleId}/assignments`.
+Response body for **GET** `v1/validation-rules-assignments` and **GET** `v1/validation-rules/{validationRuleId}/assignments`.
 
 ## Properties
 

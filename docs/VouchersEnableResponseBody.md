@@ -2,7 +2,7 @@
 
 # VouchersEnableResponseBody
 
-Response body schema for **POST** `/vouchers/{code}/enable`.
+Response body schema for **POST** `v1/vouchers/{code}/enable`.
 
 ## Properties
 
@@ -14,11 +14,10 @@ Response body schema for **POST** `/vouchers/{code}/enable`.
 |**campaignId** | **String** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. |
 |**category** | **String** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint. |
 |**categoryId** | **String** | Unique category ID assigned by Voucherify. |
-|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
 |**type** | [**TypeEnum**](#TypeEnum) | Defines the type of the voucher.  |
 |**discount** | [**Discount**](Discount.md) |  |
-|**gift** | [**CampaignsVouchersCreateCombinedResponseBodyGift**](CampaignsVouchersCreateCombinedResponseBodyGift.md) |  |
-|**loyaltyCard** | [**CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard**](CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard.md) |  |
+|**gift** | [**VouchersEnableResponseBodyGift**](VouchersEnableResponseBodyGift.md) |  |
+|**loyaltyCard** | [**VouchersEnableResponseBodyLoyaltyCard**](VouchersEnableResponseBodyLoyaltyCard.md) |  |
 |**startDate** | **OffsetDateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.  |
 |**expirationDate** | **OffsetDateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
@@ -31,12 +30,13 @@ Response body schema for **POST** `/vouchers/{code}/enable`.
 |**isReferralCode** | **Boolean** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. |
-|**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
+|**holderId** | **String** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. |
 |**referrerId** | **String** | Unique identifier of the referring person. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
+|**publish** | [**VouchersEnableResponseBodyPublish**](VouchersEnableResponseBodyPublish.md) |  |
+|**redemption** | [**VouchersEnableResponseBodyRedemption**](VouchersEnableResponseBodyRedemption.md) |  |
+|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
 |**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
-|**publish** | [**CampaignsVouchersCreateCombinedResponseBodyPublish**](CampaignsVouchersCreateCombinedResponseBodyPublish.md) |  |
-|**redemption** | [**CampaignsVouchersCreateCombinedResponseBodyRedemption**](CampaignsVouchersCreateCombinedResponseBodyRedemption.md) |  |
 
 
 

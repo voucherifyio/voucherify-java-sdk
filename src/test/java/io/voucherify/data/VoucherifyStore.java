@@ -9,6 +9,9 @@ public class VoucherifyStore {
     private final Customer customer;
     private final List<Product> products;
     private final Order order;
+    private final Category category;
+    private final Sku sku;
+    private final Reward reward;
 
     private VoucherifyStore() {
         couponCampaign = new Campaign();
@@ -16,6 +19,9 @@ public class VoucherifyStore {
         customer = new Customer();
         products = new ArrayList<>();
         order = new Order();
+        category = new Category();
+        sku = new Sku();
+        reward = new Reward();
     }
 
     private static class SingletonHolder {
@@ -44,5 +50,17 @@ public class VoucherifyStore {
 
     public Order getOrder() {
         return order;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Sku getSku() {
+        return sku;
+    }
+
+    public Reward getReward() {
+        return reward;
     }
 }

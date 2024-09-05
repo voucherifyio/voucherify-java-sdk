@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ProductCollectionsCreateDynamicRequestBodyProductsItem;
 import io.voucherify.client.model.ProductCollectionsCreateRequestBodyFilter;
+import io.voucherify.client.model.ProductCollectionsCreateRequestBodyProductsItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +112,7 @@ public class ProductCollectionsCreateRequestBody {
 
   public static final String SERIALIZED_NAME_PRODUCTS = "products";
   @SerializedName(SERIALIZED_NAME_PRODUCTS)
-  private List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products;
+  private List<ProductCollectionsCreateRequestBodyProductsItem> products;
 
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
@@ -163,13 +163,13 @@ public class ProductCollectionsCreateRequestBody {
   }
 
 
-  public ProductCollectionsCreateRequestBody products(List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products) {
+  public ProductCollectionsCreateRequestBody products(List<ProductCollectionsCreateRequestBodyProductsItem> products) {
     
     this.products = products;
     return this;
   }
 
-  public ProductCollectionsCreateRequestBody addProductsItem(ProductCollectionsCreateDynamicRequestBodyProductsItem productsItem) {
+  public ProductCollectionsCreateRequestBody addProductsItem(ProductCollectionsCreateRequestBodyProductsItem productsItem) {
     if (this.products == null) {
       this.products = new ArrayList<>();
     }
@@ -182,12 +182,12 @@ public class ProductCollectionsCreateRequestBody {
    * @return products
   **/
   @javax.annotation.Nullable
-  public List<ProductCollectionsCreateDynamicRequestBodyProductsItem> getProducts() {
+  public List<ProductCollectionsCreateRequestBodyProductsItem> getProducts() {
     return products;
   }
 
 
-  public void setProducts(List<ProductCollectionsCreateDynamicRequestBodyProductsItem> products) {
+  public void setProducts(List<ProductCollectionsCreateRequestBodyProductsItem> products) {
     this.products = products;
   }
 
@@ -212,50 +212,6 @@ public class ProductCollectionsCreateRequestBody {
     this.filter = filter;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ProductCollectionsCreateRequestBody instance itself
-   */
-  public ProductCollectionsCreateRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -270,8 +226,7 @@ public class ProductCollectionsCreateRequestBody {
     return Objects.equals(this.type, productCollectionsCreateRequestBody.type) &&
         Objects.equals(this.name, productCollectionsCreateRequestBody.name) &&
         Objects.equals(this.products, productCollectionsCreateRequestBody.products) &&
-        Objects.equals(this.filter, productCollectionsCreateRequestBody.filter)&&
-        Objects.equals(this.additionalProperties, productCollectionsCreateRequestBody.additionalProperties);
+        Objects.equals(this.filter, productCollectionsCreateRequestBody.filter);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -280,7 +235,7 @@ public class ProductCollectionsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, name, products, filter, additionalProperties);
+    return Objects.hash(type, name, products, filter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -298,7 +253,6 @@ public class ProductCollectionsCreateRequestBody {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    products: ").append(toIndentedString(products)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -345,51 +299,13 @@ public class ProductCollectionsCreateRequestBody {
            @Override
            public void write(JsonWriter out, ProductCollectionsCreateRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ProductCollectionsCreateRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ProductCollectionsCreateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -2,7 +2,7 @@
 
 # ProductsImportCsvCreateResponseBody
 
-Response body schema for **POST** `/products/importCSV`.
+Response body schema for **POST** `v1/products/importCSV`.
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # PublicationsListResponseBody
 
-Response body schema for listing publications using **GET** `/publications`.
+Response body schema for listing publications using **GET** `v1/publications`.
 
 ## Properties
 

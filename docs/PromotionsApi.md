@@ -14,6 +14,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**getPromotionTier**](PromotionsApi.md#getPromotionTier) | **GET** /v1/promotions/tiers/{promotionTierId} | Get Promotion Tier |
 | [**listAllPromotionStacks**](PromotionsApi.md#listAllPromotionStacks) | **GET** /v1/promotions/stacks | List Promotion Stacks |
 | [**listPromotionStacksInCampaign**](PromotionsApi.md#listPromotionStacksInCampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign |
+| [**listPromotionTiers**](PromotionsApi.md#listPromotionTiers) | **GET** /v1/promotions/tiers | List Promotion Tiers |
 | [**listPromotionTiersFromCampaign**](PromotionsApi.md#listPromotionTiersFromCampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign |
 | [**updatePromotionStack**](PromotionsApi.md#updatePromotionStack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack |
 | [**updatePromotionTier**](PromotionsApi.md#updatePromotionTier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier |
@@ -722,6 +723,81 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of promotion stack objects. |  -  |
+
+<a id="listPromotionTiers"></a>
+# **listPromotionTiers**
+> PromotionsTiersListResponseBody listPromotionTiers(isAvailable, limit, page, order)
+
+List Promotion Tiers
+
+This method enables you to list promotion tiers.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.PromotionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    PromotionsApi apiInstance = new PromotionsApi(defaultClient);
+    Boolean isAvailable = true; // Boolean | This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrderListPromotionTiers order = ParameterOrderListPromotionTiers.fromValue("created_at"); // ParameterOrderListPromotionTiers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    try {
+      PromotionsTiersListResponseBody result = apiInstance.listPromotionTiers(isAvailable, limit, page, order);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PromotionsApi#listPromotionTiers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **isAvailable** | **Boolean**| This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrderListPromotionTiers**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+
+### Return type
+
+[**PromotionsTiersListResponseBody**](PromotionsTiersListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary with a &#x60;tiers&#x60; property that contains an array of promotion tiers. |  -  |
 
 <a id="listPromotionTiersFromCampaign"></a>
 # **listPromotionTiersFromCampaign**

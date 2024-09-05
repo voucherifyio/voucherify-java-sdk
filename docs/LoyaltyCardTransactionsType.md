@@ -7,8 +7,6 @@
 
 * `ACCRUAL` (value: `"POINTS_ACCRUAL"`)
 
-* `CANCELLATION` (value: `"POINTS_CANCELLATION"`)
-
 * `REDEMPTION` (value: `"POINTS_REDEMPTION"`)
 
 * `REFUND` (value: `"POINTS_REFUND"`)

@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationRuleBaseApplicableTo;
-import io.voucherify.client.model.ValidationRuleBaseError;
+import io.voucherify.client.model.ValidationRulesCreateRequestBodyApplicableTo;
+import io.voucherify.client.model.ValidationRulesCreateRequestBodyError;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Request body schema for **POST** &#x60;/validation-rules&#x60;.
+ * Request body schema for **POST** &#x60;v1/validation-rules&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -65,11 +65,11 @@ public class ValidationRulesCreateRequestBody {
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
-  private ValidationRuleBaseError error;
+  private ValidationRulesCreateRequestBodyError error;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
-  private ValidationRuleBaseApplicableTo applicableTo;
+  private ValidationRulesCreateRequestBodyApplicableTo applicableTo;
 
   /**
    * Type of validation rule.
@@ -332,7 +332,7 @@ public class ValidationRulesCreateRequestBody {
   }
 
 
-  public ValidationRulesCreateRequestBody error(ValidationRuleBaseError error) {
+  public ValidationRulesCreateRequestBody error(ValidationRulesCreateRequestBodyError error) {
     
     this.error = error;
     return this;
@@ -343,17 +343,17 @@ public class ValidationRulesCreateRequestBody {
    * @return error
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseError getError() {
+  public ValidationRulesCreateRequestBodyError getError() {
     return error;
   }
 
 
-  public void setError(ValidationRuleBaseError error) {
+  public void setError(ValidationRulesCreateRequestBodyError error) {
     this.error = error;
   }
 
 
-  public ValidationRulesCreateRequestBody applicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public ValidationRulesCreateRequestBody applicableTo(ValidationRulesCreateRequestBodyApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
     return this;
@@ -364,12 +364,12 @@ public class ValidationRulesCreateRequestBody {
    * @return applicableTo
   **/
   @javax.annotation.Nullable
-  public ValidationRuleBaseApplicableTo getApplicableTo() {
+  public ValidationRulesCreateRequestBodyApplicableTo getApplicableTo() {
     return applicableTo;
   }
 
 
-  public void setApplicableTo(ValidationRuleBaseApplicableTo applicableTo) {
+  public void setApplicableTo(ValidationRulesCreateRequestBodyApplicableTo applicableTo) {
     this.applicableTo = applicableTo;
   }
 
@@ -415,50 +415,6 @@ public class ValidationRulesCreateRequestBody {
     this.contextType = contextType;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ValidationRulesCreateRequestBody instance itself
-   */
-  public ValidationRulesCreateRequestBody putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -475,8 +431,7 @@ public class ValidationRulesCreateRequestBody {
         Objects.equals(this.error, validationRulesCreateRequestBody.error) &&
         Objects.equals(this.applicableTo, validationRulesCreateRequestBody.applicableTo) &&
         Objects.equals(this.type, validationRulesCreateRequestBody.type) &&
-        Objects.equals(this.contextType, validationRulesCreateRequestBody.contextType)&&
-        Objects.equals(this.additionalProperties, validationRulesCreateRequestBody.additionalProperties);
+        Objects.equals(this.contextType, validationRulesCreateRequestBody.contextType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -485,7 +440,7 @@ public class ValidationRulesCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, rules, error, applicableTo, type, contextType, additionalProperties);
+    return Objects.hash(name, rules, error, applicableTo, type, contextType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -505,7 +460,6 @@ public class ValidationRulesCreateRequestBody {
     sb.append("    applicableTo: ").append(toIndentedString(applicableTo)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    contextType: ").append(toIndentedString(contextType)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -537,7 +491,6 @@ public class ValidationRulesCreateRequestBody {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -555,51 +508,13 @@ public class ValidationRulesCreateRequestBody {
            @Override
            public void write(JsonWriter out, ValidationRulesCreateRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ValidationRulesCreateRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ValidationRulesCreateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     return null;
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

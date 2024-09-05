@@ -2,7 +2,7 @@
 
 # CategoriesListResponseBody
 
-Response body schema for **GET** `/categories`.
+Response body schema for **GET** `v1/categories`.
 
 ## Properties
 
