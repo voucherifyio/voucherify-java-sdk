@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>14.0.0</version>
+  <version>15.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:14.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:15.0.0"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-14.0.0.jar`
+* `target/voucherify-java-sdk-15.0.0.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -143,6 +143,12 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-10-02** - `15.0.0`
+  - Fix object parsing in query. For example `filters` while listing redemptions.
+  - !!! BREAKING CHANGES !!!
+    - Pagination changed on listing card transactions(listLoyaltyCardTransactions) - NO `page` param is supported - use `starting_after_id` instead.
+    - Pagination changed on listing voucher transactions(listVoucherTransactions) - NO `page` param is supported - use `starting_after_id` instead.
+    - ApplicableToEffect - changed - `EVERY` -> `TO_EVERY`, `CHEAPEST` -> `TO_CHEAPEST`, `MOST_EXPENSIVE` -> `TO_MOST_EXPENSIVE`, 2 new values introduced.
 - **2024-09-05** - `14.0.0`
   - Added support:
     - /v1/vouchers, get - List Vouchers
@@ -359,7 +365,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 *Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*
 
-*Changelog for previous versions could be found in the [CHANGELOG.md file](./CHANGELOG.md)*
+*Changelog for previous versions could be found in the [DEPRECATED_CHANGELOG.md file](./DEPRECATED_CHANGELOG.md)*
 
 ## 🔐 Documentation for Authorization
 
@@ -1068,6 +1074,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListPublications](docs/ParameterOrderListPublications.md)
 - [ParameterOrderListRedeemables](docs/ParameterOrderListRedeemables.md)
 - [ParameterOrderListRedemptions](docs/ParameterOrderListRedemptions.md)
+- [ParameterOrderListTransactions](docs/ParameterOrderListTransactions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/ParameterOrderListValidationRuleAssignments.md)
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
 - [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)

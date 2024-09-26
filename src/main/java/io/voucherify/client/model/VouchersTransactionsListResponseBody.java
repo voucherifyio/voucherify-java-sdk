@@ -72,6 +72,10 @@ public class VouchersTransactionsListResponseBody {
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   private Boolean hasMore;
 
+  public static final String SERIALIZED_NAME_MORE_STARTING_AFTER = "more_starting_after";
+  @SerializedName(SERIALIZED_NAME_MORE_STARTING_AFTER)
+  private String moreStartingAfter;
+
   public VouchersTransactionsListResponseBody() {
   }
 
@@ -153,7 +157,7 @@ public class VouchersTransactionsListResponseBody {
   }
 
    /**
-   * As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different page or a different start date filter) to get more records returned in the results.
+   * As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different paging or a different start date filter) to get more records returned in the results.
    * @return hasMore
   **/
   @javax.annotation.Nullable
@@ -164,6 +168,27 @@ public class VouchersTransactionsListResponseBody {
 
   public void setHasMore(Boolean hasMore) {
     this.hasMore = hasMore;
+  }
+
+
+  public VouchersTransactionsListResponseBody moreStartingAfter(String moreStartingAfter) {
+    
+    this.moreStartingAfter = moreStartingAfter;
+    return this;
+  }
+
+   /**
+   * Returns an ID that can be used to return another page of results. Use the transaction ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the transaction with that ID.
+   * @return moreStartingAfter
+  **/
+  @javax.annotation.Nullable
+  public String getMoreStartingAfter() {
+    return moreStartingAfter;
+  }
+
+
+  public void setMoreStartingAfter(String moreStartingAfter) {
+    this.moreStartingAfter = moreStartingAfter;
   }
 
 
@@ -180,7 +205,8 @@ public class VouchersTransactionsListResponseBody {
     return Objects.equals(this._object, vouchersTransactionsListResponseBody._object) &&
         Objects.equals(this.dataRef, vouchersTransactionsListResponseBody.dataRef) &&
         Objects.equals(this.data, vouchersTransactionsListResponseBody.data) &&
-        Objects.equals(this.hasMore, vouchersTransactionsListResponseBody.hasMore);
+        Objects.equals(this.hasMore, vouchersTransactionsListResponseBody.hasMore) &&
+        Objects.equals(this.moreStartingAfter, vouchersTransactionsListResponseBody.moreStartingAfter);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -189,7 +215,7 @@ public class VouchersTransactionsListResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, dataRef, data, hasMore);
+    return Objects.hash(_object, dataRef, data, hasMore, moreStartingAfter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,6 +233,7 @@ public class VouchersTransactionsListResponseBody {
     sb.append("    dataRef: ").append(toIndentedString(dataRef)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
+    sb.append("    moreStartingAfter: ").append(toIndentedString(moreStartingAfter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,6 +260,7 @@ public class VouchersTransactionsListResponseBody {
     openapiFields.add("data_ref");
     openapiFields.add("data");
     openapiFields.add("has_more");
+    openapiFields.add("more_starting_after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

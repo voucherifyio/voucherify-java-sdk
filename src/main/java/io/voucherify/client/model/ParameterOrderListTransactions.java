@@ -23,24 +23,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets ApplicableToEffect
+ * Gets or Sets ParameterOrderListTransactions
  */
-@JsonAdapter(ApplicableToEffect.Adapter.class)
-public enum ApplicableToEffect {
+@JsonAdapter(ParameterOrderListTransactions.Adapter.class)
+public enum ParameterOrderListTransactions {
   
-  TO_EVERY("APPLY_TO_EVERY"),
+  ID("id"),
   
-  TO_CHEAPEST("APPLY_TO_CHEAPEST"),
-  
-  FROM_CHEAPEST("APPLY_FROM_CHEAPEST"),
-  
-  TO_MOST_EXPENSIVE("APPLY_TO_MOST_EXPENSIVE"),
-  
-  FROM_MOST_EXPENSIVE("APPLY_FROM_MOST_EXPENSIVE");
+  _ID("-id");
 
   private String value;
 
-  ApplicableToEffect(String value) {
+  ParameterOrderListTransactions(String value) {
     this.value = value;
   }
 
@@ -53,8 +47,8 @@ public enum ApplicableToEffect {
     return String.valueOf(value);
   }
 
-  public static ApplicableToEffect fromValue(String value) {
-    for (ApplicableToEffect b : ApplicableToEffect.values()) {
+  public static ParameterOrderListTransactions fromValue(String value) {
+    for (ParameterOrderListTransactions b : ParameterOrderListTransactions.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -62,16 +56,16 @@ public enum ApplicableToEffect {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<ApplicableToEffect> {
+  public static class Adapter extends TypeAdapter<ParameterOrderListTransactions> {
     @Override
-    public void write(final JsonWriter jsonWriter, final ApplicableToEffect enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final ParameterOrderListTransactions enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public ApplicableToEffect read(final JsonReader jsonReader) throws IOException {
+    public ParameterOrderListTransactions read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return ApplicableToEffect.fromValue(value);
+      return ParameterOrderListTransactions.fromValue(value);
     }
   }
 }

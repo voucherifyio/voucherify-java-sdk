@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import java.io.File;
 import io.voucherify.client.model.ParameterCreatedBeforeAfter;
+import io.voucherify.client.model.ParameterOrderListTransactions;
 import io.voucherify.client.model.ParameterOrderVouchers;
 import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 import io.voucherify.client.model.VouchersBalanceUpdateRequestBody;
@@ -1033,12 +1034,13 @@ public class VouchersApi {
      * Build call for listVoucherTransactions
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listVoucherTransactionsCall(String code, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listVoucherTransactionsCall(String code, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1068,8 +1070,12 @@ public class VouchersApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
         }
 
         final String[] localVarAccepts = {
@@ -1092,13 +1098,13 @@ public class VouchersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listVoucherTransactionsValidateBeforeCall(String code, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listVoucherTransactionsValidateBeforeCall(String code, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'code' is set
         if (code == null) {
             throw new ApiException("Missing the required parameter 'code' when calling listVoucherTransactions(Async)");
         }
 
-        return listVoucherTransactionsCall(code, limit, page, _callback);
+        return listVoucherTransactionsCall(code, limit, order, startingAfterId, _callback);
 
     }
 
@@ -1107,12 +1113,13 @@ public class VouchersApi {
      * List transactions that are associated with credit movements on a gift card or loyalty card.
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return VouchersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VouchersTransactionsListResponseBody listVoucherTransactions(String code, Integer limit, Integer page) throws ApiException {
-        ApiResponse<VouchersTransactionsListResponseBody> localVarResp = listVoucherTransactionsWithHttpInfo(code, limit, page);
+    public VouchersTransactionsListResponseBody listVoucherTransactions(String code, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        ApiResponse<VouchersTransactionsListResponseBody> localVarResp = listVoucherTransactionsWithHttpInfo(code, limit, order, startingAfterId);
         return localVarResp.getData();
     }
 
@@ -1121,12 +1128,13 @@ public class VouchersApi {
      * List transactions that are associated with credit movements on a gift card or loyalty card.
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;VouchersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VouchersTransactionsListResponseBody> listVoucherTransactionsWithHttpInfo(String code, Integer limit, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = listVoucherTransactionsValidateBeforeCall(code, limit, page, null);
+    public ApiResponse<VouchersTransactionsListResponseBody> listVoucherTransactionsWithHttpInfo(String code, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listVoucherTransactionsValidateBeforeCall(code, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<VouchersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1136,14 +1144,15 @@ public class VouchersApi {
      * List transactions that are associated with credit movements on a gift card or loyalty card.
      * @param code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listVoucherTransactionsAsync(String code, Integer limit, Integer page, final ApiCallback<VouchersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listVoucherTransactionsAsync(String code, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback<VouchersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listVoucherTransactionsValidateBeforeCall(code, limit, page, _callback);
+        okhttp3.Call localVarCall = listVoucherTransactionsValidateBeforeCall(code, limit, order, startingAfterId, _callback);
         Type localVarReturnType = new TypeToken<VouchersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
