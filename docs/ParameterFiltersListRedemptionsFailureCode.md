@@ -9,7 +9,6 @@ Failure code, i.e. quantity_exceeded.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

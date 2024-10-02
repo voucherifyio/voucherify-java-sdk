@@ -7,6 +7,7 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
+|**junction** | **Junction** |  |
 |**voucherCode** | [**ParameterFiltersListRedemptionsVoucherCode**](ParameterFiltersListRedemptionsVoucherCode.md) |  |
 |**relatedObjectId** | [**ParameterFiltersListRedemptionsRelatedObjectId**](ParameterFiltersListRedemptionsRelatedObjectId.md) |  |
 |**relatedObjectParentId** | [**ParameterFiltersListRedemptionsRelatedObjectParentId**](ParameterFiltersListRedemptionsRelatedObjectParentId.md) |  |

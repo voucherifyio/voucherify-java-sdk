@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsCampaignName;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsCustomerId;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsFailureCode;
@@ -63,6 +64,10 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ParameterFiltersListRedemptions {
+  public static final String SERIALIZED_NAME_JUNCTION = "junction";
+  @SerializedName(SERIALIZED_NAME_JUNCTION)
+  private Junction junction;
+
   public static final String SERIALIZED_NAME_VOUCHER_CODE = "voucher_code";
   @SerializedName(SERIALIZED_NAME_VOUCHER_CODE)
   private ParameterFiltersListRedemptionsVoucherCode voucherCode;
@@ -105,6 +110,27 @@ public class ParameterFiltersListRedemptions {
 
   public ParameterFiltersListRedemptions() {
   }
+
+  public ParameterFiltersListRedemptions junction(Junction junction) {
+    
+    this.junction = junction;
+    return this;
+  }
+
+   /**
+   * Get junction
+   * @return junction
+  **/
+  @javax.annotation.Nullable
+  public Junction getJunction() {
+    return junction;
+  }
+
+
+  public void setJunction(Junction junction) {
+    this.junction = junction;
+  }
+
 
   public ParameterFiltersListRedemptions voucherCode(ParameterFiltersListRedemptionsVoucherCode voucherCode) {
     
@@ -326,7 +352,8 @@ public class ParameterFiltersListRedemptions {
       return false;
     }
     ParameterFiltersListRedemptions parameterFiltersListRedemptions = (ParameterFiltersListRedemptions) o;
-    return Objects.equals(this.voucherCode, parameterFiltersListRedemptions.voucherCode) &&
+    return Objects.equals(this.junction, parameterFiltersListRedemptions.junction) &&
+        Objects.equals(this.voucherCode, parameterFiltersListRedemptions.voucherCode) &&
         Objects.equals(this.relatedObjectId, parameterFiltersListRedemptions.relatedObjectId) &&
         Objects.equals(this.relatedObjectParentId, parameterFiltersListRedemptions.relatedObjectParentId) &&
         Objects.equals(this.parentRedemptionId, parameterFiltersListRedemptions.parentRedemptionId) &&
@@ -344,7 +371,7 @@ public class ParameterFiltersListRedemptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(voucherCode, relatedObjectId, relatedObjectParentId, parentRedemptionId, failureCode, result, _object, customerId, campaignName, userLogin);
+    return Objects.hash(junction, voucherCode, relatedObjectId, relatedObjectParentId, parentRedemptionId, failureCode, result, _object, customerId, campaignName, userLogin);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,6 +385,7 @@ public class ParameterFiltersListRedemptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListRedemptions {\n");
+    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("    voucherCode: ").append(toIndentedString(voucherCode)).append("\n");
     sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
     sb.append("    relatedObjectParentId: ").append(toIndentedString(relatedObjectParentId)).append("\n");
@@ -390,6 +418,7 @@ public class ParameterFiltersListRedemptions {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("junction");
     openapiFields.add("voucher_code");
     openapiFields.add("related_object_id");
     openapiFields.add("related_object_parent_id");

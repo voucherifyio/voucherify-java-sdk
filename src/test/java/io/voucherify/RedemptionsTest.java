@@ -40,16 +40,24 @@ public class RedemptionsTest {
     public void listRedemptionsTest() {
         RedemptionsApi redemptions = new RedemptionsApi(defaultClient);
 
+        ParameterFiltersListRedemptions parameterFiltersListRedemptions = new ParameterFiltersListRedemptions();
+        ParameterFiltersListRedemptionsVoucherCode parameterFiltersListRedemptionsVoucherCode = new ParameterFiltersListRedemptionsVoucherCode();
+        FilterConditionsString filterConditionsString = new FilterConditionsString();
+        filterConditionsString.add$NotInItem("123");
+        parameterFiltersListRedemptionsVoucherCode.setConditions(filterConditionsString);
+        parameterFiltersListRedemptions.setVoucherCode(parameterFiltersListRedemptionsVoucherCode);
+
         try {
             RedemptionsListResponseBody responseBody = redemptions.listRedemptions(
                     1,
-                    2,
                     null,
                     null,
                     null,
                     null,
                     null,
-                    null);
+                    null,
+                    parameterFiltersListRedemptions
+                );
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {

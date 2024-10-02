@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Junction;
-import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCreatedAtConditions;
+import io.voucherify.client.model.FilterConditionsString;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,23 +48,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Timestamp representing the date and time when the customer redeemable was created. The value is shown in the ISO 8601 format.
+ * Filter publications by parent object id.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ParameterFiltersListCustomerRedeemablesCreatedAt {
+public class ParameterFiltersListPublicationsParentObjectId {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions;
+  private FilterConditionsString conditions;
 
-  public static final String SERIALIZED_NAME_JUNCTION = "junction";
-  @SerializedName(SERIALIZED_NAME_JUNCTION)
-  private Junction junction;
-
-  public ParameterFiltersListCustomerRedeemablesCreatedAt() {
+  public ParameterFiltersListPublicationsParentObjectId() {
   }
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
+  public ParameterFiltersListPublicationsParentObjectId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
     return this;
@@ -77,34 +71,13 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions getConditions() {
+  public FilterConditionsString getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
+  public void setConditions(FilterConditionsString conditions) {
     this.conditions = conditions;
-  }
-
-
-  public ParameterFiltersListCustomerRedeemablesCreatedAt junction(Junction junction) {
-    
-    this.junction = junction;
-    return this;
-  }
-
-   /**
-   * Get junction
-   * @return junction
-  **/
-  @javax.annotation.Nullable
-  public Junction getJunction() {
-    return junction;
-  }
-
-
-  public void setJunction(Junction junction) {
-    this.junction = junction;
   }
 
 
@@ -117,33 +90,20 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ParameterFiltersListCustomerRedeemablesCreatedAt parameterFiltersListCustomerRedeemablesCreatedAt = (ParameterFiltersListCustomerRedeemablesCreatedAt) o;
-    return Objects.equals(this.conditions, parameterFiltersListCustomerRedeemablesCreatedAt.conditions) &&
-        Objects.equals(this.junction, parameterFiltersListCustomerRedeemablesCreatedAt.junction);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    ParameterFiltersListPublicationsParentObjectId parameterFiltersListPublicationsParentObjectId = (ParameterFiltersListPublicationsParentObjectId) o;
+    return Objects.equals(this.conditions, parameterFiltersListPublicationsParentObjectId.conditions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, junction);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(conditions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterFiltersListCustomerRedeemablesCreatedAt {\n");
+    sb.append("class ParameterFiltersListPublicationsParentObjectId {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,7 +127,6 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conditions");
-    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,22 +136,22 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterFiltersListCustomerRedeemablesCreatedAt.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterFiltersListCustomerRedeemablesCreatedAt' and its subtypes
+       if (!ParameterFiltersListPublicationsParentObjectId.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ParameterFiltersListPublicationsParentObjectId' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterFiltersListCustomerRedeemablesCreatedAt> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListCustomerRedeemablesCreatedAt.class));
+       final TypeAdapter<ParameterFiltersListPublicationsParentObjectId> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListPublicationsParentObjectId.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCustomerRedeemablesCreatedAt>() {
+       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListPublicationsParentObjectId>() {
            @Override
-           public void write(JsonWriter out, ParameterFiltersListCustomerRedeemablesCreatedAt value) throws IOException {
+           public void write(JsonWriter out, ParameterFiltersListPublicationsParentObjectId value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ParameterFiltersListCustomerRedeemablesCreatedAt read(JsonReader in) throws IOException {
+           public ParameterFiltersListPublicationsParentObjectId read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -202,18 +161,18 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
   }
 
  /**
-  * Create an instance of ParameterFiltersListCustomerRedeemablesCreatedAt given an JSON string
+  * Create an instance of ParameterFiltersListPublicationsParentObjectId given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ParameterFiltersListCustomerRedeemablesCreatedAt
-  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListCustomerRedeemablesCreatedAt
+  * @return An instance of ParameterFiltersListPublicationsParentObjectId
+  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListPublicationsParentObjectId
   */
-  public static ParameterFiltersListCustomerRedeemablesCreatedAt fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterFiltersListCustomerRedeemablesCreatedAt.class);
+  public static ParameterFiltersListPublicationsParentObjectId fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ParameterFiltersListPublicationsParentObjectId.class);
   }
 
  /**
-  * Convert an instance of ParameterFiltersListCustomerRedeemablesCreatedAt to an JSON string
+  * Convert an instance of ParameterFiltersListPublicationsParentObjectId to an JSON string
   *
   * @return JSON string
   */

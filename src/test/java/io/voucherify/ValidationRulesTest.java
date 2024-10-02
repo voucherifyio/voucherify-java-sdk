@@ -68,7 +68,7 @@ public class ValidationRulesTest {
             applicableTo.setId(VoucherifyStore.getInstance().getProducts().get(0).getId());
             applicableTo.setSourceId(VoucherifyStore.getInstance().getProducts().get(0).getSourceId());
             applicableTo.setStrict(false);
-            applicableTo.effect(ApplicableToEffect.EVERY);
+            applicableTo.effect(ApplicableToEffect.TO_EVERY);
 
             List<ApplicableTo> included = new ArrayList<>();
             included.add(applicableTo);

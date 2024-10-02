@@ -58,7 +58,7 @@ import io.voucherify.client.JSON;
 
 public class ApplicableTo {
   /**
-   * This object stores information about the product collection.
+   * This object stores information about the resource to which the discount is applicable.
    */
   @JsonAdapter(ObjectEnum.Adapter.class)
   public enum ObjectEnum {
@@ -184,7 +184,7 @@ public class ApplicableTo {
   }
 
    /**
-   * This object stores information about the product collection.
+   * This object stores information about the resource to which the discount is applicable.
    * @return _object
   **/
   @javax.annotation.Nullable
@@ -205,7 +205,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Unique product collection ID assigned by Voucherify.
+   * Unique product collection, product, or SKU identifier assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -226,7 +226,7 @@ public class ApplicableTo {
   }
 
    /**
-   * The source ID from your inventory system.
+   * The source identifier from your inventory system.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -465,7 +465,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Get orderItemIndices
+   * Determines the order in which the discount is applied to the products or SKUs sent in the &#x60;order&#x60; object in the request. The counting begins from &#x60;0&#x60;.
    * @return orderItemIndices
   **/
   @javax.annotation.Nullable
@@ -486,7 +486,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Get repeat
+   * Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item.
    * @return repeat
   **/
   @javax.annotation.Nullable
@@ -507,7 +507,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Get skipInitially
+   * Determines how many items are skipped before the discount is applied.
    * @return skipInitially
   **/
   @javax.annotation.Nullable
@@ -528,7 +528,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Get target
+   * Determines to which kinds of objects the discount is applicable. &#x60;\&quot;ITEM\&quot;&#x60; includes products and SKUs.
    * @return target
   **/
   @javax.annotation.Nullable

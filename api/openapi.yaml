@@ -3571,13 +3571,23 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is 1.
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
-        name: page
+        name: order
         required: false
         schema:
-          $ref: '#/components/schemas/ParameterPage'
+          $ref: '#/components/schemas/ParameterOrderListTransactions'
+        style: form
+      - description: A cursor for pagination. It retrieves the transactions starting
+          after a transaction with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
         style: form
       responses:
         "200":
@@ -3758,7 +3768,8 @@ paths:
                             type: voucher
                       related_transaction_id: null
                       created_at: 2023-03-10T17:57:03.758Z
-                    has_more: false
+                    has_more: true
+                    more_starting_after: vtx_0c94e6b82a4bef406c
               schema:
                 $ref: '#/components/schemas/VouchersTransactionsListResponseBody'
           description: Returns a dictionary of transaction objects
@@ -7763,13 +7774,13 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterBoolean'
         style: form
-      - description: Allows for combining the filters mentioned in the endpoint description.
+      - description: Filter conditions.
         explode: true
         in: query
         name: filters
         required: false
         schema:
-          $ref: '#/components/schemas/ParameterString'
+          $ref: '#/components/schemas/ParameterFiltersListPublications'
         style: form
       - description: "Using this endpoint with a particular publication source_id,\
           \ which was sent with the original request to create a publication, returns\
@@ -11840,13 +11851,23 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
-      - description: Which page of results to return. The lowest value is 1.
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
         explode: true
         in: query
-        name: page
+        name: order
         required: false
         schema:
-          $ref: '#/components/schemas/ParameterPage'
+          $ref: '#/components/schemas/ParameterOrderListTransactions'
+        style: form
+      - description: A cursor for pagination. It retrieves the transactions starting
+          after a transaction with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
         style: form
       responses:
         "200":
@@ -12081,7 +12102,8 @@ paths:
                           is_referral_code: false
                       related_transaction_id: vtx_0c9afe802593b34b81
                       created_at: 2023-03-15T11:31:51.062Z
-                    has_more: false
+                    has_more: true
+                    more_starting_after: vtx_0c9afe802593b34b80
               schema:
                 $ref: '#/components/schemas/LoyaltiesMembersTransactionsListResponseBody'
           description: Returns a dictionary of loyalty card transaction objects.
@@ -12116,6 +12138,24 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterLimit'
         style: form
+      - description: "Sorts the results using one of the filtering options, where\
+          \ the dash - preceding a sorting option means sorting in a descending order."
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderListTransactions'
+        style: form
+      - description: A cursor for pagination. It retrieves the transactions starting
+          after a transaction with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
+        style: form
       responses:
         "200":
           content:
@@ -12349,7 +12389,8 @@ paths:
                           is_referral_code: false
                       related_transaction_id: vtx_0c9afe802593b34b81
                       created_at: 2023-03-15T11:31:51.062Z
-                    has_more: false
+                    has_more: true
+                    more_starting_after: vtx_0c9afe802593b34b80
               schema:
                 $ref: '#/components/schemas/LoyaltiesMembersTransactionsListResponseBody'
           description: Returns a dictionary of loyalty card transaction objects.
@@ -29006,9 +29047,8 @@ components:
         has_more:
           description: "As query results are always limited (by the limit parameter),\
             \ the `has_more` flag indicates if there are more records for given filter\
-            \ parameters. This lets you know if you can run another request (with\
-            \ a different page or a different start date filter) to get more records\
-            \ returned in the results."
+            \ parameters. This lets you know if you can run another request to get\
+            \ more records returned in the results."
           nullable: true
           type: boolean
       title: ClientPromotionsTiersListResponseBody
@@ -34357,8 +34397,68 @@ components:
               id: id
               object: customer
         inapplicable_redeemables:
-        - ""
-        - ""
+        - result:
+            details:
+              message: message
+              key: key
+            error:
+              code: 2
+              resource_type: voucher
+              resource_id: rf_0c5d710a87c8a31f86
+              details: details
+              message: message
+              request_id: v-0a885062c80375740f
+              key: key
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: INAPPLICABLE
+          object: voucher
+        - result:
+            details:
+              message: message
+              key: key
+            error:
+              code: 2
+              resource_type: voucher
+              resource_id: rf_0c5d710a87c8a31f86
+              details: details
+              message: message
+              request_id: v-0a885062c80375740f
+              key: key
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: INAPPLICABLE
+          object: voucher
         stacking_rules:
           joint_categories:
           - joint_categories
@@ -34376,8 +34476,52 @@ components:
           redeemables_limit: 12
           redeemables_no_effect_rule: REDEEM_ANYWAY
         skipped_redeemables:
-        - ""
-        - ""
+        - result:
+            details:
+              message: message
+              key: applicable_redeemables_limit_exceeded
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: SKIPPED
+          object: voucher
+        - result:
+            details:
+              message: message
+              key: applicable_redeemables_limit_exceeded
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: SKIPPED
+          object: voucher
         session:
           type: LOCK
           ttl: 3.616076749251911
@@ -34504,18 +34648,14 @@ components:
         skipped_redeemables:
           description: Lists validation results of each skipped redeemable.
           items:
-            allOf:
-            - $ref: '#/components/schemas/ValidationsRedeemableSkipped'
-            title: ClientValidationsValidateResponseBodySkippedRedeemablesItem
+            $ref: '#/components/schemas/ValidationsRedeemableSkipped'
           nullable: true
           title: ClientValidationsValidateResponseBodySkippedRedeemables
           type: array
         inapplicable_redeemables:
           description: Lists validation results of each inapplicable redeemable.
           items:
-            allOf:
-            - $ref: '#/components/schemas/ValidationsRedeemableInapplicable'
-            title: ClientValidationsValidateResponseBodyInapplicableRedeemablesItem
+            $ref: '#/components/schemas/ValidationsRedeemableInapplicable'
           nullable: true
           title: ClientValidationsValidateResponseBodyInapplicableRedeemables
           type: array
@@ -34675,7 +34815,7 @@ components:
           type: boolean
         more_starting_after:
           description: Returns an ID that can be used to return another page of results.
-            Use the event id in the `starting_after_id` query parameter to display
+            Use the event ID in the `starting_after_id` query parameter to display
             another page of the results starting after the event with that ID.
           nullable: true
           type: string
@@ -39421,7 +39561,7 @@ components:
           type: boolean
         more_starting_after:
           description: Returns an ID that can be used to return another page of results.
-            Use the event id in the `starting_after_id` query parameter to display
+            Use the event ID in the `starting_after_id` query parameter to display
             another page of the results starting after the event with that ID.
           nullable: true
           type: string
@@ -41847,6 +41987,7 @@ components:
           type: null
           related_transaction_id: related_transaction_id
           campaign_id: campaign_id
+        more_starting_after: more_starting_after
         data_ref: data
         has_more: true
         object: list
@@ -41878,12 +42019,17 @@ components:
           type: array
         has_more:
           description: "As query results are always limited (by the limit parameter),\
-            \ the has_more flag indicates if there are more records for given filter\
-            \ parameters. This lets you know if you can run another request (with\
-            \ a different page or a different start date filter) to get more records\
-            \ returned in the results."
+            \ the `has_more` flag indicates if there are more records for given filter\
+            \ parameters. This lets you know if you can run another request to get\
+            \ more records returned in the results."
           nullable: true
           type: boolean
+        more_starting_after:
+          description: Returns an ID that can be used to return another page of results.
+            Use the transaction ID in the `starting_after_id` query parameter to display
+            another page of the results starting after the transaction with that ID.
+          nullable: true
+          type: string
       title: LoyaltiesMembersTransactionsListResponseBody
       type: object
     LoyaltiesMembersTransfersCreateRequestBody:
@@ -45126,10 +45272,12 @@ components:
       type: string
     ParameterFiltersListCustomerRedeemables:
       properties:
+        junction:
+          $ref: '#/components/schemas/Junction'
         id:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesId'
         created_at:
-          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCreatedAt'
+          $ref: '#/components/schemas/FilterConditionsDateTime'
         redeemable_id:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesRedeemableId'
         redeemable_object:
@@ -45144,8 +45292,34 @@ components:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesVoucherType'
       title: ParameterFiltersListCustomerRedeemables
       type: object
+    ParameterFiltersListPublications:
+      properties:
+        junction:
+          $ref: '#/components/schemas/Junction'
+        failure_code:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsFailureCode'
+        result:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsResult'
+        customer_id:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsCustomerId'
+        campaign_name:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsCampaignName'
+        voucher_type:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsVoucherType'
+        is_referral_code:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsIsReferralCode'
+        parent_object_id:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsParentObjectId'
+        related_object_id:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsRelatedObjectId'
+        source_id:
+          $ref: '#/components/schemas/ParameterFiltersListPublicationsSourceId'
+      title: ParameterFiltersListPublications
+      type: object
     ParameterFiltersListRedemptions:
       properties:
+        junction:
+          $ref: '#/components/schemas/Junction'
         voucher_code:
           $ref: '#/components/schemas/ParameterFiltersListRedemptionsVoucherCode'
         related_object_id:
@@ -45308,6 +45482,12 @@ components:
       - customer_id
       - -customer_id
       title: ParameterOrderListRedemptions
+      type: string
+    ParameterOrderListTransactions:
+      enum:
+      - id
+      - -id
+      title: ParameterOrderListTransactions
       type: string
     ParameterOrderListValidationRuleAssignments:
       enum:
@@ -46536,8 +46716,682 @@ components:
       example:
         total: 0
         data:
-        - ""
-        - ""
+        - filter:
+            junction: null
+            metadata:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            skus:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            image_url:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            created_at:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            updated_at:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            price:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            product_id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            name:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            attributes:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            source_id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            object:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+          name: All Products
+          created_at: 2021-12-09T12:51:29.898Z
+          id: id
+          type: STATIC
+          products:
+          - product_id: product_id
+            id: prod_0a41bcf807c5fcaaf6
+            object: sku
+          - product_id: product_id
+            id: prod_0a41bcf807c5fcaaf6
+            object: sku
+          object: products_collection
+        - filter:
+            junction: null
+            metadata:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            skus:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            image_url:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            created_at:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            updated_at:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            price:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            product_id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            name:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            attributes:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            source_id:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+            object:
+              conditions:
+                $has_value: ""
+                $is_unknown: ""
+                $less_than: ""
+                $more_than_equal: ""
+                $less_than_equal: ""
+                $in: ""
+                $more_than: ""
+                $after: ""
+                $is: ""
+                $contains: ""
+                $less_than_ago: ""
+                $is_days_in_future: ""
+                $not_in: ""
+                $more_than_future: ""
+                $count_more: ""
+                $count_less: ""
+                $not_contain: ""
+                $starts_with: ""
+                $is_days_ago: ""
+                $is_not: ""
+                $less_than_future: ""
+                $more_than_ago: ""
+                $before: ""
+                $ends_with: ""
+                $count: ""
+          name: All Products
+          created_at: 2021-12-09T12:51:29.898Z
+          id: id
+          type: STATIC
+          products:
+          - product_id: product_id
+            id: prod_0a41bcf807c5fcaaf6
+            object: sku
+          - product_id: product_id
+            id: prod_0a41bcf807c5fcaaf6
+            object: sku
+          object: products_collection
         data_ref: data
         object: list
       properties:
@@ -46561,9 +47415,7 @@ components:
           description: A dictionary that contains an array of product collections
             and their details.
           items:
-            allOf:
-            - $ref: '#/components/schemas/ProductCollectionsItem'
-            title: ProductCollectionsListResponseBodyDataItem
+            $ref: '#/components/schemas/ProductCollectionsItem'
           nullable: true
           title: ProductCollectionsListResponseBodyData
           type: array
@@ -49681,9 +50533,8 @@ components:
         has_more:
           description: "As query results are always limited (by the limit parameter),\
             \ the `has_more` flag indicates if there are more records for given filter\
-            \ parameters. This lets you know if you can run another request (with\
-            \ a different page or a different start date filter) to get more records\
-            \ returned in the results."
+            \ parameters. This lets you know if you can run another request to get\
+            \ more records returned in the results."
           nullable: true
           type: boolean
       title: PromotionsTiersListResponseBody
@@ -63829,8 +64680,68 @@ components:
               id: id
               object: customer
         inapplicable_redeemables:
-        - ""
-        - ""
+        - result:
+            details:
+              message: message
+              key: key
+            error:
+              code: 2
+              resource_type: voucher
+              resource_id: rf_0c5d710a87c8a31f86
+              details: details
+              message: message
+              request_id: v-0a885062c80375740f
+              key: key
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: INAPPLICABLE
+          object: voucher
+        - result:
+            details:
+              message: message
+              key: key
+            error:
+              code: 2
+              resource_type: voucher
+              resource_id: rf_0c5d710a87c8a31f86
+              details: details
+              message: message
+              request_id: v-0a885062c80375740f
+              key: key
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: INAPPLICABLE
+          object: voucher
         stacking_rules:
           joint_categories:
           - joint_categories
@@ -63848,8 +64759,52 @@ components:
           redeemables_limit: 12
           redeemables_no_effect_rule: REDEEM_ANYWAY
         skipped_redeemables:
-        - ""
-        - ""
+        - result:
+            details:
+              message: message
+              key: applicable_redeemables_limit_exceeded
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: SKIPPED
+          object: voucher
+        - result:
+            details:
+              message: message
+              key: applicable_redeemables_limit_exceeded
+          metadata: "{}"
+          id: id
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          status: SKIPPED
+          object: voucher
         session:
           type: LOCK
           ttl: 3.616076749251911
@@ -63976,18 +64931,14 @@ components:
         skipped_redeemables:
           description: Lists validation results of each skipped redeemable.
           items:
-            allOf:
-            - $ref: '#/components/schemas/ValidationsRedeemableSkipped'
-            title: ValidationsValidateResponseBodySkippedRedeemablesItem
+            $ref: '#/components/schemas/ValidationsRedeemableSkipped'
           nullable: true
           title: ValidationsValidateResponseBodySkippedRedeemables
           type: array
         inapplicable_redeemables:
           description: Lists validation results of each inapplicable redeemable.
           items:
-            allOf:
-            - $ref: '#/components/schemas/ValidationsRedeemableInapplicable'
-            title: ValidationsValidateResponseBodyInapplicableRedeemablesItem
+            $ref: '#/components/schemas/ValidationsRedeemableInapplicable'
           nullable: true
           title: ValidationsValidateResponseBodyInapplicableRedeemables
           type: array
@@ -65921,8 +66872,1326 @@ components:
         quantity: 0
         data_ref: redemption_entries
         redemption_entries:
-        - ""
-        - ""
+        - date: 2021-12-22T10:13:06.487Z
+          reward:
+            product:
+              metadata: "{}"
+              skus:
+                total: 6
+                data:
+                - metadata: "{}"
+                  updated_at: 2022-05-17T10:55:09.137Z
+                  price: 9
+                  image_url: image_url
+                  product_id: prod_0b15f6b9f650c16990
+                  created_at: 2022-05-17T10:36:30.187Z
+                  currency: USD
+                  attributes: "{}"
+                  id: sku_0b1621b319d248b79f
+                  source_id: sku_source_id_4
+                  sku: Large Pink Shirt
+                  object: sku
+                - metadata: "{}"
+                  updated_at: 2022-05-17T10:55:09.137Z
+                  price: 9
+                  image_url: image_url
+                  product_id: prod_0b15f6b9f650c16990
+                  created_at: 2022-05-17T10:36:30.187Z
+                  currency: USD
+                  attributes: "{}"
+                  id: sku_0b1621b319d248b79f
+                  source_id: sku_source_id_4
+                  sku: Large Pink Shirt
+                  object: sku
+                data_ref: data
+                object: list
+              updated_at: 2022-05-23T09:24:07.405Z
+              price: 9
+              image_url: https://images.com/original.jpg
+              name: T-shirt
+              created_at: 2022-05-23T06:52:55.008Z
+              attributes:
+              - attributes
+              - attributes
+              id: prod_0b1da8105693710357
+              source_id: productSourceID16
+              object: product
+            metadata: "{}"
+            voucher:
+              gift:
+                amount: 10000
+                balance: 500
+                effect: APPLY_TO_ORDER
+              metadata: "{}"
+              code: WVPblOYX
+              referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+              validation_rules_assignments:
+                total: 0
+                data:
+                - id: asgm_LnY1g7UNFA9KyDrD
+                  rule_id: val_3gPNA6SnH4ae
+                  related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                  related_object_type: campaign
+                  object: validation_rules_assignment
+                  validation_status: PARTIALLY_VALID
+                  validation_omitted_rules:
+                  - "1"
+                - id: asgm_LnY1g7UNFA9KyDrD
+                  rule_id: val_3gPNA6SnH4ae
+                  related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                  related_object_type: campaign
+                  object: validation_rules_assignment
+                  validation_status: PARTIALLY_VALID
+                  validation_omitted_rules:
+                  - "1"
+                data_ref: data
+                object: list
+              validity_hours:
+                daily:
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+              discount:
+                fixed_amount_formula: fixed_amount_formula
+                product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                fixed_amount: 6.438423552598547
+                aggregated_amount_limit: 9
+                unit_off: 9
+                units:
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                type: AMOUNT
+                unit_type: unit_type
+                unit_off_formula: unit_off_formula
+                percent_off_formula: percent_off_formula
+                amount_limit: 9.018348186070783
+                amount_off_formula: amount_off_formula
+                effect: APPLY_TO_ORDER
+                is_dynamic: true
+                percent_off: 8.762042012749001
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                amount_off: 5.025004791520295
+              created_at: 2021-12-22T10:13:06.487Z
+              type: GIFT_VOUCHER
+              expiration_date: 2021-12-31T00:00:00Z
+              is_referral_code: true
+              assets:
+                qr:
+                  id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                  url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+                barcode:
+                  id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                  url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+              category_id: cat_0bb343dee3cdb5ec0c
+              updated_at: 2021-12-22T10:14:45.316Z
+              id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+              categories:
+              - updated_at: 2022-08-16T10:52:08.094Z
+                hierarchy: 6
+                name: name
+                created_at: 2022-07-14T10:45:13.156Z
+                id: id
+                stacking_rules_type: JOINT
+                object: category
+              - updated_at: 2022-08-16T10:52:08.094Z
+                hierarchy: 6
+                name: name
+                created_at: 2022-07-14T10:45:13.156Z
+                id: id
+                stacking_rules_type: JOINT
+                object: category
+              loyalty_card:
+                next_expiration_date: 2023-05-30T00:00:00.000+00:00
+                balance: 6970
+                next_expiration_points: 3
+                points: 7000
+              campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+              validity_timeframe:
+                duration: PT1H
+                interval: P2D
+              start_date: 2021-12-01T00:00:00Z
+              active: true
+              validity_day_of_week:
+              - 6
+              - 6
+              redemption:
+                quantity: 2
+                redeemed_quantity: 1
+                redeemed_points: 100000
+                url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+                object: list
+              additional_info: additional_info
+              holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+              publish:
+                count: 0
+                url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+                object: list
+              campaign: Gift Card Campaign
+              category: category
+              object: voucher
+            created_at: 2021-12-22T10:13:06.487Z
+            type: CAMPAIGN
+            assignment_id: assignment_id
+            updated_at: 2022-10-03T12:24:58.008Z
+            loyalty_tier_id: loyalty_tier_id
+            name: Reward Name
+            id: rew_0bc92f81a6801f9bca
+            sku:
+              metadata: "{}"
+              updated_at: 2022-05-17T10:55:09.137Z
+              price: 9
+              image_url: image_url
+              product_id: prod_0b15f6b9f650c16990
+              created_at: 2022-05-17T10:36:30.187Z
+              currency: USD
+              attributes: "{}"
+              id: sku_0b1621b319d248b79f
+              source_id: sku_source_id_4
+              sku: Large Pink Shirt
+              object: sku
+            parameters:
+              product:
+                sku_id: sku_0a41e31c7b41c28358
+                id: prod_0b7d7dfb05cbe5c616
+              campaign:
+                balance: 8
+                id: camp_13BbZ0kQsNinhqsX3wUts2UP
+                type: type
+              coin:
+                points_ratio: 6
+                exchange_ratio: 9
+            customer:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            object: reward
+          gift:
+            amount: 6
+          reason: reason
+          metadata: "{}"
+          amount: 5
+          failure_code: customer_rules_violated
+          related_object_type: voucher
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product:
+                name: name
+                id: id
+                source_id: source_id
+              fixed_amount: 6.438423552598547
+              aggregated_amount_limit: 9
+              unit_off: 9
+              units:
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 9.018348186070783
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 8.762042012749001
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 5.025004791520295
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 1
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 1
+            - 1
+            redemption:
+              quantity: 6
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
+          channel:
+            channel_type: USER
+            channel_id: channel_id
+          related_object_id: related_object_id
+          promotion_tier:
+            summary:
+              redemptions:
+                total_redeemed: 5
+              orders:
+                total_amount: 9
+                total_discount_amount: 9
+            metadata: "{}"
+            hierarchy: 7
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            created_at: 2021-12-15T11:34:01.333Z
+            banner: banner
+            active: true
+            promotion_id: promotion_id
+            expiration_date: 2022-09-26T00:00:00Z
+            updated_at: 2022-02-09T09:20:05.603Z
+            validity_day_of_week:
+            - 4
+            - 4
+            category_id: cat_0c9da30e7116ba6bba
+            validation_rule_assignments:
+              total: 5
+              data:
+              - rule_id: val_4j7DCRm2IS59
+                related_object_type: voucher
+                related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+                created_at: 2022-02-17T08:18:15.085Z
+                id: asgm_74F7QZoYbUoljwQO
+                object: validation_rules_assignment
+              - rule_id: val_4j7DCRm2IS59
+                related_object_type: voucher
+                related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+                created_at: 2022-02-17T08:18:15.085Z
+                id: asgm_74F7QZoYbUoljwQO
+                object: validation_rules_assignment
+              data_ref: data
+              object: list
+            name: name
+            action:
+              discount:
+                fixed_amount_formula: fixed_amount_formula
+                product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                fixed_amount: 6.438423552598547
+                aggregated_amount_limit: 9
+                unit_off: 9
+                units:
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                type: AMOUNT
+                unit_type: unit_type
+                unit_off_formula: unit_off_formula
+                percent_off_formula: percent_off_formula
+                amount_limit: 9.018348186070783
+                amount_off_formula: amount_off_formula
+                effect: APPLY_TO_ORDER
+                is_dynamic: true
+                percent_off: 8.762042012749001
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                amount_off: 5.025004791520295
+            campaign:
+              validity_day_of_week:
+              - 1
+              - 1
+              category_id: cat_0b688929a2476386a6
+              validity_hours:
+                daily:
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+              active: true
+              id: id
+              expiration_date: 2022-09-30T00:00:00Z
+              validity_timeframe:
+                duration: PT1H
+                interval: P2D
+              start_date: 2022-09-22T00:00:00Z
+              object: campaign
+            id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            campaign_id: campaign_id
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2022-09-23T00:00:00Z
+            object: promotion_tier
+          failure_message: failure_message
+          result: SUCCESS
+          redemption: r_0c656311b5878a2031
+          related_redemptions:
+            rollbacks:
+            - date: 2021-12-22T10:13:06.487Z
+              id: id
+            - date: 2021-12-22T10:13:06.487Z
+              id: id
+            redemptions:
+            - date: 2021-12-22T10:13:06.487Z
+              id: r_0bc92f81a6801f9bca
+            - date: 2021-12-22T10:13:06.487Z
+              id: r_0bc92f81a6801f9bca
+          id: id
+          customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
+          loyalty_card:
+            points: 8
+          tracking_id: tracking_id
+          object: redemption
+          status: SUCCEEDED
+          order:
+            total_applied_discount_amount: 1
+            amount: 5
+            metadata: "{}"
+            referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
+            discount_amount: 7
+            created_at: 2021-12-22T10:13:06.487Z
+            initial_amount: 2
+            total_discount_amount: 3
+            applied_discount_amount: 4
+            referrer:
+              id: id
+              object: customer
+            updated_at: 2021-12-22T10:14:45.316Z
+            total_amount: 2
+            redemptions: "{}"
+            items_applied_discount_amount: 7
+            id: id
+            source_id: source_id
+            customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+            items:
+            - amount: 4
+              product:
+                metadata: "{}"
+                price: 6.965117697638846
+                name: name
+                id: id
+                source_id: source_id
+                override: true
+              metadata: "{}"
+              quantity: 6
+              initial_quantity: 1
+              discount_amount: 5
+              sku_id: sku_id
+              applied_quantity: 6
+              initial_amount: 9
+              subtotal_amount: 3
+              related_object: product
+              applied_discount_amount: 9
+              price: 6
+              product_id: product_id
+              discount_quantity: 7
+              applied_discount_quantity: 9
+              id: id
+              source_id: source_id
+              sku:
+                price: 1.284659006116532
+                id: id
+                source_id: source_id
+                override: true
+                sku: sku
+              applied_quantity_amount: 8
+              object: order_item
+            - amount: 4
+              product:
+                metadata: "{}"
+                price: 6.965117697638846
+                name: name
+                id: id
+                source_id: source_id
+                override: true
+              metadata: "{}"
+              quantity: 6
+              initial_quantity: 1
+              discount_amount: 5
+              sku_id: sku_id
+              applied_quantity: 6
+              initial_amount: 9
+              subtotal_amount: 3
+              related_object: product
+              applied_discount_amount: 9
+              price: 6
+              product_id: product_id
+              discount_quantity: 7
+              applied_discount_quantity: 9
+              id: id
+              source_id: source_id
+              sku:
+                price: 1.284659006116532
+                id: id
+                source_id: source_id
+                override: true
+                sku: sku
+              applied_quantity_amount: 8
+              object: order_item
+            status: CREATED
+            items_discount_amount: 9
+            object: order
+            customer:
+              id: id
+              object: customer
+          customer:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
+        - date: 2021-12-22T10:13:06.487Z
+          reward:
+            product:
+              metadata: "{}"
+              skus:
+                total: 6
+                data:
+                - metadata: "{}"
+                  updated_at: 2022-05-17T10:55:09.137Z
+                  price: 9
+                  image_url: image_url
+                  product_id: prod_0b15f6b9f650c16990
+                  created_at: 2022-05-17T10:36:30.187Z
+                  currency: USD
+                  attributes: "{}"
+                  id: sku_0b1621b319d248b79f
+                  source_id: sku_source_id_4
+                  sku: Large Pink Shirt
+                  object: sku
+                - metadata: "{}"
+                  updated_at: 2022-05-17T10:55:09.137Z
+                  price: 9
+                  image_url: image_url
+                  product_id: prod_0b15f6b9f650c16990
+                  created_at: 2022-05-17T10:36:30.187Z
+                  currency: USD
+                  attributes: "{}"
+                  id: sku_0b1621b319d248b79f
+                  source_id: sku_source_id_4
+                  sku: Large Pink Shirt
+                  object: sku
+                data_ref: data
+                object: list
+              updated_at: 2022-05-23T09:24:07.405Z
+              price: 9
+              image_url: https://images.com/original.jpg
+              name: T-shirt
+              created_at: 2022-05-23T06:52:55.008Z
+              attributes:
+              - attributes
+              - attributes
+              id: prod_0b1da8105693710357
+              source_id: productSourceID16
+              object: product
+            metadata: "{}"
+            voucher:
+              gift:
+                amount: 10000
+                balance: 500
+                effect: APPLY_TO_ORDER
+              metadata: "{}"
+              code: WVPblOYX
+              referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+              validation_rules_assignments:
+                total: 0
+                data:
+                - id: asgm_LnY1g7UNFA9KyDrD
+                  rule_id: val_3gPNA6SnH4ae
+                  related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                  related_object_type: campaign
+                  object: validation_rules_assignment
+                  validation_status: PARTIALLY_VALID
+                  validation_omitted_rules:
+                  - "1"
+                - id: asgm_LnY1g7UNFA9KyDrD
+                  rule_id: val_3gPNA6SnH4ae
+                  related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                  related_object_type: campaign
+                  object: validation_rules_assignment
+                  validation_status: PARTIALLY_VALID
+                  validation_omitted_rules:
+                  - "1"
+                data_ref: data
+                object: list
+              validity_hours:
+                daily:
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+              discount:
+                fixed_amount_formula: fixed_amount_formula
+                product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                fixed_amount: 6.438423552598547
+                aggregated_amount_limit: 9
+                unit_off: 9
+                units:
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                type: AMOUNT
+                unit_type: unit_type
+                unit_off_formula: unit_off_formula
+                percent_off_formula: percent_off_formula
+                amount_limit: 9.018348186070783
+                amount_off_formula: amount_off_formula
+                effect: APPLY_TO_ORDER
+                is_dynamic: true
+                percent_off: 8.762042012749001
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                amount_off: 5.025004791520295
+              created_at: 2021-12-22T10:13:06.487Z
+              type: GIFT_VOUCHER
+              expiration_date: 2021-12-31T00:00:00Z
+              is_referral_code: true
+              assets:
+                qr:
+                  id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                  url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+                barcode:
+                  id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                  url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+              category_id: cat_0bb343dee3cdb5ec0c
+              updated_at: 2021-12-22T10:14:45.316Z
+              id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+              categories:
+              - updated_at: 2022-08-16T10:52:08.094Z
+                hierarchy: 6
+                name: name
+                created_at: 2022-07-14T10:45:13.156Z
+                id: id
+                stacking_rules_type: JOINT
+                object: category
+              - updated_at: 2022-08-16T10:52:08.094Z
+                hierarchy: 6
+                name: name
+                created_at: 2022-07-14T10:45:13.156Z
+                id: id
+                stacking_rules_type: JOINT
+                object: category
+              loyalty_card:
+                next_expiration_date: 2023-05-30T00:00:00.000+00:00
+                balance: 6970
+                next_expiration_points: 3
+                points: 7000
+              campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+              validity_timeframe:
+                duration: PT1H
+                interval: P2D
+              start_date: 2021-12-01T00:00:00Z
+              active: true
+              validity_day_of_week:
+              - 6
+              - 6
+              redemption:
+                quantity: 2
+                redeemed_quantity: 1
+                redeemed_points: 100000
+                url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+                object: list
+              additional_info: additional_info
+              holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+              publish:
+                count: 0
+                url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+                object: list
+              campaign: Gift Card Campaign
+              category: category
+              object: voucher
+            created_at: 2021-12-22T10:13:06.487Z
+            type: CAMPAIGN
+            assignment_id: assignment_id
+            updated_at: 2022-10-03T12:24:58.008Z
+            loyalty_tier_id: loyalty_tier_id
+            name: Reward Name
+            id: rew_0bc92f81a6801f9bca
+            sku:
+              metadata: "{}"
+              updated_at: 2022-05-17T10:55:09.137Z
+              price: 9
+              image_url: image_url
+              product_id: prod_0b15f6b9f650c16990
+              created_at: 2022-05-17T10:36:30.187Z
+              currency: USD
+              attributes: "{}"
+              id: sku_0b1621b319d248b79f
+              source_id: sku_source_id_4
+              sku: Large Pink Shirt
+              object: sku
+            parameters:
+              product:
+                sku_id: sku_0a41e31c7b41c28358
+                id: prod_0b7d7dfb05cbe5c616
+              campaign:
+                balance: 8
+                id: camp_13BbZ0kQsNinhqsX3wUts2UP
+                type: type
+              coin:
+                points_ratio: 6
+                exchange_ratio: 9
+            customer:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            object: reward
+          gift:
+            amount: 6
+          reason: reason
+          metadata: "{}"
+          amount: 5
+          failure_code: customer_rules_violated
+          related_object_type: voucher
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product:
+                name: name
+                id: id
+                source_id: source_id
+              fixed_amount: 6.438423552598547
+              aggregated_amount_limit: 9
+              unit_off: 9
+              units:
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 9.018348186070783
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 8.762042012749001
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 5.025004791520295
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 1
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            holder:
+              metadata: "{}"
+              name: name
+              id: id
+              source_id: source_id
+              email: email
+              object: customer
+            validity_day_of_week:
+            - 1
+            - 1
+            redemption:
+              quantity: 6
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
+          channel:
+            channel_type: USER
+            channel_id: channel_id
+          related_object_id: related_object_id
+          promotion_tier:
+            summary:
+              redemptions:
+                total_redeemed: 5
+              orders:
+                total_amount: 9
+                total_discount_amount: 9
+            metadata: "{}"
+            hierarchy: 7
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            created_at: 2021-12-15T11:34:01.333Z
+            banner: banner
+            active: true
+            promotion_id: promotion_id
+            expiration_date: 2022-09-26T00:00:00Z
+            updated_at: 2022-02-09T09:20:05.603Z
+            validity_day_of_week:
+            - 4
+            - 4
+            category_id: cat_0c9da30e7116ba6bba
+            validation_rule_assignments:
+              total: 5
+              data:
+              - rule_id: val_4j7DCRm2IS59
+                related_object_type: voucher
+                related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+                created_at: 2022-02-17T08:18:15.085Z
+                id: asgm_74F7QZoYbUoljwQO
+                object: validation_rules_assignment
+              - rule_id: val_4j7DCRm2IS59
+                related_object_type: voucher
+                related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+                created_at: 2022-02-17T08:18:15.085Z
+                id: asgm_74F7QZoYbUoljwQO
+                object: validation_rules_assignment
+              data_ref: data
+              object: list
+            name: name
+            action:
+              discount:
+                fixed_amount_formula: fixed_amount_formula
+                product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                fixed_amount: 6.438423552598547
+                aggregated_amount_limit: 9
+                unit_off: 9
+                units:
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                - product:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off: 6.683562403749608
+                  effect: ADD_NEW_ITEMS
+                  unit_type: unit_type
+                  sku:
+                    name: name
+                    id: id
+                    source_id: source_id
+                  unit_off_formula: unit_off_formula
+                type: AMOUNT
+                unit_type: unit_type
+                unit_off_formula: unit_off_formula
+                percent_off_formula: percent_off_formula
+                amount_limit: 9.018348186070783
+                amount_off_formula: amount_off_formula
+                effect: APPLY_TO_ORDER
+                is_dynamic: true
+                percent_off: 8.762042012749001
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                amount_off: 5.025004791520295
+            campaign:
+              validity_day_of_week:
+              - 1
+              - 1
+              category_id: cat_0b688929a2476386a6
+              validity_hours:
+                daily:
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+                - days_of_week:
+                  - 1
+                  - 1
+                  start_time: 12:00
+                  expiration_time: 14:00
+              active: true
+              id: id
+              expiration_date: 2022-09-30T00:00:00Z
+              validity_timeframe:
+                duration: PT1H
+                interval: P2D
+              start_date: 2022-09-22T00:00:00Z
+              object: campaign
+            id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            campaign_id: campaign_id
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2022-09-23T00:00:00Z
+            object: promotion_tier
+          failure_message: failure_message
+          result: SUCCESS
+          redemption: r_0c656311b5878a2031
+          related_redemptions:
+            rollbacks:
+            - date: 2021-12-22T10:13:06.487Z
+              id: id
+            - date: 2021-12-22T10:13:06.487Z
+              id: id
+            redemptions:
+            - date: 2021-12-22T10:13:06.487Z
+              id: r_0bc92f81a6801f9bca
+            - date: 2021-12-22T10:13:06.487Z
+              id: r_0bc92f81a6801f9bca
+          id: id
+          customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
+          loyalty_card:
+            points: 8
+          tracking_id: tracking_id
+          object: redemption
+          status: SUCCEEDED
+          order:
+            total_applied_discount_amount: 1
+            amount: 5
+            metadata: "{}"
+            referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
+            discount_amount: 7
+            created_at: 2021-12-22T10:13:06.487Z
+            initial_amount: 2
+            total_discount_amount: 3
+            applied_discount_amount: 4
+            referrer:
+              id: id
+              object: customer
+            updated_at: 2021-12-22T10:14:45.316Z
+            total_amount: 2
+            redemptions: "{}"
+            items_applied_discount_amount: 7
+            id: id
+            source_id: source_id
+            customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+            items:
+            - amount: 4
+              product:
+                metadata: "{}"
+                price: 6.965117697638846
+                name: name
+                id: id
+                source_id: source_id
+                override: true
+              metadata: "{}"
+              quantity: 6
+              initial_quantity: 1
+              discount_amount: 5
+              sku_id: sku_id
+              applied_quantity: 6
+              initial_amount: 9
+              subtotal_amount: 3
+              related_object: product
+              applied_discount_amount: 9
+              price: 6
+              product_id: product_id
+              discount_quantity: 7
+              applied_discount_quantity: 9
+              id: id
+              source_id: source_id
+              sku:
+                price: 1.284659006116532
+                id: id
+                source_id: source_id
+                override: true
+                sku: sku
+              applied_quantity_amount: 8
+              object: order_item
+            - amount: 4
+              product:
+                metadata: "{}"
+                price: 6.965117697638846
+                name: name
+                id: id
+                source_id: source_id
+                override: true
+              metadata: "{}"
+              quantity: 6
+              initial_quantity: 1
+              discount_amount: 5
+              sku_id: sku_id
+              applied_quantity: 6
+              initial_amount: 9
+              subtotal_amount: 3
+              related_object: product
+              applied_discount_amount: 9
+              price: 6
+              product_id: product_id
+              discount_quantity: 7
+              applied_discount_quantity: 9
+              id: id
+              source_id: source_id
+              sku:
+                price: 1.284659006116532
+                id: id
+                source_id: source_id
+                override: true
+                sku: sku
+              applied_quantity_amount: 8
+              object: order_item
+            status: CREATED
+            items_discount_amount: 9
+            object: order
+            customer:
+              id: id
+              object: customer
+          customer:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
         redeemed_quantity: 6
         url: /v1/vouchers/PROMO-CODE2/redemptions?page=1&limit=10
         object: list
@@ -65959,8 +68228,7 @@ components:
         redemption_entries:
           description: Contains the array of successful and failed redemption objects.
           items:
-            allOf:
-            - $ref: '#/components/schemas/RedemptionEntry'
+            $ref: '#/components/schemas/RedemptionEntry'
           type: array
       required:
       - redemption_entries
@@ -66525,6 +68793,7 @@ components:
           type: null
           related_transaction_id: related_transaction_id
           campaign_id: campaign_id
+        more_starting_after: more_starting_after
         data_ref: data
         has_more: true
         object: list
@@ -66552,10 +68821,16 @@ components:
           description: "As query results are always limited (by the limit parameter),\
             \ the `has_more` flag indicates if there are more records for given filter\
             \ parameters. This lets you know if you can run another request (with\
-            \ a different page or a different start date filter) to get more records\
+            \ a different paging or a different start date filter) to get more records\
             \ returned in the results."
           nullable: true
           type: boolean
+        more_starting_after:
+          description: Returns an ID that can be used to return another page of results.
+            Use the transaction ID in the `starting_after_id` query parameter to display
+            another page of the results starting after the transaction with that ID.
+          nullable: true
+          type: string
       title: VouchersTransactionsListResponseBody
       type: object
     VouchersUpdateInBulkRequestBody:
@@ -67194,7 +69469,8 @@ components:
         object: product
       properties:
         object:
-          description: This object stores information about the product collection.
+          description: This object stores information about the resource to which
+            the discount is applicable.
           enum:
           - product
           - sku
@@ -67202,11 +69478,12 @@ components:
           nullable: true
           type: string
         id:
-          description: Unique product collection ID assigned by Voucherify.
+          description: "Unique product collection, product, or SKU identifier assigned\
+            \ by Voucherify."
           nullable: true
           type: string
         source_id:
-          description: The source ID from your inventory system.
+          description: The source identifier from your inventory system.
           nullable: true
           type: string
         product_id:
@@ -67260,6 +69537,9 @@ components:
           nullable: true
           type: integer
         order_item_indices:
+          description: Determines the order in which the discount is applied to the
+            products or SKUs sent in the `order` object in the request. The counting
+            begins from `0`.
           items:
             title: ApplicableToOrderItemIndicesItem
             type: integer
@@ -67267,12 +69547,18 @@ components:
           title: ApplicableToOrderItemIndices
           type: array
         repeat:
+          description: "Determines the recurrence of the discount, e.g. `\"repeat\"\
+            : 3` means that the discount is applied to every third item."
           nullable: true
           type: integer
         skip_initially:
+          description: Determines how many items are skipped before the discount is
+            applied.
           nullable: true
           type: integer
         target:
+          description: Determines to which kinds of objects the discount is applicable.
+            `"ITEM"` includes products and SKUs.
           nullable: true
           type: string
       required:
@@ -69187,8 +71473,8 @@ components:
           nullable: true
           type: string
         message:
-          description: A human-readable message providing a short description about
-            the error.
+          description: A human-readable message providing a short description of the
+            error.
           nullable: true
           type: string
         details:
@@ -69549,6 +71835,14 @@ components:
         conditions:
           $ref: '#/components/schemas/FiltersCondition'
       title: FieldConditions
+      type: object
+    FilterConditionsDateTime:
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsDateTimeConditions'
+      title: FilterConditionsDateTime
       type: object
     FilterConditionsString:
       description: Data filters used to narrow down the data records to be returned
@@ -72075,6 +74369,345 @@ components:
       type: object
     ProductCollectionsItem:
       description: 'This is an object representing a product collection base. '
+      example:
+        filter:
+          junction: null
+          metadata:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          skus:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          image_url:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          created_at:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          updated_at:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          price:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          product_id:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          name:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          attributes:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          id:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          source_id:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+          object:
+            conditions:
+              $has_value: ""
+              $is_unknown: ""
+              $less_than: ""
+              $more_than_equal: ""
+              $less_than_equal: ""
+              $in: ""
+              $more_than: ""
+              $after: ""
+              $is: ""
+              $contains: ""
+              $less_than_ago: ""
+              $is_days_in_future: ""
+              $not_in: ""
+              $more_than_future: ""
+              $count_more: ""
+              $count_less: ""
+              $not_contain: ""
+              $starts_with: ""
+              $is_days_ago: ""
+              $is_not: ""
+              $less_than_future: ""
+              $more_than_ago: ""
+              $before: ""
+              $ends_with: ""
+              $count: ""
+        name: All Products
+        created_at: 2021-12-09T12:51:29.898Z
+        id: id
+        type: STATIC
+        products:
+        - product_id: product_id
+          id: prod_0a41bcf807c5fcaaf6
+          object: sku
+        - product_id: product_id
+          id: prod_0a41bcf807c5fcaaf6
+          object: sku
+        object: products_collection
       properties:
         id:
           description: Product collection ID.
@@ -73077,9 +75710,8 @@ components:
         has_more:
           description: "As query results are always limited (by the limit parameter),\
             \ the `has_more` flag indicates if there are more records for given filter\
-            \ parameters. This lets you know if you can run another request (with\
-            \ a different page or a different start date filter) to get more records\
-            \ returned in the results."
+            \ parameters. This lets you know if you can run another request to get\
+            \ more records returned in the results."
           nullable: true
           type: boolean
       title: PromotionTiersList
@@ -75956,6 +78588,667 @@ components:
       title: Redemption
       type: object
     RedemptionEntry:
+      example:
+        date: 2021-12-22T10:13:06.487Z
+        reward:
+          product:
+            metadata: "{}"
+            skus:
+              total: 6
+              data:
+              - metadata: "{}"
+                updated_at: 2022-05-17T10:55:09.137Z
+                price: 9
+                image_url: image_url
+                product_id: prod_0b15f6b9f650c16990
+                created_at: 2022-05-17T10:36:30.187Z
+                currency: USD
+                attributes: "{}"
+                id: sku_0b1621b319d248b79f
+                source_id: sku_source_id_4
+                sku: Large Pink Shirt
+                object: sku
+              - metadata: "{}"
+                updated_at: 2022-05-17T10:55:09.137Z
+                price: 9
+                image_url: image_url
+                product_id: prod_0b15f6b9f650c16990
+                created_at: 2022-05-17T10:36:30.187Z
+                currency: USD
+                attributes: "{}"
+                id: sku_0b1621b319d248b79f
+                source_id: sku_source_id_4
+                sku: Large Pink Shirt
+                object: sku
+              data_ref: data
+              object: list
+            updated_at: 2022-05-23T09:24:07.405Z
+            price: 9
+            image_url: https://images.com/original.jpg
+            name: T-shirt
+            created_at: 2022-05-23T06:52:55.008Z
+            attributes:
+            - attributes
+            - attributes
+            id: prod_0b1da8105693710357
+            source_id: productSourceID16
+            object: product
+          metadata: "{}"
+          voucher:
+            gift:
+              amount: 10000
+              balance: 500
+              effect: APPLY_TO_ORDER
+            metadata: "{}"
+            code: WVPblOYX
+            referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+            validation_rules_assignments:
+              total: 0
+              data:
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              - id: asgm_LnY1g7UNFA9KyDrD
+                rule_id: val_3gPNA6SnH4ae
+                related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+                related_object_type: campaign
+                object: validation_rules_assignment
+                validation_status: PARTIALLY_VALID
+                validation_omitted_rules:
+                - "1"
+              data_ref: data
+              object: list
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product:
+                name: name
+                id: id
+                source_id: source_id
+              fixed_amount: 6.438423552598547
+              aggregated_amount_limit: 9
+              unit_off: 9
+              units:
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 9.018348186070783
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 8.762042012749001
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 5.025004791520295
+            created_at: 2021-12-22T10:13:06.487Z
+            type: GIFT_VOUCHER
+            expiration_date: 2021-12-31T00:00:00Z
+            is_referral_code: true
+            assets:
+              qr:
+                id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+                url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+              barcode:
+                id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+                url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+            category_id: cat_0bb343dee3cdb5ec0c
+            updated_at: 2021-12-22T10:14:45.316Z
+            id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+            categories:
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            - updated_at: 2022-08-16T10:52:08.094Z
+              hierarchy: 6
+              name: name
+              created_at: 2022-07-14T10:45:13.156Z
+              id: id
+              stacking_rules_type: JOINT
+              object: category
+            loyalty_card:
+              next_expiration_date: 2023-05-30T00:00:00.000+00:00
+              balance: 6970
+              next_expiration_points: 3
+              points: 7000
+            campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2021-12-01T00:00:00Z
+            active: true
+            validity_day_of_week:
+            - 6
+            - 6
+            redemption:
+              quantity: 2
+              redeemed_quantity: 1
+              redeemed_points: 100000
+              url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+              object: list
+            additional_info: additional_info
+            holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+            publish:
+              count: 0
+              url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+              object: list
+            campaign: Gift Card Campaign
+            category: category
+            object: voucher
+          created_at: 2021-12-22T10:13:06.487Z
+          type: CAMPAIGN
+          assignment_id: assignment_id
+          updated_at: 2022-10-03T12:24:58.008Z
+          loyalty_tier_id: loyalty_tier_id
+          name: Reward Name
+          id: rew_0bc92f81a6801f9bca
+          sku:
+            metadata: "{}"
+            updated_at: 2022-05-17T10:55:09.137Z
+            price: 9
+            image_url: image_url
+            product_id: prod_0b15f6b9f650c16990
+            created_at: 2022-05-17T10:36:30.187Z
+            currency: USD
+            attributes: "{}"
+            id: sku_0b1621b319d248b79f
+            source_id: sku_source_id_4
+            sku: Large Pink Shirt
+            object: sku
+          parameters:
+            product:
+              sku_id: sku_0a41e31c7b41c28358
+              id: prod_0b7d7dfb05cbe5c616
+            campaign:
+              balance: 8
+              id: camp_13BbZ0kQsNinhqsX3wUts2UP
+              type: type
+            coin:
+              points_ratio: 6
+              exchange_ratio: 9
+          customer:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
+          object: reward
+        gift:
+          amount: 6
+        reason: reason
+        metadata: "{}"
+        amount: 5
+        failure_code: customer_rules_violated
+        related_object_type: voucher
+        voucher:
+          gift:
+            amount: 10000
+            balance: 500
+            effect: APPLY_TO_ORDER
+          metadata: "{}"
+          code: WVPblOYX
+          referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+          validation_rules_assignments:
+            total: 0
+            data:
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            - id: asgm_LnY1g7UNFA9KyDrD
+              rule_id: val_3gPNA6SnH4ae
+              related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+              related_object_type: campaign
+              object: validation_rules_assignment
+              validation_status: PARTIALLY_VALID
+              validation_omitted_rules:
+              - "1"
+            data_ref: data
+            object: list
+          validity_hours:
+            daily:
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+          discount:
+            fixed_amount_formula: fixed_amount_formula
+            product:
+              name: name
+              id: id
+              source_id: source_id
+            fixed_amount: 6.438423552598547
+            aggregated_amount_limit: 9
+            unit_off: 9
+            units:
+            - product:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off: 6.683562403749608
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off_formula: unit_off_formula
+            - product:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off: 6.683562403749608
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off_formula: unit_off_formula
+            type: AMOUNT
+            unit_type: unit_type
+            unit_off_formula: unit_off_formula
+            percent_off_formula: percent_off_formula
+            amount_limit: 9.018348186070783
+            amount_off_formula: amount_off_formula
+            effect: APPLY_TO_ORDER
+            is_dynamic: true
+            percent_off: 8.762042012749001
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            amount_off: 5.025004791520295
+          created_at: 2021-12-22T10:13:06.487Z
+          type: GIFT_VOUCHER
+          expiration_date: 2021-12-31T00:00:00Z
+          is_referral_code: true
+          assets:
+            qr:
+              id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+              url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+            barcode:
+              id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+              url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+          category_id: cat_0bb343dee3cdb5ec0c
+          updated_at: 2021-12-22T10:14:45.316Z
+          id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          loyalty_card:
+            next_expiration_date: 2023-05-30T00:00:00.000+00:00
+            balance: 6970
+            next_expiration_points: 1
+            points: 7000
+          campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          validity_timeframe:
+            duration: PT1H
+            interval: P2D
+          start_date: 2021-12-01T00:00:00Z
+          active: true
+          holder:
+            metadata: "{}"
+            name: name
+            id: id
+            source_id: source_id
+            email: email
+            object: customer
+          validity_day_of_week:
+          - 1
+          - 1
+          redemption:
+            quantity: 6
+            redeemed_quantity: 1
+            redeemed_points: 100000
+            url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+            object: list
+          additional_info: additional_info
+          holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+          publish:
+            count: 0
+            url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+            object: list
+          campaign: Gift Card Campaign
+          category: category
+          object: voucher
+        channel:
+          channel_type: USER
+          channel_id: channel_id
+        related_object_id: related_object_id
+        promotion_tier:
+          summary:
+            redemptions:
+              total_redeemed: 5
+            orders:
+              total_amount: 9
+              total_discount_amount: 9
+          metadata: "{}"
+          hierarchy: 7
+          validity_hours:
+            daily:
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+          created_at: 2021-12-15T11:34:01.333Z
+          banner: banner
+          active: true
+          promotion_id: promotion_id
+          expiration_date: 2022-09-26T00:00:00Z
+          updated_at: 2022-02-09T09:20:05.603Z
+          validity_day_of_week:
+          - 4
+          - 4
+          category_id: cat_0c9da30e7116ba6bba
+          validation_rule_assignments:
+            total: 5
+            data:
+            - rule_id: val_4j7DCRm2IS59
+              related_object_type: voucher
+              related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+              created_at: 2022-02-17T08:18:15.085Z
+              id: asgm_74F7QZoYbUoljwQO
+              object: validation_rules_assignment
+            - rule_id: val_4j7DCRm2IS59
+              related_object_type: voucher
+              related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+              created_at: 2022-02-17T08:18:15.085Z
+              id: asgm_74F7QZoYbUoljwQO
+              object: validation_rules_assignment
+            data_ref: data
+            object: list
+          name: name
+          action:
+            discount:
+              fixed_amount_formula: fixed_amount_formula
+              product:
+                name: name
+                id: id
+                source_id: source_id
+              fixed_amount: 6.438423552598547
+              aggregated_amount_limit: 9
+              unit_off: 9
+              units:
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              - product:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off: 6.683562403749608
+                effect: ADD_NEW_ITEMS
+                unit_type: unit_type
+                sku:
+                  name: name
+                  id: id
+                  source_id: source_id
+                unit_off_formula: unit_off_formula
+              type: AMOUNT
+              unit_type: unit_type
+              unit_off_formula: unit_off_formula
+              percent_off_formula: percent_off_formula
+              amount_limit: 9.018348186070783
+              amount_off_formula: amount_off_formula
+              effect: APPLY_TO_ORDER
+              is_dynamic: true
+              percent_off: 8.762042012749001
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              amount_off: 5.025004791520295
+          campaign:
+            validity_day_of_week:
+            - 1
+            - 1
+            category_id: cat_0b688929a2476386a6
+            validity_hours:
+              daily:
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+              - days_of_week:
+                - 1
+                - 1
+                start_time: 12:00
+                expiration_time: 14:00
+            active: true
+            id: id
+            expiration_date: 2022-09-30T00:00:00Z
+            validity_timeframe:
+              duration: PT1H
+              interval: P2D
+            start_date: 2022-09-22T00:00:00Z
+            object: campaign
+          id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+          categories:
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          - updated_at: 2022-08-16T10:52:08.094Z
+            hierarchy: 6
+            name: name
+            created_at: 2022-07-14T10:45:13.156Z
+            id: id
+            stacking_rules_type: JOINT
+            object: category
+          campaign_id: campaign_id
+          validity_timeframe:
+            duration: PT1H
+            interval: P2D
+          start_date: 2022-09-23T00:00:00Z
+          object: promotion_tier
+        failure_message: failure_message
+        result: SUCCESS
+        redemption: r_0c656311b5878a2031
+        related_redemptions:
+          rollbacks:
+          - date: 2021-12-22T10:13:06.487Z
+            id: id
+          - date: 2021-12-22T10:13:06.487Z
+            id: id
+          redemptions:
+          - date: 2021-12-22T10:13:06.487Z
+            id: r_0bc92f81a6801f9bca
+          - date: 2021-12-22T10:13:06.487Z
+            id: r_0bc92f81a6801f9bca
+        id: id
+        customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
+        loyalty_card:
+          points: 8
+        tracking_id: tracking_id
+        object: redemption
+        status: SUCCEEDED
+        order:
+          total_applied_discount_amount: 1
+          amount: 5
+          metadata: "{}"
+          referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
+          discount_amount: 7
+          created_at: 2021-12-22T10:13:06.487Z
+          initial_amount: 2
+          total_discount_amount: 3
+          applied_discount_amount: 4
+          referrer:
+            id: id
+            object: customer
+          updated_at: 2021-12-22T10:14:45.316Z
+          total_amount: 2
+          redemptions: "{}"
+          items_applied_discount_amount: 7
+          id: id
+          source_id: source_id
+          customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+          items:
+          - amount: 4
+            product:
+              metadata: "{}"
+              price: 6.965117697638846
+              name: name
+              id: id
+              source_id: source_id
+              override: true
+            metadata: "{}"
+            quantity: 6
+            initial_quantity: 1
+            discount_amount: 5
+            sku_id: sku_id
+            applied_quantity: 6
+            initial_amount: 9
+            subtotal_amount: 3
+            related_object: product
+            applied_discount_amount: 9
+            price: 6
+            product_id: product_id
+            discount_quantity: 7
+            applied_discount_quantity: 9
+            id: id
+            source_id: source_id
+            sku:
+              price: 1.284659006116532
+              id: id
+              source_id: source_id
+              override: true
+              sku: sku
+            applied_quantity_amount: 8
+            object: order_item
+          - amount: 4
+            product:
+              metadata: "{}"
+              price: 6.965117697638846
+              name: name
+              id: id
+              source_id: source_id
+              override: true
+            metadata: "{}"
+            quantity: 6
+            initial_quantity: 1
+            discount_amount: 5
+            sku_id: sku_id
+            applied_quantity: 6
+            initial_amount: 9
+            subtotal_amount: 3
+            related_object: product
+            applied_discount_amount: 9
+            price: 6
+            product_id: product_id
+            discount_quantity: 7
+            applied_discount_quantity: 9
+            id: id
+            source_id: source_id
+            sku:
+              price: 1.284659006116532
+              id: id
+              source_id: source_id
+              override: true
+              sku: sku
+            applied_quantity_amount: 8
+            object: order_item
+          status: CREATED
+          items_discount_amount: 9
+          object: order
+          customer:
+            id: id
+            object: customer
+        customer:
+          metadata: "{}"
+          name: name
+          id: id
+          source_id: source_id
+          email: email
+          object: customer
       properties:
         id:
           nullable: true
@@ -79615,7 +82908,9 @@ components:
       enum:
       - APPLY_TO_EVERY
       - APPLY_TO_CHEAPEST
+      - APPLY_FROM_CHEAPEST
       - APPLY_TO_MOST_EXPENSIVE
+      - APPLY_FROM_MOST_EXPENSIVE
       title: ApplicableToEffect
       type: string
     AreaStoreCampaignAssignment:
@@ -79912,7 +83207,8 @@ components:
         object: product
       properties:
         object:
-          description: This object stores information about the product collection.
+          description: This object stores information about the resource to which
+            the discount is applicable.
           enum:
           - product
           - sku
@@ -79920,11 +83216,12 @@ components:
           nullable: true
           type: string
         id:
-          description: Unique product collection ID assigned by Voucherify.
+          description: "Unique product collection, product, or SKU identifier assigned\
+            \ by Voucherify."
           nullable: true
           type: string
         source_id:
-          description: The source ID from your inventory system.
+          description: The source identifier from your inventory system.
           nullable: true
           type: string
         product_id:
@@ -79978,6 +83275,9 @@ components:
           nullable: true
           type: integer
         order_item_indices:
+          description: Determines the order in which the discount is applied to the
+            products or SKUs sent in the `order` object in the request. The counting
+            begins from `0`.
           items:
             title: InapplicableToOrderItemIndicesItem
             type: integer
@@ -79985,12 +83285,18 @@ components:
           title: InapplicableToOrderItemIndices
           type: array
         repeat:
+          description: "Determines the recurrence of the discount, e.g. `\"repeat\"\
+            : 3` means that the discount is applied to every third item."
           nullable: true
           type: integer
         skip_initially:
+          description: Determines how many items are skipped before the discount is
+            applied.
           nullable: true
           type: integer
         target:
+          description: Determines to which kinds of objects the discount is applicable.
+            `"ITEM"` includes products and SKUs.
           nullable: true
           type: string
       required:
@@ -89897,58 +93203,7 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesId
-      type: object
-    ParameterFiltersListCustomerRedeemablesCreatedAtConditions:
-      description: Data filters used to narrow down the data records to be returned
-        in the result.
-      nullable: true
-      properties:
-        $after:
-          description: Value is after this date. The value for this parameter is shown
-            in the ISO 8601 format.
-          format: date-time
-          nullable: true
-          type: string
-        $before:
-          description: Value is before this date. The value for this parameter is
-            shown in the ISO 8601 format.
-          format: date-time
-          nullable: true
-          type: string
-        $has_value:
-          description: Value is NOT null. The value for this parameter is an empty
-            string.
-          nullable: true
-          type: string
-        $is_unknown:
-          description: Value is null. The value for this parameter is an empty string.
-          nullable: true
-          type: string
-        more_than:
-          description: "Value is more days ago before the current date and time, e.g.\
-            \ more than `10` days ago."
-          nullable: true
-          type: integer
-        less_than:
-          description: "Value is less days before the current date and time, e.g.\
-            \ less than `10` days ago."
-          nullable: true
-          type: integer
-      title: ParameterFiltersListCustomerRedeemablesCreatedAtConditions
-      type: object
-    ParameterFiltersListCustomerRedeemablesCreatedAt:
-      description: Timestamp representing the date and time when the customer redeemable
-        was created. The value is shown in the ISO 8601 format.
-      nullable: true
-      properties:
-        conditions:
-          $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCreatedAtConditions'
-        junction:
-          $ref: '#/components/schemas/Junction'
-      title: ParameterFiltersListCustomerRedeemablesCreatedAt
       type: object
     ParameterFiltersListCustomerRedeemablesRedeemableId:
       description: "Unique redeemable ID, e.g. `v_hS8JFl8S6lNcd1L69wLIoXgTio7eWEgk`."
@@ -89956,8 +93211,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesRedeemableId
       type: object
     ParameterFiltersListCustomerRedeemablesRedeemableObject_conditions:
@@ -90019,8 +93272,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesRedeemableObject_conditions'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesRedeemableObject
       type: object
     ParameterFiltersListCustomerRedeemablesHolderRole_conditions:
@@ -90090,8 +93341,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesHolderRole_conditions'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesHolderRole
       type: object
     ParameterFiltersListCustomerRedeemablesCampaignId:
@@ -90100,8 +93349,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesCampaignId
       type: object
     ParameterFiltersListCustomerRedeemablesCampaignType_conditions:
@@ -90176,8 +93423,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesCampaignType_conditions'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesCampaignType
       type: object
     ParameterFiltersListCustomerRedeemablesVoucherType_conditions:
@@ -90247,9 +93492,79 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/ParameterFiltersListCustomerRedeemablesVoucherType_conditions'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListCustomerRedeemablesVoucherType
+      type: object
+    ParameterFiltersListPublicationsFailureCode:
+      description: Filter publications by ids.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsFailureCode
+      type: object
+    ParameterFiltersListPublicationsResult:
+      description: Filter publications by names.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsResult
+      type: object
+    ParameterFiltersListPublicationsCustomerId:
+      description: Filter publications by customer ids.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsCustomerId
+      type: object
+    ParameterFiltersListPublicationsCampaignName:
+      description: Filter publications by campaign names.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsCampaignName
+      type: object
+    ParameterFiltersListPublicationsVoucherType:
+      description: Filter publications by voucher types.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsVoucherType
+      type: object
+    ParameterFiltersListPublicationsIsReferralCode:
+      description: Filter publications by is referall code.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsIsReferralCode
+      type: object
+    ParameterFiltersListPublicationsParentObjectId:
+      description: Filter publications by parent object id.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsParentObjectId
+      type: object
+    ParameterFiltersListPublicationsRelatedObjectId:
+      description: Filter publications by related object id.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsRelatedObjectId
+      type: object
+    ParameterFiltersListPublicationsSourceId:
+      description: Filter publications by source id.
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/FilterConditionsString'
+      title: ParameterFiltersListPublicationsSourceId
       type: object
     ParameterFiltersListRedemptionsVoucherCode:
       description: Unique voucher code.
@@ -90257,8 +93572,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsVoucherCode
       type: object
     ParameterFiltersListRedemptionsRelatedObjectId:
@@ -90267,8 +93580,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsRelatedObjectId
       type: object
     ParameterFiltersListRedemptionsRelatedObjectParentId:
@@ -90277,8 +93588,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsRelatedObjectParentId
       type: object
     ParameterFiltersListRedemptionsParentRedemptionId:
@@ -90287,8 +93596,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsParentRedemptionId
       type: object
     ParameterFiltersListRedemptionsFailureCode:
@@ -90297,8 +93604,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsFailureCode
       type: object
     ParameterFiltersListRedemptionsResult:
@@ -90307,8 +93612,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsResult
       type: object
     ParameterFiltersListRedemptionsObject:
@@ -90317,8 +93620,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsObject
       type: object
     ParameterFiltersListRedemptionsCustomerId:
@@ -90327,8 +93628,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsCustomerId
       type: object
     ParameterFiltersListRedemptionsCampaignName:
@@ -90337,8 +93636,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsCampaignName
       type: object
     ParameterFiltersListRedemptionsUserLogin:
@@ -90347,8 +93644,6 @@ components:
       properties:
         conditions:
           $ref: '#/components/schemas/FilterConditionsString'
-        junction:
-          $ref: '#/components/schemas/Junction'
       title: ParameterFiltersListRedemptionsUserLogin
       type: object
     ProductCollectionsCreateRequestBodyProductsItem:
@@ -100189,6 +103484,44 @@ components:
           $ref: '#/components/schemas/ExportParametersFilters'
       title: ExportParameters
       type: object
+    FilterConditionsDateTimeConditions:
+      description: Data filters used to narrow down the data records to be returned
+        in the result.
+      nullable: true
+      properties:
+        $after:
+          description: Value is after this date. The value for this parameter is shown
+            in the ISO 8601 format.
+          format: date-time
+          nullable: true
+          type: string
+        $before:
+          description: Value is before this date. The value for this parameter is
+            shown in the ISO 8601 format.
+          format: date-time
+          nullable: true
+          type: string
+        $has_value:
+          description: Value is NOT null. The value for this parameter is an empty
+            string.
+          nullable: true
+          type: string
+        $is_unknown:
+          description: Value is null. The value for this parameter is an empty string.
+          nullable: true
+          type: string
+        more_than:
+          description: "Value is more days ago before the current date and time, e.g.\
+            \ more than `10` days ago."
+          nullable: true
+          type: integer
+        less_than:
+          description: "Value is less days before the current date and time, e.g.\
+            \ less than `10` days ago."
+          nullable: true
+          type: integer
+      title: FilterConditionsDateTimeConditions
+      type: object
     LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty:
       description: Defines the equivalent points value of the reward.
       example:
@@ -101171,6 +104504,332 @@ components:
     ProductCollectionsItemFilter:
       description: Defines a set of criteria and boundary conditions for an `AUTO_UPDATE`
         product collection type.
+      example:
+        junction: null
+        metadata:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        skus:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        image_url:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        created_at:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        updated_at:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        price:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        product_id:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        name:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        attributes:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        id:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        source_id:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
+        object:
+          conditions:
+            $has_value: ""
+            $is_unknown: ""
+            $less_than: ""
+            $more_than_equal: ""
+            $less_than_equal: ""
+            $in: ""
+            $more_than: ""
+            $after: ""
+            $is: ""
+            $contains: ""
+            $less_than_ago: ""
+            $is_days_in_future: ""
+            $not_in: ""
+            $more_than_future: ""
+            $count_more: ""
+            $count_less: ""
+            $not_contain: ""
+            $starts_with: ""
+            $is_days_ago: ""
+            $is_not: ""
+            $less_than_future: ""
+            $more_than_ago: ""
+            $before: ""
+            $ends_with: ""
+            $count: ""
       nullable: true
       properties:
         junction:
@@ -101204,6 +104863,10 @@ components:
       title: ProductCollectionsItemFilter
       type: object
     ProductCollectionsItemProductsItem:
+      example:
+        product_id: product_id
+        id: prod_0a41bcf807c5fcaaf6
+        object: sku
       properties:
         id:
           description: The product ID.
@@ -102473,6 +106136,9 @@ components:
       title: RedemptionLoyaltyCard
       type: object
     RedemptionEntryRelatedRedemptionsRollbacksItem:
+      example:
+        date: 2021-12-22T10:13:06.487Z
+        id: id
       properties:
         id:
           type: string
@@ -102485,6 +106151,9 @@ components:
       title: RedemptionEntryRelatedRedemptionsRollbacksItem
       type: object
     RedemptionEntryRelatedRedemptionsRedemptionsItem:
+      example:
+        date: 2021-12-22T10:13:06.487Z
+        id: r_0bc92f81a6801f9bca
       properties:
         id:
           description: Unique redemption ID.
@@ -102499,6 +106168,17 @@ components:
       title: RedemptionEntryRelatedRedemptionsRedemptionsItem
       type: object
     RedemptionEntryRelatedRedemptions:
+      example:
+        rollbacks:
+        - date: 2021-12-22T10:13:06.487Z
+          id: id
+        - date: 2021-12-22T10:13:06.487Z
+          id: id
+        redemptions:
+        - date: 2021-12-22T10:13:06.487Z
+          id: r_0bc92f81a6801f9bca
+        - date: 2021-12-22T10:13:06.487Z
+          id: r_0bc92f81a6801f9bca
       nullable: true
       properties:
         rollbacks:
@@ -102516,6 +106196,9 @@ components:
       title: RedemptionEntryRelatedRedemptions
       type: object
     RedemptionEntryOrderCustomer:
+      example:
+        id: id
+        object: customer
       nullable: true
       properties:
         id:
@@ -102532,6 +106215,9 @@ components:
       title: RedemptionEntryOrderCustomer
       type: object
     RedemptionEntryOrderReferrer:
+      example:
+        id: id
+        object: customer
       nullable: true
       properties:
         id:
@@ -102548,6 +106234,97 @@ components:
       title: RedemptionEntryOrderReferrer
       type: object
     RedemptionEntryOrder:
+      example:
+        total_applied_discount_amount: 1
+        amount: 5
+        metadata: "{}"
+        referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
+        discount_amount: 7
+        created_at: 2021-12-22T10:13:06.487Z
+        initial_amount: 2
+        total_discount_amount: 3
+        applied_discount_amount: 4
+        referrer:
+          id: id
+          object: customer
+        updated_at: 2021-12-22T10:14:45.316Z
+        total_amount: 2
+        redemptions: "{}"
+        items_applied_discount_amount: 7
+        id: id
+        source_id: source_id
+        customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
+        items:
+        - amount: 4
+          product:
+            metadata: "{}"
+            price: 6.965117697638846
+            name: name
+            id: id
+            source_id: source_id
+            override: true
+          metadata: "{}"
+          quantity: 6
+          initial_quantity: 1
+          discount_amount: 5
+          sku_id: sku_id
+          applied_quantity: 6
+          initial_amount: 9
+          subtotal_amount: 3
+          related_object: product
+          applied_discount_amount: 9
+          price: 6
+          product_id: product_id
+          discount_quantity: 7
+          applied_discount_quantity: 9
+          id: id
+          source_id: source_id
+          sku:
+            price: 1.284659006116532
+            id: id
+            source_id: source_id
+            override: true
+            sku: sku
+          applied_quantity_amount: 8
+          object: order_item
+        - amount: 4
+          product:
+            metadata: "{}"
+            price: 6.965117697638846
+            name: name
+            id: id
+            source_id: source_id
+            override: true
+          metadata: "{}"
+          quantity: 6
+          initial_quantity: 1
+          discount_amount: 5
+          sku_id: sku_id
+          applied_quantity: 6
+          initial_amount: 9
+          subtotal_amount: 3
+          related_object: product
+          applied_discount_amount: 9
+          price: 6
+          product_id: product_id
+          discount_quantity: 7
+          applied_discount_quantity: 9
+          id: id
+          source_id: source_id
+          sku:
+            price: 1.284659006116532
+            id: id
+            source_id: source_id
+            override: true
+            sku: sku
+          applied_quantity_amount: 8
+          object: order_item
+        status: CREATED
+        items_discount_amount: 9
+        object: order
+        customer:
+          id: id
+          object: customer
       nullable: true
       properties:
         id:
@@ -102667,6 +106444,9 @@ components:
       title: RedemptionEntryOrder
       type: object
     RedemptionEntryChannel:
+      example:
+        channel_type: USER
+        channel_id: channel_id
       nullable: true
       properties:
         channel_id:
@@ -102683,6 +106463,13 @@ components:
       title: RedemptionEntryChannel
       type: object
     RedemptionEntryCustomer:
+      example:
+        metadata: "{}"
+        name: name
+        id: id
+        source_id: source_id
+        email: email
+        object: customer
       nullable: true
       properties:
         id:
@@ -102717,6 +106504,10 @@ components:
       title: RedemptionEntryCustomer
       type: object
     RedemptionEntryVoucherGift:
+      example:
+        amount: 10000
+        balance: 500
+        effect: APPLY_TO_ORDER
       nullable: true
       properties:
         amount:
@@ -102742,6 +106533,11 @@ components:
       title: RedemptionEntryVoucherGift
       type: object
     RedemptionEntryVoucherLoyaltyCard:
+      example:
+        next_expiration_date: 2023-05-30T00:00:00.000+00:00
+        balance: 6970
+        next_expiration_points: 1
+        points: 7000
       nullable: true
       properties:
         points:
@@ -102768,6 +106564,10 @@ components:
       title: RedemptionEntryVoucherLoyaltyCard
       type: object
     RedemptionEntryVoucherPublish:
+      example:
+        count: 0
+        url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+        object: list
       nullable: true
       properties:
         object:
@@ -102791,6 +106591,12 @@ components:
       title: RedemptionEntryVoucherPublish
       type: object
     RedemptionEntryVoucherRedemption:
+      example:
+        quantity: 6
+        redeemed_quantity: 1
+        redeemed_points: 100000
+        url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+        object: list
       nullable: true
       properties:
         quantity:
@@ -102824,6 +106630,160 @@ components:
       title: RedemptionEntryVoucherRedemption
       type: object
     RedemptionEntryVoucher:
+      example:
+        gift:
+          amount: 10000
+          balance: 500
+          effect: APPLY_TO_ORDER
+        metadata: "{}"
+        code: WVPblOYX
+        referrer_id: cust_Vzck5i8U3OhcEUFY6MKhN9Rv
+        validation_rules_assignments:
+          total: 0
+          data:
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          - id: asgm_LnY1g7UNFA9KyDrD
+            rule_id: val_3gPNA6SnH4ae
+            related_object_id: camp_CZOnEGiZfwIKWmSjhIoIT7Ol
+            related_object_type: campaign
+            object: validation_rules_assignment
+            validation_status: PARTIALLY_VALID
+            validation_omitted_rules:
+            - "1"
+          data_ref: data
+          object: list
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product:
+            name: name
+            id: id
+            source_id: source_id
+          fixed_amount: 6.438423552598547
+          aggregated_amount_limit: 9
+          unit_off: 9
+          units:
+          - product:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off: 6.683562403749608
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off_formula: unit_off_formula
+          - product:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off: 6.683562403749608
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 9.018348186070783
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 8.762042012749001
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 5.025004791520295
+        created_at: 2021-12-22T10:13:06.487Z
+        type: GIFT_VOUCHER
+        expiration_date: 2021-12-31T00:00:00Z
+        is_referral_code: true
+        assets:
+          qr:
+            id: U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK+t4pp7U7oFzjGJzj9q/bmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg+BaZk5QwXMf8k/OzSlOEVybpwSq+AiqPoNtjeuqtIgkDyvT6Q==
+            url: https://dev.dl.voucherify.io/api/v1/assets/qr/U2FsdGVkX19ucFhvVmBVpVYG5KoswTsjSIaqoKg5L9ie4BK%2Bt4pp7U7oFzjGJzj9q%2FbmuMOj9mEFiVKDMIkSaruKedMvHbKoPX5Sg%2BBaZk5QwXMf8k%2FOzSlOEVybpwSq%2BAiqPoNtjeuqtIgkDyvT6Q%3D%3D
+          barcode:
+            id: U2FsdGVkX19eJhGfWwUrH9+tulBkON+AnMktic+N6CVWzZ9+fHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ+kJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6/pFs61apEn9SJx32ttCF6d3oxKISQQ==
+            url: https://dev.dl.voucherify.io/api/v1/assets/barcode/U2FsdGVkX19eJhGfWwUrH9%2BtulBkON%2BAnMktic%2BN6CVWzZ9%2BfHVxuVx22WakrzxiWXy0skuvvEHSeZIw9HlgyIJ%2BkJ1iPdUKpyENuNYJKzoZlO0mmTf6WQM6%2FpFs61apEn9SJx32ttCF6d3oxKISQQ%3D%3D
+        category_id: cat_0bb343dee3cdb5ec0c
+        updated_at: 2021-12-22T10:14:45.316Z
+        id: v_mkZN9v7vjYUadXnHrMza8W5c34fE5KiV
+        categories:
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 6
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 6
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        loyalty_card:
+          next_expiration_date: 2023-05-30T00:00:00.000+00:00
+          balance: 6970
+          next_expiration_points: 1
+          points: 7000
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2021-12-01T00:00:00Z
+        active: true
+        holder:
+          metadata: "{}"
+          name: name
+          id: id
+          source_id: source_id
+          email: email
+          object: customer
+        validity_day_of_week:
+        - 1
+        - 1
+        redemption:
+          quantity: 6
+          redeemed_quantity: 1
+          redeemed_points: 100000
+          url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
+          object: list
+        additional_info: additional_info
+        holder_id: cust_eWgXlBBiY6THFRJwX45Iakv4
+        publish:
+          count: 0
+          url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          object: list
+        campaign: Gift Card Campaign
+        category: category
+        object: voucher
       nullable: true
       properties:
         id:
@@ -102985,6 +106945,55 @@ components:
       title: RedemptionEntryVoucher
       type: object
     RedemptionEntryPromotionTierAction:
+      example:
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product:
+            name: name
+            id: id
+            source_id: source_id
+          fixed_amount: 6.438423552598547
+          aggregated_amount_limit: 9
+          unit_off: 9
+          units:
+          - product:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off: 6.683562403749608
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off_formula: unit_off_formula
+          - product:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off: 6.683562403749608
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 9.018348186070783
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 8.762042012749001
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 5.025004791520295
       nullable: true
       properties:
         discount:
@@ -102992,6 +107001,31 @@ components:
       title: RedemptionEntryPromotionTierAction
       type: object
     RedemptionEntryPromotionTierCampaign:
+      example:
+        validity_day_of_week:
+        - 1
+        - 1
+        category_id: cat_0b688929a2476386a6
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        id: id
+        expiration_date: 2022-09-30T00:00:00Z
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2022-09-22T00:00:00Z
+        object: campaign
       nullable: true
       properties:
         id:
@@ -103063,6 +107097,8 @@ components:
       title: RedemptionEntryPromotionTierCampaign
       type: object
     RedemptionEntryPromotionTierSummaryRedemptions:
+      example:
+        total_redeemed: 5
       nullable: true
       properties:
         total_redeemed:
@@ -103072,6 +107108,9 @@ components:
       title: RedemptionEntryPromotionTierSummaryRedemptions
       type: object
     RedemptionEntryPromotionTierSummaryOrders:
+      example:
+        total_amount: 9
+        total_discount_amount: 9
       nullable: true
       properties:
         total_amount:
@@ -103085,6 +107124,12 @@ components:
       title: RedemptionEntryPromotionTierSummaryOrders
       type: object
     RedemptionEntryPromotionTierSummary:
+      example:
+        redemptions:
+          total_redeemed: 5
+        orders:
+          total_amount: 9
+          total_discount_amount: 9
       nullable: true
       properties:
         redemptions:
@@ -103094,6 +107139,151 @@ components:
       title: RedemptionEntryPromotionTierSummary
       type: object
     RedemptionEntryPromotionTier:
+      example:
+        summary:
+          redemptions:
+            total_redeemed: 5
+          orders:
+            total_amount: 9
+            total_discount_amount: 9
+        metadata: "{}"
+        hierarchy: 7
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 1
+            - 1
+            start_time: 12:00
+            expiration_time: 14:00
+        created_at: 2021-12-15T11:34:01.333Z
+        banner: banner
+        active: true
+        promotion_id: promotion_id
+        expiration_date: 2022-09-26T00:00:00Z
+        updated_at: 2022-02-09T09:20:05.603Z
+        validity_day_of_week:
+        - 4
+        - 4
+        category_id: cat_0c9da30e7116ba6bba
+        validation_rule_assignments:
+          total: 5
+          data:
+          - rule_id: val_4j7DCRm2IS59
+            related_object_type: voucher
+            related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+            created_at: 2022-02-17T08:18:15.085Z
+            id: asgm_74F7QZoYbUoljwQO
+            object: validation_rules_assignment
+          - rule_id: val_4j7DCRm2IS59
+            related_object_type: voucher
+            related_object_id: v_JtWunK6jUo7X2qOFj0SyRHq4p9tgENlT
+            created_at: 2022-02-17T08:18:15.085Z
+            id: asgm_74F7QZoYbUoljwQO
+            object: validation_rules_assignment
+          data_ref: data
+          object: list
+        name: name
+        action:
+          discount:
+            fixed_amount_formula: fixed_amount_formula
+            product:
+              name: name
+              id: id
+              source_id: source_id
+            fixed_amount: 6.438423552598547
+            aggregated_amount_limit: 9
+            unit_off: 9
+            units:
+            - product:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off: 6.683562403749608
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off_formula: unit_off_formula
+            - product:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off: 6.683562403749608
+              effect: ADD_NEW_ITEMS
+              unit_type: unit_type
+              sku:
+                name: name
+                id: id
+                source_id: source_id
+              unit_off_formula: unit_off_formula
+            type: AMOUNT
+            unit_type: unit_type
+            unit_off_formula: unit_off_formula
+            percent_off_formula: percent_off_formula
+            amount_limit: 9.018348186070783
+            amount_off_formula: amount_off_formula
+            effect: APPLY_TO_ORDER
+            is_dynamic: true
+            percent_off: 8.762042012749001
+            sku:
+              name: name
+              id: id
+              source_id: source_id
+            amount_off: 5.025004791520295
+        campaign:
+          validity_day_of_week:
+          - 1
+          - 1
+          category_id: cat_0b688929a2476386a6
+          validity_hours:
+            daily:
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+            - days_of_week:
+              - 1
+              - 1
+              start_time: 12:00
+              expiration_time: 14:00
+          active: true
+          id: id
+          expiration_date: 2022-09-30T00:00:00Z
+          validity_timeframe:
+            duration: PT1H
+            interval: P2D
+          start_date: 2022-09-22T00:00:00Z
+          object: campaign
+        id: promo_63fYCt81Aw0h7lzyRkrGZh9p
+        categories:
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 6
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        - updated_at: 2022-08-16T10:52:08.094Z
+          hierarchy: 6
+          name: name
+          created_at: 2022-07-14T10:45:13.156Z
+          id: id
+          stacking_rules_type: JOINT
+          object: category
+        campaign_id: campaign_id
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2022-09-23T00:00:00Z
+        object: promotion_tier
       nullable: true
       properties:
         id:
@@ -103220,6 +107410,8 @@ components:
       title: RedemptionEntryPromotionTier
       type: object
     RedemptionEntryGift:
+      example:
+        amount: 6
       nullable: true
       properties:
         amount:
@@ -103233,6 +107425,8 @@ components:
       title: RedemptionEntryGift
       type: object
     RedemptionEntryLoyaltyCard:
+      example:
+        points: 8
       nullable: true
       properties:
         points:

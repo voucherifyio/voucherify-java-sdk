@@ -53,7 +53,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
+public class FilterConditionsDateTimeConditions {
   public static final String SERIALIZED_NAME_$_AFTER = "$after";
   @SerializedName(SERIALIZED_NAME_$_AFTER)
   private OffsetDateTime $after;
@@ -78,10 +78,10 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   @SerializedName(SERIALIZED_NAME_LESS_THAN)
   private Integer lessThan;
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions() {
+  public FilterConditionsDateTimeConditions() {
   }
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions $after(OffsetDateTime $after) {
+  public FilterConditionsDateTimeConditions $after(OffsetDateTime $after) {
     
     this.$after = $after;
     return this;
@@ -102,7 +102,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions $before(OffsetDateTime $before) {
+  public FilterConditionsDateTimeConditions $before(OffsetDateTime $before) {
     
     this.$before = $before;
     return this;
@@ -123,7 +123,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions $hasValue(String $hasValue) {
+  public FilterConditionsDateTimeConditions $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
     return this;
@@ -144,7 +144,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions $isUnknown(String $isUnknown) {
+  public FilterConditionsDateTimeConditions $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
     return this;
@@ -165,7 +165,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions moreThan(Integer moreThan) {
+  public FilterConditionsDateTimeConditions moreThan(Integer moreThan) {
     
     this.moreThan = moreThan;
     return this;
@@ -186,7 +186,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions lessThan(Integer lessThan) {
+  public FilterConditionsDateTimeConditions lessThan(Integer lessThan) {
     
     this.lessThan = lessThan;
     return this;
@@ -216,13 +216,13 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ParameterFiltersListCustomerRedeemablesCreatedAtConditions parameterFiltersListCustomerRedeemablesCreatedAtConditions = (ParameterFiltersListCustomerRedeemablesCreatedAtConditions) o;
-    return Objects.equals(this.$after, parameterFiltersListCustomerRedeemablesCreatedAtConditions.$after) &&
-        Objects.equals(this.$before, parameterFiltersListCustomerRedeemablesCreatedAtConditions.$before) &&
-        Objects.equals(this.$hasValue, parameterFiltersListCustomerRedeemablesCreatedAtConditions.$hasValue) &&
-        Objects.equals(this.$isUnknown, parameterFiltersListCustomerRedeemablesCreatedAtConditions.$isUnknown) &&
-        Objects.equals(this.moreThan, parameterFiltersListCustomerRedeemablesCreatedAtConditions.moreThan) &&
-        Objects.equals(this.lessThan, parameterFiltersListCustomerRedeemablesCreatedAtConditions.lessThan);
+    FilterConditionsDateTimeConditions filterConditionsDateTimeConditions = (FilterConditionsDateTimeConditions) o;
+    return Objects.equals(this.$after, filterConditionsDateTimeConditions.$after) &&
+        Objects.equals(this.$before, filterConditionsDateTimeConditions.$before) &&
+        Objects.equals(this.$hasValue, filterConditionsDateTimeConditions.$hasValue) &&
+        Objects.equals(this.$isUnknown, filterConditionsDateTimeConditions.$isUnknown) &&
+        Objects.equals(this.moreThan, filterConditionsDateTimeConditions.moreThan) &&
+        Objects.equals(this.lessThan, filterConditionsDateTimeConditions.lessThan);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -244,7 +244,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {\n");
+    sb.append("class FilterConditionsDateTimeConditions {\n");
     sb.append("    $after: ").append(toIndentedString($after)).append("\n");
     sb.append("    $before: ").append(toIndentedString($before)).append("\n");
     sb.append("    $hasValue: ").append(toIndentedString($hasValue)).append("\n");
@@ -288,22 +288,22 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterFiltersListCustomerRedeemablesCreatedAtConditions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterFiltersListCustomerRedeemablesCreatedAtConditions' and its subtypes
+       if (!FilterConditionsDateTimeConditions.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FilterConditionsDateTimeConditions' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterFiltersListCustomerRedeemablesCreatedAtConditions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListCustomerRedeemablesCreatedAtConditions.class));
+       final TypeAdapter<FilterConditionsDateTimeConditions> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FilterConditionsDateTimeConditions.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCustomerRedeemablesCreatedAtConditions>() {
+       return (TypeAdapter<T>) new TypeAdapter<FilterConditionsDateTimeConditions>() {
            @Override
-           public void write(JsonWriter out, ParameterFiltersListCustomerRedeemablesCreatedAtConditions value) throws IOException {
+           public void write(JsonWriter out, FilterConditionsDateTimeConditions value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ParameterFiltersListCustomerRedeemablesCreatedAtConditions read(JsonReader in) throws IOException {
+           public FilterConditionsDateTimeConditions read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -313,18 +313,18 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAtConditions {
   }
 
  /**
-  * Create an instance of ParameterFiltersListCustomerRedeemablesCreatedAtConditions given an JSON string
+  * Create an instance of FilterConditionsDateTimeConditions given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ParameterFiltersListCustomerRedeemablesCreatedAtConditions
-  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListCustomerRedeemablesCreatedAtConditions
+  * @return An instance of FilterConditionsDateTimeConditions
+  * @throws IOException if the JSON string is invalid with respect to FilterConditionsDateTimeConditions
   */
-  public static ParameterFiltersListCustomerRedeemablesCreatedAtConditions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterFiltersListCustomerRedeemablesCreatedAtConditions.class);
+  public static FilterConditionsDateTimeConditions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FilterConditionsDateTimeConditions.class);
   }
 
  /**
-  * Convert an instance of ParameterFiltersListCustomerRedeemablesCreatedAtConditions to an JSON string
+  * Convert an instance of FilterConditionsDateTimeConditions to an JSON string
   *
   * @return JSON string
   */

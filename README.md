@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>14.0.0</version>
+  <version>15.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:14.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:15.0.0"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-14.0.0.jar`
+* `target/voucherify-java-sdk-15.0.0.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -133,8 +133,8 @@ It may be useful to check the test implementation in the folder **test** `(./src
 ## 🐳 Running local tests with docker
 
 1. Copy `.env.example` to `.env` and fill in the values.
-3. Run `docker build -t java .` to build the image.
-4. Run `docker run --rm java` to run the tests and delete container immediately after.
+2. Run `docker build -t java .` to build the image.
+3. Run `docker run --rm java` to run the tests and delete container immediately after.
 
 ## 🛠️ Contributing
 
@@ -143,6 +143,14 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-10-02** - `15.0.0`
+  - Fix object parsing in query. For example `filters` while listing redemptions.
+  - !!! BREAKING CHANGES !!!
+    - Pagination changed on listing card transactions(listLoyaltyCardTransactions) - NO `page` param is supported - use `starting_after_id` instead.
+    - Pagination changed on listing voucher transactions(listVoucherTransactions) - NO `page` param is supported - use `starting_after_id` instead.
+    - ApplicableToEffect - changed - `EVERY` -> `TO_EVERY`, `CHEAPEST` -> `TO_CHEAPEST`, `MOST_EXPENSIVE` -> `TO_MOST_EXPENSIVE`, 2 new values introduced.
+    - `listPublications` parameter `filters` have changed - now uses `ParameterFiltersListPublications` instead of `String`
+    - `ParameterFiltersListRedemptions` and `ParameterFiltersListCustomerRedeemables` have been updated
 - **2024-09-05** - `14.0.0`
   - Added support:
     - /v1/vouchers, get - List Vouchers
@@ -359,7 +367,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 *Previous versions of the API are no longer supported, and we highly recommend upgrading to version 12.0.0, which is now designated as Long-Term Support (LTS).*
 
-*Changelog for previous versions could be found in the [CHANGELOG.md file](./CHANGELOG.md)*
+*Changelog for previous versions could be found in the [DEPRECATED_CHANGELOG.md file](./DEPRECATED_CHANGELOG.md)*
 
 ## 🔐 Documentation for Authorization
 
@@ -736,6 +744,8 @@ Class | Method | HTTP request | Description
 - [ExportsGetResponseBodyResult](docs/ExportsGetResponseBodyResult.md)
 - [ExportsListResponseBody](docs/ExportsListResponseBody.md)
 - [FieldConditions](docs/FieldConditions.md)
+- [FilterConditionsDateTime](docs/FilterConditionsDateTime.md)
+- [FilterConditionsDateTimeConditions](docs/FilterConditionsDateTimeConditions.md)
 - [FilterConditionsString](docs/FilterConditionsString.md)
 - [FiltersCondition](docs/FiltersCondition.md)
 - [Gift](docs/Gift.md)
@@ -1033,8 +1043,6 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesCampaignId](docs/ParameterFiltersListCustomerRedeemablesCampaignId.md)
 - [ParameterFiltersListCustomerRedeemablesCampaignType](docs/ParameterFiltersListCustomerRedeemablesCampaignType.md)
 - [ParameterFiltersListCustomerRedeemablesCampaignTypeConditions](docs/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.md)
-- [ParameterFiltersListCustomerRedeemablesCreatedAt](docs/ParameterFiltersListCustomerRedeemablesCreatedAt.md)
-- [ParameterFiltersListCustomerRedeemablesCreatedAtConditions](docs/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.md)
 - [ParameterFiltersListCustomerRedeemablesHolderRole](docs/ParameterFiltersListCustomerRedeemablesHolderRole.md)
 - [ParameterFiltersListCustomerRedeemablesHolderRoleConditions](docs/ParameterFiltersListCustomerRedeemablesHolderRoleConditions.md)
 - [ParameterFiltersListCustomerRedeemablesId](docs/ParameterFiltersListCustomerRedeemablesId.md)
@@ -1043,6 +1051,16 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions](docs/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherType](docs/ParameterFiltersListCustomerRedeemablesVoucherType.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherTypeConditions](docs/ParameterFiltersListCustomerRedeemablesVoucherTypeConditions.md)
+- [ParameterFiltersListPublications](docs/ParameterFiltersListPublications.md)
+- [ParameterFiltersListPublicationsCampaignName](docs/ParameterFiltersListPublicationsCampaignName.md)
+- [ParameterFiltersListPublicationsCustomerId](docs/ParameterFiltersListPublicationsCustomerId.md)
+- [ParameterFiltersListPublicationsFailureCode](docs/ParameterFiltersListPublicationsFailureCode.md)
+- [ParameterFiltersListPublicationsIsReferralCode](docs/ParameterFiltersListPublicationsIsReferralCode.md)
+- [ParameterFiltersListPublicationsParentObjectId](docs/ParameterFiltersListPublicationsParentObjectId.md)
+- [ParameterFiltersListPublicationsRelatedObjectId](docs/ParameterFiltersListPublicationsRelatedObjectId.md)
+- [ParameterFiltersListPublicationsResult](docs/ParameterFiltersListPublicationsResult.md)
+- [ParameterFiltersListPublicationsSourceId](docs/ParameterFiltersListPublicationsSourceId.md)
+- [ParameterFiltersListPublicationsVoucherType](docs/ParameterFiltersListPublicationsVoucherType.md)
 - [ParameterFiltersListRedemptions](docs/ParameterFiltersListRedemptions.md)
 - [ParameterFiltersListRedemptionsCampaignName](docs/ParameterFiltersListRedemptionsCampaignName.md)
 - [ParameterFiltersListRedemptionsCustomerId](docs/ParameterFiltersListRedemptionsCustomerId.md)
@@ -1068,6 +1086,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListPublications](docs/ParameterOrderListPublications.md)
 - [ParameterOrderListRedeemables](docs/ParameterOrderListRedeemables.md)
 - [ParameterOrderListRedemptions](docs/ParameterOrderListRedemptions.md)
+- [ParameterOrderListTransactions](docs/ParameterOrderListTransactions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/ParameterOrderListValidationRuleAssignments.md)
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
 - [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)
