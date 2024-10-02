@@ -145,9 +145,7 @@ public class CustomerRedeemable {
     
     PROMOTION("PROMOTION"),
     
-    REFERRAL_PROGRAM("REFERRAL_PROGRAM"),
-    
-    LUCKY_DRAW("LUCKY_DRAW");
+    REFERRAL_PROGRAM("REFERRAL_PROGRAM");
 
     private String value;
 
@@ -200,9 +198,7 @@ public class CustomerRedeemable {
     
     DISCOUNT_VOUCHER("DISCOUNT_VOUCHER"),
     
-    LOYALTY_CARD("LOYALTY_CARD"),
-    
-    LUCKY_DRAW_CODE("LUCKY_DRAW_CODE");
+    LOYALTY_CARD("LOYALTY_CARD");
 
     private String value;
 

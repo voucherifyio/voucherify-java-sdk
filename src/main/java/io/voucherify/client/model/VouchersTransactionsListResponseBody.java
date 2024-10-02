@@ -56,13 +56,103 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class VouchersTransactionsListResponseBody {
+  /**
+   * The type of the object represented by JSON.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    LIST("list");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  private String _object = "list";
+  private ObjectEnum _object = ObjectEnum.LIST;
+
+  /**
+   * Identifies the name of the attribute that contains the array of transaction objects.
+   */
+  @JsonAdapter(DataRefEnum.Adapter.class)
+  public enum DataRefEnum {
+    DATA("data");
+
+    private String value;
+
+    DataRefEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DataRefEnum fromValue(String value) {
+      for (DataRefEnum b : DataRefEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DataRefEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DataRefEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DataRefEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DataRefEnum.fromValue(value);
+      }
+    }
+  }
 
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
-  private String dataRef = "data";
+  private DataRefEnum dataRef = DataRefEnum.DATA;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -79,7 +169,7 @@ public class VouchersTransactionsListResponseBody {
   public VouchersTransactionsListResponseBody() {
   }
 
-  public VouchersTransactionsListResponseBody _object(String _object) {
+  public VouchersTransactionsListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -90,17 +180,17 @@ public class VouchersTransactionsListResponseBody {
    * @return _object
   **/
   @javax.annotation.Nullable
-  public String getObject() {
+  public ObjectEnum getObject() {
     return _object;
   }
 
 
-  public void setObject(String _object) {
+  public void setObject(ObjectEnum _object) {
     this._object = _object;
   }
 
 
-  public VouchersTransactionsListResponseBody dataRef(String dataRef) {
+  public VouchersTransactionsListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
     return this;
@@ -111,12 +201,12 @@ public class VouchersTransactionsListResponseBody {
    * @return dataRef
   **/
   @javax.annotation.Nullable
-  public String getDataRef() {
+  public DataRefEnum getDataRef() {
     return dataRef;
   }
 
 
-  public void setDataRef(String dataRef) {
+  public void setDataRef(DataRefEnum dataRef) {
     this.dataRef = dataRef;
   }
 

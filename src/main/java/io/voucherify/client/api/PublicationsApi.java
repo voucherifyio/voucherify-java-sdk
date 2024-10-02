@@ -343,7 +343,7 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Filter conditions. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -455,7 +455,7 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Filter conditions. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return PublicationsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -477,7 +477,7 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Filter conditions. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return ApiResponse&lt;PublicationsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,7 +500,7 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Filter conditions. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

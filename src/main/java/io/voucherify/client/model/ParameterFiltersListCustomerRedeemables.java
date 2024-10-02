@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.FilterConditionsDateTime;
 import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCampaignId;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCampaignType;
+import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCreatedAt;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesHolderRole;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesId;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesRedeemableId;
@@ -62,17 +62,13 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ParameterFiltersListCustomerRedeemables {
-  public static final String SERIALIZED_NAME_JUNCTION = "junction";
-  @SerializedName(SERIALIZED_NAME_JUNCTION)
-  private Junction junction;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private ParameterFiltersListCustomerRedeemablesId id;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private FilterConditionsDateTime createdAt;
+  private ParameterFiltersListCustomerRedeemablesCreatedAt createdAt;
 
   public static final String SERIALIZED_NAME_REDEEMABLE_ID = "redeemable_id";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE_ID)
@@ -98,29 +94,12 @@ public class ParameterFiltersListCustomerRedeemables {
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private ParameterFiltersListCustomerRedeemablesVoucherType voucherType;
 
+  public static final String SERIALIZED_NAME_JUNCTION = "junction";
+  @SerializedName(SERIALIZED_NAME_JUNCTION)
+  private Junction junction;
+
   public ParameterFiltersListCustomerRedeemables() {
   }
-
-  public ParameterFiltersListCustomerRedeemables junction(Junction junction) {
-    
-    this.junction = junction;
-    return this;
-  }
-
-   /**
-   * Get junction
-   * @return junction
-  **/
-  @javax.annotation.Nullable
-  public Junction getJunction() {
-    return junction;
-  }
-
-
-  public void setJunction(Junction junction) {
-    this.junction = junction;
-  }
-
 
   public ParameterFiltersListCustomerRedeemables id(ParameterFiltersListCustomerRedeemablesId id) {
     
@@ -143,7 +122,7 @@ public class ParameterFiltersListCustomerRedeemables {
   }
 
 
-  public ParameterFiltersListCustomerRedeemables createdAt(FilterConditionsDateTime createdAt) {
+  public ParameterFiltersListCustomerRedeemables createdAt(ParameterFiltersListCustomerRedeemablesCreatedAt createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -154,12 +133,12 @@ public class ParameterFiltersListCustomerRedeemables {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  public FilterConditionsDateTime getCreatedAt() {
+  public ParameterFiltersListCustomerRedeemablesCreatedAt getCreatedAt() {
     return createdAt;
   }
 
 
-  public void setCreatedAt(FilterConditionsDateTime createdAt) {
+  public void setCreatedAt(ParameterFiltersListCustomerRedeemablesCreatedAt createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -290,6 +269,27 @@ public class ParameterFiltersListCustomerRedeemables {
   }
 
 
+  public ParameterFiltersListCustomerRedeemables junction(Junction junction) {
+    
+    this.junction = junction;
+    return this;
+  }
+
+   /**
+   * Get junction
+   * @return junction
+  **/
+  @javax.annotation.Nullable
+  public Junction getJunction() {
+    return junction;
+  }
+
+
+  public void setJunction(Junction junction) {
+    this.junction = junction;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -300,15 +300,15 @@ public class ParameterFiltersListCustomerRedeemables {
       return false;
     }
     ParameterFiltersListCustomerRedeemables parameterFiltersListCustomerRedeemables = (ParameterFiltersListCustomerRedeemables) o;
-    return Objects.equals(this.junction, parameterFiltersListCustomerRedeemables.junction) &&
-        Objects.equals(this.id, parameterFiltersListCustomerRedeemables.id) &&
+    return Objects.equals(this.id, parameterFiltersListCustomerRedeemables.id) &&
         Objects.equals(this.createdAt, parameterFiltersListCustomerRedeemables.createdAt) &&
         Objects.equals(this.redeemableId, parameterFiltersListCustomerRedeemables.redeemableId) &&
         Objects.equals(this.redeemableObject, parameterFiltersListCustomerRedeemables.redeemableObject) &&
         Objects.equals(this.holderRole, parameterFiltersListCustomerRedeemables.holderRole) &&
         Objects.equals(this.campaignId, parameterFiltersListCustomerRedeemables.campaignId) &&
         Objects.equals(this.campaignType, parameterFiltersListCustomerRedeemables.campaignType) &&
-        Objects.equals(this.voucherType, parameterFiltersListCustomerRedeemables.voucherType);
+        Objects.equals(this.voucherType, parameterFiltersListCustomerRedeemables.voucherType) &&
+        Objects.equals(this.junction, parameterFiltersListCustomerRedeemables.junction);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -317,7 +317,7 @@ public class ParameterFiltersListCustomerRedeemables {
 
   @Override
   public int hashCode() {
-    return Objects.hash(junction, id, createdAt, redeemableId, redeemableObject, holderRole, campaignId, campaignType, voucherType);
+    return Objects.hash(id, createdAt, redeemableId, redeemableObject, holderRole, campaignId, campaignType, voucherType, junction);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -331,7 +331,6 @@ public class ParameterFiltersListCustomerRedeemables {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListCustomerRedeemables {\n");
-    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    redeemableId: ").append(toIndentedString(redeemableId)).append("\n");
@@ -340,6 +339,7 @@ public class ParameterFiltersListCustomerRedeemables {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
     sb.append("    voucherType: ").append(toIndentedString(voucherType)).append("\n");
+    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -362,7 +362,6 @@ public class ParameterFiltersListCustomerRedeemables {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("junction");
     openapiFields.add("id");
     openapiFields.add("created_at");
     openapiFields.add("redeemable_id");
@@ -371,6 +370,7 @@ public class ParameterFiltersListCustomerRedeemables {
     openapiFields.add("campaign_id");
     openapiFields.add("campaign_type");
     openapiFields.add("voucher_type");
+    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

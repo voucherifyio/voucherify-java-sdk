@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.FilterConditionsDateTimeConditions;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -54,31 +54,156 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class FilterConditionsDateTime {
-  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-  @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private FilterConditionsDateTimeConditions conditions;
+  public static final String SERIALIZED_NAME_$_AFTER = "$after";
+  @SerializedName(SERIALIZED_NAME_$_AFTER)
+  private OffsetDateTime $after;
+
+  public static final String SERIALIZED_NAME_$_BEFORE = "$before";
+  @SerializedName(SERIALIZED_NAME_$_BEFORE)
+  private OffsetDateTime $before;
+
+  public static final String SERIALIZED_NAME_$_HAS_VALUE = "$has_value";
+  @SerializedName(SERIALIZED_NAME_$_HAS_VALUE)
+  private String $hasValue;
+
+  public static final String SERIALIZED_NAME_$_IS_UNKNOWN = "$is_unknown";
+  @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
+  private String $isUnknown;
+
+  public static final String SERIALIZED_NAME_MORE_THAN = "more_than";
+  @SerializedName(SERIALIZED_NAME_MORE_THAN)
+  private Integer moreThan;
+
+  public static final String SERIALIZED_NAME_LESS_THAN = "less_than";
+  @SerializedName(SERIALIZED_NAME_LESS_THAN)
+  private Integer lessThan;
 
   public FilterConditionsDateTime() {
   }
 
-  public FilterConditionsDateTime conditions(FilterConditionsDateTimeConditions conditions) {
+  public FilterConditionsDateTime $after(OffsetDateTime $after) {
     
-    this.conditions = conditions;
+    this.$after = $after;
     return this;
   }
 
    /**
-   * Get conditions
-   * @return conditions
+   * Value is after this date. The value for this parameter is shown in the ISO 8601 format.
+   * @return $after
   **/
   @javax.annotation.Nullable
-  public FilterConditionsDateTimeConditions getConditions() {
-    return conditions;
+  public OffsetDateTime get$After() {
+    return $after;
   }
 
 
-  public void setConditions(FilterConditionsDateTimeConditions conditions) {
-    this.conditions = conditions;
+  public void set$After(OffsetDateTime $after) {
+    this.$after = $after;
+  }
+
+
+  public FilterConditionsDateTime $before(OffsetDateTime $before) {
+    
+    this.$before = $before;
+    return this;
+  }
+
+   /**
+   * Value is before this date. The value for this parameter is shown in the ISO 8601 format.
+   * @return $before
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime get$Before() {
+    return $before;
+  }
+
+
+  public void set$Before(OffsetDateTime $before) {
+    this.$before = $before;
+  }
+
+
+  public FilterConditionsDateTime $hasValue(String $hasValue) {
+    
+    this.$hasValue = $hasValue;
+    return this;
+  }
+
+   /**
+   * Value is NOT null. The value for this parameter is an empty string.
+   * @return $hasValue
+  **/
+  @javax.annotation.Nullable
+  public String get$HasValue() {
+    return $hasValue;
+  }
+
+
+  public void set$HasValue(String $hasValue) {
+    this.$hasValue = $hasValue;
+  }
+
+
+  public FilterConditionsDateTime $isUnknown(String $isUnknown) {
+    
+    this.$isUnknown = $isUnknown;
+    return this;
+  }
+
+   /**
+   * Value is null. The value for this parameter is an empty string.
+   * @return $isUnknown
+  **/
+  @javax.annotation.Nullable
+  public String get$IsUnknown() {
+    return $isUnknown;
+  }
+
+
+  public void set$IsUnknown(String $isUnknown) {
+    this.$isUnknown = $isUnknown;
+  }
+
+
+  public FilterConditionsDateTime moreThan(Integer moreThan) {
+    
+    this.moreThan = moreThan;
+    return this;
+  }
+
+   /**
+   * Value is more days ago before the current date and time, e.g. more than &#x60;10&#x60; days ago.
+   * @return moreThan
+  **/
+  @javax.annotation.Nullable
+  public Integer getMoreThan() {
+    return moreThan;
+  }
+
+
+  public void setMoreThan(Integer moreThan) {
+    this.moreThan = moreThan;
+  }
+
+
+  public FilterConditionsDateTime lessThan(Integer lessThan) {
+    
+    this.lessThan = lessThan;
+    return this;
+  }
+
+   /**
+   * Value is less days before the current date and time, e.g. less than &#x60;10&#x60; days ago.
+   * @return lessThan
+  **/
+  @javax.annotation.Nullable
+  public Integer getLessThan() {
+    return lessThan;
+  }
+
+
+  public void setLessThan(Integer lessThan) {
+    this.lessThan = lessThan;
   }
 
 
@@ -92,7 +217,12 @@ public class FilterConditionsDateTime {
       return false;
     }
     FilterConditionsDateTime filterConditionsDateTime = (FilterConditionsDateTime) o;
-    return Objects.equals(this.conditions, filterConditionsDateTime.conditions);
+    return Objects.equals(this.$after, filterConditionsDateTime.$after) &&
+        Objects.equals(this.$before, filterConditionsDateTime.$before) &&
+        Objects.equals(this.$hasValue, filterConditionsDateTime.$hasValue) &&
+        Objects.equals(this.$isUnknown, filterConditionsDateTime.$isUnknown) &&
+        Objects.equals(this.moreThan, filterConditionsDateTime.moreThan) &&
+        Objects.equals(this.lessThan, filterConditionsDateTime.lessThan);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -101,7 +231,7 @@ public class FilterConditionsDateTime {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions);
+    return Objects.hash($after, $before, $hasValue, $isUnknown, moreThan, lessThan);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -115,7 +245,12 @@ public class FilterConditionsDateTime {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterConditionsDateTime {\n");
-    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    $after: ").append(toIndentedString($after)).append("\n");
+    sb.append("    $before: ").append(toIndentedString($before)).append("\n");
+    sb.append("    $hasValue: ").append(toIndentedString($hasValue)).append("\n");
+    sb.append("    $isUnknown: ").append(toIndentedString($isUnknown)).append("\n");
+    sb.append("    moreThan: ").append(toIndentedString(moreThan)).append("\n");
+    sb.append("    lessThan: ").append(toIndentedString(lessThan)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,7 +273,12 @@ public class FilterConditionsDateTime {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("conditions");
+    openapiFields.add("$after");
+    openapiFields.add("$before");
+    openapiFields.add("$has_value");
+    openapiFields.add("$is_unknown");
+    openapiFields.add("more_than");
+    openapiFields.add("less_than");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

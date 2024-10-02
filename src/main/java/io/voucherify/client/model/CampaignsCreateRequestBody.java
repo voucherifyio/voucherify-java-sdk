@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CampaignsCreateRequestBodyPromotion;
 import io.voucherify.client.model.CampaignsCreateRequestBodyVoucher;
-import io.voucherify.client.model.LuckyDraw;
 import io.voucherify.client.model.ReferralProgram;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -247,9 +246,7 @@ public class CampaignsCreateRequestBody {
     
     LOYALTY_PROGRAM("LOYALTY_PROGRAM"),
     
-    PROMOTION("PROMOTION"),
-    
-    LUCKY_DRAW("LUCKY_DRAW");
+    PROMOTION("PROMOTION");
 
     private String value;
 
@@ -304,10 +301,6 @@ public class CampaignsCreateRequestBody {
   public static final String SERIALIZED_NAME_PROMOTION = "promotion";
   @SerializedName(SERIALIZED_NAME_PROMOTION)
   private CampaignsCreateRequestBodyPromotion promotion;
-
-  public static final String SERIALIZED_NAME_LUCKY_DRAW = "lucky_draw";
-  @SerializedName(SERIALIZED_NAME_LUCKY_DRAW)
-  private LuckyDraw luckyDraw;
 
   public CampaignsCreateRequestBody() {
   }
@@ -769,27 +762,6 @@ public class CampaignsCreateRequestBody {
   }
 
 
-  public CampaignsCreateRequestBody luckyDraw(LuckyDraw luckyDraw) {
-    
-    this.luckyDraw = luckyDraw;
-    return this;
-  }
-
-   /**
-   * Get luckyDraw
-   * @return luckyDraw
-  **/
-  @javax.annotation.Nullable
-  public LuckyDraw getLuckyDraw() {
-    return luckyDraw;
-  }
-
-
-  public void setLuckyDraw(LuckyDraw luckyDraw) {
-    this.luckyDraw = luckyDraw;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -820,8 +792,7 @@ public class CampaignsCreateRequestBody {
         Objects.equals(this.campaignType, campaignsCreateRequestBody.campaignType) &&
         Objects.equals(this.voucher, campaignsCreateRequestBody.voucher) &&
         Objects.equals(this.referralProgram, campaignsCreateRequestBody.referralProgram) &&
-        Objects.equals(this.promotion, campaignsCreateRequestBody.promotion) &&
-        Objects.equals(this.luckyDraw, campaignsCreateRequestBody.luckyDraw);
+        Objects.equals(this.promotion, campaignsCreateRequestBody.promotion);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -830,7 +801,7 @@ public class CampaignsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, validationRules, categoryId, category, metadata, campaignType, voucher, referralProgram, promotion, luckyDraw);
+    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, validationRules, categoryId, category, metadata, campaignType, voucher, referralProgram, promotion);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -865,7 +836,6 @@ public class CampaignsCreateRequestBody {
     sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
     sb.append("    promotion: ").append(toIndentedString(promotion)).append("\n");
-    sb.append("    luckyDraw: ").append(toIndentedString(luckyDraw)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -909,7 +879,6 @@ public class CampaignsCreateRequestBody {
     openapiFields.add("voucher");
     openapiFields.add("referral_program");
     openapiFields.add("promotion");
-    openapiFields.add("lucky_draw");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

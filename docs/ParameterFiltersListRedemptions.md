@@ -7,7 +7,6 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**junction** | **Junction** |  |
 |**voucherCode** | [**ParameterFiltersListRedemptionsVoucherCode**](ParameterFiltersListRedemptionsVoucherCode.md) |  |
 |**relatedObjectId** | [**ParameterFiltersListRedemptionsRelatedObjectId**](ParameterFiltersListRedemptionsRelatedObjectId.md) |  |
 |**relatedObjectParentId** | [**ParameterFiltersListRedemptionsRelatedObjectParentId**](ParameterFiltersListRedemptionsRelatedObjectParentId.md) |  |
@@ -18,6 +17,7 @@
 |**customerId** | [**ParameterFiltersListRedemptionsCustomerId**](ParameterFiltersListRedemptionsCustomerId.md) |  |
 |**campaignName** | [**ParameterFiltersListRedemptionsCampaignName**](ParameterFiltersListRedemptionsCampaignName.md) |  |
 |**userLogin** | [**ParameterFiltersListRedemptionsUserLogin**](ParameterFiltersListRedemptionsUserLogin.md) |  |
+|**junction** | **Junction** |  |
 
 
 
