@@ -2,10 +2,9 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -20,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @org.junit.jupiter.api.Order(5)
@@ -49,8 +49,8 @@ public class LoyaltiesTest {
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException | JsonSyntaxException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -69,10 +69,10 @@ public class LoyaltiesTest {
                     loyaltiesMembersBalanceUpdateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "balance", "total");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
             assertNotNull(responseBody);
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -86,7 +86,6 @@ public class LoyaltiesTest {
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
-            System.out.println(e);
             fail();
         }
     }
