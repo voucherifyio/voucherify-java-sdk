@@ -151,6 +151,46 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - ApplicableToEffect - changed - `EVERY` -> `TO_EVERY`, `CHEAPEST` -> `TO_CHEAPEST`, `MOST_EXPENSIVE` -> `TO_MOST_EXPENSIVE`, 2 new values introduced.
     - `listPublications` parameter `filters` have changed - now uses `ParameterFiltersListPublications` instead of `String`
     - `ParameterFiltersListRedemptions` and `ParameterFiltersListCustomerRedeemables` have been updated
+    - enum `LUCKY_DRAW`, `LUCKY_DRAW_CODE`, `VOUCHER_LUCKY_DRAW_CODE`, `CAMPAIGN_LUCKY_DRAW` have been deleted from everywhere and no longer supported
+    - CampaignsUpdateRequestBody - properties `activityDurationAfterPublishing`, `joinOnce`, `autoJoin`, `type`, `uniqueWinners`, `uniqueWinnersPerDraw` and enum `AUTO_UPDATE` | `STATIC` have been deleted and no longer supported
+    - `updateCustomersConsents` has been deleted and no longer supported
+    - `FilterConditionsDateTimeConditions` model has been renamed to `FilterConditionsDateTime`
+    - FilterConditionsDateTime - `conditions` has been divided on `$after`, `$before`, `$hasValue`, `$isUnknown`, `moreThan`, `lessThan` properties
+    - ParamterFiltersListCustomerRedeemables - model name of `createdAt` has been renamed from `FilterConditionsDateTime` to `ParameterFiltersListCustomerRedeemablesCreatedAt`
+
+  - Added support:
+    - /management/v1/projects/users/invite, post - Invite Users
+    - /management/v1/projects/{projectId}/users, get - Get Project
+    - /management/v1/projects/{projectId}/users, post - Create Project
+    - /management/v1/projects/{projectId}/users/{userId}, get - Get User
+    - /management/v1/projects/{projectId}/users/{userId}, put - Update User
+    - /management/v1/projects/{projectId}/users/{userId}, delete - Unassign User
+    - /management/v1/projects/{projectId}/metadata-schemas, post - Create Metadata Schema
+    - /management/v1/projects/{projectId}/metadata-schemas, get - List Metadata Schemas
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, get - Get Metadata Schema
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, put - Update Metadata Schema
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, delete - Delete Metadata Schema
+    - /management/v1/projects/{projectId}/custom-event-schemas, post - Create Custom Event Schema
+    - /management/v1/projects/{projectId}/custom-event-schemas, get - List Custom Event Schema
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, get - Get Custom Event Schema
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, put - Update Custom Event Schema
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, delete - Delete Custom Event Schema
+    - /management/v1/projects/{projectId}/stacking-rules, post - Create Stacking Rules
+    - /management/v1/projects/{projectId}/stacking-rules, get - List Stacking Rules
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, get - Get Stacking Rules
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, put - Update Stacking Rules
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, delete - Delete Stacking Rules
+    - /management/v1/projects/{projectId}/webhooks, post - Create Webhook
+    - /management/v1/projects/{projectId}/webhooks, get - List Webhooks
+    - /management/v1/projects/{projectId}/webhooks/{webhookId}, get - Get Webhook
+    - /management/v1/projects/{projectId}/webhooks/{webhookId}, put - Update Webhook
+    - /management/v1/projects/{projectId}/webhooks/{webhookId}, delete - Delete Webhook
+    - /management/v1/projects/{projectId}/branding, post - Create Brand
+    - /management/v1/projects/{projectId}/branding, get - List Brands
+    - /management/v1/projects/{projectId}/branding/{brandingId}, get - Get Brand
+    - /management/v1/projects/{projectId}/branding/{brandingId}, put - Update Brand
+    - /management/v1/projects/{projectId}/branding/{brandingId}, delete - Delete Brand
+
 - **2024-09-05** - `14.0.0`
   - Added support:
     - /v1/vouchers, get - List Vouchers
