@@ -264,15 +264,15 @@
 | /v1/categories/{categoryId} | delete | Delete Category | <font color='green'>supported</font> |               |
 | /v1/categories/{categoryId} | put    | Update Category | <font color='green'>supported</font> |               |
 ## Metadata Schemas
-| endpoint                        | method | summary               | is supported | is deprecated |
-| ------------------------------- | ------ | --------------------- | ------------ | ------------- |
-| /v1/metadata-schemas            | get    | List Metadata Schemas |              |               |
-| /v1/metadata-schemas/{resource} | get    | Get Metadata Schema   |              |               |
+| endpoint                        | method | summary               | is supported                         | is deprecated |
+| ------------------------------- | ------ | --------------------- | ------------------------------------ | ------------- |
+| /v1/metadata-schemas            | get    | List Metadata Schemas | <font color='green'>supported</font> |               |
+| /v1/metadata-schemas/{resource} | get    | Get Metadata Schema   | <font color='green'>supported</font> |               |
 ## Locations
-| endpoint                   | method | summary        | is supported | is deprecated |
-| -------------------------- | ------ | -------------- | ------------ | ------------- |
-| /v1/locations              | get    | List Locations |              |               |
-| /v1/locations/{locationId} | get    | Get Location   |              |               |
+| endpoint                   | method | summary        | is supported                         | is deprecated |
+| -------------------------- | ------ | -------------- | ------------------------------------ | ------------- |
+| /v1/locations              | get    | List Locations | <font color='green'>supported</font> |               |
+| /v1/locations/{locationId} | get    | Get Location   | <font color='green'>supported</font> |               |
 ## Referrals
 | endpoint                                                         | method | summary                     | is supported | is deprecated |
 | ---------------------------------------------------------------- | ------ | --------------------------- | ------------ | ------------- |

@@ -159,6 +159,10 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - ParamterFiltersListCustomerRedeemables - model name of `createdAt` has been renamed from `FilterConditionsDateTime` to `ParameterFiltersListCustomerRedeemablesCreatedAt`
 
   - Added support:
+    - /v1/locations - List Locations
+    - /v1/locations/{locationId} - Get Location
+    - /v1/metadata-schemas - List Metadata Schemas
+    - /v1/metadata-schemas/{resource} - Get Metadata Schema
     - /management/v1/projects/users/invite, post - Invite Users
     - /management/v1/projects/{projectId}/users, get - Get Project
     - /management/v1/projects/{projectId}/users, post - Create Project
@@ -480,6 +484,8 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**downloadExport**](docs/ExportsApi.md#downloadExport) | **GET** /v1/exports/{export_Id} | Download Export
 *ExportsApi* | [**getExport**](docs/ExportsApi.md#getExport) | **GET** /v1/exports/{exportId} | Get Export
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
+*LocationsApi* | [**getLocation**](docs/LocationsApi.md#getLocation) | **GET** /v1/locations/{locationId} | Get Location
+*LocationsApi* | [**listLocations**](docs/LocationsApi.md#listLocations) | **GET** /v1/locations | List Locations
 *LoyaltiesApi* | [**addMember**](docs/LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member
 *LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
@@ -560,6 +566,8 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**updateStackingRules**](docs/ManagementApi.md#updateStackingRules) | **PUT** /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId} | Update Stacking Rules
 *ManagementApi* | [**updateUser**](docs/ManagementApi.md#updateUser) | **PUT** /management/v1/projects/{projectId}/users/{userId} | Update User
 *ManagementApi* | [**updateWebhook**](docs/ManagementApi.md#updateWebhook) | **PUT** /management/v1/projects/{projectId}/webhooks/{webhookId} | Update Webhook
+*MetadataSchemasApi* | [**getMetadataSchema**](docs/MetadataSchemasApi.md#getMetadataSchema) | **GET** /v1/metadata-schemas/{resource} | Get Metadata Schema
+*MetadataSchemasApi* | [**listMetadataSchemas**](docs/MetadataSchemasApi.md#listMetadataSchemas) | **GET** /v1/metadata-schemas | List Metadata Schemas
 *OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/orders | Create Order
 *OrdersApi* | [**createOrderExport**](docs/OrdersApi.md#createOrderExport) | **POST** /v1/orders/export | Create Orders Export
 *OrdersApi* | [**getOrder**](docs/OrdersApi.md#getOrder) | **GET** /v1/orders/{orderId} | Get Order
@@ -829,6 +837,15 @@ Class | Method | HTTP request | Description
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
+- [Location](docs/Location.md)
+- [LocationShape](docs/LocationShape.md)
+- [LocationShapeDistance](docs/LocationShapeDistance.md)
+- [LocationShapeGeojson](docs/LocationShapeGeojson.md)
+- [LocationsGetResponseBody](docs/LocationsGetResponseBody.md)
+- [LocationsGetResponseBodyShape](docs/LocationsGetResponseBodyShape.md)
+- [LocationsGetResponseBodyShapeDistance](docs/LocationsGetResponseBodyShapeDistance.md)
+- [LocationsGetResponseBodyShapeGeojson](docs/LocationsGetResponseBodyShapeGeojson.md)
+- [LocationsListResponseBody](docs/LocationsListResponseBody.md)
 - [LoyaltiesCreateCampaignRequestBody](docs/LoyaltiesCreateCampaignRequestBody.md)
 - [LoyaltiesCreateCampaignResponseBody](docs/LoyaltiesCreateCampaignResponseBody.md)
 - [LoyaltiesDeleteResponseBody](docs/LoyaltiesDeleteResponseBody.md)
@@ -1210,6 +1227,10 @@ Class | Method | HTTP request | Description
 - [ManagementProjectsWebhooksUpdateResponseBody](docs/ManagementProjectsWebhooksUpdateResponseBody.md)
 - [MappingPoints](docs/MappingPoints.md)
 - [MemberActivity](docs/MemberActivity.md)
+- [MetadataSchema](docs/MetadataSchema.md)
+- [MetadataSchemaDefinition](docs/MetadataSchemaDefinition.md)
+- [MetadataSchemasGetResponseBody](docs/MetadataSchemasGetResponseBody.md)
+- [MetadataSchemasListResponseBody](docs/MetadataSchemasListResponseBody.md)
 - [Order](docs/Order.md)
 - [OrderCalculated](docs/OrderCalculated.md)
 - [OrderCalculatedItem](docs/OrderCalculatedItem.md)
@@ -1262,6 +1283,8 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions](docs/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherType](docs/ParameterFiltersListCustomerRedeemablesVoucherType.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherTypeConditions](docs/ParameterFiltersListCustomerRedeemablesVoucherTypeConditions.md)
+- [ParameterFiltersListLocations](docs/ParameterFiltersListLocations.md)
+- [ParameterFiltersListLocationsName](docs/ParameterFiltersListLocationsName.md)
 - [ParameterFiltersListPublications](docs/ParameterFiltersListPublications.md)
 - [ParameterFiltersListPublicationsCampaignName](docs/ParameterFiltersListPublicationsCampaignName.md)
 - [ParameterFiltersListPublicationsCustomerId](docs/ParameterFiltersListPublicationsCustomerId.md)
@@ -1291,6 +1314,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListCustomers](docs/ParameterOrderListCustomers.md)
 - [ParameterOrderListEarningRules](docs/ParameterOrderListEarningRules.md)
 - [ParameterOrderListExports](docs/ParameterOrderListExports.md)
+- [ParameterOrderListLocations](docs/ParameterOrderListLocations.md)
 - [ParameterOrderListLoyaltyTiers](docs/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/ParameterOrderListOrders.md)
 - [ParameterOrderListPromotionTiers](docs/ParameterOrderListPromotionTiers.md)
