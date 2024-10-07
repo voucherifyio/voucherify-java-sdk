@@ -62,6 +62,26 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CampaignsUpdateRequestBody {
+  public static final String SERIALIZED_NAME_DISCOUNT = "discount";
+  @SerializedName(SERIALIZED_NAME_DISCOUNT)
+  private Object discount;
+
+  public static final String SERIALIZED_NAME_REFERRAL_PROGRAM = "referral_program";
+  @SerializedName(SERIALIZED_NAME_REFERRAL_PROGRAM)
+  private ReferralProgram referralProgram;
+
+  public static final String SERIALIZED_NAME_GIFT = "gift";
+  @SerializedName(SERIALIZED_NAME_GIFT)
+  private Gift gift;
+
+  public static final String SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION = "loyalty_tiers_expiration";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION)
+  private LoyaltyTiersExpirationAll loyaltyTiersExpiration;
+
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private CampaignsUpdateRequestBodyOptions options;
+
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
@@ -159,103 +179,113 @@ public class CampaignsUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
 
-  public static final String SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING = "activity_duration_after_publishing";
-  @SerializedName(SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING)
-  private String activityDurationAfterPublishing;
-
-  public static final String SERIALIZED_NAME_JOIN_ONCE = "join_once";
-  @SerializedName(SERIALIZED_NAME_JOIN_ONCE)
-  private Boolean joinOnce;
-
-  public static final String SERIALIZED_NAME_AUTO_JOIN = "auto_join";
-  @SerializedName(SERIALIZED_NAME_AUTO_JOIN)
-  private Boolean autoJoin;
-
-  /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method).     -  &#x60;STATIC&#x60;: vouchers need to be manually published.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    AUTO_UPDATE("AUTO_UPDATE"),
-    
-    STATIC("STATIC");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_DISCOUNT = "discount";
-  @SerializedName(SERIALIZED_NAME_DISCOUNT)
-  private Object discount;
-
-  public static final String SERIALIZED_NAME_REFERRAL_PROGRAM = "referral_program";
-  @SerializedName(SERIALIZED_NAME_REFERRAL_PROGRAM)
-  private ReferralProgram referralProgram;
-
-  public static final String SERIALIZED_NAME_GIFT = "gift";
-  @SerializedName(SERIALIZED_NAME_GIFT)
-  private Gift gift;
-
-  public static final String SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION = "loyalty_tiers_expiration";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION)
-  private LoyaltyTiersExpirationAll loyaltyTiersExpiration;
-
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private CampaignsUpdateRequestBodyOptions options;
-
-  public static final String SERIALIZED_NAME_WINNERS_COUNT = "winners_count";
-  @SerializedName(SERIALIZED_NAME_WINNERS_COUNT)
-  private String winnersCount;
-
-  public static final String SERIALIZED_NAME_UNIQUE_WINNERS_PER_DRAW = "unique_winners_per_draw";
-  @SerializedName(SERIALIZED_NAME_UNIQUE_WINNERS_PER_DRAW)
-  private String uniqueWinnersPerDraw;
-
-  public static final String SERIALIZED_NAME_UNIQUE_WINNERS = "unique_winners";
-  @SerializedName(SERIALIZED_NAME_UNIQUE_WINNERS)
-  private String uniqueWinners;
-
   public CampaignsUpdateRequestBody() {
   }
+
+  public CampaignsUpdateRequestBody discount(Object discount) {
+    
+    this.discount = discount;
+    return this;
+  }
+
+   /**
+   * Get discount
+   * @return discount
+  **/
+  @javax.annotation.Nullable
+  public Object getDiscount() {
+    return discount;
+  }
+
+
+  public void setDiscount(Object discount) {
+    this.discount = discount;
+  }
+
+
+  public CampaignsUpdateRequestBody referralProgram(ReferralProgram referralProgram) {
+    
+    this.referralProgram = referralProgram;
+    return this;
+  }
+
+   /**
+   * Get referralProgram
+   * @return referralProgram
+  **/
+  @javax.annotation.Nullable
+  public ReferralProgram getReferralProgram() {
+    return referralProgram;
+  }
+
+
+  public void setReferralProgram(ReferralProgram referralProgram) {
+    this.referralProgram = referralProgram;
+  }
+
+
+  public CampaignsUpdateRequestBody gift(Gift gift) {
+    
+    this.gift = gift;
+    return this;
+  }
+
+   /**
+   * Get gift
+   * @return gift
+  **/
+  @javax.annotation.Nullable
+  public Gift getGift() {
+    return gift;
+  }
+
+
+  public void setGift(Gift gift) {
+    this.gift = gift;
+  }
+
+
+  public CampaignsUpdateRequestBody loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
+    
+    this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+    return this;
+  }
+
+   /**
+   * Get loyaltyTiersExpiration
+   * @return loyaltyTiersExpiration
+  **/
+  @javax.annotation.Nullable
+  public LoyaltyTiersExpirationAll getLoyaltyTiersExpiration() {
+    return loyaltyTiersExpiration;
+  }
+
+
+  public void setLoyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
+    this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+  }
+
+
+  public CampaignsUpdateRequestBody options(CampaignsUpdateRequestBodyOptions options) {
+    
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  public CampaignsUpdateRequestBodyOptions getOptions() {
+    return options;
+  }
+
+
+  public void setOptions(CampaignsUpdateRequestBodyOptions options) {
+    this.options = options;
+  }
+
 
   public CampaignsUpdateRequestBody startDate(OffsetDateTime startDate) {
     
@@ -419,7 +449,7 @@ public class CampaignsUpdateRequestBody {
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -483,258 +513,6 @@ public class CampaignsUpdateRequestBody {
   }
 
 
-  public CampaignsUpdateRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
-    
-    this.activityDurationAfterPublishing = activityDurationAfterPublishing;
-    return this;
-  }
-
-   /**
-   * Defines the amount of time the vouchers will be active after publishing. The value is shown in the ISO 8601 format. For example, a voucher with the value of P24D will be valid for a duration of 24 days.
-   * @return activityDurationAfterPublishing
-  **/
-  @javax.annotation.Nullable
-  public String getActivityDurationAfterPublishing() {
-    return activityDurationAfterPublishing;
-  }
-
-
-  public void setActivityDurationAfterPublishing(String activityDurationAfterPublishing) {
-    this.activityDurationAfterPublishing = activityDurationAfterPublishing;
-  }
-
-
-  public CampaignsUpdateRequestBody joinOnce(Boolean joinOnce) {
-    
-    this.joinOnce = joinOnce;
-    return this;
-  }
-
-   /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
-   * @return joinOnce
-  **/
-  @javax.annotation.Nullable
-  public Boolean getJoinOnce() {
-    return joinOnce;
-  }
-
-
-  public void setJoinOnce(Boolean joinOnce) {
-    this.joinOnce = joinOnce;
-  }
-
-
-  public CampaignsUpdateRequestBody autoJoin(Boolean autoJoin) {
-    
-    this.autoJoin = autoJoin;
-    return this;
-  }
-
-   /**
-   * Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
-   * @return autoJoin
-  **/
-  @javax.annotation.Nullable
-  public Boolean getAutoJoin() {
-    return autoJoin;
-  }
-
-
-  public void setAutoJoin(Boolean autoJoin) {
-    this.autoJoin = autoJoin;
-  }
-
-
-  public CampaignsUpdateRequestBody type(TypeEnum type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method).     -  &#x60;STATIC&#x60;: vouchers need to be manually published.
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public CampaignsUpdateRequestBody discount(Object discount) {
-    
-    this.discount = discount;
-    return this;
-  }
-
-   /**
-   * Get discount
-   * @return discount
-  **/
-  @javax.annotation.Nullable
-  public Object getDiscount() {
-    return discount;
-  }
-
-
-  public void setDiscount(Object discount) {
-    this.discount = discount;
-  }
-
-
-  public CampaignsUpdateRequestBody referralProgram(ReferralProgram referralProgram) {
-    
-    this.referralProgram = referralProgram;
-    return this;
-  }
-
-   /**
-   * Get referralProgram
-   * @return referralProgram
-  **/
-  @javax.annotation.Nullable
-  public ReferralProgram getReferralProgram() {
-    return referralProgram;
-  }
-
-
-  public void setReferralProgram(ReferralProgram referralProgram) {
-    this.referralProgram = referralProgram;
-  }
-
-
-  public CampaignsUpdateRequestBody gift(Gift gift) {
-    
-    this.gift = gift;
-    return this;
-  }
-
-   /**
-   * Get gift
-   * @return gift
-  **/
-  @javax.annotation.Nullable
-  public Gift getGift() {
-    return gift;
-  }
-
-
-  public void setGift(Gift gift) {
-    this.gift = gift;
-  }
-
-
-  public CampaignsUpdateRequestBody loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
-    
-    this.loyaltyTiersExpiration = loyaltyTiersExpiration;
-    return this;
-  }
-
-   /**
-   * Get loyaltyTiersExpiration
-   * @return loyaltyTiersExpiration
-  **/
-  @javax.annotation.Nullable
-  public LoyaltyTiersExpirationAll getLoyaltyTiersExpiration() {
-    return loyaltyTiersExpiration;
-  }
-
-
-  public void setLoyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
-    this.loyaltyTiersExpiration = loyaltyTiersExpiration;
-  }
-
-
-  public CampaignsUpdateRequestBody options(CampaignsUpdateRequestBodyOptions options) {
-    
-    this.options = options;
-    return this;
-  }
-
-   /**
-   * Get options
-   * @return options
-  **/
-  @javax.annotation.Nullable
-  public CampaignsUpdateRequestBodyOptions getOptions() {
-    return options;
-  }
-
-
-  public void setOptions(CampaignsUpdateRequestBodyOptions options) {
-    this.options = options;
-  }
-
-
-  public CampaignsUpdateRequestBody winnersCount(String winnersCount) {
-    
-    this.winnersCount = winnersCount;
-    return this;
-  }
-
-   /**
-   * It represents the total number of winners in a lucky draw.
-   * @return winnersCount
-  **/
-  @javax.annotation.Nullable
-  public String getWinnersCount() {
-    return winnersCount;
-  }
-
-
-  public void setWinnersCount(String winnersCount) {
-    this.winnersCount = winnersCount;
-  }
-
-
-  public CampaignsUpdateRequestBody uniqueWinnersPerDraw(String uniqueWinnersPerDraw) {
-    
-    this.uniqueWinnersPerDraw = uniqueWinnersPerDraw;
-    return this;
-  }
-
-   /**
-   * It indicates whether each winner in a draw is unique or not.
-   * @return uniqueWinnersPerDraw
-  **/
-  @javax.annotation.Nullable
-  public String getUniqueWinnersPerDraw() {
-    return uniqueWinnersPerDraw;
-  }
-
-
-  public void setUniqueWinnersPerDraw(String uniqueWinnersPerDraw) {
-    this.uniqueWinnersPerDraw = uniqueWinnersPerDraw;
-  }
-
-
-  public CampaignsUpdateRequestBody uniqueWinners(String uniqueWinners) {
-    
-    this.uniqueWinners = uniqueWinners;
-    return this;
-  }
-
-   /**
-   * Specifies whether each participant can win only once across multiple draws.
-   * @return uniqueWinners
-  **/
-  @javax.annotation.Nullable
-  public String getUniqueWinners() {
-    return uniqueWinners;
-  }
-
-
-  public void setUniqueWinners(String uniqueWinners) {
-    this.uniqueWinners = uniqueWinners;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -745,7 +523,12 @@ public class CampaignsUpdateRequestBody {
       return false;
     }
     CampaignsUpdateRequestBody campaignsUpdateRequestBody = (CampaignsUpdateRequestBody) o;
-    return Objects.equals(this.startDate, campaignsUpdateRequestBody.startDate) &&
+    return Objects.equals(this.discount, campaignsUpdateRequestBody.discount) &&
+        Objects.equals(this.referralProgram, campaignsUpdateRequestBody.referralProgram) &&
+        Objects.equals(this.gift, campaignsUpdateRequestBody.gift) &&
+        Objects.equals(this.loyaltyTiersExpiration, campaignsUpdateRequestBody.loyaltyTiersExpiration) &&
+        Objects.equals(this.options, campaignsUpdateRequestBody.options) &&
+        Objects.equals(this.startDate, campaignsUpdateRequestBody.startDate) &&
         Objects.equals(this.expirationDate, campaignsUpdateRequestBody.expirationDate) &&
         Objects.equals(this.validityTimeframe, campaignsUpdateRequestBody.validityTimeframe) &&
         Objects.equals(this.validityDayOfWeek, campaignsUpdateRequestBody.validityDayOfWeek) &&
@@ -754,19 +537,7 @@ public class CampaignsUpdateRequestBody {
         Objects.equals(this.category, campaignsUpdateRequestBody.category) &&
         Objects.equals(this.metadata, campaignsUpdateRequestBody.metadata) &&
         Objects.equals(this.unsetMetadataFields, campaignsUpdateRequestBody.unsetMetadataFields) &&
-        Objects.equals(this.categoryId, campaignsUpdateRequestBody.categoryId) &&
-        Objects.equals(this.activityDurationAfterPublishing, campaignsUpdateRequestBody.activityDurationAfterPublishing) &&
-        Objects.equals(this.joinOnce, campaignsUpdateRequestBody.joinOnce) &&
-        Objects.equals(this.autoJoin, campaignsUpdateRequestBody.autoJoin) &&
-        Objects.equals(this.type, campaignsUpdateRequestBody.type) &&
-        Objects.equals(this.discount, campaignsUpdateRequestBody.discount) &&
-        Objects.equals(this.referralProgram, campaignsUpdateRequestBody.referralProgram) &&
-        Objects.equals(this.gift, campaignsUpdateRequestBody.gift) &&
-        Objects.equals(this.loyaltyTiersExpiration, campaignsUpdateRequestBody.loyaltyTiersExpiration) &&
-        Objects.equals(this.options, campaignsUpdateRequestBody.options) &&
-        Objects.equals(this.winnersCount, campaignsUpdateRequestBody.winnersCount) &&
-        Objects.equals(this.uniqueWinnersPerDraw, campaignsUpdateRequestBody.uniqueWinnersPerDraw) &&
-        Objects.equals(this.uniqueWinners, campaignsUpdateRequestBody.uniqueWinners);
+        Objects.equals(this.categoryId, campaignsUpdateRequestBody.categoryId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -775,7 +546,7 @@ public class CampaignsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, activityDurationAfterPublishing, joinOnce, autoJoin, type, discount, referralProgram, gift, loyaltyTiersExpiration, options, winnersCount, uniqueWinnersPerDraw, uniqueWinners);
+    return Objects.hash(discount, referralProgram, gift, loyaltyTiersExpiration, options, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -789,6 +560,11 @@ public class CampaignsUpdateRequestBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CampaignsUpdateRequestBody {\n");
+    sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
+    sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
+    sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
+    sb.append("    loyaltyTiersExpiration: ").append(toIndentedString(loyaltyTiersExpiration)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
@@ -799,18 +575,6 @@ public class CampaignsUpdateRequestBody {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    unsetMetadataFields: ").append(toIndentedString(unsetMetadataFields)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
-    sb.append("    activityDurationAfterPublishing: ").append(toIndentedString(activityDurationAfterPublishing)).append("\n");
-    sb.append("    joinOnce: ").append(toIndentedString(joinOnce)).append("\n");
-    sb.append("    autoJoin: ").append(toIndentedString(autoJoin)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
-    sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
-    sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
-    sb.append("    loyaltyTiersExpiration: ").append(toIndentedString(loyaltyTiersExpiration)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    winnersCount: ").append(toIndentedString(winnersCount)).append("\n");
-    sb.append("    uniqueWinnersPerDraw: ").append(toIndentedString(uniqueWinnersPerDraw)).append("\n");
-    sb.append("    uniqueWinners: ").append(toIndentedString(uniqueWinners)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -833,6 +597,11 @@ public class CampaignsUpdateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("discount");
+    openapiFields.add("referral_program");
+    openapiFields.add("gift");
+    openapiFields.add("loyalty_tiers_expiration");
+    openapiFields.add("options");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
     openapiFields.add("validity_timeframe");
@@ -843,18 +612,6 @@ public class CampaignsUpdateRequestBody {
     openapiFields.add("metadata");
     openapiFields.add("unset_metadata_fields");
     openapiFields.add("category_id");
-    openapiFields.add("activity_duration_after_publishing");
-    openapiFields.add("join_once");
-    openapiFields.add("auto_join");
-    openapiFields.add("type");
-    openapiFields.add("discount");
-    openapiFields.add("referral_program");
-    openapiFields.add("gift");
-    openapiFields.add("loyalty_tiers_expiration");
-    openapiFields.add("options");
-    openapiFields.add("winners_count");
-    openapiFields.add("unique_winners_per_draw");
-    openapiFields.add("unique_winners");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

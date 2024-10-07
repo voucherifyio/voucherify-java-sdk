@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCampaignId;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCampaignType;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCreatedAt;
@@ -92,6 +93,10 @@ public class ParameterFiltersListCustomerRedeemables {
   public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private ParameterFiltersListCustomerRedeemablesVoucherType voucherType;
+
+  public static final String SERIALIZED_NAME_JUNCTION = "junction";
+  @SerializedName(SERIALIZED_NAME_JUNCTION)
+  private Junction junction;
 
   public ParameterFiltersListCustomerRedeemables() {
   }
@@ -264,6 +269,27 @@ public class ParameterFiltersListCustomerRedeemables {
   }
 
 
+  public ParameterFiltersListCustomerRedeemables junction(Junction junction) {
+    
+    this.junction = junction;
+    return this;
+  }
+
+   /**
+   * Get junction
+   * @return junction
+  **/
+  @javax.annotation.Nullable
+  public Junction getJunction() {
+    return junction;
+  }
+
+
+  public void setJunction(Junction junction) {
+    this.junction = junction;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -281,7 +307,8 @@ public class ParameterFiltersListCustomerRedeemables {
         Objects.equals(this.holderRole, parameterFiltersListCustomerRedeemables.holderRole) &&
         Objects.equals(this.campaignId, parameterFiltersListCustomerRedeemables.campaignId) &&
         Objects.equals(this.campaignType, parameterFiltersListCustomerRedeemables.campaignType) &&
-        Objects.equals(this.voucherType, parameterFiltersListCustomerRedeemables.voucherType);
+        Objects.equals(this.voucherType, parameterFiltersListCustomerRedeemables.voucherType) &&
+        Objects.equals(this.junction, parameterFiltersListCustomerRedeemables.junction);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -290,7 +317,7 @@ public class ParameterFiltersListCustomerRedeemables {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, redeemableId, redeemableObject, holderRole, campaignId, campaignType, voucherType);
+    return Objects.hash(id, createdAt, redeemableId, redeemableObject, holderRole, campaignId, campaignType, voucherType, junction);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,6 +339,7 @@ public class ParameterFiltersListCustomerRedeemables {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
     sb.append("    voucherType: ").append(toIndentedString(voucherType)).append("\n");
+    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -342,6 +370,7 @@ public class ParameterFiltersListCustomerRedeemables {
     openapiFields.add("campaign_id");
     openapiFields.add("campaign_type");
     openapiFields.add("voucher_type");
+    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

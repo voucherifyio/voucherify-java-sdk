@@ -198,7 +198,7 @@ public class Example {
     ParameterResultListPublications result = ParameterResultListPublications.fromValue("SUCCESS"); // ParameterResultListPublications | Filters by a publication result.
     ParameterVoucherTypeListPublications voucherType = ParameterVoucherTypeListPublications.fromValue("discount"); // ParameterVoucherTypeListPublications | Filters by a voucher type.
     Boolean isReferralCode = true; // Boolean | This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. 
-    String filters = "filters_example"; // String | Allows for combining the filters mentioned in the endpoint description.
+    ParameterFiltersListPublications filters = new ParameterFiltersListPublications(); // ParameterFiltersListPublications | Filters for listing publications.
     String sourceId = "sourceId_example"; // String | Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id.
     try {
       PublicationsListResponseBody result = apiInstance.listPublications(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId);
@@ -227,7 +227,7 @@ public class Example {
 | **result** | [**ParameterResultListPublications**](.md)| Filters by a publication result. |
 | **voucherType** | [**ParameterVoucherTypeListPublications**](.md)| Filters by a voucher type. |
 | **isReferralCode** | **Boolean**| This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  |
-| **filters** | **String**| Allows for combining the filters mentioned in the endpoint description. |
+| **filters** | [**ParameterFiltersListPublications**](.md)| Filters for listing publications. |
 | **sourceId** | **String**| Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. |
 
 ### Return type

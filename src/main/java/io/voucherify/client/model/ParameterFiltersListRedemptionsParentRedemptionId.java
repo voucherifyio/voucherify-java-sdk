@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.FilterConditionsString;
-import io.voucherify.client.model.Junction;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -58,10 +57,6 @@ public class ParameterFiltersListRedemptionsParentRedemptionId {
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private FilterConditionsString conditions;
 
-  public static final String SERIALIZED_NAME_JUNCTION = "junction";
-  @SerializedName(SERIALIZED_NAME_JUNCTION)
-  private Junction junction;
-
   public ParameterFiltersListRedemptionsParentRedemptionId() {
   }
 
@@ -86,27 +81,6 @@ public class ParameterFiltersListRedemptionsParentRedemptionId {
   }
 
 
-  public ParameterFiltersListRedemptionsParentRedemptionId junction(Junction junction) {
-    
-    this.junction = junction;
-    return this;
-  }
-
-   /**
-   * Get junction
-   * @return junction
-  **/
-  @javax.annotation.Nullable
-  public Junction getJunction() {
-    return junction;
-  }
-
-
-  public void setJunction(Junction junction) {
-    this.junction = junction;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -117,13 +91,12 @@ public class ParameterFiltersListRedemptionsParentRedemptionId {
       return false;
     }
     ParameterFiltersListRedemptionsParentRedemptionId parameterFiltersListRedemptionsParentRedemptionId = (ParameterFiltersListRedemptionsParentRedemptionId) o;
-    return Objects.equals(this.conditions, parameterFiltersListRedemptionsParentRedemptionId.conditions) &&
-        Objects.equals(this.junction, parameterFiltersListRedemptionsParentRedemptionId.junction);
+    return Objects.equals(this.conditions, parameterFiltersListRedemptionsParentRedemptionId.conditions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, junction);
+    return Objects.hash(conditions);
   }
 
   @Override
@@ -131,7 +104,6 @@ public class ParameterFiltersListRedemptionsParentRedemptionId {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListRedemptionsParentRedemptionId {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,7 +127,6 @@ public class ParameterFiltersListRedemptionsParentRedemptionId {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conditions");
-    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

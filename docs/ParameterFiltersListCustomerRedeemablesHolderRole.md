@@ -9,7 +9,6 @@ Holder role of the redeemable. Allowed values: `OWNER`, `REFEREE`, `REFERRER`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**ParameterFiltersListCustomerRedeemablesHolderRoleConditions**](ParameterFiltersListCustomerRedeemablesHolderRoleConditions.md) |  |
-|**junction** | **Junction** |  |
 
 
 
