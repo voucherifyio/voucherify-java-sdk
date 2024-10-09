@@ -157,6 +157,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - `FilterConditionsDateTimeConditions` model has been renamed to `FilterConditionsDateTime`
     - FilterConditionsDateTime - `conditions` has been divided on `$after`, `$before`, `$hasValue`, `$isUnknown`, `moreThan`, `lessThan` properties
     - ParamterFiltersListCustomerRedeemables - model name of `createdAt` has been renamed from `FilterConditionsDateTime` to `ParameterFiltersListCustomerRedeemablesCreatedAt`
+    - `filter` property in schemas ProductCollectionsCreateRequestBody, ProductCollectionsCreateResponseBody, ProductCollectionsItem and ProductCollectionsGetResponseBody has changed. Uses plain `object`.
 
   - Added support:
     - /v1/locations - List Locations
@@ -1332,16 +1333,12 @@ Class | Method | HTTP request | Description
 - [PointsExpirationTypes](docs/PointsExpirationTypes.md)
 - [Product](docs/Product.md)
 - [ProductCollectionsCreateRequestBody](docs/ProductCollectionsCreateRequestBody.md)
-- [ProductCollectionsCreateRequestBodyFilter](docs/ProductCollectionsCreateRequestBodyFilter.md)
 - [ProductCollectionsCreateRequestBodyProductsItem](docs/ProductCollectionsCreateRequestBodyProductsItem.md)
 - [ProductCollectionsCreateResponseBody](docs/ProductCollectionsCreateResponseBody.md)
-- [ProductCollectionsCreateResponseBodyFilter](docs/ProductCollectionsCreateResponseBodyFilter.md)
 - [ProductCollectionsCreateResponseBodyProductsItem](docs/ProductCollectionsCreateResponseBodyProductsItem.md)
 - [ProductCollectionsGetResponseBody](docs/ProductCollectionsGetResponseBody.md)
-- [ProductCollectionsGetResponseBodyFilter](docs/ProductCollectionsGetResponseBodyFilter.md)
 - [ProductCollectionsGetResponseBodyProductsItem](docs/ProductCollectionsGetResponseBodyProductsItem.md)
 - [ProductCollectionsItem](docs/ProductCollectionsItem.md)
-- [ProductCollectionsItemFilter](docs/ProductCollectionsItemFilter.md)
 - [ProductCollectionsItemProductsItem](docs/ProductCollectionsItemProductsItem.md)
 - [ProductCollectionsListResponseBody](docs/ProductCollectionsListResponseBody.md)
 - [ProductCollectionsProductsListResponseBody](docs/ProductCollectionsProductsListResponseBody.md)
