@@ -274,14 +274,14 @@
 | /v1/locations              | get    | List Locations | <font color='green'>supported</font> |               |
 | /v1/locations/{locationId} | get    | Get Location   | <font color='green'>supported</font> |               |
 ## Referrals
-| endpoint                                                         | method | summary                     | is supported | is deprecated |
-| ---------------------------------------------------------------- | ------ | --------------------------- | ------------ | ------------- |
-| /v1/referrals/{campaignId}/members/{memberId}/holders            | post   | Add Referral Code Holders   |              |               |
-| /v1/referrals/{campaignId}/members/{memberId}/holders            | get    | List Referral Code Holders  |              |               |
-| /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | delete | Remove Referral Card Holder |              |               |
-| /v1/referrals/members/{memberId}/holders                         | post   | Add Referral Code Holders   |              |               |
-| /v1/referrals/members/{memberId}/holders                         | get    | List Referral Code Holders  |              |               |
-| /v1/referrals/members/{memberId}/holders/{holderId}              | delete | Remove Referral Card Holder |              |               |
+| endpoint                                                         | method | summary                     | is supported                         | is deprecated |
+| ---------------------------------------------------------------- | ------ | --------------------------- | ------------------------------------ | ------------- |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | post   | Add Referral Code Holders   | <font color='green'>supported</font> |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | get    | List Referral Code Holders  | <font color='green'>supported</font> |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | delete | Remove Referral Card Holder | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders                         | post   | Add Referral Code Holders   | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders                         | get    | List Referral Code Holders  | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders/{holderId}              | delete | Remove Referral Card Holder | <font color='green'>supported</font> |               |
 ## Bin
 | endpoint                   | method | summary          | is supported                         | is deprecated |
 | -------------------------- | ------ | ---------------- | ------------------------------------ | ------------- |
