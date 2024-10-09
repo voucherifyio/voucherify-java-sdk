@@ -31,6 +31,7 @@ Response body schema for **POST** `/loyalties`.
 |**category** | **String** | Unique category name. |
 |**creationStatus** | [**CreationStatusEnum**](#CreationStatusEnum) | Indicates the status of the campaign creation. |
 |**vouchersGenerationStatus** | [**VouchersGenerationStatusEnum**](#VouchersGenerationStatusEnum) | Indicates the status of the campaign&#39;s voucher generation. |
+|**readonly** | **Boolean** | Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. |
 |**_protected** | **Boolean** | Indicates whether the resource can be deleted. |
 |**categoryId** | **String** | Unique category ID that this campaign belongs to. |
 |**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |

@@ -1,7 +1,7 @@
 package io.voucherify;
 
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import org.junit.jupiter.api.*;
 
@@ -12,6 +12,7 @@ import io.voucherify.client.model.*;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @org.junit.jupiter.api.Order(4)
@@ -68,7 +69,7 @@ public class ValidationRulesTest {
             applicableTo.setId(VoucherifyStore.getInstance().getProducts().get(0).getId());
             applicableTo.setSourceId(VoucherifyStore.getInstance().getProducts().get(0).getSourceId());
             applicableTo.setStrict(false);
-            applicableTo.effect(ApplicableToEffect.EVERY);
+            applicableTo.effect(ApplicableToEffect.TO_EVERY);
 
             List<ApplicableTo> included = new ArrayList<>();
             included.add(applicableTo);
@@ -82,11 +83,11 @@ public class ValidationRulesTest {
                     validationRulesCreateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("name", "id", "createdAt", "source_id", "sourceId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, validationRulesCreateResponseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, validationRulesCreateResponseBody, keysToRemove));
 
             VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds()
                     .add(validationRulesCreateResponseBody.getId());
-        } catch (ApiException e) {
+        } catch (Exception e) {
             fail();
         }
     }

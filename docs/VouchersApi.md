@@ -650,7 +650,7 @@ public class Example {
 
 <a id="listVoucherTransactions"></a>
 # **listVoucherTransactions**
-> VouchersTransactionsListResponseBody listVoucherTransactions(code, limit, page)
+> VouchersTransactionsListResponseBody listVoucherTransactions(code, limit, order, startingAfterId)
 
 List Voucher Transactions
 
@@ -680,9 +680,10 @@ public class Example {
     VouchersApi apiInstance = new VouchersApi(defaultClient);
     String code = "code_example"; // String | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      VouchersTransactionsListResponseBody result = apiInstance.listVoucherTransactions(code, limit, page);
+      VouchersTransactionsListResponseBody result = apiInstance.listVoucherTransactions(code, limit, order, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#listVoucherTransactions");
@@ -701,7 +702,8 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **code** | **String**| A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
 

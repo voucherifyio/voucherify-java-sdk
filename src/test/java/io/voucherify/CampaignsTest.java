@@ -1,13 +1,11 @@
 package io.voucherify;
 
-import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import org.junit.jupiter.api.*;
 
 import io.voucherify.client.ApiClient;
-import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CampaignsApi;
 import io.voucherify.client.api.PromotionsApi;
 import io.voucherify.client.api.RewardsApi;
@@ -18,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @org.junit.jupiter.api.Order(1)
@@ -64,13 +63,14 @@ public class CampaignsTest {
             String campaignName = result.getName();
 
             List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
+
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, result, keysToRemove));
 
             VoucherifyStore.getInstance().getLoyaltyCampaign().setId(loyaltyProgramId);
             VoucherifyStore.getInstance().getLoyaltyCampaign().setName(campaignName);
 
             this.loyaltyProgramId = loyaltyProgramId;
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -100,11 +100,11 @@ public class CampaignsTest {
             String campaignName = result.getName();
 
             List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, result, keysToRemove));
 
             VoucherifyStore.getInstance().getCouponCampaign().setId(discountCampaignId);
             VoucherifyStore.getInstance().getCouponCampaign().setName(campaignName);
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -117,8 +117,8 @@ public class CampaignsTest {
             CampaignsGetResponseBody responseBody = campaigns.getCampaign(loyaltyProgramId);
             List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
 
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException | JsonSyntaxException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -137,10 +137,9 @@ public class CampaignsTest {
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "code", "campaign", "campaignId", "url", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, result, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, result, keysToRemove));
 
-            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
-                    result.getId());
+            VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(result.getId());
 
             // NEED TWO VOUCHERS FOR PUBLICATION
             CampaignsVouchersCreateCombinedResponseBody result2 = campaigns.addVouchersToCampaign(loyaltyProgramId,
@@ -149,7 +148,7 @@ public class CampaignsTest {
             VoucherifyStore.getInstance().getLoyaltyCampaign().addVoucherId(
                     result2.getId());
 
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -165,11 +164,10 @@ public class CampaignsTest {
                     vouchersCount, campaignsVouchersCreateInBulkRequestBody);
 
             List<String> keysToRemove = Arrays.asList("asyncActionId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
             assertNotNull(responseBody);
-        } catch (ApiException | JsonSyntaxException e) {
-            System.out.println(e);
+        } catch (Exception e) {
             fail();
         }
     }
@@ -188,7 +186,7 @@ public class CampaignsTest {
             CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
 
             List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, campaignResult, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, campaignResult, keysToRemove));
 
             PromotionsTiersCreateRequestBody promotionTierCreate = new PromotionsTiersCreateRequestBody();
             promotionTierCreate.setActive(true);
@@ -209,7 +207,7 @@ public class CampaignsTest {
             promotionTierCreateId = promotionTierCreateResult.getId();
 
             List<String> keysToRemove2 = Arrays.asList("id", "name", "createdAt", "campaignId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath2, promotionTierCreateResult, keysToRemove2);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath2, promotionTierCreateResult, keysToRemove2));
 
             PromotionsTiersUpdateRequestBody promotionTierUpdate = new PromotionsTiersUpdateRequestBody();
             String promotionTierUpdateBanner = Utils.getAlphaNumericString(20);
@@ -218,9 +216,10 @@ public class CampaignsTest {
             PromotionsTiersUpdateResponseBody promotionTierUpdateResult = promotions
                     .updatePromotionTier(promotionTierCreateId, promotionTierUpdate);
 
-            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt", "campaignId", "updatedAt", "banner");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath2, promotionTierUpdateResult, keysToRemove3);
-        } catch (ApiException | JsonSyntaxException e) {
+            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt",
+                    "campaignId", "updatedAt", "banner");
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath2, promotionTierUpdateResult, keysToRemove3));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -248,7 +247,7 @@ public class CampaignsTest {
             CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
 
             List<String> keysToRemove = Arrays.asList("id", "name", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, campaignResult, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, campaignResult, keysToRemove));
 
             RewardsCreateRequestBody rewardsCreateRequestBody = new RewardsCreateRequestBody();
             rewardsCreateRequestBody.setName(Utils.getAlphaNumericString(20));
@@ -261,7 +260,7 @@ public class CampaignsTest {
             RewardsCreateResponseBody reward = rewards.createReward(rewardsCreateRequestBody);
 
             List<String> keysToRemove2 = Arrays.asList("id", "name", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath2, reward, keysToRemove2);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath2, reward, keysToRemove2));
 
             RewardsUpdateRequestBody rewardsUpdateRequestBody = new RewardsUpdateRequestBody();
             String newRewardName = Utils.getAlphaNumericString(20);
@@ -269,9 +268,10 @@ public class CampaignsTest {
 
             RewardsUpdateResponseBody updatedReward = rewards.updateReward(reward.getId(), rewardsUpdateRequestBody);
 
-            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath2, updatedReward, keysToRemove3);
-        } catch (ApiException | JsonSyntaxException e) {
+            List<String> keysToRemove3 = Arrays.asList("id", "name", "createdAt",
+                    "updatedAt");
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath2, updatedReward, keysToRemove3));
+        } catch (Exception e) {
             fail();
         }
     }

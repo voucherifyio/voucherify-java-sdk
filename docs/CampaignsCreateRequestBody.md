@@ -28,7 +28,6 @@
 |**voucher** | [**CampaignsCreateRequestBodyVoucher**](CampaignsCreateRequestBodyVoucher.md) |  |
 |**referralProgram** | [**ReferralProgram**](ReferralProgram.md) |  |
 |**promotion** | [**CampaignsCreateRequestBodyPromotion**](CampaignsCreateRequestBodyPromotion.md) |  |
-|**luckyDraw** | [**LuckyDraw**](LuckyDraw.md) |  |
 
 
 
@@ -64,7 +63,6 @@
 | GIFT_VOUCHERS | &quot;GIFT_VOUCHERS&quot; |
 | LOYALTY_PROGRAM | &quot;LOYALTY_PROGRAM&quot; |
 | PROMOTION | &quot;PROMOTION&quot; |
-| LUCKY_DRAW | &quot;LUCKY_DRAW&quot; |
 
 
 

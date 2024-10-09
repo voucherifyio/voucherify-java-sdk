@@ -1612,7 +1612,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions"></a>
 # **listLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, order, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -1642,8 +1642,10 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, order, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions");
@@ -1662,6 +1664,8 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
 
@@ -1683,7 +1687,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions1"></a>
 # **listLoyaltyCardTransactions1**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, page)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -1714,9 +1718,10 @@ public class Example {
     String campaignId = "campaignId_example"; // String | A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, page);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions1");
@@ -1736,7 +1741,8 @@ public class Example {
 | **campaignId** | **String**| A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. |
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
 

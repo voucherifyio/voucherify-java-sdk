@@ -9,7 +9,6 @@ User login used to login to Voucherify, i.e. name.lastname@email.com
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

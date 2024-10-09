@@ -9,7 +9,6 @@ Unique campaign identifer, e.g. `camp_bfrwAVsP6Q1EM1ZjgHwheKYr`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

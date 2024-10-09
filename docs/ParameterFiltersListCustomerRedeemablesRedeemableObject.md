@@ -9,7 +9,6 @@ Unique related object, i.e. `voucher`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions**](ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.md) |  |
-|**junction** | **Junction** |  |
 
 
 

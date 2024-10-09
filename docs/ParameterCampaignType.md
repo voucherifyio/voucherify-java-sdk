@@ -15,7 +15,5 @@
 
 * `LOYALTY_PROGRAM` (value: `"LOYALTY_PROGRAM"`)
 
-* `LUCKY_DRAW` (value: `"LUCKY_DRAW"`)
-
 
 
