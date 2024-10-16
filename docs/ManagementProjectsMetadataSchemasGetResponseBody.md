@@ -2,7 +2,7 @@
 
 # ManagementProjectsMetadataSchemasGetResponseBody
 
-Response body schema for **POST** `management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}`.
+Response body schema for **GET** `management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}`.
 
 ## Properties
 
