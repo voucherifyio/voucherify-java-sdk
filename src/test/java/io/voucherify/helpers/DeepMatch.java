@@ -50,8 +50,7 @@ public class DeepMatch {
                             + snapshot.asText() + ", response value: " + response.asText());
                     return false;
                 }
-            }
-            else if (!snapshot.equals(response)) {
+            } else if (!snapshot.equals(response)) {
                 String snapshotValue = snapshot.isValueNode() ? snapshot.asText() : snapshot.toString();
                 String responseValue = response.isValueNode() ? response.asText() : response.toString();
                 errors.add("Mismatch at field: " + String.join("->", path) + ". Snapshot value: "

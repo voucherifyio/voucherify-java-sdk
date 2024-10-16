@@ -3,13 +3,11 @@ package io.voucherify;
 import com.google.gson.JsonSyntaxException;
 
 import io.voucherify.client.model.*;
-import io.voucherify.helpers.DeepMatch;
 
 import org.jetbrains.annotations.NotNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import io.voucherify.client.ApiClient;
@@ -19,7 +17,6 @@ import io.voucherify.client.api.ValidationsApi;
 import io.voucherify.client.api.VouchersApi;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.math.BigDecimal;
 
@@ -68,9 +65,9 @@ public class ValidationsTest {
         try {
             ValidationsValidateResponseBody responseBody = validationsApi.validateStackedDiscounts(requestBody);
             assertNotNull(responseBody);
-            //             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId");
-            //             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+            assertNotNull(responseBody.getStackingRules());
         } catch (Exception e) {
+            System.out.println(e);
             fail();
         }
     }
@@ -144,7 +141,8 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(io.voucherify.client.model.Order order,
+    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(
+            io.voucherify.client.model.Order order,
             ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
         ValidationsValidateRequestBody requestBody = new ValidationsValidateRequestBody();
         requestBody.setOrder(order);
