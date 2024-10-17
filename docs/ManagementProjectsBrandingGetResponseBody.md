@@ -2,7 +2,7 @@
 
 # ManagementProjectsBrandingGetResponseBody
 
-Response body schema for **GET** `v1/management/v1/projects/{projectId}/branding/{brandingId}`.
+Response body schema for **GET** `/management/v1/projects/{projectId}/branding/{brandingId}`.
 
 ## Properties
 

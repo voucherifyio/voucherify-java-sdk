@@ -2,7 +2,7 @@
 
 # ManagementProjectsBrandingCreateRequestBody
 
-Request body schema for **POST** `v1/management/v1/projects/{projectId}/branding`.
+Request body schema for **POST** `/management/v1/projects/{projectId}/branding`.
 
 ## Properties
 

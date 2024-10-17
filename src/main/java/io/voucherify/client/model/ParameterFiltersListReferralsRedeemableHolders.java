@@ -20,14 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Junction;
-import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersCampaignId;
-import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersCampaignType;
+import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersCreatedAt;
 import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersCustomerId;
 import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersHolderRole;
 import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersId;
-import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersRedeemableId;
-import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersRedeemableObject;
-import io.voucherify.client.model.ParameterFiltersListReferralsRedeemableHoldersVoucherType;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -66,33 +62,17 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   @SerializedName(SERIALIZED_NAME_ID)
   private ParameterFiltersListReferralsRedeemableHoldersId id;
 
-  public static final String SERIALIZED_NAME_REDEEMABLE_ID = "redeemable_id";
-  @SerializedName(SERIALIZED_NAME_REDEEMABLE_ID)
-  private ParameterFiltersListReferralsRedeemableHoldersRedeemableId redeemableId;
-
-  public static final String SERIALIZED_NAME_REDEEMABLE_OBJECT = "redeemable_object";
-  @SerializedName(SERIALIZED_NAME_REDEEMABLE_OBJECT)
-  private ParameterFiltersListReferralsRedeemableHoldersRedeemableObject redeemableObject;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private ParameterFiltersListReferralsRedeemableHoldersCreatedAt createdAt;
 
   public static final String SERIALIZED_NAME_HOLDER_ROLE = "holder_role";
   @SerializedName(SERIALIZED_NAME_HOLDER_ROLE)
   private ParameterFiltersListReferralsRedeemableHoldersHolderRole holderRole;
 
-  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
-  private ParameterFiltersListReferralsRedeemableHoldersCampaignId campaignId;
-
-  public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
-  @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
-  private ParameterFiltersListReferralsRedeemableHoldersVoucherType voucherType;
-
-  public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
-  private ParameterFiltersListReferralsRedeemableHoldersCampaignType campaignType;
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId;
 
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
@@ -122,66 +102,24 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   }
 
 
-  public ParameterFiltersListReferralsRedeemableHolders redeemableId(ParameterFiltersListReferralsRedeemableHoldersRedeemableId redeemableId) {
+  public ParameterFiltersListReferralsRedeemableHolders createdAt(ParameterFiltersListReferralsRedeemableHoldersCreatedAt createdAt) {
     
-    this.redeemableId = redeemableId;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Get redeemableId
-   * @return redeemableId
+   * Get createdAt
+   * @return createdAt
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersRedeemableId getRedeemableId() {
-    return redeemableId;
+  public ParameterFiltersListReferralsRedeemableHoldersCreatedAt getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setRedeemableId(ParameterFiltersListReferralsRedeemableHoldersRedeemableId redeemableId) {
-    this.redeemableId = redeemableId;
-  }
-
-
-  public ParameterFiltersListReferralsRedeemableHolders redeemableObject(ParameterFiltersListReferralsRedeemableHoldersRedeemableObject redeemableObject) {
-    
-    this.redeemableObject = redeemableObject;
-    return this;
-  }
-
-   /**
-   * Get redeemableObject
-   * @return redeemableObject
-  **/
-  @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersRedeemableObject getRedeemableObject() {
-    return redeemableObject;
-  }
-
-
-  public void setRedeemableObject(ParameterFiltersListReferralsRedeemableHoldersRedeemableObject redeemableObject) {
-    this.redeemableObject = redeemableObject;
-  }
-
-
-  public ParameterFiltersListReferralsRedeemableHolders customerId(ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId) {
-    
-    this.customerId = customerId;
-    return this;
-  }
-
-   /**
-   * Get customerId
-   * @return customerId
-  **/
-  @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersCustomerId getCustomerId() {
-    return customerId;
-  }
-
-
-  public void setCustomerId(ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId) {
-    this.customerId = customerId;
+  public void setCreatedAt(ParameterFiltersListReferralsRedeemableHoldersCreatedAt createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -206,66 +144,24 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   }
 
 
-  public ParameterFiltersListReferralsRedeemableHolders campaignId(ParameterFiltersListReferralsRedeemableHoldersCampaignId campaignId) {
+  public ParameterFiltersListReferralsRedeemableHolders customerId(ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId) {
     
-    this.campaignId = campaignId;
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * Get campaignId
-   * @return campaignId
+   * Get customerId
+   * @return customerId
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignId getCampaignId() {
-    return campaignId;
+  public ParameterFiltersListReferralsRedeemableHoldersCustomerId getCustomerId() {
+    return customerId;
   }
 
 
-  public void setCampaignId(ParameterFiltersListReferralsRedeemableHoldersCampaignId campaignId) {
-    this.campaignId = campaignId;
-  }
-
-
-  public ParameterFiltersListReferralsRedeemableHolders voucherType(ParameterFiltersListReferralsRedeemableHoldersVoucherType voucherType) {
-    
-    this.voucherType = voucherType;
-    return this;
-  }
-
-   /**
-   * Get voucherType
-   * @return voucherType
-  **/
-  @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersVoucherType getVoucherType() {
-    return voucherType;
-  }
-
-
-  public void setVoucherType(ParameterFiltersListReferralsRedeemableHoldersVoucherType voucherType) {
-    this.voucherType = voucherType;
-  }
-
-
-  public ParameterFiltersListReferralsRedeemableHolders campaignType(ParameterFiltersListReferralsRedeemableHoldersCampaignType campaignType) {
-    
-    this.campaignType = campaignType;
-    return this;
-  }
-
-   /**
-   * Get campaignType
-   * @return campaignType
-  **/
-  @javax.annotation.Nullable
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignType getCampaignType() {
-    return campaignType;
-  }
-
-
-  public void setCampaignType(ParameterFiltersListReferralsRedeemableHoldersCampaignType campaignType) {
-    this.campaignType = campaignType;
+  public void setCustomerId(ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId) {
+    this.customerId = customerId;
   }
 
 
@@ -301,13 +197,9 @@ public class ParameterFiltersListReferralsRedeemableHolders {
     }
     ParameterFiltersListReferralsRedeemableHolders parameterFiltersListReferralsRedeemableHolders = (ParameterFiltersListReferralsRedeemableHolders) o;
     return Objects.equals(this.id, parameterFiltersListReferralsRedeemableHolders.id) &&
-        Objects.equals(this.redeemableId, parameterFiltersListReferralsRedeemableHolders.redeemableId) &&
-        Objects.equals(this.redeemableObject, parameterFiltersListReferralsRedeemableHolders.redeemableObject) &&
-        Objects.equals(this.customerId, parameterFiltersListReferralsRedeemableHolders.customerId) &&
+        Objects.equals(this.createdAt, parameterFiltersListReferralsRedeemableHolders.createdAt) &&
         Objects.equals(this.holderRole, parameterFiltersListReferralsRedeemableHolders.holderRole) &&
-        Objects.equals(this.campaignId, parameterFiltersListReferralsRedeemableHolders.campaignId) &&
-        Objects.equals(this.voucherType, parameterFiltersListReferralsRedeemableHolders.voucherType) &&
-        Objects.equals(this.campaignType, parameterFiltersListReferralsRedeemableHolders.campaignType) &&
+        Objects.equals(this.customerId, parameterFiltersListReferralsRedeemableHolders.customerId) &&
         Objects.equals(this.junction, parameterFiltersListReferralsRedeemableHolders.junction);
   }
 
@@ -317,7 +209,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, redeemableId, redeemableObject, customerId, holderRole, campaignId, voucherType, campaignType, junction);
+    return Objects.hash(id, createdAt, holderRole, customerId, junction);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -332,13 +224,9 @@ public class ParameterFiltersListReferralsRedeemableHolders {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListReferralsRedeemableHolders {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    redeemableId: ").append(toIndentedString(redeemableId)).append("\n");
-    sb.append("    redeemableObject: ").append(toIndentedString(redeemableObject)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    holderRole: ").append(toIndentedString(holderRole)).append("\n");
-    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
-    sb.append("    voucherType: ").append(toIndentedString(voucherType)).append("\n");
-    sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -363,13 +251,9 @@ public class ParameterFiltersListReferralsRedeemableHolders {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("redeemable_id");
-    openapiFields.add("redeemable_object");
-    openapiFields.add("customer_id");
+    openapiFields.add("created_at");
     openapiFields.add("holder_role");
-    openapiFields.add("campaign_id");
-    openapiFields.add("voucher_type");
-    openapiFields.add("campaign_type");
+    openapiFields.add("customer_id");
     openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)

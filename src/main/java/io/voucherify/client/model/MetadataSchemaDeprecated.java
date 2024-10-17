@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.MetadataSchemaDefinition;
+import io.voucherify.client.model.MetadataSchemaDefinitionDeprecated;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -56,7 +56,7 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class MetadataSchema {
+public class MetadataSchemaDeprecated {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -67,7 +67,7 @@ public class MetadataSchema {
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private Map<String, MetadataSchemaDefinition> properties;
+  private Map<String, MetadataSchemaDefinitionDeprecated> properties;
 
   public static final String SERIALIZED_NAME_ALLOW_DEFINED_ONLY = "allow_defined_only";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEFINED_ONLY)
@@ -85,10 +85,10 @@ public class MetadataSchema {
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "metadata_schema";
 
-  public MetadataSchema() {
+  public MetadataSchemaDeprecated() {
   }
 
-  public MetadataSchema id(String id) {
+  public MetadataSchemaDeprecated id(String id) {
     
     this.id = id;
     return this;
@@ -109,7 +109,7 @@ public class MetadataSchema {
   }
 
 
-  public MetadataSchema relatedObject(String relatedObject) {
+  public MetadataSchemaDeprecated relatedObject(String relatedObject) {
     
     this.relatedObject = relatedObject;
     return this;
@@ -130,13 +130,13 @@ public class MetadataSchema {
   }
 
 
-  public MetadataSchema properties(Map<String, MetadataSchemaDefinition> properties) {
+  public MetadataSchemaDeprecated properties(Map<String, MetadataSchemaDefinitionDeprecated> properties) {
     
     this.properties = properties;
     return this;
   }
 
-  public MetadataSchema putPropertiesItem(String key, MetadataSchemaDefinition propertiesItem) {
+  public MetadataSchemaDeprecated putPropertiesItem(String key, MetadataSchemaDefinitionDeprecated propertiesItem) {
     if (this.properties == null) {
       this.properties = new HashMap<>();
     }
@@ -149,17 +149,17 @@ public class MetadataSchema {
    * @return properties
   **/
   @javax.annotation.Nullable
-  public Map<String, MetadataSchemaDefinition> getProperties() {
+  public Map<String, MetadataSchemaDefinitionDeprecated> getProperties() {
     return properties;
   }
 
 
-  public void setProperties(Map<String, MetadataSchemaDefinition> properties) {
+  public void setProperties(Map<String, MetadataSchemaDefinitionDeprecated> properties) {
     this.properties = properties;
   }
 
 
-  public MetadataSchema allowDefinedOnly(Boolean allowDefinedOnly) {
+  public MetadataSchemaDeprecated allowDefinedOnly(Boolean allowDefinedOnly) {
     
     this.allowDefinedOnly = allowDefinedOnly;
     return this;
@@ -180,7 +180,7 @@ public class MetadataSchema {
   }
 
 
-  public MetadataSchema createdAt(OffsetDateTime createdAt) {
+  public MetadataSchemaDeprecated createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -201,7 +201,7 @@ public class MetadataSchema {
   }
 
 
-  public MetadataSchema updatedAt(OffsetDateTime updatedAt) {
+  public MetadataSchemaDeprecated updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
     return this;
@@ -222,7 +222,7 @@ public class MetadataSchema {
   }
 
 
-  public MetadataSchema _object(String _object) {
+  public MetadataSchemaDeprecated _object(String _object) {
     
     this._object = _object;
     return this;
@@ -252,14 +252,14 @@ public class MetadataSchema {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetadataSchema metadataSchema = (MetadataSchema) o;
-    return Objects.equals(this.id, metadataSchema.id) &&
-        Objects.equals(this.relatedObject, metadataSchema.relatedObject) &&
-        Objects.equals(this.properties, metadataSchema.properties) &&
-        Objects.equals(this.allowDefinedOnly, metadataSchema.allowDefinedOnly) &&
-        Objects.equals(this.createdAt, metadataSchema.createdAt) &&
-        Objects.equals(this.updatedAt, metadataSchema.updatedAt) &&
-        Objects.equals(this._object, metadataSchema._object);
+    MetadataSchemaDeprecated metadataSchemaDeprecated = (MetadataSchemaDeprecated) o;
+    return Objects.equals(this.id, metadataSchemaDeprecated.id) &&
+        Objects.equals(this.relatedObject, metadataSchemaDeprecated.relatedObject) &&
+        Objects.equals(this.properties, metadataSchemaDeprecated.properties) &&
+        Objects.equals(this.allowDefinedOnly, metadataSchemaDeprecated.allowDefinedOnly) &&
+        Objects.equals(this.createdAt, metadataSchemaDeprecated.createdAt) &&
+        Objects.equals(this.updatedAt, metadataSchemaDeprecated.updatedAt) &&
+        Objects.equals(this._object, metadataSchemaDeprecated._object);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -281,7 +281,7 @@ public class MetadataSchema {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MetadataSchema {\n");
+    sb.append("class MetadataSchemaDeprecated {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relatedObject: ").append(toIndentedString(relatedObject)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
@@ -327,22 +327,22 @@ public class MetadataSchema {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MetadataSchema.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MetadataSchema' and its subtypes
+       if (!MetadataSchemaDeprecated.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MetadataSchemaDeprecated' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MetadataSchema> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MetadataSchema.class));
+       final TypeAdapter<MetadataSchemaDeprecated> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MetadataSchemaDeprecated.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MetadataSchema>() {
+       return (TypeAdapter<T>) new TypeAdapter<MetadataSchemaDeprecated>() {
            @Override
-           public void write(JsonWriter out, MetadataSchema value) throws IOException {
+           public void write(JsonWriter out, MetadataSchemaDeprecated value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public MetadataSchema read(JsonReader in) throws IOException {
+           public MetadataSchemaDeprecated read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -352,18 +352,18 @@ public class MetadataSchema {
   }
 
  /**
-  * Create an instance of MetadataSchema given an JSON string
+  * Create an instance of MetadataSchemaDeprecated given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of MetadataSchema
-  * @throws IOException if the JSON string is invalid with respect to MetadataSchema
+  * @return An instance of MetadataSchemaDeprecated
+  * @throws IOException if the JSON string is invalid with respect to MetadataSchemaDeprecated
   */
-  public static MetadataSchema fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MetadataSchema.class);
+  public static MetadataSchemaDeprecated fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MetadataSchemaDeprecated.class);
   }
 
  /**
-  * Convert an instance of MetadataSchema to an JSON string
+  * Convert an instance of MetadataSchemaDeprecated to an JSON string
   *
   * @return JSON string
   */

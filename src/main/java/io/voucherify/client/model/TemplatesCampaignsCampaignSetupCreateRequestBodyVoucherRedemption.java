@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesVoucherTypeConditions;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,36 +48,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Type of the voucher. Allowed values: &#x60;DISCOUNT_VOUCHER&#x60;, &#x60;GIFT_VOUCHER&#x60;, &#x60;LOYALTY_CARD&#x60;.
+ * Stores the quantity of redemptions that can be applied to the voucher.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ParameterFiltersListReferralsRedeemableHoldersVoucherType {
-  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-  @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions;
+public class TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption {
+  public static final String SERIALIZED_NAME_QUANTITY = "quantity";
+  @SerializedName(SERIALIZED_NAME_QUANTITY)
+  private Integer quantity;
 
-  public ParameterFiltersListReferralsRedeemableHoldersVoucherType() {
+  public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption() {
   }
 
-  public ParameterFiltersListReferralsRedeemableHoldersVoucherType conditions(ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions) {
+  public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption quantity(Integer quantity) {
     
-    this.conditions = conditions;
+    this.quantity = quantity;
     return this;
   }
 
    /**
-   * Get conditions
-   * @return conditions
+   * How many times a voucher can be redeemed. A &#x60;null&#x60; value means unlimited.
+   * @return quantity
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListCustomerRedeemablesVoucherTypeConditions getConditions() {
-    return conditions;
+  public Integer getQuantity() {
+    return quantity;
   }
 
 
-  public void setConditions(ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions) {
-    this.conditions = conditions;
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
   }
 
 
@@ -90,20 +90,31 @@ public class ParameterFiltersListReferralsRedeemableHoldersVoucherType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ParameterFiltersListReferralsRedeemableHoldersVoucherType parameterFiltersListReferralsRedeemableHoldersVoucherType = (ParameterFiltersListReferralsRedeemableHoldersVoucherType) o;
-    return Objects.equals(this.conditions, parameterFiltersListReferralsRedeemableHoldersVoucherType.conditions);
+    TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption templatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption = (TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption) o;
+    return Objects.equals(this.quantity, templatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.quantity);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions);
+    return Objects.hash(quantity);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterFiltersListReferralsRedeemableHoldersVoucherType {\n");
-    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("class TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption {\n");
+    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -126,7 +137,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersVoucherType {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("conditions");
+    openapiFields.add("quantity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -136,22 +147,22 @@ public class ParameterFiltersListReferralsRedeemableHoldersVoucherType {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterFiltersListReferralsRedeemableHoldersVoucherType.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterFiltersListReferralsRedeemableHoldersVoucherType' and its subtypes
+       if (!TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersVoucherType> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListReferralsRedeemableHoldersVoucherType.class));
+       final TypeAdapter<TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersVoucherType>() {
+       return (TypeAdapter<T>) new TypeAdapter<TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption>() {
            @Override
-           public void write(JsonWriter out, ParameterFiltersListReferralsRedeemableHoldersVoucherType value) throws IOException {
+           public void write(JsonWriter out, TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ParameterFiltersListReferralsRedeemableHoldersVoucherType read(JsonReader in) throws IOException {
+           public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -161,18 +172,18 @@ public class ParameterFiltersListReferralsRedeemableHoldersVoucherType {
   }
 
  /**
-  * Create an instance of ParameterFiltersListReferralsRedeemableHoldersVoucherType given an JSON string
+  * Create an instance of TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ParameterFiltersListReferralsRedeemableHoldersVoucherType
-  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListReferralsRedeemableHoldersVoucherType
+  * @return An instance of TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption
+  * @throws IOException if the JSON string is invalid with respect to TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption
   */
-  public static ParameterFiltersListReferralsRedeemableHoldersVoucherType fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterFiltersListReferralsRedeemableHoldersVoucherType.class);
+  public static TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.class);
   }
 
  /**
-  * Convert an instance of ParameterFiltersListReferralsRedeemableHoldersVoucherType to an JSON string
+  * Convert an instance of TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption to an JSON string
   *
   * @return JSON string
   */

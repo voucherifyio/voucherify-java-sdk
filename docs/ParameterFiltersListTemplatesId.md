@@ -1,8 +1,8 @@
 
 
-# ParameterFiltersListReferralsRedeemableHoldersRedeemableId
+# ParameterFiltersListTemplatesId
 
-Unique customer ID, i.e. `cust_sehkNIi8Uq2qQuRqSr7xn4Zi`.
+Unique template ID.
 
 ## Properties
 

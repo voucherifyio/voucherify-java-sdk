@@ -48,19 +48,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Unique customer ID, i.e. &#x60;cust_sehkNIi8Uq2qQuRqSr7xn4Zi&#x60;.
+ * Unique user-defined template name.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ParameterFiltersListReferralsRedeemableHoldersCampaignId {
+public class ParameterFiltersListTemplatesName {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private FilterConditionsString conditions;
 
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignId() {
+  public ParameterFiltersListTemplatesName() {
   }
 
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignId conditions(FilterConditionsString conditions) {
+  public ParameterFiltersListTemplatesName conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
     return this;
@@ -90,8 +90,8 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignId {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ParameterFiltersListReferralsRedeemableHoldersCampaignId parameterFiltersListReferralsRedeemableHoldersCampaignId = (ParameterFiltersListReferralsRedeemableHoldersCampaignId) o;
-    return Objects.equals(this.conditions, parameterFiltersListReferralsRedeemableHoldersCampaignId.conditions);
+    ParameterFiltersListTemplatesName parameterFiltersListTemplatesName = (ParameterFiltersListTemplatesName) o;
+    return Objects.equals(this.conditions, parameterFiltersListTemplatesName.conditions);
   }
 
   @Override
@@ -102,7 +102,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignId {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterFiltersListReferralsRedeemableHoldersCampaignId {\n");
+    sb.append("class ParameterFiltersListTemplatesName {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -136,22 +136,22 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignId {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterFiltersListReferralsRedeemableHoldersCampaignId.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterFiltersListReferralsRedeemableHoldersCampaignId' and its subtypes
+       if (!ParameterFiltersListTemplatesName.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ParameterFiltersListTemplatesName' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersCampaignId> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListReferralsRedeemableHoldersCampaignId.class));
+       final TypeAdapter<ParameterFiltersListTemplatesName> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListTemplatesName.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersCampaignId>() {
+       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListTemplatesName>() {
            @Override
-           public void write(JsonWriter out, ParameterFiltersListReferralsRedeemableHoldersCampaignId value) throws IOException {
+           public void write(JsonWriter out, ParameterFiltersListTemplatesName value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ParameterFiltersListReferralsRedeemableHoldersCampaignId read(JsonReader in) throws IOException {
+           public ParameterFiltersListTemplatesName read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -161,18 +161,18 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignId {
   }
 
  /**
-  * Create an instance of ParameterFiltersListReferralsRedeemableHoldersCampaignId given an JSON string
+  * Create an instance of ParameterFiltersListTemplatesName given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ParameterFiltersListReferralsRedeemableHoldersCampaignId
-  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListReferralsRedeemableHoldersCampaignId
+  * @return An instance of ParameterFiltersListTemplatesName
+  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListTemplatesName
   */
-  public static ParameterFiltersListReferralsRedeemableHoldersCampaignId fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterFiltersListReferralsRedeemableHoldersCampaignId.class);
+  public static ParameterFiltersListTemplatesName fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ParameterFiltersListTemplatesName.class);
   }
 
  /**
-  * Convert an instance of ParameterFiltersListReferralsRedeemableHoldersCampaignId to an JSON string
+  * Convert an instance of ParameterFiltersListTemplatesName to an JSON string
   *
   * @return JSON string
   */

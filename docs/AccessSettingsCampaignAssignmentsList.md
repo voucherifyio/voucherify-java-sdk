@@ -2,7 +2,7 @@
 
 # AccessSettingsCampaignAssignmentsList
 
-Lists all assignments of the campaign to areas and stores if the Areas and Stores feature is enabled (Enterprise feature).
+Lists all assignments of the campaign to areas and stores.  **NOTE**: This object is returned only if the Areas and Stores enterprise feature is enabled. Contact [Voucherify Sales](https://www.voucherify.io/contact-sales) to learn more.
 
 ## Properties
 

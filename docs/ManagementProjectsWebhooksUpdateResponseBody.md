@@ -2,7 +2,7 @@
 
 # ManagementProjectsWebhooksUpdateResponseBody
 
-Response body schema for **PUT** `v1/management/v1/projects/{projectId}/webhooks/{webhookId}`.
+Response body schema for **PUT** `/management/v1/projects/{projectId}/webhooks/{webhookId}`.
 
 ## Properties
 

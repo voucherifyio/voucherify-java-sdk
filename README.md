@@ -643,6 +643,13 @@ Class | Method | HTTP request | Description
 *SegmentsApi* | [**createSegment**](docs/SegmentsApi.md#createSegment) | **POST** /v1/segments | Create Segment
 *SegmentsApi* | [**deleteSegment**](docs/SegmentsApi.md#deleteSegment) | **DELETE** /v1/segments/{segmentId} | Delete Segment
 *SegmentsApi* | [**getSegment**](docs/SegmentsApi.md#getSegment) | **GET** /v1/segments/{segmentId} | Get Segment
+*TemplatesApi* | [**addTierFromTemplate**](docs/TemplatesApi.md#addTierFromTemplate) | **POST** /v1/templates/campaigns/{campaignTemplateId}/tier-setup | Add Promotion Tier From Template
+*TemplatesApi* | [**createCampaignFromTemplate**](docs/TemplatesApi.md#createCampaignFromTemplate) | **POST** /v1/templates/campaigns/{campaignTemplateId}/campaign-setup | Create Campaign From Template
+*TemplatesApi* | [**createCampaignTemplate**](docs/TemplatesApi.md#createCampaignTemplate) | **POST** /v1/templates/campaigns | Create Campaign Template
+*TemplatesApi* | [**deleteCampaignTemplate**](docs/TemplatesApi.md#deleteCampaignTemplate) | **DELETE** /v1/templates/campaigns/{campaignTemplateId} | Delete Campaign Template
+*TemplatesApi* | [**getCampaignTemplate**](docs/TemplatesApi.md#getCampaignTemplate) | **GET** /v1/templates/campaigns/{campaignTemplateId} | Get Campaign Template
+*TemplatesApi* | [**listCampaignTemplates**](docs/TemplatesApi.md#listCampaignTemplates) | **GET** /v1/templates/campaigns | List Campaign Templates
+*TemplatesApi* | [**updateCampaignTemplate**](docs/TemplatesApi.md#updateCampaignTemplate) | **PUT** /v1/templates/campaigns/{campaignTemplateId} | Update Campaign Template
 *ValidationRulesApi* | [**createValidationRuleAssignment**](docs/ValidationRulesApi.md#createValidationRuleAssignment) | **POST** /v1/validation-rules/{validationRuleId}/assignments | Create Validation Rules Assignments
 *ValidationRulesApi* | [**createValidationRules**](docs/ValidationRulesApi.md#createValidationRules) | **POST** /v1/validation-rules | Create Validation Rules
 *ValidationRulesApi* | [**deleteValidationRuleAssignment**](docs/ValidationRulesApi.md#deleteValidationRuleAssignment) | **DELETE** /v1/validation-rules/{validationRuleId}/assignments/{assignmentId} | Delete Validation Rule Assignment
@@ -682,11 +689,13 @@ Class | Method | HTTP request | Description
 - [AsyncActionGetResponseBody](docs/AsyncActionGetResponseBody.md)
 - [AsyncActionsListResponseBody](docs/AsyncActionsListResponseBody.md)
 - [BusValRuleAssignment](docs/BusValRuleAssignment.md)
+- [Campaign](docs/Campaign.md)
 - [CampaignBase](docs/CampaignBase.md)
 - [CampaignLoyaltyCard](docs/CampaignLoyaltyCard.md)
 - [CampaignLoyaltyCardExpirationRules](docs/CampaignLoyaltyCardExpirationRules.md)
 - [CampaignLoyaltyVoucher](docs/CampaignLoyaltyVoucher.md)
 - [CampaignLoyaltyVoucherRedemption](docs/CampaignLoyaltyVoucherRedemption.md)
+- [CampaignTemplate](docs/CampaignTemplate.md)
 - [CampaignVoucher](docs/CampaignVoucher.md)
 - [CampaignVoucherRedemption](docs/CampaignVoucherRedemption.md)
 - [CampaignsCreateRequestBody](docs/CampaignsCreateRequestBody.md)
@@ -1240,8 +1249,8 @@ Class | Method | HTTP request | Description
 - [ManagementProjectsWebhooksUpdateResponseBody](docs/ManagementProjectsWebhooksUpdateResponseBody.md)
 - [MappingPoints](docs/MappingPoints.md)
 - [MemberActivity](docs/MemberActivity.md)
-- [MetadataSchema](docs/MetadataSchema.md)
-- [MetadataSchemaDefinition](docs/MetadataSchemaDefinition.md)
+- [MetadataSchemaDefinitionDeprecated](docs/MetadataSchemaDefinitionDeprecated.md)
+- [MetadataSchemaDeprecated](docs/MetadataSchemaDeprecated.md)
 - [MetadataSchemasGetResponseBody](docs/MetadataSchemasGetResponseBody.md)
 - [MetadataSchemasListResponseBody](docs/MetadataSchemasListResponseBody.md)
 - [Order](docs/Order.md)
@@ -1297,7 +1306,9 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesVoucherType](docs/ParameterFiltersListCustomerRedeemablesVoucherType.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherTypeConditions](docs/ParameterFiltersListCustomerRedeemablesVoucherTypeConditions.md)
 - [ParameterFiltersListLocations](docs/ParameterFiltersListLocations.md)
+- [ParameterFiltersListLocationsCreatedAt](docs/ParameterFiltersListLocationsCreatedAt.md)
 - [ParameterFiltersListLocationsName](docs/ParameterFiltersListLocationsName.md)
+- [ParameterFiltersListLocationsUpdatedAt](docs/ParameterFiltersListLocationsUpdatedAt.md)
 - [ParameterFiltersListPublications](docs/ParameterFiltersListPublications.md)
 - [ParameterFiltersListPublicationsCampaignName](docs/ParameterFiltersListPublicationsCampaignName.md)
 - [ParameterFiltersListPublicationsCustomerId](docs/ParameterFiltersListPublicationsCustomerId.md)
@@ -1320,15 +1331,16 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListRedemptionsUserLogin](docs/ParameterFiltersListRedemptionsUserLogin.md)
 - [ParameterFiltersListRedemptionsVoucherCode](docs/ParameterFiltersListRedemptionsVoucherCode.md)
 - [ParameterFiltersListReferralsRedeemableHolders](docs/ParameterFiltersListReferralsRedeemableHolders.md)
-- [ParameterFiltersListReferralsRedeemableHoldersCampaignId](docs/ParameterFiltersListReferralsRedeemableHoldersCampaignId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersCampaignType](docs/ParameterFiltersListReferralsRedeemableHoldersCampaignType.md)
+- [ParameterFiltersListReferralsRedeemableHoldersCreatedAt](docs/ParameterFiltersListReferralsRedeemableHoldersCreatedAt.md)
 - [ParameterFiltersListReferralsRedeemableHoldersCustomerId](docs/ParameterFiltersListReferralsRedeemableHoldersCustomerId.md)
 - [ParameterFiltersListReferralsRedeemableHoldersHolderRole](docs/ParameterFiltersListReferralsRedeemableHoldersHolderRole.md)
 - [ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions](docs/ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions.md)
 - [ParameterFiltersListReferralsRedeemableHoldersId](docs/ParameterFiltersListReferralsRedeemableHoldersId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersRedeemableId](docs/ParameterFiltersListReferralsRedeemableHoldersRedeemableId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersRedeemableObject](docs/ParameterFiltersListReferralsRedeemableHoldersRedeemableObject.md)
-- [ParameterFiltersListReferralsRedeemableHoldersVoucherType](docs/ParameterFiltersListReferralsRedeemableHoldersVoucherType.md)
+- [ParameterFiltersListTemplates](docs/ParameterFiltersListTemplates.md)
+- [ParameterFiltersListTemplatesCampaignType](docs/ParameterFiltersListTemplatesCampaignType.md)
+- [ParameterFiltersListTemplatesCampaignTypeConditions](docs/ParameterFiltersListTemplatesCampaignTypeConditions.md)
+- [ParameterFiltersListTemplatesId](docs/ParameterFiltersListTemplatesId.md)
+- [ParameterFiltersListTemplatesName](docs/ParameterFiltersListTemplatesName.md)
 - [ParameterOrder](docs/ParameterOrder.md)
 - [ParameterOrderCreatedAt](docs/ParameterOrderCreatedAt.md)
 - [ParameterOrderListAllPromotionStacks](docs/ParameterOrderListAllPromotionStacks.md)
@@ -1350,6 +1362,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
 - [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)
 - [ParameterResultListPublications](docs/ParameterResultListPublications.md)
+- [ParameterTemplatesList](docs/ParameterTemplatesList.md)
 - [ParameterUpdatedBeforeAfter](docs/ParameterUpdatedBeforeAfter.md)
 - [ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
 - [PointsExpirationTypes](docs/PointsExpirationTypes.md)
@@ -1649,6 +1662,20 @@ Class | Method | HTTP request | Description
 - [SkusImportCsvCreateResponseBody](docs/SkusImportCsvCreateResponseBody.md)
 - [SkusListForProduct](docs/SkusListForProduct.md)
 - [StackingRules](docs/StackingRules.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBody](docs/TemplatesCampaignsCampaignSetupCreateRequestBody.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher](docs/TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption](docs/TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.md)
+- [TemplatesCampaignsCampaignSetupCreateResponseBody](docs/TemplatesCampaignsCampaignSetupCreateResponseBody.md)
+- [TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem](docs/TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem.md)
+- [TemplatesCampaignsCreateRequestBody](docs/TemplatesCampaignsCreateRequestBody.md)
+- [TemplatesCampaignsCreateTemplateResponseBody](docs/TemplatesCampaignsCreateTemplateResponseBody.md)
+- [TemplatesCampaignsGetResponseBody](docs/TemplatesCampaignsGetResponseBody.md)
+- [TemplatesCampaignsListResponseBody](docs/TemplatesCampaignsListResponseBody.md)
+- [TemplatesCampaignsTierSetupCreateRequestBody](docs/TemplatesCampaignsTierSetupCreateRequestBody.md)
+- [TemplatesCampaignsTierSetupCreateResponseBody](docs/TemplatesCampaignsTierSetupCreateResponseBody.md)
+- [TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem](docs/TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem.md)
+- [TemplatesCampaignsUpdateRequestBody](docs/TemplatesCampaignsUpdateRequestBody.md)
+- [TemplatesCampaignsUpdateResponseBody](docs/TemplatesCampaignsUpdateResponseBody.md)
 - [TrashBinItem](docs/TrashBinItem.md)
 - [TrashBinListResponseBody](docs/TrashBinListResponseBody.md)
 - [UsageNotifications](docs/UsageNotifications.md)

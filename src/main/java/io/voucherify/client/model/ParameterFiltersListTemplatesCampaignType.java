@@ -19,9 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCampaignTypeConditions;
+import io.voucherify.client.model.ParameterFiltersListTemplatesCampaignTypeConditions;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,19 +49,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Type of the campaign. Allowed values: &#x60;DISCOUNT_COUPONS&#x60;, &#x60;REFERRAL_PROGRAM&#x60;, &#x60;GIFT_VOUCHERS&#x60;, &#x60;LOYALTY_PROGRAM&#x60;
+ * Campaign template campaign type.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
+public class ParameterFiltersListTemplatesCampaignType {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private ParameterFiltersListCustomerRedeemablesCampaignTypeConditions conditions;
+  private ParameterFiltersListTemplatesCampaignTypeConditions conditions;
 
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignType() {
+  public ParameterFiltersListTemplatesCampaignType() {
   }
 
-  public ParameterFiltersListReferralsRedeemableHoldersCampaignType conditions(ParameterFiltersListCustomerRedeemablesCampaignTypeConditions conditions) {
+  public ParameterFiltersListTemplatesCampaignType conditions(ParameterFiltersListTemplatesCampaignTypeConditions conditions) {
     
     this.conditions = conditions;
     return this;
@@ -71,12 +72,12 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListCustomerRedeemablesCampaignTypeConditions getConditions() {
+  public ParameterFiltersListTemplatesCampaignTypeConditions getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(ParameterFiltersListCustomerRedeemablesCampaignTypeConditions conditions) {
+  public void setConditions(ParameterFiltersListTemplatesCampaignTypeConditions conditions) {
     this.conditions = conditions;
   }
 
@@ -90,8 +91,12 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ParameterFiltersListReferralsRedeemableHoldersCampaignType parameterFiltersListReferralsRedeemableHoldersCampaignType = (ParameterFiltersListReferralsRedeemableHoldersCampaignType) o;
-    return Objects.equals(this.conditions, parameterFiltersListReferralsRedeemableHoldersCampaignType.conditions);
+    ParameterFiltersListTemplatesCampaignType parameterFiltersListTemplatesCampaignType = (ParameterFiltersListTemplatesCampaignType) o;
+    return Objects.equals(this.conditions, parameterFiltersListTemplatesCampaignType.conditions);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
@@ -99,10 +104,17 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
     return Objects.hash(conditions);
   }
 
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterFiltersListReferralsRedeemableHoldersCampaignType {\n");
+    sb.append("class ParameterFiltersListTemplatesCampaignType {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -136,22 +148,22 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ParameterFiltersListReferralsRedeemableHoldersCampaignType.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ParameterFiltersListReferralsRedeemableHoldersCampaignType' and its subtypes
+       if (!ParameterFiltersListTemplatesCampaignType.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ParameterFiltersListTemplatesCampaignType' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersCampaignType> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListReferralsRedeemableHoldersCampaignType.class));
+       final TypeAdapter<ParameterFiltersListTemplatesCampaignType> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ParameterFiltersListTemplatesCampaignType.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListReferralsRedeemableHoldersCampaignType>() {
+       return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListTemplatesCampaignType>() {
            @Override
-           public void write(JsonWriter out, ParameterFiltersListReferralsRedeemableHoldersCampaignType value) throws IOException {
+           public void write(JsonWriter out, ParameterFiltersListTemplatesCampaignType value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ParameterFiltersListReferralsRedeemableHoldersCampaignType read(JsonReader in) throws IOException {
+           public ParameterFiltersListTemplatesCampaignType read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -161,18 +173,18 @@ public class ParameterFiltersListReferralsRedeemableHoldersCampaignType {
   }
 
  /**
-  * Create an instance of ParameterFiltersListReferralsRedeemableHoldersCampaignType given an JSON string
+  * Create an instance of ParameterFiltersListTemplatesCampaignType given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ParameterFiltersListReferralsRedeemableHoldersCampaignType
-  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListReferralsRedeemableHoldersCampaignType
+  * @return An instance of ParameterFiltersListTemplatesCampaignType
+  * @throws IOException if the JSON string is invalid with respect to ParameterFiltersListTemplatesCampaignType
   */
-  public static ParameterFiltersListReferralsRedeemableHoldersCampaignType fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ParameterFiltersListReferralsRedeemableHoldersCampaignType.class);
+  public static ParameterFiltersListTemplatesCampaignType fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ParameterFiltersListTemplatesCampaignType.class);
   }
 
  /**
-  * Convert an instance of ParameterFiltersListReferralsRedeemableHoldersCampaignType to an JSON string
+  * Convert an instance of ParameterFiltersListTemplatesCampaignType to an JSON string
   *
   * @return JSON string
   */

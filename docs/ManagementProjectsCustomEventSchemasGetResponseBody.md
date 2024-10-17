@@ -2,7 +2,7 @@
 
 # ManagementProjectsCustomEventSchemasGetResponseBody
 
-Response body schema for **GET** `v1/management/v1/projects/{projectId}/custom-event-schema/{customEventSchemaId}`.
+Response body schema for **GET** `/management/v1/projects/{projectId}/custom-event-schema/{customEventSchemaId}`.
 
 ## Properties
 

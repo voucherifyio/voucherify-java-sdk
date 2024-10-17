@@ -2,7 +2,7 @@
 
 # ManagementProjectsWebhooksGetResponseBody
 
-Response body schema for **GET** `v1/management/v1/projects/{projectId}/webhooks/{webhookId}`.
+Response body schema for **GET** `/management/v1/projects/{projectId}/webhooks/{webhookId}`.
 
 ## Properties
 

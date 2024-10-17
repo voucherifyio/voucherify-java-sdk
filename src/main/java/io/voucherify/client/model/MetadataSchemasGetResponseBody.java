@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.MetadataSchemaDefinition;
+import io.voucherify.client.model.MetadataSchemaDefinitionDeprecated;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ public class MetadataSchemasGetResponseBody {
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private Map<String, MetadataSchemaDefinition> properties;
+  private Map<String, MetadataSchemaDefinitionDeprecated> properties;
 
   public static final String SERIALIZED_NAME_ALLOW_DEFINED_ONLY = "allow_defined_only";
   @SerializedName(SERIALIZED_NAME_ALLOW_DEFINED_ONLY)
@@ -130,13 +130,13 @@ public class MetadataSchemasGetResponseBody {
   }
 
 
-  public MetadataSchemasGetResponseBody properties(Map<String, MetadataSchemaDefinition> properties) {
+  public MetadataSchemasGetResponseBody properties(Map<String, MetadataSchemaDefinitionDeprecated> properties) {
     
     this.properties = properties;
     return this;
   }
 
-  public MetadataSchemasGetResponseBody putPropertiesItem(String key, MetadataSchemaDefinition propertiesItem) {
+  public MetadataSchemasGetResponseBody putPropertiesItem(String key, MetadataSchemaDefinitionDeprecated propertiesItem) {
     if (this.properties == null) {
       this.properties = new HashMap<>();
     }
@@ -149,12 +149,12 @@ public class MetadataSchemasGetResponseBody {
    * @return properties
   **/
   @javax.annotation.Nullable
-  public Map<String, MetadataSchemaDefinition> getProperties() {
+  public Map<String, MetadataSchemaDefinitionDeprecated> getProperties() {
     return properties;
   }
 
 
-  public void setProperties(Map<String, MetadataSchemaDefinition> properties) {
+  public void setProperties(Map<String, MetadataSchemaDefinitionDeprecated> properties) {
     this.properties = properties;
   }
 
