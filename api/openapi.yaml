@@ -23477,8 +23477,8 @@ paths:
                 type: string
           description: Returns contents of CSV file.
       security:
-      - X-App-Id-1: []
-        X-App-Token-1: []
+      - X-App-Id: []
+        X-App-Token: []
       summary: Download Export
       tags:
       - Exports
