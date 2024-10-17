@@ -143,6 +143,8 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-09-05** - `14.0.1`
+  - Fix downloading exports. Include auth headers in the call.
 - **2024-09-05** - `14.0.0`
   - Added support:
     - /v1/vouchers, get - List Vouchers
