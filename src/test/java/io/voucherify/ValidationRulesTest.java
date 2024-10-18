@@ -6,7 +6,6 @@ import io.voucherify.helpers.DeepMatch;
 import org.junit.jupiter.api.*;
 
 import io.voucherify.client.ApiClient;
-import io.voucherify.client.ApiException;
 import io.voucherify.client.api.ValidationRulesApi;
 import io.voucherify.client.model.*;
 
