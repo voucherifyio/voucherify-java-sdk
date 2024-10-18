@@ -162,6 +162,7 @@ Download the contents of the exported CSV file.   📘 Important notes  **Base U
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
 import io.voucherify.client.models.*;
 import io.voucherify.client.api.ExportsApi;
 
@@ -169,6 +170,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
     String exportId = "exp_ex6zq0x0EEa9S0N68QcqhxcQ"; // String | Unique export object ID.
@@ -200,7 +207,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
 
 ### HTTP request headers
 
