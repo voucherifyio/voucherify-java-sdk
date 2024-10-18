@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>14.0.0</version>
+  <version>14.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:14.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:14.0.1"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-14.0.0.jar`
+* `target/voucherify-java-sdk-14.0.1.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
