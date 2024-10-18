@@ -26,9 +26,6 @@
 |**gift** | [**Gift**](Gift.md) |  |
 |**loyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  |
 |**options** | [**CampaignsUpdateRequestBodyOptions**](CampaignsUpdateRequestBodyOptions.md) |  |
-|**winnersCount** | **String** | It represents the total number of winners in a lucky draw. |
-|**uniqueWinnersPerDraw** | **String** | It indicates whether each winner in a draw is unique or not. |
-|**uniqueWinners** | **String** | Specifies whether each participant can win only once across multiple draws. |
 
 
 

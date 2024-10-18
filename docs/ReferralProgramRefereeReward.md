@@ -21,7 +21,6 @@ Defines the referee reward.
 | DISCOUNT_VOUCHER | &quot;DISCOUNT_VOUCHER&quot; |
 | LOYALTY_CARD | &quot;LOYALTY_CARD&quot; |
 | GIFT_VOUCHER | &quot;GIFT_VOUCHER&quot; |
-| LUCKY_DRAW_CODE | &quot;LUCKY_DRAW_CODE&quot; |
 
 
 

@@ -44,6 +44,7 @@ import io.voucherify.client.model.CampaignsVouchersCreateResponseBody;
 import java.io.File;
 import io.voucherify.client.model.ParameterCampaignType;
 import io.voucherify.client.model.ParameterExpandListCampaigns;
+import io.voucherify.client.model.ParameterFiltersListCampaigns;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 
 import java.lang.reflect.Type;
@@ -1068,11 +1069,12 @@ public class CampaignsApi {
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Include an expanded categories object in the response. (optional, default to category)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1117,6 +1119,10 @@ public class CampaignsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1137,8 +1143,8 @@ public class CampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
-        return listCampaignsCall(limit, page, campaignType, expand, order, _callback);
+    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
+        return listCampaignsCall(limit, page, campaignType, expand, order, filters, _callback);
 
     }
 
@@ -1150,11 +1156,12 @@ public class CampaignsApi {
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Include an expanded categories object in the response. (optional, default to category)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
      * @return CampaignsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
-        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, order);
+    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
+        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, order, filters);
         return localVarResp.getData();
     }
 
@@ -1166,11 +1173,12 @@ public class CampaignsApi {
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Include an expanded categories object in the response. (optional, default to category)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
      * @return ApiResponse&lt;CampaignsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, null);
+    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, null);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1183,13 +1191,14 @@ public class CampaignsApi {
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Include an expanded categories object in the response. (optional, default to category)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, _callback);
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, _callback);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

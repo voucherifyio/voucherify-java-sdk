@@ -81,6 +81,7 @@ import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
+import io.voucherify.client.model.ParameterOrderListTransactions;
 import io.voucherify.client.model.ParameterOrderVouchers;
 import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
 
@@ -2559,11 +2560,13 @@ public class LoyaltiesApi {
      * Build call for listLoyaltyCardTransactions
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2593,6 +2596,14 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2613,13 +2624,13 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
         if (memberId == null) {
             throw new ApiException("Missing the required parameter 'memberId' when calling listLoyaltyCardTransactions(Async)");
         }
 
-        return listLoyaltyCardTransactionsCall(memberId, limit, _callback);
+        return listLoyaltyCardTransactionsCall(memberId, limit, order, startingAfterId, _callback);
 
     }
 
@@ -2628,11 +2639,13 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit) throws ApiException {
-        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit);
+    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, order, startingAfterId);
         return localVarResp.getData();
     }
 
@@ -2641,11 +2654,13 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, null);
+    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2655,13 +2670,15 @@ public class LoyaltiesApi {
      * Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, _callback);
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2671,12 +2688,13 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2707,8 +2725,12 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
         }
 
         final String[] localVarAccepts = {
@@ -2731,7 +2753,7 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling listLoyaltyCardTransactions1(Async)");
@@ -2742,7 +2764,7 @@ public class LoyaltiesApi {
             throw new ApiException("Missing the required parameter 'memberId' when calling listLoyaltyCardTransactions1(Async)");
         }
 
-        return listLoyaltyCardTransactions1Call(campaignId, memberId, limit, page, _callback);
+        return listLoyaltyCardTransactions1Call(campaignId, memberId, limit, order, startingAfterId, _callback);
 
     }
 
@@ -2752,12 +2774,13 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
-        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, page);
+    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
         return localVarResp.getData();
     }
 
@@ -2767,12 +2790,13 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, page, null);
+    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2783,14 +2807,15 @@ public class LoyaltiesApi {
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, page, _callback);
+        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

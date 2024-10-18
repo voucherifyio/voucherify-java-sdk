@@ -9,7 +9,6 @@ Result, i.e. `SUCCESS` or `FAILURE`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

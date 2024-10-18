@@ -654,7 +654,7 @@ public class Example {
 
 <a id="listCampaigns"></a>
 # **listCampaigns**
-> CampaignsListResponseBody listCampaigns(limit, page, campaignType, expand, order)
+> CampaignsListResponseBody listCampaigns(limit, page, campaignType, expand, order, filters)
 
 List Campaigns
 
@@ -687,8 +687,9 @@ public class Example {
     ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | This attribute allows filtering by campaign type.
     ParameterExpandListCampaigns expand = ParameterExpandListCampaigns.fromValue("category"); // ParameterExpandListCampaigns | Include an expanded categories object in the response.
     ParameterOrderListCampaigns order = ParameterOrderListCampaigns.fromValue("created_at"); // ParameterOrderListCampaigns | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterFiltersListCampaigns filters = new ParameterFiltersListCampaigns(); // ParameterFiltersListCampaigns | Filters the results by campaign status or whether the campaign is a referral campaign.
     try {
-      CampaignsListResponseBody result = apiInstance.listCampaigns(limit, page, campaignType, expand, order);
+      CampaignsListResponseBody result = apiInstance.listCampaigns(limit, page, campaignType, expand, order, filters);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CampaignsApi#listCampaigns");
@@ -710,6 +711,7 @@ public class Example {
 | **campaignType** | [**ParameterCampaignType**](.md)| This attribute allows filtering by campaign type. |
 | **expand** | [**ParameterExpandListCampaigns**](.md)| Include an expanded categories object in the response. |
 | **order** | [**ParameterOrderListCampaigns**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **filters** | [**ParameterFiltersListCampaigns**](.md)| Filters the results by campaign status or whether the campaign is a referral campaign. |
 
 ### Return type
 

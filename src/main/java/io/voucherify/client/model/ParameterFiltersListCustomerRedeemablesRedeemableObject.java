@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions;
 import java.io.IOException;
 import java.util.Arrays;
@@ -58,10 +57,6 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions conditions;
 
-  public static final String SERIALIZED_NAME_JUNCTION = "junction";
-  @SerializedName(SERIALIZED_NAME_JUNCTION)
-  private Junction junction;
-
   public ParameterFiltersListCustomerRedeemablesRedeemableObject() {
   }
 
@@ -86,27 +81,6 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
   }
 
 
-  public ParameterFiltersListCustomerRedeemablesRedeemableObject junction(Junction junction) {
-    
-    this.junction = junction;
-    return this;
-  }
-
-   /**
-   * Get junction
-   * @return junction
-  **/
-  @javax.annotation.Nullable
-  public Junction getJunction() {
-    return junction;
-  }
-
-
-  public void setJunction(Junction junction) {
-    this.junction = junction;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -117,13 +91,12 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
       return false;
     }
     ParameterFiltersListCustomerRedeemablesRedeemableObject parameterFiltersListCustomerRedeemablesRedeemableObject = (ParameterFiltersListCustomerRedeemablesRedeemableObject) o;
-    return Objects.equals(this.conditions, parameterFiltersListCustomerRedeemablesRedeemableObject.conditions) &&
-        Objects.equals(this.junction, parameterFiltersListCustomerRedeemablesRedeemableObject.junction);
+    return Objects.equals(this.conditions, parameterFiltersListCustomerRedeemablesRedeemableObject.conditions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, junction);
+    return Objects.hash(conditions);
   }
 
   @Override
@@ -131,7 +104,6 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListCustomerRedeemablesRedeemableObject {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,7 +127,6 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conditions");
-    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

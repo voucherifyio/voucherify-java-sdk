@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Junction;
-import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesCreatedAtConditions;
+import io.voucherify.client.model.FilterConditionsDateTime;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,16 +55,12 @@ import io.voucherify.client.JSON;
 public class ParameterFiltersListCustomerRedeemablesCreatedAt {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions;
-
-  public static final String SERIALIZED_NAME_JUNCTION = "junction";
-  @SerializedName(SERIALIZED_NAME_JUNCTION)
-  private Junction junction;
+  private FilterConditionsDateTime conditions;
 
   public ParameterFiltersListCustomerRedeemablesCreatedAt() {
   }
 
-  public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
+  public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(FilterConditionsDateTime conditions) {
     
     this.conditions = conditions;
     return this;
@@ -77,34 +71,13 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListCustomerRedeemablesCreatedAtConditions getConditions() {
+  public FilterConditionsDateTime getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(ParameterFiltersListCustomerRedeemablesCreatedAtConditions conditions) {
+  public void setConditions(FilterConditionsDateTime conditions) {
     this.conditions = conditions;
-  }
-
-
-  public ParameterFiltersListCustomerRedeemablesCreatedAt junction(Junction junction) {
-    
-    this.junction = junction;
-    return this;
-  }
-
-   /**
-   * Get junction
-   * @return junction
-  **/
-  @javax.annotation.Nullable
-  public Junction getJunction() {
-    return junction;
-  }
-
-
-  public void setJunction(Junction junction) {
-    this.junction = junction;
   }
 
 
@@ -118,24 +91,12 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
       return false;
     }
     ParameterFiltersListCustomerRedeemablesCreatedAt parameterFiltersListCustomerRedeemablesCreatedAt = (ParameterFiltersListCustomerRedeemablesCreatedAt) o;
-    return Objects.equals(this.conditions, parameterFiltersListCustomerRedeemablesCreatedAt.conditions) &&
-        Objects.equals(this.junction, parameterFiltersListCustomerRedeemablesCreatedAt.junction);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.conditions, parameterFiltersListCustomerRedeemablesCreatedAt.conditions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, junction);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(conditions);
   }
 
   @Override
@@ -143,7 +104,6 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListCustomerRedeemablesCreatedAt {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,7 +127,6 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("conditions");
-    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

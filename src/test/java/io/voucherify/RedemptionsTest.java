@@ -8,8 +8,10 @@ import io.voucherify.client.ApiClient;
 import io.voucherify.client.api.*;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.model.*;
+import io.voucherify.helpers.DeepMatch;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
@@ -18,8 +20,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.math.BigDecimal;
-
-import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(9)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -40,16 +40,24 @@ public class RedemptionsTest {
     public void listRedemptionsTest() {
         RedemptionsApi redemptions = new RedemptionsApi(defaultClient);
 
+        ParameterFiltersListRedemptions parameterFiltersListRedemptions = new ParameterFiltersListRedemptions();
+        ParameterFiltersListRedemptionsVoucherCode parameterFiltersListRedemptionsVoucherCode = new ParameterFiltersListRedemptionsVoucherCode();
+        FilterConditionsString filterConditionsString = new FilterConditionsString();
+        filterConditionsString.add$NotInItem("123");
+        parameterFiltersListRedemptionsVoucherCode.setConditions(filterConditionsString);
+        parameterFiltersListRedemptions.setVoucherCode(parameterFiltersListRedemptionsVoucherCode);
+
         try {
             RedemptionsListResponseBody responseBody = redemptions.listRedemptions(
                     1,
-                    2,
                     null,
                     null,
                     null,
                     null,
                     null,
-                    null);
+                    null,
+                    parameterFiltersListRedemptions
+                );
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {
@@ -80,8 +88,8 @@ public class RedemptionsTest {
             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId",
                     "createdAt", "redemptions", "parentRedemption");
 
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

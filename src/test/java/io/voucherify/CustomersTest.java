@@ -2,10 +2,9 @@ package io.voucherify;
 
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CustomersApi;
@@ -20,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @org.junit.jupiter.api.Order(2)
@@ -48,11 +48,11 @@ public class CustomersTest {
                     .createCustomer(new CustomersCreateRequestBody());
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, customersCreateResponseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, customersCreateResponseBody, keysToRemove));
 
             VoucherifyStore.getInstance().getCustomer().setId(customersCreateResponseBody.getId());
             this.sourceIdToDelete = customersCreateResponseBody2.getId();
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -100,10 +100,10 @@ public class CustomersTest {
                     null,
                     null);
 
-            List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total", "email");
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
-        } catch (ApiException | JsonSyntaxException e) {
+        } catch (Exception e) {
             fail();
         }
     }

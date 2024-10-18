@@ -9,7 +9,6 @@ Specify which type of object to return, i.e. `redemption` or `redemption_rollbac
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

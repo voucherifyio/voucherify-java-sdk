@@ -9,7 +9,6 @@ Unique customer ID, i.e. cust_sehkNIi8Uq2qQuRqSr7xn4Zi.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
-|**junction** | **Junction** |  |
 
 
 

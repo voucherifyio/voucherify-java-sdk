@@ -68,7 +68,7 @@
     "jointCategories": [],
     "redeemablesApplicationMode": "ALL",
     "redeemablesSortingRule": "REQUESTED_ORDER",
-    "redeemables_products_application_mode": "STACK",
-    "redeemables_no_effect_rule": "REDEEM_ANYWAY"
+    "redeemablesProductsApplicationMode": "STACK",
+    "redeemablesNoEffectRule": "REDEEM_ANYWAY"
   }
 }

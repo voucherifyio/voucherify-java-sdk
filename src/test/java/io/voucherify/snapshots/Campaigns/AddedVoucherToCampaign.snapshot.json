@@ -12,9 +12,7 @@
     "points": 500,
     "balance": 500,
     "nextExpirationDate": null,
-    "nextExpirationPoints": null,
-
-
+    "nextExpirationPoints": null
   },
   "startDate": null,
   "expirationDate": null,
@@ -27,11 +25,11 @@
   "assets": {
     "qr": {
       "id": "20c576a5-19f0-4145-af9f-1e14f3df6805",
-      "url": "https://dev2.dl.voucherify.io/api/v1/assets/qr/20c576a5-19f0-4145-af9f-1e14f3df6805",
+      "url": "https://dev2.dl.voucherify.io/api/v1/assets/qr/20c576a5-19f0-4145-af9f-1e14f3df6805"
     },
     "barcode": {
       "id": "011119be-f9c6-412c-bfac-4d6ac95f53cd",
-      "url": "https://dev2.dl.voucherify.io/api/v1/assets/barcode/011119be-f9c6-412c-bfac-4d6ac95f53cd",
+      "url": "https://dev2.dl.voucherify.io/api/v1/assets/barcode/011119be-f9c6-412c-bfac-4d6ac95f53cd"
     }
   },
   "isReferralCode": false,

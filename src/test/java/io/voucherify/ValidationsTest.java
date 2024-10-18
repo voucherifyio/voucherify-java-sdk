@@ -3,9 +3,13 @@ package io.voucherify;
 import com.google.gson.JsonSyntaxException;
 
 import io.voucherify.client.model.*;
+import io.voucherify.helpers.DeepMatch;
 
 import org.jetbrains.annotations.NotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import io.voucherify.client.ApiClient;
@@ -18,8 +22,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.math.BigDecimal;
-
-import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(8)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -65,10 +67,10 @@ public class ValidationsTest {
     private void validateStackedDiscounts(ValidationsValidateRequestBody requestBody, String snapshotPath) {
         try {
             ValidationsValidateResponseBody responseBody = validationsApi.validateStackedDiscounts(requestBody);
-
-            List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertNotNull(responseBody);
+            //             List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId");
+            //             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

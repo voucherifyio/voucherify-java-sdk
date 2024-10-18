@@ -1,6 +1,5 @@
 package io.voucherify;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,10 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.model.*;
-import io.voucherify.client.ApiException;
+import io.voucherify.helpers.DeepMatch;
 import io.voucherify.client.api.EventsApi;
-
-import io.voucherify.helpers.JsonHelper;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,9 +45,8 @@ public class EventsTest {
             EventsCreateResponseBody responseBody = events.trackCustomEvent(event);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
-            System.out.println(e);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

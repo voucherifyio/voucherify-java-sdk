@@ -30,9 +30,7 @@ public enum ParameterVoucherTypeListPublications {
   
   DISCOUNT("discount"),
   
-  LOYALTY("loyalty"),
-  
-  LUCKY_DRAW("lucky_draw");
+  LOYALTY("loyalty");
 
   private String value;
 

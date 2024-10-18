@@ -223,7 +223,7 @@ public class CustomersActivityListResponseBody {
   }
 
    /**
-   * Returns an ID that can be used to return another page of results. Use the event id in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the event with that ID.
+   * Returns an ID that can be used to return another page of results. Use the event ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the event with that ID.
    * @return moreStartingAfter
   **/
   @javax.annotation.Nullable

@@ -56,13 +56,103 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class VouchersTransactionsListResponseBody {
+  /**
+   * The type of the object represented by JSON.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    LIST("list");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  private String _object = "list";
+  private ObjectEnum _object = ObjectEnum.LIST;
+
+  /**
+   * Identifies the name of the attribute that contains the array of transaction objects.
+   */
+  @JsonAdapter(DataRefEnum.Adapter.class)
+  public enum DataRefEnum {
+    DATA("data");
+
+    private String value;
+
+    DataRefEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DataRefEnum fromValue(String value) {
+      for (DataRefEnum b : DataRefEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DataRefEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DataRefEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DataRefEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DataRefEnum.fromValue(value);
+      }
+    }
+  }
 
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
-  private String dataRef = "data";
+  private DataRefEnum dataRef = DataRefEnum.DATA;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -72,10 +162,14 @@ public class VouchersTransactionsListResponseBody {
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   private Boolean hasMore;
 
+  public static final String SERIALIZED_NAME_MORE_STARTING_AFTER = "more_starting_after";
+  @SerializedName(SERIALIZED_NAME_MORE_STARTING_AFTER)
+  private String moreStartingAfter;
+
   public VouchersTransactionsListResponseBody() {
   }
 
-  public VouchersTransactionsListResponseBody _object(String _object) {
+  public VouchersTransactionsListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -86,17 +180,17 @@ public class VouchersTransactionsListResponseBody {
    * @return _object
   **/
   @javax.annotation.Nullable
-  public String getObject() {
+  public ObjectEnum getObject() {
     return _object;
   }
 
 
-  public void setObject(String _object) {
+  public void setObject(ObjectEnum _object) {
     this._object = _object;
   }
 
 
-  public VouchersTransactionsListResponseBody dataRef(String dataRef) {
+  public VouchersTransactionsListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
     return this;
@@ -107,12 +201,12 @@ public class VouchersTransactionsListResponseBody {
    * @return dataRef
   **/
   @javax.annotation.Nullable
-  public String getDataRef() {
+  public DataRefEnum getDataRef() {
     return dataRef;
   }
 
 
-  public void setDataRef(String dataRef) {
+  public void setDataRef(DataRefEnum dataRef) {
     this.dataRef = dataRef;
   }
 
@@ -153,7 +247,7 @@ public class VouchersTransactionsListResponseBody {
   }
 
    /**
-   * As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different page or a different start date filter) to get more records returned in the results.
+   * As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different paging or a different start date filter) to get more records returned in the results.
    * @return hasMore
   **/
   @javax.annotation.Nullable
@@ -164,6 +258,27 @@ public class VouchersTransactionsListResponseBody {
 
   public void setHasMore(Boolean hasMore) {
     this.hasMore = hasMore;
+  }
+
+
+  public VouchersTransactionsListResponseBody moreStartingAfter(String moreStartingAfter) {
+    
+    this.moreStartingAfter = moreStartingAfter;
+    return this;
+  }
+
+   /**
+   * Returns an ID that can be used to return another page of results. Use the transaction ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the transaction with that ID.
+   * @return moreStartingAfter
+  **/
+  @javax.annotation.Nullable
+  public String getMoreStartingAfter() {
+    return moreStartingAfter;
+  }
+
+
+  public void setMoreStartingAfter(String moreStartingAfter) {
+    this.moreStartingAfter = moreStartingAfter;
   }
 
 
@@ -180,7 +295,8 @@ public class VouchersTransactionsListResponseBody {
     return Objects.equals(this._object, vouchersTransactionsListResponseBody._object) &&
         Objects.equals(this.dataRef, vouchersTransactionsListResponseBody.dataRef) &&
         Objects.equals(this.data, vouchersTransactionsListResponseBody.data) &&
-        Objects.equals(this.hasMore, vouchersTransactionsListResponseBody.hasMore);
+        Objects.equals(this.hasMore, vouchersTransactionsListResponseBody.hasMore) &&
+        Objects.equals(this.moreStartingAfter, vouchersTransactionsListResponseBody.moreStartingAfter);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -189,7 +305,7 @@ public class VouchersTransactionsListResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, dataRef, data, hasMore);
+    return Objects.hash(_object, dataRef, data, hasMore, moreStartingAfter);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,6 +323,7 @@ public class VouchersTransactionsListResponseBody {
     sb.append("    dataRef: ").append(toIndentedString(dataRef)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
+    sb.append("    moreStartingAfter: ").append(toIndentedString(moreStartingAfter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,6 +350,7 @@ public class VouchersTransactionsListResponseBody {
     openapiFields.add("data_ref");
     openapiFields.add("data");
     openapiFields.add("has_more");
+    openapiFields.add("more_starting_after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -28,11 +28,15 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(ApplicableToEffect.Adapter.class)
 public enum ApplicableToEffect {
   
-  EVERY("APPLY_TO_EVERY"),
+  TO_EVERY("APPLY_TO_EVERY"),
   
-  CHEAPEST("APPLY_TO_CHEAPEST"),
+  TO_CHEAPEST("APPLY_TO_CHEAPEST"),
   
-  MOST_EXPENSIVE("APPLY_TO_MOST_EXPENSIVE");
+  FROM_CHEAPEST("APPLY_FROM_CHEAPEST"),
+  
+  TO_MOST_EXPENSIVE("APPLY_TO_MOST_EXPENSIVE"),
+  
+  FROM_MOST_EXPENSIVE("APPLY_FROM_MOST_EXPENSIVE");
 
   private String value;
 

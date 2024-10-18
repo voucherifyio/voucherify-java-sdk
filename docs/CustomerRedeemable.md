@@ -40,7 +40,6 @@ Single customer's redeemable
 | DISCOUNT_COUPONS | &quot;DISCOUNT_COUPONS&quot; |
 | PROMOTION | &quot;PROMOTION&quot; |
 | REFERRAL_PROGRAM | &quot;REFERRAL_PROGRAM&quot; |
-| LUCKY_DRAW | &quot;LUCKY_DRAW&quot; |
 
 
 
@@ -51,7 +50,6 @@ Single customer's redeemable
 | GIFT_VOUCHER | &quot;GIFT_VOUCHER&quot; |
 | DISCOUNT_VOUCHER | &quot;DISCOUNT_VOUCHER&quot; |
 | LOYALTY_CARD | &quot;LOYALTY_CARD&quot; |
-| LUCKY_DRAW_CODE | &quot;LUCKY_DRAW_CODE&quot; |
 
 
 

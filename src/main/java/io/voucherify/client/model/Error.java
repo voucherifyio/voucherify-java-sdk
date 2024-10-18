@@ -133,7 +133,7 @@ public class Error {
   }
 
    /**
-   * A human-readable message providing a short description about the error.
+   * A human-readable message providing a short description of the error.
    * @return message
   **/
   @javax.annotation.Nullable

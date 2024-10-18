@@ -410,6 +410,10 @@ public class LoyaltiesGetCampaignResponseBody {
   @SerializedName(SERIALIZED_NAME_VOUCHERS_GENERATION_STATUS)
   private VouchersGenerationStatusEnum vouchersGenerationStatus;
 
+  public static final String SERIALIZED_NAME_READONLY = "readonly";
+  @SerializedName(SERIALIZED_NAME_READONLY)
+  private Boolean readonly;
+
   public static final String SERIALIZED_NAME_PROTECTED = "protected";
   @SerializedName(SERIALIZED_NAME_PROTECTED)
   private Boolean _protected;
@@ -932,6 +936,27 @@ public class LoyaltiesGetCampaignResponseBody {
   }
 
 
+  public LoyaltiesGetCampaignResponseBody readonly(Boolean readonly) {
+    
+    this.readonly = readonly;
+    return this;
+  }
+
+   /**
+   * Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles.
+   * @return readonly
+  **/
+  @javax.annotation.Nullable
+  public Boolean getReadonly() {
+    return readonly;
+  }
+
+
+  public void setReadonly(Boolean readonly) {
+    this.readonly = readonly;
+  }
+
+
   public LoyaltiesGetCampaignResponseBody _protected(Boolean _protected) {
     
     this._protected = _protected;
@@ -1120,6 +1145,7 @@ public class LoyaltiesGetCampaignResponseBody {
         Objects.equals(this.category, loyaltiesGetCampaignResponseBody.category) &&
         Objects.equals(this.creationStatus, loyaltiesGetCampaignResponseBody.creationStatus) &&
         Objects.equals(this.vouchersGenerationStatus, loyaltiesGetCampaignResponseBody.vouchersGenerationStatus) &&
+        Objects.equals(this.readonly, loyaltiesGetCampaignResponseBody.readonly) &&
         Objects.equals(this._protected, loyaltiesGetCampaignResponseBody._protected) &&
         Objects.equals(this.categoryId, loyaltiesGetCampaignResponseBody.categoryId) &&
         Objects.equals(this.categories, loyaltiesGetCampaignResponseBody.categories) &&
@@ -1135,7 +1161,7 @@ public class LoyaltiesGetCampaignResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, _protected, categoryId, categories, _object, loyaltyTiersExpiration, validationRulesAssignments, accessSettingsAssignments);
+    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, loyaltyTiersExpiration, validationRulesAssignments, accessSettingsAssignments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1172,6 +1198,7 @@ public class LoyaltiesGetCampaignResponseBody {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    creationStatus: ").append(toIndentedString(creationStatus)).append("\n");
     sb.append("    vouchersGenerationStatus: ").append(toIndentedString(vouchersGenerationStatus)).append("\n");
+    sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
     sb.append("    _protected: ").append(toIndentedString(_protected)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
@@ -1224,6 +1251,7 @@ public class LoyaltiesGetCampaignResponseBody {
     openapiFields.add("category");
     openapiFields.add("creation_status");
     openapiFields.add("vouchers_generation_status");
+    openapiFields.add("readonly");
     openapiFields.add("protected");
     openapiFields.add("category_id");
     openapiFields.add("categories");

@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CampaignsCreateRequestBodyPromotion;
 import io.voucherify.client.model.CampaignsCreateRequestBodyVoucher;
-import io.voucherify.client.model.LuckyDraw;
 import io.voucherify.client.model.ReferralProgram;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -218,10 +217,6 @@ public class CampaignsCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING)
   private String activityDurationAfterPublishing;
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
-  private List<String> validationRules;
-
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
@@ -233,6 +228,10 @@ public class CampaignsCreateRequestBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
+  private List<String> validationRules;
 
   /**
    * Gets or Sets campaignType
@@ -247,9 +246,7 @@ public class CampaignsCreateRequestBody {
     
     LOYALTY_PROGRAM("LOYALTY_PROGRAM"),
     
-    PROMOTION("PROMOTION"),
-    
-    LUCKY_DRAW("LUCKY_DRAW");
+    PROMOTION("PROMOTION");
 
     private String value;
 
@@ -304,10 +301,6 @@ public class CampaignsCreateRequestBody {
   public static final String SERIALIZED_NAME_PROMOTION = "promotion";
   @SerializedName(SERIALIZED_NAME_PROMOTION)
   private CampaignsCreateRequestBodyPromotion promotion;
-
-  public static final String SERIALIZED_NAME_LUCKY_DRAW = "lucky_draw";
-  @SerializedName(SERIALIZED_NAME_LUCKY_DRAW)
-  private LuckyDraw luckyDraw;
 
   public CampaignsCreateRequestBody() {
   }
@@ -593,35 +586,6 @@ public class CampaignsCreateRequestBody {
   }
 
 
-  public CampaignsCreateRequestBody validationRules(List<String> validationRules) {
-    
-    this.validationRules = validationRules;
-    return this;
-  }
-
-  public CampaignsCreateRequestBody addValidationRulesItem(String validationRulesItem) {
-    if (this.validationRules == null) {
-      this.validationRules = new ArrayList<>();
-    }
-    this.validationRules.add(validationRulesItem);
-    return this;
-  }
-
-   /**
-   * Array containing the ID of the validation rule associated with the promotion tier.
-   * @return validationRules
-  **/
-  @javax.annotation.Nullable
-  public List<String> getValidationRules() {
-    return validationRules;
-  }
-
-
-  public void setValidationRules(List<String> validationRules) {
-    this.validationRules = validationRules;
-  }
-
-
   public CampaignsCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
@@ -682,6 +646,35 @@ public class CampaignsCreateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+  }
+
+
+  public CampaignsCreateRequestBody validationRules(List<String> validationRules) {
+    
+    this.validationRules = validationRules;
+    return this;
+  }
+
+  public CampaignsCreateRequestBody addValidationRulesItem(String validationRulesItem) {
+    if (this.validationRules == null) {
+      this.validationRules = new ArrayList<>();
+    }
+    this.validationRules.add(validationRulesItem);
+    return this;
+  }
+
+   /**
+   * Array containing the ID of the validation rule associated with the promotion tier.
+   * @return validationRules
+  **/
+  @javax.annotation.Nullable
+  public List<String> getValidationRules() {
+    return validationRules;
+  }
+
+
+  public void setValidationRules(List<String> validationRules) {
+    this.validationRules = validationRules;
   }
 
 
@@ -769,27 +762,6 @@ public class CampaignsCreateRequestBody {
   }
 
 
-  public CampaignsCreateRequestBody luckyDraw(LuckyDraw luckyDraw) {
-    
-    this.luckyDraw = luckyDraw;
-    return this;
-  }
-
-   /**
-   * Get luckyDraw
-   * @return luckyDraw
-  **/
-  @javax.annotation.Nullable
-  public LuckyDraw getLuckyDraw() {
-    return luckyDraw;
-  }
-
-
-  public void setLuckyDraw(LuckyDraw luckyDraw) {
-    this.luckyDraw = luckyDraw;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -813,15 +785,14 @@ public class CampaignsCreateRequestBody {
         Objects.equals(this.validityDayOfWeek, campaignsCreateRequestBody.validityDayOfWeek) &&
         Objects.equals(this.validityHours, campaignsCreateRequestBody.validityHours) &&
         Objects.equals(this.activityDurationAfterPublishing, campaignsCreateRequestBody.activityDurationAfterPublishing) &&
-        Objects.equals(this.validationRules, campaignsCreateRequestBody.validationRules) &&
         Objects.equals(this.categoryId, campaignsCreateRequestBody.categoryId) &&
         Objects.equals(this.category, campaignsCreateRequestBody.category) &&
         Objects.equals(this.metadata, campaignsCreateRequestBody.metadata) &&
+        Objects.equals(this.validationRules, campaignsCreateRequestBody.validationRules) &&
         Objects.equals(this.campaignType, campaignsCreateRequestBody.campaignType) &&
         Objects.equals(this.voucher, campaignsCreateRequestBody.voucher) &&
         Objects.equals(this.referralProgram, campaignsCreateRequestBody.referralProgram) &&
-        Objects.equals(this.promotion, campaignsCreateRequestBody.promotion) &&
-        Objects.equals(this.luckyDraw, campaignsCreateRequestBody.luckyDraw);
+        Objects.equals(this.promotion, campaignsCreateRequestBody.promotion);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -830,7 +801,7 @@ public class CampaignsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, validationRules, categoryId, category, metadata, campaignType, voucher, referralProgram, promotion, luckyDraw);
+    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, validationRules, campaignType, voucher, referralProgram, promotion);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -857,15 +828,14 @@ public class CampaignsCreateRequestBody {
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    activityDurationAfterPublishing: ").append(toIndentedString(activityDurationAfterPublishing)).append("\n");
-    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
     sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
     sb.append("    promotion: ").append(toIndentedString(promotion)).append("\n");
-    sb.append("    luckyDraw: ").append(toIndentedString(luckyDraw)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -901,15 +871,14 @@ public class CampaignsCreateRequestBody {
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("activity_duration_after_publishing");
-    openapiFields.add("validation_rules");
     openapiFields.add("category_id");
     openapiFields.add("category");
     openapiFields.add("metadata");
+    openapiFields.add("validation_rules");
     openapiFields.add("campaign_type");
     openapiFields.add("voucher");
     openapiFields.add("referral_program");
     openapiFields.add("promotion");
-    openapiFields.add("lucky_draw");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
