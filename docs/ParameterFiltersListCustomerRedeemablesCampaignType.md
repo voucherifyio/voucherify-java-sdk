@@ -9,7 +9,6 @@ Type of the campaign. Allowed values: `DISCOUNT_COUPONS`, `REFERRAL_PROGRAM`, `G
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**conditions** | [**ParameterFiltersListCustomerRedeemablesCampaignTypeConditions**](ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.md) |  |
-|**junction** | **Junction** |  |
 
 
 

@@ -54,6 +54,13 @@ import io.voucherify.client.auth.Authentication;
 import io.voucherify.client.auth.HttpBasicAuth;
 import io.voucherify.client.auth.HttpBearerAuth;
 import io.voucherify.client.auth.ApiKeyAuth;
+import java.lang.reflect.Method;
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * <p>ApiClient class.</p>
@@ -118,6 +125,8 @@ public class ApiClient {
         authentications.put("X-App-Token", new ApiKeyAuth("header", "X-App-Token"));
         authentications.put("X-Client-Token", new ApiKeyAuth("header", "X-Client-Token"));
         authentications.put("X-Client-Application-Id", new ApiKeyAuth("header", "X-Client-Application-Id"));
+        authentications.put("X-Management-Id", new ApiKeyAuth("header", "X-Management-Id"));
+        authentications.put("X-Management-Token", new ApiKeyAuth("header", "X-Management-Token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -137,6 +146,8 @@ public class ApiClient {
         authentications.put("X-App-Token", new ApiKeyAuth("header", "X-App-Token"));
         authentications.put("X-Client-Token", new ApiKeyAuth("header", "X-Client-Token"));
         authentications.put("X-Client-Application-Id", new ApiKeyAuth("header", "X-Client-Application-Id"));
+        authentications.put("X-Management-Id", new ApiKeyAuth("header", "X-Management-Id"));
+        authentications.put("X-Management-Token", new ApiKeyAuth("header", "X-Management-Token"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -161,7 +172,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Java-SDK/14.0.0");
+        setUserAgent("OpenAPI-Java-SDK/15.0.0");
         addDefaultHeader("X-Voucherify-Channel", "Java-SDK");
 
         authentications = new HashMap<String, Authentication>();
@@ -630,14 +641,60 @@ public class ApiClient {
      * @return A list containing a single {@code Pair} object.
      */
     public List<Pair> parameterToPair(String name, Object value) {
-        List<Pair> params = new ArrayList<Pair>();
+        List<Pair> params = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper(); // Jackson ObjectMapper
 
-        // preconditions
-        if (name == null || name.isEmpty() || value == null || value instanceof Collection) {
-            return params;
+        // Preconditions
+        if (name == null || name.isEmpty() || value == null) {
+         return params;
         }
 
-        params.add(new Pair(name, parameterToString(value)));
+        try {
+         // Check if the value has a method named "toJson"
+         Method toJsonMethod = null;
+         try {
+             toJsonMethod = value.getClass().getMethod("toJson");
+         } catch (NoSuchMethodException e) {
+             // toJson method not found, handle it below
+         }
+
+         // If the method exists, use it
+         if (toJsonMethod != null) {
+             // Invoke the toJson method and convert the result to a String
+             String json = (String) toJsonMethod.invoke(value);
+             // Convert JSON string to Map
+             Map<String, Object> map = objectMapper.readValue(json, Map.class);
+
+             // Iterate over map and add to params
+             for (Map.Entry<String, Object> entry : map.entrySet()) {
+                 String subName = name + "[" + entry.getKey() + "]";
+                 params.addAll(parameterToPair(subName, entry.getValue())); // Recursively add parameters
+             }
+         } else if (value instanceof Map) {
+             // Handle Map objects
+             Map<?, ?> map = (Map<?, ?>) value;
+             for (Map.Entry<?, ?> entry : map.entrySet()) {
+                 String subName = name + "[" + entry.getKey().toString() + "]";
+                 params.addAll(parameterToPair(subName, entry.getValue()));
+             }
+         } else if (value instanceof Collection) {
+             // Handle lists or other collections
+             Collection<?> collection = (Collection<?>) value;
+             int index = 0;
+             for (Object item : collection) {
+                 String subName = name + "[" + index + "]";
+                 params.addAll(parameterToPair(subName, item));
+                 index++;
+             }
+         } else {
+             // Simple types: String, Integer, Boolean, etc.
+             params.add(new Pair(name, parameterToString(value)));
+         }
+
+        } catch (Exception e) {
+         e.printStackTrace(); // Handle JSON parsing exception or reflection exception
+        }
+
         return params;
     }
 

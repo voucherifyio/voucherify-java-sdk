@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import io.voucherify.client.model.CreatePublicationCampaign;
 import io.voucherify.client.model.Customer;
+import io.voucherify.client.model.ParameterFiltersListPublications;
 import io.voucherify.client.model.ParameterOrderListPublications;
 import io.voucherify.client.model.ParameterResultListPublications;
 import io.voucherify.client.model.ParameterVoucherTypeListPublications;
@@ -342,13 +343,13 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Allows for combining the filters mentioned in the endpoint description. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listPublicationsCall(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listPublicationsCall(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, ParameterFiltersListPublications filters, String sourceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -437,7 +438,7 @@ public class PublicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPublicationsValidateBeforeCall(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPublicationsValidateBeforeCall(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, ParameterFiltersListPublications filters, String sourceId, final ApiCallback _callback) throws ApiException {
         return listPublicationsCall(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId, _callback);
 
     }
@@ -454,12 +455,12 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Allows for combining the filters mentioned in the endpoint description. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return PublicationsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PublicationsListResponseBody listPublications(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId) throws ApiException {
+    public PublicationsListResponseBody listPublications(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, ParameterFiltersListPublications filters, String sourceId) throws ApiException {
         ApiResponse<PublicationsListResponseBody> localVarResp = listPublicationsWithHttpInfo(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId);
         return localVarResp.getData();
     }
@@ -476,12 +477,12 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Allows for combining the filters mentioned in the endpoint description. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @return ApiResponse&lt;PublicationsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PublicationsListResponseBody> listPublicationsWithHttpInfo(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId) throws ApiException {
+    public ApiResponse<PublicationsListResponseBody> listPublicationsWithHttpInfo(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, ParameterFiltersListPublications filters, String sourceId) throws ApiException {
         okhttp3.Call localVarCall = listPublicationsValidateBeforeCall(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId, null);
         Type localVarReturnType = new TypeToken<PublicationsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -499,13 +500,13 @@ public class PublicationsApi {
      * @param result Filters by a publication result. (optional)
      * @param voucherType Filters by a voucher type. (optional)
      * @param isReferralCode This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns.  (optional)
-     * @param filters Allows for combining the filters mentioned in the endpoint description. (optional)
+     * @param filters Filters for listing publications. (optional)
      * @param sourceId Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listPublicationsAsync(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, String filters, String sourceId, final ApiCallback<PublicationsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listPublicationsAsync(Integer limit, Integer page, ParameterOrderListPublications order, String campaign, String customer, String voucher, ParameterResultListPublications result, ParameterVoucherTypeListPublications voucherType, Boolean isReferralCode, ParameterFiltersListPublications filters, String sourceId, final ApiCallback<PublicationsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listPublicationsValidateBeforeCall(limit, page, order, campaign, customer, voucher, result, voucherType, isReferralCode, filters, sourceId, _callback);
         Type localVarReturnType = new TypeToken<PublicationsListResponseBody>(){}.getType();

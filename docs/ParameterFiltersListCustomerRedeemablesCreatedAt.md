@@ -8,8 +8,7 @@ Timestamp representing the date and time when the customer redeemable was create
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**conditions** | [**ParameterFiltersListCustomerRedeemablesCreatedAtConditions**](ParameterFiltersListCustomerRedeemablesCreatedAtConditions.md) |  |
-|**junction** | **Junction** |  |
+|**conditions** | [**FilterConditionsDateTime**](FilterConditionsDateTime.md) |  |
 
 
 

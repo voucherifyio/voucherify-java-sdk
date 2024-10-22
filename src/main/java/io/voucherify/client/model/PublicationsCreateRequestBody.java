@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CreatePublicationCampaign;
-import io.voucherify.client.model.PublicationsCreateRequestBodyCustomer;
+import io.voucherify.client.model.Customer;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -65,7 +65,7 @@ public class PublicationsCreateRequestBody {
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private PublicationsCreateRequestBodyCustomer customer;
+  private Customer customer;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -124,7 +124,7 @@ public class PublicationsCreateRequestBody {
   }
 
 
-  public PublicationsCreateRequestBody customer(PublicationsCreateRequestBodyCustomer customer) {
+  public PublicationsCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
     return this;
@@ -135,12 +135,12 @@ public class PublicationsCreateRequestBody {
    * @return customer
   **/
   @javax.annotation.Nullable
-  public PublicationsCreateRequestBodyCustomer getCustomer() {
+  public Customer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(PublicationsCreateRequestBodyCustomer customer) {
+  public void setCustomer(Customer customer) {
     this.customer = customer;
   }
 

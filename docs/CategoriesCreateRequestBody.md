@@ -9,7 +9,7 @@ Request body schema for **POST** `v1/categories`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**name** | **String** | Category name. |
-|**hierarchy** | **Integer** | Category hierarchy. |
+|**hierarchy** | **Integer** | Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value. |
 
 
 

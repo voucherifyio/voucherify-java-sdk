@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ApplicableToResultList;
-import io.voucherify.client.model.Category;
+import io.voucherify.client.model.CategoryWithStackingRulesType;
 import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItemResult;
 import io.voucherify.client.model.InapplicableToResultList;
 import io.voucherify.client.model.OrderCalculated;
@@ -190,7 +190,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
+  private List<CategoryWithStackingRulesType> categories;
 
   public ClientValidationsValidateResponseBodyRedeemablesItem() {
   }
@@ -363,13 +363,13 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   }
 
 
-  public ClientValidationsValidateResponseBodyRedeemablesItem categories(List<Category> categories) {
+  public ClientValidationsValidateResponseBodyRedeemablesItem categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public ClientValidationsValidateResponseBodyRedeemablesItem addCategoriesItem(Category categoriesItem) {
+  public ClientValidationsValidateResponseBodyRedeemablesItem addCategoriesItem(CategoryWithStackingRulesType categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -382,12 +382,12 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<Category> getCategories() {
+  public List<CategoryWithStackingRulesType> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<Category> categories) {
+  public void setCategories(List<CategoryWithStackingRulesType> categories) {
     this.categories = categories;
   }
 

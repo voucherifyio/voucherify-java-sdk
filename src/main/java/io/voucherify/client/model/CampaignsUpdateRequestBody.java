@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CampaignsUpdateRequestBodyOptions;
+import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Gift;
 import io.voucherify.client.model.LoyaltyTiersExpirationAll;
 import io.voucherify.client.model.ReferralProgram;
@@ -224,7 +225,7 @@ public class CampaignsUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
-  private Object discount;
+  private Discount discount;
 
   public static final String SERIALIZED_NAME_REFERRAL_PROGRAM = "referral_program";
   @SerializedName(SERIALIZED_NAME_REFERRAL_PROGRAM)
@@ -241,18 +242,6 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private CampaignsUpdateRequestBodyOptions options;
-
-  public static final String SERIALIZED_NAME_WINNERS_COUNT = "winners_count";
-  @SerializedName(SERIALIZED_NAME_WINNERS_COUNT)
-  private String winnersCount;
-
-  public static final String SERIALIZED_NAME_UNIQUE_WINNERS_PER_DRAW = "unique_winners_per_draw";
-  @SerializedName(SERIALIZED_NAME_UNIQUE_WINNERS_PER_DRAW)
-  private String uniqueWinnersPerDraw;
-
-  public static final String SERIALIZED_NAME_UNIQUE_WINNERS = "unique_winners";
-  @SerializedName(SERIALIZED_NAME_UNIQUE_WINNERS)
-  private String uniqueWinners;
 
   public CampaignsUpdateRequestBody() {
   }
@@ -567,7 +556,7 @@ public class CampaignsUpdateRequestBody {
   }
 
 
-  public CampaignsUpdateRequestBody discount(Object discount) {
+  public CampaignsUpdateRequestBody discount(Discount discount) {
     
     this.discount = discount;
     return this;
@@ -578,12 +567,12 @@ public class CampaignsUpdateRequestBody {
    * @return discount
   **/
   @javax.annotation.Nullable
-  public Object getDiscount() {
+  public Discount getDiscount() {
     return discount;
   }
 
 
-  public void setDiscount(Object discount) {
+  public void setDiscount(Discount discount) {
     this.discount = discount;
   }
 
@@ -672,69 +661,6 @@ public class CampaignsUpdateRequestBody {
   }
 
 
-  public CampaignsUpdateRequestBody winnersCount(String winnersCount) {
-    
-    this.winnersCount = winnersCount;
-    return this;
-  }
-
-   /**
-   * It represents the total number of winners in a lucky draw.
-   * @return winnersCount
-  **/
-  @javax.annotation.Nullable
-  public String getWinnersCount() {
-    return winnersCount;
-  }
-
-
-  public void setWinnersCount(String winnersCount) {
-    this.winnersCount = winnersCount;
-  }
-
-
-  public CampaignsUpdateRequestBody uniqueWinnersPerDraw(String uniqueWinnersPerDraw) {
-    
-    this.uniqueWinnersPerDraw = uniqueWinnersPerDraw;
-    return this;
-  }
-
-   /**
-   * It indicates whether each winner in a draw is unique or not.
-   * @return uniqueWinnersPerDraw
-  **/
-  @javax.annotation.Nullable
-  public String getUniqueWinnersPerDraw() {
-    return uniqueWinnersPerDraw;
-  }
-
-
-  public void setUniqueWinnersPerDraw(String uniqueWinnersPerDraw) {
-    this.uniqueWinnersPerDraw = uniqueWinnersPerDraw;
-  }
-
-
-  public CampaignsUpdateRequestBody uniqueWinners(String uniqueWinners) {
-    
-    this.uniqueWinners = uniqueWinners;
-    return this;
-  }
-
-   /**
-   * Specifies whether each participant can win only once across multiple draws.
-   * @return uniqueWinners
-  **/
-  @javax.annotation.Nullable
-  public String getUniqueWinners() {
-    return uniqueWinners;
-  }
-
-
-  public void setUniqueWinners(String uniqueWinners) {
-    this.uniqueWinners = uniqueWinners;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -763,10 +689,7 @@ public class CampaignsUpdateRequestBody {
         Objects.equals(this.referralProgram, campaignsUpdateRequestBody.referralProgram) &&
         Objects.equals(this.gift, campaignsUpdateRequestBody.gift) &&
         Objects.equals(this.loyaltyTiersExpiration, campaignsUpdateRequestBody.loyaltyTiersExpiration) &&
-        Objects.equals(this.options, campaignsUpdateRequestBody.options) &&
-        Objects.equals(this.winnersCount, campaignsUpdateRequestBody.winnersCount) &&
-        Objects.equals(this.uniqueWinnersPerDraw, campaignsUpdateRequestBody.uniqueWinnersPerDraw) &&
-        Objects.equals(this.uniqueWinners, campaignsUpdateRequestBody.uniqueWinners);
+        Objects.equals(this.options, campaignsUpdateRequestBody.options);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -775,7 +698,7 @@ public class CampaignsUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, activityDurationAfterPublishing, joinOnce, autoJoin, type, discount, referralProgram, gift, loyaltyTiersExpiration, options, winnersCount, uniqueWinnersPerDraw, uniqueWinners);
+    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, activityDurationAfterPublishing, joinOnce, autoJoin, type, discount, referralProgram, gift, loyaltyTiersExpiration, options);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -808,9 +731,6 @@ public class CampaignsUpdateRequestBody {
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyTiersExpiration: ").append(toIndentedString(loyaltyTiersExpiration)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    winnersCount: ").append(toIndentedString(winnersCount)).append("\n");
-    sb.append("    uniqueWinnersPerDraw: ").append(toIndentedString(uniqueWinnersPerDraw)).append("\n");
-    sb.append("    uniqueWinners: ").append(toIndentedString(uniqueWinners)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -852,9 +772,6 @@ public class CampaignsUpdateRequestBody {
     openapiFields.add("gift");
     openapiFields.add("loyalty_tiers_expiration");
     openapiFields.add("options");
-    openapiFields.add("winners_count");
-    openapiFields.add("unique_winners_per_draw");
-    openapiFields.add("unique_winners");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

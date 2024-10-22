@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Category;
+import io.voucherify.client.model.CategoryWithStackingRulesType;
 import io.voucherify.client.model.ValidationsRedeemableInapplicableResult;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -171,7 +171,7 @@ public class ValidationsRedeemableInapplicable {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
+  private List<CategoryWithStackingRulesType> categories;
 
   public ValidationsRedeemableInapplicable() {
   }
@@ -281,13 +281,13 @@ public class ValidationsRedeemableInapplicable {
   }
 
 
-  public ValidationsRedeemableInapplicable categories(List<Category> categories) {
+  public ValidationsRedeemableInapplicable categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public ValidationsRedeemableInapplicable addCategoriesItem(Category categoriesItem) {
+  public ValidationsRedeemableInapplicable addCategoriesItem(CategoryWithStackingRulesType categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -300,12 +300,12 @@ public class ValidationsRedeemableInapplicable {
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<Category> getCategories() {
+  public List<CategoryWithStackingRulesType> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<Category> categories) {
+  public void setCategories(List<CategoryWithStackingRulesType> categories) {
     this.categories = categories;
   }
 

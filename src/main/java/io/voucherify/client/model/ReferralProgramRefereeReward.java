@@ -63,13 +63,9 @@ public class ReferralProgramRefereeReward {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    DISCOUNT_VOUCHER("DISCOUNT_VOUCHER"),
-    
     LOYALTY_CARD("LOYALTY_CARD"),
     
-    GIFT_VOUCHER("GIFT_VOUCHER"),
-    
-    LUCKY_DRAW_CODE("LUCKY_DRAW_CODE");
+    GIFT_VOUCHER("GIFT_VOUCHER");
 
     private String value;
 

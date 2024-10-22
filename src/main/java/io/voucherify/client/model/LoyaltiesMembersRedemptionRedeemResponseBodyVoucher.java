@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Category;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard;
@@ -283,7 +282,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
+  private List<Object> categories;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
@@ -871,13 +870,13 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categories(List<Category> categories) {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categories(List<Object> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher addCategoriesItem(Category categoriesItem) {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher addCategoriesItem(Object categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -886,16 +885,16 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   }
 
    /**
-   * Contains details about the category.
+   * Always returns an empty array.
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<Category> getCategories() {
+  public List<Object> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<Category> categories) {
+  public void setCategories(List<Object> categories) {
     this.categories = categories;
   }
 

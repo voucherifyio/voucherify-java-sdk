@@ -12,7 +12,7 @@
 |**_object** | [**ObjectEnum**](#ObjectEnum) | Redeemable&#39;s object type. |
 |**result** | [**ValidationsRedeemableSkippedResult**](ValidationsRedeemableSkippedResult.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable. |
-|**categories** | [**List&lt;Category&gt;**](Category.md) |  |
+|**categories** | [**List&lt;CategoryWithStackingRulesType&gt;**](CategoryWithStackingRulesType.md) |  |
 
 
 

@@ -18,7 +18,6 @@
 - [Validation Rules](#validation-rules)
 - [Segments](#segments)
 - [Events](#events)
-- [Consents](#consents)
 - [Async Actions](#async-actions)
 - [Exports](#exports)
 - [Categories](#categories)
@@ -172,22 +171,21 @@
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules      | get    | List Loyalty Tier Earning Rules    | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards            | get    | List Loyalty Tier Rewards          | <font color='green'>supported</font> |               |
 ## Customers
-| endpoint                                      | method | summary                                 | is supported                         | is deprecated                        |
-| --------------------------------------------- | ------ | --------------------------------------- | ------------------------------------ | ------------------------------------ |
-| /v1/customers                                 | get    | List Customers                          | <font color='green'>supported</font> |                                      |
-| /v1/customers                                 | post   | Create Customer                         | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | get    | Get Customer                            | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | delete | Delete Customer                         | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}                    | put    | Update Customer                         | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently             | <font color='green'>supported</font> |                                      |
-| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV   | <font color='green'>supported</font> |                                      |
-| /v1/customers/bulk/async                      | post   | Update Customers in Bulk                | <font color='green'>supported</font> |                                      |
-| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in Bulk      | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/consents           | put    | Update Customer's consents [Deprecated] | <font color='green'>supported</font> |  <font color='red'>deprecated</font> |
-| /v1/customers/{customerId}/activity           | get    | List Customer Activity                  | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated]   |                                      |  <font color='red'>deprecated</font> |
-| /v1/customers/{customerId}/segments           | get    | List Customer's Segments                | <font color='green'>supported</font> |                                      |
-| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables             | <font color='green'>supported</font> |                                      |
+| endpoint                                      | method | summary                               | is supported                         | is deprecated                        |
+| --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------------------------------ |
+| /v1/customers                                 | get    | List Customers                        | <font color='green'>supported</font> |                                      |
+| /v1/customers                                 | post   | Create Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | get    | Get Customer                          | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | delete | Delete Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | put    | Update Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently           | <font color='green'>supported</font> |                                      |
+| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV | <font color='green'>supported</font> |                                      |
+| /v1/customers/bulk/async                      | post   | Update Customers in Bulk              | <font color='green'>supported</font> |                                      |
+| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in Bulk    | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/activity           | get    | List Customer Activity                | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/activities         | get    | List Customer Activities [Deprecated] |                                      |  <font color='red'>deprecated</font> |
+| /v1/customers/{customerId}/segments           | get    | List Customer's Segments              | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables           | <font color='green'>supported</font> |                                      |
 ## Orders
 | endpoint             | method | summary              | is supported                         | is deprecated |
 | -------------------- | ------ | -------------------- | ------------------------------------ | ------------- |
@@ -244,10 +242,6 @@
 | endpoint   | method | summary            | is supported                         | is deprecated |
 | ---------- | ------ | ------------------ | ------------------------------------ | ------------- |
 | /v1/events | post   | Track Custom Event | <font color='green'>supported</font> |               |
-## Consents
-| endpoint     | method | summary                    | is supported | is deprecated                        |
-| ------------ | ------ | -------------------------- | ------------ | ------------------------------------ |
-| /v1/consents | get    | List Consents [Deprecated] |              |  <font color='red'>deprecated</font> |
 ## Async Actions
 | endpoint                          | method | summary            | is supported                         | is deprecated |
 | --------------------------------- | ------ | ------------------ | ------------------------------------ | ------------- |
@@ -270,83 +264,88 @@
 | /v1/categories/{categoryId} | delete | Delete Category | <font color='green'>supported</font> |               |
 | /v1/categories/{categoryId} | put    | Update Category | <font color='green'>supported</font> |               |
 ## Metadata Schemas
-| endpoint                        | method | summary               | is supported | is deprecated |
-| ------------------------------- | ------ | --------------------- | ------------ | ------------- |
-| /v1/metadata-schemas            | get    | List Metadata Schemas |              |               |
-| /v1/metadata-schemas/{resource} | get    | Get Metadata Schema   |              |               |
+| endpoint                        | method | summary               | is supported                         | is deprecated |
+| ------------------------------- | ------ | --------------------- | ------------------------------------ | ------------- |
+| /v1/metadata-schemas            | get    | List Metadata Schemas | <font color='green'>supported</font> |               |
+| /v1/metadata-schemas/{resource} | get    | Get Metadata Schema   | <font color='green'>supported</font> |               |
 ## Locations
-| endpoint                   | method | summary        | is supported | is deprecated |
-| -------------------------- | ------ | -------------- | ------------ | ------------- |
-| /v1/locations              | get    | List Locations |              |               |
-| /v1/locations/{locationId} | get    | Get Location   |              |               |
+| endpoint                   | method | summary        | is supported                         | is deprecated |
+| -------------------------- | ------ | -------------- | ------------------------------------ | ------------- |
+| /v1/locations              | get    | List Locations | <font color='green'>supported</font> |               |
+| /v1/locations/{locationId} | get    | Get Location   | <font color='green'>supported</font> |               |
 ## Referrals
-| endpoint                                                         | method | summary                     | is supported | is deprecated |
-| ---------------------------------------------------------------- | ------ | --------------------------- | ------------ | ------------- |
-| /v1/referrals/{campaignId}/members/{memberId}/holders            | post   | Add Referral Code Holders   |              |               |
-| /v1/referrals/{campaignId}/members/{memberId}/holders            | get    | List Referral Code Holders  |              |               |
-| /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | delete | Remove Referral Card Holder |              |               |
-| /v1/referrals/members/{memberId}/holders                         | post   | Add Referral Code Holders   |              |               |
-| /v1/referrals/members/{memberId}/holders                         | get    | List Referral Code Holders  |              |               |
-| /v1/referrals/members/{memberId}/holders/{holderId}              | delete | Remove Referral Card Holder |              |               |
+| endpoint                                                         | method | summary                     | is supported                         | is deprecated |
+| ---------------------------------------------------------------- | ------ | --------------------------- | ------------------------------------ | ------------- |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | post   | Add Referral Code Holders   | <font color='green'>supported</font> |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders            | get    | List Referral Code Holders  | <font color='green'>supported</font> |               |
+| /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | delete | Remove Referral Card Holder | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders                         | post   | Add Referral Code Holders   | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders                         | get    | List Referral Code Holders  | <font color='green'>supported</font> |               |
+| /v1/referrals/members/{memberId}/holders/{holderId}              | delete | Remove Referral Card Holder | <font color='green'>supported</font> |               |
 ## Bin
-| endpoint                   | method | summary          | is supported | is deprecated |
-| -------------------------- | ------ | ---------------- | ------------ | ------------- |
-| /v1/trash-bin              | get    | List Bin Entries |              |               |
-| /v1/trash-bin/{binEntryId} | delete | Delete Bin Entry |              |               |
+| endpoint                   | method | summary          | is supported                         | is deprecated |
+| -------------------------- | ------ | ---------------- | ------------------------------------ | ------------- |
+| /v1/trash-bin              | get    | List Bin Entries | <font color='green'>supported</font> |               |
+| /v1/trash-bin/{binEntryId} | delete | Delete Bin Entry | <font color='green'>supported</font> |               |
 ## Templates
-| endpoint                | method | summary                  | is supported | is deprecated |
-| ----------------------- | ------ | ------------------------ | ------------ | ------------- |
-| /v1/templates/campaigns | get    | List Campaign Templates  |              |               |
-| /v1/templates/campaigns | post   | Create Campaign Template |              |               |
+| endpoint                                                    | method | summary                          | is supported                         | is deprecated |
+| ----------------------------------------------------------- | ------ | -------------------------------- | ------------------------------------ | ------------- |
+| /v1/templates/campaigns                                     | get    | List Campaign Templates          | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns                                     | post   | Create Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | get    | Get Campaign Template            | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | put    | Update Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | delete | Delete Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}/campaign-setup | post   | Create Campaign From Template    | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}/tier-setup     | post   | Add Promotion Tier From Template | <font color='green'>supported</font> |               |
 ## Management
-| endpoint                                                                       | method | summary                    | is supported | is deprecated |
-| ------------------------------------------------------------------------------ | ------ | -------------------------- | ------------ | ------------- |
-| /management/v1/projects                                                        | post   | Create Project             |              |               |
-| /management/v1/projects                                                        | get    | List Projects              |              |               |
-| /management/v1/projects/{projectId}                                            | get    | Get Project                |              |               |
-| /management/v1/projects/{projectId}                                            | put    | Update Project             |              |               |
-| /management/v1/projects/{projectId}                                            | delete | Delete Project             |              |               |
-| /management/v1/projects/{projectId}/users                                      | post   | Assign User                |              |               |
-| /management/v1/projects/{projectId}/users                                      | get    | List Users                 |              |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | get    | Get User                   |              |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | put    | Update User                |              |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | delete | Unassign User              |              |               |
-| /management/v1/projects/users/invite                                           | post   | Invite a New User          |              |               |
-| /management/v1/projects/{projectId}/stacking-rules                             | post   | Create Stacking Rules      |              |               |
-| /management/v1/projects/{projectId}/stacking-rules                             | get    | List Stacking Rules        |              |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | get    | Get Stacking Rules         |              |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | put    | Update Stacking Rules      |              |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | delete | Delete Stacking Rules      |              |               |
-| /management/v1/projects/{projectId}/metadata-schemas                           | post   | Create Metadata Schema     |              |               |
-| /management/v1/projects/{projectId}/metadata-schemas                           | get    | List Metadata Schemas      |              |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | get    | Get Metadata Schema        |              |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | put    | Update Metadata Schema     |              |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | delete | Delete Metadata Schema     |              |               |
-| /management/v1/projects/{projectId}/custom-event-schemas                       | post   | Create Custom Event Schema |              |               |
-| /management/v1/projects/{projectId}/custom-event-schemas                       | get    | List Custom Event Schemas  |              |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | get    | Get Custom Event Schema    |              |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | put    | Update Custom Event Schema |              |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | delete | Delete Custom Event Schema |              |               |
-| /management/v1/projects/{projectId}/webhooks                                   | post   | Create Webhook             |              |               |
-| /management/v1/projects/{projectId}/webhooks                                   | get    | List Webhooks              |              |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | get    | Get Webhook                |              |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | put    | Update Webhook             |              |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | delete | Delete Webhook             |              |               |
-| /management/v1/projects/{projectId}/branding                                   | post   | Create Brand               |              |               |
-| /management/v1/projects/{projectId}/branding                                   | get    | List Brands                |              |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | get    | Get Brand                  |              |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | put    | Update Brand               |              |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | delete | Delete Brand               |              |               |
+| endpoint                                                                          | method | summary                             | is supported                         | is deprecated |
+| --------------------------------------------------------------------------------- | ------ | ----------------------------------- | ------------------------------------ | ------------- |
+| /management/v1/projects                                                           | post   | Create Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects                                                           | get    | List Projects                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | get    | Get Project                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | put    | Update Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | delete | Delete Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users                                         | post   | Assign User                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users                                         | get    | List Users                          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | get    | Get User                            | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | put    | Update User                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | delete | Unassign User                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/users/invite                                              | post   | Invite a New User                   | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/templates/campaigns                           | get    | List Campaign Templates             | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy | post   | Copy Campaign Template to a Project | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules                                | post   | Create Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules                                | get    | List Stacking Rules                 | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | get    | Get Stacking Rules                  | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | put    | Update Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | delete | Delete Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas                              | post   | Create Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas                              | get    | List Metadata Schemas               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | get    | Get Metadata Schema                 | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | put    | Update Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | delete | Delete Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas                          | post   | Create Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas                          | get    | List Custom Event Schemas           | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | get    | Get Custom Event Schema             | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | put    | Update Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | delete | Delete Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks                                      | post   | Create Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks                                      | get    | List Webhooks                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | get    | Get Webhook                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | put    | Update Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | delete | Delete Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding                                      | post   | Create Brand                        | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding                                      | get    | List Brands                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | get    | Get Brand                           | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | put    | Update Brand                        | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | delete | Delete Brand                        | <font color='green'>supported</font> |               |
 ## Client-side
-| endpoint                                   | method | summary                                               | is supported                         | is deprecated                        |
-| ------------------------------------------ | ------ | ----------------------------------------------------- | ------------------------------------ | ------------------------------------ |
-| /client/v1/qualifications                  | post   | Check Eligibility (client-side)                       | <font color='green'>supported</font> |                                      |
-| /client/v1/promotions/tiers                | get    | List Promotion Tiers (client-side)                    | <font color='green'>supported</font> |                                      |
-| /client/v1/redemptions                     | post   | Redeem Stackable Discounts (client-side)              | <font color='green'>supported</font> |                                      |
-| /client/v1/validations                     | post   | Validate Stackable Discounts (client-side)            | <font color='green'>supported</font> |                                      |
-| /client/v1/customers/{customerId}/consents | put    | Update Customer's consents (client-side) [Deprecated] |                                      |  <font color='red'>deprecated</font> |
-| /client/v1/events                          | post   | Track Custom Event (client-side)                      | <font color='green'>supported</font> |                                      |
-| /client/v1/consents                        | get    | List Consents (client-side) [Deprecated]              |                                      |  <font color='red'>deprecated</font> |
-| /client/v1/validate                        | get    | Validate Voucher (client-side) [Deprecated]           |                                      |  <font color='red'>deprecated</font> |
-| /client/v1/redeem                          | post   | Redeem Voucher (client-side) [Deprecated]             |                                      |  <font color='red'>deprecated</font> |
-| /client/v1/publish                         | post   | Create Publication (client-side)                      |                                      |                                      |
+| endpoint                    | method | summary                                     | is supported                         | is deprecated                        |
+| --------------------------- | ------ | ------------------------------------------- | ------------------------------------ | ------------------------------------ |
+| /client/v1/qualifications   | post   | Check Eligibility (client-side)             | <font color='green'>supported</font> |                                      |
+| /client/v1/promotions/tiers | get    | List Promotion Tiers (client-side)          | <font color='green'>supported</font> |                                      |
+| /client/v1/redemptions      | post   | Redeem Stackable Discounts (client-side)    | <font color='green'>supported</font> |                                      |
+| /client/v1/validations      | post   | Validate Stackable Discounts (client-side)  | <font color='green'>supported</font> |                                      |
+| /client/v1/events           | post   | Track Custom Event (client-side)            | <font color='green'>supported</font> |                                      |
+| /client/v1/validate         | get    | Validate Voucher (client-side) [Deprecated] |                                      |  <font color='red'>deprecated</font> |
+| /client/v1/redeem           | post   | Redeem Voucher (client-side) [Deprecated]   |                                      |  <font color='red'>deprecated</font> |
+| /client/v1/publish          | post   | Create Publication (client-side)            |                                      |                                      |

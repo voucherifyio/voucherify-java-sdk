@@ -15,7 +15,7 @@
 |**inapplicableTo** | [**InapplicableToResultList**](InapplicableToResultList.md) |  |
 |**result** | [**ClientValidationsValidateResponseBodyRedeemablesItemResult**](ClientValidationsValidateResponseBodyRedeemablesItemResult.md) |  |
 |**metadata** | **Object** |  |
-|**categories** | [**List&lt;Category&gt;**](Category.md) |  |
+|**categories** | [**List&lt;CategoryWithStackingRulesType&gt;**](CategoryWithStackingRulesType.md) |  |
 
 
 

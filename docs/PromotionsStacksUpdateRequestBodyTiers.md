@@ -9,7 +9,7 @@ Contains the tier configuration. A promotion stack can include up to 30 tiers.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**ids** | **List&lt;String&gt;** | Contains the list of tiers in a pre-defined sequence. |
-|**hierarchyMode** | [**HierarchyModeEnum**](#HierarchyModeEnum) | Category hierarchy. |
+|**hierarchyMode** | [**HierarchyModeEnum**](#HierarchyModeEnum) | Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value. |
 
 
 

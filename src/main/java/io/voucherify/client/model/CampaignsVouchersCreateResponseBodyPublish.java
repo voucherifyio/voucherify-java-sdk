@@ -117,7 +117,7 @@ public class CampaignsVouchersCreateResponseBodyPublish {
   }
 
    /**
-   * The endpoint where this list of publications can be accessed using a GET method. &#x60;/v1/vouchers/{voucher_code}/publications&#x60;
+   * The endpoint where this list of publications can be accessed using a **GET** method. &#x60;/v1/vouchers/{voucher_code}/publications&#x60;
    * @return url
   **/
   @javax.annotation.Nullable

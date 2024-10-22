@@ -92,7 +92,8 @@ public class CategoriesUpdateRequestBody {
   }
 
    /**
-   * Category hierarchy.
+   * Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value.
+   * minimum: 0
    * @return hierarchy
   **/
   @javax.annotation.Nullable

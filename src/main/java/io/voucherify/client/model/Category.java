@@ -123,57 +123,6 @@ public class Category {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
-  /**
-   * The type of the stacking rule eligibility.
-   */
-  @JsonAdapter(StackingRulesTypeEnum.Adapter.class)
-  public enum StackingRulesTypeEnum {
-    JOINT("JOINT"),
-    
-    EXCLUSIVE("EXCLUSIVE");
-
-    private String value;
-
-    StackingRulesTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StackingRulesTypeEnum fromValue(String value) {
-      for (StackingRulesTypeEnum b : StackingRulesTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StackingRulesTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StackingRulesTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StackingRulesTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StackingRulesTypeEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STACKING_RULES_TYPE = "stacking_rules_type";
-  @SerializedName(SERIALIZED_NAME_STACKING_RULES_TYPE)
-  private StackingRulesTypeEnum stackingRulesType;
-
   public Category() {
   }
 
@@ -226,7 +175,8 @@ public class Category {
   }
 
    /**
-   * Category hierarchy.
+   * Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value.
+   * minimum: 0
    * @return hierarchy
   **/
   @javax.annotation.Nullable
@@ -303,27 +253,6 @@ public class Category {
   }
 
 
-  public Category stackingRulesType(StackingRulesTypeEnum stackingRulesType) {
-    
-    this.stackingRulesType = stackingRulesType;
-    return this;
-  }
-
-   /**
-   * The type of the stacking rule eligibility.
-   * @return stackingRulesType
-  **/
-  @javax.annotation.Nullable
-  public StackingRulesTypeEnum getStackingRulesType() {
-    return stackingRulesType;
-  }
-
-
-  public void setStackingRulesType(StackingRulesTypeEnum stackingRulesType) {
-    this.stackingRulesType = stackingRulesType;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -339,8 +268,7 @@ public class Category {
         Objects.equals(this.hierarchy, category.hierarchy) &&
         Objects.equals(this._object, category._object) &&
         Objects.equals(this.createdAt, category.createdAt) &&
-        Objects.equals(this.updatedAt, category.updatedAt) &&
-        Objects.equals(this.stackingRulesType, category.stackingRulesType);
+        Objects.equals(this.updatedAt, category.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -349,7 +277,7 @@ public class Category {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, hierarchy, _object, createdAt, updatedAt, stackingRulesType);
+    return Objects.hash(id, name, hierarchy, _object, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -369,7 +297,6 @@ public class Category {
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    stackingRulesType: ").append(toIndentedString(stackingRulesType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -398,7 +325,6 @@ public class Category {
     openapiFields.add("object");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("stacking_rules_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
