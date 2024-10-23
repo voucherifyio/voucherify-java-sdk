@@ -2,7 +2,7 @@
 
 # ManagementProjectsWebhooksCreateResponseBody
 
-Response body schema for **POST** `v1/management/v1/projects/{projectId}/webhooks`.
+Response body schema for **POST** `/management/v1/projects/{projectId}/webhooks`.
 
 ## Properties
 

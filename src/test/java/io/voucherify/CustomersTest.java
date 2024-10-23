@@ -100,7 +100,7 @@ public class CustomersTest {
                     null,
                     null);
 
-            List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total", "email", "name");
+            List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total", "email");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
         } catch (Exception e) {

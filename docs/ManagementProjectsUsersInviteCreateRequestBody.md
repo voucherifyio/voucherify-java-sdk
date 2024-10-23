@@ -2,7 +2,7 @@
 
 # ManagementProjectsUsersInviteCreateRequestBody
 
-Request body schema for **POST** `v1/management/v1/projects/users/invite`.
+Request body schema for **POST** `/management/v1/projects/users/invite`.
 
 ## Properties
 

@@ -32,6 +32,8 @@ All URIs are relative to *https://api.voucherify.io*
 | [**listStackingRules**](ManagementApi.md#listStackingRules) | **GET** /management/v1/projects/{projectId}/stacking-rules | List Stacking Rules |
 | [**listUsers**](ManagementApi.md#listUsers) | **GET** /management/v1/projects/{projectId}/users | List Users |
 | [**listWebhooks**](ManagementApi.md#listWebhooks) | **GET** /management/v1/projects/{projectId}/webhooks | List Webhooks |
+| [**managementCopyCampaignTemplate**](ManagementApi.md#managementCopyCampaignTemplate) | **POST** /management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy | Copy Campaign Template to a Project |
+| [**managementListCampaignTemplates**](ManagementApi.md#managementListCampaignTemplates) | **GET** /management/v1/projects/{projectId}/templates/campaigns | List Campaign Templates |
 | [**unassignUser**](ManagementApi.md#unassignUser) | **DELETE** /management/v1/projects/{projectId}/users/{userId} | Unassign User |
 | [**updateBrand**](ManagementApi.md#updateBrand) | **PUT** /management/v1/projects/{projectId}/branding/{brandingId} | Update Brand |
 | [**updateCustomEventSchema**](ManagementApi.md#updateCustomEventSchema) | **PUT** /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | Update Custom Event Schema |
@@ -1996,6 +1998,158 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns the details about webhook configurations created in the project. |  -  |
+
+<a id="managementCopyCampaignTemplate"></a>
+# **managementCopyCampaignTemplate**
+> ManagementProjectsTemplatesCampaignsCopyCreateResponseBody managementCopyCampaignTemplate(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody)
+
+Copy Campaign Template to a Project
+
+Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-Management-Token
+    defaultClient.setAuthentication("X-Management-Token", "YOUR API KEY");
+
+    // Configure API key authorization: X-Management-Id
+    defaultClient.setAuthentication("X-Management-Id", "YOUR API KEY");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    String projectId = "projectId_example"; // String | Provide the unique identifier of the project.
+    String campaignTemplateId = "campaignTemplateId_example"; // String | Provide the unique identifier of the campaign template.
+    ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = new ManagementProjectsTemplatesCampaignsCopyCreateRequestBody(); // ManagementProjectsTemplatesCampaignsCopyCreateRequestBody | Determines the details about the template in the destination project as well as the destination project itself.
+    try {
+      ManagementProjectsTemplatesCampaignsCopyCreateResponseBody result = apiInstance.managementCopyCampaignTemplate(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#managementCopyCampaignTemplate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **projectId** | **String**| Provide the unique identifier of the project. |
+| **campaignTemplateId** | **String**| Provide the unique identifier of the campaign template. |
+| **managementProjectsTemplatesCampaignsCopyCreateRequestBody** | [**ManagementProjectsTemplatesCampaignsCopyCreateRequestBody**](ManagementProjectsTemplatesCampaignsCopyCreateRequestBody.md)| Determines the details about the template in the destination project as well as the destination project itself. |
+
+### Return type
+
+[**ManagementProjectsTemplatesCampaignsCopyCreateResponseBody**](ManagementProjectsTemplatesCampaignsCopyCreateResponseBody.md)
+
+### Authorization
+
+[X-Management-Token](../README.md#X-Management-Token), [X-Management-Id](../README.md#X-Management-Id)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the details about the copied campaign template. |  -  |
+
+<a id="managementListCampaignTemplates"></a>
+# **managementListCampaignTemplates**
+> ManagementProjectsTemplatesCampaignsListResponseBody managementListCampaignTemplates(projectId, limit, startingAfterId, order, includeTotal, filters)
+
+List Campaign Templates
+
+Lists all campaign templates available in the project.  👍 List Campaign Templates  This endpoint works in the same way as the List Campaign Templates endpoint.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.ManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-Management-Token
+    defaultClient.setAuthentication("X-Management-Token", "YOUR API KEY");
+
+    // Configure API key authorization: X-Management-Id
+    defaultClient.setAuthentication("X-Management-Id", "YOUR API KEY");
+
+    ManagementApi apiInstance = new ManagementApi(defaultClient);
+    String projectId = "projectId_example"; // String | Provide the unique identifier of the project.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the campaign templates created after a template with the given ID.
+    ParameterTemplatesList order = ParameterTemplatesList.fromValue("id"); // ParameterTemplatesList | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    Boolean includeTotal = true; // Boolean | If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default.
+    ParameterFiltersListTemplates filters = new ParameterFiltersListTemplates(); // ParameterFiltersListTemplates | Filters for listing templates.
+    try {
+      ManagementProjectsTemplatesCampaignsListResponseBody result = apiInstance.managementListCampaignTemplates(projectId, limit, startingAfterId, order, includeTotal, filters);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ManagementApi#managementListCampaignTemplates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **projectId** | **String**| Provide the unique identifier of the project. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the campaign templates created after a template with the given ID. |
+| **order** | [**ParameterTemplatesList**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **includeTotal** | **Boolean**| If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default. |
+| **filters** | [**ParameterFiltersListTemplates**](.md)| Filters for listing templates. |
+
+### Return type
+
+[**ManagementProjectsTemplatesCampaignsListResponseBody**](ManagementProjectsTemplatesCampaignsListResponseBody.md)
+
+### Authorization
+
+[X-Management-Token](../README.md#X-Management-Token), [X-Management-Id](../README.md#X-Management-Id)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary of campaign template objects. The templates are returned by creation date by default. The most recent objects appear last unless specified otherwise with the &#x60;order&#x60; parameter. |  -  |
 
 <a id="unassignUser"></a>
 # **unassignUser**

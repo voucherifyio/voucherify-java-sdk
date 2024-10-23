@@ -46,7 +46,7 @@ public class PublicationsTest {
                     null);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchers", "vouchersId",
-                    "total", "campaign", "code", "email", "trackingId");
+                    "total", "campaign", "code", "email");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
             fail();

@@ -60,7 +60,7 @@ public class PromotionsStacksUpdateRequestBodyTiers {
   private List<String> ids;
 
   /**
-   * Category hierarchy.
+   * Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value.
    */
   @JsonAdapter(HierarchyModeEnum.Adapter.class)
   public enum HierarchyModeEnum {
@@ -147,7 +147,7 @@ public class PromotionsStacksUpdateRequestBodyTiers {
   }
 
    /**
-   * Category hierarchy.
+   * Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value.
    * @return hierarchyMode
   **/
   @javax.annotation.Nullable

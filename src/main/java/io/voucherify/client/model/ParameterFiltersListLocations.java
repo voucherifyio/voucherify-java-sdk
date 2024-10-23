@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ParameterFiltersListLocationsCreatedAt;
 import io.voucherify.client.model.ParameterFiltersListLocationsName;
+import io.voucherify.client.model.ParameterFiltersListLocationsUpdatedAt;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -58,6 +60,14 @@ public class ParameterFiltersListLocations {
   @SerializedName(SERIALIZED_NAME_NAME)
   private ParameterFiltersListLocationsName name;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private ParameterFiltersListLocationsCreatedAt createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private ParameterFiltersListLocationsUpdatedAt updatedAt;
+
   public ParameterFiltersListLocations() {
   }
 
@@ -82,6 +92,48 @@ public class ParameterFiltersListLocations {
   }
 
 
+  public ParameterFiltersListLocations createdAt(ParameterFiltersListLocationsCreatedAt createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListLocationsCreatedAt getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(ParameterFiltersListLocationsCreatedAt createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public ParameterFiltersListLocations updatedAt(ParameterFiltersListLocationsUpdatedAt updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListLocationsUpdatedAt getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(ParameterFiltersListLocationsUpdatedAt updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +144,9 @@ public class ParameterFiltersListLocations {
       return false;
     }
     ParameterFiltersListLocations parameterFiltersListLocations = (ParameterFiltersListLocations) o;
-    return Objects.equals(this.name, parameterFiltersListLocations.name);
+    return Objects.equals(this.name, parameterFiltersListLocations.name) &&
+        Objects.equals(this.createdAt, parameterFiltersListLocations.createdAt) &&
+        Objects.equals(this.updatedAt, parameterFiltersListLocations.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -101,7 +155,7 @@ public class ParameterFiltersListLocations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -116,6 +170,8 @@ public class ParameterFiltersListLocations {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListLocations {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,6 +195,8 @@ public class ParameterFiltersListLocations {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

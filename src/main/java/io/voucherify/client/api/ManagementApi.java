@@ -55,6 +55,9 @@ import io.voucherify.client.model.ManagementProjectsStackingRulesGetResponseBody
 import io.voucherify.client.model.ManagementProjectsStackingRulesListResponseBody;
 import io.voucherify.client.model.ManagementProjectsStackingRulesUpdateRequestBody;
 import io.voucherify.client.model.ManagementProjectsStackingRulesUpdateResponseBody;
+import io.voucherify.client.model.ManagementProjectsTemplatesCampaignsCopyCreateRequestBody;
+import io.voucherify.client.model.ManagementProjectsTemplatesCampaignsCopyCreateResponseBody;
+import io.voucherify.client.model.ManagementProjectsTemplatesCampaignsListResponseBody;
 import io.voucherify.client.model.ManagementProjectsUpdateRequestBody;
 import io.voucherify.client.model.ManagementProjectsUpdateResponseBody;
 import io.voucherify.client.model.ManagementProjectsUsersAssignRequestBody;
@@ -70,6 +73,8 @@ import io.voucherify.client.model.ManagementProjectsWebhooksGetResponseBody;
 import io.voucherify.client.model.ManagementProjectsWebhooksListResponseBody;
 import io.voucherify.client.model.ManagementProjectsWebhooksUpdateRequestBody;
 import io.voucherify.client.model.ManagementProjectsWebhooksUpdateResponseBody;
+import io.voucherify.client.model.ParameterFiltersListTemplates;
+import io.voucherify.client.model.ParameterTemplatesList;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -3080,6 +3085,267 @@ public class ManagementApi {
 
         okhttp3.Call localVarCall = listWebhooksValidateBeforeCall(projectId, _callback);
         Type localVarReturnType = new TypeToken<ManagementProjectsWebhooksListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for managementCopyCampaignTemplate
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param campaignTemplateId Provide the unique identifier of the campaign template. (required)
+     * @param managementProjectsTemplatesCampaignsCopyCreateRequestBody Determines the details about the template in the destination project as well as the destination project itself. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call managementCopyCampaignTemplateCall(String projectId, String campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = managementProjectsTemplatesCampaignsCopyCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy"
+            .replace("{" + "projectId" + "}", localVarApiClient.escapeString(projectId.toString()))
+            .replace("{" + "campaignTemplateId" + "}", localVarApiClient.escapeString(campaignTemplateId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-Management-Token", "X-Management-Id" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call managementCopyCampaignTemplateValidateBeforeCall(String projectId, String campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new ApiException("Missing the required parameter 'projectId' when calling managementCopyCampaignTemplate(Async)");
+        }
+
+        // verify the required parameter 'campaignTemplateId' is set
+        if (campaignTemplateId == null) {
+            throw new ApiException("Missing the required parameter 'campaignTemplateId' when calling managementCopyCampaignTemplate(Async)");
+        }
+
+        return managementCopyCampaignTemplateCall(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Copy Campaign Template to a Project
+     * Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param campaignTemplateId Provide the unique identifier of the campaign template. (required)
+     * @param managementProjectsTemplatesCampaignsCopyCreateRequestBody Determines the details about the template in the destination project as well as the destination project itself. (optional)
+     * @return ManagementProjectsTemplatesCampaignsCopyCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody managementCopyCampaignTemplate(String projectId, String campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody) throws ApiException {
+        ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> localVarResp = managementCopyCampaignTemplateWithHttpInfo(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Copy Campaign Template to a Project
+     * Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param campaignTemplateId Provide the unique identifier of the campaign template. (required)
+     * @param managementProjectsTemplatesCampaignsCopyCreateRequestBody Determines the details about the template in the destination project as well as the destination project itself. (optional)
+     * @return ApiResponse&lt;ManagementProjectsTemplatesCampaignsCopyCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> managementCopyCampaignTemplateWithHttpInfo(String projectId, String campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = managementCopyCampaignTemplateValidateBeforeCall(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Copy Campaign Template to a Project (asynchronously)
+     * Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param campaignTemplateId Provide the unique identifier of the campaign template. (required)
+     * @param managementProjectsTemplatesCampaignsCopyCreateRequestBody Determines the details about the template in the destination project as well as the destination project itself. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call managementCopyCampaignTemplateAsync(String projectId, String campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, final ApiCallback<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = managementCopyCampaignTemplateValidateBeforeCall(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for managementListCampaignTemplates
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the campaign templates created after a template with the given ID. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param includeTotal If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default. (optional)
+     * @param filters Filters for listing templates. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call managementListCampaignTemplatesCall(String projectId, Integer limit, String startingAfterId, ParameterTemplatesList order, Boolean includeTotal, ParameterFiltersListTemplates filters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/management/v1/projects/{projectId}/templates/campaigns"
+            .replace("{" + "projectId" + "}", localVarApiClient.escapeString(projectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (includeTotal != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_total", includeTotal));
+        }
+
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-Management-Token", "X-Management-Id" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call managementListCampaignTemplatesValidateBeforeCall(String projectId, Integer limit, String startingAfterId, ParameterTemplatesList order, Boolean includeTotal, ParameterFiltersListTemplates filters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new ApiException("Missing the required parameter 'projectId' when calling managementListCampaignTemplates(Async)");
+        }
+
+        return managementListCampaignTemplatesCall(projectId, limit, startingAfterId, order, includeTotal, filters, _callback);
+
+    }
+
+    /**
+     * List Campaign Templates
+     * Lists all campaign templates available in the project.  👍 List Campaign Templates  This endpoint works in the same way as the List Campaign Templates endpoint.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the campaign templates created after a template with the given ID. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param includeTotal If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default. (optional)
+     * @param filters Filters for listing templates. (optional)
+     * @return ManagementProjectsTemplatesCampaignsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ManagementProjectsTemplatesCampaignsListResponseBody managementListCampaignTemplates(String projectId, Integer limit, String startingAfterId, ParameterTemplatesList order, Boolean includeTotal, ParameterFiltersListTemplates filters) throws ApiException {
+        ApiResponse<ManagementProjectsTemplatesCampaignsListResponseBody> localVarResp = managementListCampaignTemplatesWithHttpInfo(projectId, limit, startingAfterId, order, includeTotal, filters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Campaign Templates
+     * Lists all campaign templates available in the project.  👍 List Campaign Templates  This endpoint works in the same way as the List Campaign Templates endpoint.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the campaign templates created after a template with the given ID. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param includeTotal If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default. (optional)
+     * @param filters Filters for listing templates. (optional)
+     * @return ApiResponse&lt;ManagementProjectsTemplatesCampaignsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ManagementProjectsTemplatesCampaignsListResponseBody> managementListCampaignTemplatesWithHttpInfo(String projectId, Integer limit, String startingAfterId, ParameterTemplatesList order, Boolean includeTotal, ParameterFiltersListTemplates filters) throws ApiException {
+        okhttp3.Call localVarCall = managementListCampaignTemplatesValidateBeforeCall(projectId, limit, startingAfterId, order, includeTotal, filters, null);
+        Type localVarReturnType = new TypeToken<ManagementProjectsTemplatesCampaignsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Campaign Templates (asynchronously)
+     * Lists all campaign templates available in the project.  👍 List Campaign Templates  This endpoint works in the same way as the List Campaign Templates endpoint.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+     * @param projectId Provide the unique identifier of the project. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the campaign templates created after a template with the given ID. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param includeTotal If set to true, the response returns the number of all campaign templates, regardless of the applied filters or limits. Set to false by default. (optional)
+     * @param filters Filters for listing templates. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call managementListCampaignTemplatesAsync(String projectId, Integer limit, String startingAfterId, ParameterTemplatesList order, Boolean includeTotal, ParameterFiltersListTemplates filters, final ApiCallback<ManagementProjectsTemplatesCampaignsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = managementListCampaignTemplatesValidateBeforeCall(projectId, limit, startingAfterId, order, includeTotal, filters, _callback);
+        Type localVarReturnType = new TypeToken<ManagementProjectsTemplatesCampaignsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

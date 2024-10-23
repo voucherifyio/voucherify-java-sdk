@@ -2,7 +2,7 @@
 
 # ManagementProjectsBrandingUpdateResponseBody
 
-Response body schema for **PUT** `v1/management/v1/projects/{projectId}/branding/{brandingId}`.
+Response body schema for **PUT** `/management/v1/projects/{projectId}/branding/{brandingId}`.
 
 ## Properties
 

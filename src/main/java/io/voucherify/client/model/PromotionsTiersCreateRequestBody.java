@@ -68,10 +68,6 @@ public class PromotionsTiersCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_BANNER)
   private String banner;
 
-  public static final String SERIALIZED_NAME_ACTION = "action";
-  @SerializedName(SERIALIZED_NAME_ACTION)
-  private PromotionsTiersCreateRequestBodyAction action;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -161,10 +157,6 @@ public class PromotionsTiersCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_VALIDITY_HOURS)
   private ValidityHours validityHours;
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS = "validation_rule_assignments";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS)
-  private ValidationRuleAssignmentsList validationRuleAssignments;
-
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
@@ -172,6 +164,14 @@ public class PromotionsTiersCreateRequestBody {
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+
+  public static final String SERIALIZED_NAME_ACTION = "action";
+  @SerializedName(SERIALIZED_NAME_ACTION)
+  private PromotionsTiersCreateRequestBodyAction action;
+
+  public static final String SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS = "validation_rule_assignments";
+  @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS)
+  private ValidationRuleAssignmentsList validationRuleAssignments;
 
   public PromotionsTiersCreateRequestBody() {
   }
@@ -215,27 +215,6 @@ public class PromotionsTiersCreateRequestBody {
 
   public void setBanner(String banner) {
     this.banner = banner;
-  }
-
-
-  public PromotionsTiersCreateRequestBody action(PromotionsTiersCreateRequestBodyAction action) {
-    
-    this.action = action;
-    return this;
-  }
-
-   /**
-   * Get action
-   * @return action
-  **/
-  @javax.annotation.Nullable
-  public PromotionsTiersCreateRequestBodyAction getAction() {
-    return action;
-  }
-
-
-  public void setAction(PromotionsTiersCreateRequestBodyAction action) {
-    this.action = action;
   }
 
 
@@ -415,27 +394,6 @@ public class PromotionsTiersCreateRequestBody {
   }
 
 
-  public PromotionsTiersCreateRequestBody validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
-    
-    this.validationRuleAssignments = validationRuleAssignments;
-    return this;
-  }
-
-   /**
-   * Get validationRuleAssignments
-   * @return validationRuleAssignments
-  **/
-  @javax.annotation.Nullable
-  public ValidationRuleAssignmentsList getValidationRuleAssignments() {
-    return validationRuleAssignments;
-  }
-
-
-  public void setValidationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
-    this.validationRuleAssignments = validationRuleAssignments;
-  }
-
-
   public PromotionsTiersCreateRequestBody category(String category) {
     
     this.category = category;
@@ -478,6 +436,48 @@ public class PromotionsTiersCreateRequestBody {
   }
 
 
+  public PromotionsTiersCreateRequestBody action(PromotionsTiersCreateRequestBodyAction action) {
+    
+    this.action = action;
+    return this;
+  }
+
+   /**
+   * Get action
+   * @return action
+  **/
+  @javax.annotation.Nullable
+  public PromotionsTiersCreateRequestBodyAction getAction() {
+    return action;
+  }
+
+
+  public void setAction(PromotionsTiersCreateRequestBodyAction action) {
+    this.action = action;
+  }
+
+
+  public PromotionsTiersCreateRequestBody validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
+    
+    this.validationRuleAssignments = validationRuleAssignments;
+    return this;
+  }
+
+   /**
+   * Get validationRuleAssignments
+   * @return validationRuleAssignments
+  **/
+  @javax.annotation.Nullable
+  public ValidationRuleAssignmentsList getValidationRuleAssignments() {
+    return validationRuleAssignments;
+  }
+
+
+  public void setValidationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
+    this.validationRuleAssignments = validationRuleAssignments;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -490,7 +490,6 @@ public class PromotionsTiersCreateRequestBody {
     PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = (PromotionsTiersCreateRequestBody) o;
     return Objects.equals(this.name, promotionsTiersCreateRequestBody.name) &&
         Objects.equals(this.banner, promotionsTiersCreateRequestBody.banner) &&
-        Objects.equals(this.action, promotionsTiersCreateRequestBody.action) &&
         Objects.equals(this.metadata, promotionsTiersCreateRequestBody.metadata) &&
         Objects.equals(this.hierarchy, promotionsTiersCreateRequestBody.hierarchy) &&
         Objects.equals(this.active, promotionsTiersCreateRequestBody.active) &&
@@ -499,9 +498,10 @@ public class PromotionsTiersCreateRequestBody {
         Objects.equals(this.validityTimeframe, promotionsTiersCreateRequestBody.validityTimeframe) &&
         Objects.equals(this.validityDayOfWeek, promotionsTiersCreateRequestBody.validityDayOfWeek) &&
         Objects.equals(this.validityHours, promotionsTiersCreateRequestBody.validityHours) &&
-        Objects.equals(this.validationRuleAssignments, promotionsTiersCreateRequestBody.validationRuleAssignments) &&
         Objects.equals(this.category, promotionsTiersCreateRequestBody.category) &&
-        Objects.equals(this.categoryId, promotionsTiersCreateRequestBody.categoryId);
+        Objects.equals(this.categoryId, promotionsTiersCreateRequestBody.categoryId) &&
+        Objects.equals(this.action, promotionsTiersCreateRequestBody.action) &&
+        Objects.equals(this.validationRuleAssignments, promotionsTiersCreateRequestBody.validationRuleAssignments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -510,7 +510,7 @@ public class PromotionsTiersCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, banner, action, metadata, hierarchy, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, validationRuleAssignments, category, categoryId);
+    return Objects.hash(name, banner, metadata, hierarchy, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, category, categoryId, action, validationRuleAssignments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -526,7 +526,6 @@ public class PromotionsTiersCreateRequestBody {
     sb.append("class PromotionsTiersCreateRequestBody {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -535,9 +534,10 @@ public class PromotionsTiersCreateRequestBody {
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
-    sb.append("    validationRuleAssignments: ").append(toIndentedString(validationRuleAssignments)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    validationRuleAssignments: ").append(toIndentedString(validationRuleAssignments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -562,7 +562,6 @@ public class PromotionsTiersCreateRequestBody {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("banner");
-    openapiFields.add("action");
     openapiFields.add("metadata");
     openapiFields.add("hierarchy");
     openapiFields.add("active");
@@ -571,9 +570,10 @@ public class PromotionsTiersCreateRequestBody {
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
-    openapiFields.add("validation_rule_assignments");
     openapiFields.add("category");
     openapiFields.add("category_id");
+    openapiFields.add("action");
+    openapiFields.add("validation_rule_assignments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

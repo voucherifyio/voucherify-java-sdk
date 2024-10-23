@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.MetadataSchema;
+import io.voucherify.client.model.MetadataSchemaDeprecated;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,7 +156,7 @@ public class MetadataSchemasListResponseBody {
 
   public static final String SERIALIZED_NAME_SCHEMAS = "schemas";
   @SerializedName(SERIALIZED_NAME_SCHEMAS)
-  private List<MetadataSchema> schemas;
+  private List<MetadataSchemaDeprecated> schemas;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -207,13 +207,13 @@ public class MetadataSchemasListResponseBody {
   }
 
 
-  public MetadataSchemasListResponseBody schemas(List<MetadataSchema> schemas) {
+  public MetadataSchemasListResponseBody schemas(List<MetadataSchemaDeprecated> schemas) {
     
     this.schemas = schemas;
     return this;
   }
 
-  public MetadataSchemasListResponseBody addSchemasItem(MetadataSchema schemasItem) {
+  public MetadataSchemasListResponseBody addSchemasItem(MetadataSchemaDeprecated schemasItem) {
     if (this.schemas == null) {
       this.schemas = new ArrayList<>();
     }
@@ -226,12 +226,12 @@ public class MetadataSchemasListResponseBody {
    * @return schemas
   **/
   @javax.annotation.Nullable
-  public List<MetadataSchema> getSchemas() {
+  public List<MetadataSchemaDeprecated> getSchemas() {
     return schemas;
   }
 
 
-  public void setSchemas(List<MetadataSchema> schemas) {
+  public void setSchemas(List<MetadataSchemaDeprecated> schemas) {
     this.schemas = schemas;
   }
 

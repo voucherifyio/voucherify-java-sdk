@@ -143,9 +143,12 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
-- **2024-10-02** - `15.0.0`
+- **2024-10-28** - `15.0.0`
   - Fix object parsing in query. For example `filters` while listing redemptions.
   - !!! BREAKING CHANGES !!!
+    - Remove support for `/v1/customers/{customerId}/consents` - put `Update Customer's consents [Deprecated]`
+    - Remove support for `/v1/consents` - get `List Consents [Deprecated]`
+    - Remove support for `/client/v1/customers/{customerId}/consents` - put `Update Customer's consents (client-side) [Deprecated]`
     - Pagination changed on listing card transactions(listLoyaltyCardTransactions) - NO `page` param is supported - use `starting_after_id` instead.
     - Pagination changed on listing voucher transactions(listVoucherTransactions) - NO `page` param is supported - use `starting_after_id` instead.
     - ApplicableToEffect - changed - `EVERY` -> `TO_EVERY`, `CHEAPEST` -> `TO_CHEAPEST`, `MOST_EXPENSIVE` -> `TO_MOST_EXPENSIVE`, 2 new values introduced.
@@ -158,50 +161,72 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
     - FilterConditionsDateTime - `conditions` has been divided on `$after`, `$before`, `$hasValue`, `$isUnknown`, `moreThan`, `lessThan` properties
     - ParamterFiltersListCustomerRedeemables - model name of `createdAt` has been renamed from `FilterConditionsDateTime` to `ParameterFiltersListCustomerRedeemablesCreatedAt`
     - `filter` property in schemas ProductCollectionsCreateRequestBody, ProductCollectionsCreateResponseBody, ProductCollectionsItem and ProductCollectionsGetResponseBody has changed. Uses plain `object`.
-
+    - `discount` property in schema CampaignsUpdateRequestBody now uses `Discount` model
+    - properties `winnersCount`, `uniqueWinnersPerDraw`, `uniqueWinners` in model `CampaignsUpdateRequestBody` were deleted.
+    - property `stackingRulesType` were deleted from models `CategoriesGetResponseBody`, `Category`
+    - property `categories` in model `ClientValidationsValidateResponseBodyRedeemablesItem` uses now Array<CategoryWithStackingRulesType> model
+    - model `ParameterFiltersListCustomerRedeemablesCampaignId` has been fixed, can use junction properly.
+    - model `ParameterFiltersListRedemptions` has been fixed, can use junction properly.
+    - property `filter` in model `ProductCollectionsCreateRequestBody` now uses plain Object
+    - property `categories` in model `QualificationsRedeemable` now uses `Array<CategoryWithStackingRulesType>`
   - Added support:
-    - /v1/locations - List Locations
-    - /v1/locations/{locationId} - Get Location
-    - /v1/metadata-schemas - List Metadata Schemas
-    - /v1/metadata-schemas/{resource} - Get Metadata Schema
-    - /management/v1/projects/users/invite, post - Invite Users
-    - /management/v1/projects/{projectId}/users, get - Get Project
-    - /management/v1/projects/{projectId}/users, post - Create Project
-    - /management/v1/projects/{projectId}/users/{userId}, get - Get User
-    - /management/v1/projects/{projectId}/users/{userId}, put - Update User
-    - /management/v1/projects/{projectId}/users/{userId}, delete - Unassign User
-    - /management/v1/projects/{projectId}/metadata-schemas, post - Create Metadata Schema
-    - /management/v1/projects/{projectId}/metadata-schemas, get - List Metadata Schemas
-    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, get - Get Metadata Schema
-    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, put - Update Metadata Schema
-    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}, delete - Delete Metadata Schema
-    - /management/v1/projects/{projectId}/custom-event-schemas, post - Create Custom Event Schema
-    - /management/v1/projects/{projectId}/custom-event-schemas, get - List Custom Event Schema
-    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, get - Get Custom Event Schema
-    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, put - Update Custom Event Schema
-    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}, delete - Delete Custom Event Schema
-    - /management/v1/projects/{projectId}/stacking-rules, post - Create Stacking Rules
-    - /management/v1/projects/{projectId}/stacking-rules, get - List Stacking Rules
-    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, get - Get Stacking Rules
-    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, put - Update Stacking Rules
-    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}, delete - Delete Stacking Rules
-    - /management/v1/projects/{projectId}/webhooks, post - Create Webhook
-    - /management/v1/projects/{projectId}/webhooks, get - List Webhooks
-    - /management/v1/projects/{projectId}/webhooks/{webhookId}, get - Get Webhook
-    - /management/v1/projects/{projectId}/webhooks/{webhookId}, put - Update Webhook
-    - /management/v1/projects/{projectId}/webhooks/{webhookId}, delete - Delete Webhook
-    - /management/v1/projects/{projectId}/branding, post - Create Brand
-    - /management/v1/projects/{projectId}/branding, get - List Brands
-    - /management/v1/projects/{projectId}/branding/{brandingId}, get - Get Brand
-    - /management/v1/projects/{projectId}/branding/{brandingId}, put - Update Brand
-    - /management/v1/projects/{projectId}/branding/{brandingId}, delete - Delete Brand
-    - /v1/referrals/{campaignId}/members/{memberId}/holders, get - List Referral Code Holders
-    - /v1/referrals/members/{memberId}/holders, get - List Referral Code Holders
-    - /v1/referrals/{campaignId}/members/{memberId}/holders, post - Add Referral Code Holders
-    - /v1/referrals/members/{memberId}/holders, post - Add Referral Code Holders
-    - /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId}, delete - Remove Referral Code Holder
-    - /v1/referrals/members/{memberId}/holders/{holderId}, delete - Remove Referral Code Holder
-
+    - /v1/metadata-schemas - get `List Metadata Schemas`
+    - /v1/metadata-schemas/{resource} - get `Get Metadata Schema`
+    - /v1/locations - `List Locations`
+    - /v1/locations/{locationId} - get `Get Location`
+    - /v1/referrals/{campaignId}/members/{memberId}/holders - post `Add Referral Code Holders`
+    - /v1/referrals/{campaignId}/members/{memberId}/holders - get `List Referral Code Holders`
+    - /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} - delete `Remove Referral Card Holder`
+    - /v1/referrals/members/{memberId}/holders - post `Add Referral Code Holders`
+    - /v1/referrals/members/{memberId}/holders - get `List Referral Code Holders`
+    - /v1/referrals/members/{memberId}/holders/{holderId} - delete `Remove Referral Card Holder`
+    - /v1/trash-bin - get `List Bin Entries`
+    - /v1/trash-bin/{binEntryId} - delete `Delete Bin Entry`
+    - /v1/templates/campaigns - get `List Campaign Templates`
+    - /v1/templates/campaigns - post `Create Campaign Template`
+    - /v1/templates/campaigns/{campaignTemplateId} - get `Get Campaign Template`
+    - /v1/templates/campaigns/{campaignTemplateId} - put `Update Campaign Template`
+    - /v1/templates/campaigns/{campaignTemplateId} - delete `Delete Campaign Template`
+    - /v1/templates/campaigns/{campaignTemplateId}/campaign-setup - post `Create Campaign From Template`
+    - /v1/templates/campaigns/{campaignTemplateId}/tier-setup - post `Add Promotion Tier From Template`
+    - /management/v1/projects - post `Create Project`
+    - /management/v1/projects - get `List Projects`
+    - /management/v1/projects/{projectId} - get `Get Project`
+    - /management/v1/projects/{projectId} - put `Update Project`
+    - /management/v1/projects/{projectId} - delete `Delete Project`
+    - /management/v1/projects/{projectId}/users - post `Assign User`
+    - /management/v1/projects/{projectId}/users/{userId} - put `Update User`
+    - /management/v1/projects/{projectId}/users/{userId} - delete `Unassign User`
+    - /management/v1/projects/users/invite - post `Invite a New User`
+    - /management/v1/projects/{projectId}/templates/campaigns - get `List Campaign Templates`
+    - /management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy - post `Copy Campaign Template to a Project`
+    - /management/v1/projects/{projectId}/stacking-rules - post `Create Stacking Rules`
+    - /management/v1/projects/{projectId}/stacking-rules - get `List Stacking Rules`
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId} - get `Get Stacking Rules`
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId} - put `Update Stacking Rules`
+    - /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId} - delete `Delete Stacking Rules`
+    - /management/v1/projects/{projectId}/metadata-schemas - post `Create Metadata Schema`
+    - /management/v1/projects/{projectId}/metadata-schemas - get `List Metadata Schemas`
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId} - get `Get Metadata Schema`
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId} - put `Update Metadata Schema`
+    - /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId} - delete `Delete Metadata Schema`
+    - /management/v1/projects/{projectId}/custom-event-schemas - post `Create Custom Event Schema`
+    - /management/v1/projects/{projectId}/custom-event-schemas - get `List Custom Event Schemas`
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} - get `Get Custom Event Schema`
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} - put `Update Custom Event Schema`
+    - /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} - delete `Delete Custom Event Schema`
+    - /management/v1/projects/{projectId}/webhooks - post `Create Webhook`
+    - /management/v1/projects/{projectId}/webhooks - get `List Webhooks`
+    - /management/v1/projects/{projectId}/webhooks/{webhookId} - get `Get Webhook`
+    - /management/v1/projects/{projectId}/webhooks/{webhookId} - put `Update Webhook`
+    - /management/v1/projects/{projectId}/webhooks/{webhookId} - delete `Delete Webhook`
+    - /management/v1/projects/{projectId}/branding - post `Create Brand`
+    - /management/v1/projects/{projectId}/branding - get `List Brands`
+    - /management/v1/projects/{projectId}/branding/{brandingId} - get `Get Brand`
+    - /management/v1/projects/{projectId}/branding/{brandingId} - put `Update Brand`
+    - /management/v1/projects/{projectId}/branding/{brandingId} - delete `Delete Brand`
+- **2024-09-05** - `14.0.1`
+  - Fix downloading exports. Include auth headers in the call.
 - **2024-09-05** - `14.0.0`
   - Added support:
     - /v1/vouchers, get - List Vouchers
@@ -565,6 +590,8 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**listStackingRules**](docs/ManagementApi.md#listStackingRules) | **GET** /management/v1/projects/{projectId}/stacking-rules | List Stacking Rules
 *ManagementApi* | [**listUsers**](docs/ManagementApi.md#listUsers) | **GET** /management/v1/projects/{projectId}/users | List Users
 *ManagementApi* | [**listWebhooks**](docs/ManagementApi.md#listWebhooks) | **GET** /management/v1/projects/{projectId}/webhooks | List Webhooks
+*ManagementApi* | [**managementCopyCampaignTemplate**](docs/ManagementApi.md#managementCopyCampaignTemplate) | **POST** /management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy | Copy Campaign Template to a Project
+*ManagementApi* | [**managementListCampaignTemplates**](docs/ManagementApi.md#managementListCampaignTemplates) | **GET** /management/v1/projects/{projectId}/templates/campaigns | List Campaign Templates
 *ManagementApi* | [**unassignUser**](docs/ManagementApi.md#unassignUser) | **DELETE** /management/v1/projects/{projectId}/users/{userId} | Unassign User
 *ManagementApi* | [**updateBrand**](docs/ManagementApi.md#updateBrand) | **PUT** /management/v1/projects/{projectId}/branding/{brandingId} | Update Brand
 *ManagementApi* | [**updateCustomEventSchema**](docs/ManagementApi.md#updateCustomEventSchema) | **PUT** /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | Update Custom Event Schema
@@ -643,6 +670,13 @@ Class | Method | HTTP request | Description
 *SegmentsApi* | [**createSegment**](docs/SegmentsApi.md#createSegment) | **POST** /v1/segments | Create Segment
 *SegmentsApi* | [**deleteSegment**](docs/SegmentsApi.md#deleteSegment) | **DELETE** /v1/segments/{segmentId} | Delete Segment
 *SegmentsApi* | [**getSegment**](docs/SegmentsApi.md#getSegment) | **GET** /v1/segments/{segmentId} | Get Segment
+*TemplatesApi* | [**addTierFromTemplate**](docs/TemplatesApi.md#addTierFromTemplate) | **POST** /v1/templates/campaigns/{campaignTemplateId}/tier-setup | Add Promotion Tier From Template
+*TemplatesApi* | [**createCampaignFromTemplate**](docs/TemplatesApi.md#createCampaignFromTemplate) | **POST** /v1/templates/campaigns/{campaignTemplateId}/campaign-setup | Create Campaign From Template
+*TemplatesApi* | [**createCampaignTemplate**](docs/TemplatesApi.md#createCampaignTemplate) | **POST** /v1/templates/campaigns | Create Campaign Template
+*TemplatesApi* | [**deleteCampaignTemplate**](docs/TemplatesApi.md#deleteCampaignTemplate) | **DELETE** /v1/templates/campaigns/{campaignTemplateId} | Delete Campaign Template
+*TemplatesApi* | [**getCampaignTemplate**](docs/TemplatesApi.md#getCampaignTemplate) | **GET** /v1/templates/campaigns/{campaignTemplateId} | Get Campaign Template
+*TemplatesApi* | [**listCampaignTemplates**](docs/TemplatesApi.md#listCampaignTemplates) | **GET** /v1/templates/campaigns | List Campaign Templates
+*TemplatesApi* | [**updateCampaignTemplate**](docs/TemplatesApi.md#updateCampaignTemplate) | **PUT** /v1/templates/campaigns/{campaignTemplateId} | Update Campaign Template
 *ValidationRulesApi* | [**createValidationRuleAssignment**](docs/ValidationRulesApi.md#createValidationRuleAssignment) | **POST** /v1/validation-rules/{validationRuleId}/assignments | Create Validation Rules Assignments
 *ValidationRulesApi* | [**createValidationRules**](docs/ValidationRulesApi.md#createValidationRules) | **POST** /v1/validation-rules | Create Validation Rules
 *ValidationRulesApi* | [**deleteValidationRuleAssignment**](docs/ValidationRulesApi.md#deleteValidationRuleAssignment) | **DELETE** /v1/validation-rules/{validationRuleId}/assignments/{assignmentId} | Delete Validation Rule Assignment
@@ -682,11 +716,13 @@ Class | Method | HTTP request | Description
 - [AsyncActionGetResponseBody](docs/AsyncActionGetResponseBody.md)
 - [AsyncActionsListResponseBody](docs/AsyncActionsListResponseBody.md)
 - [BusValRuleAssignment](docs/BusValRuleAssignment.md)
+- [Campaign](docs/Campaign.md)
 - [CampaignBase](docs/CampaignBase.md)
 - [CampaignLoyaltyCard](docs/CampaignLoyaltyCard.md)
 - [CampaignLoyaltyCardExpirationRules](docs/CampaignLoyaltyCardExpirationRules.md)
 - [CampaignLoyaltyVoucher](docs/CampaignLoyaltyVoucher.md)
 - [CampaignLoyaltyVoucherRedemption](docs/CampaignLoyaltyVoucherRedemption.md)
+- [CampaignTemplate](docs/CampaignTemplate.md)
 - [CampaignVoucher](docs/CampaignVoucher.md)
 - [CampaignVoucherRedemption](docs/CampaignVoucherRedemption.md)
 - [CampaignsCreateRequestBody](docs/CampaignsCreateRequestBody.md)
@@ -725,6 +761,7 @@ Class | Method | HTTP request | Description
 - [CategoriesUpdateRequestBody](docs/CategoriesUpdateRequestBody.md)
 - [CategoriesUpdateResponseBody](docs/CategoriesUpdateResponseBody.md)
 - [Category](docs/Category.md)
+- [CategoryWithStackingRulesType](docs/CategoryWithStackingRulesType.md)
 - [ClientEventsCreateRequestBody](docs/ClientEventsCreateRequestBody.md)
 - [ClientEventsCreateRequestBodyLoyalty](docs/ClientEventsCreateRequestBodyLoyalty.md)
 - [ClientEventsCreateRequestBodyReferral](docs/ClientEventsCreateRequestBodyReferral.md)
@@ -1209,6 +1246,9 @@ Class | Method | HTTP request | Description
 - [ManagementProjectsStackingRulesListResponseBody](docs/ManagementProjectsStackingRulesListResponseBody.md)
 - [ManagementProjectsStackingRulesUpdateRequestBody](docs/ManagementProjectsStackingRulesUpdateRequestBody.md)
 - [ManagementProjectsStackingRulesUpdateResponseBody](docs/ManagementProjectsStackingRulesUpdateResponseBody.md)
+- [ManagementProjectsTemplatesCampaignsCopyCreateRequestBody](docs/ManagementProjectsTemplatesCampaignsCopyCreateRequestBody.md)
+- [ManagementProjectsTemplatesCampaignsCopyCreateResponseBody](docs/ManagementProjectsTemplatesCampaignsCopyCreateResponseBody.md)
+- [ManagementProjectsTemplatesCampaignsListResponseBody](docs/ManagementProjectsTemplatesCampaignsListResponseBody.md)
 - [ManagementProjectsUpdateRequestBody](docs/ManagementProjectsUpdateRequestBody.md)
 - [ManagementProjectsUpdateRequestBodyApiUsageNotifications](docs/ManagementProjectsUpdateRequestBodyApiUsageNotifications.md)
 - [ManagementProjectsUpdateRequestBodyDefaultCodeConfig](docs/ManagementProjectsUpdateRequestBodyDefaultCodeConfig.md)
@@ -1240,8 +1280,8 @@ Class | Method | HTTP request | Description
 - [ManagementProjectsWebhooksUpdateResponseBody](docs/ManagementProjectsWebhooksUpdateResponseBody.md)
 - [MappingPoints](docs/MappingPoints.md)
 - [MemberActivity](docs/MemberActivity.md)
-- [MetadataSchema](docs/MetadataSchema.md)
-- [MetadataSchemaDefinition](docs/MetadataSchemaDefinition.md)
+- [MetadataSchemaDefinitionDeprecated](docs/MetadataSchemaDefinitionDeprecated.md)
+- [MetadataSchemaDeprecated](docs/MetadataSchemaDeprecated.md)
 - [MetadataSchemasGetResponseBody](docs/MetadataSchemasGetResponseBody.md)
 - [MetadataSchemasListResponseBody](docs/MetadataSchemasListResponseBody.md)
 - [Order](docs/Order.md)
@@ -1297,7 +1337,9 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListCustomerRedeemablesVoucherType](docs/ParameterFiltersListCustomerRedeemablesVoucherType.md)
 - [ParameterFiltersListCustomerRedeemablesVoucherTypeConditions](docs/ParameterFiltersListCustomerRedeemablesVoucherTypeConditions.md)
 - [ParameterFiltersListLocations](docs/ParameterFiltersListLocations.md)
+- [ParameterFiltersListLocationsCreatedAt](docs/ParameterFiltersListLocationsCreatedAt.md)
 - [ParameterFiltersListLocationsName](docs/ParameterFiltersListLocationsName.md)
+- [ParameterFiltersListLocationsUpdatedAt](docs/ParameterFiltersListLocationsUpdatedAt.md)
 - [ParameterFiltersListPublications](docs/ParameterFiltersListPublications.md)
 - [ParameterFiltersListPublicationsCampaignName](docs/ParameterFiltersListPublicationsCampaignName.md)
 - [ParameterFiltersListPublicationsCustomerId](docs/ParameterFiltersListPublicationsCustomerId.md)
@@ -1320,15 +1362,16 @@ Class | Method | HTTP request | Description
 - [ParameterFiltersListRedemptionsUserLogin](docs/ParameterFiltersListRedemptionsUserLogin.md)
 - [ParameterFiltersListRedemptionsVoucherCode](docs/ParameterFiltersListRedemptionsVoucherCode.md)
 - [ParameterFiltersListReferralsRedeemableHolders](docs/ParameterFiltersListReferralsRedeemableHolders.md)
-- [ParameterFiltersListReferralsRedeemableHoldersCampaignId](docs/ParameterFiltersListReferralsRedeemableHoldersCampaignId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersCampaignType](docs/ParameterFiltersListReferralsRedeemableHoldersCampaignType.md)
+- [ParameterFiltersListReferralsRedeemableHoldersCreatedAt](docs/ParameterFiltersListReferralsRedeemableHoldersCreatedAt.md)
 - [ParameterFiltersListReferralsRedeemableHoldersCustomerId](docs/ParameterFiltersListReferralsRedeemableHoldersCustomerId.md)
 - [ParameterFiltersListReferralsRedeemableHoldersHolderRole](docs/ParameterFiltersListReferralsRedeemableHoldersHolderRole.md)
 - [ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions](docs/ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions.md)
 - [ParameterFiltersListReferralsRedeemableHoldersId](docs/ParameterFiltersListReferralsRedeemableHoldersId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersRedeemableId](docs/ParameterFiltersListReferralsRedeemableHoldersRedeemableId.md)
-- [ParameterFiltersListReferralsRedeemableHoldersRedeemableObject](docs/ParameterFiltersListReferralsRedeemableHoldersRedeemableObject.md)
-- [ParameterFiltersListReferralsRedeemableHoldersVoucherType](docs/ParameterFiltersListReferralsRedeemableHoldersVoucherType.md)
+- [ParameterFiltersListTemplates](docs/ParameterFiltersListTemplates.md)
+- [ParameterFiltersListTemplatesCampaignType](docs/ParameterFiltersListTemplatesCampaignType.md)
+- [ParameterFiltersListTemplatesCampaignTypeConditions](docs/ParameterFiltersListTemplatesCampaignTypeConditions.md)
+- [ParameterFiltersListTemplatesId](docs/ParameterFiltersListTemplatesId.md)
+- [ParameterFiltersListTemplatesName](docs/ParameterFiltersListTemplatesName.md)
 - [ParameterOrder](docs/ParameterOrder.md)
 - [ParameterOrderCreatedAt](docs/ParameterOrderCreatedAt.md)
 - [ParameterOrderListAllPromotionStacks](docs/ParameterOrderListAllPromotionStacks.md)
@@ -1350,6 +1393,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListValidationRules](docs/ParameterOrderListValidationRules.md)
 - [ParameterOrderVouchers](docs/ParameterOrderVouchers.md)
 - [ParameterResultListPublications](docs/ParameterResultListPublications.md)
+- [ParameterTemplatesList](docs/ParameterTemplatesList.md)
 - [ParameterUpdatedBeforeAfter](docs/ParameterUpdatedBeforeAfter.md)
 - [ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
 - [PointsExpirationTypes](docs/PointsExpirationTypes.md)
@@ -1442,8 +1486,6 @@ Class | Method | HTTP request | Description
 - [PromotionsTiersUpdateResponseBodySummaryOrders](docs/PromotionsTiersUpdateResponseBodySummaryOrders.md)
 - [PromotionsTiersUpdateResponseBodySummaryRedemptions](docs/PromotionsTiersUpdateResponseBodySummaryRedemptions.md)
 - [PublicationsCreateRequestBody](docs/PublicationsCreateRequestBody.md)
-- [PublicationsCreateRequestBodyCustomer](docs/PublicationsCreateRequestBodyCustomer.md)
-- [PublicationsCreateRequestBodyCustomerAddress](docs/PublicationsCreateRequestBodyCustomerAddress.md)
 - [PublicationsCreateResponseBody](docs/PublicationsCreateResponseBody.md)
 - [PublicationsListResponseBody](docs/PublicationsListResponseBody.md)
 - [PublicationsListResponseBodyPublicationsItem](docs/PublicationsListResponseBodyPublicationsItem.md)
@@ -1649,6 +1691,20 @@ Class | Method | HTTP request | Description
 - [SkusImportCsvCreateResponseBody](docs/SkusImportCsvCreateResponseBody.md)
 - [SkusListForProduct](docs/SkusListForProduct.md)
 - [StackingRules](docs/StackingRules.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBody](docs/TemplatesCampaignsCampaignSetupCreateRequestBody.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher](docs/TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher.md)
+- [TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption](docs/TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption.md)
+- [TemplatesCampaignsCampaignSetupCreateResponseBody](docs/TemplatesCampaignsCampaignSetupCreateResponseBody.md)
+- [TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem](docs/TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem.md)
+- [TemplatesCampaignsCreateRequestBody](docs/TemplatesCampaignsCreateRequestBody.md)
+- [TemplatesCampaignsCreateTemplateResponseBody](docs/TemplatesCampaignsCreateTemplateResponseBody.md)
+- [TemplatesCampaignsGetResponseBody](docs/TemplatesCampaignsGetResponseBody.md)
+- [TemplatesCampaignsListResponseBody](docs/TemplatesCampaignsListResponseBody.md)
+- [TemplatesCampaignsTierSetupCreateRequestBody](docs/TemplatesCampaignsTierSetupCreateRequestBody.md)
+- [TemplatesCampaignsTierSetupCreateResponseBody](docs/TemplatesCampaignsTierSetupCreateResponseBody.md)
+- [TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem](docs/TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem.md)
+- [TemplatesCampaignsUpdateRequestBody](docs/TemplatesCampaignsUpdateRequestBody.md)
+- [TemplatesCampaignsUpdateResponseBody](docs/TemplatesCampaignsUpdateResponseBody.md)
 - [TrashBinItem](docs/TrashBinItem.md)
 - [TrashBinListResponseBody](docs/TrashBinListResponseBody.md)
 - [UsageNotifications](docs/UsageNotifications.md)

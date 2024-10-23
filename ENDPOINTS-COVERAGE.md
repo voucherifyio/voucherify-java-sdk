@@ -288,49 +288,56 @@
 | /v1/trash-bin              | get    | List Bin Entries | <font color='green'>supported</font> |               |
 | /v1/trash-bin/{binEntryId} | delete | Delete Bin Entry | <font color='green'>supported</font> |               |
 ## Templates
-| endpoint                | method | summary                  | is supported | is deprecated |
-| ----------------------- | ------ | ------------------------ | ------------ | ------------- |
-| /v1/templates/campaigns | get    | List Campaign Templates  |              |               |
-| /v1/templates/campaigns | post   | Create Campaign Template |              |               |
+| endpoint                                                    | method | summary                          | is supported                         | is deprecated |
+| ----------------------------------------------------------- | ------ | -------------------------------- | ------------------------------------ | ------------- |
+| /v1/templates/campaigns                                     | get    | List Campaign Templates          | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns                                     | post   | Create Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | get    | Get Campaign Template            | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | put    | Update Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}                | delete | Delete Campaign Template         | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}/campaign-setup | post   | Create Campaign From Template    | <font color='green'>supported</font> |               |
+| /v1/templates/campaigns/{campaignTemplateId}/tier-setup     | post   | Add Promotion Tier From Template | <font color='green'>supported</font> |               |
 ## Management
-| endpoint                                                                       | method | summary                    | is supported                         | is deprecated |
-| ------------------------------------------------------------------------------ | ------ | -------------------------- | ------------------------------------ | ------------- |
-| /management/v1/projects                                                        | post   | Create Project             | <font color='green'>supported</font> |               |
-| /management/v1/projects                                                        | get    | List Projects              | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}                                            | get    | Get Project                | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}                                            | put    | Update Project             | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}                                            | delete | Delete Project             | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/users                                      | post   | Assign User                | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/users                                      | get    | List Users                 | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | get    | Get User                   | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | put    | Update User                | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/users/{userId}                             | delete | Unassign User              | <font color='green'>supported</font> |               |
-| /management/v1/projects/users/invite                                           | post   | Invite a New User          | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/stacking-rules                             | post   | Create Stacking Rules      | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/stacking-rules                             | get    | List Stacking Rules        | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | get    | Get Stacking Rules         | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | put    | Update Stacking Rules      | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}           | delete | Delete Stacking Rules      | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/metadata-schemas                           | post   | Create Metadata Schema     | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/metadata-schemas                           | get    | List Metadata Schemas      | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | get    | Get Metadata Schema        | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | put    | Update Metadata Schema     | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}        | delete | Delete Metadata Schema     | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/custom-event-schemas                       | post   | Create Custom Event Schema | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/custom-event-schemas                       | get    | List Custom Event Schemas  | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | get    | Get Custom Event Schema    | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | put    | Update Custom Event Schema | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId} | delete | Delete Custom Event Schema | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/webhooks                                   | post   | Create Webhook             | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/webhooks                                   | get    | List Webhooks              | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | get    | Get Webhook                | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | put    | Update Webhook             | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/webhooks/{webhookId}                       | delete | Delete Webhook             | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/branding                                   | post   | Create Brand               | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/branding                                   | get    | List Brands                | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | get    | Get Brand                  | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | put    | Update Brand               | <font color='green'>supported</font> |               |
-| /management/v1/projects/{projectId}/branding/{brandingId}                      | delete | Delete Brand               | <font color='green'>supported</font> |               |
+| endpoint                                                                          | method | summary                             | is supported                         | is deprecated |
+| --------------------------------------------------------------------------------- | ------ | ----------------------------------- | ------------------------------------ | ------------- |
+| /management/v1/projects                                                           | post   | Create Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects                                                           | get    | List Projects                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | get    | Get Project                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | put    | Update Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}                                               | delete | Delete Project                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users                                         | post   | Assign User                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users                                         | get    | List Users                          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | get    | Get User                            | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | put    | Update User                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/users/{userId}                                | delete | Unassign User                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/users/invite                                              | post   | Invite a New User                   | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/templates/campaigns                           | get    | List Campaign Templates             | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/templates/campaigns/{campaignTemplateId}/copy | post   | Copy Campaign Template to a Project | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules                                | post   | Create Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules                                | get    | List Stacking Rules                 | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | get    | Get Stacking Rules                  | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | put    | Update Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/stacking-rules/{stackingRulesId}              | delete | Delete Stacking Rules               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas                              | post   | Create Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas                              | get    | List Metadata Schemas               | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | get    | Get Metadata Schema                 | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | put    | Update Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/metadata-schemas/{metadataSchemaId}           | delete | Delete Metadata Schema              | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas                          | post   | Create Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas                          | get    | List Custom Event Schemas           | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | get    | Get Custom Event Schema             | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | put    | Update Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/custom-event-schemas/{customEventSchemaId}    | delete | Delete Custom Event Schema          | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks                                      | post   | Create Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks                                      | get    | List Webhooks                       | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | get    | Get Webhook                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | put    | Update Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/webhooks/{webhookId}                          | delete | Delete Webhook                      | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding                                      | post   | Create Brand                        | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding                                      | get    | List Brands                         | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | get    | Get Brand                           | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | put    | Update Brand                        | <font color='green'>supported</font> |               |
+| /management/v1/projects/{projectId}/branding/{brandingId}                         | delete | Delete Brand                        | <font color='green'>supported</font> |               |
 ## Client-side
 | endpoint                    | method | summary                                     | is supported                         | is deprecated                        |
 | --------------------------- | ------ | ------------------------------------------- | ------------------------------------ | ------------------------------------ |

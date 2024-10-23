@@ -2,7 +2,7 @@
 
 # ClientValidationsValidateResponseBody
 
-Response body schema for POST `/validations`.
+Response body schema for **POST** `/validations`.
 
 ## Properties
 

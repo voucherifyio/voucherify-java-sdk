@@ -51,8 +51,6 @@ public class Utils {
         defaultClient.setBasePath(properties.getProperty("VOUCHERIFY_HOST"));
         defaultClient.setAuthentication("X-App-Id", properties.getProperty("X_APP_ID"));
         defaultClient.setAuthentication("X-App-Token", properties.getProperty("X_APP_TOKEN"));
-        defaultClient.setAuthentication("X-Management-Id", properties.getProperty("X_MANAGEMENT_ID"));
-        defaultClient.setAuthentication("X-Management-Token", properties.getProperty("X_MANAGEMENT_TOKEN"));
 
         return defaultClient;
     }

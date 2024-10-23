@@ -143,7 +143,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @return ReferralsMembersHoldersCreateInBulkResponseBody
@@ -156,7 +156,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @return ApiResponse&lt;ReferralsMembersHoldersCreateInBulkResponseBody&gt;
@@ -170,7 +170,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders (asynchronously)
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -258,7 +258,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
@@ -272,7 +272,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
@@ -287,7 +287,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders (asynchronously)
-     * Adds new holders to a referral code as referees. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)

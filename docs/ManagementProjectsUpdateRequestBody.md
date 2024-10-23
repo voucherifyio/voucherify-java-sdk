@@ -2,7 +2,7 @@
 
 # ManagementProjectsUpdateRequestBody
 
-Request body schema for **PUT** `v1/management/v1/projects/{projectId}`.
+Request body schema for **PUT** `/management/v1/projects/{projectId}`.
 
 ## Properties
 
