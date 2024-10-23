@@ -12,6 +12,7 @@ public class VoucherifyStore {
     private final Category category;
     private final Sku sku;
     private final Reward reward;
+    private final Management management;
 
     private VoucherifyStore() {
         couponCampaign = new Campaign();
@@ -22,6 +23,7 @@ public class VoucherifyStore {
         category = new Category();
         sku = new Sku();
         reward = new Reward();
+        management = new Management();
     }
 
     private static class SingletonHolder {
@@ -62,5 +64,9 @@ public class VoucherifyStore {
 
     public Reward getReward() {
         return reward;
+    }
+
+    public Management getManagement() {
+        return management;
     }
 }

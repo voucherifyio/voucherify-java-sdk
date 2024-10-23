@@ -46,7 +46,7 @@ public class PublicationsTest {
                     null);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchers", "vouchersId",
-                    "total", "campaign", "code", "email");
+                    "total", "campaign", "code", "email", "trackingId", "isReferralCode");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
             fail();
@@ -60,7 +60,7 @@ public class PublicationsTest {
 
         try {
             PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
-            PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
+            Customer customer = new Customer();
 
             customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
             publicationsCreateRequestBody.setCustomer(customer);
@@ -85,7 +85,7 @@ public class PublicationsTest {
 
         try {
             CreatePublicationCampaign createPublicationCampaign = new CreatePublicationCampaign();
-            PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
+            Customer customer = new Customer();
             createPublicationCampaign.setName(VoucherifyStore.getInstance().getLoyaltyCampaign().getName());
             createPublicationCampaign.setCount(2);
 

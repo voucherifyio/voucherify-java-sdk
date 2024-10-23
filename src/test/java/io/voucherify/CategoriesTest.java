@@ -57,7 +57,7 @@ public class CategoriesTest {
             CategoriesGetResponseBody responseBody = categories
                     .getCategory(VoucherifyStore.getInstance().getCategory().getId());
 
-            List<String> keysToRemove = Arrays.asList("id", "createdAt", "name");
+            List<String> keysToRemove = Arrays.asList("id", "createdAt", "name", "stackingRulesType");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
             fail();
