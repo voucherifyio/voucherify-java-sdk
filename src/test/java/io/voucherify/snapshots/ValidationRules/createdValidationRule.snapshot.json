@@ -31,7 +31,7 @@
         "strict": false,
         "price": null,
         "priceFormula": null,
-        "effect": "EVERY",
+        "effect": "TO_EVERY",
         "quantityLimit": null,
         "aggregatedQuantityLimit": null,
         "amountLimit": null,
@@ -39,7 +39,7 @@
         "orderItemIndices": null,
         "object": "PRODUCT",
         "repeat": 1,
-        "skip_initially": 0,
+        "skipInitially": 0,
         "target": "ITEM"
       }
     ],

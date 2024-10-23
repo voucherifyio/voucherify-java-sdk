@@ -513,7 +513,7 @@ public class RedemptionsListResponseBodyRedemptionsItemOrder {
   }
 
    /**
-   * Array of items applied to the order.
+   * Array of items applied to the order. It can include up 500 items.
    * @return items
   **/
   @javax.annotation.Nullable

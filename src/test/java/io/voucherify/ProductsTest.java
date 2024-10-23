@@ -2,6 +2,8 @@ package io.voucherify;
 
 import io.voucherify.data.Product;
 import io.voucherify.data.VoucherifyStore;
+import io.voucherify.helpers.DeepMatch;
+
 import org.junit.jupiter.api.*;
 
 import io.voucherify.client.ApiClient;
@@ -9,9 +11,8 @@ import io.voucherify.client.ApiException;
 import io.voucherify.client.api.ProductsApi;
 import io.voucherify.client.model.*;
 
-import io.voucherify.helpers.JsonHelper;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.*;
@@ -45,11 +46,11 @@ public class ProductsTest {
             ProductsCreateResponseBody responseBody = products.createProduct(productsCreateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
             VoucherifyStore.getInstance().getProducts().add(
                     new Product(responseBody.getId(), responseBody.getSourceId(), responseBody.getName()));
-        } catch (ApiException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -63,8 +64,8 @@ public class ProductsTest {
                     .getProduct(VoucherifyStore.getInstance().getProducts().get(0).getId());
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -82,8 +83,8 @@ public class ProductsTest {
                     .updateProduct(VoucherifyStore.getInstance().getProducts().get(0).getId(), product);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -171,10 +172,10 @@ public class ProductsTest {
                     .createSku(VoucherifyStore.getInstance().getProducts().get(0).getId(), sku);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
             VoucherifyStore.getInstance().getSku().setId(responseBody.getId());
-        } catch (ApiException e) {
+        } catch (Exception e) {
             fail();
         }
     }

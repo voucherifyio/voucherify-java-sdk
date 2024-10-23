@@ -36,9 +36,7 @@ public enum ParameterCampaignType {
   
   DISCOUNT_COUPONS("DISCOUNT_COUPONS"),
   
-  LOYALTY_PROGRAM("LOYALTY_PROGRAM"),
-  
-  LUCKY_DRAW("LUCKY_DRAW");
+  LOYALTY_PROGRAM("LOYALTY_PROGRAM");
 
   private String value;
 

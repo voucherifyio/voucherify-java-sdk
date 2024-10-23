@@ -327,10 +327,6 @@ public class RedemptionsGetResponseBody {
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
 
-  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
-  @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private RedemptionsGetResponseBodyVoucher voucher;
-
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
   private RedemptionsGetResponseBodyPromotionTier promotionTier;
@@ -346,6 +342,10 @@ public class RedemptionsGetResponseBody {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionsGetResponseBodyLoyaltyCard loyaltyCard;
+
+  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
+  @SerializedName(SERIALIZED_NAME_VOUCHER)
+  private RedemptionsGetResponseBodyVoucher voucher;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -732,27 +732,6 @@ public class RedemptionsGetResponseBody {
   }
 
 
-  public RedemptionsGetResponseBody voucher(RedemptionsGetResponseBodyVoucher voucher) {
-    
-    this.voucher = voucher;
-    return this;
-  }
-
-   /**
-   * Get voucher
-   * @return voucher
-  **/
-  @javax.annotation.Nullable
-  public RedemptionsGetResponseBodyVoucher getVoucher() {
-    return voucher;
-  }
-
-
-  public void setVoucher(RedemptionsGetResponseBodyVoucher voucher) {
-    this.voucher = voucher;
-  }
-
-
   public RedemptionsGetResponseBody promotionTier(RedemptionsGetResponseBodyPromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
@@ -837,6 +816,27 @@ public class RedemptionsGetResponseBody {
   }
 
 
+  public RedemptionsGetResponseBody voucher(RedemptionsGetResponseBodyVoucher voucher) {
+    
+    this.voucher = voucher;
+    return this;
+  }
+
+   /**
+   * Get voucher
+   * @return voucher
+  **/
+  @javax.annotation.Nullable
+  public RedemptionsGetResponseBodyVoucher getVoucher() {
+    return voucher;
+  }
+
+
+  public void setVoucher(RedemptionsGetResponseBodyVoucher voucher) {
+    this.voucher = voucher;
+  }
+
+
   public RedemptionsGetResponseBody reason(String reason) {
     
     this.reason = reason;
@@ -886,11 +886,11 @@ public class RedemptionsGetResponseBody {
         Objects.equals(this.customer, redemptionsGetResponseBody.customer) &&
         Objects.equals(this.relatedObjectType, redemptionsGetResponseBody.relatedObjectType) &&
         Objects.equals(this.relatedObjectId, redemptionsGetResponseBody.relatedObjectId) &&
-        Objects.equals(this.voucher, redemptionsGetResponseBody.voucher) &&
         Objects.equals(this.promotionTier, redemptionsGetResponseBody.promotionTier) &&
         Objects.equals(this.reward, redemptionsGetResponseBody.reward) &&
         Objects.equals(this.gift, redemptionsGetResponseBody.gift) &&
         Objects.equals(this.loyaltyCard, redemptionsGetResponseBody.loyaltyCard) &&
+        Objects.equals(this.voucher, redemptionsGetResponseBody.voucher) &&
         Objects.equals(this.reason, redemptionsGetResponseBody.reason);
   }
 
@@ -900,7 +900,7 @@ public class RedemptionsGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard, reason);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher, reason);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -932,11 +932,11 @@ public class RedemptionsGetResponseBody {
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
     sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
-    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    promotionTier: ").append(toIndentedString(promotionTier)).append("\n");
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
+    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -978,11 +978,11 @@ public class RedemptionsGetResponseBody {
     openapiFields.add("customer");
     openapiFields.add("related_object_type");
     openapiFields.add("related_object_id");
-    openapiFields.add("voucher");
     openapiFields.add("promotion_tier");
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
+    openapiFields.add("voucher");
     openapiFields.add("reason");
 
     // a set of required properties/fields (JSON key names)

@@ -325,10 +325,6 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
 
-  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
-  @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher;
-
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
   private PromotionTier promotionTier;
@@ -344,6 +340,10 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard;
+
+  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
+  @SerializedName(SERIALIZED_NAME_VOUCHER)
+  private LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher;
 
   public LoyaltiesMembersRedemptionRedeemResponseBody() {
   }
@@ -726,27 +726,6 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody voucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
-    
-    this.voucher = voucher;
-    return this;
-  }
-
-   /**
-   * Get voucher
-   * @return voucher
-  **/
-  @javax.annotation.Nullable
-  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher getVoucher() {
-    return voucher;
-  }
-
-
-  public void setVoucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
-    this.voucher = voucher;
-  }
-
-
   public LoyaltiesMembersRedemptionRedeemResponseBody promotionTier(PromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
@@ -831,6 +810,27 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
+  public LoyaltiesMembersRedemptionRedeemResponseBody voucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
+    
+    this.voucher = voucher;
+    return this;
+  }
+
+   /**
+   * Get voucher
+   * @return voucher
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher getVoucher() {
+    return voucher;
+  }
+
+
+  public void setVoucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
+    this.voucher = voucher;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -859,11 +859,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
         Objects.equals(this.customer, loyaltiesMembersRedemptionRedeemResponseBody.customer) &&
         Objects.equals(this.relatedObjectType, loyaltiesMembersRedemptionRedeemResponseBody.relatedObjectType) &&
         Objects.equals(this.relatedObjectId, loyaltiesMembersRedemptionRedeemResponseBody.relatedObjectId) &&
-        Objects.equals(this.voucher, loyaltiesMembersRedemptionRedeemResponseBody.voucher) &&
         Objects.equals(this.promotionTier, loyaltiesMembersRedemptionRedeemResponseBody.promotionTier) &&
         Objects.equals(this.reward, loyaltiesMembersRedemptionRedeemResponseBody.reward) &&
         Objects.equals(this.gift, loyaltiesMembersRedemptionRedeemResponseBody.gift) &&
-        Objects.equals(this.loyaltyCard, loyaltiesMembersRedemptionRedeemResponseBody.loyaltyCard);
+        Objects.equals(this.loyaltyCard, loyaltiesMembersRedemptionRedeemResponseBody.loyaltyCard) &&
+        Objects.equals(this.voucher, loyaltiesMembersRedemptionRedeemResponseBody.voucher);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -872,7 +872,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -904,11 +904,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
     sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
-    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    promotionTier: ").append(toIndentedString(promotionTier)).append("\n");
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
+    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -949,11 +949,11 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
     openapiFields.add("customer");
     openapiFields.add("related_object_type");
     openapiFields.add("related_object_id");
-    openapiFields.add("voucher");
     openapiFields.add("promotion_tier");
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
+    openapiFields.add("voucher");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -167,7 +167,7 @@ public class VouchersDisableResponseBodyRedemption {
   }
 
    /**
-   * The endpoint where this list of redemptions can be accessed using a GET method. &#x60;/v1/vouchers/{voucher_code}/redemptions&#x60;
+   * The endpoint where this list of redemptions can be accessed using a **GET** method. &#x60;/v1/vouchers/{voucher_code}/redemptions&#x60;
    * @return url
   **/
   @javax.annotation.Nullable

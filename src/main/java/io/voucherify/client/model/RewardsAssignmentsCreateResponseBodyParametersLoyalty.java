@@ -57,6 +57,10 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
 
+  public static final String SERIALIZED_NAME_AUTO_REDEEM = "auto_redeem";
+  @SerializedName(SERIALIZED_NAME_AUTO_REDEEM)
+  private Boolean autoRedeem;
+
   public RewardsAssignmentsCreateResponseBodyParametersLoyalty() {
   }
 
@@ -81,6 +85,27 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
   }
 
 
+  public RewardsAssignmentsCreateResponseBodyParametersLoyalty autoRedeem(Boolean autoRedeem) {
+    
+    this.autoRedeem = autoRedeem;
+    return this;
+  }
+
+   /**
+   * Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a loyalty campaign, i.e. only one can have the value &#x60;true&#x60;.
+   * @return autoRedeem
+  **/
+  @javax.annotation.Nullable
+  public Boolean getAutoRedeem() {
+    return autoRedeem;
+  }
+
+
+  public void setAutoRedeem(Boolean autoRedeem) {
+    this.autoRedeem = autoRedeem;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -91,7 +116,8 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
       return false;
     }
     RewardsAssignmentsCreateResponseBodyParametersLoyalty rewardsAssignmentsCreateResponseBodyParametersLoyalty = (RewardsAssignmentsCreateResponseBodyParametersLoyalty) o;
-    return Objects.equals(this.points, rewardsAssignmentsCreateResponseBodyParametersLoyalty.points);
+    return Objects.equals(this.points, rewardsAssignmentsCreateResponseBodyParametersLoyalty.points) &&
+        Objects.equals(this.autoRedeem, rewardsAssignmentsCreateResponseBodyParametersLoyalty.autoRedeem);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -100,7 +126,7 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points);
+    return Objects.hash(points, autoRedeem);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -115,6 +141,7 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
     StringBuilder sb = new StringBuilder();
     sb.append("class RewardsAssignmentsCreateResponseBodyParametersLoyalty {\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    autoRedeem: ").append(toIndentedString(autoRedeem)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,6 +165,7 @@ public class RewardsAssignmentsCreateResponseBodyParametersLoyalty {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("points");
+    openapiFields.add("auto_redeem");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

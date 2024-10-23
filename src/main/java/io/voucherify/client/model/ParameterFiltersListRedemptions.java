@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Junction;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsCampaignName;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsCustomerId;
 import io.voucherify.client.model.ParameterFiltersListRedemptionsFailureCode;
@@ -102,6 +103,10 @@ public class ParameterFiltersListRedemptions {
   public static final String SERIALIZED_NAME_USER_LOGIN = "user_login";
   @SerializedName(SERIALIZED_NAME_USER_LOGIN)
   private ParameterFiltersListRedemptionsUserLogin userLogin;
+
+  public static final String SERIALIZED_NAME_JUNCTION = "junction";
+  @SerializedName(SERIALIZED_NAME_JUNCTION)
+  private Junction junction;
 
   public ParameterFiltersListRedemptions() {
   }
@@ -316,6 +321,27 @@ public class ParameterFiltersListRedemptions {
   }
 
 
+  public ParameterFiltersListRedemptions junction(Junction junction) {
+    
+    this.junction = junction;
+    return this;
+  }
+
+   /**
+   * Get junction
+   * @return junction
+  **/
+  @javax.annotation.Nullable
+  public Junction getJunction() {
+    return junction;
+  }
+
+
+  public void setJunction(Junction junction) {
+    this.junction = junction;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -335,7 +361,8 @@ public class ParameterFiltersListRedemptions {
         Objects.equals(this._object, parameterFiltersListRedemptions._object) &&
         Objects.equals(this.customerId, parameterFiltersListRedemptions.customerId) &&
         Objects.equals(this.campaignName, parameterFiltersListRedemptions.campaignName) &&
-        Objects.equals(this.userLogin, parameterFiltersListRedemptions.userLogin);
+        Objects.equals(this.userLogin, parameterFiltersListRedemptions.userLogin) &&
+        Objects.equals(this.junction, parameterFiltersListRedemptions.junction);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -344,7 +371,7 @@ public class ParameterFiltersListRedemptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(voucherCode, relatedObjectId, relatedObjectParentId, parentRedemptionId, failureCode, result, _object, customerId, campaignName, userLogin);
+    return Objects.hash(voucherCode, relatedObjectId, relatedObjectParentId, parentRedemptionId, failureCode, result, _object, customerId, campaignName, userLogin, junction);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -368,6 +395,7 @@ public class ParameterFiltersListRedemptions {
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
     sb.append("    userLogin: ").append(toIndentedString(userLogin)).append("\n");
+    sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -400,6 +428,7 @@ public class ParameterFiltersListRedemptions {
     openapiFields.add("customer_id");
     openapiFields.add("campaign_name");
     openapiFields.add("user_login");
+    openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

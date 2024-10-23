@@ -58,7 +58,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * This is an object representing a redemption.
+ * This is an object representing a redemption for **POST** &#x60;v1/redemptions&#x60; and **POST** &#x60;/client/v1/redemptions&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -325,10 +325,6 @@ public class Redemption {
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
 
-  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
-  @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private RedemptionVoucher voucher;
-
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
   private PromotionTier promotionTier;
@@ -344,6 +340,10 @@ public class Redemption {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionLoyaltyCard loyaltyCard;
+
+  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
+  @SerializedName(SERIALIZED_NAME_VOUCHER)
+  private RedemptionVoucher voucher;
 
   public Redemption() {
   }
@@ -726,27 +726,6 @@ public class Redemption {
   }
 
 
-  public Redemption voucher(RedemptionVoucher voucher) {
-    
-    this.voucher = voucher;
-    return this;
-  }
-
-   /**
-   * Get voucher
-   * @return voucher
-  **/
-  @javax.annotation.Nullable
-  public RedemptionVoucher getVoucher() {
-    return voucher;
-  }
-
-
-  public void setVoucher(RedemptionVoucher voucher) {
-    this.voucher = voucher;
-  }
-
-
   public Redemption promotionTier(PromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
@@ -831,6 +810,27 @@ public class Redemption {
   }
 
 
+  public Redemption voucher(RedemptionVoucher voucher) {
+    
+    this.voucher = voucher;
+    return this;
+  }
+
+   /**
+   * Get voucher
+   * @return voucher
+  **/
+  @javax.annotation.Nullable
+  public RedemptionVoucher getVoucher() {
+    return voucher;
+  }
+
+
+  public void setVoucher(RedemptionVoucher voucher) {
+    this.voucher = voucher;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -859,11 +859,11 @@ public class Redemption {
         Objects.equals(this.customer, redemption.customer) &&
         Objects.equals(this.relatedObjectType, redemption.relatedObjectType) &&
         Objects.equals(this.relatedObjectId, redemption.relatedObjectId) &&
-        Objects.equals(this.voucher, redemption.voucher) &&
         Objects.equals(this.promotionTier, redemption.promotionTier) &&
         Objects.equals(this.reward, redemption.reward) &&
         Objects.equals(this.gift, redemption.gift) &&
-        Objects.equals(this.loyaltyCard, redemption.loyaltyCard);
+        Objects.equals(this.loyaltyCard, redemption.loyaltyCard) &&
+        Objects.equals(this.voucher, redemption.voucher);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -872,7 +872,7 @@ public class Redemption {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -904,11 +904,11 @@ public class Redemption {
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
     sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
-    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    promotionTier: ").append(toIndentedString(promotionTier)).append("\n");
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
+    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -949,11 +949,11 @@ public class Redemption {
     openapiFields.add("customer");
     openapiFields.add("related_object_type");
     openapiFields.add("related_object_id");
-    openapiFields.add("voucher");
     openapiFields.add("promotion_tier");
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
+    openapiFields.add("voucher");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

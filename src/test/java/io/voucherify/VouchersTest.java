@@ -1,10 +1,8 @@
 package io.voucherify;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
 
 import io.voucherify.client.ApiClient;
-import io.voucherify.client.ApiException;
 import io.voucherify.client.api.VouchersApi;
 import io.voucherify.client.model.*;
 import io.voucherify.data.VoucherifyStore;
@@ -13,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
 
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 @org.junit.jupiter.api.Order(7)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -39,8 +37,8 @@ public class VouchersTest {
             List<String> keysToRemove = Arrays.asList("id", "code", "campaign", "campaignId",
                     "url", "createdAt",
                     "updatedAt", "holderId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -57,8 +55,8 @@ public class VouchersTest {
             List<String> keysToRemove = Arrays.asList("id", "code", "campaign", "campaignId", "url",
                     "createdAt", "updatedAt",
                     "holderId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -75,8 +73,8 @@ public class VouchersTest {
             List<String> keysToRemove = Arrays.asList("id", "code", "campaign", "campaignId", "url",
                     "createdAt", "updatedAt",
                     "holderId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -98,8 +96,8 @@ public class VouchersTest {
                             requestBody);
 
             List<String> keysToRemove = Arrays.asList("id");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

@@ -5,7 +5,9 @@ import com.google.gson.JsonSyntaxException;
 import io.voucherify.client.model.*;
 
 import org.jetbrains.annotations.NotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.fail;
 
 import io.voucherify.client.ApiClient;
@@ -15,11 +17,8 @@ import io.voucherify.client.api.ValidationsApi;
 import io.voucherify.client.api.VouchersApi;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.math.BigDecimal;
-
-import io.voucherify.helpers.JsonHelper;
 
 @org.junit.jupiter.api.Order(8)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -65,10 +64,10 @@ public class ValidationsTest {
     private void validateStackedDiscounts(ValidationsValidateRequestBody requestBody, String snapshotPath) {
         try {
             ValidationsValidateResponseBody responseBody = validationsApi.validateStackedDiscounts(requestBody);
-
-            List<String> keysToRemove = Arrays.asList("id", "productId", "details", "trackingId", "requestId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertNotNull(responseBody);
+            assertNotNull(responseBody.getStackingRules());
+        } catch (Exception e) {
+            System.out.println(e);
             fail();
         }
     }
@@ -142,7 +141,8 @@ public class ValidationsTest {
     }
 
     @NotNull
-    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(io.voucherify.client.model.Order order,
+    private static ValidationsValidateRequestBody createValidationsValidateRequestBody(
+            io.voucherify.client.model.Order order,
             ValidationsValidateRequestBodyRedeemablesItem redeemablesItem) {
         ValidationsValidateRequestBody requestBody = new ValidationsValidateRequestBody();
         requestBody.setOrder(order);

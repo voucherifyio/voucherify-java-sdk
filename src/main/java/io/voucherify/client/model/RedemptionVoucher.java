@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.Category;
+import io.voucherify.client.model.CategoryWithStackingRulesType;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.RedemptionVoucherGift;
 import io.voucherify.client.model.RedemptionVoucherLoyaltyCard;
@@ -283,7 +283,7 @@ public class RedemptionVoucher {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
+  private List<CategoryWithStackingRulesType> categories;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
@@ -871,13 +871,13 @@ public class RedemptionVoucher {
   }
 
 
-  public RedemptionVoucher categories(List<Category> categories) {
+  public RedemptionVoucher categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public RedemptionVoucher addCategoriesItem(Category categoriesItem) {
+  public RedemptionVoucher addCategoriesItem(CategoryWithStackingRulesType categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -890,12 +890,12 @@ public class RedemptionVoucher {
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<Category> getCategories() {
+  public List<CategoryWithStackingRulesType> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<Category> categories) {
+  public void setCategories(List<CategoryWithStackingRulesType> categories) {
     this.categories = categories;
   }
 

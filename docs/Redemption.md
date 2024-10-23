@@ -2,7 +2,7 @@
 
 # Redemption
 
-This is an object representing a redemption.
+This is an object representing a redemption for **POST** `v1/redemptions` and **POST** `/client/v1/redemptions`.
 
 ## Properties
 
@@ -26,11 +26,11 @@ This is an object representing a redemption.
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |
 |**relatedObjectId** | **String** | Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher. |
-|**voucher** | [**RedemptionVoucher**](RedemptionVoucher.md) |  |
 |**promotionTier** | [**PromotionTier**](PromotionTier.md) |  |
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
 |**gift** | [**RedemptionGift**](RedemptionGift.md) |  |
 |**loyaltyCard** | [**RedemptionLoyaltyCard**](RedemptionLoyaltyCard.md) |  |
+|**voucher** | [**RedemptionVoucher**](RedemptionVoucher.md) |  |
 
 
 

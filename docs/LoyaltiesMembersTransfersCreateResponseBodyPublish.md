@@ -11,7 +11,7 @@ This object stores a summary of publish events: an events counter and an endpoin
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute. |
 |**count** | **Integer** | Publication events counter. |
 |**entries** | **List&lt;String&gt;** |  |
-|**url** | **String** | The endpoint where this list of publications can be accessed using a GET method. /v1/vouchers/{voucher_code}/publications |
+|**url** | **String** | The endpoint where this list of publications can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/publications |
 
 
 

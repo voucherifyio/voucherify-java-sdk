@@ -1,6 +1,5 @@
 package io.voucherify;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,10 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import io.voucherify.client.ApiClient;
 import io.voucherify.data.VoucherifyStore;
 import io.voucherify.client.model.*;
-import io.voucherify.client.ApiException;
 import io.voucherify.client.api.CategoriesApi;
-
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,10 +40,10 @@ public class CategoriesTest {
             CategoriesCreateResponseBody responseBody = categories.createCategory(category);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "name");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
 
             VoucherifyStore.getInstance().getCategory().setId(responseBody.getId());
-        } catch (ApiException e) {
+        } catch (Exception e) {
             fail();
         }
     }
@@ -60,9 +57,9 @@ public class CategoriesTest {
             CategoriesGetResponseBody responseBody = categories
                     .getCategory(VoucherifyStore.getInstance().getCategory().getId());
 
-            List<String> keysToRemove = Arrays.asList("id", "createdAt", "name");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            List<String> keysToRemove = Arrays.asList("id", "createdAt", "name", "stackingRulesType");
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -81,8 +78,8 @@ public class CategoriesTest {
                     .updateCategory(VoucherifyStore.getInstance().getCategory().getId(), category);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "name", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

@@ -35,7 +35,7 @@ Defines the details of the voucher being redeemed.
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
 |**publish** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish.md) |  |
 |**redemption** | [**LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption**](LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption.md) |  |
-|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
+|**categories** | **List&lt;Object&gt;** | Always returns an empty array. |
 |**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
 |**holder** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 

@@ -212,7 +212,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
   }
 
    /**
-   * The endpoint where this list of redemptions can be accessed using a GET method. /v1/vouchers/{voucher_code}/redemptions
+   * The endpoint where this list of redemptions can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/redemptions
    * @return url
   **/
   @javax.annotation.Nullable
