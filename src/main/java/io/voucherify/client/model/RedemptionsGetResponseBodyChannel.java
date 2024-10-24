@@ -58,13 +58,15 @@ public class RedemptionsGetResponseBodyChannel {
   private String channelId;
 
   /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API.
+   * Gets or Sets channelType
    */
   @JsonAdapter(ChannelTypeEnum.Adapter.class)
   public enum ChannelTypeEnum {
     USER("USER"),
     
-    API("API");
+    API("API"),
+    
+    AUTO_REDEEM("AUTO_REDEEM");
 
     private String value;
 
@@ -139,7 +141,7 @@ public class RedemptionsGetResponseBodyChannel {
   }
 
    /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API.
+   * Get channelType
    * @return channelType
   **/
   @javax.annotation.Nullable

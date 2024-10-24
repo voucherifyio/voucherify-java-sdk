@@ -58,13 +58,15 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyChannel {
   private String channelId;
 
   /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API.
+   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
    */
   @JsonAdapter(ChannelTypeEnum.Adapter.class)
   public enum ChannelTypeEnum {
     USER("USER"),
     
-    API("API");
+    API("API"),
+    
+    AUTO_REDEEM("AUTO_REDEEM");
 
     private String value;
 
@@ -118,7 +120,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyChannel {
   }
 
    /**
-   * Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API.
+   * Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API. For &#x60;AUTO_REDEEM&#x60;, it is the reward assignment ID.
    * @return channelId
   **/
   @javax.annotation.Nullable
@@ -139,7 +141,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyChannel {
   }
 
    /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API.
+   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
    * @return channelType
   **/
   @javax.annotation.Nullable

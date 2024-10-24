@@ -25,11 +25,11 @@
 |**customer** | [**RedemptionsGetResponseBodyCustomer**](RedemptionsGetResponseBodyCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |
 |**relatedObjectId** | **String** |  |
-|**voucher** | [**RedemptionsGetResponseBodyVoucher**](RedemptionsGetResponseBodyVoucher.md) |  |
 |**promotionTier** | [**RedemptionsGetResponseBodyPromotionTier**](RedemptionsGetResponseBodyPromotionTier.md) |  |
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
 |**gift** | [**RedemptionsGetResponseBodyGift**](RedemptionsGetResponseBodyGift.md) |  |
 |**loyaltyCard** | [**RedemptionsGetResponseBodyLoyaltyCard**](RedemptionsGetResponseBodyLoyaltyCard.md) |  |
+|**voucher** | [**RedemptionsGetResponseBodyVoucher**](RedemptionsGetResponseBodyVoucher.md) |  |
 |**reason** | **String** | System generated cause for the redemption being invalid in the context of the provided parameters. |
 
 

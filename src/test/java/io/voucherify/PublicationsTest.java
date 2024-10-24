@@ -1,15 +1,14 @@
 package io.voucherify;
 
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
+import io.voucherify.helpers.DeepMatch;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
 import io.voucherify.client.ApiClient;
-import io.voucherify.client.ApiException;
 import io.voucherify.client.api.PublicationsApi;
 import io.voucherify.client.model.*;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Arrays;
@@ -47,9 +46,9 @@ public class PublicationsTest {
                     null);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchers", "vouchersId",
-                    "total", "campaign", "code");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+                    "total", "campaign", "code", "email", "trackingId", "isReferralCode");
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -61,7 +60,7 @@ public class PublicationsTest {
 
         try {
             PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
-            PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
+            Customer customer = new Customer();
 
             customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
             publicationsCreateRequestBody.setCustomer(customer);
@@ -73,8 +72,8 @@ public class PublicationsTest {
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchers", "vouchersId",
                     "total", "campaign", "code", "campaignId", "url", "updatedAt", "holderId");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -86,7 +85,7 @@ public class PublicationsTest {
 
         try {
             CreatePublicationCampaign createPublicationCampaign = new CreatePublicationCampaign();
-            PublicationsCreateRequestBodyCustomer customer = new PublicationsCreateRequestBodyCustomer();
+            Customer customer = new Customer();
             createPublicationCampaign.setName(VoucherifyStore.getInstance().getLoyaltyCampaign().getName());
             createPublicationCampaign.setCount(2);
 
@@ -100,8 +99,8 @@ public class PublicationsTest {
                     publicationsCreateRequestBody);
 
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchersId", "vouchers");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

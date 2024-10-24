@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ApplicableToResultList;
-import io.voucherify.client.model.Category;
+import io.voucherify.client.model.CategoryWithStackingRulesType;
 import io.voucherify.client.model.InapplicableToResultList;
 import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.ValidationsValidateResponseBodyRedeemablesItemResult;
@@ -190,7 +190,7 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<Category> categories;
+  private List<CategoryWithStackingRulesType> categories;
 
   public ValidationsValidateResponseBodyRedeemablesItem() {
   }
@@ -363,13 +363,13 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
   }
 
 
-  public ValidationsValidateResponseBodyRedeemablesItem categories(List<Category> categories) {
+  public ValidationsValidateResponseBodyRedeemablesItem categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public ValidationsValidateResponseBodyRedeemablesItem addCategoriesItem(Category categoriesItem) {
+  public ValidationsValidateResponseBodyRedeemablesItem addCategoriesItem(CategoryWithStackingRulesType categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -382,12 +382,12 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
    * @return categories
   **/
   @javax.annotation.Nullable
-  public List<Category> getCategories() {
+  public List<CategoryWithStackingRulesType> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<Category> categories) {
+  public void setCategories(List<CategoryWithStackingRulesType> categories) {
     this.categories = categories;
   }
 

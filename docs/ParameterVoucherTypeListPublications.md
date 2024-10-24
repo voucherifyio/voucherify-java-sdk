@@ -9,7 +9,5 @@
 
 * `LOYALTY` (value: `"loyalty"`)
 
-* `LUCKY_DRAW` (value: `"lucky_draw"`)
-
 
 

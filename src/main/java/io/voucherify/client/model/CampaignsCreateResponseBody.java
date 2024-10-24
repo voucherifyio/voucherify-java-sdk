@@ -90,9 +90,7 @@ public class CampaignsCreateResponseBody {
     
     PROMOTION("PROMOTION"),
     
-    REFERRAL_PROGRAM("REFERRAL_PROGRAM"),
-    
-    LUCKY_DRAW("LUCKY_DRAW");
+    REFERRAL_PROGRAM("REFERRAL_PROGRAM");
 
     private String value;
 
@@ -421,6 +419,10 @@ public class CampaignsCreateResponseBody {
   public static final String SERIALIZED_NAME_VOUCHERS_GENERATION_STATUS = "vouchers_generation_status";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_GENERATION_STATUS)
   private VouchersGenerationStatusEnum vouchersGenerationStatus;
+
+  public static final String SERIALIZED_NAME_READONLY = "readonly";
+  @SerializedName(SERIALIZED_NAME_READONLY)
+  private Boolean readonly;
 
   public static final String SERIALIZED_NAME_PROTECTED = "protected";
   @SerializedName(SERIALIZED_NAME_PROTECTED)
@@ -952,6 +954,27 @@ public class CampaignsCreateResponseBody {
   }
 
 
+  public CampaignsCreateResponseBody readonly(Boolean readonly) {
+    
+    this.readonly = readonly;
+    return this;
+  }
+
+   /**
+   * Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles.
+   * @return readonly
+  **/
+  @javax.annotation.Nullable
+  public Boolean getReadonly() {
+    return readonly;
+  }
+
+
+  public void setReadonly(Boolean readonly) {
+    this.readonly = readonly;
+  }
+
+
   public CampaignsCreateResponseBody _protected(Boolean _protected) {
     
     this._protected = _protected;
@@ -1182,6 +1205,7 @@ public class CampaignsCreateResponseBody {
         Objects.equals(this.category, campaignsCreateResponseBody.category) &&
         Objects.equals(this.creationStatus, campaignsCreateResponseBody.creationStatus) &&
         Objects.equals(this.vouchersGenerationStatus, campaignsCreateResponseBody.vouchersGenerationStatus) &&
+        Objects.equals(this.readonly, campaignsCreateResponseBody.readonly) &&
         Objects.equals(this._protected, campaignsCreateResponseBody._protected) &&
         Objects.equals(this.categoryId, campaignsCreateResponseBody.categoryId) &&
         Objects.equals(this.categories, campaignsCreateResponseBody.categories) &&
@@ -1199,7 +1223,7 @@ public class CampaignsCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration, promotion, validationRulesAssignments, accessSettingsAssignments);
+    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration, promotion, validationRulesAssignments, accessSettingsAssignments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1236,6 +1260,7 @@ public class CampaignsCreateResponseBody {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    creationStatus: ").append(toIndentedString(creationStatus)).append("\n");
     sb.append("    vouchersGenerationStatus: ").append(toIndentedString(vouchersGenerationStatus)).append("\n");
+    sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
     sb.append("    _protected: ").append(toIndentedString(_protected)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
@@ -1290,6 +1315,7 @@ public class CampaignsCreateResponseBody {
     openapiFields.add("category");
     openapiFields.add("creation_status");
     openapiFields.add("vouchers_generation_status");
+    openapiFields.add("readonly");
     openapiFields.add("protected");
     openapiFields.add("category_id");
     openapiFields.add("categories");

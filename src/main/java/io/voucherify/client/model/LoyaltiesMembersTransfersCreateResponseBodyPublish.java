@@ -197,7 +197,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   }
 
    /**
-   * The endpoint where this list of publications can be accessed using a GET method. /v1/vouchers/{voucher_code}/publications
+   * The endpoint where this list of publications can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/publications
    * @return url
   **/
   @javax.annotation.Nullable

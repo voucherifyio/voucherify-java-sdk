@@ -35,7 +35,7 @@ Defines the details of the voucher being redeemed.
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
 |**publish** | [**RedemptionVoucherPublish**](RedemptionVoucherPublish.md) |  |
 |**redemption** | [**RedemptionVoucherRedemption**](RedemptionVoucherRedemption.md) |  |
-|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
+|**categories** | [**List&lt;CategoryWithStackingRulesType&gt;**](CategoryWithStackingRulesType.md) | Contains details about the category. |
 |**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
 |**holder** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 
