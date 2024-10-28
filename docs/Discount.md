@@ -16,7 +16,7 @@
 |**unitOff** | **Integer** | Number of units to be granted a full value discount. |
 |**unitOffFormula** | **String** |  |
 |**unitType** | **String** | The product deemed as free, chosen from product inventory (e.g. time, items). |
-|**product** | [**SimpleProductDiscountUnit**](SimpleProductDiscountUnit.md) |  |
+|**product** | [**DiscountProduct**](DiscountProduct.md) |  |
 |**sku** | [**SimpleSkuDiscountUnit**](SimpleSkuDiscountUnit.md) |  |
 |**units** | [**List&lt;DiscountUnitMultipleOneUnit&gt;**](DiscountUnitMultipleOneUnit.md) |  |
 |**percentOff** | **BigDecimal** | The percent discount that the customer will receive. |

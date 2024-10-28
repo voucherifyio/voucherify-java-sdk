@@ -117,7 +117,11 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
    */
   @JsonAdapter(CalculationTypeEnum.Adapter.class)
   public enum CalculationTypeEnum {
-    CUSTOM_EVENT_METADATA("CUSTOM_EVENT_METADATA"),
+    ORDER_AMOUNT("ORDER_AMOUNT"),
+    
+    ORDER_TOTAL_AMOUNT("ORDER_TOTAL_AMOUNT"),
+    
+    ORDER_METADATA("ORDER_METADATA"),
     
     ORDER_ITEMS_QUANTITY("ORDER_ITEMS_QUANTITY"),
     
@@ -125,13 +129,9 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
     
     ORDER_ITEMS_SUBTOTAL_AMOUNT("ORDER_ITEMS_SUBTOTAL_AMOUNT"),
     
-    ORDER_AMOUNT("ORDER_AMOUNT"),
+    CUSTOMER_METADATA("CUSTOMER_METADATA"),
     
-    ORDER_TOTAL_AMOUNT("ORDER_TOTAL_AMOUNT"),
-    
-    ORDER_METADATA("ORDER_METADATA"),
-    
-    CUSTOMER_METADATA("CUSTOMER_METADATA");
+    CUSTOM_EVENT_METADATA("CUSTOM_EVENT_METADATA");
 
     private String value;
 
@@ -175,21 +175,21 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
   @SerializedName(SERIALIZED_NAME_CALCULATION_TYPE)
   private CalculationTypeEnum calculationType;
 
-  public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
-  private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent;
+  public static final String SERIALIZED_NAME_ORDER = "order";
+  @SerializedName(SERIALIZED_NAME_ORDER)
+  private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order;
 
   public static final String SERIALIZED_NAME_ORDER_ITEMS = "order_items";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEMS)
   private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems orderItems;
 
-  public static final String SERIALIZED_NAME_ORDER = "order";
-  @SerializedName(SERIALIZED_NAME_ORDER)
-  private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order;
-
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
   private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer customer;
+
+  public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
+  private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent;
 
   public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty() {
   }
@@ -257,24 +257,24 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty customEvent(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent) {
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty order(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order) {
     
-    this.customEvent = customEvent;
+    this.order = order;
     return this;
   }
 
    /**
-   * Get customEvent
-   * @return customEvent
+   * Get order
+   * @return order
   **/
   @javax.annotation.Nullable
-  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent getCustomEvent() {
-    return customEvent;
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder getOrder() {
+    return order;
   }
 
 
-  public void setCustomEvent(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent) {
-    this.customEvent = customEvent;
+  public void setOrder(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order) {
+    this.order = order;
   }
 
 
@@ -299,27 +299,6 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty order(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order) {
-    
-    this.order = order;
-    return this;
-  }
-
-   /**
-   * Get order
-   * @return order
-  **/
-  @javax.annotation.Nullable
-  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder getOrder() {
-    return order;
-  }
-
-
-  public void setOrder(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order) {
-    this.order = order;
-  }
-
-
   public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty customer(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer customer) {
     
     this.customer = customer;
@@ -341,6 +320,27 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
   }
 
 
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty customEvent(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent) {
+    
+    this.customEvent = customEvent;
+    return this;
+  }
+
+   /**
+   * Get customEvent
+   * @return customEvent
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent getCustomEvent() {
+    return customEvent;
+  }
+
+
+  public void setCustomEvent(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent) {
+    this.customEvent = customEvent;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -354,10 +354,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
     return Objects.equals(this.type, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.type) &&
         Objects.equals(this.points, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.points) &&
         Objects.equals(this.calculationType, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.calculationType) &&
-        Objects.equals(this.customEvent, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.customEvent) &&
-        Objects.equals(this.orderItems, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.orderItems) &&
         Objects.equals(this.order, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.order) &&
-        Objects.equals(this.customer, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.customer);
+        Objects.equals(this.orderItems, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.orderItems) &&
+        Objects.equals(this.customer, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.customer) &&
+        Objects.equals(this.customEvent, loyaltiesEarningRulesCreateRequestBodyItemLoyalty.customEvent);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -366,7 +366,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, points, calculationType, customEvent, orderItems, order, customer);
+    return Objects.hash(type, points, calculationType, order, orderItems, customer, customEvent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -383,10 +383,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    calculationType: ").append(toIndentedString(calculationType)).append("\n");
-    sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
-    sb.append("    orderItems: ").append(toIndentedString(orderItems)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    orderItems: ").append(toIndentedString(orderItems)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
+    sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -412,10 +412,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {
     openapiFields.add("type");
     openapiFields.add("points");
     openapiFields.add("calculation_type");
-    openapiFields.add("custom_event");
-    openapiFields.add("order_items");
     openapiFields.add("order");
+    openapiFields.add("order_items");
     openapiFields.add("customer");
+    openapiFields.add("custom_event");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

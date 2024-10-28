@@ -8,12 +8,12 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**type** | [**TypeEnum**](#TypeEnum) |  |
+|**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
 |**calculationType** | [**CalculationTypeEnum**](#CalculationTypeEnum) |  |
 |**order** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrder.md) |  |
 |**orderItems** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems.md) |  |
 |**customer** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomer.md) |  |
 |**customEvent** | [**LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent**](LoyaltiesEarningRulesUpdateRequestBodyLoyaltyCustomEvent.md) |  |
-|**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
 
 
 
@@ -21,8 +21,8 @@
 
 | Name | Value |
 |---- | -----|
-| PROPORTIONAL | &quot;PROPORTIONAL&quot; |
 | FIXED | &quot;FIXED&quot; |
+| PROPORTIONAL | &quot;PROPORTIONAL&quot; |
 
 
 

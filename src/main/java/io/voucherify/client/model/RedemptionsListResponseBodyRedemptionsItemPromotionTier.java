@@ -344,7 +344,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes assigned to the promotion tier. A set of key/value pairs that you can attach to a promotion tier object. It can be useful for storing additional information about the promotion tier in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable

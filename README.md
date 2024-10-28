@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>15.0.0</version>
+  <version>16.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:15.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:16.0.0"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-15.0.0.jar`
+* `target/voucherify-java-sdk-16.0.0.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -143,7 +143,13 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
-- **2024-10-28** - `15.0.0`
+- **2024-10-28** - `16.0.0`
+  - Added missing `enums` in few filters models
+  - !!! BREAKING CHANGES !!!
+    - VouchersApi.generateRandomCode now requires `VouchersCreateResponseBody` instead of plain `object`
+    - property `product` in model `Discount` now uses `DiscountProduct` instead of `SimpleProductDiscountUnit`
+    - property `filters` of model `ExportsCreateRequestBodyParameters` now uses plain `object` instead of `ExportsCreateRequestBodyParametersFilters`
+- **2024-10-24** - `15.0.0`
   - Fix object parsing in query. For example `filters` while listing redemptions.
   - !!! BREAKING CHANGES !!!
     - Remove support for `/v1/customers/{customerId}/consents` - put `Update Customer's consents [Deprecated]`
@@ -834,6 +840,7 @@ Class | Method | HTTP request | Description
 - [CustomersUpdateResponseBodyAddress](docs/CustomersUpdateResponseBodyAddress.md)
 - [CustomersUpdateResponseBodyAssets](docs/CustomersUpdateResponseBodyAssets.md)
 - [Discount](docs/Discount.md)
+- [DiscountProduct](docs/DiscountProduct.md)
 - [DiscountUnitMultipleOneUnit](docs/DiscountUnitMultipleOneUnit.md)
 - [EarningRule](docs/EarningRule.md)
 - [EarningRuleCustomEvent](docs/EarningRuleCustomEvent.md)
@@ -862,20 +869,16 @@ Class | Method | HTTP request | Description
 - [ExportOrderFields](docs/ExportOrderFields.md)
 - [ExportOrderOrder](docs/ExportOrderOrder.md)
 - [ExportParameters](docs/ExportParameters.md)
-- [ExportParametersFilters](docs/ExportParametersFilters.md)
 - [ExportResult](docs/ExportResult.md)
 - [ExportVoucherTransactionsFields](docs/ExportVoucherTransactionsFields.md)
 - [ExportVoucherTransactionsFilters](docs/ExportVoucherTransactionsFilters.md)
 - [ExportVoucherTransactionsOrder](docs/ExportVoucherTransactionsOrder.md)
 - [ExportsCreateRequestBody](docs/ExportsCreateRequestBody.md)
 - [ExportsCreateRequestBodyParameters](docs/ExportsCreateRequestBodyParameters.md)
-- [ExportsCreateRequestBodyParametersFilters](docs/ExportsCreateRequestBodyParametersFilters.md)
 - [ExportsCreateResponseBody](docs/ExportsCreateResponseBody.md)
 - [ExportsCreateResponseBodyParameters](docs/ExportsCreateResponseBodyParameters.md)
-- [ExportsCreateResponseBodyParametersFilters](docs/ExportsCreateResponseBodyParametersFilters.md)
 - [ExportsGetResponseBody](docs/ExportsGetResponseBody.md)
 - [ExportsGetResponseBodyParameters](docs/ExportsGetResponseBodyParameters.md)
-- [ExportsGetResponseBodyParametersFilters](docs/ExportsGetResponseBodyParametersFilters.md)
 - [ExportsGetResponseBodyResult](docs/ExportsGetResponseBodyResult.md)
 - [ExportsListResponseBody](docs/ExportsListResponseBody.md)
 - [FieldConditions](docs/FieldConditions.md)
@@ -1792,6 +1795,8 @@ Class | Method | HTTP request | Description
 - [VouchersBalanceUpdateRequestBody](docs/VouchersBalanceUpdateRequestBody.md)
 - [VouchersBalanceUpdateResponseBody](docs/VouchersBalanceUpdateResponseBody.md)
 - [VouchersBalanceUpdateResponseBodyRelatedObject](docs/VouchersBalanceUpdateResponseBodyRelatedObject.md)
+- [VouchersCreateRequestBody](docs/VouchersCreateRequestBody.md)
+- [VouchersCreateRequestBodyRedemption](docs/VouchersCreateRequestBodyRedemption.md)
 - [VouchersCreateResponseBody](docs/VouchersCreateResponseBody.md)
 - [VouchersCreateResponseBodyGift](docs/VouchersCreateResponseBodyGift.md)
 - [VouchersCreateResponseBodyLoyaltyCard](docs/VouchersCreateResponseBodyLoyaltyCard.md)
