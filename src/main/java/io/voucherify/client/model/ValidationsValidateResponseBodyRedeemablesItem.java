@@ -349,7 +349,7 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable.
    * @return metadata
   **/
   @javax.annotation.Nullable

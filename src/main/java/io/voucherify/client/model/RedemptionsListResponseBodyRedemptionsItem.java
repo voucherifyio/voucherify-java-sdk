@@ -466,7 +466,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes assigned to the redemption.
    * @return metadata
   **/
   @javax.annotation.Nullable

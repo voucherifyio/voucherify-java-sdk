@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ExportsGetResponseBodyParametersFilters;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,7 +86,31 @@ public class ExportsGetResponseBodyParameters {
     
     _CUSTOMER_ID("-customer_id"),
     
-    CUSTOMER_ID("customer_id");
+    CUSTOMER_ID("customer_id"),
+    
+    _NAME("-name"),
+    
+    NAME("name"),
+    
+    _EMAIL("-email"),
+    
+    EMAIL("email"),
+    
+    _SOURCE_ID("-source_id"),
+    
+    SOURCE_ID("source_id"),
+    
+    _CHANNEL("-channel"),
+    
+    CHANNEL("channel"),
+    
+    _STATUS("-status"),
+    
+    STATUS("status"),
+    
+    _EXPIRES_AT("-expires_at"),
+    
+    EXPIRES_AT("expires_at");
 
     private String value;
 
@@ -358,7 +381,7 @@ public class ExportsGetResponseBodyParameters {
 
   public static final String SERIALIZED_NAME_FILTERS = "filters";
   @SerializedName(SERIALIZED_NAME_FILTERS)
-  private ExportsGetResponseBodyParametersFilters filters;
+  private Object filters;
 
   public ExportsGetResponseBodyParameters() {
   }
@@ -413,23 +436,23 @@ public class ExportsGetResponseBodyParameters {
   }
 
 
-  public ExportsGetResponseBodyParameters filters(ExportsGetResponseBodyParametersFilters filters) {
+  public ExportsGetResponseBodyParameters filters(Object filters) {
     
     this.filters = filters;
     return this;
   }
 
    /**
-   * Get filters
+   * Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
    * @return filters
   **/
   @javax.annotation.Nullable
-  public ExportsGetResponseBodyParametersFilters getFilters() {
+  public Object getFilters() {
     return filters;
   }
 
 
-  public void setFilters(ExportsGetResponseBodyParametersFilters filters) {
+  public void setFilters(Object filters) {
     this.filters = filters;
   }
 

@@ -127,7 +127,7 @@ public class RewardsUpdateRequestBody {
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable

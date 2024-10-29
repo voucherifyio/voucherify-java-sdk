@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.DiscountProduct;
 import io.voucherify.client.model.DiscountUnitMultipleOneUnit;
-import io.voucherify.client.model.SimpleProductDiscountUnit;
 import io.voucherify.client.model.SimpleSkuDiscountUnit;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -207,7 +207,7 @@ public class Discount {
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
-  private SimpleProductDiscountUnit product;
+  private DiscountProduct product;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
@@ -429,7 +429,7 @@ public class Discount {
   }
 
 
-  public Discount product(SimpleProductDiscountUnit product) {
+  public Discount product(DiscountProduct product) {
     
     this.product = product;
     return this;
@@ -440,12 +440,12 @@ public class Discount {
    * @return product
   **/
   @javax.annotation.Nullable
-  public SimpleProductDiscountUnit getProduct() {
+  public DiscountProduct getProduct() {
     return product;
   }
 
 
-  public void setProduct(SimpleProductDiscountUnit product) {
+  public void setProduct(DiscountProduct product) {
     this.product = product;
   }
 

@@ -20,13 +20,16 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.OrderCalculatedItem;
+import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.RedemptionEntryOrderCustomer;
 import io.voucherify.client.model.RedemptionEntryOrderReferrer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -241,7 +244,7 @@ public class RedemptionEntryOrder {
 
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
-  private Object redemptions;
+  private Map<String, OrderRedemptionsEntry> redemptions;
 
   public RedemptionEntryOrder() {
   }
@@ -534,7 +537,7 @@ public class RedemptionEntryOrder {
   }
 
    /**
-   * Get metadata
+   * A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -695,9 +698,17 @@ public class RedemptionEntryOrder {
   }
 
 
-  public RedemptionEntryOrder redemptions(Object redemptions) {
+  public RedemptionEntryOrder redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     
     this.redemptions = redemptions;
+    return this;
+  }
+
+  public RedemptionEntryOrder putRedemptionsItem(String key, OrderRedemptionsEntry redemptionsItem) {
+    if (this.redemptions == null) {
+      this.redemptions = new HashMap<>();
+    }
+    this.redemptions.put(key, redemptionsItem);
     return this;
   }
 
@@ -706,12 +717,12 @@ public class RedemptionEntryOrder {
    * @return redemptions
   **/
   @javax.annotation.Nullable
-  public Object getRedemptions() {
+  public Map<String, OrderRedemptionsEntry> getRedemptions() {
     return redemptions;
   }
 
 
-  public void setRedemptions(Object redemptions) {
+  public void setRedemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     this.redemptions = redemptions;
   }
 

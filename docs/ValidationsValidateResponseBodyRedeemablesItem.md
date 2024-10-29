@@ -14,7 +14,7 @@
 |**applicableTo** | [**ApplicableToResultList**](ApplicableToResultList.md) |  |
 |**inapplicableTo** | [**InapplicableToResultList**](InapplicableToResultList.md) |  |
 |**result** | [**ValidationsValidateResponseBodyRedeemablesItemResult**](ValidationsValidateResponseBodyRedeemablesItemResult.md) |  |
-|**metadata** | **Object** |  |
+|**metadata** | **Object** | The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable. |
 |**categories** | [**List&lt;CategoryWithStackingRulesType&gt;**](CategoryWithStackingRulesType.md) |  |
 
 

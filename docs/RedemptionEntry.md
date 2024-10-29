@@ -12,7 +12,7 @@
 |**date** | **OffsetDateTime** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. |
 |**customerId** | **String** | Unique customer ID of the redeeming customer. |
 |**trackingId** | **String** | Hashed customer source ID. |
-|**metadata** | **Object** |  |
+|**metadata** | **Object** | The metadata object stores all custom attributes assigned to the redemption. |
 |**amount** | **Integer** | For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this represents the number of the credits restored to the card in the rolledback redemption. The number is a negative integer in the smallest currency unit, e.g. -100 cents for $1.00 added back to the card. For loyalty cards, this represents the number of loyalty points restored to the card in the rolledback redemption. The number is a negative integer. |
 |**redemption** | **String** | Unique redemption ID of the parent redemption. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |

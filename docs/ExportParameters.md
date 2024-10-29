@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- |
 |**order** | [**OrderEnum**](#OrderEnum) |  |
 |**fields** | [**List&lt;FieldsEnum&gt;**](#List&lt;FieldsEnum&gt;) | Array of strings containing the data in the export. These fields define the headers in the CSV file. |
-|**filters** | [**ExportParametersFilters**](ExportParametersFilters.md) |  |
+|**filters** | **Object** | Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; |
 
 
 
@@ -31,6 +31,18 @@
 | TRACKING_ID | &quot;tracking_id&quot; |
 | _CUSTOMER_ID | &quot;-customer_id&quot; |
 | CUSTOMER_ID | &quot;customer_id&quot; |
+| _NAME | &quot;-name&quot; |
+| NAME | &quot;name&quot; |
+| _EMAIL | &quot;-email&quot; |
+| EMAIL | &quot;email&quot; |
+| _SOURCE_ID | &quot;-source_id&quot; |
+| SOURCE_ID | &quot;source_id&quot; |
+| _CHANNEL | &quot;-channel&quot; |
+| CHANNEL | &quot;channel&quot; |
+| _STATUS | &quot;-status&quot; |
+| STATUS | &quot;status&quot; |
+| _EXPIRES_AT | &quot;-expires_at&quot; |
+| EXPIRES_AT | &quot;expires_at&quot; |
 
 
 

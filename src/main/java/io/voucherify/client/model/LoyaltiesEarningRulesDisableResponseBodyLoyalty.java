@@ -62,9 +62,9 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    PROPORTIONAL("PROPORTIONAL"),
+    FIXED("FIXED"),
     
-    FIXED("FIXED");
+    PROPORTIONAL("PROPORTIONAL");
 
     private String value;
 
@@ -107,6 +107,10 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+
+  public static final String SERIALIZED_NAME_POINTS = "points";
+  @SerializedName(SERIALIZED_NAME_POINTS)
+  private Integer points;
 
   /**
    * Gets or Sets calculationType
@@ -187,10 +191,6 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
   private LoyaltiesEarningRulesDisableResponseBodyLoyaltyCustomEvent customEvent;
 
-  public static final String SERIALIZED_NAME_POINTS = "points";
-  @SerializedName(SERIALIZED_NAME_POINTS)
-  private Integer points;
-
   public LoyaltiesEarningRulesDisableResponseBodyLoyalty() {
   }
 
@@ -212,6 +212,27 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
 
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+
+  public LoyaltiesEarningRulesDisableResponseBodyLoyalty points(Integer points) {
+    
+    this.points = points;
+    return this;
+  }
+
+   /**
+   * Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points.
+   * @return points
+  **/
+  @javax.annotation.Nullable
+  public Integer getPoints() {
+    return points;
+  }
+
+
+  public void setPoints(Integer points) {
+    this.points = points;
   }
 
 
@@ -320,27 +341,6 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
   }
 
 
-  public LoyaltiesEarningRulesDisableResponseBodyLoyalty points(Integer points) {
-    
-    this.points = points;
-    return this;
-  }
-
-   /**
-   * Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points.
-   * @return points
-  **/
-  @javax.annotation.Nullable
-  public Integer getPoints() {
-    return points;
-  }
-
-
-  public void setPoints(Integer points) {
-    this.points = points;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -352,12 +352,12 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
     }
     LoyaltiesEarningRulesDisableResponseBodyLoyalty loyaltiesEarningRulesDisableResponseBodyLoyalty = (LoyaltiesEarningRulesDisableResponseBodyLoyalty) o;
     return Objects.equals(this.type, loyaltiesEarningRulesDisableResponseBodyLoyalty.type) &&
+        Objects.equals(this.points, loyaltiesEarningRulesDisableResponseBodyLoyalty.points) &&
         Objects.equals(this.calculationType, loyaltiesEarningRulesDisableResponseBodyLoyalty.calculationType) &&
         Objects.equals(this.order, loyaltiesEarningRulesDisableResponseBodyLoyalty.order) &&
         Objects.equals(this.orderItems, loyaltiesEarningRulesDisableResponseBodyLoyalty.orderItems) &&
         Objects.equals(this.customer, loyaltiesEarningRulesDisableResponseBodyLoyalty.customer) &&
-        Objects.equals(this.customEvent, loyaltiesEarningRulesDisableResponseBodyLoyalty.customEvent) &&
-        Objects.equals(this.points, loyaltiesEarningRulesDisableResponseBodyLoyalty.points);
+        Objects.equals(this.customEvent, loyaltiesEarningRulesDisableResponseBodyLoyalty.customEvent);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -366,7 +366,7 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, calculationType, order, orderItems, customer, customEvent, points);
+    return Objects.hash(type, points, calculationType, order, orderItems, customer, customEvent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -381,12 +381,12 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoyaltiesEarningRulesDisableResponseBodyLoyalty {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    calculationType: ").append(toIndentedString(calculationType)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    orderItems: ").append(toIndentedString(orderItems)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
-    sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -410,12 +410,12 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyalty {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
+    openapiFields.add("points");
     openapiFields.add("calculation_type");
     openapiFields.add("order");
     openapiFields.add("order_items");
     openapiFields.add("customer");
     openapiFields.add("custom_event");
-    openapiFields.add("points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

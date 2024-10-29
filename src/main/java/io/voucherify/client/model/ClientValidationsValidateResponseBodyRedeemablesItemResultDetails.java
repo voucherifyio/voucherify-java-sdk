@@ -52,37 +52,16 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
-  public static final String SERIALIZED_NAME_KEY = "key";
-  @SerializedName(SERIALIZED_NAME_KEY)
-  private String key;
-
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
+
   public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails() {
   }
-
-  public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails key(String key) {
-    
-    this.key = key;
-    return this;
-  }
-
-   /**
-   * Get key
-   * @return key
-  **/
-  @javax.annotation.Nullable
-  public String getKey() {
-    return key;
-  }
-
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
 
   public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails message(String message) {
     
@@ -105,6 +84,27 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
   }
 
 
+  public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails key(String key) {
+    
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @javax.annotation.Nullable
+  public String getKey() {
+    return key;
+  }
+
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -115,21 +115,21 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
       return false;
     }
     ClientValidationsValidateResponseBodyRedeemablesItemResultDetails clientValidationsValidateResponseBodyRedeemablesItemResultDetails = (ClientValidationsValidateResponseBodyRedeemablesItemResultDetails) o;
-    return Objects.equals(this.key, clientValidationsValidateResponseBodyRedeemablesItemResultDetails.key) &&
-        Objects.equals(this.message, clientValidationsValidateResponseBodyRedeemablesItemResultDetails.message);
+    return Objects.equals(this.message, clientValidationsValidateResponseBodyRedeemablesItemResultDetails.message) &&
+        Objects.equals(this.key, clientValidationsValidateResponseBodyRedeemablesItemResultDetails.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, message);
+    return Objects.hash(message, key);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,8 +152,8 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("key");
     openapiFields.add("message");
+    openapiFields.add("key");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -374,7 +374,7 @@ public class Example {
 
 <a id="generateRandomCode"></a>
 # **generateRandomCode**
-> VouchersCreateResponseBody generateRandomCode(body)
+> VouchersCreateResponseBody generateRandomCode(vouchersCreateRequestBody)
 
 Generate Random Code
 
@@ -402,9 +402,9 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     VouchersApi apiInstance = new VouchersApi(defaultClient);
-    Object body = {"category":"New Customers","code":"NEW-WELCOME-COUPON","type":"DISCOUNT_VOUCHER","campaign_id":"camp_Y6dLsYIZloGqP8izufXY6SSJ","discount":{"percent_off":10,"type":"PERCENT","effect":"APPLY_TO_ORDER"},"start_date":"2016-01-01T00:00:00Z","expiration_date":"2022-12-31T23:59:59Z","validity_timeframe":{"duration":"PT1H","interval":"P2D"},"validity_day_of_week":[1,2,3,4,5],"active":false,"additional_info":"This voucher will remain inactive until enabled.","redemption":{"quantity":10},"metadata":{"test":true,"locale":"de-en"},"validation_rules":["val_4j7DCRm2IS59"]}; // Object | Specify the details of the voucher that you would like to create.
+    VouchersCreateRequestBody vouchersCreateRequestBody = new VouchersCreateRequestBody(); // VouchersCreateRequestBody | Specify the details of the voucher that you would like to create.
     try {
-      VouchersCreateResponseBody result = apiInstance.generateRandomCode(body);
+      VouchersCreateResponseBody result = apiInstance.generateRandomCode(vouchersCreateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VouchersApi#generateRandomCode");
@@ -421,7 +421,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **body** | **Object**| Specify the details of the voucher that you would like to create. |
+| **vouchersCreateRequestBody** | [**VouchersCreateRequestBody**](VouchersCreateRequestBody.md)| Specify the details of the voucher that you would like to create. |
 
 ### Return type
 
