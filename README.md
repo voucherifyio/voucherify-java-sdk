@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>16.0.0</version>
+  <version>16.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:16.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:16.0.1"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-16.0.0.jar`
+* `target/voucherify-java-sdk-16.0.1.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -143,6 +143,8 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-11-04** - `16.0.1`
+  - Added support for returning `campaign_id` and `campaign_name` in stackable validation endpoint, when `redeemable` option is expanded
 - **2024-10-28** - `16.0.0`
   - Added missing `enums` in few filters models
   - !!! BREAKING CHANGES !!!
