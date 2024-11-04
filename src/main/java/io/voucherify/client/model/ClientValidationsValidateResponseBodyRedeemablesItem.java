@@ -192,6 +192,14 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<CategoryWithStackingRulesType> categories;
 
+  public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
+  private String campaignName;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  private String campaignId;
+
   public ClientValidationsValidateResponseBodyRedeemablesItem() {
   }
 
@@ -392,6 +400,48 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   }
 
 
+  public ClientValidationsValidateResponseBodyRedeemablesItem campaignName(String campaignName) {
+    
+    this.campaignName = campaignName;
+    return this;
+  }
+
+   /**
+   * Campaign name
+   * @return campaignName
+  **/
+  @javax.annotation.Nullable
+  public String getCampaignName() {
+    return campaignName;
+  }
+
+
+  public void setCampaignName(String campaignName) {
+    this.campaignName = campaignName;
+  }
+
+
+  public ClientValidationsValidateResponseBodyRedeemablesItem campaignId(String campaignId) {
+    
+    this.campaignId = campaignId;
+    return this;
+  }
+
+   /**
+   * Unique campaign ID assigned by Voucherify.
+   * @return campaignId
+  **/
+  @javax.annotation.Nullable
+  public String getCampaignId() {
+    return campaignId;
+  }
+
+
+  public void setCampaignId(String campaignId) {
+    this.campaignId = campaignId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -410,7 +460,9 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
         Objects.equals(this.inapplicableTo, clientValidationsValidateResponseBodyRedeemablesItem.inapplicableTo) &&
         Objects.equals(this.result, clientValidationsValidateResponseBodyRedeemablesItem.result) &&
         Objects.equals(this.metadata, clientValidationsValidateResponseBodyRedeemablesItem.metadata) &&
-        Objects.equals(this.categories, clientValidationsValidateResponseBodyRedeemablesItem.categories);
+        Objects.equals(this.categories, clientValidationsValidateResponseBodyRedeemablesItem.categories) &&
+        Objects.equals(this.campaignName, clientValidationsValidateResponseBodyRedeemablesItem.campaignName) &&
+        Objects.equals(this.campaignId, clientValidationsValidateResponseBodyRedeemablesItem.campaignId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -419,7 +471,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, id, _object, order, applicableTo, inapplicableTo, result, metadata, categories);
+    return Objects.hash(status, id, _object, order, applicableTo, inapplicableTo, result, metadata, categories, campaignName, campaignId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -442,6 +494,8 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
+    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -473,6 +527,8 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
     openapiFields.add("result");
     openapiFields.add("metadata");
     openapiFields.add("categories");
+    openapiFields.add("campaign_name");
+    openapiFields.add("campaign_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

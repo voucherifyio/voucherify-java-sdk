@@ -16,6 +16,8 @@
 |**result** | [**ClientValidationsValidateResponseBodyRedeemablesItemResult**](ClientValidationsValidateResponseBodyRedeemablesItemResult.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable. |
 |**categories** | [**List&lt;CategoryWithStackingRulesType&gt;**](CategoryWithStackingRulesType.md) |  |
+|**campaignName** | **String** | Campaign name |
+|**campaignId** | **String** | Unique campaign ID assigned by Voucherify. |
 
 
 

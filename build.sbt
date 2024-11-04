@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.voucherify.client",
     name := "voucherify-java-sdk",
-    version := "16.0.0",
+    version := "16.0.1",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

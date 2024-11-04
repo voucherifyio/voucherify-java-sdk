@@ -173,6 +173,14 @@ public class ValidationsRedeemableInapplicable {
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<CategoryWithStackingRulesType> categories;
 
+  public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
+  private String campaignName;
+
+  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  private String campaignId;
+
   public ValidationsRedeemableInapplicable() {
   }
 
@@ -310,6 +318,48 @@ public class ValidationsRedeemableInapplicable {
   }
 
 
+  public ValidationsRedeemableInapplicable campaignName(String campaignName) {
+    
+    this.campaignName = campaignName;
+    return this;
+  }
+
+   /**
+   * Campaign name
+   * @return campaignName
+  **/
+  @javax.annotation.Nullable
+  public String getCampaignName() {
+    return campaignName;
+  }
+
+
+  public void setCampaignName(String campaignName) {
+    this.campaignName = campaignName;
+  }
+
+
+  public ValidationsRedeemableInapplicable campaignId(String campaignId) {
+    
+    this.campaignId = campaignId;
+    return this;
+  }
+
+   /**
+   * Unique campaign ID assigned by Voucherify.
+   * @return campaignId
+  **/
+  @javax.annotation.Nullable
+  public String getCampaignId() {
+    return campaignId;
+  }
+
+
+  public void setCampaignId(String campaignId) {
+    this.campaignId = campaignId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -325,7 +375,9 @@ public class ValidationsRedeemableInapplicable {
         Objects.equals(this._object, validationsRedeemableInapplicable._object) &&
         Objects.equals(this.result, validationsRedeemableInapplicable.result) &&
         Objects.equals(this.metadata, validationsRedeemableInapplicable.metadata) &&
-        Objects.equals(this.categories, validationsRedeemableInapplicable.categories);
+        Objects.equals(this.categories, validationsRedeemableInapplicable.categories) &&
+        Objects.equals(this.campaignName, validationsRedeemableInapplicable.campaignName) &&
+        Objects.equals(this.campaignId, validationsRedeemableInapplicable.campaignId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -334,7 +386,7 @@ public class ValidationsRedeemableInapplicable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, id, _object, result, metadata, categories);
+    return Objects.hash(status, id, _object, result, metadata, categories, campaignName, campaignId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -354,6 +406,8 @@ public class ValidationsRedeemableInapplicable {
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
+    sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
+    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -382,6 +436,8 @@ public class ValidationsRedeemableInapplicable {
     openapiFields.add("result");
     openapiFields.add("metadata");
     openapiFields.add("categories");
+    openapiFields.add("campaign_name");
+    openapiFields.add("campaign_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
