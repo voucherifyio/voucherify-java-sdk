@@ -23,6 +23,7 @@ import io.voucherify.client.model.LoyaltiesMembersPointsExpirationListResponseBo
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * LoyaltiesMembersPointsExpirationListResponseBodyDataItem
+ * Contains the details about expiring loyalty points.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -70,10 +71,6 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   @SerializedName(SERIALIZED_NAME_BUCKET)
   private LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket bucket;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
@@ -82,12 +79,16 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private OffsetDateTime expiresAt;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
 
   /**
-   * The type of the object represented by JSON. This object stores information about the loyalty points bucket.
+   * The type of the object represented by JSON. This object stores information about the loyalty point bucket.
    */
   @JsonAdapter(ObjectEnum.Adapter.class)
   public enum ObjectEnum {
@@ -145,10 +146,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   * Unique loyalty points bucket ID.
+   * Unique identifier of the loyalty points bucket.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -166,10 +167,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   * Unique parent loyalty card ID.
+   * Unique identifier of the parent loyalty card.
    * @return voucherId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getVoucherId() {
     return voucherId;
   }
@@ -187,10 +188,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   *  Unique parent campaign ID.
+   * Unique identifier of the parent campaign.
    * @return campaignId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCampaignId() {
     return campaignId;
   }
@@ -211,7 +212,7 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
    * Get bucket
    * @return bucket
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket getBucket() {
     return bucket;
   }
@@ -222,27 +223,6 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
 
-  public LoyaltiesMembersPointsExpirationListResponseBodyDataItem createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the loyalty points bucket object was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
   public LoyaltiesMembersPointsExpirationListResponseBodyDataItem status(String status) {
     
     this.status = status;
@@ -250,10 +230,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   * Loyalty points bucket point status.
+   * Loyalty point point bucket status.
    * @return status
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
@@ -274,7 +254,7 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
    * Date when the number of points defined in the bucket object are due to expire.
    * @return expiresAt
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
@@ -285,6 +265,27 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
 
+  public LoyaltiesMembersPointsExpirationListResponseBodyDataItem createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
   public LoyaltiesMembersPointsExpirationListResponseBodyDataItem updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
@@ -292,7 +293,7 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   * Timestamp representing the date and time when the loyalty points bucket object was updated. The value is shown in the ISO 8601 format.
+   * Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format.
    * @return updatedAt
   **/
   @javax.annotation.Nullable
@@ -313,10 +314,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
   }
 
    /**
-   * The type of the object represented by JSON. This object stores information about the loyalty points bucket.
+   * The type of the object represented by JSON. This object stores information about the loyalty point bucket.
    * @return _object
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public ObjectEnum getObject() {
     return _object;
   }
@@ -341,16 +342,27 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
         Objects.equals(this.voucherId, loyaltiesMembersPointsExpirationListResponseBodyDataItem.voucherId) &&
         Objects.equals(this.campaignId, loyaltiesMembersPointsExpirationListResponseBodyDataItem.campaignId) &&
         Objects.equals(this.bucket, loyaltiesMembersPointsExpirationListResponseBodyDataItem.bucket) &&
-        Objects.equals(this.createdAt, loyaltiesMembersPointsExpirationListResponseBodyDataItem.createdAt) &&
         Objects.equals(this.status, loyaltiesMembersPointsExpirationListResponseBodyDataItem.status) &&
         Objects.equals(this.expiresAt, loyaltiesMembersPointsExpirationListResponseBodyDataItem.expiresAt) &&
+        Objects.equals(this.createdAt, loyaltiesMembersPointsExpirationListResponseBodyDataItem.createdAt) &&
         Objects.equals(this.updatedAt, loyaltiesMembersPointsExpirationListResponseBodyDataItem.updatedAt) &&
         Objects.equals(this._object, loyaltiesMembersPointsExpirationListResponseBodyDataItem._object);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, voucherId, campaignId, bucket, createdAt, status, expiresAt, updatedAt, _object);
+    return Objects.hash(id, voucherId, campaignId, bucket, status, expiresAt, createdAt, updatedAt, _object);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -361,9 +373,9 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
     sb.append("    voucherId: ").append(toIndentedString(voucherId)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("}");
@@ -392,22 +404,14 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItem {
     openapiFields.add("voucher_id");
     openapiFields.add("campaign_id");
     openapiFields.add("bucket");
-    openapiFields.add("created_at");
     openapiFields.add("status");
     openapiFields.add("expires_at");
+    openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("object");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("voucher_id");
-    openapiRequiredFields.add("campaign_id");
-    openapiRequiredFields.add("bucket");
-    openapiRequiredFields.add("created_at");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("expires_at");
-    openapiRequiredFields.add("object");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

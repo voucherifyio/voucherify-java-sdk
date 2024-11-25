@@ -171,7 +171,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   private LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject relatedObject;
 
   /**
-   * Gets or Sets operationType
+   * The type of operation being performed.
    */
   @JsonAdapter(OperationTypeEnum.Adapter.class)
   public enum OperationTypeEnum {
@@ -358,7 +358,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   }
 
    /**
-   * Get operationType
+   * The type of operation being performed.
    * @return operationType
   **/
   @javax.annotation.Nullable

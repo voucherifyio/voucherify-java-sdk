@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Defines the number of points stored in the given loyalty points bucket.
+ * Defines the number of points stored in this loyalty point bucket.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -66,10 +67,10 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket {
   }
 
    /**
-   * Total number of points in the loyalty points bucket.
+   * Total number of points in the loyalty point bucket.
    * @return totalPoints
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getTotalPoints() {
     return totalPoints;
   }
@@ -93,9 +94,20 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket {
     return Objects.equals(this.totalPoints, loyaltiesMembersPointsExpirationListResponseBodyDataItemBucket.totalPoints);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(totalPoints);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -129,7 +141,6 @@ public class LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total_points");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

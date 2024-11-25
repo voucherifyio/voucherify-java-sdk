@@ -118,7 +118,7 @@ public class VouchersBalanceUpdateResponseBody {
   private TypeEnum type;
 
   /**
-   * Gets or Sets operationType
+   * The type of the operation being performed.
    */
   @JsonAdapter(OperationTypeEnum.Adapter.class)
   public enum OperationTypeEnum {
@@ -313,7 +313,7 @@ public class VouchersBalanceUpdateResponseBody {
   }
 
    /**
-   * Get operationType
+   * The type of the operation being performed.
    * @return operationType
   **/
   @javax.annotation.Nullable

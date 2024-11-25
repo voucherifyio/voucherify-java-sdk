@@ -74,6 +74,10 @@ public class OrderCalculatedItemSku {
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
 
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Object metadata;
+
   public OrderCalculatedItemSku() {
   }
 
@@ -182,6 +186,27 @@ public class OrderCalculatedItemSku {
   }
 
 
+  public OrderCalculatedItemSku metadata(Object metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format. It can be used to create product collections.
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  public Object getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -196,7 +221,8 @@ public class OrderCalculatedItemSku {
         Objects.equals(this.sourceId, orderCalculatedItemSku.sourceId) &&
         Objects.equals(this.override, orderCalculatedItemSku.override) &&
         Objects.equals(this.sku, orderCalculatedItemSku.sku) &&
-        Objects.equals(this.price, orderCalculatedItemSku.price);
+        Objects.equals(this.price, orderCalculatedItemSku.price) &&
+        Objects.equals(this.metadata, orderCalculatedItemSku.metadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -205,7 +231,7 @@ public class OrderCalculatedItemSku {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, override, sku, price);
+    return Objects.hash(id, sourceId, override, sku, price, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -224,6 +250,7 @@ public class OrderCalculatedItemSku {
     sb.append("    override: ").append(toIndentedString(override)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +278,7 @@ public class OrderCalculatedItemSku {
     openapiFields.add("override");
     openapiFields.add("sku");
     openapiFields.add("price");
+    openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

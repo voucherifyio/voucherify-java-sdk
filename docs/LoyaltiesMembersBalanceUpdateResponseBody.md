@@ -14,7 +14,7 @@ Response schema for **POST** `v1/loyalties/members/{memberId}/balance` and for *
 |**type** | [**TypeEnum**](#TypeEnum) | The type of voucher being modified. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is balance. |
 |**relatedObject** | [**LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject**](LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md) |  |
-|**operationType** | [**OperationTypeEnum**](#OperationTypeEnum) |  |
+|**operationType** | [**OperationTypeEnum**](#OperationTypeEnum) | The type of operation being performed. |
 
 
 

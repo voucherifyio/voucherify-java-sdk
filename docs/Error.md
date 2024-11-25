@@ -15,6 +15,7 @@ Error details
 |**requestId** | **String** | This ID is useful when troubleshooting and/or finding the root cause of an error response by our support team. |
 |**resourceId** | **String** | Unique resource ID that can be used in another endpoint to get more details. |
 |**resourceType** | **String** | The resource type. |
+|**error** | [**ErrorError**](ErrorError.md) |  |
 
 
 

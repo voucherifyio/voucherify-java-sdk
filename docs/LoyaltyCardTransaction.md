@@ -13,10 +13,10 @@
 |**campaignId** | **String** | Unqiue campaign ID of the voucher&#39;s parent campaign if it is part of campaign that generates bulk codes. |
 |**source** | **String** | The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null. |
 |**reason** | **String** | Reason why the transaction occurred. In case of a redemption, this value is null. |
-|**type** | **LoyaltyCardTransactionsType** |  |
-|**details** | [**LoyaltyCardTransactionDetails**](LoyaltyCardTransactionDetails.md) |  |
 |**relatedTransactionId** | **String** | The related transaction ID on the receiving card. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the transaction was created. The value is shown in the ISO 8601 format. |
+|**details** | [**LoyaltyCardTransactionDetails**](LoyaltyCardTransactionDetails.md) |  |
+|**type** | **LoyaltyCardTransactionsType** |  |
 
 
 

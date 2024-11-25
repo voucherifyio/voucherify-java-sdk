@@ -59,7 +59,9 @@ public class LoyaltyCardTransactionDetailsBalance {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    LOYALTY_CARD("loyalty_card");
+    LOYALTY_CARD("loyalty_card"),
+    
+    GIFT_VOUCHER("gift_voucher");
 
     private String value;
 
@@ -101,7 +103,7 @@ public class LoyaltyCardTransactionDetailsBalance {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type = TypeEnum.LOYALTY_CARD;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -164,6 +166,57 @@ public class LoyaltyCardTransactionDetailsBalance {
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private Integer balance;
 
+  /**
+   * The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.
+   */
+  @JsonAdapter(OperationTypeEnum.Adapter.class)
+  public enum OperationTypeEnum {
+    MANUAL("MANUAL"),
+    
+    AUTOMATIC("AUTOMATIC");
+
+    private String value;
+
+    OperationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperationTypeEnum fromValue(String value) {
+      for (OperationTypeEnum b : OperationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<OperationTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperationTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperationTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OperationTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OPERATION_TYPE = "operation_type";
+  @SerializedName(SERIALIZED_NAME_OPERATION_TYPE)
+  private OperationTypeEnum operationType;
+
   public static final String SERIALIZED_NAME_RELATED_OBJECT = "related_object";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT)
   private LoyaltyCardTransactionDetailsBalanceRelatedObject relatedObject;
@@ -199,7 +252,7 @@ public class LoyaltyCardTransactionDetailsBalance {
   }
 
    /**
-   * The number of all points accumulated on the card as affected by add or subtract operations.
+   * The number of all points or credits accumulated on the card as affected by add or subtract operations.
    * @return total
   **/
   @javax.annotation.Nullable
@@ -241,7 +294,7 @@ public class LoyaltyCardTransactionDetailsBalance {
   }
 
    /**
-   * Points added or subtracted in the transaction.
+   * Points added or subtracted in the transaction of a loyalty card.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -262,7 +315,7 @@ public class LoyaltyCardTransactionDetailsBalance {
   }
 
    /**
-   * The available points on the card after the transaction as affected by redemption or rollback.
+   * The available points or credits on the card after the transaction as affected by redemption or rollback.
    * @return balance
   **/
   @javax.annotation.Nullable
@@ -273,6 +326,27 @@ public class LoyaltyCardTransactionDetailsBalance {
 
   public void setBalance(Integer balance) {
     this.balance = balance;
+  }
+
+
+  public LoyaltyCardTransactionDetailsBalance operationType(OperationTypeEnum operationType) {
+    
+    this.operationType = operationType;
+    return this;
+  }
+
+   /**
+   * The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.
+   * @return operationType
+  **/
+  @javax.annotation.Nullable
+  public OperationTypeEnum getOperationType() {
+    return operationType;
+  }
+
+
+  public void setOperationType(OperationTypeEnum operationType) {
+    this.operationType = operationType;
   }
 
 
@@ -312,6 +386,7 @@ public class LoyaltyCardTransactionDetailsBalance {
         Objects.equals(this._object, loyaltyCardTransactionDetailsBalance._object) &&
         Objects.equals(this.points, loyaltyCardTransactionDetailsBalance.points) &&
         Objects.equals(this.balance, loyaltyCardTransactionDetailsBalance.balance) &&
+        Objects.equals(this.operationType, loyaltyCardTransactionDetailsBalance.operationType) &&
         Objects.equals(this.relatedObject, loyaltyCardTransactionDetailsBalance.relatedObject);
   }
 
@@ -321,7 +396,7 @@ public class LoyaltyCardTransactionDetailsBalance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, total, _object, points, balance, relatedObject);
+    return Objects.hash(type, total, _object, points, balance, operationType, relatedObject);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -340,6 +415,7 @@ public class LoyaltyCardTransactionDetailsBalance {
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    relatedObject: ").append(toIndentedString(relatedObject)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -368,6 +444,7 @@ public class LoyaltyCardTransactionDetailsBalance {
     openapiFields.add("object");
     openapiFields.add("points");
     openapiFields.add("balance");
+    openapiFields.add("operation_type");
     openapiFields.add("related_object");
 
     // a set of required properties/fields (JSON key names)

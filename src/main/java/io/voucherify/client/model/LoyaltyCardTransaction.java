@@ -80,14 +80,6 @@ public class LoyaltyCardTransaction {
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private LoyaltyCardTransactionsType type;
-
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  private LoyaltyCardTransactionDetails details;
-
   public static final String SERIALIZED_NAME_RELATED_TRANSACTION_ID = "related_transaction_id";
   @SerializedName(SERIALIZED_NAME_RELATED_TRANSACTION_ID)
   private String relatedTransactionId;
@@ -95,6 +87,14 @@ public class LoyaltyCardTransaction {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_DETAILS = "details";
+  @SerializedName(SERIALIZED_NAME_DETAILS)
+  private LoyaltyCardTransactionDetails details;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private LoyaltyCardTransactionsType type;
 
   public LoyaltyCardTransaction() {
   }
@@ -225,48 +225,6 @@ public class LoyaltyCardTransaction {
   }
 
 
-  public LoyaltyCardTransaction type(LoyaltyCardTransactionsType type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public LoyaltyCardTransactionsType getType() {
-    return type;
-  }
-
-
-  public void setType(LoyaltyCardTransactionsType type) {
-    this.type = type;
-  }
-
-
-  public LoyaltyCardTransaction details(LoyaltyCardTransactionDetails details) {
-    
-    this.details = details;
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @javax.annotation.Nullable
-  public LoyaltyCardTransactionDetails getDetails() {
-    return details;
-  }
-
-
-  public void setDetails(LoyaltyCardTransactionDetails details) {
-    this.details = details;
-  }
-
-
   public LoyaltyCardTransaction relatedTransactionId(String relatedTransactionId) {
     
     this.relatedTransactionId = relatedTransactionId;
@@ -309,6 +267,48 @@ public class LoyaltyCardTransaction {
   }
 
 
+  public LoyaltyCardTransaction details(LoyaltyCardTransactionDetails details) {
+    
+    this.details = details;
+    return this;
+  }
+
+   /**
+   * Get details
+   * @return details
+  **/
+  @javax.annotation.Nullable
+  public LoyaltyCardTransactionDetails getDetails() {
+    return details;
+  }
+
+
+  public void setDetails(LoyaltyCardTransactionDetails details) {
+    this.details = details;
+  }
+
+
+  public LoyaltyCardTransaction type(LoyaltyCardTransactionsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  public LoyaltyCardTransactionsType getType() {
+    return type;
+  }
+
+
+  public void setType(LoyaltyCardTransactionsType type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -325,10 +325,10 @@ public class LoyaltyCardTransaction {
         Objects.equals(this.campaignId, loyaltyCardTransaction.campaignId) &&
         Objects.equals(this.source, loyaltyCardTransaction.source) &&
         Objects.equals(this.reason, loyaltyCardTransaction.reason) &&
-        Objects.equals(this.type, loyaltyCardTransaction.type) &&
-        Objects.equals(this.details, loyaltyCardTransaction.details) &&
         Objects.equals(this.relatedTransactionId, loyaltyCardTransaction.relatedTransactionId) &&
-        Objects.equals(this.createdAt, loyaltyCardTransaction.createdAt);
+        Objects.equals(this.createdAt, loyaltyCardTransaction.createdAt) &&
+        Objects.equals(this.details, loyaltyCardTransaction.details) &&
+        Objects.equals(this.type, loyaltyCardTransaction.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -337,7 +337,7 @@ public class LoyaltyCardTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, type, details, relatedTransactionId, createdAt);
+    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, relatedTransactionId, createdAt, details, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -357,10 +357,10 @@ public class LoyaltyCardTransaction {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    relatedTransactionId: ").append(toIndentedString(relatedTransactionId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -389,14 +389,13 @@ public class LoyaltyCardTransaction {
     openapiFields.add("campaign_id");
     openapiFields.add("source");
     openapiFields.add("reason");
-    openapiFields.add("type");
-    openapiFields.add("details");
     openapiFields.add("related_transaction_id");
     openapiFields.add("created_at");
+    openapiFields.add("details");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ErrorError;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -80,6 +81,10 @@ public class Error {
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
   private String resourceType;
+
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
+  private ErrorError error;
 
   public Error() {
   }
@@ -231,6 +236,27 @@ public class Error {
   }
 
 
+  public Error error(ErrorError error) {
+    
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @javax.annotation.Nullable
+  public ErrorError getError() {
+    return error;
+  }
+
+
+  public void setError(ErrorError error) {
+    this.error = error;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -247,7 +273,8 @@ public class Error {
         Objects.equals(this.details, error.details) &&
         Objects.equals(this.requestId, error.requestId) &&
         Objects.equals(this.resourceId, error.resourceId) &&
-        Objects.equals(this.resourceType, error.resourceType);
+        Objects.equals(this.resourceType, error.resourceType) &&
+        Objects.equals(this.error, error.error);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -256,7 +283,7 @@ public class Error {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, key, message, details, requestId, resourceId, resourceType);
+    return Objects.hash(code, key, message, details, requestId, resourceId, resourceType, error);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -277,6 +304,7 @@ public class Error {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -306,6 +334,7 @@ public class Error {
     openapiFields.add("request_id");
     openapiFields.add("resource_id");
     openapiFields.add("resource_type");
+    openapiFields.add("error");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

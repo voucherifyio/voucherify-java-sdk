@@ -13,6 +13,7 @@ An object containing details of the related SKU.
 |**override** | **Boolean** | The override set to &#x60;true&#x60; is used to store the product information in the system. If the product does not exist, it will be created with a source_id; if it does exist, the provided values for the name, price, and metadata will replace those already stored in the system. |
 |**sku** | **String** | The SKU name. |
 |**price** | **BigDecimal** | SKU price. A positive integer in the smallest currency unit (e.g. 100 cents for $1.00). |
+|**metadata** | **Object** | A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format. It can be used to create product collections. |
 
 
 

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyCardTransactionsType;
 import io.voucherify.client.model.VoucherTransactionDetails;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -80,14 +79,6 @@ public class VoucherTransaction {
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private LoyaltyCardTransactionsType type;
-
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  private VoucherTransactionDetails details;
-
   public static final String SERIALIZED_NAME_RELATED_TRANSACTION_ID = "related_transaction_id";
   @SerializedName(SERIALIZED_NAME_RELATED_TRANSACTION_ID)
   private String relatedTransactionId;
@@ -95,6 +86,81 @@ public class VoucherTransaction {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_DETAILS = "details";
+  @SerializedName(SERIALIZED_NAME_DETAILS)
+  private VoucherTransactionDetails details;
+
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CREDITS_REDEMPTION("CREDITS_REDEMPTION"),
+    
+    CREDITS_REFUND("CREDITS_REFUND"),
+    
+    CREDITS_ADDITION("CREDITS_ADDITION"),
+    
+    CREDITS_REMOVAL("CREDITS_REMOVAL"),
+    
+    POINTS_ACCRUAL("POINTS_ACCRUAL"),
+    
+    POINTS_REDEMPTION("POINTS_REDEMPTION"),
+    
+    POINTS_REFUND("POINTS_REFUND"),
+    
+    POINTS_ADDITION("POINTS_ADDITION"),
+    
+    POINTS_REMOVAL("POINTS_REMOVAL"),
+    
+    POINTS_EXPIRATION("POINTS_EXPIRATION"),
+    
+    POINTS_TRANSFER_IN("POINTS_TRANSFER_IN"),
+    
+    POINTS_TRANSFER_OUT("POINTS_TRANSFER_OUT");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
 
   public VoucherTransaction() {
   }
@@ -225,48 +291,6 @@ public class VoucherTransaction {
   }
 
 
-  public VoucherTransaction type(LoyaltyCardTransactionsType type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public LoyaltyCardTransactionsType getType() {
-    return type;
-  }
-
-
-  public void setType(LoyaltyCardTransactionsType type) {
-    this.type = type;
-  }
-
-
-  public VoucherTransaction details(VoucherTransactionDetails details) {
-    
-    this.details = details;
-    return this;
-  }
-
-   /**
-   * Get details
-   * @return details
-  **/
-  @javax.annotation.Nullable
-  public VoucherTransactionDetails getDetails() {
-    return details;
-  }
-
-
-  public void setDetails(VoucherTransactionDetails details) {
-    this.details = details;
-  }
-
-
   public VoucherTransaction relatedTransactionId(String relatedTransactionId) {
     
     this.relatedTransactionId = relatedTransactionId;
@@ -309,6 +333,48 @@ public class VoucherTransaction {
   }
 
 
+  public VoucherTransaction details(VoucherTransactionDetails details) {
+    
+    this.details = details;
+    return this;
+  }
+
+   /**
+   * Get details
+   * @return details
+  **/
+  @javax.annotation.Nullable
+  public VoucherTransactionDetails getDetails() {
+    return details;
+  }
+
+
+  public void setDetails(VoucherTransactionDetails details) {
+    this.details = details;
+  }
+
+
+  public VoucherTransaction type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -325,10 +391,10 @@ public class VoucherTransaction {
         Objects.equals(this.campaignId, voucherTransaction.campaignId) &&
         Objects.equals(this.source, voucherTransaction.source) &&
         Objects.equals(this.reason, voucherTransaction.reason) &&
-        Objects.equals(this.type, voucherTransaction.type) &&
-        Objects.equals(this.details, voucherTransaction.details) &&
         Objects.equals(this.relatedTransactionId, voucherTransaction.relatedTransactionId) &&
-        Objects.equals(this.createdAt, voucherTransaction.createdAt);
+        Objects.equals(this.createdAt, voucherTransaction.createdAt) &&
+        Objects.equals(this.details, voucherTransaction.details) &&
+        Objects.equals(this.type, voucherTransaction.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -337,7 +403,7 @@ public class VoucherTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, type, details, relatedTransactionId, createdAt);
+    return Objects.hash(id, sourceId, voucherId, campaignId, source, reason, relatedTransactionId, createdAt, details, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -357,10 +423,10 @@ public class VoucherTransaction {
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    relatedTransactionId: ").append(toIndentedString(relatedTransactionId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -389,14 +455,13 @@ public class VoucherTransaction {
     openapiFields.add("campaign_id");
     openapiFields.add("source");
     openapiFields.add("reason");
-    openapiFields.add("type");
-    openapiFields.add("details");
     openapiFields.add("related_transaction_id");
     openapiFields.add("created_at");
+    openapiFields.add("details");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
