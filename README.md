@@ -66,13 +66,13 @@ Grab via Maven:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>11.2.2</version>
+  <version>11.2.3</version>
 </dependency>
 ```
 
 or via Gradle
 ```groovy
-compile 'io.voucherify.client:voucherify-java-sdk:11.2.2'
+compile 'io.voucherify.client:voucherify-java-sdk:11.2.3'
 
 ```
 
@@ -918,6 +918,7 @@ voucherify.vouchers().async().create(createVoucher, new VoucherifyCallback<Vouch
 Bug reports and pull requests are welcome on GitHub at https://github.com/rspective/voucherify-java-sdk.
 
 ## Changelog
+* 2024-11-26 - 11.2.3 - Added support for STANDALONE campaign type.
 * 2024-07-04 - 11.2.2 - Fixed missing `getValue` in `Expand` enums. Added missing `VALIDATION_RULES` property to stacked endpoints option.
 * 2024-03-12 - 11.2.1 - Added all supported fields to `DiscountResponse`. Thanks to [mariaivanova-git](https://github.com/mariaivanova-git) for issue request
 * 2023-10-26 - 11.2.0 -
