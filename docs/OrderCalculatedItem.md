@@ -27,7 +27,7 @@
 |**product** | [**OrderCalculatedItemProduct**](OrderCalculatedItemProduct.md) |  |
 |**sku** | [**OrderCalculatedItemSku**](OrderCalculatedItemSku.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. |
-|**metadata** | **Object** | A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format. |
+|**metadata** | **Object** | A set of custom key/value pairs that you can attach to an item object. It can be useful for storing additional information about the item in a structured format. It can be used to define business validation rules or discount formulas. |
 
 
 

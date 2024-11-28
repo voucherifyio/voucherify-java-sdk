@@ -2,20 +2,21 @@
 
 # LoyaltiesMembersPointsExpirationListResponseBodyDataItem
 
+Contains the details about expiring loyalty points.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** | Unique loyalty points bucket ID. |
-|**voucherId** | **String** | Unique parent loyalty card ID. |
-|**campaignId** | **String** |  Unique parent campaign ID. |
+|**id** | **String** | Unique identifier of the loyalty points bucket. |
+|**voucherId** | **String** | Unique identifier of the parent loyalty card. |
+|**campaignId** | **String** | Unique identifier of the parent campaign. |
 |**bucket** | [**LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket**](LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket.md) |  |
-|**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty points bucket object was created. The value is shown in the ISO 8601 format. |
-|**status** | **String** | Loyalty points bucket point status. |
+|**status** | **String** | Loyalty point point bucket status. |
 |**expiresAt** | **OffsetDateTime** | Date when the number of points defined in the bucket object are due to expire. |
-|**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty points bucket object was updated. The value is shown in the ISO 8601 format. |
-|**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. This object stores information about the loyalty points bucket. |
+|**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format. |
+|**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format. |
+|**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. This object stores information about the loyalty point bucket. |
 
 
 

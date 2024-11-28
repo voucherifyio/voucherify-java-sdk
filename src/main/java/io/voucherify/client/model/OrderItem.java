@@ -441,7 +441,7 @@ public class OrderItem {
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format.
+   * A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format. It can be used to define business validation rules.
    * @return metadata
   **/
   @javax.annotation.Nullable

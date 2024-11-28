@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>16.0.1</version>
+  <version>16.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:16.0.1"
+     implementation "io.voucherify.client:voucherify-java-sdk:16.0.2"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-16.0.1.jar`
+* `target/voucherify-java-sdk-16.0.2.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -143,6 +143,12 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-11-26** - `16.0.2`
+  - Added support for `STANDALONE` campaign type.
+  - Added optional `metadata` in `OrderCalculatedItemSku`
+  - New possible value of `ParameterExpandListCampaigns`
+  - New optional `error` parameter in `Error`
+  - Updated `LoyaltyCardTransactionDetailsBalance`
 - **2024-11-04** - `16.0.1`
   - Added support for returning `campaign_id` and `campaign_name` in stackable validation endpoint, when `redeemable` option is expanded
 - **2024-10-28** - `16.0.0`
@@ -863,6 +869,7 @@ Class | Method | HTTP request | Description
 - [EarningRuleSegment](docs/EarningRuleSegment.md)
 - [EarningRuleSource](docs/EarningRuleSource.md)
 - [Error](docs/Error.md)
+- [ErrorError](docs/ErrorError.md)
 - [EventsCreateRequestBody](docs/EventsCreateRequestBody.md)
 - [EventsCreateRequestBodyLoyalty](docs/EventsCreateRequestBodyLoyalty.md)
 - [EventsCreateRequestBodyReferral](docs/EventsCreateRequestBodyReferral.md)
@@ -1148,6 +1155,8 @@ Class | Method | HTTP request | Description
 - [LoyaltyMemberLoyaltyCard](docs/LoyaltyMemberLoyaltyCard.md)
 - [LoyaltyMemberPublish](docs/LoyaltyMemberPublish.md)
 - [LoyaltyMemberRedemption](docs/LoyaltyMemberRedemption.md)
+- [LoyaltyPointsBucket](docs/LoyaltyPointsBucket.md)
+- [LoyaltyPointsBucketBucket](docs/LoyaltyPointsBucketBucket.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
 - [LoyaltyTierBase](docs/LoyaltyTierBase.md)
 - [LoyaltyTierBasePoints](docs/LoyaltyTierBasePoints.md)
@@ -1765,6 +1774,8 @@ Class | Method | HTTP request | Description
 - [VoucherAssets](docs/VoucherAssets.md)
 - [VoucherAssetsBarcode](docs/VoucherAssetsBarcode.md)
 - [VoucherAssetsQr](docs/VoucherAssetsQr.md)
+- [VoucherBalance](docs/VoucherBalance.md)
+- [VoucherBalanceRelatedObject](docs/VoucherBalanceRelatedObject.md)
 - [VoucherGift](docs/VoucherGift.md)
 - [VoucherLoyaltyCard](docs/VoucherLoyaltyCard.md)
 - [VoucherPublish](docs/VoucherPublish.md)

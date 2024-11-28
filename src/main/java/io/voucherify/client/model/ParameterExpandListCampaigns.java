@@ -28,7 +28,9 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(ParameterExpandListCampaigns.Adapter.class)
 public enum ParameterExpandListCampaigns {
   
-  CATEGORY("category");
+  CATEGORY("category"),
+  
+  ACCESS_SETTINGS_ASSIGNMENTS("access_settings_assignments");
 
   private String value;
 

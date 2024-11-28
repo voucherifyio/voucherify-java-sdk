@@ -172,7 +172,7 @@ public class OrderItemProduct {
   }
 
    /**
-   * A set of custom key/value pairs that you can attach to a product. It can be useful for storing additional information about the product in a structured format.
+   * A set of custom key/value pairs that you can attach to a product. It can be useful for storing additional information about the product in a structured format. It can be used to create product collections.
    * @return metadata
   **/
   @javax.annotation.Nullable

@@ -116,7 +116,7 @@ public class VoucherTransactionDetailsBalanceRelatedObject {
   }
 
    /**
-   * Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
+   * Identifies the voucher that is being modified. The ID is assigned by the Voucherify API.
    * @return id
   **/
   @javax.annotation.Nullable

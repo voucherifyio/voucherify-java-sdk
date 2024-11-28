@@ -79,20 +79,22 @@
 | /v1/vouchers/{code}/sessions/{sessionKey} | delete | Release Validation Session         | <font color='green'>supported</font> |                                      |
 | /v1/vouchers/qualification                | post   | Examine Qualification [Deprecated] |                                      |  <font color='red'>deprecated</font> |
 ## Campaigns
-| endpoint                                   | method | summary                                    | is supported                         | is deprecated                        |
-| ------------------------------------------ | ------ | ------------------------------------------ | ------------------------------------ | ------------------------------------ |
-| /v1/campaigns                              | post   | Create Campaign                            | <font color='green'>supported</font> |                                      |
-| /v1/campaigns                              | get    | List Campaigns                             | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}                 | get    | Get Campaign                               | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}                 | put    | Update Campaign                            | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}                 | delete | Delete Campaign                            | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}/vouchers        | post   | Add Vouchers to Campaign                   | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}/vouchers/{code} | post   | Add Voucher with Specific Code to Campaign | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}/import          | post   | Import Vouchers to Campaign                | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}/importCSV       | post   | Import Vouchers to Campaign by CSV         | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/qualification                | post   | Examine Qualification [Deprecated]         |                                      |  <font color='red'>deprecated</font> |
-| /v1/campaigns/{campaignId}/enable          | post   | Enable Campaign                            | <font color='green'>supported</font> |                                      |
-| /v1/campaigns/{campaignId}/disable         | post   | Disable Campaign                           | <font color='green'>supported</font> |                                      |
+| endpoint                                       | method | summary                                    | is supported                         | is deprecated                        |
+| ---------------------------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------------------------------ |
+| /v1/campaigns                                  | post   | Create Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns                                  | get    | List Campaigns                             | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | get    | Get Campaign                               | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | put    | Update Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | delete | Delete Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/vouchers            | post   | Add Vouchers to Campaign                   | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/vouchers/{code}     | post   | Add Voucher with Specific Code to Campaign | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/import              | post   | Import Vouchers to Campaign                | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/importCSV           | post   | Import Vouchers to Campaign by CSV         | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/qualification                    | post   | Examine Qualification [Deprecated]         |                                      |  <font color='red'>deprecated</font> |
+| /v1/campaigns/{campaignId}/enable              | post   | Enable Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/disable             | post   | Disable Campaign                           | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/transactions        | get    | List Campaign Transactions                 |                                      |                                      |
+| /v1/campaigns/{campaignId}/transactions/export | post   | Export Campaign Transactions               |                                      |                                      |
 ## Promotions
 | endpoint                                       | method | summary                            | is supported                         | is deprecated |
 | ---------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
@@ -124,52 +126,54 @@
 | /v1/rewards/{rewardId}/assignments/{assignmentId} | delete | Delete Reward Assignment | <font color='green'>supported</font> |               |
 | /v1/rewards/{rewardId}/assignments/{assignmentId} | get    | Get Reward Assignment    | <font color='green'>supported</font> |               |
 ## Loyalties
-| endpoint                                                            | method | summary                            | is supported                         | is deprecated |
-| ------------------------------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
-| /v1/loyalties                                                       | get    | List Loyalty Campaigns             | <font color='green'>supported</font> |               |
-| /v1/loyalties                                                       | post   | Create Loyalty Campaign            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}                                          | get    | Get Loyalty Campaign               | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}                                          | put    | Update Loyalty Campaign            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}                                          | delete | Delete Loyalty Campaign            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members                                  | get    | List Members                       | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members                                  | post   | Add Member                         | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}                       | get    | Get Member                         | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}                                    | get    | Get Member                         | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/activity              | get    | List Member Activity               | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/activity                           | get    | List Member Activity               | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/balance               | post   | Add or Remove Loyalty Card Balance | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/balance                            | post   | Add or Remove Loyalty Card Balance | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/transfers             | post   | Transfer Loyalty Points            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/transactions          | get    | List Loyalty Card Transactions     | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/transactions                       | get    | List Loyalty Card Transactions     | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/transactions/export                | post   | Export Loyalty Card Transactions   | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/transactions/export   | post   | Export Loyalty Card Transactions   | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/points-expiration     | get    | Get Points Expiration              | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/points-expiration/export                 | post   | Create Points Expiration Export    | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules                            | get    | List Earning Rules                 | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules                            | post   | Create Earning Rule                | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | get    | Get Earning Rule                   | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | put    | Update Earning Rule                | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | delete | Delete Earning Rule                | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable     | post   | Enable Earning Rule                | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable    | post   | Disable Earning Rule               | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/rewards                            | get    | List Member Rewards                | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | get    | Get Reward Details                 | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/reward-assignments                       | get    | List Reward Assignments            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards                                  | get    | List Reward Assignments            | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards                                  | post   | Create Reward Assignment           | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}        | get    | Get Reward Assignment              | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | get    | Get Reward Assignment              | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | put    | Update Reward Assignment           | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | delete | Delete Reward Assignment           | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/members/{memberId}/redemption            | post   | Redeem Reward                      | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/redemption                         | post   | Redeem Reward                      | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/tiers                                    | get    | List Loyalty Tiers                 | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/tiers                                    | post   | Create loyalty tiers               | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}                    | get    | Get Loyalty Tier                   | <font color='green'>supported</font> |               |
-| /v1/loyalties/members/{memberId}/tiers                              | get    | List Member's Loyalty Tiers        | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules      | get    | List Loyalty Tier Earning Rules    | <font color='green'>supported</font> |               |
-| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards            | get    | List Loyalty Tier Rewards          | <font color='green'>supported</font> |               |
+| endpoint                                                            | method | summary                              | is supported                         | is deprecated |
+| ------------------------------------------------------------------- | ------ | ------------------------------------ | ------------------------------------ | ------------- |
+| /v1/loyalties                                                       | get    | List Loyalty Campaigns               | <font color='green'>supported</font> |               |
+| /v1/loyalties                                                       | post   | Create Loyalty Campaign              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}                                          | get    | Get Loyalty Campaign                 | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}                                          | put    | Update Loyalty Campaign              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}                                          | delete | Delete Loyalty Campaign              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members                                  | get    | List Members                         | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members                                  | post   | Add Member                           | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}                       | get    | Get Member                           | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}                                    | get    | Get Member                           | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/activity              | get    | List Member Activity                 | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/activity                           | get    | List Member Activity                 | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/balance               | post   | Add or Remove Loyalty Card Balance   | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/balance                            | post   | Add or Remove Loyalty Card Balance   | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/transfers             | post   | Transfer Loyalty Points              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/transactions                             | get    | List Loyalty Campaign Transactions   |                                      |               |
+| /v1/loyalties/{campaignId}/transactions/export                      | post   | Export Loyalty Campaign Transactions |                                      |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/transactions          | get    | List Loyalty Card Transactions       | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/transactions                       | get    | List Loyalty Card Transactions       | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/transactions/export                | post   | Export Loyalty Card Transactions     | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/transactions/export   | post   | Export Loyalty Card Transactions     | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/points-expiration     | get    | Get Points Expiration                | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/points-expiration/export                 | post   | Create Points Expiration Export      | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules                            | get    | List Earning Rules                   | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules                            | post   | Create Earning Rule                  | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | get    | Get Earning Rule                     | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | put    | Update Earning Rule                  | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}            | delete | Delete Earning Rule                  | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable     | post   | Enable Earning Rule                  | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable    | post   | Disable Earning Rule                 | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/rewards                            | get    | List Member Rewards                  | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | get    | Get Reward Details                   | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/reward-assignments                       | get    | List Reward Assignments              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/rewards                                  | get    | List Reward Assignments              | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/rewards                                  | post   | Create Reward Assignment             | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}        | get    | Get Reward Assignment                | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | get    | Get Reward Assignment                | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | put    | Update Reward Assignment             | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/rewards/{assignmentId}                   | delete | Delete Reward Assignment             | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/members/{memberId}/redemption            | post   | Redeem Reward                        | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/redemption                         | post   | Redeem Reward                        | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/tiers                                    | get    | List Loyalty Tiers                   | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/tiers                                    | post   | Create loyalty tiers                 | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}                    | get    | Get Loyalty Tier                     | <font color='green'>supported</font> |               |
+| /v1/loyalties/members/{memberId}/tiers                              | get    | List Member's Loyalty Tiers          | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules      | get    | List Loyalty Tier Earning Rules      | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards            | get    | List Loyalty Tier Rewards            | <font color='green'>supported</font> |               |
 ## Customers
 | endpoint                                      | method | summary                               | is supported                         | is deprecated                        |
 | --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------------------------------ |

@@ -12,7 +12,7 @@ Response body schema for `vouchers/{code}/balance.`
 |**total** | **Integer** | Total income incurred over the lifespan of the gift card or loyalty card. |
 |**balance** | **Integer** | The balance after adding or subtracting a specified amount. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000. |
 |**type** | [**TypeEnum**](#TypeEnum) | The type of voucher being modified. |
-|**operationType** | [**OperationTypeEnum**](#OperationTypeEnum) |  |
+|**operationType** | [**OperationTypeEnum**](#OperationTypeEnum) | The type of the operation being performed. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is &#x60;balance&#x60;. |
 |**relatedObject** | [**VouchersBalanceUpdateResponseBodyRelatedObject**](VouchersBalanceUpdateResponseBodyRelatedObject.md) |  |
 

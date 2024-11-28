@@ -132,13 +132,15 @@ public class CampaignBase {
   private CampaignTypeEnum campaignType;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     AUTO_UPDATE("AUTO_UPDATE"),
     
-    STATIC("STATIC");
+    STATIC("STATIC"),
+    
+    STANDALONE("STANDALONE");
 
     private String value;
 
@@ -539,7 +541,7 @@ public class CampaignBase {
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    * @return type
   **/
   @javax.annotation.Nullable
@@ -602,7 +604,7 @@ public class CampaignBase {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
+   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them.
    * @return joinOnce
   **/
   @javax.annotation.Nullable

@@ -181,6 +181,10 @@ public class ValidationsRedeemableInapplicable {
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
   public ValidationsRedeemableInapplicable() {
   }
 
@@ -325,7 +329,7 @@ public class ValidationsRedeemableInapplicable {
   }
 
    /**
-   * Campaign name
+   * Campaign name. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body.
    * @return campaignName
   **/
   @javax.annotation.Nullable
@@ -346,7 +350,7 @@ public class ValidationsRedeemableInapplicable {
   }
 
    /**
-   * Unique campaign ID assigned by Voucherify.
+   * Unique campaign ID assigned by Voucherify. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body.
    * @return campaignId
   **/
   @javax.annotation.Nullable
@@ -357,6 +361,27 @@ public class ValidationsRedeemableInapplicable {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+  }
+
+
+  public ValidationsRedeemableInapplicable name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the promotion tier. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -377,7 +402,8 @@ public class ValidationsRedeemableInapplicable {
         Objects.equals(this.metadata, validationsRedeemableInapplicable.metadata) &&
         Objects.equals(this.categories, validationsRedeemableInapplicable.categories) &&
         Objects.equals(this.campaignName, validationsRedeemableInapplicable.campaignName) &&
-        Objects.equals(this.campaignId, validationsRedeemableInapplicable.campaignId);
+        Objects.equals(this.campaignId, validationsRedeemableInapplicable.campaignId) &&
+        Objects.equals(this.name, validationsRedeemableInapplicable.name);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -386,7 +412,7 @@ public class ValidationsRedeemableInapplicable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, id, _object, result, metadata, categories, campaignName, campaignId);
+    return Objects.hash(status, id, _object, result, metadata, categories, campaignName, campaignId, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -408,6 +434,7 @@ public class ValidationsRedeemableInapplicable {
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    campaignName: ").append(toIndentedString(campaignName)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -438,6 +465,7 @@ public class ValidationsRedeemableInapplicable {
     openapiFields.add("categories");
     openapiFields.add("campaign_name");
     openapiFields.add("campaign_id");
+    openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

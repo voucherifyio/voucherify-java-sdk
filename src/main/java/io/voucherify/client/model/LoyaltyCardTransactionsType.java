@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets LoyaltyCardTransactionsType
+ * Transaction types concerning loyalty points.
  */
 @JsonAdapter(LoyaltyCardTransactionsType.Adapter.class)
 public enum LoyaltyCardTransactionsType {
