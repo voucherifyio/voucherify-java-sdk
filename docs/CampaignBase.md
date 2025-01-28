@@ -38,6 +38,7 @@ This is an object representing a campaign.
 |**_object** | **String** | The type of the object represented by JSON. This object stores information about the campaign. |
 |**referralProgram** | [**ReferralProgram**](ReferralProgram.md) |  |
 |**loyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  |
+|**accessSettingsAssignments** | [**AccessSettingsCampaignAssignmentsList**](AccessSettingsCampaignAssignmentsList.md) |  |
 
 
 

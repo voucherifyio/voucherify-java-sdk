@@ -8,8 +8,8 @@ Contains information about the custom event metadata schema.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** | Unique metadata schema ID. |
-|**name** | **String** | Type of custom event. |
+|**id** | **String** | Unique identifier of the metadata schema. |
+|**name** | **String** | Type of the custom event. |
 
 
 

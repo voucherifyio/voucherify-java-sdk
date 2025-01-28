@@ -71,7 +71,7 @@ public class VoucherTransactionDetailsEventSchema {
   }
 
    /**
-   * Unique metadata schema ID.
+   * Unique identifier of the metadata schema.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class VoucherTransactionDetailsEventSchema {
   }
 
    /**
-   * Type of custom event.
+   * Type of the custom event.
    * @return name
   **/
   @javax.annotation.Nullable

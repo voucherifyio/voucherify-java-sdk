@@ -19,10 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ApplicationDetailsItem;
 import io.voucherify.client.model.OrderCalculatedItemProduct;
 import io.voucherify.client.model.OrderCalculatedItemSku;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -230,6 +233,10 @@ public class OrderCalculatedItem {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_APPLICATION_DETAILS = "application_details";
+  @SerializedName(SERIALIZED_NAME_APPLICATION_DETAILS)
+  private List<ApplicationDetailsItem> applicationDetails;
 
   public OrderCalculatedItem() {
   }
@@ -675,6 +682,35 @@ public class OrderCalculatedItem {
   }
 
 
+  public OrderCalculatedItem applicationDetails(List<ApplicationDetailsItem> applicationDetails) {
+    
+    this.applicationDetails = applicationDetails;
+    return this;
+  }
+
+  public OrderCalculatedItem addApplicationDetailsItem(ApplicationDetailsItem applicationDetailsItem) {
+    if (this.applicationDetails == null) {
+      this.applicationDetails = new ArrayList<>();
+    }
+    this.applicationDetails.add(applicationDetailsItem);
+    return this;
+  }
+
+   /**
+   * Array containing details about the items that are replaced and the items that are replacements for discounts with the &#x60;REPLACE_ITEMS&#x60; effect.
+   * @return applicationDetails
+  **/
+  @javax.annotation.Nullable
+  public List<ApplicationDetailsItem> getApplicationDetails() {
+    return applicationDetails;
+  }
+
+
+  public void setApplicationDetails(List<ApplicationDetailsItem> applicationDetails) {
+    this.applicationDetails = applicationDetails;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -705,7 +741,8 @@ public class OrderCalculatedItem {
         Objects.equals(this.product, orderCalculatedItem.product) &&
         Objects.equals(this.sku, orderCalculatedItem.sku) &&
         Objects.equals(this._object, orderCalculatedItem._object) &&
-        Objects.equals(this.metadata, orderCalculatedItem.metadata);
+        Objects.equals(this.metadata, orderCalculatedItem.metadata) &&
+        Objects.equals(this.applicationDetails, orderCalculatedItem.applicationDetails);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -714,7 +751,7 @@ public class OrderCalculatedItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata);
+    return Objects.hash(id, skuId, productId, relatedObject, sourceId, quantity, discountQuantity, initialQuantity, amount, discountAmount, appliedDiscountAmount, appliedDiscountQuantity, appliedQuantity, appliedQuantityAmount, initialAmount, price, subtotalAmount, product, sku, _object, metadata, applicationDetails);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -749,6 +786,7 @@ public class OrderCalculatedItem {
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    applicationDetails: ").append(toIndentedString(applicationDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -792,6 +830,7 @@ public class OrderCalculatedItem {
     openapiFields.add("sku");
     openapiFields.add("object");
     openapiFields.add("metadata");
+    openapiFields.add("application_details");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

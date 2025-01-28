@@ -69,6 +69,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
   @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION_POINTS)
   private Integer nextExpirationPoints;
 
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private Integer pendingPoints;
+
   public LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard() {
   }
 
@@ -79,7 +83,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
   }
 
    /**
-   * Total points incurred over the lifespan of the loyalty card.
+   * Total points incurred over the lifespan of the loyalty card, minus the expired points.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -156,6 +160,27 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
   }
 
 
+  public LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard pendingPoints(Integer pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Determines the number of pending points that will be added to the loyalty card after the predefined time.
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public Integer getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(Integer pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -169,7 +194,8 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
     return Objects.equals(this.points, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.points) &&
         Objects.equals(this.balance, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.balance) &&
         Objects.equals(this.nextExpirationDate, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.nextExpirationDate) &&
-        Objects.equals(this.nextExpirationPoints, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.nextExpirationPoints);
+        Objects.equals(this.nextExpirationPoints, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.nextExpirationPoints) &&
+        Objects.equals(this.pendingPoints, loyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.pendingPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -178,7 +204,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints);
+    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints, pendingPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -196,6 +222,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    nextExpirationDate: ").append(toIndentedString(nextExpirationDate)).append("\n");
     sb.append("    nextExpirationPoints: ").append(toIndentedString(nextExpirationPoints)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -222,6 +249,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard {
     openapiFields.add("balance");
     openapiFields.add("next_expiration_date");
     openapiFields.add("next_expiration_points");
+    openapiFields.add("pending_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

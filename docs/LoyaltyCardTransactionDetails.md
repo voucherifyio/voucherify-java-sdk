@@ -18,6 +18,8 @@ Contains the detailed information about the transaction.
 |**rollback** | [**LoyaltyCardTransactionDetailsRollback**](LoyaltyCardTransactionDetailsRollback.md) |  |
 |**customEvent** | [**LoyaltyCardTransactionDetailsCustomEvent**](LoyaltyCardTransactionDetailsCustomEvent.md) |  |
 |**eventSchema** | [**LoyaltyCardTransactionDetailsEventSchema**](LoyaltyCardTransactionDetailsEventSchema.md) |  |
+|**holderLoyaltyTier** | [**LoyaltyCardTransactionDetailsHolderLoyaltyTier**](LoyaltyCardTransactionDetailsHolderLoyaltyTier.md) |  |
+|**pendingPoints** | [**LoyaltyPendingPoints**](LoyaltyPendingPoints.md) |  |
 |**reward** | [**LoyaltyCardTransactionDetailsReward**](LoyaltyCardTransactionDetailsReward.md) |  |
 |**sourceVoucher** | [**SimpleVoucher**](SimpleVoucher.md) |  |
 |**destinationVoucher** | [**SimpleVoucher**](SimpleVoucher.md) |  |

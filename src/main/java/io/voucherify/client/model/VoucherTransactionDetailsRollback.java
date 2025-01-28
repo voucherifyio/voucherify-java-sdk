@@ -67,7 +67,7 @@ public class VoucherTransactionDetailsRollback {
   }
 
    /**
-   * Unique redemption rollback ID.
+   * Unique identifier of the redemption rollback.
    * @return id
   **/
   @javax.annotation.Nullable

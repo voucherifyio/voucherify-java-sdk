@@ -14,6 +14,7 @@
 |**customEvent** | [**EarningRuleCustomEvent**](EarningRuleCustomEvent.md) |  |
 |**segment** | [**EarningRuleSegment**](EarningRuleSegment.md) |  |
 |**loyaltyTier** | [**EarningRuleLoyaltyTier**](EarningRuleLoyaltyTier.md) |  |
+|**pendingPoints** | [**EarningRulePendingPoints**](EarningRulePendingPoints.md) |  |
 |**source** | [**EarningRuleSource**](EarningRuleSource.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is earning_rule. |
 |**automationId** | **String** | For internal use by Voucherify. |

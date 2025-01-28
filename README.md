@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>16.0.2</version>
+  <version>16.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:16.0.2"
+     implementation "io.voucherify.client:voucherify-java-sdk:16.0.3"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-16.0.2.jar`
+* `target/voucherify-java-sdk-16.0.3.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -143,6 +143,13 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## 📅 Changelog
+- **2024-01-29** - `16.0.3`
+  - Added support for **GET** /v1/loyalties/{campaignId}/pending-points
+  - Added support for **GET** /v1/loyalties/members/{memberId}/pending-points
+  - Added support for **GET** /v1/loyalties/{campaignId}/members/{memberId}/pending-points
+  - Added support for **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate
+  - Added support for **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel
+  - Added types for pending points (loyalties) and access settings (areas and stores)
 - **2024-11-26** - `16.0.2`
   - Added support for `STANDALONE` campaign type.
   - Added optional `metadata` in `OrderCalculatedItemSku`
@@ -532,11 +539,13 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
 *LocationsApi* | [**getLocation**](docs/LocationsApi.md#getLocation) | **GET** /v1/locations/{locationId} | Get Location
 *LocationsApi* | [**listLocations**](docs/LocationsApi.md#listLocations) | **GET** /v1/locations | List Locations
+*LoyaltiesApi* | [**activateMemberPendingPoints**](docs/LoyaltiesApi.md#activateMemberPendingPoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate | Activate Member Pending Points
 *LoyaltiesApi* | [**addMember**](docs/LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member
+*LoyaltiesApi* | [**cancelMemberPendingPoints**](docs/LoyaltiesApi.md#cancelMemberPendingPoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel | Cancel Member Pending Points
 *LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
 *LoyaltiesApi* | [**createLoyaltyProgram**](docs/LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign
-*LoyaltiesApi* | [**createPointsExpirationExport**](docs/LoyaltiesApi.md#createPointsExpirationExport) | **POST** /v1/loyalties/{campaignId}/points-expiration/export | Create Points Expiration Export
+*LoyaltiesApi* | [**createPointsExpirationExport**](docs/LoyaltiesApi.md#createPointsExpirationExport) | **POST** /v1/loyalties/{campaignId}/points-expiration/export | Export Loyalty Campaign Point Expiration
 *LoyaltiesApi* | [**createRewardAssignment1**](docs/LoyaltiesApi.md#createRewardAssignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment
 *LoyaltiesApi* | [**deleteEarningRule**](docs/LoyaltiesApi.md#deleteEarningRule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule
 *LoyaltiesApi* | [**deleteLoyaltyProgram**](docs/LoyaltiesApi.md#deleteLoyaltyProgram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign
@@ -553,6 +562,7 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**getRewardAssignment1**](docs/LoyaltiesApi.md#getRewardAssignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardAssignment2**](docs/LoyaltiesApi.md#getRewardAssignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment
 *LoyaltiesApi* | [**getRewardDetails**](docs/LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details
+*LoyaltiesApi* | [**listCampaignPendingPoints**](docs/LoyaltiesApi.md#listCampaignPendingPoints) | **GET** /v1/loyalties/{campaignId}/pending-points | List Campaign Pending Points
 *LoyaltiesApi* | [**listEarningRules**](docs/LoyaltiesApi.md#listEarningRules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules
 *LoyaltiesApi* | [**listLoyaltyCardTransactions**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions
 *LoyaltiesApi* | [**listLoyaltyCardTransactions1**](docs/LoyaltiesApi.md#listLoyaltyCardTransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions
@@ -563,9 +573,11 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**listMemberActivity**](docs/LoyaltiesApi.md#listMemberActivity) | **GET** /v1/loyalties/members/{memberId}/activity | List Member Activity
 *LoyaltiesApi* | [**listMemberActivity1**](docs/LoyaltiesApi.md#listMemberActivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity
 *LoyaltiesApi* | [**listMemberLoyaltyTier**](docs/LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers
+*LoyaltiesApi* | [**listMemberPendingPoints**](docs/LoyaltiesApi.md#listMemberPendingPoints) | **GET** /v1/loyalties/members/{memberId}/pending-points | List Member Pending Points
+*LoyaltiesApi* | [**listMemberPendingPoints1**](docs/LoyaltiesApi.md#listMemberPendingPoints1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/pending-points | List Member Pending Points
 *LoyaltiesApi* | [**listMemberRewards**](docs/LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards
 *LoyaltiesApi* | [**listMembers**](docs/LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members
-*LoyaltiesApi* | [**listPointsExpiration**](docs/LoyaltiesApi.md#listPointsExpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | Get Points Expiration
+*LoyaltiesApi* | [**listPointsExpiration**](docs/LoyaltiesApi.md#listPointsExpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | List Loyalty Card Point Expiration
 *LoyaltiesApi* | [**listRewardAssignments1**](docs/LoyaltiesApi.md#listRewardAssignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments
 *LoyaltiesApi* | [**listRewardAssignments2**](docs/LoyaltiesApi.md#listRewardAssignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Reward Assignments
 *LoyaltiesApi* | [**redeemReward**](docs/LoyaltiesApi.md#redeemReward) | **POST** /v1/loyalties/members/{memberId}/redemption | Redeem Reward
@@ -721,10 +733,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+- [AccessSettings](docs/AccessSettings.md)
+- [AccessSettingsAssign](docs/AccessSettingsAssign.md)
 - [AccessSettingsCampaignAssignmentsList](docs/AccessSettingsCampaignAssignmentsList.md)
+- [AccessSettingsUnassign](docs/AccessSettingsUnassign.md)
 - [ApplicableTo](docs/ApplicableTo.md)
 - [ApplicableToEffect](docs/ApplicableToEffect.md)
+- [ApplicableToOrderItemUnitsItem](docs/ApplicableToOrderItemUnitsItem.md)
 - [ApplicableToResultList](docs/ApplicableToResultList.md)
+- [ApplicationDetailsItem](docs/ApplicationDetailsItem.md)
 - [AreaStoreCampaignAssignment](docs/AreaStoreCampaignAssignment.md)
 - [AsyncActionBase](docs/AsyncActionBase.md)
 - [AsyncActionGetResponseBody](docs/AsyncActionGetResponseBody.md)
@@ -866,10 +883,14 @@ Class | Method | HTTP request | Description
 - [EarningRuleLoyaltyOrderMetadata](docs/EarningRuleLoyaltyOrderMetadata.md)
 - [EarningRuleLoyaltyOrderTotalAmount](docs/EarningRuleLoyaltyOrderTotalAmount.md)
 - [EarningRuleLoyaltyTier](docs/EarningRuleLoyaltyTier.md)
+- [EarningRulePendingPoints](docs/EarningRulePendingPoints.md)
 - [EarningRuleSegment](docs/EarningRuleSegment.md)
 - [EarningRuleSource](docs/EarningRuleSource.md)
 - [Error](docs/Error.md)
 - [ErrorError](docs/ErrorError.md)
+- [EventSource](docs/EventSource.md)
+- [EventSourceApiKey](docs/EventSourceApiKey.md)
+- [EventSourceUser](docs/EventSourceUser.md)
 - [EventsCreateRequestBody](docs/EventsCreateRequestBody.md)
 - [EventsCreateRequestBodyLoyalty](docs/EventsCreateRequestBodyLoyalty.md)
 - [EventsCreateRequestBodyReferral](docs/EventsCreateRequestBodyReferral.md)
@@ -896,6 +917,7 @@ Class | Method | HTTP request | Description
 - [FiltersCondition](docs/FiltersCondition.md)
 - [Gift](docs/Gift.md)
 - [InapplicableTo](docs/InapplicableTo.md)
+- [InapplicableToOrderItemUnitsItem](docs/InapplicableToOrderItemUnitsItem.md)
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
@@ -945,6 +967,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata](docs/LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata.md)
 - [LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderTotalAmount](docs/LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderTotalAmount.md)
 - [LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier](docs/LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier.md)
+- [LoyaltiesEarningRulesCreateResponseBodyPendingPoints](docs/LoyaltiesEarningRulesCreateResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesCreateResponseBodySegment](docs/LoyaltiesEarningRulesCreateResponseBodySegment.md)
 - [LoyaltiesEarningRulesCreateResponseBodySource](docs/LoyaltiesEarningRulesCreateResponseBodySource.md)
 - [LoyaltiesEarningRulesDisableResponseBody](docs/LoyaltiesEarningRulesDisableResponseBody.md)
@@ -963,6 +986,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderMetadata](docs/LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderMetadata.md)
 - [LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderTotalAmount](docs/LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderTotalAmount.md)
 - [LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier](docs/LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier.md)
+- [LoyaltiesEarningRulesDisableResponseBodyPendingPoints](docs/LoyaltiesEarningRulesDisableResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesDisableResponseBodySegment](docs/LoyaltiesEarningRulesDisableResponseBodySegment.md)
 - [LoyaltiesEarningRulesDisableResponseBodySource](docs/LoyaltiesEarningRulesDisableResponseBodySource.md)
 - [LoyaltiesEarningRulesEnableResponseBody](docs/LoyaltiesEarningRulesEnableResponseBody.md)
@@ -981,6 +1005,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesEnableResponseBodyLoyaltyOrderMetadata](docs/LoyaltiesEarningRulesEnableResponseBodyLoyaltyOrderMetadata.md)
 - [LoyaltiesEarningRulesEnableResponseBodyLoyaltyOrderTotalAmount](docs/LoyaltiesEarningRulesEnableResponseBodyLoyaltyOrderTotalAmount.md)
 - [LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier](docs/LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier.md)
+- [LoyaltiesEarningRulesEnableResponseBodyPendingPoints](docs/LoyaltiesEarningRulesEnableResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesEnableResponseBodySegment](docs/LoyaltiesEarningRulesEnableResponseBodySegment.md)
 - [LoyaltiesEarningRulesEnableResponseBodySource](docs/LoyaltiesEarningRulesEnableResponseBodySource.md)
 - [LoyaltiesEarningRulesGetResponseBody](docs/LoyaltiesEarningRulesGetResponseBody.md)
@@ -999,6 +1024,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata](docs/LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata.md)
 - [LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderTotalAmount](docs/LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderTotalAmount.md)
 - [LoyaltiesEarningRulesGetResponseBodyLoyaltyTier](docs/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.md)
+- [LoyaltiesEarningRulesGetResponseBodyPendingPoints](docs/LoyaltiesEarningRulesGetResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesGetResponseBodySegment](docs/LoyaltiesEarningRulesGetResponseBodySegment.md)
 - [LoyaltiesEarningRulesGetResponseBodySource](docs/LoyaltiesEarningRulesGetResponseBodySource.md)
 - [LoyaltiesEarningRulesListResponseBody](docs/LoyaltiesEarningRulesListResponseBody.md)
@@ -1033,6 +1059,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderMetadata](docs/LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderMetadata.md)
 - [LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderTotalAmount](docs/LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderTotalAmount.md)
 - [LoyaltiesEarningRulesUpdateResponseBodyLoyaltyTier](docs/LoyaltiesEarningRulesUpdateResponseBodyLoyaltyTier.md)
+- [LoyaltiesEarningRulesUpdateResponseBodyPendingPoints](docs/LoyaltiesEarningRulesUpdateResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesUpdateResponseBodySegment](docs/LoyaltiesEarningRulesUpdateResponseBodySegment.md)
 - [LoyaltiesEarningRulesUpdateResponseBodySource](docs/LoyaltiesEarningRulesUpdateResponseBodySource.md)
 - [LoyaltiesGetCampaignResponseBody](docs/LoyaltiesGetCampaignResponseBody.md)
@@ -1052,6 +1079,9 @@ Class | Method | HTTP request | Description
 - [LoyaltiesMembersGetResponseBodyLoyaltyCard](docs/LoyaltiesMembersGetResponseBodyLoyaltyCard.md)
 - [LoyaltiesMembersGetResponseBodyPublish](docs/LoyaltiesMembersGetResponseBodyPublish.md)
 - [LoyaltiesMembersGetResponseBodyRedemption](docs/LoyaltiesMembersGetResponseBodyRedemption.md)
+- [LoyaltiesMembersPendingPointsActivateResponseBody](docs/LoyaltiesMembersPendingPointsActivateResponseBody.md)
+- [LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject](docs/LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject.md)
+- [LoyaltiesMembersPendingPointsListResponseBody](docs/LoyaltiesMembersPendingPointsListResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBody](docs/LoyaltiesMembersPointsExpirationListResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItem](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItem.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket.md)
@@ -1084,6 +1114,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard](docs/LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.md)
 - [LoyaltiesMembersTransfersCreateResponseBodyPublish](docs/LoyaltiesMembersTransfersCreateResponseBodyPublish.md)
 - [LoyaltiesMembersTransfersCreateResponseBodyRedemption](docs/LoyaltiesMembersTransfersCreateResponseBodyRedemption.md)
+- [LoyaltiesPendingPointsListResponseBody](docs/LoyaltiesPendingPointsListResponseBody.md)
 - [LoyaltiesPointsExpirationExportCreateRequestBody](docs/LoyaltiesPointsExpirationExportCreateRequestBody.md)
 - [LoyaltiesPointsExpirationExportCreateRequestBodyParameters](docs/LoyaltiesPointsExpirationExportCreateRequestBodyParameters.md)
 - [LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters](docs/LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters.md)
@@ -1144,6 +1175,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyCardTransactionDetailsEarningRuleSource](docs/LoyaltyCardTransactionDetailsEarningRuleSource.md)
 - [LoyaltyCardTransactionDetailsEvent](docs/LoyaltyCardTransactionDetailsEvent.md)
 - [LoyaltyCardTransactionDetailsEventSchema](docs/LoyaltyCardTransactionDetailsEventSchema.md)
+- [LoyaltyCardTransactionDetailsHolderLoyaltyTier](docs/LoyaltyCardTransactionDetailsHolderLoyaltyTier.md)
 - [LoyaltyCardTransactionDetailsLoyaltyTier](docs/LoyaltyCardTransactionDetailsLoyaltyTier.md)
 - [LoyaltyCardTransactionDetailsOrder](docs/LoyaltyCardTransactionDetailsOrder.md)
 - [LoyaltyCardTransactionDetailsRedemption](docs/LoyaltyCardTransactionDetailsRedemption.md)
@@ -1155,6 +1187,14 @@ Class | Method | HTTP request | Description
 - [LoyaltyMemberLoyaltyCard](docs/LoyaltyMemberLoyaltyCard.md)
 - [LoyaltyMemberPublish](docs/LoyaltyMemberPublish.md)
 - [LoyaltyMemberRedemption](docs/LoyaltyMemberRedemption.md)
+- [LoyaltyPendingPoints](docs/LoyaltyPendingPoints.md)
+- [LoyaltyPendingPointsDetails](docs/LoyaltyPendingPointsDetails.md)
+- [LoyaltyPendingPointsDetailsEarningRule](docs/LoyaltyPendingPointsDetailsEarningRule.md)
+- [LoyaltyPendingPointsDetailsEarningRuleSource](docs/LoyaltyPendingPointsDetailsEarningRuleSource.md)
+- [LoyaltyPendingPointsDetailsEvent](docs/LoyaltyPendingPointsDetailsEvent.md)
+- [LoyaltyPendingPointsDetailsHolderLoyaltyTier](docs/LoyaltyPendingPointsDetailsHolderLoyaltyTier.md)
+- [LoyaltyPendingPointsDetailsLoyaltyTier](docs/LoyaltyPendingPointsDetailsLoyaltyTier.md)
+- [LoyaltyPendingPointsDetailsOrder](docs/LoyaltyPendingPointsDetailsOrder.md)
 - [LoyaltyPointsBucket](docs/LoyaltyPointsBucket.md)
 - [LoyaltyPointsBucketBucket](docs/LoyaltyPointsBucketBucket.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
@@ -1397,6 +1437,7 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListLocations](docs/ParameterOrderListLocations.md)
 - [ParameterOrderListLoyaltyTiers](docs/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/ParameterOrderListOrders.md)
+- [ParameterOrderListPendingPoints](docs/ParameterOrderListPendingPoints.md)
 - [ParameterOrderListPromotionTiers](docs/ParameterOrderListPromotionTiers.md)
 - [ParameterOrderListPromotionTiersClientSide](docs/ParameterOrderListPromotionTiersClientSide.md)
 - [ParameterOrderListPublications](docs/ParameterOrderListPublications.md)
@@ -1789,6 +1830,7 @@ Class | Method | HTTP request | Description
 - [VoucherTransactionDetailsEarningRuleSource](docs/VoucherTransactionDetailsEarningRuleSource.md)
 - [VoucherTransactionDetailsEvent](docs/VoucherTransactionDetailsEvent.md)
 - [VoucherTransactionDetailsEventSchema](docs/VoucherTransactionDetailsEventSchema.md)
+- [VoucherTransactionDetailsHolderLoyaltyTier](docs/VoucherTransactionDetailsHolderLoyaltyTier.md)
 - [VoucherTransactionDetailsLoyaltyTier](docs/VoucherTransactionDetailsLoyaltyTier.md)
 - [VoucherTransactionDetailsOrder](docs/VoucherTransactionDetailsOrder.md)
 - [VoucherTransactionDetailsRedemption](docs/VoucherTransactionDetailsRedemption.md)

@@ -15,6 +15,7 @@ Response body schema for **POST** `v1/loyalties/{campaignId}/earning-rules/{earn
 |**customEvent** | [**LoyaltiesEarningRulesEnableResponseBodyCustomEvent**](LoyaltiesEarningRulesEnableResponseBodyCustomEvent.md) |  |
 |**segment** | [**LoyaltiesEarningRulesEnableResponseBodySegment**](LoyaltiesEarningRulesEnableResponseBodySegment.md) |  |
 |**loyaltyTier** | [**LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier**](LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier.md) |  |
+|**pendingPoints** | [**LoyaltiesEarningRulesEnableResponseBodyPendingPoints**](LoyaltiesEarningRulesEnableResponseBodyPendingPoints.md) |  |
 |**source** | [**LoyaltiesEarningRulesEnableResponseBodySource**](LoyaltiesEarningRulesEnableResponseBodySource.md) |  |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. Default is earning_rule. |
 |**automationId** | **String** | For internal use by Voucherify. |

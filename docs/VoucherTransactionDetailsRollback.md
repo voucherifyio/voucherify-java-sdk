@@ -8,7 +8,7 @@ Contains information about the redemption rollback.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** | Unique redemption rollback ID. |
+|**id** | **String** | Unique identifier of the redemption rollback. |
 
 
 

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleCustomEvent;
 import io.voucherify.client.model.EarningRuleLoyalty;
 import io.voucherify.client.model.EarningRuleLoyaltyTier;
+import io.voucherify.client.model.EarningRulePendingPoints;
 import io.voucherify.client.model.EarningRuleSegment;
 import io.voucherify.client.model.EarningRuleSource;
 import io.voucherify.client.model.ValidityHours;
@@ -90,6 +91,10 @@ public class EarningRule {
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private EarningRuleLoyaltyTier loyaltyTier;
+
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private EarningRulePendingPoints pendingPoints;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -391,6 +396,27 @@ public class EarningRule {
   }
 
 
+  public EarningRule pendingPoints(EarningRulePendingPoints pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Get pendingPoints
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public EarningRulePendingPoints getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(EarningRulePendingPoints pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
   public EarningRule source(EarningRuleSource source) {
     
     this.source = source;
@@ -668,6 +694,7 @@ public class EarningRule {
         Objects.equals(this.customEvent, earningRule.customEvent) &&
         Objects.equals(this.segment, earningRule.segment) &&
         Objects.equals(this.loyaltyTier, earningRule.loyaltyTier) &&
+        Objects.equals(this.pendingPoints, earningRule.pendingPoints) &&
         Objects.equals(this.source, earningRule.source) &&
         Objects.equals(this._object, earningRule._object) &&
         Objects.equals(this.automationId, earningRule.automationId) &&
@@ -688,7 +715,7 @@ public class EarningRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -709,6 +736,7 @@ public class EarningRule {
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    automationId: ").append(toIndentedString(automationId)).append("\n");
@@ -750,6 +778,7 @@ public class EarningRule {
     openapiFields.add("custom_event");
     openapiFields.add("segment");
     openapiFields.add("loyalty_tier");
+    openapiFields.add("pending_points");
     openapiFields.add("source");
     openapiFields.add("object");
     openapiFields.add("automation_id");

@@ -28,6 +28,8 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(LoyaltyCardTransactionsType.Adapter.class)
 public enum LoyaltyCardTransactionsType {
   
+  PENDING_ACTIVATION("PENDING_POINTS_ACTIVATION"),
+  
   ACCRUAL("POINTS_ACCRUAL"),
   
   REDEMPTION("POINTS_REDEMPTION"),

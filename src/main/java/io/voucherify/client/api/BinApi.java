@@ -175,8 +175,8 @@ public class BinApi {
     /**
      * Build call for listBinEntries
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param order Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param order Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @param filters Filters for listing bin entries. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -252,8 +252,8 @@ public class BinApi {
      * List Bin Entries
      * Retrieves a list of resources moved to the bin. The following resources can be moved to the bin: - campaigns - vouchers - products - SKUs To use this endpoint, you must have the following permissions: - vouchers.read - campaigns.read - products.read
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param order Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param order Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @param filters Filters for listing bin entries. (optional)
      * @return TrashBinListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -267,8 +267,8 @@ public class BinApi {
      * List Bin Entries
      * Retrieves a list of resources moved to the bin. The following resources can be moved to the bin: - campaigns - vouchers - products - SKUs To use this endpoint, you must have the following permissions: - vouchers.read - campaigns.read - products.read
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param order Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param order Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @param filters Filters for listing bin entries. (optional)
      * @return ApiResponse&lt;TrashBinListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -283,8 +283,8 @@ public class BinApi {
      * List Bin Entries (asynchronously)
      * Retrieves a list of resources moved to the bin. The following resources can be moved to the bin: - campaigns - vouchers - products - SKUs To use this endpoint, you must have the following permissions: - vouchers.read - campaigns.read - products.read
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param order Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param order Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @param filters Filters for listing bin entries. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

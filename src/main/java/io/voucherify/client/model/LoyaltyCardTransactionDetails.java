@@ -24,12 +24,14 @@ import io.voucherify.client.model.LoyaltyCardTransactionDetailsCustomEvent;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsEarningRule;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsEvent;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsEventSchema;
+import io.voucherify.client.model.LoyaltyCardTransactionDetailsHolderLoyaltyTier;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsLoyaltyTier;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsOrder;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsRedemption;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsReward;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsRollback;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsSegment;
+import io.voucherify.client.model.LoyaltyPendingPoints;
 import io.voucherify.client.model.SimpleVoucher;
 import java.io.IOException;
 import java.util.Arrays;
@@ -104,6 +106,14 @@ public class LoyaltyCardTransactionDetails {
   public static final String SERIALIZED_NAME_EVENT_SCHEMA = "event_schema";
   @SerializedName(SERIALIZED_NAME_EVENT_SCHEMA)
   private LoyaltyCardTransactionDetailsEventSchema eventSchema;
+
+  public static final String SERIALIZED_NAME_HOLDER_LOYALTY_TIER = "holder_loyalty_tier";
+  @SerializedName(SERIALIZED_NAME_HOLDER_LOYALTY_TIER)
+  private LoyaltyCardTransactionDetailsHolderLoyaltyTier holderLoyaltyTier;
+
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private LoyaltyPendingPoints pendingPoints;
 
   public static final String SERIALIZED_NAME_REWARD = "reward";
   @SerializedName(SERIALIZED_NAME_REWARD)
@@ -330,6 +340,48 @@ public class LoyaltyCardTransactionDetails {
   }
 
 
+  public LoyaltyCardTransactionDetails holderLoyaltyTier(LoyaltyCardTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
+    
+    this.holderLoyaltyTier = holderLoyaltyTier;
+    return this;
+  }
+
+   /**
+   * Get holderLoyaltyTier
+   * @return holderLoyaltyTier
+  **/
+  @javax.annotation.Nullable
+  public LoyaltyCardTransactionDetailsHolderLoyaltyTier getHolderLoyaltyTier() {
+    return holderLoyaltyTier;
+  }
+
+
+  public void setHolderLoyaltyTier(LoyaltyCardTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
+    this.holderLoyaltyTier = holderLoyaltyTier;
+  }
+
+
+  public LoyaltyCardTransactionDetails pendingPoints(LoyaltyPendingPoints pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Get pendingPoints
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public LoyaltyPendingPoints getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(LoyaltyPendingPoints pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
   public LoyaltyCardTransactionDetails reward(LoyaltyCardTransactionDetailsReward reward) {
     
     this.reward = reward;
@@ -413,6 +465,8 @@ public class LoyaltyCardTransactionDetails {
         Objects.equals(this.rollback, loyaltyCardTransactionDetails.rollback) &&
         Objects.equals(this.customEvent, loyaltyCardTransactionDetails.customEvent) &&
         Objects.equals(this.eventSchema, loyaltyCardTransactionDetails.eventSchema) &&
+        Objects.equals(this.holderLoyaltyTier, loyaltyCardTransactionDetails.holderLoyaltyTier) &&
+        Objects.equals(this.pendingPoints, loyaltyCardTransactionDetails.pendingPoints) &&
         Objects.equals(this.reward, loyaltyCardTransactionDetails.reward) &&
         Objects.equals(this.sourceVoucher, loyaltyCardTransactionDetails.sourceVoucher) &&
         Objects.equals(this.destinationVoucher, loyaltyCardTransactionDetails.destinationVoucher);
@@ -424,7 +478,7 @@ public class LoyaltyCardTransactionDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balance, order, event, earningRule, segment, loyaltyTier, redemption, rollback, customEvent, eventSchema, reward, sourceVoucher, destinationVoucher);
+    return Objects.hash(balance, order, event, earningRule, segment, loyaltyTier, redemption, rollback, customEvent, eventSchema, holderLoyaltyTier, pendingPoints, reward, sourceVoucher, destinationVoucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -448,6 +502,8 @@ public class LoyaltyCardTransactionDetails {
     sb.append("    rollback: ").append(toIndentedString(rollback)).append("\n");
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    eventSchema: ").append(toIndentedString(eventSchema)).append("\n");
+    sb.append("    holderLoyaltyTier: ").append(toIndentedString(holderLoyaltyTier)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    sourceVoucher: ").append(toIndentedString(sourceVoucher)).append("\n");
     sb.append("    destinationVoucher: ").append(toIndentedString(destinationVoucher)).append("\n");
@@ -483,6 +539,8 @@ public class LoyaltyCardTransactionDetails {
     openapiFields.add("rollback");
     openapiFields.add("custom_event");
     openapiFields.add("event_schema");
+    openapiFields.add("holder_loyalty_tier");
+    openapiFields.add("pending_points");
     openapiFields.add("reward");
     openapiFields.add("source_voucher");
     openapiFields.add("destination_voucher");

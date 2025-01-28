@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ApplicableToEffect;
+import io.voucherify.client.model.ApplicableToOrderItemUnitsItem;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -161,6 +162,10 @@ public class ApplicableTo {
   public static final String SERIALIZED_NAME_ORDER_ITEM_INDICES = "order_item_indices";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_INDICES)
   private List<Integer> orderItemIndices;
+
+  public static final String SERIALIZED_NAME_ORDER_ITEM_UNITS = "order_item_units";
+  @SerializedName(SERIALIZED_NAME_ORDER_ITEM_UNITS)
+  private List<ApplicableToOrderItemUnitsItem> orderItemUnits;
 
   public static final String SERIALIZED_NAME_REPEAT = "repeat";
   @SerializedName(SERIALIZED_NAME_REPEAT)
@@ -465,7 +470,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Determines the order in which the discount is applied to the products or SKUs sent in the &#x60;order&#x60; object in the request. The counting begins from &#x60;0&#x60;.
+   * Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.
    * @return orderItemIndices
   **/
   @javax.annotation.Nullable
@@ -476,6 +481,35 @@ public class ApplicableTo {
 
   public void setOrderItemIndices(List<Integer> orderItemIndices) {
     this.orderItemIndices = orderItemIndices;
+  }
+
+
+  public ApplicableTo orderItemUnits(List<ApplicableToOrderItemUnitsItem> orderItemUnits) {
+    
+    this.orderItemUnits = orderItemUnits;
+    return this;
+  }
+
+  public ApplicableTo addOrderItemUnitsItem(ApplicableToOrderItemUnitsItem orderItemUnitsItem) {
+    if (this.orderItemUnits == null) {
+      this.orderItemUnits = new ArrayList<>();
+    }
+    this.orderItemUnits.add(orderItemUnitsItem);
+    return this;
+  }
+
+   /**
+   * Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request.
+   * @return orderItemUnits
+  **/
+  @javax.annotation.Nullable
+  public List<ApplicableToOrderItemUnitsItem> getOrderItemUnits() {
+    return orderItemUnits;
+  }
+
+
+  public void setOrderItemUnits(List<ApplicableToOrderItemUnitsItem> orderItemUnits) {
+    this.orderItemUnits = orderItemUnits;
   }
 
 
@@ -528,7 +562,7 @@ public class ApplicableTo {
   }
 
    /**
-   * Determines to which kinds of objects the discount is applicable. &#x60;\&quot;ITEM\&quot;&#x60; includes products and SKUs.
+   * Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.
    * @return target
   **/
   @javax.annotation.Nullable
@@ -566,6 +600,7 @@ public class ApplicableTo {
         Objects.equals(this.amountLimit, applicableTo.amountLimit) &&
         Objects.equals(this.aggregatedAmountLimit, applicableTo.aggregatedAmountLimit) &&
         Objects.equals(this.orderItemIndices, applicableTo.orderItemIndices) &&
+        Objects.equals(this.orderItemUnits, applicableTo.orderItemUnits) &&
         Objects.equals(this.repeat, applicableTo.repeat) &&
         Objects.equals(this.skipInitially, applicableTo.skipInitially) &&
         Objects.equals(this.target, applicableTo.target);
@@ -577,7 +612,7 @@ public class ApplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, repeat, skipInitially, target);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -605,6 +640,7 @@ public class ApplicableTo {
     sb.append("    amountLimit: ").append(toIndentedString(amountLimit)).append("\n");
     sb.append("    aggregatedAmountLimit: ").append(toIndentedString(aggregatedAmountLimit)).append("\n");
     sb.append("    orderItemIndices: ").append(toIndentedString(orderItemIndices)).append("\n");
+    sb.append("    orderItemUnits: ").append(toIndentedString(orderItemUnits)).append("\n");
     sb.append("    repeat: ").append(toIndentedString(repeat)).append("\n");
     sb.append("    skipInitially: ").append(toIndentedString(skipInitially)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -644,6 +680,7 @@ public class ApplicableTo {
     openapiFields.add("amount_limit");
     openapiFields.add("aggregated_amount_limit");
     openapiFields.add("order_item_indices");
+    openapiFields.add("order_item_units");
     openapiFields.add("repeat");
     openapiFields.add("skip_initially");
     openapiFields.add("target");

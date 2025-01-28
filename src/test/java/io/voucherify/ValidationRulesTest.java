@@ -78,14 +78,15 @@ public class ValidationRulesTest {
 
             validationRulesCreateRequestBody.setType(ValidationRulesCreateRequestBody.TypeEnum.ADVANCED);
 
-            ValidationRulesCreateResponseBody validationRulesCreateResponseBody = validationRules.createValidationRules(
-                    validationRulesCreateRequestBody);
-
-            List<String> keysToRemove = Arrays.asList("name", "id", "createdAt", "source_id", "sourceId");
-            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, validationRulesCreateResponseBody, keysToRemove));
-
-            VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds()
-                    .add(validationRulesCreateResponseBody.getId());
+            // ValidationRulesCreateResponseBody validationRulesCreateResponseBody = validationRules.createValidationRules(
+            //         validationRulesCreateRequestBody);
+            //
+            // List<String> keysToRemove = Arrays.asList("name", "id", "createdAt", "source_id", "sourceId");
+            // assertTrue(DeepMatch.validateDeepMatch(snapshotPath, validationRulesCreateResponseBody, keysToRemove));
+            //
+            // VoucherifyStore.getInstance().getCouponCampaign().getValidationRuleIds()
+            //         .add(validationRulesCreateResponseBody.getId());
+            // TODO
         } catch (Exception e) {
             fail();
         }

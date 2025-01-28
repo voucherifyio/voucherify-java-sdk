@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Contains information about the loyalty tier.
+ * Contains information about the loyalty tier that is mapped for the earning rule and used in the transaction.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -71,7 +71,7 @@ public class VoucherTransactionDetailsLoyaltyTier {
   }
 
    /**
-   * Get id
+   * Unique identifier of the loyalty tier, assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class VoucherTransactionDetailsLoyaltyTier {
   }
 
    /**
-   * Get name
+   * User-defined name of the loyalty tier.
    * @return name
   **/
   @javax.annotation.Nullable

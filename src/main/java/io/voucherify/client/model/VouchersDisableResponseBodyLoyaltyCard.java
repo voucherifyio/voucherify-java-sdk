@@ -70,6 +70,10 @@ public class VouchersDisableResponseBodyLoyaltyCard {
   @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION_POINTS)
   private Integer nextExpirationPoints;
 
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private Integer pendingPoints;
+
   public VouchersDisableResponseBodyLoyaltyCard() {
   }
 
@@ -80,7 +84,7 @@ public class VouchersDisableResponseBodyLoyaltyCard {
   }
 
    /**
-   * Total points incurred over the lifespan of the loyalty card.
+   * Total points incurred over the lifespan of the loyalty card, minus the expired points.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -157,6 +161,27 @@ public class VouchersDisableResponseBodyLoyaltyCard {
   }
 
 
+  public VouchersDisableResponseBodyLoyaltyCard pendingPoints(Integer pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Determines the number of pending points that will be added to the loyalty card after the predefined time.
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public Integer getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(Integer pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -170,7 +195,8 @@ public class VouchersDisableResponseBodyLoyaltyCard {
     return Objects.equals(this.points, vouchersDisableResponseBodyLoyaltyCard.points) &&
         Objects.equals(this.balance, vouchersDisableResponseBodyLoyaltyCard.balance) &&
         Objects.equals(this.nextExpirationDate, vouchersDisableResponseBodyLoyaltyCard.nextExpirationDate) &&
-        Objects.equals(this.nextExpirationPoints, vouchersDisableResponseBodyLoyaltyCard.nextExpirationPoints);
+        Objects.equals(this.nextExpirationPoints, vouchersDisableResponseBodyLoyaltyCard.nextExpirationPoints) &&
+        Objects.equals(this.pendingPoints, vouchersDisableResponseBodyLoyaltyCard.pendingPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -179,7 +205,7 @@ public class VouchersDisableResponseBodyLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints);
+    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints, pendingPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -197,6 +223,7 @@ public class VouchersDisableResponseBodyLoyaltyCard {
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    nextExpirationDate: ").append(toIndentedString(nextExpirationDate)).append("\n");
     sb.append("    nextExpirationPoints: ").append(toIndentedString(nextExpirationPoints)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -223,6 +250,7 @@ public class VouchersDisableResponseBodyLoyaltyCard {
     openapiFields.add("balance");
     openapiFields.add("next_expiration_date");
     openapiFields.add("next_expiration_points");
+    openapiFields.add("pending_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

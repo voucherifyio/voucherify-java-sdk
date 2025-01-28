@@ -38,9 +38,9 @@ Response body schema for **PUT** `v1/campaigns/{campaignId}`.
 |**_object** | **String** | The type of the object represented by JSON. This object stores information about the campaign. |
 |**referralProgram** | [**ReferralProgram**](ReferralProgram.md) |  |
 |**loyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  |
+|**accessSettingsAssignments** | [**AccessSettingsCampaignAssignmentsList**](AccessSettingsCampaignAssignmentsList.md) |  |
 |**promotion** | [**PromotionTiersList**](PromotionTiersList.md) |  |
 |**validationRulesAssignments** | [**ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  |
-|**accessSettingsAssignments** | [**AccessSettingsCampaignAssignmentsList**](AccessSettingsCampaignAssignmentsList.md) |  |
 
 
 

@@ -8,7 +8,7 @@ Contains information about the earning rule.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** | Unique earning rule ID. |
+|**id** | **String** | Unique identifier of an earning rule, assigned by Voucherify. |
 |**source** | [**LoyaltyCardTransactionDetailsEarningRuleSource**](LoyaltyCardTransactionDetailsEarningRuleSource.md) |  |
 
 

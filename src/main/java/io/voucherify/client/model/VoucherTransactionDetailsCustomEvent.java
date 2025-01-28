@@ -71,7 +71,7 @@ public class VoucherTransactionDetailsCustomEvent {
   }
 
    /**
-   * Unique event ID.
+   * Unique identifier of the event.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class VoucherTransactionDetailsCustomEvent {
   }
 
    /**
-   * Type of custom event.
+   * Type of the custom event.
    * @return type
   **/
   @javax.annotation.Nullable

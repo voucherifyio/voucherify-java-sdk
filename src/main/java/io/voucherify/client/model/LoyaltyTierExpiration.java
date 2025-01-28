@@ -92,7 +92,7 @@ public class LoyaltyTierExpiration {
   }
 
    /**
-   * Unique customer ID of the customer making the purchase.
+   * Unique customer identifier of the customer making the purchase. The ID is assigned by Voucherify.
    * @return customerId
   **/
   @javax.annotation.Nullable

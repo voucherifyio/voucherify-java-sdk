@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyCustomEvent;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyLoyalty;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyPendingPoints;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodySegment;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodySource;
 import io.voucherify.client.model.ValidityHours;
@@ -90,6 +91,10 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier loyaltyTier;
+
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private LoyaltiesEarningRulesEnableResponseBodyPendingPoints pendingPoints;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -387,6 +392,27 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
+  public LoyaltiesEarningRulesEnableResponseBody pendingPoints(LoyaltiesEarningRulesEnableResponseBodyPendingPoints pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Get pendingPoints
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesEnableResponseBodyPendingPoints getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(LoyaltiesEarningRulesEnableResponseBodyPendingPoints pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
   public LoyaltiesEarningRulesEnableResponseBody source(LoyaltiesEarningRulesEnableResponseBodySource source) {
     
     this.source = source;
@@ -643,6 +669,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
         Objects.equals(this.customEvent, loyaltiesEarningRulesEnableResponseBody.customEvent) &&
         Objects.equals(this.segment, loyaltiesEarningRulesEnableResponseBody.segment) &&
         Objects.equals(this.loyaltyTier, loyaltiesEarningRulesEnableResponseBody.loyaltyTier) &&
+        Objects.equals(this.pendingPoints, loyaltiesEarningRulesEnableResponseBody.pendingPoints) &&
         Objects.equals(this.source, loyaltiesEarningRulesEnableResponseBody.source) &&
         Objects.equals(this._object, loyaltiesEarningRulesEnableResponseBody._object) &&
         Objects.equals(this.automationId, loyaltiesEarningRulesEnableResponseBody.automationId) &&
@@ -662,7 +689,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -683,6 +710,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     sb.append("    customEvent: ").append(toIndentedString(customEvent)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    loyaltyTier: ").append(toIndentedString(loyaltyTier)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    automationId: ").append(toIndentedString(automationId)).append("\n");
@@ -723,6 +751,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     openapiFields.add("custom_event");
     openapiFields.add("segment");
     openapiFields.add("loyalty_tier");
+    openapiFields.add("pending_points");
     openapiFields.add("source");
     openapiFields.add("object");
     openapiFields.add("automation_id");
