@@ -14,7 +14,7 @@
 |**effect** | [**EffectEnum**](#EffectEnum) |  |
 |**isDynamic** | **Boolean** | Flag indicating whether the discount was calculated using a formula. |
 |**unitOff** | **Integer** | Number of units to be granted a full value discount. |
-|**unitOffFormula** | **String** |  |
+|**unitOffFormula** | **String** | Formula used to calculate the number of units. |
 |**unitType** | **String** | The product deemed as free, chosen from product inventory (e.g. time, items). |
 |**product** | [**DiscountProduct**](DiscountProduct.md) |  |
 |**sku** | [**SimpleSkuDiscountUnit**](SimpleSkuDiscountUnit.md) |  |

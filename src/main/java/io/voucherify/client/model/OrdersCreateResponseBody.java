@@ -161,10 +161,6 @@ public class OrdersCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_TOTAL_APPLIED_DISCOUNT_AMOUNT)
   private Integer totalAppliedDiscountAmount;
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderCalculatedItem> items;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -246,6 +242,10 @@ public class OrdersCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
   private Map<String, OrderRedemptionsEntry> redemptions;
 
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  private List<OrderCalculatedItem> items;
+
   public OrdersCreateResponseBody() {
   }
 
@@ -319,7 +319,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
+   * This is the sum of the order items&#39; amounts. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -340,7 +340,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts.
+   * This is the sum of the order items&#39; amounts before any discount or other effect (e.g. add missing units) is applied. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return initialAmount
   **/
   @javax.annotation.Nullable
@@ -361,7 +361,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Sum of all order-level discounts applied to the order.
+   * Sum of all order-level discounts applied to the order. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return discountAmount
   **/
   @javax.annotation.Nullable
@@ -382,7 +382,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Sum of all product-specific discounts applied to the order.
+   * Sum of all product-specific discounts applied to the order. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return itemsDiscountAmount
   **/
   @javax.annotation.Nullable
@@ -403,7 +403,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Sum of all order-level AND all product-specific discounts applied to the order.
+   * Sum of all order-level AND all product-specific discounts applied to the order. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return totalDiscountAmount
   **/
   @javax.annotation.Nullable
@@ -424,7 +424,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Order amount after undoing all the discounts through the rollback redemption.
+   * Order amount after undoing all the discounts through the rollback redemption. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return totalAmount
   **/
   @javax.annotation.Nullable
@@ -445,7 +445,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * This field shows the order-level discount applied.
+   * This field shows the order-level discount applied. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return appliedDiscountAmount
   **/
   @javax.annotation.Nullable
@@ -466,7 +466,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Sum of all product-specific discounts applied in a particular request.   &#x60;sum(items, i &#x3D;&gt; i.applied_discount_amount)&#x60;
+   * Sum of all product-specific discounts applied in a particular request. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).   &#x60;sum(items, i &#x3D;&gt; i.applied_discount_amount)&#x60;
    * @return itemsAppliedDiscountAmount
   **/
   @javax.annotation.Nullable
@@ -487,7 +487,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Sum of all order-level AND all product-specific discounts applied in a particular request.   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;
+   * Sum of all order-level AND all product-specific discounts applied in a particular request. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;
    * @return totalAppliedDiscountAmount
   **/
   @javax.annotation.Nullable
@@ -498,35 +498,6 @@ public class OrdersCreateResponseBody {
 
   public void setTotalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
     this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
-  }
-
-
-  public OrdersCreateResponseBody items(List<OrderCalculatedItem> items) {
-    
-    this.items = items;
-    return this;
-  }
-
-  public OrdersCreateResponseBody addItemsItem(OrderCalculatedItem itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-   /**
-   * Array of items applied to the order. It can include up 500 items.
-   * @return items
-  **/
-  @javax.annotation.Nullable
-  public List<OrderCalculatedItem> getItems() {
-    return items;
-  }
-
-
-  public void setItems(List<OrderCalculatedItem> items) {
-    this.items = items;
   }
 
 
@@ -621,7 +592,7 @@ public class OrdersCreateResponseBody {
   }
 
    /**
-   * Unique customer ID of the customer making the purchase.
+   * Unique customer identifier of the customer making the purchase. The ID is assigned by Voucherify.
    * @return customerId
   **/
   @javax.annotation.Nullable
@@ -727,6 +698,35 @@ public class OrdersCreateResponseBody {
   }
 
 
+  public OrdersCreateResponseBody items(List<OrderCalculatedItem> items) {
+    
+    this.items = items;
+    return this;
+  }
+
+  public OrdersCreateResponseBody addItemsItem(OrderCalculatedItem itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Array of items applied to the order. It can include up to 500 items.
+   * @return items
+  **/
+  @javax.annotation.Nullable
+  public List<OrderCalculatedItem> getItems() {
+    return items;
+  }
+
+
+  public void setItems(List<OrderCalculatedItem> items) {
+    this.items = items;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -749,7 +749,6 @@ public class OrdersCreateResponseBody {
         Objects.equals(this.appliedDiscountAmount, ordersCreateResponseBody.appliedDiscountAmount) &&
         Objects.equals(this.itemsAppliedDiscountAmount, ordersCreateResponseBody.itemsAppliedDiscountAmount) &&
         Objects.equals(this.totalAppliedDiscountAmount, ordersCreateResponseBody.totalAppliedDiscountAmount) &&
-        Objects.equals(this.items, ordersCreateResponseBody.items) &&
         Objects.equals(this.metadata, ordersCreateResponseBody.metadata) &&
         Objects.equals(this._object, ordersCreateResponseBody._object) &&
         Objects.equals(this.createdAt, ordersCreateResponseBody.createdAt) &&
@@ -758,7 +757,8 @@ public class OrdersCreateResponseBody {
         Objects.equals(this.referrerId, ordersCreateResponseBody.referrerId) &&
         Objects.equals(this.customer, ordersCreateResponseBody.customer) &&
         Objects.equals(this.referrer, ordersCreateResponseBody.referrer) &&
-        Objects.equals(this.redemptions, ordersCreateResponseBody.redemptions);
+        Objects.equals(this.redemptions, ordersCreateResponseBody.redemptions) &&
+        Objects.equals(this.items, ordersCreateResponseBody.items);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -767,7 +767,7 @@ public class OrdersCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, items, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, items);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -793,7 +793,6 @@ public class OrdersCreateResponseBody {
     sb.append("    appliedDiscountAmount: ").append(toIndentedString(appliedDiscountAmount)).append("\n");
     sb.append("    itemsAppliedDiscountAmount: ").append(toIndentedString(itemsAppliedDiscountAmount)).append("\n");
     sb.append("    totalAppliedDiscountAmount: ").append(toIndentedString(totalAppliedDiscountAmount)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -803,6 +802,7 @@ public class OrdersCreateResponseBody {
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -837,7 +837,6 @@ public class OrdersCreateResponseBody {
     openapiFields.add("applied_discount_amount");
     openapiFields.add("items_applied_discount_amount");
     openapiFields.add("total_applied_discount_amount");
-    openapiFields.add("items");
     openapiFields.add("metadata");
     openapiFields.add("object");
     openapiFields.add("created_at");
@@ -847,6 +846,7 @@ public class OrdersCreateResponseBody {
     openapiFields.add("customer");
     openapiFields.add("referrer");
     openapiFields.add("redemptions");
+    openapiFields.add("items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

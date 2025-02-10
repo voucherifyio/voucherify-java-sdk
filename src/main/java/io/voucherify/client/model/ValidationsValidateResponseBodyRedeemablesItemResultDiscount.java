@@ -394,7 +394,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   }
 
    /**
-   * Get unitOffFormula
+   * Formula used to calculate the number of units.
    * @return unitOffFormula
   **/
   @javax.annotation.Nullable

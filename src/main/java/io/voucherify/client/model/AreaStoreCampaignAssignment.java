@@ -62,6 +62,10 @@ public class AreaStoreCampaignAssignment {
   @SerializedName(SERIALIZED_NAME_AREA_ID)
   private String areaId;
 
+  public static final String SERIALIZED_NAME_ALL_STORES = "all_stores";
+  @SerializedName(SERIALIZED_NAME_ALL_STORES)
+  private Boolean allStores;
+
   public static final String SERIALIZED_NAME_AREA_STORE_ID = "area_store_id";
   @SerializedName(SERIALIZED_NAME_AREA_STORE_ID)
   private String areaStoreId;
@@ -164,6 +168,27 @@ public class AreaStoreCampaignAssignment {
   }
 
 
+  public AreaStoreCampaignAssignment allStores(Boolean allStores) {
+    
+    this.allStores = allStores;
+    return this;
+  }
+
+   /**
+   * Determines if the campaign is assigned to all of the stores in the area, i.e. if an area ID is passed in the &#x60;access_settings.assign.area_all_stores_ids&#x60; in the request.
+   * @return allStores
+  **/
+  @javax.annotation.Nullable
+  public Boolean getAllStores() {
+    return allStores;
+  }
+
+
+  public void setAllStores(Boolean allStores) {
+    this.allStores = allStores;
+  }
+
+
   public AreaStoreCampaignAssignment areaStoreId(String areaStoreId) {
     
     this.areaStoreId = areaStoreId;
@@ -239,6 +264,7 @@ public class AreaStoreCampaignAssignment {
     AreaStoreCampaignAssignment areaStoreCampaignAssignment = (AreaStoreCampaignAssignment) o;
     return Objects.equals(this.id, areaStoreCampaignAssignment.id) &&
         Objects.equals(this.areaId, areaStoreCampaignAssignment.areaId) &&
+        Objects.equals(this.allStores, areaStoreCampaignAssignment.allStores) &&
         Objects.equals(this.areaStoreId, areaStoreCampaignAssignment.areaStoreId) &&
         Objects.equals(this.createdAt, areaStoreCampaignAssignment.createdAt) &&
         Objects.equals(this._object, areaStoreCampaignAssignment._object);
@@ -250,7 +276,7 @@ public class AreaStoreCampaignAssignment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, areaId, areaStoreId, createdAt, _object);
+    return Objects.hash(id, areaId, allStores, areaStoreId, createdAt, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -266,6 +292,7 @@ public class AreaStoreCampaignAssignment {
     sb.append("class AreaStoreCampaignAssignment {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
+    sb.append("    allStores: ").append(toIndentedString(allStores)).append("\n");
     sb.append("    areaStoreId: ").append(toIndentedString(areaStoreId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
@@ -293,6 +320,7 @@ public class AreaStoreCampaignAssignment {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("area_id");
+    openapiFields.add("all_stores");
     openapiFields.add("area_store_id");
     openapiFields.add("created_at");
     openapiFields.add("object");

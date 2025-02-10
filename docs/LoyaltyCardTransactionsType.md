@@ -5,6 +5,8 @@
 ## Enum
 
 
+* `PENDING_ACTIVATION` (value: `"PENDING_POINTS_ACTIVATION"`)
+
 * `ACCRUAL` (value: `"POINTS_ACCRUAL"`)
 
 * `REDEMPTION` (value: `"POINTS_REDEMPTION"`)

@@ -107,8 +107,8 @@ public class Example {
 
     BinApi apiInstance = new BinApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    ParameterOrderListBin order = ParameterOrderListBin.fromValue("id"); // ParameterOrderListBin | Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order.
-    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+    ParameterOrderListBin order = ParameterOrderListBin.fromValue("id"); // ParameterOrderListBin | Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the results starting after a result with the given ID.
     ParameterFiltersListBin filters = new ParameterFiltersListBin(); // ParameterFiltersListBin | Filters for listing bin entries.
     try {
       TrashBinListResponseBody result = apiInstance.listBinEntries(limit, order, startingAfterId, filters);
@@ -129,8 +129,8 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **order** | [**ParameterOrderListBin**](.md)| Orders the bin entries according the date and time when they were moved to the bin or according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. |
-| **startingAfterId** | **String**| A cursor for pagination. It retrieves the events starting after an event with the given ID. |
+| **order** | [**ParameterOrderListBin**](.md)| Orders the bin entries according to the bin entry ID. The dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the results starting after a result with the given ID. |
 | **filters** | [**ParameterFiltersListBin**](.md)| Filters for listing bin entries. |
 
 ### Return type

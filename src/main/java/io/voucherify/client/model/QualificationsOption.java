@@ -186,7 +186,7 @@ public class QualificationsOption {
 
    /**
    * The maximum number of redeemables to be returned in the API request. The actual number of returned redeemables will be determined by the API. The default value is set to 5
-   * maximum: 100
+   * maximum: 50
    * @return limit
   **/
   @javax.annotation.Nullable

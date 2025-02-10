@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.AccessSettingsCampaignAssignmentsList;
 import io.voucherify.client.model.CampaignVoucher;
 import io.voucherify.client.model.Category;
 import io.voucherify.client.model.LoyaltyTiersExpirationAll;
@@ -446,6 +447,10 @@ public class CampaignBase {
   public static final String SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION = "loyalty_tiers_expiration";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION)
   private LoyaltyTiersExpirationAll loyaltyTiersExpiration;
+
+  public static final String SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS = "access_settings_assignments";
+  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS)
+  private AccessSettingsCampaignAssignmentsList accessSettingsAssignments;
 
   public CampaignBase() {
   }
@@ -1096,6 +1101,27 @@ public class CampaignBase {
   }
 
 
+  public CampaignBase accessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
+    
+    this.accessSettingsAssignments = accessSettingsAssignments;
+    return this;
+  }
+
+   /**
+   * Get accessSettingsAssignments
+   * @return accessSettingsAssignments
+  **/
+  @javax.annotation.Nullable
+  public AccessSettingsCampaignAssignmentsList getAccessSettingsAssignments() {
+    return accessSettingsAssignments;
+  }
+
+
+  public void setAccessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
+    this.accessSettingsAssignments = accessSettingsAssignments;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1135,7 +1161,8 @@ public class CampaignBase {
         Objects.equals(this.categories, campaignBase.categories) &&
         Objects.equals(this._object, campaignBase._object) &&
         Objects.equals(this.referralProgram, campaignBase.referralProgram) &&
-        Objects.equals(this.loyaltyTiersExpiration, campaignBase.loyaltyTiersExpiration);
+        Objects.equals(this.loyaltyTiersExpiration, campaignBase.loyaltyTiersExpiration) &&
+        Objects.equals(this.accessSettingsAssignments, campaignBase.accessSettingsAssignments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1144,7 +1171,7 @@ public class CampaignBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration);
+    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration, accessSettingsAssignments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1188,6 +1215,7 @@ public class CampaignBase {
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
     sb.append("    loyaltyTiersExpiration: ").append(toIndentedString(loyaltyTiersExpiration)).append("\n");
+    sb.append("    accessSettingsAssignments: ").append(toIndentedString(accessSettingsAssignments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1240,6 +1268,7 @@ public class CampaignBase {
     openapiFields.add("object");
     openapiFields.add("referral_program");
     openapiFields.add("loyalty_tiers_expiration");
+    openapiFields.add("access_settings_assignments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.AccessSettings;
 import io.voucherify.client.model.LoyaltiesUpdateCampaignRequestBodyOptions;
 import io.voucherify.client.model.LoyaltyTiersExpirationAll;
 import io.voucherify.client.model.ValidityHours;
@@ -156,6 +157,10 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+
+  public static final String SERIALIZED_NAME_ACCESS_SETTINGS = "access_settings";
+  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS)
+  private AccessSettings accessSettings;
 
   public static final String SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING = "activity_duration_after_publishing";
   @SerializedName(SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING)
@@ -457,6 +462,27 @@ public class LoyaltiesUpdateCampaignRequestBody {
   }
 
 
+  public LoyaltiesUpdateCampaignRequestBody accessSettings(AccessSettings accessSettings) {
+    
+    this.accessSettings = accessSettings;
+    return this;
+  }
+
+   /**
+   * Get accessSettings
+   * @return accessSettings
+  **/
+  @javax.annotation.Nullable
+  public AccessSettings getAccessSettings() {
+    return accessSettings;
+  }
+
+
+  public void setAccessSettings(AccessSettings accessSettings) {
+    this.accessSettings = accessSettings;
+  }
+
+
   public LoyaltiesUpdateCampaignRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
@@ -603,6 +629,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
         Objects.equals(this.metadata, loyaltiesUpdateCampaignRequestBody.metadata) &&
         Objects.equals(this.unsetMetadataFields, loyaltiesUpdateCampaignRequestBody.unsetMetadataFields) &&
         Objects.equals(this.categoryId, loyaltiesUpdateCampaignRequestBody.categoryId) &&
+        Objects.equals(this.accessSettings, loyaltiesUpdateCampaignRequestBody.accessSettings) &&
         Objects.equals(this.activityDurationAfterPublishing, loyaltiesUpdateCampaignRequestBody.activityDurationAfterPublishing) &&
         Objects.equals(this.joinOnce, loyaltiesUpdateCampaignRequestBody.joinOnce) &&
         Objects.equals(this.autoJoin, loyaltiesUpdateCampaignRequestBody.autoJoin) &&
@@ -617,7 +644,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, activityDurationAfterPublishing, joinOnce, autoJoin, type, loyaltyTiersExpiration, options);
+    return Objects.hash(startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, description, category, metadata, unsetMetadataFields, categoryId, accessSettings, activityDurationAfterPublishing, joinOnce, autoJoin, type, loyaltyTiersExpiration, options);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -641,6 +668,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    unsetMetadataFields: ").append(toIndentedString(unsetMetadataFields)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
+    sb.append("    accessSettings: ").append(toIndentedString(accessSettings)).append("\n");
     sb.append("    activityDurationAfterPublishing: ").append(toIndentedString(activityDurationAfterPublishing)).append("\n");
     sb.append("    joinOnce: ").append(toIndentedString(joinOnce)).append("\n");
     sb.append("    autoJoin: ").append(toIndentedString(autoJoin)).append("\n");
@@ -679,6 +707,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
     openapiFields.add("metadata");
     openapiFields.add("unset_metadata_fields");
     openapiFields.add("category_id");
+    openapiFields.add("access_settings");
     openapiFields.add("activity_duration_after_publishing");
     openapiFields.add("join_once");
     openapiFields.add("auto_join");

@@ -450,6 +450,10 @@ public class Campaign {
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION)
   private LoyaltyTiersExpirationAll loyaltyTiersExpiration;
 
+  public static final String SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS = "access_settings_assignments";
+  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS)
+  private AccessSettingsCampaignAssignmentsList accessSettingsAssignments;
+
   public static final String SERIALIZED_NAME_PROMOTION = "promotion";
   @SerializedName(SERIALIZED_NAME_PROMOTION)
   private PromotionTiersList promotion;
@@ -457,10 +461,6 @@ public class Campaign {
   public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
   private ValidationRulesAssignmentsList validationRulesAssignments;
-
-  public static final String SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS = "access_settings_assignments";
-  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS_ASSIGNMENTS)
-  private AccessSettingsCampaignAssignmentsList accessSettingsAssignments;
 
   public Campaign() {
   }
@@ -1111,6 +1111,27 @@ public class Campaign {
   }
 
 
+  public Campaign accessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
+    
+    this.accessSettingsAssignments = accessSettingsAssignments;
+    return this;
+  }
+
+   /**
+   * Get accessSettingsAssignments
+   * @return accessSettingsAssignments
+  **/
+  @javax.annotation.Nullable
+  public AccessSettingsCampaignAssignmentsList getAccessSettingsAssignments() {
+    return accessSettingsAssignments;
+  }
+
+
+  public void setAccessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
+    this.accessSettingsAssignments = accessSettingsAssignments;
+  }
+
+
   public Campaign promotion(PromotionTiersList promotion) {
     
     this.promotion = promotion;
@@ -1150,27 +1171,6 @@ public class Campaign {
 
   public void setValidationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     this.validationRulesAssignments = validationRulesAssignments;
-  }
-
-
-  public Campaign accessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
-    
-    this.accessSettingsAssignments = accessSettingsAssignments;
-    return this;
-  }
-
-   /**
-   * Get accessSettingsAssignments
-   * @return accessSettingsAssignments
-  **/
-  @javax.annotation.Nullable
-  public AccessSettingsCampaignAssignmentsList getAccessSettingsAssignments() {
-    return accessSettingsAssignments;
-  }
-
-
-  public void setAccessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
-    this.accessSettingsAssignments = accessSettingsAssignments;
   }
 
 
@@ -1214,9 +1214,9 @@ public class Campaign {
         Objects.equals(this._object, campaign._object) &&
         Objects.equals(this.referralProgram, campaign.referralProgram) &&
         Objects.equals(this.loyaltyTiersExpiration, campaign.loyaltyTiersExpiration) &&
+        Objects.equals(this.accessSettingsAssignments, campaign.accessSettingsAssignments) &&
         Objects.equals(this.promotion, campaign.promotion) &&
-        Objects.equals(this.validationRulesAssignments, campaign.validationRulesAssignments) &&
-        Objects.equals(this.accessSettingsAssignments, campaign.accessSettingsAssignments);
+        Objects.equals(this.validationRulesAssignments, campaign.validationRulesAssignments);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1225,7 +1225,7 @@ public class Campaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration, promotion, validationRulesAssignments, accessSettingsAssignments);
+    return Objects.hash(id, name, description, campaignType, type, voucher, autoJoin, joinOnce, useVoucherMetadataSchema, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, vouchersCount, startDate, expirationDate, active, metadata, createdAt, updatedAt, category, creationStatus, vouchersGenerationStatus, readonly, _protected, categoryId, categories, _object, referralProgram, loyaltyTiersExpiration, accessSettingsAssignments, promotion, validationRulesAssignments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1269,9 +1269,9 @@ public class Campaign {
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    referralProgram: ").append(toIndentedString(referralProgram)).append("\n");
     sb.append("    loyaltyTiersExpiration: ").append(toIndentedString(loyaltyTiersExpiration)).append("\n");
+    sb.append("    accessSettingsAssignments: ").append(toIndentedString(accessSettingsAssignments)).append("\n");
     sb.append("    promotion: ").append(toIndentedString(promotion)).append("\n");
     sb.append("    validationRulesAssignments: ").append(toIndentedString(validationRulesAssignments)).append("\n");
-    sb.append("    accessSettingsAssignments: ").append(toIndentedString(accessSettingsAssignments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1324,9 +1324,9 @@ public class Campaign {
     openapiFields.add("object");
     openapiFields.add("referral_program");
     openapiFields.add("loyalty_tiers_expiration");
+    openapiFields.add("access_settings_assignments");
     openapiFields.add("promotion");
     openapiFields.add("validation_rules_assignments");
-    openapiFields.add("access_settings_assignments");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

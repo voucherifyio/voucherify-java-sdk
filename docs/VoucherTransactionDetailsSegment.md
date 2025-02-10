@@ -8,8 +8,8 @@ Contains information about the segment.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** |  |
-|**name** | **String** |  |
+|**id** | **String** | Unique identifier of the segment. |
+|**name** | **String** | Name of the segment. |
 
 
 

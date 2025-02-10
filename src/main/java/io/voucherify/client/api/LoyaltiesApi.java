@@ -47,6 +47,8 @@ import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersCreateRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersGetResponseBody;
+import io.voucherify.client.model.LoyaltiesMembersPendingPointsActivateResponseBody;
+import io.voucherify.client.model.LoyaltiesMembersPendingPointsListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersPointsExpirationListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBody;
@@ -56,6 +58,7 @@ import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateReques
 import io.voucherify.client.model.LoyaltiesMembersTransactionsExportCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersTransactionsListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersTransfersCreateResponseBody;
+import io.voucherify.client.model.LoyaltiesPendingPointsListResponseBody;
 import io.voucherify.client.model.LoyaltiesPointsExpirationExportCreateRequestBody;
 import io.voucherify.client.model.LoyaltiesPointsExpirationExportCreateResponseBody;
 import io.voucherify.client.model.LoyaltiesRewardAssignmentsGetResponseBody;
@@ -81,6 +84,7 @@ import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
+import io.voucherify.client.model.ParameterOrderListPendingPoints;
 import io.voucherify.client.model.ParameterOrderListTransactions;
 import io.voucherify.client.model.ParameterOrderVouchers;
 import io.voucherify.client.model.ParameterUpdatedBeforeAfter;
@@ -128,6 +132,119 @@ public class LoyaltiesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for activateMemberPendingPoints
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call activateMemberPendingPointsCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate"
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()))
+            .replace("{" + "pendingPointsId" + "}", localVarApiClient.escapeString(pendingPointsId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call activateMemberPendingPointsValidateBeforeCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling activateMemberPendingPoints(Async)");
+        }
+
+        // verify the required parameter 'pendingPointsId' is set
+        if (pendingPointsId == null) {
+            throw new ApiException("Missing the required parameter 'pendingPointsId' when calling activateMemberPendingPoints(Async)");
+        }
+
+        return activateMemberPendingPointsCall(memberId, pendingPointsId, _callback);
+
+    }
+
+    /**
+     * Activate Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @return LoyaltiesMembersPendingPointsActivateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMembersPendingPointsActivateResponseBody activateMemberPendingPoints(String memberId, String pendingPointsId) throws ApiException {
+        ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> localVarResp = activateMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Activate Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @return ApiResponse&lt;LoyaltiesMembersPendingPointsActivateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> activateMemberPendingPointsWithHttpInfo(String memberId, String pendingPointsId) throws ApiException {
+        okhttp3.Call localVarCall = activateMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsActivateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Activate Member Pending Points (asynchronously)
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call activateMemberPendingPointsAsync(String memberId, String pendingPointsId, final ApiCallback<LoyaltiesMembersPendingPointsActivateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = activateMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsActivateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for addMember
      * @param campaignId Unique campaign ID of the loyalty program. (required)
@@ -234,6 +351,114 @@ public class LoyaltiesApi {
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(campaignId, loyaltiesMembersCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersCreateResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for cancelMemberPendingPoints
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call cancelMemberPendingPointsCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel"
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()))
+            .replace("{" + "pendingPointsId" + "}", localVarApiClient.escapeString(pendingPointsId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelMemberPendingPointsValidateBeforeCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling cancelMemberPendingPoints(Async)");
+        }
+
+        // verify the required parameter 'pendingPointsId' is set
+        if (pendingPointsId == null) {
+            throw new ApiException("Missing the required parameter 'pendingPointsId' when calling cancelMemberPendingPoints(Async)");
+        }
+
+        return cancelMemberPendingPointsCall(memberId, pendingPointsId, _callback);
+
+    }
+
+    /**
+     * Cancel Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void cancelMemberPendingPoints(String memberId, String pendingPointsId) throws ApiException {
+        cancelMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
+    }
+
+    /**
+     * Cancel Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> cancelMemberPendingPointsWithHttpInfo(String memberId, String pendingPointsId) throws ApiException {
+        okhttp3.Call localVarCall = cancelMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Cancel Member Pending Points (asynchronously)
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call cancelMemberPendingPointsAsync(String memberId, String pendingPointsId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = cancelMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -616,7 +841,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Create Points Expiration Export
+     * Export Loyalty Campaign Point Expiration
      * Schedule the generation of a points expiration CSV file for a particular campaign.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
@@ -629,7 +854,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Create Points Expiration Export
+     * Export Loyalty Campaign Point Expiration
      * Schedule the generation of a points expiration CSV file for a particular campaign.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
@@ -643,7 +868,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Create Points Expiration Export (asynchronously)
+     * Export Loyalty Campaign Point Expiration (asynchronously)
      * Schedule the generation of a points expiration CSV file for a particular campaign.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
@@ -1096,7 +1321,7 @@ public class LoyaltiesApi {
     /**
      * Build call for disableEarningRule
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1167,7 +1392,7 @@ public class LoyaltiesApi {
      * Disable Earning Rule
      * Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return LoyaltiesEarningRulesDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1180,7 +1405,7 @@ public class LoyaltiesApi {
      * Disable Earning Rule
      * Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1194,7 +1419,7 @@ public class LoyaltiesApi {
      * Disable Earning Rule (asynchronously)
      * Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1209,7 +1434,7 @@ public class LoyaltiesApi {
     /**
      * Build call for enableEarningRule
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1280,7 +1505,7 @@ public class LoyaltiesApi {
      * Enable Earning Rule
      * Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return LoyaltiesEarningRulesEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1293,7 +1518,7 @@ public class LoyaltiesApi {
      * Enable Earning Rule
      * Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1307,7 +1532,7 @@ public class LoyaltiesApi {
      * Enable Earning Rule (asynchronously)
      * Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
-     * @param earningRuleId Unique earning rule ID. (required)
+     * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2426,6 +2651,133 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = getRewardDetailsValidateBeforeCall(campaignId, assignmentId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsRewardGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listCampaignPendingPoints
+     * @param campaignId Unique campaign ID. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCampaignPendingPointsCall(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/pending-points"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCampaignPendingPointsValidateBeforeCall(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listCampaignPendingPoints(Async)");
+        }
+
+        return listCampaignPendingPointsCall(campaignId, limit, order, startingAfterId, _callback);
+
+    }
+
+    /**
+     * List Campaign Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return LoyaltiesPendingPointsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesPendingPointsListResponseBody listCampaignPendingPoints(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesPendingPointsListResponseBody> localVarResp = listCampaignPendingPointsWithHttpInfo(campaignId, limit, order, startingAfterId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Campaign Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesPendingPointsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesPendingPointsListResponseBody> listCampaignPendingPointsWithHttpInfo(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignPendingPointsValidateBeforeCall(campaignId, limit, order, startingAfterId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesPendingPointsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Campaign Pending Points (asynchronously)
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCampaignPendingPointsAsync(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesPendingPointsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCampaignPendingPointsValidateBeforeCall(campaignId, limit, order, startingAfterId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesPendingPointsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3666,6 +4018,270 @@ public class LoyaltiesApi {
         return localVarCall;
     }
     /**
+     * Build call for listMemberPendingPoints
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listMemberPendingPointsCall(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/members/{memberId}/pending-points"
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMemberPendingPointsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling listMemberPendingPoints(Async)");
+        }
+
+        return listMemberPendingPointsCall(memberId, limit, order, startingAfterId, _callback);
+
+    }
+
+    /**
+     * List Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return LoyaltiesMembersPendingPointsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMembersPendingPointsListResponseBody listMemberPendingPoints(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResp = listMemberPendingPointsWithHttpInfo(memberId, limit, order, startingAfterId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesMembersPendingPointsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> listMemberPendingPointsWithHttpInfo(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listMemberPendingPointsValidateBeforeCall(memberId, limit, order, startingAfterId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Member Pending Points (asynchronously)
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listMemberPendingPointsAsync(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesMembersPendingPointsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMemberPendingPointsValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMemberPendingPoints1
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listMemberPendingPoints1Call(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/members/{memberId}/pending-points"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()))
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMemberPendingPoints1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listMemberPendingPoints1(Async)");
+        }
+
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling listMemberPendingPoints1(Async)");
+        }
+
+        return listMemberPendingPoints1Call(campaignId, memberId, limit, order, startingAfterId, _callback);
+
+    }
+
+    /**
+     * List Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return LoyaltiesMembersPendingPointsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMembersPendingPointsListResponseBody listMemberPendingPoints1(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResp = listMemberPendingPoints1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Member Pending Points
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesMembersPendingPointsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> listMemberPendingPoints1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listMemberPendingPoints1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Member Pending Points (asynchronously)
+     * &gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId Unique loyalty card code assigned to a particular customer. (required)
+     * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
+     * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listMemberPendingPoints1Async(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesMembersPendingPointsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMemberPendingPoints1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listMemberRewards
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
@@ -4024,7 +4640,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Get Points Expiration
+     * List Loyalty Card Point Expiration
      * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
@@ -4039,7 +4655,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Get Points Expiration
+     * List Loyalty Card Point Expiration
      * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
@@ -4055,7 +4671,7 @@ public class LoyaltiesApi {
     }
 
     /**
-     * Get Points Expiration (asynchronously)
+     * List Loyalty Card Point Expiration (asynchronously)
      * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)

@@ -273,7 +273,7 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
    /**
-   * Sum of all order-level discounts applied to the order.
+   * Sum of all order-level discounts applied to the order. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).
    * @return discountAmount
   **/
   @javax.annotation.Nullable
@@ -302,7 +302,7 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
    /**
-   * Array of items applied to the order. It can include up 500 items.
+   * Array of items applied to the order. It can include up to 500 items.
    * @return items
   **/
   @javax.annotation.Nullable

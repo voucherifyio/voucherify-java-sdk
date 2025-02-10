@@ -71,7 +71,7 @@ public class VoucherTransactionDetailsSegment {
   }
 
    /**
-   * Get id
+   * Unique identifier of the segment.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class VoucherTransactionDetailsSegment {
   }
 
    /**
-   * Get name
+   * Name of the segment.
    * @return name
   **/
   @javax.annotation.Nullable

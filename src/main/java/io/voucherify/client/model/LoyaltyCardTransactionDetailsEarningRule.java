@@ -72,7 +72,7 @@ public class LoyaltyCardTransactionDetailsEarningRule {
   }
 
    /**
-   * Unique earning rule ID.
+   * Unique identifier of an earning rule, assigned by Voucherify.
    * @return id
   **/
   @javax.annotation.Nullable

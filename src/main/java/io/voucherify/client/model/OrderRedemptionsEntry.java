@@ -140,7 +140,7 @@ public class OrderRedemptionsEntry {
   }
 
    /**
-   * Timestamp representing the date and tiem when the redemption rollback was created. The value is shown in the ISO 8601 format.
+   * Timestamp representing the date and time when the redemption rollback was created. The value is shown in the ISO 8601 format.
    * @return rollbackDate
   **/
   @javax.annotation.Nullable

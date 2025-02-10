@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.AccessSettings;
 import io.voucherify.client.model.CampaignLoyaltyVoucher;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -226,6 +227,10 @@ public class LoyaltiesCreateCampaignRequestBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_ACCESS_SETTINGS = "access_settings";
+  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS)
+  private AccessSettings accessSettings;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
@@ -631,6 +636,27 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
 
+  public LoyaltiesCreateCampaignRequestBody accessSettings(AccessSettings accessSettings) {
+    
+    this.accessSettings = accessSettings;
+    return this;
+  }
+
+   /**
+   * Get accessSettings
+   * @return accessSettings
+  **/
+  @javax.annotation.Nullable
+  public AccessSettings getAccessSettings() {
+    return accessSettings;
+  }
+
+
+  public void setAccessSettings(AccessSettings accessSettings) {
+    this.accessSettings = accessSettings;
+  }
+
+
   public LoyaltiesCreateCampaignRequestBody validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
@@ -728,6 +754,7 @@ public class LoyaltiesCreateCampaignRequestBody {
         Objects.equals(this.categoryId, loyaltiesCreateCampaignRequestBody.categoryId) &&
         Objects.equals(this.category, loyaltiesCreateCampaignRequestBody.category) &&
         Objects.equals(this.metadata, loyaltiesCreateCampaignRequestBody.metadata) &&
+        Objects.equals(this.accessSettings, loyaltiesCreateCampaignRequestBody.accessSettings) &&
         Objects.equals(this.validationRules, loyaltiesCreateCampaignRequestBody.validationRules) &&
         Objects.equals(this.campaignType, loyaltiesCreateCampaignRequestBody.campaignType) &&
         Objects.equals(this.voucher, loyaltiesCreateCampaignRequestBody.voucher);
@@ -739,7 +766,7 @@ public class LoyaltiesCreateCampaignRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, validationRules, campaignType, voucher);
+    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, accessSettings, validationRules, campaignType, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -769,6 +796,7 @@ public class LoyaltiesCreateCampaignRequestBody {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    accessSettings: ").append(toIndentedString(accessSettings)).append("\n");
     sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
     sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
@@ -810,6 +838,7 @@ public class LoyaltiesCreateCampaignRequestBody {
     openapiFields.add("category_id");
     openapiFields.add("category");
     openapiFields.add("metadata");
+    openapiFields.add("access_settings");
     openapiFields.add("validation_rules");
     openapiFields.add("campaign_type");
     openapiFields.add("voucher");

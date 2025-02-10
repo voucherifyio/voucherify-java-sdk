@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.AccessSettings;
 import io.voucherify.client.model.TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -226,6 +227,10 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_ACCESS_SETTINGS = "access_settings";
+  @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS)
+  private AccessSettings accessSettings;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
@@ -578,6 +583,27 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   }
 
 
+  public TemplatesCampaignsCampaignSetupCreateRequestBody accessSettings(AccessSettings accessSettings) {
+    
+    this.accessSettings = accessSettings;
+    return this;
+  }
+
+   /**
+   * Get accessSettings
+   * @return accessSettings
+  **/
+  @javax.annotation.Nullable
+  public AccessSettings getAccessSettings() {
+    return accessSettings;
+  }
+
+
+  public void setAccessSettings(AccessSettings accessSettings) {
+    this.accessSettings = accessSettings;
+  }
+
+
   public TemplatesCampaignsCampaignSetupCreateRequestBody voucher(TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher voucher) {
     
     this.voucher = voucher;
@@ -625,6 +651,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
         Objects.equals(this.categoryId, templatesCampaignsCampaignSetupCreateRequestBody.categoryId) &&
         Objects.equals(this.category, templatesCampaignsCampaignSetupCreateRequestBody.category) &&
         Objects.equals(this.metadata, templatesCampaignsCampaignSetupCreateRequestBody.metadata) &&
+        Objects.equals(this.accessSettings, templatesCampaignsCampaignSetupCreateRequestBody.accessSettings) &&
         Objects.equals(this.voucher, templatesCampaignsCampaignSetupCreateRequestBody.voucher);
   }
 
@@ -634,7 +661,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, voucher);
+    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, accessSettings, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -664,6 +691,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    accessSettings: ").append(toIndentedString(accessSettings)).append("\n");
     sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -703,6 +731,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
     openapiFields.add("category_id");
     openapiFields.add("category");
     openapiFields.add("metadata");
+    openapiFields.add("access_settings");
     openapiFields.add("voucher");
 
     // a set of required properties/fields (JSON key names)

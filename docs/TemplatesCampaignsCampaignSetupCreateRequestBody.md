@@ -24,6 +24,7 @@ Request body schema for **POST** `/v1/templates/campaigns/{campaignTemplateId}/c
 |**categoryId** | **String** | Unique category ID that this campaign belongs to. Either pass this parameter OR the &#x60;category&#x60;. |
 |**category** | **String** | The category assigned to the campaign. Either pass this parameter OR the &#x60;category_id&#x60;. |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format. |
+|**accessSettings** | [**AccessSettings**](AccessSettings.md) |  |
 |**voucher** | [**TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher**](TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher.md) |  |
 
 

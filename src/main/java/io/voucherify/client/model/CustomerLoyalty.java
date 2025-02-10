@@ -78,7 +78,7 @@ public class CustomerLoyalty {
   }
 
    /**
-   * Customer&#39;s loyalty points.
+   * Customer&#39;s loyalty points minus expired for all loyalty cards which the customer has.
    * @return points
   **/
   @javax.annotation.Nullable
