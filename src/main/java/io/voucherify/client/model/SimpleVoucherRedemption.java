@@ -61,6 +61,10 @@ public class SimpleVoucherRedemption {
   @SerializedName(SERIALIZED_NAME_REDEEMED_QUANTITY)
   private Integer redeemedQuantity;
 
+  public static final String SERIALIZED_NAME_REDEEMED_POINTS = "redeemed_points";
+  @SerializedName(SERIALIZED_NAME_REDEEMED_POINTS)
+  private Integer redeemedPoints;
+
   public SimpleVoucherRedemption() {
   }
 
@@ -106,6 +110,27 @@ public class SimpleVoucherRedemption {
   }
 
 
+  public SimpleVoucherRedemption redeemedPoints(Integer redeemedPoints) {
+    
+    this.redeemedPoints = redeemedPoints;
+    return this;
+  }
+
+   /**
+   * Total loyalty points redeemed.
+   * @return redeemedPoints
+  **/
+  @javax.annotation.Nullable
+  public Integer getRedeemedPoints() {
+    return redeemedPoints;
+  }
+
+
+  public void setRedeemedPoints(Integer redeemedPoints) {
+    this.redeemedPoints = redeemedPoints;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -117,7 +142,8 @@ public class SimpleVoucherRedemption {
     }
     SimpleVoucherRedemption simpleVoucherRedemption = (SimpleVoucherRedemption) o;
     return Objects.equals(this.quantity, simpleVoucherRedemption.quantity) &&
-        Objects.equals(this.redeemedQuantity, simpleVoucherRedemption.redeemedQuantity);
+        Objects.equals(this.redeemedQuantity, simpleVoucherRedemption.redeemedQuantity) &&
+        Objects.equals(this.redeemedPoints, simpleVoucherRedemption.redeemedPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -126,7 +152,7 @@ public class SimpleVoucherRedemption {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantity, redeemedQuantity);
+    return Objects.hash(quantity, redeemedQuantity, redeemedPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -142,6 +168,7 @@ public class SimpleVoucherRedemption {
     sb.append("class SimpleVoucherRedemption {\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    redeemedQuantity: ").append(toIndentedString(redeemedQuantity)).append("\n");
+    sb.append("    redeemedPoints: ").append(toIndentedString(redeemedPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,6 +193,7 @@ public class SimpleVoucherRedemption {
     openapiFields = new HashSet<String>();
     openapiFields.add("quantity");
     openapiFields.add("redeemed_quantity");
+    openapiFields.add("redeemed_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

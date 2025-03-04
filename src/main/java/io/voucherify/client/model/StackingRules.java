@@ -287,6 +287,57 @@ public class StackingRules {
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE)
   private RedeemablesNoEffectRuleEnum redeemablesNoEffectRule;
 
+  /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data.
+   */
+  @JsonAdapter(RedeemablesRollbackOrderModeEnum.Adapter.class)
+  public enum RedeemablesRollbackOrderModeEnum {
+    WITH_ORDER("WITH_ORDER"),
+    
+    WITHOUT_ORDER("WITHOUT_ORDER");
+
+    private String value;
+
+    RedeemablesRollbackOrderModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesRollbackOrderModeEnum fromValue(String value) {
+      for (RedeemablesRollbackOrderModeEnum b : RedeemablesRollbackOrderModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesRollbackOrderModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesRollbackOrderModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesRollbackOrderModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesRollbackOrderModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE = "redeemables_rollback_order_mode";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE)
+  private RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode;
+
   public StackingRules() {
   }
 
@@ -547,6 +598,27 @@ public class StackingRules {
   }
 
 
+  public StackingRules redeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    return this;
+  }
+
+   /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data.
+   * @return redeemablesRollbackOrderMode
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesRollbackOrderModeEnum getRedeemablesRollbackOrderMode() {
+    return redeemablesRollbackOrderMode;
+  }
+
+
+  public void setRedeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -567,7 +639,8 @@ public class StackingRules {
         Objects.equals(this.redeemablesApplicationMode, stackingRules.redeemablesApplicationMode) &&
         Objects.equals(this.redeemablesSortingRule, stackingRules.redeemablesSortingRule) &&
         Objects.equals(this.redeemablesProductsApplicationMode, stackingRules.redeemablesProductsApplicationMode) &&
-        Objects.equals(this.redeemablesNoEffectRule, stackingRules.redeemablesNoEffectRule);
+        Objects.equals(this.redeemablesNoEffectRule, stackingRules.redeemablesNoEffectRule) &&
+        Objects.equals(this.redeemablesRollbackOrderMode, stackingRules.redeemablesRollbackOrderMode);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -576,7 +649,7 @@ public class StackingRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule);
+    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, redeemablesRollbackOrderMode);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -601,6 +674,7 @@ public class StackingRules {
     sb.append("    redeemablesSortingRule: ").append(toIndentedString(redeemablesSortingRule)).append("\n");
     sb.append("    redeemablesProductsApplicationMode: ").append(toIndentedString(redeemablesProductsApplicationMode)).append("\n");
     sb.append("    redeemablesNoEffectRule: ").append(toIndentedString(redeemablesNoEffectRule)).append("\n");
+    sb.append("    redeemablesRollbackOrderMode: ").append(toIndentedString(redeemablesRollbackOrderMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -634,6 +708,7 @@ public class StackingRules {
     openapiFields.add("redeemables_sorting_rule");
     openapiFields.add("redeemables_products_application_mode");
     openapiFields.add("redeemables_no_effect_rule");
+    openapiFields.add("redeemables_rollback_order_mode");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

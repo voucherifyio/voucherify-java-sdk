@@ -27,6 +27,7 @@
 - [Bin](#bin)
 - [Templates](#templates)
 - [Management](#management)
+- [OAuth](#oauth)
 - [Client-side](#client-side)
 # Endpoints
 
@@ -347,6 +348,12 @@
 | /management/v1/projects/{projectId}/branding/{brandingId}                         | get    | Get Brand                           | <font color='green'>supported</font> |               |
 | /management/v1/projects/{projectId}/branding/{brandingId}                         | put    | Update Brand                        | <font color='green'>supported</font> |               |
 | /management/v1/projects/{projectId}/branding/{brandingId}                         | delete | Delete Brand                        | <font color='green'>supported</font> |               |
+## OAuth
+| endpoint               | method | summary                    | is supported | is deprecated |
+| ---------------------- | ------ | -------------------------- | ------------ | ------------- |
+| /v1/oauth/token        | post   | Generate OAuth 2.0 Token   |              |               |
+| /v1/oauth/introspect   | post   | Introspect OAuth 2.0 Token |              |               |
+| /v1/oauth/token/revoke | post   | Revoke OAuth 2.0 Token     |              |               |
 ## Client-side
 | endpoint                    | method | summary                                     | is supported                         | is deprecated                        |
 | --------------------------- | ------ | ------------------------------------------- | ------------------------------------ | ------------------------------------ |

@@ -246,10 +246,6 @@ public class RedemptionsRollbackCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
-  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions;
-
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
@@ -346,6 +342,10 @@ public class RedemptionsRollbackCreateResponseBody {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard;
+
+  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
+  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
+  private RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions;
 
   public RedemptionsRollbackCreateResponseBody() {
   }
@@ -578,27 +578,6 @@ public class RedemptionsRollbackCreateResponseBody {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
-  }
-
-
-  public RedemptionsRollbackCreateResponseBody relatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
-    
-    this.relatedRedemptions = relatedRedemptions;
-    return this;
-  }
-
-   /**
-   * Get relatedRedemptions
-   * @return relatedRedemptions
-  **/
-  @javax.annotation.Nullable
-  public RedemptionsRollbackCreateResponseBodyRelatedRedemptions getRelatedRedemptions() {
-    return relatedRedemptions;
-  }
-
-
-  public void setRelatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
-    this.relatedRedemptions = relatedRedemptions;
   }
 
 
@@ -854,6 +833,27 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
+  public RedemptionsRollbackCreateResponseBody relatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
+    
+    this.relatedRedemptions = relatedRedemptions;
+    return this;
+  }
+
+   /**
+   * Get relatedRedemptions
+   * @return relatedRedemptions
+  **/
+  @javax.annotation.Nullable
+  public RedemptionsRollbackCreateResponseBodyRelatedRedemptions getRelatedRedemptions() {
+    return relatedRedemptions;
+  }
+
+
+  public void setRelatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
+    this.relatedRedemptions = relatedRedemptions;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -875,7 +875,6 @@ public class RedemptionsRollbackCreateResponseBody {
         Objects.equals(this.reason, redemptionsRollbackCreateResponseBody.reason) &&
         Objects.equals(this.result, redemptionsRollbackCreateResponseBody.result) &&
         Objects.equals(this.status, redemptionsRollbackCreateResponseBody.status) &&
-        Objects.equals(this.relatedRedemptions, redemptionsRollbackCreateResponseBody.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemptionsRollbackCreateResponseBody.failureCode) &&
         Objects.equals(this.failureMessage, redemptionsRollbackCreateResponseBody.failureMessage) &&
         Objects.equals(this.order, redemptionsRollbackCreateResponseBody.order) &&
@@ -887,7 +886,8 @@ public class RedemptionsRollbackCreateResponseBody {
         Objects.equals(this.promotionTier, redemptionsRollbackCreateResponseBody.promotionTier) &&
         Objects.equals(this.reward, redemptionsRollbackCreateResponseBody.reward) &&
         Objects.equals(this.gift, redemptionsRollbackCreateResponseBody.gift) &&
-        Objects.equals(this.loyaltyCard, redemptionsRollbackCreateResponseBody.loyaltyCard);
+        Objects.equals(this.loyaltyCard, redemptionsRollbackCreateResponseBody.loyaltyCard) &&
+        Objects.equals(this.relatedRedemptions, redemptionsRollbackCreateResponseBody.relatedRedemptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -896,7 +896,7 @@ public class RedemptionsRollbackCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard, relatedRedemptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -921,7 +921,6 @@ public class RedemptionsRollbackCreateResponseBody {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
@@ -934,6 +933,7 @@ public class RedemptionsRollbackCreateResponseBody {
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
+    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -967,7 +967,6 @@ public class RedemptionsRollbackCreateResponseBody {
     openapiFields.add("reason");
     openapiFields.add("result");
     openapiFields.add("status");
-    openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
     openapiFields.add("order");
@@ -980,6 +979,7 @@ public class RedemptionsRollbackCreateResponseBody {
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
+    openapiFields.add("related_redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

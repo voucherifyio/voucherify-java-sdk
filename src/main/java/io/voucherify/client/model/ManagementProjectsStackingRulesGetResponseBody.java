@@ -249,6 +249,57 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_SORTING_RULE)
   private RedeemablesSortingRuleEnum redeemablesSortingRule;
 
+  /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
+   */
+  @JsonAdapter(RedeemablesRollbackOrderModeEnum.Adapter.class)
+  public enum RedeemablesRollbackOrderModeEnum {
+    WITH_ORDER("WITH_ORDER"),
+    
+    WITHOUT_ORDER("WITHOUT_ORDER");
+
+    private String value;
+
+    RedeemablesRollbackOrderModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesRollbackOrderModeEnum fromValue(String value) {
+      for (RedeemablesRollbackOrderModeEnum b : RedeemablesRollbackOrderModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesRollbackOrderModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesRollbackOrderModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesRollbackOrderModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesRollbackOrderModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE = "redeemables_rollback_order_mode";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE)
+  private RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -570,6 +621,27 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   }
 
 
+  public ManagementProjectsStackingRulesGetResponseBody redeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    return this;
+  }
+
+   /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
+   * @return redeemablesRollbackOrderMode
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesRollbackOrderModeEnum getRedeemablesRollbackOrderMode() {
+    return redeemablesRollbackOrderMode;
+  }
+
+
+  public void setRedeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+  }
+
+
   public ManagementProjectsStackingRulesGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -635,6 +707,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
         Objects.equals(this.discountedAmountModeCategories, managementProjectsStackingRulesGetResponseBody.discountedAmountModeCategories) &&
         Objects.equals(this.redeemablesApplicationMode, managementProjectsStackingRulesGetResponseBody.redeemablesApplicationMode) &&
         Objects.equals(this.redeemablesSortingRule, managementProjectsStackingRulesGetResponseBody.redeemablesSortingRule) &&
+        Objects.equals(this.redeemablesRollbackOrderMode, managementProjectsStackingRulesGetResponseBody.redeemablesRollbackOrderMode) &&
         Objects.equals(this.createdAt, managementProjectsStackingRulesGetResponseBody.createdAt) &&
         Objects.equals(this.updatedAt, managementProjectsStackingRulesGetResponseBody.updatedAt);
   }
@@ -645,7 +718,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, createdAt, updatedAt);
+    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesRollbackOrderMode, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -672,6 +745,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
     sb.append("    discountedAmountModeCategories: ").append(toIndentedString(discountedAmountModeCategories)).append("\n");
     sb.append("    redeemablesApplicationMode: ").append(toIndentedString(redeemablesApplicationMode)).append("\n");
     sb.append("    redeemablesSortingRule: ").append(toIndentedString(redeemablesSortingRule)).append("\n");
+    sb.append("    redeemablesRollbackOrderMode: ").append(toIndentedString(redeemablesRollbackOrderMode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -709,6 +783,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
     openapiFields.add("discounted_amount_mode_categories");
     openapiFields.add("redeemables_application_mode");
     openapiFields.add("redeemables_sorting_rule");
+    openapiFields.add("redeemables_rollback_order_mode");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
 

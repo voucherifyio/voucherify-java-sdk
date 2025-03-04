@@ -20,6 +20,7 @@ Request body schema for **POST** `/management/v1/projects/{projectId}/stacking-r
 |**discountedAmountModeCategories** | **List&lt;String&gt;** | Lists the IDs of the categories that apply a discount based on the discounted amount. |
 |**redeemablesApplicationMode** | [**RedeemablesApplicationModeEnum**](#RedeemablesApplicationModeEnum) | Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped. |
 |**redeemablesSortingRule** | [**RedeemablesSortingRuleEnum**](#RedeemablesSortingRuleEnum) | Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request. |
+|**redeemablesRollbackOrderMode** | [**RedeemablesRollbackOrderModeEnum**](#RedeemablesRollbackOrderModeEnum) | Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. |
 
 
 
@@ -47,6 +48,15 @@ Request body schema for **POST** `/management/v1/projects/{projectId}/stacking-r
 |---- | -----|
 | CATEGORY_HIERARCHY | &quot;CATEGORY_HIERARCHY&quot; |
 | REQUESTED_ORDER | &quot;REQUESTED_ORDER&quot; |
+
+
+
+## Enum: RedeemablesRollbackOrderModeEnum
+
+| Name | Value |
+|---- | -----|
+| WITH_ORDER | &quot;WITH_ORDER&quot; |
+| WITHOUT_ORDER | &quot;WITHOUT_ORDER&quot; |
 
 
 

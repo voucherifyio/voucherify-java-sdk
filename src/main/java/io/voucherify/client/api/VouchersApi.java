@@ -1519,7 +1519,7 @@ public class VouchersApi {
 
     /**
      * Update Voucher
-     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped. If you want to change the amount on a gift card or the number of points on a loyalty card, use the Add or remove voucher balance endpoint.
      * @param code A unique **code** that identifies the voucher. (required)
      * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
      * @return VouchersUpdateResponseBody
@@ -1532,7 +1532,7 @@ public class VouchersApi {
 
     /**
      * Update Voucher
-     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped. If you want to change the amount on a gift card or the number of points on a loyalty card, use the Add or remove voucher balance endpoint.
      * @param code A unique **code** that identifies the voucher. (required)
      * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
      * @return ApiResponse&lt;VouchersUpdateResponseBody&gt;
@@ -1546,7 +1546,7 @@ public class VouchersApi {
 
     /**
      * Update Voucher (asynchronously)
-     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+     * Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped. If you want to change the amount on a gift card or the number of points on a loyalty card, use the Add or remove voucher balance endpoint.
      * @param code A unique **code** that identifies the voucher. (required)
      * @param vouchersUpdateRequestBody Specify the parameters to be updated. (required)
      * @param _callback The callback to be executed when the API call finishes

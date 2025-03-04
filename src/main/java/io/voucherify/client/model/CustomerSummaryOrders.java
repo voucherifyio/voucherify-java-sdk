@@ -84,7 +84,7 @@ public class CustomerSummaryOrders {
   }
 
    /**
-   * The total amount spent by the customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * The total amount spent by the customer. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return totalAmount
   **/
   @javax.annotation.Nullable
@@ -126,7 +126,7 @@ public class CustomerSummaryOrders {
   }
 
    /**
-   * Average amount spent on orders. &#x60;total_amount&#x60; &amp;divide; &#x60;total_count&#x60;. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * Average amount spent on orders. &#x60;total_amount&#x60; &amp;divide; &#x60;total_count&#x60;. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return averageAmount
   **/
   @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class CustomerSummaryOrders {
   }
 
    /**
-   * Amount spent on last order. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * Amount spent on last order. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return lastOrderAmount
   **/
   @javax.annotation.Nullable

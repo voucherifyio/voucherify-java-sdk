@@ -61,6 +61,57 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
 
+  /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. This is returned only in GET &#x60;v1/redemptions/&#x60; and GET &#x60;v1/redemptions/{redemptionId}&#x60; endpoints.
+   */
+  @JsonAdapter(RollbackOrderModeEnum.Adapter.class)
+  public enum RollbackOrderModeEnum {
+    WITH_ORDER("WITH_ORDER"),
+    
+    WITHOUT_ORDER("WITHOUT_ORDER");
+
+    private String value;
+
+    RollbackOrderModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RollbackOrderModeEnum fromValue(String value) {
+      for (RollbackOrderModeEnum b : RollbackOrderModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RollbackOrderModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RollbackOrderModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RollbackOrderModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RollbackOrderModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ROLLBACK_ORDER_MODE = "rollback_order_mode";
+  @SerializedName(SERIALIZED_NAME_ROLLBACK_ORDER_MODE)
+  private RollbackOrderModeEnum rollbackOrderMode;
+
   public RedemptionRelatedRedemptionsRollbacksItem() {
   }
 
@@ -106,6 +157,27 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
   }
 
 
+  public RedemptionRelatedRedemptionsRollbacksItem rollbackOrderMode(RollbackOrderModeEnum rollbackOrderMode) {
+    
+    this.rollbackOrderMode = rollbackOrderMode;
+    return this;
+  }
+
+   /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. This is returned only in GET &#x60;v1/redemptions/&#x60; and GET &#x60;v1/redemptions/{redemptionId}&#x60; endpoints.
+   * @return rollbackOrderMode
+  **/
+  @javax.annotation.Nullable
+  public RollbackOrderModeEnum getRollbackOrderMode() {
+    return rollbackOrderMode;
+  }
+
+
+  public void setRollbackOrderMode(RollbackOrderModeEnum rollbackOrderMode) {
+    this.rollbackOrderMode = rollbackOrderMode;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -117,12 +189,13 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
     }
     RedemptionRelatedRedemptionsRollbacksItem redemptionRelatedRedemptionsRollbacksItem = (RedemptionRelatedRedemptionsRollbacksItem) o;
     return Objects.equals(this.id, redemptionRelatedRedemptionsRollbacksItem.id) &&
-        Objects.equals(this.date, redemptionRelatedRedemptionsRollbacksItem.date);
+        Objects.equals(this.date, redemptionRelatedRedemptionsRollbacksItem.date) &&
+        Objects.equals(this.rollbackOrderMode, redemptionRelatedRedemptionsRollbacksItem.rollbackOrderMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, date);
+    return Objects.hash(id, date, rollbackOrderMode);
   }
 
   @Override
@@ -131,6 +204,7 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
     sb.append("class RedemptionRelatedRedemptionsRollbacksItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    rollbackOrderMode: ").append(toIndentedString(rollbackOrderMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,6 +229,7 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("date");
+    openapiFields.add("rollback_order_mode");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
