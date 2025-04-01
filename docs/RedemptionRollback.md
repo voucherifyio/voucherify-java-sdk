@@ -19,7 +19,6 @@ This is an object representing a redemption rollback.
 |**reason** | **String** | System generated cause for the redemption being invalid in the context of the provided parameters. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |
 |**status** | [**StatusEnum**](#StatusEnum) | Redemption status. |
-|**relatedRedemptions** | [**RedemptionRollbackRelatedRedemptions**](RedemptionRollbackRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |
 |**order** | [**OrderCalculated**](OrderCalculated.md) |  |
@@ -32,6 +31,7 @@ This is an object representing a redemption rollback.
 |**reward** | [**RedemptionRewardResult**](RedemptionRewardResult.md) |  |
 |**gift** | [**RedemptionRollbackGift**](RedemptionRollbackGift.md) |  |
 |**loyaltyCard** | [**RedemptionRollbackLoyaltyCard**](RedemptionRollbackLoyaltyCard.md) |  |
+|**relatedRedemptions** | [**RedemptionRollbackRelatedRedemptions**](RedemptionRollbackRelatedRedemptions.md) |  |
 
 
 

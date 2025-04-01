@@ -61,6 +61,10 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ValidationsValidateResponseBody {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_VALID = "valid";
   @SerializedName(SERIALIZED_NAME_VALID)
   private Boolean valid;
@@ -95,6 +99,27 @@ public class ValidationsValidateResponseBody {
 
   public ValidationsValidateResponseBody() {
   }
+
+  public ValidationsValidateResponseBody id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Unique identifier of the validation, assigned by Voucherify.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public ValidationsValidateResponseBody valid(Boolean valid) {
     
@@ -298,7 +323,8 @@ public class ValidationsValidateResponseBody {
       return false;
     }
     ValidationsValidateResponseBody validationsValidateResponseBody = (ValidationsValidateResponseBody) o;
-    return Objects.equals(this.valid, validationsValidateResponseBody.valid) &&
+    return Objects.equals(this.id, validationsValidateResponseBody.id) &&
+        Objects.equals(this.valid, validationsValidateResponseBody.valid) &&
         Objects.equals(this.redeemables, validationsValidateResponseBody.redeemables) &&
         Objects.equals(this.skippedRedeemables, validationsValidateResponseBody.skippedRedeemables) &&
         Objects.equals(this.inapplicableRedeemables, validationsValidateResponseBody.inapplicableRedeemables) &&
@@ -314,7 +340,7 @@ public class ValidationsValidateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(valid, redeemables, skippedRedeemables, inapplicableRedeemables, order, trackingId, session, stackingRules);
+    return Objects.hash(id, valid, redeemables, skippedRedeemables, inapplicableRedeemables, order, trackingId, session, stackingRules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -328,6 +354,7 @@ public class ValidationsValidateResponseBody {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidationsValidateResponseBody {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    redeemables: ").append(toIndentedString(redeemables)).append("\n");
     sb.append("    skippedRedeemables: ").append(toIndentedString(skippedRedeemables)).append("\n");
@@ -358,6 +385,7 @@ public class ValidationsValidateResponseBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("valid");
     openapiFields.add("redeemables");
     openapiFields.add("skipped_redeemables");

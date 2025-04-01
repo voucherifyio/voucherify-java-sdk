@@ -563,7 +563,7 @@ public class OrderCalculatedItem {
   }
 
    /**
-   * Unit price of an item. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * Unit price of an item. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return price
   **/
   @javax.annotation.Nullable

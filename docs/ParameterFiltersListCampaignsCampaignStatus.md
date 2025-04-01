@@ -2,7 +2,7 @@
 
 # ParameterFiltersListCampaignsCampaignStatus
 
-Type of the campaign. Allowed values: `DONE`, `IN_PROGRESS`, `DRAFT`, `FAILED` `MODIFYING`
+Status of the campaign. Allowed values: `DONE`, `IN_PROGRESS`, `DRAFT`, `FAILED` `MODIFYING`
 
 ## Properties
 

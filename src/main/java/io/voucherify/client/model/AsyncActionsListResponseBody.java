@@ -158,6 +158,10 @@ public class AsyncActionsListResponseBody {
   @SerializedName(SERIALIZED_NAME_ASYNC_ACTIONS)
   private List<AsyncActionBase> asyncActions;
 
+  public static final String SERIALIZED_NAME_HAS_MORE = "has_more";
+  @SerializedName(SERIALIZED_NAME_HAS_MORE)
+  private Boolean hasMore;
+
   public AsyncActionsListResponseBody() {
   }
 
@@ -232,6 +236,27 @@ public class AsyncActionsListResponseBody {
   }
 
 
+  public AsyncActionsListResponseBody hasMore(Boolean hasMore) {
+    
+    this.hasMore = hasMore;
+    return this;
+  }
+
+   /**
+   * As query results are always limited by parameters, the &#x60;has_more&#x60; flag indicates if there are more records available. This lets you know if you can run another request to get more records returned in the results.
+   * @return hasMore
+  **/
+  @javax.annotation.Nullable
+  public Boolean getHasMore() {
+    return hasMore;
+  }
+
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -244,7 +269,8 @@ public class AsyncActionsListResponseBody {
     AsyncActionsListResponseBody asyncActionsListResponseBody = (AsyncActionsListResponseBody) o;
     return Objects.equals(this._object, asyncActionsListResponseBody._object) &&
         Objects.equals(this.dataRef, asyncActionsListResponseBody.dataRef) &&
-        Objects.equals(this.asyncActions, asyncActionsListResponseBody.asyncActions);
+        Objects.equals(this.asyncActions, asyncActionsListResponseBody.asyncActions) &&
+        Objects.equals(this.hasMore, asyncActionsListResponseBody.hasMore);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -253,7 +279,7 @@ public class AsyncActionsListResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, dataRef, asyncActions);
+    return Objects.hash(_object, dataRef, asyncActions, hasMore);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -270,6 +296,7 @@ public class AsyncActionsListResponseBody {
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    dataRef: ").append(toIndentedString(dataRef)).append("\n");
     sb.append("    asyncActions: ").append(toIndentedString(asyncActions)).append("\n");
+    sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -295,6 +322,7 @@ public class AsyncActionsListResponseBody {
     openapiFields.add("object");
     openapiFields.add("data_ref");
     openapiFields.add("async_actions");
+    openapiFields.add("has_more");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

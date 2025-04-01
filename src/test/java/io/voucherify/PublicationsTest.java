@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.Arrays;
 import java.util.List;
 
-@org.junit.jupiter.api.Order(6)
+@org.junit.jupiter.api.Order(5)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PublicationsTest {
     public static ApiClient defaultClient = null;

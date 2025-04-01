@@ -87,7 +87,7 @@ public class RedeemableLoyaltyCard {
   }
 
    /**
-   * Total points incurred over the lifespan of the loyalty card, minus the expired points.
+   * Total number of points added to the loyalty card over its lifespan.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -108,7 +108,7 @@ public class RedeemableLoyaltyCard {
   }
 
    /**
-   * Points available for reward redemption.
+   * Points available for reward redemption. This is calculated as follows: &#x60;balance&#x60; &#x3D; &#x60;points&#x60; - &#x60;expired_points&#x60; - &#x60;subtracted_points&#x60; - &#x60;redemption.redeemed_points&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable

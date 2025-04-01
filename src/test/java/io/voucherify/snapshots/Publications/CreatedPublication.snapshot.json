@@ -41,8 +41,8 @@
     "discount": null,
     "gift": null,
     "loyaltyCard": {
-      "points": 2500,
-      "balance": 2500,
+      "points": 500,
+      "balance": 500,
       "nextExpirationDate": null,
       "nextExpirationPoints": null
     },

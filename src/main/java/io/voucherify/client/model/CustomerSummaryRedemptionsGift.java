@@ -71,7 +71,7 @@ public class CustomerSummaryRedemptionsGift {
   }
 
    /**
-   * Total amount of gift card credits redeemed by customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * Total amount of gift card credits redeemed by customer. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return redeemedAmount
   **/
   @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class CustomerSummaryRedemptionsGift {
   }
 
    /**
-   * Remaining gift card balance across all gift cards. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * Remaining gift card balance across all gift cards. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return amountToGo
   **/
   @javax.annotation.Nullable

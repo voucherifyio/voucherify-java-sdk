@@ -29,4 +29,5 @@ build
 /git_push.sh
 /.env
 /.idea
+.idea
 gradle.properties

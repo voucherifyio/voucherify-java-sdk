@@ -269,7 +269,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   }
 
    /**
-   * The current number of loyalty points after the pendint points have been added.
+   * The current number of loyalty points after the pending points have been added.
    * @return balance
   **/
   @javax.annotation.Nullable

@@ -19,6 +19,7 @@ Defines stacking rules for redeemables. Read more in the [Stacking Rule Document
 |**redeemablesSortingRule** | [**RedeemablesSortingRuleEnum**](#RedeemablesSortingRuleEnum) | Defines redeemables sorting rule. |
 |**redeemablesProductsApplicationMode** | [**RedeemablesProductsApplicationModeEnum**](#RedeemablesProductsApplicationModeEnum) | Defines redeemables products application mode. |
 |**redeemablesNoEffectRule** | [**RedeemablesNoEffectRuleEnum**](#RedeemablesNoEffectRuleEnum) | Defines redeemables no effect rule. |
+|**redeemablesRollbackOrderMode** | [**RedeemablesRollbackOrderModeEnum**](#RedeemablesRollbackOrderModeEnum) | Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data. |
 
 
 
@@ -55,6 +56,15 @@ Defines stacking rules for redeemables. Read more in the [Stacking Rule Document
 |---- | -----|
 | REDEEM_ANYWAY | &quot;REDEEM_ANYWAY&quot; |
 | SKIP | &quot;SKIP&quot; |
+
+
+
+## Enum: RedeemablesRollbackOrderModeEnum
+
+| Name | Value |
+|---- | -----|
+| WITH_ORDER | &quot;WITH_ORDER&quot; |
+| WITHOUT_ORDER | &quot;WITHOUT_ORDER&quot; |
 
 
 

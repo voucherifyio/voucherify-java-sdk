@@ -48,17 +48,42 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Stores the amount of gift card credits to be applied in the redemption.
+ * Stores the amount of gift card credits to be applied.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
+  public static final String SERIALIZED_NAME_BALANCE = "balance";
+  @SerializedName(SERIALIZED_NAME_BALANCE)
+  private Integer balance;
+
   public static final String SERIALIZED_NAME_CREDITS = "credits";
   @SerializedName(SERIALIZED_NAME_CREDITS)
   private Integer credits;
 
   public ClientValidationsValidateResponseBodyRedeemablesItemResultGift() {
   }
+
+  public ClientValidationsValidateResponseBodyRedeemablesItemResultGift balance(Integer balance) {
+    
+    this.balance = balance;
+    return this;
+  }
+
+   /**
+   * Available funds at the moment of validation. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * @return balance
+  **/
+  @javax.annotation.Nullable
+  public Integer getBalance() {
+    return balance;
+  }
+
+
+  public void setBalance(Integer balance) {
+    this.balance = balance;
+  }
+
 
   public ClientValidationsValidateResponseBodyRedeemablesItemResultGift credits(Integer credits) {
     
@@ -67,7 +92,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
   }
 
    /**
-   * Total number of gift card credits to be applied in the redemption expressed as the smallest currency unit (e.g. 100 cents for $1.00).
+   * Total number of gift card credits to be applied. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return credits
   **/
   @javax.annotation.Nullable
@@ -91,7 +116,8 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
       return false;
     }
     ClientValidationsValidateResponseBodyRedeemablesItemResultGift clientValidationsValidateResponseBodyRedeemablesItemResultGift = (ClientValidationsValidateResponseBodyRedeemablesItemResultGift) o;
-    return Objects.equals(this.credits, clientValidationsValidateResponseBodyRedeemablesItemResultGift.credits);
+    return Objects.equals(this.balance, clientValidationsValidateResponseBodyRedeemablesItemResultGift.balance) &&
+        Objects.equals(this.credits, clientValidationsValidateResponseBodyRedeemablesItemResultGift.credits);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -100,7 +126,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credits);
+    return Objects.hash(balance, credits);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -114,6 +140,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    credits: ").append(toIndentedString(credits)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -137,6 +164,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultGift {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("balance");
     openapiFields.add("credits");
 
     // a set of required properties/fields (JSON key names)

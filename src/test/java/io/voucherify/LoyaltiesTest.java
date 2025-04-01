@@ -1,5 +1,6 @@
 package io.voucherify;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.JsonSyntaxException;
 import io.voucherify.data.VoucherifyStore;
 import io.voucherify.helpers.DeepMatch;
@@ -18,11 +19,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static io.voucherify.helpers.DeepMatch.readSnapshot;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@org.junit.jupiter.api.Order(5)
+@org.junit.jupiter.api.Order(6)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoyaltiesTest {
     public static ApiClient defaultClient = null;

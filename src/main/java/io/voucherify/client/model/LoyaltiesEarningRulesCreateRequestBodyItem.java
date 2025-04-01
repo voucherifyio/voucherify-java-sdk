@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemLoyalty;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier;
+import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemSegment;
 import io.voucherify.client.model.LoyaltiesEarningRulesCreateRequestBodyItemSource;
 import io.voucherify.client.model.ValidityHours;
@@ -90,6 +91,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints pendingPoints;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -326,6 +331,27 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
   }
 
 
+  public LoyaltiesEarningRulesCreateRequestBodyItem pendingPoints(LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Get pendingPoints
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
   public LoyaltiesEarningRulesCreateRequestBodyItem validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
@@ -498,6 +524,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
         Objects.equals(this.active, loyaltiesEarningRulesCreateRequestBodyItem.active) &&
         Objects.equals(this.startDate, loyaltiesEarningRulesCreateRequestBodyItem.startDate) &&
         Objects.equals(this.expirationDate, loyaltiesEarningRulesCreateRequestBodyItem.expirationDate) &&
+        Objects.equals(this.pendingPoints, loyaltiesEarningRulesCreateRequestBodyItem.pendingPoints) &&
         Objects.equals(this.validityTimeframe, loyaltiesEarningRulesCreateRequestBodyItem.validityTimeframe) &&
         Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesCreateRequestBodyItem.validityDayOfWeek) &&
         Objects.equals(this.validityHours, loyaltiesEarningRulesCreateRequestBodyItem.validityHours) &&
@@ -513,7 +540,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationRuleId, loyalty, event, source, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, segment, customEvent, loyaltyTier);
+    return Objects.hash(validationRuleId, loyalty, event, source, active, startDate, expirationDate, pendingPoints, validityTimeframe, validityDayOfWeek, validityHours, metadata, segment, customEvent, loyaltyTier);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -534,6 +561,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
@@ -570,6 +598,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
     openapiFields.add("active");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
+    openapiFields.add("pending_points");
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
