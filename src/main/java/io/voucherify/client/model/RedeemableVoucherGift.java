@@ -57,6 +57,10 @@ public class RedeemableVoucherGift {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
 
+  public static final String SERIALIZED_NAME_SUBTRACTED_AMOUNT = "subtracted_amount";
+  @SerializedName(SERIALIZED_NAME_SUBTRACTED_AMOUNT)
+  private Integer subtractedAmount;
+
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private Integer balance;
@@ -122,7 +126,7 @@ public class RedeemableVoucherGift {
   }
 
    /**
-   * Total gift card income over the lifetime of the card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+   * Total gift card income over the lifetime of the card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -136,6 +140,27 @@ public class RedeemableVoucherGift {
   }
 
 
+  public RedeemableVoucherGift subtractedAmount(Integer subtractedAmount) {
+    
+    this.subtractedAmount = subtractedAmount;
+    return this;
+  }
+
+   /**
+   * Total amount of subtracted credits over the gift card lifetime. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * @return subtractedAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getSubtractedAmount() {
+    return subtractedAmount;
+  }
+
+
+  public void setSubtractedAmount(Integer subtractedAmount) {
+    this.subtractedAmount = subtractedAmount;
+  }
+
+
   public RedeemableVoucherGift balance(Integer balance) {
     
     this.balance = balance;
@@ -143,7 +168,7 @@ public class RedeemableVoucherGift {
   }
 
    /**
-   * Available funds. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+   * Available funds. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. &#x60;balance&#x60; &#x3D; &#x60;amount&#x60; - &#x60;subtracted_amount&#x60; - &#x60;redemption.redeemed_amount&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable
@@ -189,6 +214,7 @@ public class RedeemableVoucherGift {
     }
     RedeemableVoucherGift redeemableVoucherGift = (RedeemableVoucherGift) o;
     return Objects.equals(this.amount, redeemableVoucherGift.amount) &&
+        Objects.equals(this.subtractedAmount, redeemableVoucherGift.subtractedAmount) &&
         Objects.equals(this.balance, redeemableVoucherGift.balance) &&
         Objects.equals(this.effect, redeemableVoucherGift.effect);
   }
@@ -199,7 +225,7 @@ public class RedeemableVoucherGift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balance, effect);
+    return Objects.hash(amount, subtractedAmount, balance, effect);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -214,6 +240,7 @@ public class RedeemableVoucherGift {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedeemableVoucherGift {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    subtractedAmount: ").append(toIndentedString(subtractedAmount)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("}");
@@ -239,6 +266,7 @@ public class RedeemableVoucherGift {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("amount");
+    openapiFields.add("subtracted_amount");
     openapiFields.add("balance");
     openapiFields.add("effect");
 

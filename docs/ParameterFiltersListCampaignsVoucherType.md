@@ -2,13 +2,13 @@
 
 # ParameterFiltersListCampaignsVoucherType
 
-Filter by voucher type
+Type of the voucher. Allowed values: `DISCOUNT_VOUCHER`, `GIFT_VOUCHER`, `LOYALTY_CARD`.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**conditions** | [**FilterConditionsString**](FilterConditionsString.md) |  |
+|**conditions** | [**ParameterFiltersListCampaignsVoucherTypeConditions**](ParameterFiltersListCampaignsVoucherTypeConditions.md) |  |
 
 
 

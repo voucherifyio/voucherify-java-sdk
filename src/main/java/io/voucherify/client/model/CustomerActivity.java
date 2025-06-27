@@ -58,9 +58,200 @@ public class CustomerActivity {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  /**
+   * Event type.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CONFIRMED("customer.confirmed"),
+    
+    CREATED("customer.created"),
+    
+    UPDATED("customer.updated"),
+    
+    DELETED("customer.deleted"),
+    
+    REFERRED("customer.referred"),
+    
+    CUSTOM_EVENT("customer.custom_event"),
+    
+    SEGMENT_ENTERED("customer.segment.entered"),
+    
+    SEGMENT_LEFT("customer.segment.left"),
+    
+    SMS_SENT("customer.sms.sent"),
+    
+    SMS_RECOVERED("customer.sms.recovered"),
+    
+    SMS_FAILED("customer.sms.failed"),
+    
+    EMAIL_SENT("customer.email.sent"),
+    
+    EMAIL_RECOVERED("customer.email.recovered"),
+    
+    EMAIL_FAILED("customer.email.failed"),
+    
+    ACTIVECAMPAIGN_SENT("customer.activecampaign.sent"),
+    
+    ACTIVECAMPAIGN_RECOVERED("customer.activecampaign.recovered"),
+    
+    ACTIVECAMPAIGN_FAILED("customer.activecampaign.failed"),
+    
+    BRAZE_SENT("customer.braze.sent"),
+    
+    BRAZE_RECOVERED("customer.braze.recovered"),
+    
+    BRAZE_FAILED("customer.braze.failed"),
+    
+    MAILCHIMP_SENT("customer.mailchimp.sent"),
+    
+    MAILCHIMP_RECOVERED("customer.mailchimp.recovered"),
+    
+    MAILCHIMP_FAILED("customer.mailchimp.failed"),
+    
+    INTERCOM_SENT("customer.intercom.sent"),
+    
+    INTERCOM_RECOVERED("customer.intercom.recovered"),
+    
+    INTERCOM_FAILED("customer.intercom.failed"),
+    
+    SHOPIFY_SENT("customer.shopify.sent"),
+    
+    SHOPIFY_RECOVERED("customer.shopify.recovered"),
+    
+    SHOPIFY_FAILED("customer.shopify.failed"),
+    
+    KLAVIYO_SENT("customer.klaviyo.sent"),
+    
+    KLAVIYO_RECOVERED("customer.klaviyo.recovered"),
+    
+    KLAVIYO_FAILED("customer.klaviyo.failed"),
+    
+    BATCH_SENT("customer.batch.sent"),
+    
+    BATCH_RECOVERED("customer.batch.recovered"),
+    
+    BATCH_FAILED("customer.batch.failed"),
+    
+    REWARDED("customer.rewarded"),
+    
+    REWARDED_LOYALTY_POINTS("customer.rewarded.loyalty_points"),
+    
+    VOUCHER_GIFT_BALANCE_ADDED("customer.voucher.gift.balance_added"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ACTIVATED("customer.voucher.loyalty_card.pending_points.activated"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ADDED("customer.voucher.loyalty_card.pending_points.added"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_CANCELED("customer.voucher.loyalty_card.pending_points.canceled"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_UPDATED("customer.voucher.loyalty_card.pending_points.updated"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_ACTIVATED("customer.voucher.loyalty_card.points_activated"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_ADDED("customer.voucher.loyalty_card.points_added"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_TRANSFERRED("customer.voucher.loyalty_card.points_transferred"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_EXPIRED("customer.voucher.loyalty_card.points_expired"),
+    
+    VOUCHER_DELETED("customer.voucher.deleted"),
+    
+    PUBLICATION_SUCCEEDED("customer.publication.succeeded"),
+    
+    PUBLICATION_FAILED("customer.publication.failed"),
+    
+    VALIDATION_SUCCEEDED("customer.validation.succeeded"),
+    
+    VALIDATION_FAILED("customer.validation.failed"),
+    
+    REDEMPTION_FAILED("customer.redemption.failed"),
+    
+    REDEMPTION_SUCCEEDED("customer.redemption.succeeded"),
+    
+    REDEMPTION_ROLLBACK_FAILED("customer.redemption.rollback.failed"),
+    
+    REDEMPTION_ROLLBACK_SUCCEEDED("customer.redemption.rollback.succeeded"),
+    
+    ORDER_CANCELED("customer.order.canceled"),
+    
+    ORDER_CREATED("customer.order.created"),
+    
+    ORDER_FULFILLED("customer.order.fulfilled"),
+    
+    ORDER_PAID("customer.order.paid"),
+    
+    ORDER_PROCESSING("customer.order.processing"),
+    
+    ORDER_UPDATED("customer.order.updated"),
+    
+    REWARD_REDEMPTIONS_CREATED("customer.reward_redemptions.created"),
+    
+    REWARD_REDEMPTIONS_PENDING("customer.reward_redemptions.pending"),
+    
+    REWARD_REDEMPTIONS_COMPLETED("customer.reward_redemptions.completed"),
+    
+    REWARD_REDEMPTIONS_ROLLEDBACK("customer.reward_redemptions.rolledback"),
+    
+    LOYALTY_UPDATED("customer.loyalty.updated"),
+    
+    LOYALTY_TIER_UPGRADED("customer.loyalty.tier.upgraded"),
+    
+    LOYALTY_TIER_DOWNGRADED("customer.loyalty.tier.downgraded"),
+    
+    LOYALTY_TIER_PROLONGED("customer.loyalty.tier.prolonged"),
+    
+    LOYALTY_TIER_EXPIRATION_CHANGED("customer.loyalty.tier.expiration.changed"),
+    
+    LOYALTY_TIER_JOINED("customer.loyalty.tier.joined"),
+    
+    LOYALTY_TIER_LEFT("customer.loyalty.tier.left"),
+    
+    HOLDER_ASSIGNMENT_CREATED("customer.holder.assignment.created"),
+    
+    HOLDER_ASSIGNMENT_DELETED("customer.holder.assignment.deleted");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -98,7 +289,7 @@ public class CustomerActivity {
   }
 
 
-  public CustomerActivity type(String type) {
+  public CustomerActivity type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -109,12 +300,12 @@ public class CustomerActivity {
    * @return type
   **/
   @javax.annotation.Nullable
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

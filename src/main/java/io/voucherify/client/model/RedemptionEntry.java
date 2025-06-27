@@ -26,6 +26,7 @@ import io.voucherify.client.model.RedemptionEntryLoyaltyCard;
 import io.voucherify.client.model.RedemptionEntryOrder;
 import io.voucherify.client.model.RedemptionEntryPromotionTier;
 import io.voucherify.client.model.RedemptionEntryRelatedRedemptions;
+import io.voucherify.client.model.RedemptionEntrySession;
 import io.voucherify.client.model.RedemptionEntryVoucher;
 import io.voucherify.client.model.RedemptionRewardResult;
 import java.io.IOException;
@@ -245,6 +246,10 @@ public class RedemptionEntry {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_SESSION = "session";
+  @SerializedName(SERIALIZED_NAME_SESSION)
+  private RedemptionEntrySession session;
 
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
@@ -564,6 +569,27 @@ public class RedemptionEntry {
   }
 
 
+  public RedemptionEntry session(RedemptionEntrySession session) {
+    
+    this.session = session;
+    return this;
+  }
+
+   /**
+   * Get session
+   * @return session
+  **/
+  @javax.annotation.Nullable
+  public RedemptionEntrySession getSession() {
+    return session;
+  }
+
+
+  public void setSession(RedemptionEntrySession session) {
+    this.session = session;
+  }
+
+
   public RedemptionEntry relatedRedemptions(RedemptionEntryRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
@@ -878,6 +904,7 @@ public class RedemptionEntry {
         Objects.equals(this.redemption, redemptionEntry.redemption) &&
         Objects.equals(this.result, redemptionEntry.result) &&
         Objects.equals(this.status, redemptionEntry.status) &&
+        Objects.equals(this.session, redemptionEntry.session) &&
         Objects.equals(this.relatedRedemptions, redemptionEntry.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemptionEntry.failureCode) &&
         Objects.equals(this.failureMessage, redemptionEntry.failureMessage) &&
@@ -900,7 +927,7 @@ public class RedemptionEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher, reason);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, session, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher, reason);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -924,6 +951,7 @@ public class RedemptionEntry {
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
@@ -970,6 +998,7 @@ public class RedemptionEntry {
     openapiFields.add("redemption");
     openapiFields.add("result");
     openapiFields.add("status");
+    openapiFields.add("session");
     openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");

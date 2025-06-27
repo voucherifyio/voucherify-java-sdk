@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ClientQualificationsCheckEligibilityRequestBodySession;
 import io.voucherify.client.model.Customer;
 import io.voucherify.client.model.Order;
 import io.voucherify.client.model.QualificationsOption;
@@ -135,6 +136,10 @@ public class ClientQualificationsCheckEligibilityRequestBody {
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private QualificationsOption options;
 
+  public static final String SERIALIZED_NAME_SESSION = "session";
+  @SerializedName(SERIALIZED_NAME_SESSION)
+  private ClientQualificationsCheckEligibilityRequestBodySession session;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
@@ -247,6 +252,27 @@ public class ClientQualificationsCheckEligibilityRequestBody {
   }
 
 
+  public ClientQualificationsCheckEligibilityRequestBody session(ClientQualificationsCheckEligibilityRequestBodySession session) {
+    
+    this.session = session;
+    return this;
+  }
+
+   /**
+   * Get session
+   * @return session
+  **/
+  @javax.annotation.Nullable
+  public ClientQualificationsCheckEligibilityRequestBodySession getSession() {
+    return session;
+  }
+
+
+  public void setSession(ClientQualificationsCheckEligibilityRequestBodySession session) {
+    this.session = session;
+  }
+
+
   public ClientQualificationsCheckEligibilityRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
@@ -283,6 +309,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
         Objects.equals(this.trackingId, clientQualificationsCheckEligibilityRequestBody.trackingId) &&
         Objects.equals(this.scenario, clientQualificationsCheckEligibilityRequestBody.scenario) &&
         Objects.equals(this.options, clientQualificationsCheckEligibilityRequestBody.options) &&
+        Objects.equals(this.session, clientQualificationsCheckEligibilityRequestBody.session) &&
         Objects.equals(this.metadata, clientQualificationsCheckEligibilityRequestBody.metadata);
   }
 
@@ -292,7 +319,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customer, order, trackingId, scenario, options, metadata);
+    return Objects.hash(customer, order, trackingId, scenario, options, session, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -311,6 +338,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("    scenario: ").append(toIndentedString(scenario)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -339,6 +367,7 @@ public class ClientQualificationsCheckEligibilityRequestBody {
     openapiFields.add("tracking_id");
     openapiFields.add("scenario");
     openapiFields.add("options");
+    openapiFields.add("session");
     openapiFields.add("metadata");
 
     // a set of required properties/fields (JSON key names)

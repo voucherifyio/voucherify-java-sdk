@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.EarningRuleExpirationRules;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyCustomEvent;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyLoyalty;
 import io.voucherify.client.model.LoyaltiesEarningRulesEnableResponseBodyLoyaltyTier;
@@ -233,6 +234,10 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
+  private EarningRuleExpirationRules expirationRules;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
@@ -610,6 +615,27 @@ public class LoyaltiesEarningRulesEnableResponseBody {
   }
 
 
+  public LoyaltiesEarningRulesEnableResponseBody expirationRules(EarningRuleExpirationRules expirationRules) {
+    
+    this.expirationRules = expirationRules;
+    return this;
+  }
+
+   /**
+   * Get expirationRules
+   * @return expirationRules
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleExpirationRules getExpirationRules() {
+    return expirationRules;
+  }
+
+
+  public void setExpirationRules(EarningRuleExpirationRules expirationRules) {
+    this.expirationRules = expirationRules;
+  }
+
+
   public LoyaltiesEarningRulesEnableResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
@@ -679,6 +705,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
         Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesEnableResponseBody.validityDayOfWeek) &&
         Objects.equals(this.validityHours, loyaltiesEarningRulesEnableResponseBody.validityHours) &&
         Objects.equals(this.metadata, loyaltiesEarningRulesEnableResponseBody.metadata) &&
+        Objects.equals(this.expirationRules, loyaltiesEarningRulesEnableResponseBody.expirationRules) &&
         Objects.equals(this.updatedAt, loyaltiesEarningRulesEnableResponseBody.updatedAt) &&
         Objects.equals(this.active, loyaltiesEarningRulesEnableResponseBody.active);
   }
@@ -689,7 +716,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, updatedAt, active);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, expirationRules, updatedAt, active);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -720,6 +747,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    expirationRules: ").append(toIndentedString(expirationRules)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("}");
@@ -761,6 +789,7 @@ public class LoyaltiesEarningRulesEnableResponseBody {
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("metadata");
+    openapiFields.add("expiration_rules");
     openapiFields.add("updated_at");
     openapiFields.add("active");
 

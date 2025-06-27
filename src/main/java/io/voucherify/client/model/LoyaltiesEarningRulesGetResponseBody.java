@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.EarningRuleExpirationRules;
 import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyCustomEvent;
 import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyLoyalty;
 import io.voucherify.client.model.LoyaltiesEarningRulesGetResponseBodyLoyaltyTier;
@@ -233,6 +234,10 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
+  private EarningRuleExpirationRules expirationRules;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
@@ -614,6 +619,27 @@ public class LoyaltiesEarningRulesGetResponseBody {
   }
 
 
+  public LoyaltiesEarningRulesGetResponseBody expirationRules(EarningRuleExpirationRules expirationRules) {
+    
+    this.expirationRules = expirationRules;
+    return this;
+  }
+
+   /**
+   * Get expirationRules
+   * @return expirationRules
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleExpirationRules getExpirationRules() {
+    return expirationRules;
+  }
+
+
+  public void setExpirationRules(EarningRuleExpirationRules expirationRules) {
+    this.expirationRules = expirationRules;
+  }
+
+
   public LoyaltiesEarningRulesGetResponseBody validationRuleId(String validationRuleId) {
     
     this.validationRuleId = validationRuleId;
@@ -704,6 +730,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
         Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesGetResponseBody.validityDayOfWeek) &&
         Objects.equals(this.validityHours, loyaltiesEarningRulesGetResponseBody.validityHours) &&
         Objects.equals(this.metadata, loyaltiesEarningRulesGetResponseBody.metadata) &&
+        Objects.equals(this.expirationRules, loyaltiesEarningRulesGetResponseBody.expirationRules) &&
         Objects.equals(this.validationRuleId, loyaltiesEarningRulesGetResponseBody.validationRuleId) &&
         Objects.equals(this.updatedAt, loyaltiesEarningRulesGetResponseBody.updatedAt) &&
         Objects.equals(this.active, loyaltiesEarningRulesGetResponseBody.active);
@@ -715,7 +742,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, expirationRules, validationRuleId, updatedAt, active);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -746,6 +773,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    expirationRules: ").append(toIndentedString(expirationRules)).append("\n");
     sb.append("    validationRuleId: ").append(toIndentedString(validationRuleId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -788,6 +816,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("metadata");
+    openapiFields.add("expiration_rules");
     openapiFields.add("validation_rule_id");
     openapiFields.add("updated_at");
     openapiFields.add("active");

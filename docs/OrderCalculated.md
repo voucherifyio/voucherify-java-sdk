@@ -29,7 +29,6 @@ Order information.
 |**customer** | [**CustomerId**](CustomerId.md) |  |
 |**referrer** | [**ReferrerId**](ReferrerId.md) |  |
 |**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
-|**items** | [**List&lt;OrderCalculatedItem&gt;**](OrderCalculatedItem.md) | Array of items applied to the order. It can include up 500 items. |
 
 
 

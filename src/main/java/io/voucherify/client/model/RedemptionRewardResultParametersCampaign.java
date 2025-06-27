@@ -96,7 +96,7 @@ public class RedemptionRewardResultParametersCampaign {
   }
 
    /**
-   * Points available for reward redemption.
+   * Points available for reward redemption. This is calculated as follows: &#x60;balance&#x60; &#x3D; &#x60;points&#x60; - &#x60;expired_points&#x60; - &#x60;subtracted_points&#x60; - &#x60;redemption.redeemed_points&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable

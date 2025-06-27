@@ -16,6 +16,8 @@ Data filters used to narrow down the data records to be returned in the result.
 |**$isUnknown** | **String** | Value is null. The value for this parameter is an empty string. |
 |**$startsWith** | **String** | Value starts with the specified string. |
 |**$endsWith** | **String** | Value ends with the specified string. |
+|**$contains** | **String** | Value includes the specified string. |
+|**$notContain** | **String** | Value does NOT include the specified string. |
 
 
 

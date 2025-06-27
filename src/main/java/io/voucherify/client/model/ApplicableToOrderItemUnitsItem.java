@@ -62,6 +62,10 @@ public class ApplicableToOrderItemUnitsItem {
   @SerializedName(SERIALIZED_NAME_UNITS)
   private List<Integer> units;
 
+  public static final String SERIALIZED_NAME_UNITS_LIMIT_EXCEEDED = "units_limit_exceeded";
+  @SerializedName(SERIALIZED_NAME_UNITS_LIMIT_EXCEEDED)
+  private Boolean unitsLimitExceeded;
+
   public ApplicableToOrderItemUnitsItem() {
   }
 
@@ -73,6 +77,7 @@ public class ApplicableToOrderItemUnitsItem {
 
    /**
    * Number assigned to the order line item in accordance with the order sent in the request.
+   * minimum: 0
    * @return index
   **/
   @javax.annotation.Nullable
@@ -101,7 +106,7 @@ public class ApplicableToOrderItemUnitsItem {
   }
 
    /**
-   * Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;.
+   * Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;. The maximum quantity of all handled units is 1000. If the quantity of all order items exceeds 1000, this array is not returned, but &#x60;units_limit_exceeded: true&#x60;. However, the discount is calculated properly for all relevant units.
    * @return units
   **/
   @javax.annotation.Nullable
@@ -112,6 +117,27 @@ public class ApplicableToOrderItemUnitsItem {
 
   public void setUnits(List<Integer> units) {
     this.units = units;
+  }
+
+
+  public ApplicableToOrderItemUnitsItem unitsLimitExceeded(Boolean unitsLimitExceeded) {
+    
+    this.unitsLimitExceeded = unitsLimitExceeded;
+    return this;
+  }
+
+   /**
+   * Returned as &#x60;true&#x60; only when the sum total of &#x60;quantity&#x60; of all order items exceeds 1000.
+   * @return unitsLimitExceeded
+  **/
+  @javax.annotation.Nullable
+  public Boolean getUnitsLimitExceeded() {
+    return unitsLimitExceeded;
+  }
+
+
+  public void setUnitsLimitExceeded(Boolean unitsLimitExceeded) {
+    this.unitsLimitExceeded = unitsLimitExceeded;
   }
 
 
@@ -126,12 +152,13 @@ public class ApplicableToOrderItemUnitsItem {
     }
     ApplicableToOrderItemUnitsItem applicableToOrderItemUnitsItem = (ApplicableToOrderItemUnitsItem) o;
     return Objects.equals(this.index, applicableToOrderItemUnitsItem.index) &&
-        Objects.equals(this.units, applicableToOrderItemUnitsItem.units);
+        Objects.equals(this.units, applicableToOrderItemUnitsItem.units) &&
+        Objects.equals(this.unitsLimitExceeded, applicableToOrderItemUnitsItem.unitsLimitExceeded);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, units);
+    return Objects.hash(index, units, unitsLimitExceeded);
   }
 
   @Override
@@ -140,6 +167,7 @@ public class ApplicableToOrderItemUnitsItem {
     sb.append("class ApplicableToOrderItemUnitsItem {\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    units: ").append(toIndentedString(units)).append("\n");
+    sb.append("    unitsLimitExceeded: ").append(toIndentedString(unitsLimitExceeded)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -164,6 +192,7 @@ public class ApplicableToOrderItemUnitsItem {
     openapiFields = new HashSet<String>();
     openapiFields.add("index");
     openapiFields.add("units");
+    openapiFields.add("units_limit_exceeded");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

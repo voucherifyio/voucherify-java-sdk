@@ -24,6 +24,7 @@ Response body schema for **POST** `v1/segments`.
 |---- | -----|
 | AUTO_UPDATE | &quot;auto-update&quot; |
 | STATIC | &quot;static&quot; |
+| PASSIVE | &quot;passive&quot; |
 
 
 

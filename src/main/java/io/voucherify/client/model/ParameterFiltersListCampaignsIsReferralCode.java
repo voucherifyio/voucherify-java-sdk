@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ParameterFiltersListCampaignsIsReferralCodeConditions;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,155 +49,36 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * 
+ * Determines if the campaign is or is not a referral campaign.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ParameterFiltersListCampaignsIsReferralCode {
-  /**
-   * Value is exactly this value (single value).
-   */
-  @JsonAdapter(IsEnum.Adapter.class)
-  public enum IsEnum {
-    TRUE("TRUE"),
-    
-    FALSE("FALSE");
-
-    private String value;
-
-    IsEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static IsEnum fromValue(String value) {
-      for (IsEnum b : IsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<IsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final IsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public IsEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return IsEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_$_IS = "$is";
-  @SerializedName(SERIALIZED_NAME_$_IS)
-  private IsEnum $is;
-
-  /**
-   * Results omit this value (single value).
-   */
-  @JsonAdapter(IsNotEnum.Adapter.class)
-  public enum IsNotEnum {
-    TRUE("TRUE"),
-    
-    FALSE("FALSE");
-
-    private String value;
-
-    IsNotEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static IsNotEnum fromValue(String value) {
-      for (IsNotEnum b : IsNotEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<IsNotEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final IsNotEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public IsNotEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return IsNotEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_$_IS_NOT = "$is_not";
-  @SerializedName(SERIALIZED_NAME_$_IS_NOT)
-  private IsNotEnum $isNot;
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private ParameterFiltersListCampaignsIsReferralCodeConditions conditions;
 
   public ParameterFiltersListCampaignsIsReferralCode() {
   }
 
-  public ParameterFiltersListCampaignsIsReferralCode $is(IsEnum $is) {
+  public ParameterFiltersListCampaignsIsReferralCode conditions(ParameterFiltersListCampaignsIsReferralCodeConditions conditions) {
     
-    this.$is = $is;
+    this.conditions = conditions;
     return this;
   }
 
    /**
-   * Value is exactly this value (single value).
-   * @return $is
+   * Get conditions
+   * @return conditions
   **/
   @javax.annotation.Nullable
-  public IsEnum get$Is() {
-    return $is;
+  public ParameterFiltersListCampaignsIsReferralCodeConditions getConditions() {
+    return conditions;
   }
 
 
-  public void set$Is(IsEnum $is) {
-    this.$is = $is;
-  }
-
-
-  public ParameterFiltersListCampaignsIsReferralCode $isNot(IsNotEnum $isNot) {
-    
-    this.$isNot = $isNot;
-    return this;
-  }
-
-   /**
-   * Results omit this value (single value).
-   * @return $isNot
-  **/
-  @javax.annotation.Nullable
-  public IsNotEnum get$IsNot() {
-    return $isNot;
-  }
-
-
-  public void set$IsNot(IsNotEnum $isNot) {
-    this.$isNot = $isNot;
+  public void setConditions(ParameterFiltersListCampaignsIsReferralCodeConditions conditions) {
+    this.conditions = conditions;
   }
 
 
@@ -210,8 +92,7 @@ public class ParameterFiltersListCampaignsIsReferralCode {
       return false;
     }
     ParameterFiltersListCampaignsIsReferralCode parameterFiltersListCampaignsIsReferralCode = (ParameterFiltersListCampaignsIsReferralCode) o;
-    return Objects.equals(this.$is, parameterFiltersListCampaignsIsReferralCode.$is) &&
-        Objects.equals(this.$isNot, parameterFiltersListCampaignsIsReferralCode.$isNot);
+    return Objects.equals(this.conditions, parameterFiltersListCampaignsIsReferralCode.conditions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -220,7 +101,7 @@ public class ParameterFiltersListCampaignsIsReferralCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash($is, $isNot);
+    return Objects.hash(conditions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,8 +115,7 @@ public class ParameterFiltersListCampaignsIsReferralCode {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListCampaignsIsReferralCode {\n");
-    sb.append("    $is: ").append(toIndentedString($is)).append("\n");
-    sb.append("    $isNot: ").append(toIndentedString($isNot)).append("\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -258,8 +138,7 @@ public class ParameterFiltersListCampaignsIsReferralCode {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("$is");
-    openapiFields.add("$is_not");
+    openapiFields.add("conditions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

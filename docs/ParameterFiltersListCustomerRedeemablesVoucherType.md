@@ -8,7 +8,7 @@ Type of the voucher. Allowed values: `DISCOUNT_VOUCHER`, `GIFT_VOUCHER`, `LOYALT
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**conditions** | [**ParameterFiltersListCustomerRedeemablesVoucherTypeConditions**](ParameterFiltersListCustomerRedeemablesVoucherTypeConditions.md) |  |
+|**conditions** | [**ParameterFiltersListCampaignsVoucherTypeConditions**](ParameterFiltersListCampaignsVoucherTypeConditions.md) |  |
 
 
 

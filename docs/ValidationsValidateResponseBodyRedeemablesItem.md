@@ -10,7 +10,7 @@
 |**status** | [**StatusEnum**](#StatusEnum) |  |
 |**id** | **String** | Redeemable ID, i.e. the voucher code. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | Redeemable&#39;s object type. |
-|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**order** | [**ValidationsValidateResponseBodyRedeemablesItemOrder**](ValidationsValidateResponseBodyRedeemablesItemOrder.md) |  |
 |**applicableTo** | [**ApplicableToResultList**](ApplicableToResultList.md) |  |
 |**inapplicableTo** | [**InapplicableToResultList**](InapplicableToResultList.md) |  |
 |**result** | [**ValidationsValidateResponseBodyRedeemablesItemResult**](ValidationsValidateResponseBodyRedeemablesItemResult.md) |  |

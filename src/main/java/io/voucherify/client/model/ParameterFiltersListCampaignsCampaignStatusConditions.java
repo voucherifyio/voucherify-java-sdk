@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ParameterFiltersListCampaignsCampaignStatusConditions
+ * Data conditions used to narrow down the data records to be returned in the result.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

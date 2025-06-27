@@ -21,9 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ApplicableToResultList;
 import io.voucherify.client.model.CategoryWithStackingRulesType;
+import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItemOrder;
 import io.voucherify.client.model.ClientValidationsValidateResponseBodyRedeemablesItemResult;
 import io.voucherify.client.model.InapplicableToResultList;
-import io.voucherify.client.model.OrderCalculated;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -170,7 +170,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private ClientValidationsValidateResponseBodyRedeemablesItemOrder order;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
@@ -270,7 +270,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   }
 
 
-  public ClientValidationsValidateResponseBodyRedeemablesItem order(OrderCalculated order) {
+  public ClientValidationsValidateResponseBodyRedeemablesItem order(ClientValidationsValidateResponseBodyRedeemablesItemOrder order) {
     
     this.order = order;
     return this;
@@ -281,12 +281,12 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public ClientValidationsValidateResponseBodyRedeemablesItemOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(ClientValidationsValidateResponseBodyRedeemablesItemOrder order) {
     this.order = order;
   }
 

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleCustomEvent;
+import io.voucherify.client.model.EarningRuleExpirationRules;
 import io.voucherify.client.model.EarningRuleLoyalty;
 import io.voucherify.client.model.EarningRuleLoyaltyTier;
 import io.voucherify.client.model.EarningRulePendingPoints;
@@ -233,6 +234,10 @@ public class EarningRule {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
+  private EarningRuleExpirationRules expirationRules;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
@@ -614,6 +619,27 @@ public class EarningRule {
   }
 
 
+  public EarningRule expirationRules(EarningRuleExpirationRules expirationRules) {
+    
+    this.expirationRules = expirationRules;
+    return this;
+  }
+
+   /**
+   * Get expirationRules
+   * @return expirationRules
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleExpirationRules getExpirationRules() {
+    return expirationRules;
+  }
+
+
+  public void setExpirationRules(EarningRuleExpirationRules expirationRules) {
+    this.expirationRules = expirationRules;
+  }
+
+
   public EarningRule validationRuleId(String validationRuleId) {
     
     this.validationRuleId = validationRuleId;
@@ -704,6 +730,7 @@ public class EarningRule {
         Objects.equals(this.validityDayOfWeek, earningRule.validityDayOfWeek) &&
         Objects.equals(this.validityHours, earningRule.validityHours) &&
         Objects.equals(this.metadata, earningRule.metadata) &&
+        Objects.equals(this.expirationRules, earningRule.expirationRules) &&
         Objects.equals(this.validationRuleId, earningRule.validationRuleId) &&
         Objects.equals(this.updatedAt, earningRule.updatedAt) &&
         Objects.equals(this.active, earningRule.active);
@@ -715,7 +742,7 @@ public class EarningRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, validationRuleId, updatedAt, active);
+    return Objects.hash(id, createdAt, loyalty, event, customEvent, segment, loyaltyTier, pendingPoints, source, _object, automationId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata, expirationRules, validationRuleId, updatedAt, active);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -746,6 +773,7 @@ public class EarningRule {
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    expirationRules: ").append(toIndentedString(expirationRules)).append("\n");
     sb.append("    validationRuleId: ").append(toIndentedString(validationRuleId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -788,6 +816,7 @@ public class EarningRule {
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");
     openapiFields.add("metadata");
+    openapiFields.add("expiration_rules");
     openapiFields.add("validation_rule_id");
     openapiFields.add("updated_at");
     openapiFields.add("active");

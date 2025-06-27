@@ -28,7 +28,7 @@
 |**customer** | [**RedemptionEntryOrderCustomer**](RedemptionEntryOrderCustomer.md) |  |
 |**referrer** | [**RedemptionEntryOrderReferrer**](RedemptionEntryOrderReferrer.md) |  |
 |**redemptions** | [**Map&lt;String, OrderRedemptionsEntry&gt;**](OrderRedemptionsEntry.md) |  |
-|**items** | [**List&lt;OrderCalculatedItem&gt;**](OrderCalculatedItem.md) | Array of items applied to the order. It can include up 500 items. |
+|**items** | [**List&lt;RedemptionEntryOrderItemsItem&gt;**](RedemptionEntryOrderItemsItem.md) | Array of items applied to the order. It can include up to 500 items. |
 
 
 

@@ -12,6 +12,7 @@ import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.api.LoyaltiesApi;
 import io.voucherify.client.api.VouchersApi;
+import io.voucherify.client.api.PublicationsApi;
 import io.voucherify.client.model.*;
 
 import java.util.ArrayList;
@@ -28,12 +29,31 @@ public class LoyaltiesTest {
     public static ApiClient defaultClient = null;
     public static LoyaltiesApi loyalties = null;
     public static VouchersApi vouchers = null;
+    public static PublicationsApi publications = null;
 
     @BeforeAll
     public static void beforeAll() {
         defaultClient = Utils.getClient();
         loyalties = new LoyaltiesApi(defaultClient);
         vouchers = new VouchersApi(defaultClient);
+        publications = new PublicationsApi(defaultClient);
+
+        // Publish the voucher before running loyalty tests
+        try {
+            PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
+            Customer customer = new Customer();
+
+            customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
+            publicationsCreateRequestBody.setCustomer(customer);
+            publicationsCreateRequestBody
+                    .setVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0));
+
+            publications.createPublication(false, publicationsCreateRequestBody);
+        } catch (Exception e) {
+            System.err.println("Failed to publish voucher before loyalty tests: " + e.getMessage());
+            e.printStackTrace();
+            fail("Failed to publish voucher before loyalty tests");
+        }
     }
 
     @Test
@@ -51,6 +71,8 @@ public class LoyaltiesTest {
             List<String> keysToRemove = Arrays.asList("id");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
+            System.err.println("Error in updateLoyaltyCardBalanceTest: " + e.getMessage());
+            e.printStackTrace();
             fail();
         }
     }
@@ -73,6 +95,8 @@ public class LoyaltiesTest {
 
             assertNotNull(responseBody);
         } catch (Exception e) {
+            System.err.println("Error in updateLoyaltyCardBalanceTest: " + e.getMessage());
+            e.printStackTrace();
             fail();
         }
     }
@@ -82,7 +106,7 @@ public class LoyaltiesTest {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
-                    10, null, null);
+                    10, null, null, null);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {

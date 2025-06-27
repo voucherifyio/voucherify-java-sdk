@@ -8,7 +8,7 @@ Contains the detailed information about the transaction.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**balance** | [**VoucherTransactionDetailsBalance**](VoucherTransactionDetailsBalance.md) |  |
+|**balance** | [**VoucherBalance**](VoucherBalance.md) |  |
 |**order** | [**VoucherTransactionDetailsOrder**](VoucherTransactionDetailsOrder.md) |  |
 |**event** | [**VoucherTransactionDetailsEvent**](VoucherTransactionDetailsEvent.md) |  |
 |**earningRule** | [**VoucherTransactionDetailsEarningRule**](VoucherTransactionDetailsEarningRule.md) |  |

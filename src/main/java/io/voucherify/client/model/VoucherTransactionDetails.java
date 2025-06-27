@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.LoyaltyPendingPoints;
 import io.voucherify.client.model.SimpleVoucher;
-import io.voucherify.client.model.VoucherTransactionDetailsBalance;
+import io.voucherify.client.model.VoucherBalance;
 import io.voucherify.client.model.VoucherTransactionDetailsCustomEvent;
 import io.voucherify.client.model.VoucherTransactionDetailsEarningRule;
 import io.voucherify.client.model.VoucherTransactionDetailsEvent;
@@ -69,7 +69,7 @@ import io.voucherify.client.JSON;
 public class VoucherTransactionDetails {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
-  private VoucherTransactionDetailsBalance balance;
+  private VoucherBalance balance;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -130,7 +130,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails() {
   }
 
-  public VoucherTransactionDetails balance(VoucherTransactionDetailsBalance balance) {
+  public VoucherTransactionDetails balance(VoucherBalance balance) {
     
     this.balance = balance;
     return this;
@@ -141,12 +141,12 @@ public class VoucherTransactionDetails {
    * @return balance
   **/
   @javax.annotation.Nullable
-  public VoucherTransactionDetailsBalance getBalance() {
+  public VoucherBalance getBalance() {
     return balance;
   }
 
 
-  public void setBalance(VoucherTransactionDetailsBalance balance) {
+  public void setBalance(VoucherBalance balance) {
     this.balance = balance;
   }
 

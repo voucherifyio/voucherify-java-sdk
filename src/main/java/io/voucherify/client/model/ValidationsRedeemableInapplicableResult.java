@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Bundle;
 import io.voucherify.client.model.Error;
 import io.voucherify.client.model.ValidationsRedeemableInapplicableResultDetails;
 import java.io.IOException;
@@ -62,6 +63,10 @@ public class ValidationsRedeemableInapplicableResult {
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
   private ValidationsRedeemableInapplicableResultDetails details;
+
+  public static final String SERIALIZED_NAME_BUNDLE = "bundle";
+  @SerializedName(SERIALIZED_NAME_BUNDLE)
+  private Bundle bundle;
 
   public ValidationsRedeemableInapplicableResult() {
   }
@@ -108,6 +113,27 @@ public class ValidationsRedeemableInapplicableResult {
   }
 
 
+  public ValidationsRedeemableInapplicableResult bundle(Bundle bundle) {
+    
+    this.bundle = bundle;
+    return this;
+  }
+
+   /**
+   * Get bundle
+   * @return bundle
+  **/
+  @javax.annotation.Nullable
+  public Bundle getBundle() {
+    return bundle;
+  }
+
+
+  public void setBundle(Bundle bundle) {
+    this.bundle = bundle;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -119,7 +145,8 @@ public class ValidationsRedeemableInapplicableResult {
     }
     ValidationsRedeemableInapplicableResult validationsRedeemableInapplicableResult = (ValidationsRedeemableInapplicableResult) o;
     return Objects.equals(this.error, validationsRedeemableInapplicableResult.error) &&
-        Objects.equals(this.details, validationsRedeemableInapplicableResult.details);
+        Objects.equals(this.details, validationsRedeemableInapplicableResult.details) &&
+        Objects.equals(this.bundle, validationsRedeemableInapplicableResult.bundle);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +155,7 @@ public class ValidationsRedeemableInapplicableResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, details);
+    return Objects.hash(error, details, bundle);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -144,6 +171,7 @@ public class ValidationsRedeemableInapplicableResult {
     sb.append("class ValidationsRedeemableInapplicableResult {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,6 +196,7 @@ public class ValidationsRedeemableInapplicableResult {
     openapiFields = new HashSet<String>();
     openapiFields.add("error");
     openapiFields.add("details");
+    openapiFields.add("bundle");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

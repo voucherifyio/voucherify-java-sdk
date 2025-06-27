@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltiesMembersPointsExpirationListResponseBodyDataItem;
+import io.voucherify.client.model.LoyaltyPointsBucket;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,7 +156,7 @@ public class LoyaltiesMembersPointsExpirationListResponseBody {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<LoyaltiesMembersPointsExpirationListResponseBodyDataItem> data;
+  private List<LoyaltyPointsBucket> data;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -207,13 +207,13 @@ public class LoyaltiesMembersPointsExpirationListResponseBody {
   }
 
 
-  public LoyaltiesMembersPointsExpirationListResponseBody data(List<LoyaltiesMembersPointsExpirationListResponseBodyDataItem> data) {
+  public LoyaltiesMembersPointsExpirationListResponseBody data(List<LoyaltyPointsBucket> data) {
     
     this.data = data;
     return this;
   }
 
-  public LoyaltiesMembersPointsExpirationListResponseBody addDataItem(LoyaltiesMembersPointsExpirationListResponseBodyDataItem dataItem) {
+  public LoyaltiesMembersPointsExpirationListResponseBody addDataItem(LoyaltyPointsBucket dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -226,12 +226,12 @@ public class LoyaltiesMembersPointsExpirationListResponseBody {
    * @return data
   **/
   @javax.annotation.Nullable
-  public List<LoyaltiesMembersPointsExpirationListResponseBodyDataItem> getData() {
+  public List<LoyaltyPointsBucket> getData() {
     return data;
   }
 
 
-  public void setData(List<LoyaltiesMembersPointsExpirationListResponseBodyDataItem> data) {
+  public void setData(List<LoyaltyPointsBucket> data) {
     this.data = data;
   }
 

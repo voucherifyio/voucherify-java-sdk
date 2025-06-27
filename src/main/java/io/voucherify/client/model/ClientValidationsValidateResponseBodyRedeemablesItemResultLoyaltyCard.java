@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard
+ * Stores the amount of loyalty card points to be applied in the redemption.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

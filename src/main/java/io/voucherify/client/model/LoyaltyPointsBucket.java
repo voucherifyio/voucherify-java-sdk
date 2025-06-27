@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.LoyaltyPointsBucketBucket;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -77,7 +78,7 @@ public class LoyaltyPointsBucket {
 
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-  private OffsetDateTime expiresAt;
+  private LocalDate expiresAt;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -244,7 +245,7 @@ public class LoyaltyPointsBucket {
   }
 
 
-  public LoyaltyPointsBucket expiresAt(OffsetDateTime expiresAt) {
+  public LoyaltyPointsBucket expiresAt(LocalDate expiresAt) {
     
     this.expiresAt = expiresAt;
     return this;
@@ -255,12 +256,12 @@ public class LoyaltyPointsBucket {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
-  public OffsetDateTime getExpiresAt() {
+  public LocalDate getExpiresAt() {
     return expiresAt;
   }
 
 
-  public void setExpiresAt(OffsetDateTime expiresAt) {
+  public void setExpiresAt(LocalDate expiresAt) {
     this.expiresAt = expiresAt;
   }
 

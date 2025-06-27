@@ -12,7 +12,7 @@ Data of single redeemable which was properly qualified.
 |**_object** | [**ObjectEnum**](#ObjectEnum) | Object type of the redeemable. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. |
 |**result** | [**RedeemableResult**](RedeemableResult.md) |  |
-|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**order** | [**QualificationsRedeemableBaseOrder**](QualificationsRedeemableBaseOrder.md) |  |
 |**validationRuleId** | **String** | A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance. |
 |**applicableTo** | [**ApplicableToResultList**](ApplicableToResultList.md) |  |
 |**inapplicableTo** | [**InapplicableToResultList**](InapplicableToResultList.md) |  |

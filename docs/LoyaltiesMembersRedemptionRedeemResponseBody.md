@@ -18,10 +18,11 @@ Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/
 |**redemption** | **String** | Unique redemption ID of the parent redemption. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |
 |**status** | [**StatusEnum**](#StatusEnum) | Redemption status. |
+|**session** | [**LoyaltiesMembersRedemptionRedeemResponseBodySession**](LoyaltiesMembersRedemptionRedeemResponseBodySession.md) |  |
 |**relatedRedemptions** | [**LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions**](LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |
-|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**order** | [**LoyaltiesMembersRedemptionRedeemResponseBodyOrder**](LoyaltiesMembersRedemptionRedeemResponseBodyOrder.md) |  |
 |**channel** | [**LoyaltiesMembersRedemptionRedeemResponseBodyChannel**](LoyaltiesMembersRedemptionRedeemResponseBodyChannel.md) |  |
 |**customer** | [**SimpleCustomer**](SimpleCustomer.md) |  |
 |**relatedObjectType** | [**RelatedObjectTypeEnum**](#RelatedObjectTypeEnum) | Defines the related object. |

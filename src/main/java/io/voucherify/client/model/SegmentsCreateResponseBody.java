@@ -73,7 +73,9 @@ public class SegmentsCreateResponseBody {
   public enum TypeEnum {
     AUTO_UPDATE("auto-update"),
     
-    STATIC("static");
+    STATIC("static"),
+    
+    PASSIVE("passive");
 
     private String value;
 

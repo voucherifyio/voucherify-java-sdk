@@ -122,44 +122,6 @@ public class ManagementProjectsWebhook {
    */
   @JsonAdapter(EventsEnum.Adapter.class)
   public enum EventsEnum {
-    REDEMPTION_SUCCEEDED("redemption.succeeded"),
-    
-    REDEMPTION_FAILED("redemption.failed"),
-    
-    REDEMPTION_ROLLBACK_SUCCEEDED("redemption.rollback.succeeded"),
-    
-    REDEMPTION_ROLLBACK_FAILED("redemption.rollback.failed"),
-    
-    PUBLICATION_SUCCEEDED("publication.succeeded"),
-    
-    VOUCHER_PUBLISHED("voucher.published"),
-    
-    VOUCHER_UPDATED("voucher.updated"),
-    
-    VOUCHER_DELETED("voucher.deleted"),
-    
-    VOUCHER_CREATED("voucher.created"),
-    
-    VOUCHER_ENABLED("voucher.enabled"),
-    
-    VOUCHER_DISABLED("voucher.disabled"),
-    
-    VOUCHER_LOYALTY_CARD_POINTS_ADDED("voucher.loyalty_card.points_added"),
-    
-    VOUCHER_GIFT_BALANCE_ADDED("voucher.gift.balance_added"),
-    
-    CAMPAIGN_ENABLED("campaign.enabled"),
-    
-    CAMPAIGN_DELETED("campaign.deleted"),
-    
-    CAMPAIGN_CREATED("campaign.created"),
-    
-    CAMPAIGN_UPDATED("campaign.updated"),
-    
-    CAMPAIGN_DISABLED("campaign.disabled"),
-    
-    CAMPAIGN_VOUCHERS_GENERATION_COMPLETED("campaign.vouchers.generation.completed"),
-    
     BUSINESS_VALIDATION_RULE_ASSIGNMENT_CREATED("business_validation_rule.assignment.created"),
     
     BUSINESS_VALIDATION_RULE_ASSIGNMENT_DELETED("business_validation_rule.assignment.deleted"),
@@ -170,13 +132,115 @@ public class ManagementProjectsWebhook {
     
     BUSINESS_VALIDATION_RULE_UPDATED("business_validation_rule.updated"),
     
+    CAMPAIGN_CREATED("campaign.created"),
+    
+    CAMPAIGN_DELETED("campaign.deleted"),
+    
+    CAMPAIGN_DISABLED("campaign.disabled"),
+    
+    CAMPAIGN_ENABLED("campaign.enabled"),
+    
+    CAMPAIGN_EARNING_RULE_ASSIGNED("campaign.earning_rule.assigned"),
+    
+    CAMPAIGN_EARNING_RULE_DELETED("campaign.earning_rule.deleted"),
+    
+    CAMPAIGN_EARNING_RULE_DISABLED("campaign.earning_rule.disabled"),
+    
+    CAMPAIGN_EARNING_RULE_ENABLED("campaign.earning_rule.enabled"),
+    
+    CAMPAIGN_EARNING_RULE_UPDATED("campaign.earning_rule.updated"),
+    
+    CAMPAIGN_LOYALTY_TIER_CREATED("campaign.loyalty_tier.created"),
+    
+    CAMPAIGN_LOYALTY_TIER_DELETED("campaign.loyalty_tier.deleted"),
+    
+    CAMPAIGN_LOYALTY_TIER_UPDATED("campaign.loyalty_tier.updated"),
+    
+    CAMPAIGN_PROMOTION_STACK_CREATED("campaign.promotion_stack.created"),
+    
+    CAMPAIGN_PROMOTION_STACK_UPDATED("campaign.promotion_stack.updated"),
+    
+    CAMPAIGN_PROMOTION_TIER_CREATED("campaign.promotion_tier.created"),
+    
+    CAMPAIGN_PROMOTION_TIER_DELETED("campaign.promotion_tier.deleted"),
+    
+    CAMPAIGN_PROMOTION_TIER_DISABLED("campaign.promotion_tier.disabled"),
+    
+    CAMPAIGN_PROMOTION_TIER_ENABLED("campaign.promotion_tier.enabled"),
+    
+    CAMPAIGN_PROMOTION_TIER_UPDATED("campaign.promotion_tier.updated"),
+    
+    CAMPAIGN_REFERRAL_TIER_CREATED("campaign.referral_tier.created"),
+    
+    CAMPAIGN_REFERRAL_TIER_DELETED("campaign.referral_tier.deleted"),
+    
+    CAMPAIGN_REFERRAL_TIER_UPDATED("campaign.referral_tier.updated"),
+    
+    CAMPAIGN_REWARD_ASSIGNMENT_CREATED("campaign.reward.assignment.created"),
+    
+    CAMPAIGN_REWARD_ASSIGNMENT_DELETED("campaign.reward.assignment.deleted"),
+    
+    CAMPAIGN_REWARD_ASSIGNMENT_UPDATED("campaign.reward.assignment.updated"),
+    
+    CAMPAIGN_UPDATED("campaign.updated"),
+    
+    CAMPAIGN_VOUCHERS_ADED("campaign.vouchers.aded"),
+    
+    CAMPAIGN_VOUCHERS_GENERATION_COMPLETED("campaign.vouchers.generation.completed"),
+    
+    CAMPAIGN_VOUCHERS_GENERATION_FAILED("campaign.vouchers.generation.failed"),
+    
+    CAMPAIGN_VOUCHERS_GENERATION_STARTED("campaign.vouchers.generation.started"),
+    
+    CUSTOMER_CONFIRMED("customer.confirmed"),
+    
     CUSTOMER_CREATED("customer.created"),
     
     CUSTOMER_DELETED("customer.deleted"),
     
     CUSTOMER_REWARDED("customer.rewarded"),
     
-    CUSTOMER_REWARDED_LOYALTY_POINTS("customer.rewarded.loyalty_points");
+    CUSTOMER_REWARDED_LOYALTY_POINTS("customer.rewarded.loyalty_points"),
+    
+    PUBLICATION_SUCCEEDED("publication.succeeded"),
+    
+    REDEMPTION_FAILED("redemption.failed"),
+    
+    REDEMPTION_ROLLBACK_FAILED("redemption.rollback.failed"),
+    
+    REDEMPTION_ROLLBACK_SUCCEEDED("redemption.rollback.succeeded"),
+    
+    REDEMPTION_SUCCEEDED("redemption.succeeded"),
+    
+    VOUCHER_CREATED("voucher.created"),
+    
+    VOUCHER_DELETED("voucher.deleted"),
+    
+    VOUCHER_DISABLED("voucher.disabled"),
+    
+    VOUCHER_ENABLED("voucher.enabled"),
+    
+    VOUCHER_GIFT_BALANCE_ADED("voucher.gift.balance_aded"),
+    
+    VOUCHER_GIFT_TRANSACTION_CREATED("voucher.gift.transaction.created"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ACTIVATED("voucher.loyalty_card.pending_points.activated"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ADED("voucher.loyalty_card.pending_points.aded"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_CANCELED("voucher.loyalty_card.pending_points.canceled"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_UPDATED("voucher.loyalty_card.pending_points.updated"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_ADED("voucher.loyalty_card.points_aded"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_EXPIRED("voucher.loyalty_card.points_expired"),
+    
+    VOUCHER_LOYALTY_CARD_TRANSACTION_CREATED("voucher.loyalty_card.transaction.created"),
+    
+    VOUCHER_PUBLISHED("voucher.published"),
+    
+    VOUCHER_UPDATED("voucher.updated");
 
     private String value;
 

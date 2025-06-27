@@ -27,6 +27,7 @@ import io.voucherify.client.model.RedemptionsGetResponseBodyLoyaltyCard;
 import io.voucherify.client.model.RedemptionsGetResponseBodyOrder;
 import io.voucherify.client.model.RedemptionsGetResponseBodyPromotionTier;
 import io.voucherify.client.model.RedemptionsGetResponseBodyRelatedRedemptions;
+import io.voucherify.client.model.RedemptionsGetResponseBodySession;
 import io.voucherify.client.model.RedemptionsGetResponseBodyVoucher;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -245,6 +246,10 @@ public class RedemptionsGetResponseBody {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_SESSION = "session";
+  @SerializedName(SERIALIZED_NAME_SESSION)
+  private RedemptionsGetResponseBodySession session;
 
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
@@ -564,6 +569,27 @@ public class RedemptionsGetResponseBody {
   }
 
 
+  public RedemptionsGetResponseBody session(RedemptionsGetResponseBodySession session) {
+    
+    this.session = session;
+    return this;
+  }
+
+   /**
+   * Get session
+   * @return session
+  **/
+  @javax.annotation.Nullable
+  public RedemptionsGetResponseBodySession getSession() {
+    return session;
+  }
+
+
+  public void setSession(RedemptionsGetResponseBodySession session) {
+    this.session = session;
+  }
+
+
   public RedemptionsGetResponseBody relatedRedemptions(RedemptionsGetResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
@@ -878,6 +904,7 @@ public class RedemptionsGetResponseBody {
         Objects.equals(this.redemption, redemptionsGetResponseBody.redemption) &&
         Objects.equals(this.result, redemptionsGetResponseBody.result) &&
         Objects.equals(this.status, redemptionsGetResponseBody.status) &&
+        Objects.equals(this.session, redemptionsGetResponseBody.session) &&
         Objects.equals(this.relatedRedemptions, redemptionsGetResponseBody.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemptionsGetResponseBody.failureCode) &&
         Objects.equals(this.failureMessage, redemptionsGetResponseBody.failureMessage) &&
@@ -900,7 +927,7 @@ public class RedemptionsGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher, reason);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, session, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher, reason);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -924,6 +951,7 @@ public class RedemptionsGetResponseBody {
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
@@ -970,6 +998,7 @@ public class RedemptionsGetResponseBody {
     openapiFields.add("redemption");
     openapiFields.add("result");
     openapiFields.add("status");
+    openapiFields.add("session");
     openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");

@@ -1,0 +1,101 @@
+{
+  "id" : "pub_Y9bljPsUsiRhfCWEdmWUqRvzcjqs9CoJ",
+  "createdAt" : 1752500843.234,
+  "customerId" : "cust_gy7i7zvSiJoArkrV7gBPx4PN",
+  "trackingId" : null,
+  "metadata" : { },
+  "channel" : "API",
+  "sourceId" : null,
+  "result" : "SUCCESS",
+  "customer" : {
+    "id" : "cust_gy7i7zvSiJoArkrV7gBPx4PN",
+    "sourceId" : null,
+    "summary" : null,
+    "loyalty" : null,
+    "referrals" : null,
+    "systemMetadata" : null,
+    "createdAt" : null,
+    "updatedAt" : null,
+    "assets" : null,
+    "name" : null,
+    "description" : null,
+    "email" : null,
+    "phone" : null,
+    "birthday" : null,
+    "birthdate" : null,
+    "address" : null,
+    "metadata" : null,
+    "object" : "CUSTOMER"
+  },
+  "vouchersId" : [ "v_rPOVJXqqHsB6fMihDeg6MrJeI0Ebiw0N" ],
+  "voucher" : {
+    "id" : "v_rPOVJXqqHsB6fMihDeg6MrJeI0Ebiw0N",
+    "code" : "ZQ0YHhHs",
+    "campaign" : "4yYE0k1eTDNsziHhSgPZ",
+    "campaignId" : "camp_Nvxy2YNJKv5k3CdYoT38AP4q",
+    "category" : null,
+    "categoryId" : null,
+    "type" : "DISCOUNT_VOUCHER",
+    "discount" : {
+      "type" : "AMOUNT",
+      "amountOff" : 1,
+      "amountOffFormula" : null,
+      "aggregatedAmountLimit" : null,
+      "effect" : null,
+      "isDynamic" : null,
+      "unitOff" : null,
+      "unitOffFormula" : null,
+      "unitType" : null,
+      "product" : null,
+      "sku" : null,
+      "units" : null,
+      "percentOff" : null,
+      "percentOffFormula" : null,
+      "amountLimit" : null,
+      "fixedAmount" : null,
+      "fixedAmountFormula" : null
+    },
+    "gift" : null,
+    "loyaltyCard" : null,
+    "startDate" : null,
+    "expirationDate" : null,
+    "validityTimeframe" : null,
+    "validityDayOfWeek" : null,
+    "validityHours" : null,
+    "active" : true,
+    "additionalInfo" : null,
+    "metadata" : { },
+    "assets" : {
+      "qr" : {
+        "id" : "726ccf86-a62b-4d13-b834-87d9a0437fbb",
+        "url" : "https://dev2.dl.voucherify.io/api/v1/assets/qr/726ccf86-a62b-4d13-b834-87d9a0437fbb"
+      },
+      "barcode" : {
+        "id" : "d01900d3-c423-447c-b101-d24405b54c50",
+        "url" : "https://dev2.dl.voucherify.io/api/v1/assets/barcode/d01900d3-c423-447c-b101-d24405b54c50"
+      }
+    },
+    "isReferralCode" : false,
+    "createdAt" : 1752500843.134,
+    "updatedAt" : 1752500843.239,
+    "holderId" : "cust_gy7i7zvSiJoArkrV7gBPx4PN",
+    "referrerId" : null,
+    "publish" : {
+      "count" : 1,
+      "url" : "/v1/vouchers/ZQ0YHhHs/publications?page=1&limit=10",
+      "object" : "list"
+    },
+    "redemption" : {
+      "quantity" : null,
+      "redeemedQuantity" : 0,
+      "redeemedPoints" : null,
+      "url" : "/v1/vouchers/ZQ0YHhHs/redemptions?page=1&limit=10",
+      "object" : "list"
+    },
+    "categories" : [ ],
+    "validationRulesAssignments" : null,
+    "object" : "voucher"
+  },
+  "vouchers" : null,
+  "object" : "PUBLICATION"
+}

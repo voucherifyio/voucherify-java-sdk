@@ -2,6 +2,7 @@
 
 # ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard
 
+Stores the amount of loyalty card points to be applied in the redemption.
 
 ## Properties
 

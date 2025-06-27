@@ -6,6 +6,7 @@ All URIs are relative to *https://api.voucherify.io*
 |------------- | ------------- | -------------|
 | [**activateMemberPendingPoints**](LoyaltiesApi.md#activateMemberPendingPoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate | Activate Member Pending Points |
 | [**addMember**](LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member |
+| [**adjustMemberPendingPoints**](LoyaltiesApi.md#adjustMemberPendingPoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/balance | Adjust Member Pending Points |
 | [**cancelMemberPendingPoints**](LoyaltiesApi.md#cancelMemberPendingPoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel | Cancel Member Pending Points |
 | [**createEarningRule**](LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule |
 | [**createInBulkLoyaltyTiers**](LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers |
@@ -17,6 +18,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**deleteRewardAssignment1**](LoyaltiesApi.md#deleteRewardAssignment1) | **DELETE** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Delete Reward Assignment |
 | [**disableEarningRule**](LoyaltiesApi.md#disableEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable | Disable Earning Rule |
 | [**enableEarningRule**](LoyaltiesApi.md#enableEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable | Enable Earning Rule |
+| [**exportLoyaltyCampaignTransactions**](LoyaltiesApi.md#exportLoyaltyCampaignTransactions) | **POST** /v1/loyalties/{campaignId}/transactions/export | Export Loyalty Campaign Transactions |
 | [**exportLoyaltyCardTransactions**](LoyaltiesApi.md#exportLoyaltyCardTransactions) | **POST** /v1/loyalties/members/{memberId}/transactions/export | Export Loyalty Card Transactions |
 | [**exportLoyaltyCardTransactions1**](LoyaltiesApi.md#exportLoyaltyCardTransactions1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transactions/export | Export Loyalty Card Transactions |
 | [**getEarningRule**](LoyaltiesApi.md#getEarningRule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule |
@@ -29,6 +31,7 @@ All URIs are relative to *https://api.voucherify.io*
 | [**getRewardDetails**](LoyaltiesApi.md#getRewardDetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details |
 | [**listCampaignPendingPoints**](LoyaltiesApi.md#listCampaignPendingPoints) | **GET** /v1/loyalties/{campaignId}/pending-points | List Campaign Pending Points |
 | [**listEarningRules**](LoyaltiesApi.md#listEarningRules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules |
+| [**listLoyaltyCampaignTransactions**](LoyaltiesApi.md#listLoyaltyCampaignTransactions) | **GET** /v1/loyalties/{campaignId}/transactions | List Loyalty Campaign Transactions |
 | [**listLoyaltyCardTransactions**](LoyaltiesApi.md#listLoyaltyCardTransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions |
 | [**listLoyaltyCardTransactions1**](LoyaltiesApi.md#listLoyaltyCardTransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions |
 | [**listLoyaltyPrograms**](LoyaltiesApi.md#listLoyaltyPrograms) | **GET** /v1/loyalties | List Loyalty Campaigns |
@@ -49,8 +52,8 @@ All URIs are relative to *https://api.voucherify.io*
 | [**redeemReward1**](LoyaltiesApi.md#redeemReward1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/redemption | Redeem Reward |
 | [**transferPoints**](LoyaltiesApi.md#transferPoints) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transfers | Transfer Loyalty Points |
 | [**updateEarningRule**](LoyaltiesApi.md#updateEarningRule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule |
-| [**updateLoyaltyCardBalance**](LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Add or Remove Loyalty Card Balance |
-| [**updateLoyaltyCardBalance1**](LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Add or Remove Loyalty Card Balance |
+| [**updateLoyaltyCardBalance**](LoyaltiesApi.md#updateLoyaltyCardBalance) | **POST** /v1/loyalties/members/{memberId}/balance | Adjust Loyalty Card Balance |
+| [**updateLoyaltyCardBalance1**](LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Adjust Loyalty Card Balance |
 | [**updateLoyaltyProgram**](LoyaltiesApi.md#updateLoyaltyProgram) | **PUT** /v1/loyalties/{campaignId} | Update Loyalty Campaign |
 | [**updateRewardAssignment1**](LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment |
 
@@ -61,7 +64,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Activate Member Pending Points
 
-&gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body.
+Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
 
 ### Example
 ```java
@@ -197,13 +200,86 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Returns the voucher object that was published to the customer provided in the request payload. |  -  |
 
+<a id="adjustMemberPendingPoints"></a>
+# **adjustMemberPendingPoints**
+> LoyaltiesMembersPendingPointsBalanceResponseBody adjustMemberPendingPoints(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody)
+
+Adjust Member Pending Points
+
+Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String memberId = "memberId_example"; // String | Unique loyalty card code assigned to a particular customer.
+    String pendingPointsId = "pendingPointsId_example"; // String | Unique pending point identifier, assigned by Voucherify.
+    LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = new LoyaltiesMembersPendingPointsBalanceRequestBody(); // LoyaltiesMembersPendingPointsBalanceRequestBody | Define the number of pending points to be added or subtracted.
+    try {
+      LoyaltiesMembersPendingPointsBalanceResponseBody result = apiInstance.adjustMemberPendingPoints(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#adjustMemberPendingPoints");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **memberId** | **String**| Unique loyalty card code assigned to a particular customer. |
+| **pendingPointsId** | **String**| Unique pending point identifier, assigned by Voucherify. |
+| **loyaltiesMembersPendingPointsBalanceRequestBody** | [**LoyaltiesMembersPendingPointsBalanceRequestBody**](LoyaltiesMembersPendingPointsBalanceRequestBody.md)| Define the number of pending points to be added or subtracted. |
+
+### Return type
+
+[**LoyaltiesMembersPendingPointsBalanceResponseBody**](LoyaltiesMembersPendingPointsBalanceResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the details about the balance adjustment of the pending points with a given ID for a loyalty card. |  -  |
+
 <a id="cancelMemberPendingPoints"></a>
 # **cancelMemberPendingPoints**
 > cancelMemberPendingPoints(memberId, pendingPointsId)
 
 Cancel Member Pending Points
 
-&gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response.
+Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
 
 ### Example
 ```java
@@ -273,7 +349,7 @@ null (empty response body)
 
 Create Earning Rule
 
-Create earning rules for a loyalty campaign.
+Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
 
 ### Example
 ```java
@@ -415,7 +491,7 @@ public class Example {
 
 Create Loyalty Campaign
 
-Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
 
 ### Example
 ```java
@@ -484,7 +560,7 @@ public class Example {
 
 Export Loyalty Campaign Point Expiration
 
-Schedule the generation of a points expiration CSV file for a particular campaign.
+Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
 
 ### Example
 ```java
@@ -972,6 +1048,77 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns an earning rule object with the &#x60;active&#x60; parameter set to &#x60;true&#x60;. |  -  |
+
+<a id="exportLoyaltyCampaignTransactions"></a>
+# **exportLoyaltyCampaignTransactions**
+> CampaignsTransactionsExportCreateResponseBody exportLoyaltyCampaignTransactions(campaignId, loyaltiesTransactionsExportCreateRequestBody)
+
+Export Loyalty Campaign Transactions
+
+Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the GET Export method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the POST Export Campaign Transactions does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
+    LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = new LoyaltiesTransactionsExportCreateRequestBody(); // LoyaltiesTransactionsExportCreateRequestBody | Specify the parameters for the transaction export.
+    try {
+      CampaignsTransactionsExportCreateResponseBody result = apiInstance.exportLoyaltyCampaignTransactions(campaignId, loyaltiesTransactionsExportCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#exportLoyaltyCampaignTransactions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |
+| **loyaltiesTransactionsExportCreateRequestBody** | [**LoyaltiesTransactionsExportCreateRequestBody**](LoyaltiesTransactionsExportCreateRequestBody.md)| Specify the parameters for the transaction export. |
+
+### Return type
+
+[**CampaignsTransactionsExportCreateResponseBody**](CampaignsTransactionsExportCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | An object representing an export. |  -  |
 
 <a id="exportLoyaltyCardTransactions"></a>
 # **exportLoyaltyCardTransactions**
@@ -1687,7 +1834,7 @@ public class Example {
 
 List Campaign Pending Points
 
-&gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned.
+Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
 
 ### Example
 ```java
@@ -1831,9 +1978,86 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Returns a list of earning rules. |  -  |
 
+<a id="listLoyaltyCampaignTransactions"></a>
+# **listLoyaltyCampaignTransactions**
+> LoyaltiesTransactionsListResponseBody listLoyaltyCampaignTransactions(campaignId, limit, order, startingAfterId, filters)
+
+List Loyalty Campaign Transactions
+
+Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+
+### Example
+```java
+// Import classes:
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.ApiException;
+import io.voucherify.client.Configuration;
+import io.voucherify.client.auth.*;
+import io.voucherify.client.models.*;
+import io.voucherify.client.api.LoyaltiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.voucherify.io");
+    
+    // Configure API key authorization: X-App-Id
+    defaultClient.setAuthentication("X-App-Id", "YOUR API KEY");
+
+    // Configure API key authorization: X-App-Token
+    defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
+
+    LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
+    String campaignId = "campaignId_example"; // String | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
+    Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+    ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
+    ParametersFiltersListCampaignTransactions filters = new ParametersFiltersListCampaignTransactions(); // ParametersFiltersListCampaignTransactions | Filters for listing responses. The id filter denotes the unique transaction identifier.
+    try {
+      LoyaltiesTransactionsListResponseBody result = apiInstance.listLoyaltyCampaignTransactions(campaignId, limit, order, startingAfterId, filters);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCampaignTransactions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  |
+|------------- | ------------- | ------------- |
+| **campaignId** | **String**| You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |
+| **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
+| **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
+| **filters** | [**ParametersFiltersListCampaignTransactions**](.md)| Filters for listing responses. The id filter denotes the unique transaction identifier. |
+
+### Return type
+
+[**LoyaltiesTransactionsListResponseBody**](LoyaltiesTransactionsListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary with a &#x60;data&#x60; property that contains an array of transactions. The maximum number of transactions returned is determined by the &#x60;limit&#x60; query parameter. Each entry in the array is a separate transaction object. If more results are available, the &#x60;has_more&#x60; flag has value &#x60;true&#x60; and the value of the &#x60;more_starting_after&#x60; property can be used to retrieve another page of results. |  -  |
+
 <a id="listLoyaltyCardTransactions"></a>
 # **listLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, order, startingAfterId)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, order, filters, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -1864,9 +2088,10 @@ public class Example {
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterFiltersListMemberTransactions filters = new ParameterFiltersListMemberTransactions(); // ParameterFiltersListMemberTransactions | Filters for listing member transactions. id is the unique identifier of the transaction.
     String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, order, startingAfterId);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, order, filters, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions");
@@ -1886,6 +2111,7 @@ public class Example {
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **filters** | [**ParameterFiltersListMemberTransactions**](.md)| Filters for listing member transactions. id is the unique identifier of the transaction. |
 | **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
@@ -1908,7 +2134,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions1"></a>
 # **listLoyaltyCardTransactions1**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, order, filters, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -1940,9 +2166,10 @@ public class Example {
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterFiltersListMemberTransactions filters = new ParameterFiltersListMemberTransactions(); // ParameterFiltersListMemberTransactions | Filters for listing member transactions. id is the unique identifier of the transaction.
     String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, order, filters, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions1");
@@ -1963,6 +2190,7 @@ public class Example {
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **filters** | [**ParameterFiltersListMemberTransactions**](.md)| Filters for listing member transactions. id is the unique identifier of the transaction. |
 | **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
@@ -1985,7 +2213,7 @@ public class Example {
 
 <a id="listLoyaltyPrograms"></a>
 # **listLoyaltyPrograms**
-> LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(limit, page, order)
+> LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(limit, page, expand, order)
 
 List Loyalty Campaigns
 
@@ -2015,9 +2243,10 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterExpandListCampaigns expand = ParameterExpandListCampaigns.fromValue("category"); // ParameterExpandListCampaigns | Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores.
     ParameterOrderListCampaigns order = ParameterOrderListCampaigns.fromValue("created_at"); // ParameterOrderListCampaigns | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
     try {
-      LoyaltiesListCampaignsResponseBody result = apiInstance.listLoyaltyPrograms(limit, page, order);
+      LoyaltiesListCampaignsResponseBody result = apiInstance.listLoyaltyPrograms(limit, page, expand, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyPrograms");
@@ -2036,6 +2265,7 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **expand** | [**ParameterExpandListCampaigns**](.md)| Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. |
 | **order** | [**ParameterOrderListCampaigns**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
 
 ### Return type
@@ -2502,7 +2732,7 @@ public class Example {
 
 List Member Pending Points
 
-&gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
 
 ### Example
 ```java
@@ -2577,7 +2807,7 @@ public class Example {
 
 List Member Pending Points
 
-&gt;🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
+Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
 
 ### Example
 ```java
@@ -3179,7 +3409,7 @@ public class Example {
 
 Transfer Loyalty Points
 
-Transfer points between different loyalty cards. You need to provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters in the URL. In the request body, you provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.
+Transfer points between different loyalty cards which have holders. You need to provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters in the URL. In the request body, you provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning they were published to customers.
 
 ### Example
 ```java
@@ -3323,9 +3553,9 @@ public class Example {
 # **updateLoyaltyCardBalance**
 > LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance(memberId, loyaltiesMembersBalanceUpdateRequestBody)
 
-Add or Remove Loyalty Card Balance
+Adjust Loyalty Card Balance
 
-This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
 
 ### Example
 ```java
@@ -3394,9 +3624,9 @@ public class Example {
 # **updateLoyaltyCardBalance1**
 > LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance1(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody)
 
-Add or Remove Loyalty Card Balance
+Adjust Loyalty Card Balance
 
-This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
 
 ### Example
 ```java
