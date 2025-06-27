@@ -74,6 +74,14 @@ public class RedemptionVoucherLoyaltyCard {
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
   private Integer pendingPoints;
 
+  public static final String SERIALIZED_NAME_EXPIRED_POINTS = "expired_points";
+  @SerializedName(SERIALIZED_NAME_EXPIRED_POINTS)
+  private Integer expiredPoints;
+
+  public static final String SERIALIZED_NAME_SUBTRACTED_POINTS = "subtracted_points";
+  @SerializedName(SERIALIZED_NAME_SUBTRACTED_POINTS)
+  private Integer subtractedPoints;
+
   public RedemptionVoucherLoyaltyCard() {
   }
 
@@ -84,7 +92,7 @@ public class RedemptionVoucherLoyaltyCard {
   }
 
    /**
-   * Total points incurred over the lifespan of the loyalty card, minus the expired points.
+   * Total number of points added to the loyalty card over its lifespan.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -105,7 +113,7 @@ public class RedemptionVoucherLoyaltyCard {
   }
 
    /**
-   * Points available for reward redemption.
+   * Points available for reward redemption. This is calculated as follows: &#x60;balance&#x60; &#x3D; &#x60;points&#x60; - &#x60;expired_points&#x60; - &#x60;subtracted_points&#x60; - &#x60;redemption.redeemed_points&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable
@@ -168,7 +176,7 @@ public class RedemptionVoucherLoyaltyCard {
   }
 
    /**
-   * Determines the number of pending points that will be added to the loyalty card after the predefined time.
+   * Shows the number of pending points that will be added to the loyalty card when they are activated automatically or manually.
    * @return pendingPoints
   **/
   @javax.annotation.Nullable
@@ -179,6 +187,48 @@ public class RedemptionVoucherLoyaltyCard {
 
   public void setPendingPoints(Integer pendingPoints) {
     this.pendingPoints = pendingPoints;
+  }
+
+
+  public RedemptionVoucherLoyaltyCard expiredPoints(Integer expiredPoints) {
+    
+    this.expiredPoints = expiredPoints;
+    return this;
+  }
+
+   /**
+   * Shows the total number of expired points over the lifetime of the loyalty card.
+   * @return expiredPoints
+  **/
+  @javax.annotation.Nullable
+  public Integer getExpiredPoints() {
+    return expiredPoints;
+  }
+
+
+  public void setExpiredPoints(Integer expiredPoints) {
+    this.expiredPoints = expiredPoints;
+  }
+
+
+  public RedemptionVoucherLoyaltyCard subtractedPoints(Integer subtractedPoints) {
+    
+    this.subtractedPoints = subtractedPoints;
+    return this;
+  }
+
+   /**
+   * Shows the total number of subtracted points over the lifetime of the loyalty card.
+   * @return subtractedPoints
+  **/
+  @javax.annotation.Nullable
+  public Integer getSubtractedPoints() {
+    return subtractedPoints;
+  }
+
+
+  public void setSubtractedPoints(Integer subtractedPoints) {
+    this.subtractedPoints = subtractedPoints;
   }
 
 
@@ -196,7 +246,9 @@ public class RedemptionVoucherLoyaltyCard {
         Objects.equals(this.balance, redemptionVoucherLoyaltyCard.balance) &&
         Objects.equals(this.nextExpirationDate, redemptionVoucherLoyaltyCard.nextExpirationDate) &&
         Objects.equals(this.nextExpirationPoints, redemptionVoucherLoyaltyCard.nextExpirationPoints) &&
-        Objects.equals(this.pendingPoints, redemptionVoucherLoyaltyCard.pendingPoints);
+        Objects.equals(this.pendingPoints, redemptionVoucherLoyaltyCard.pendingPoints) &&
+        Objects.equals(this.expiredPoints, redemptionVoucherLoyaltyCard.expiredPoints) &&
+        Objects.equals(this.subtractedPoints, redemptionVoucherLoyaltyCard.subtractedPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -205,7 +257,7 @@ public class RedemptionVoucherLoyaltyCard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints, pendingPoints);
+    return Objects.hash(points, balance, nextExpirationDate, nextExpirationPoints, pendingPoints, expiredPoints, subtractedPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -224,6 +276,8 @@ public class RedemptionVoucherLoyaltyCard {
     sb.append("    nextExpirationDate: ").append(toIndentedString(nextExpirationDate)).append("\n");
     sb.append("    nextExpirationPoints: ").append(toIndentedString(nextExpirationPoints)).append("\n");
     sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
+    sb.append("    expiredPoints: ").append(toIndentedString(expiredPoints)).append("\n");
+    sb.append("    subtractedPoints: ").append(toIndentedString(subtractedPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,6 +305,8 @@ public class RedemptionVoucherLoyaltyCard {
     openapiFields.add("next_expiration_date");
     openapiFields.add("next_expiration_points");
     openapiFields.add("pending_points");
+    openapiFields.add("expired_points");
+    openapiFields.add("subtracted_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

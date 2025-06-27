@@ -69,7 +69,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   private String description;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -341,7 +341,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    * @return type
   **/
   @javax.annotation.Nullable
@@ -362,7 +362,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
+   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
    * @return joinOnce
   **/
   @javax.annotation.Nullable

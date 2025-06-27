@@ -70,13 +70,13 @@ public class FilterConditionsDateTime {
   @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
   private String $isUnknown;
 
-  public static final String SERIALIZED_NAME_MORE_THAN = "more_than";
-  @SerializedName(SERIALIZED_NAME_MORE_THAN)
-  private Integer moreThan;
+  public static final String SERIALIZED_NAME_$_MORE_THAN = "$more_than";
+  @SerializedName(SERIALIZED_NAME_$_MORE_THAN)
+  private Integer $moreThan;
 
-  public static final String SERIALIZED_NAME_LESS_THAN = "less_than";
-  @SerializedName(SERIALIZED_NAME_LESS_THAN)
-  private Integer lessThan;
+  public static final String SERIALIZED_NAME_$_LESS_THAN = "$less_than";
+  @SerializedName(SERIALIZED_NAME_$_LESS_THAN)
+  private Integer $lessThan;
 
   public FilterConditionsDateTime() {
   }
@@ -165,45 +165,45 @@ public class FilterConditionsDateTime {
   }
 
 
-  public FilterConditionsDateTime moreThan(Integer moreThan) {
+  public FilterConditionsDateTime $moreThan(Integer $moreThan) {
     
-    this.moreThan = moreThan;
+    this.$moreThan = $moreThan;
     return this;
   }
 
    /**
    * Value is more days ago before the current date and time, e.g. more than &#x60;10&#x60; days ago.
-   * @return moreThan
+   * @return $moreThan
   **/
   @javax.annotation.Nullable
-  public Integer getMoreThan() {
-    return moreThan;
+  public Integer get$MoreThan() {
+    return $moreThan;
   }
 
 
-  public void setMoreThan(Integer moreThan) {
-    this.moreThan = moreThan;
+  public void set$MoreThan(Integer $moreThan) {
+    this.$moreThan = $moreThan;
   }
 
 
-  public FilterConditionsDateTime lessThan(Integer lessThan) {
+  public FilterConditionsDateTime $lessThan(Integer $lessThan) {
     
-    this.lessThan = lessThan;
+    this.$lessThan = $lessThan;
     return this;
   }
 
    /**
    * Value is less days before the current date and time, e.g. less than &#x60;10&#x60; days ago.
-   * @return lessThan
+   * @return $lessThan
   **/
   @javax.annotation.Nullable
-  public Integer getLessThan() {
-    return lessThan;
+  public Integer get$LessThan() {
+    return $lessThan;
   }
 
 
-  public void setLessThan(Integer lessThan) {
-    this.lessThan = lessThan;
+  public void set$LessThan(Integer $lessThan) {
+    this.$lessThan = $lessThan;
   }
 
 
@@ -221,8 +221,8 @@ public class FilterConditionsDateTime {
         Objects.equals(this.$before, filterConditionsDateTime.$before) &&
         Objects.equals(this.$hasValue, filterConditionsDateTime.$hasValue) &&
         Objects.equals(this.$isUnknown, filterConditionsDateTime.$isUnknown) &&
-        Objects.equals(this.moreThan, filterConditionsDateTime.moreThan) &&
-        Objects.equals(this.lessThan, filterConditionsDateTime.lessThan);
+        Objects.equals(this.$moreThan, filterConditionsDateTime.$moreThan) &&
+        Objects.equals(this.$lessThan, filterConditionsDateTime.$lessThan);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -231,7 +231,7 @@ public class FilterConditionsDateTime {
 
   @Override
   public int hashCode() {
-    return Objects.hash($after, $before, $hasValue, $isUnknown, moreThan, lessThan);
+    return Objects.hash($after, $before, $hasValue, $isUnknown, $moreThan, $lessThan);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -249,8 +249,8 @@ public class FilterConditionsDateTime {
     sb.append("    $before: ").append(toIndentedString($before)).append("\n");
     sb.append("    $hasValue: ").append(toIndentedString($hasValue)).append("\n");
     sb.append("    $isUnknown: ").append(toIndentedString($isUnknown)).append("\n");
-    sb.append("    moreThan: ").append(toIndentedString(moreThan)).append("\n");
-    sb.append("    lessThan: ").append(toIndentedString(lessThan)).append("\n");
+    sb.append("    $moreThan: ").append(toIndentedString($moreThan)).append("\n");
+    sb.append("    $lessThan: ").append(toIndentedString($lessThan)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -277,8 +277,8 @@ public class FilterConditionsDateTime {
     openapiFields.add("$before");
     openapiFields.add("$has_value");
     openapiFields.add("$is_unknown");
-    openapiFields.add("more_than");
-    openapiFields.add("less_than");
+    openapiFields.add("$more_than");
+    openapiFields.add("$less_than");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

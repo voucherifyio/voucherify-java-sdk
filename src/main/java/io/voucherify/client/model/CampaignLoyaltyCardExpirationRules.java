@@ -48,13 +48,13 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * CampaignLoyaltyCardExpirationRules
+ * Defines the loyalty point expiration rule. This expiration rule applies when there are no &#x60;expiration_rules&#x60; defined for an earning rule.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CampaignLoyaltyCardExpirationRules {
   /**
-   * Type of period
+   * Type of period. Currently, only &#x60;MONTH&#x60; is allowed.
    */
   @JsonAdapter(PeriodTypeEnum.Adapter.class)
   public enum PeriodTypeEnum {
@@ -107,7 +107,7 @@ public class CampaignLoyaltyCardExpirationRules {
   private Integer periodValue;
 
   /**
-   * Type of rounding
+   * Type of rounding of the expiration period.
    */
   @JsonAdapter(RoundingTypeEnum.Adapter.class)
   public enum RoundingTypeEnum {
@@ -177,7 +177,7 @@ public class CampaignLoyaltyCardExpirationRules {
   }
 
    /**
-   * Type of period
+   * Type of period. Currently, only &#x60;MONTH&#x60; is allowed.
    * @return periodType
   **/
   @javax.annotation.Nullable
@@ -198,7 +198,7 @@ public class CampaignLoyaltyCardExpirationRules {
   }
 
    /**
-   * Value of the period
+   * Value of the period.
    * @return periodValue
   **/
   @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class CampaignLoyaltyCardExpirationRules {
   }
 
    /**
-   * Type of rounding
+   * Type of rounding of the expiration period.
    * @return roundingType
   **/
   @javax.annotation.Nullable
@@ -240,7 +240,7 @@ public class CampaignLoyaltyCardExpirationRules {
   }
 
    /**
-   * Value of rounding
+   * Value of rounding of the expiration period.
    * @return roundingValue
   **/
   @javax.annotation.Nullable

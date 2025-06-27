@@ -246,10 +246,6 @@ public class RedemptionRollback {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
-  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionRollbackRelatedRedemptions relatedRedemptions;
-
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
@@ -346,6 +342,10 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionRollbackLoyaltyCard loyaltyCard;
+
+  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
+  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
+  private RedemptionRollbackRelatedRedemptions relatedRedemptions;
 
   public RedemptionRollback() {
   }
@@ -578,27 +578,6 @@ public class RedemptionRollback {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
-  }
-
-
-  public RedemptionRollback relatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
-    
-    this.relatedRedemptions = relatedRedemptions;
-    return this;
-  }
-
-   /**
-   * Get relatedRedemptions
-   * @return relatedRedemptions
-  **/
-  @javax.annotation.Nullable
-  public RedemptionRollbackRelatedRedemptions getRelatedRedemptions() {
-    return relatedRedemptions;
-  }
-
-
-  public void setRelatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
-    this.relatedRedemptions = relatedRedemptions;
   }
 
 
@@ -854,6 +833,27 @@ public class RedemptionRollback {
   }
 
 
+  public RedemptionRollback relatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
+    
+    this.relatedRedemptions = relatedRedemptions;
+    return this;
+  }
+
+   /**
+   * Get relatedRedemptions
+   * @return relatedRedemptions
+  **/
+  @javax.annotation.Nullable
+  public RedemptionRollbackRelatedRedemptions getRelatedRedemptions() {
+    return relatedRedemptions;
+  }
+
+
+  public void setRelatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
+    this.relatedRedemptions = relatedRedemptions;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -875,7 +875,6 @@ public class RedemptionRollback {
         Objects.equals(this.reason, redemptionRollback.reason) &&
         Objects.equals(this.result, redemptionRollback.result) &&
         Objects.equals(this.status, redemptionRollback.status) &&
-        Objects.equals(this.relatedRedemptions, redemptionRollback.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemptionRollback.failureCode) &&
         Objects.equals(this.failureMessage, redemptionRollback.failureMessage) &&
         Objects.equals(this.order, redemptionRollback.order) &&
@@ -887,7 +886,8 @@ public class RedemptionRollback {
         Objects.equals(this.promotionTier, redemptionRollback.promotionTier) &&
         Objects.equals(this.reward, redemptionRollback.reward) &&
         Objects.equals(this.gift, redemptionRollback.gift) &&
-        Objects.equals(this.loyaltyCard, redemptionRollback.loyaltyCard);
+        Objects.equals(this.loyaltyCard, redemptionRollback.loyaltyCard) &&
+        Objects.equals(this.relatedRedemptions, redemptionRollback.relatedRedemptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -896,7 +896,7 @@ public class RedemptionRollback {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard, relatedRedemptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -921,7 +921,6 @@ public class RedemptionRollback {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
@@ -934,6 +933,7 @@ public class RedemptionRollback {
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
+    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -967,7 +967,6 @@ public class RedemptionRollback {
     openapiFields.add("reason");
     openapiFields.add("result");
     openapiFields.add("status");
-    openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
     openapiFields.add("order");
@@ -980,6 +979,7 @@ public class RedemptionRollback {
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
+    openapiFields.add("related_redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

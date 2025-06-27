@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * 
+ * Determines if the campaign is or is not a referral campaign.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

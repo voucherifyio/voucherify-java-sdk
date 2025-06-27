@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Bundle;
 import io.voucherify.client.model.Discount;
 import io.voucherify.client.model.Error;
 import io.voucherify.client.model.RedeemableGift;
@@ -60,6 +61,10 @@ public class RedeemableResult {
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   private Discount discount;
 
+  public static final String SERIALIZED_NAME_BUNDLE = "bundle";
+  @SerializedName(SERIALIZED_NAME_BUNDLE)
+  private Bundle bundle;
+
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private RedeemableGift gift;
@@ -93,6 +98,27 @@ public class RedeemableResult {
 
   public void setDiscount(Discount discount) {
     this.discount = discount;
+  }
+
+
+  public RedeemableResult bundle(Bundle bundle) {
+    
+    this.bundle = bundle;
+    return this;
+  }
+
+   /**
+   * Get bundle
+   * @return bundle
+  **/
+  @javax.annotation.Nullable
+  public Bundle getBundle() {
+    return bundle;
+  }
+
+
+  public void setBundle(Bundle bundle) {
+    this.bundle = bundle;
   }
 
 
@@ -170,6 +196,7 @@ public class RedeemableResult {
     }
     RedeemableResult redeemableResult = (RedeemableResult) o;
     return Objects.equals(this.discount, redeemableResult.discount) &&
+        Objects.equals(this.bundle, redeemableResult.bundle) &&
         Objects.equals(this.gift, redeemableResult.gift) &&
         Objects.equals(this.loyaltyCard, redeemableResult.loyaltyCard) &&
         Objects.equals(this.error, redeemableResult.error);
@@ -177,7 +204,7 @@ public class RedeemableResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(discount, gift, loyaltyCard, error);
+    return Objects.hash(discount, bundle, gift, loyaltyCard, error);
   }
 
   @Override
@@ -185,6 +212,7 @@ public class RedeemableResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedeemableResult {\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
+    sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
@@ -211,6 +239,7 @@ public class RedeemableResult {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("discount");
+    openapiFields.add("bundle");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
     openapiFields.add("error");

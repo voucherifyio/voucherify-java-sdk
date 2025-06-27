@@ -73,6 +73,7 @@ public class ApplicableToOrderItemUnitsItem {
 
    /**
    * Number assigned to the order line item in accordance with the order sent in the request.
+   * minimum: 0
    * @return index
   **/
   @javax.annotation.Nullable

@@ -324,7 +324,7 @@ public class TrashBinItem {
   }
 
    /**
-   * Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for standalone vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
+   * Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) voucherss. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
    * @return resourceParentId
   **/
   @javax.annotation.Nullable

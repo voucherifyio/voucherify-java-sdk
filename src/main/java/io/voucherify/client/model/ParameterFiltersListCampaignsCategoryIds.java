@@ -48,7 +48,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Filter by categories ids
+ * Filter by categories IDs
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

@@ -1316,7 +1316,7 @@ public class ProductsApi {
     }
     /**
      * Build call for updateProductsInBulk
-     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each customer object. (optional)
+     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each product object. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1375,7 +1375,7 @@ public class ProductsApi {
     /**
      * Update Products in Bulk
      * Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
-     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each customer object. (optional)
+     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each product object. (optional)
      * @return ProductsUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1387,7 +1387,7 @@ public class ProductsApi {
     /**
      * Update Products in Bulk
      * Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
-     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each customer object. (optional)
+     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each product object. (optional)
      * @return ApiResponse&lt;ProductsUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1400,7 +1400,7 @@ public class ProductsApi {
     /**
      * Update Products in Bulk (asynchronously)
      * Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
-     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each customer object. (optional)
+     * @param productsUpdateInBulkRequestBody List the product fields to be updated in each product object. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

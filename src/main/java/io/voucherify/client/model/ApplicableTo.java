@@ -127,10 +127,6 @@ public class ApplicableTo {
   @SerializedName(SERIALIZED_NAME_PRODUCT_SOURCE_ID)
   private String productSourceId;
 
-  public static final String SERIALIZED_NAME_STRICT = "strict";
-  @SerializedName(SERIALIZED_NAME_STRICT)
-  private Boolean strict;
-
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
@@ -178,6 +174,10 @@ public class ApplicableTo {
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
   private String target;
+
+  public static final String SERIALIZED_NAME_STRICT = "strict";
+  @SerializedName(SERIALIZED_NAME_STRICT)
+  private Boolean strict;
 
   public ApplicableTo() {
   }
@@ -284,27 +284,6 @@ public class ApplicableTo {
 
   public void setProductSourceId(String productSourceId) {
     this.productSourceId = productSourceId;
-  }
-
-
-  public ApplicableTo strict(Boolean strict) {
-    
-    this.strict = strict;
-    return this;
-  }
-
-   /**
-   * Get strict
-   * @return strict
-  **/
-  @javax.annotation.Nullable
-  public Boolean getStrict() {
-    return strict;
-  }
-
-
-  public void setStrict(Boolean strict) {
-    this.strict = strict;
   }
 
 
@@ -576,6 +555,27 @@ public class ApplicableTo {
   }
 
 
+  public ApplicableTo strict(Boolean strict) {
+    
+    this.strict = strict;
+    return this;
+  }
+
+   /**
+   * Get strict
+   * @return strict
+  **/
+  @javax.annotation.Nullable
+  public Boolean getStrict() {
+    return strict;
+  }
+
+
+  public void setStrict(Boolean strict) {
+    this.strict = strict;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -591,7 +591,6 @@ public class ApplicableTo {
         Objects.equals(this.sourceId, applicableTo.sourceId) &&
         Objects.equals(this.productId, applicableTo.productId) &&
         Objects.equals(this.productSourceId, applicableTo.productSourceId) &&
-        Objects.equals(this.strict, applicableTo.strict) &&
         Objects.equals(this.price, applicableTo.price) &&
         Objects.equals(this.priceFormula, applicableTo.priceFormula) &&
         Objects.equals(this.effect, applicableTo.effect) &&
@@ -603,7 +602,8 @@ public class ApplicableTo {
         Objects.equals(this.orderItemUnits, applicableTo.orderItemUnits) &&
         Objects.equals(this.repeat, applicableTo.repeat) &&
         Objects.equals(this.skipInitially, applicableTo.skipInitially) &&
-        Objects.equals(this.target, applicableTo.target);
+        Objects.equals(this.target, applicableTo.target) &&
+        Objects.equals(this.strict, applicableTo.strict);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -612,7 +612,7 @@ public class ApplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target, strict);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -631,7 +631,6 @@ public class ApplicableTo {
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    productSourceId: ").append(toIndentedString(productSourceId)).append("\n");
-    sb.append("    strict: ").append(toIndentedString(strict)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    priceFormula: ").append(toIndentedString(priceFormula)).append("\n");
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
@@ -644,6 +643,7 @@ public class ApplicableTo {
     sb.append("    repeat: ").append(toIndentedString(repeat)).append("\n");
     sb.append("    skipInitially: ").append(toIndentedString(skipInitially)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    strict: ").append(toIndentedString(strict)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -671,7 +671,6 @@ public class ApplicableTo {
     openapiFields.add("source_id");
     openapiFields.add("product_id");
     openapiFields.add("product_source_id");
-    openapiFields.add("strict");
     openapiFields.add("price");
     openapiFields.add("price_formula");
     openapiFields.add("effect");
@@ -684,6 +683,7 @@ public class ApplicableTo {
     openapiFields.add("repeat");
     openapiFields.add("skip_initially");
     openapiFields.add("target");
+    openapiFields.add("strict");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

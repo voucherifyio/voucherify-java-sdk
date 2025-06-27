@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Data filters used to narrow down the data records to be returned in the result.
+ * Data filters used to narrow down the data records to be returned in the result. - &#x60;campaign&#x60; refers to campaigns; - &#x60;voucher&#x60; refers to generic (standalone) vouchers or published vouchers; - &#x60;promotion_tier&#x60; refers to promotion tiers.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

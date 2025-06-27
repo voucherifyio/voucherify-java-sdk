@@ -599,7 +599,7 @@ public class LoyaltiesUpdateCampaignResponseBody {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
+   * Always set to &#x60;true&#x60; for loyalty campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;.
    * @return joinOnce
   **/
   @javax.annotation.Nullable

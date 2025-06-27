@@ -50,6 +50,8 @@ public class PublicationsTest {
                     // assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
                     // TODO
         } catch (Exception e) {
+            System.err.println("Error in listPublicationsTest: " + e.getMessage());
+            e.printStackTrace();
             fail();
         }
     }
@@ -75,6 +77,8 @@ public class PublicationsTest {
                     "total", "campaign", "code", "campaignId", "url", "updatedAt", "holderId");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
+            System.err.println("Error in CreatePublicationWithSpecificVoucherTest: " + e.getMessage());
+            e.printStackTrace();
             fail();
         }
     }
@@ -88,7 +92,7 @@ public class PublicationsTest {
             CreatePublicationCampaign createPublicationCampaign = new CreatePublicationCampaign();
             Customer customer = new Customer();
             createPublicationCampaign.setName(VoucherifyStore.getInstance().getLoyaltyCampaign().getName());
-            createPublicationCampaign.setCount(2);
+            createPublicationCampaign.setCount(1);
 
             customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
 
@@ -102,6 +106,8 @@ public class PublicationsTest {
             List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "vouchersId", "vouchers");
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
+            System.err.println("Error in CreatePublicationWithCampaignTest: " + e.getMessage());
+            e.printStackTrace();
             fail();
         }
     }

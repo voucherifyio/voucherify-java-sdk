@@ -2,15 +2,16 @@
 
 # CampaignLoyaltyCardExpirationRules
 
+Defines the loyalty point expiration rule. This expiration rule applies when there are no `expiration_rules` defined for an earning rule.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**periodType** | [**PeriodTypeEnum**](#PeriodTypeEnum) | Type of period |
-|**periodValue** | **Integer** | Value of the period |
-|**roundingType** | [**RoundingTypeEnum**](#RoundingTypeEnum) | Type of rounding |
-|**roundingValue** | **Integer** | Value of rounding |
+|**periodType** | [**PeriodTypeEnum**](#PeriodTypeEnum) | Type of period. Currently, only &#x60;MONTH&#x60; is allowed. |
+|**periodValue** | **Integer** | Value of the period. |
+|**roundingType** | [**RoundingTypeEnum**](#RoundingTypeEnum) | Type of rounding of the expiration period. |
+|**roundingValue** | **Integer** | Value of rounding of the expiration period. |
 
 
 
