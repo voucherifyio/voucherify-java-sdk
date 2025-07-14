@@ -171,13 +171,56 @@ public class InapplicableTo {
   @SerializedName(SERIALIZED_NAME_SKIP_INITIALLY)
   private Integer skipInitially;
 
+  /**
+   * Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.
+   */
+  @JsonAdapter(TargetEnum.Adapter.class)
+  public enum TargetEnum {
+    ITEM("ITEM"),
+    
+    UNIT("UNIT");
+
+    private String value;
+
+    TargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TargetEnum fromValue(String value) {
+      for (TargetEnum b : TargetEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TargetEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  private String target;
-
-  public static final String SERIALIZED_NAME_STRICT = "strict";
-  @SerializedName(SERIALIZED_NAME_STRICT)
-  private Boolean strict;
+  private TargetEnum target;
 
   public InapplicableTo() {
   }
@@ -534,7 +577,7 @@ public class InapplicableTo {
   }
 
 
-  public InapplicableTo target(String target) {
+  public InapplicableTo target(TargetEnum target) {
     
     this.target = target;
     return this;
@@ -545,34 +588,13 @@ public class InapplicableTo {
    * @return target
   **/
   @javax.annotation.Nullable
-  public String getTarget() {
+  public TargetEnum getTarget() {
     return target;
   }
 
 
-  public void setTarget(String target) {
+  public void setTarget(TargetEnum target) {
     this.target = target;
-  }
-
-
-  public InapplicableTo strict(Boolean strict) {
-    
-    this.strict = strict;
-    return this;
-  }
-
-   /**
-   * Get strict
-   * @return strict
-  **/
-  @javax.annotation.Nullable
-  public Boolean getStrict() {
-    return strict;
-  }
-
-
-  public void setStrict(Boolean strict) {
-    this.strict = strict;
   }
 
 
@@ -602,8 +624,7 @@ public class InapplicableTo {
         Objects.equals(this.orderItemUnits, inapplicableTo.orderItemUnits) &&
         Objects.equals(this.repeat, inapplicableTo.repeat) &&
         Objects.equals(this.skipInitially, inapplicableTo.skipInitially) &&
-        Objects.equals(this.target, inapplicableTo.target) &&
-        Objects.equals(this.strict, inapplicableTo.strict);
+        Objects.equals(this.target, inapplicableTo.target);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -612,7 +633,7 @@ public class InapplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target, strict);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -643,7 +664,6 @@ public class InapplicableTo {
     sb.append("    repeat: ").append(toIndentedString(repeat)).append("\n");
     sb.append("    skipInitially: ").append(toIndentedString(skipInitially)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    strict: ").append(toIndentedString(strict)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -683,7 +703,6 @@ public class InapplicableTo {
     openapiFields.add("repeat");
     openapiFields.add("skip_initially");
     openapiFields.add("target");
-    openapiFields.add("strict");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

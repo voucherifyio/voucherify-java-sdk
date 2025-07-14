@@ -25,7 +25,6 @@ Request body schema for **POST** `/loyalties`.
 |**category** | **String** | The category assigned to the campaign. Either pass this parameter OR the &#x60;category_id&#x60;. |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format. |
 |**accessSettings** | [**AccessSettings**](AccessSettings.md) |  |
-|**validationRules** | **List&lt;String&gt;** | Array containing the ID of the validation rule associated with the promotion tier. |
 |**campaignType** | [**CampaignTypeEnum**](#CampaignTypeEnum) | Type of campaign. |
 |**voucher** | [**CampaignLoyaltyVoucher**](CampaignLoyaltyVoucher.md) |  |
 

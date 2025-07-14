@@ -106,7 +106,7 @@ public class LoyaltiesTest {
         try {
             LoyaltiesMembersTransactionsListResponseBody responseBody = loyalties.listLoyaltyCardTransactions(
                     VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds().get(0),
-                    10, null, null);
+                    10, null, null, null);
 
             assertNotNull(responseBody);
         } catch (ApiException | JsonSyntaxException e) {

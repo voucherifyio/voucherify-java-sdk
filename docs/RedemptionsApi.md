@@ -181,7 +181,7 @@ public class Example {
 
     RedemptionsApi apiInstance = new RedemptionsApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1, the highest value is 99.
     String result = "result_example"; // String | A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param.
     String campaign = "campaign_example"; // String | A filter by the campaign **name** that the redemption resources originate from.
     String customer = "customer_example"; // String | Return redemptions performed by the customer with given id or source_id.
@@ -207,7 +207,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1, the highest value is 99. |
 | **result** | **String**| A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. |
 | **campaign** | **String**| A filter by the campaign **name** that the redemption resources originate from. |
 | **customer** | **String**| Return redemptions performed by the customer with given id or source_id. |

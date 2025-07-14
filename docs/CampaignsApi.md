@@ -878,7 +878,7 @@ public class Example {
 
 <a id="listCampaigns"></a>
 # **listCampaigns**
-> CampaignsListResponseBody listCampaigns(limit, page, campaignType, expand, order, filters)
+> CampaignsListResponseBody listCampaigns(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings)
 
 List Campaigns
 
@@ -910,10 +910,13 @@ public class Example {
     Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | This attribute allows filtering by campaign type.
     ParameterExpandListCampaigns expand = ParameterExpandListCampaigns.fromValue("category"); // ParameterExpandListCampaigns | Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores.
+    ParameterCampaignStatusListCampaigns campaignStatus = ParameterCampaignStatusListCampaigns.fromValue("DONE"); // ParameterCampaignStatusListCampaigns | Sorts the results by the status of the campaign.
+    Boolean isReferralCode = true; // Boolean | Sorts the results that are or are not referral campaigns.
     ParameterOrderListCampaigns order = ParameterOrderListCampaigns.fromValue("created_at"); // ParameterOrderListCampaigns | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
     ParameterFiltersListCampaigns filters = new ParameterFiltersListCampaigns(); // ParameterFiltersListCampaigns | Filters the results by various campaign properties.
+    ParameterCampaignsAccessSetttings accessSettings = new ParameterCampaignsAccessSetttings(); // ParameterCampaignsAccessSetttings | Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area.
     try {
-      CampaignsListResponseBody result = apiInstance.listCampaigns(limit, page, campaignType, expand, order, filters);
+      CampaignsListResponseBody result = apiInstance.listCampaigns(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CampaignsApi#listCampaigns");
@@ -934,8 +937,11 @@ public class Example {
 | **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 | **campaignType** | [**ParameterCampaignType**](.md)| This attribute allows filtering by campaign type. |
 | **expand** | [**ParameterExpandListCampaigns**](.md)| Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. |
+| **campaignStatus** | [**ParameterCampaignStatusListCampaigns**](.md)| Sorts the results by the status of the campaign. |
+| **isReferralCode** | **Boolean**| Sorts the results that are or are not referral campaigns. |
 | **order** | [**ParameterOrderListCampaigns**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
 | **filters** | [**ParameterFiltersListCampaigns**](.md)| Filters the results by various campaign properties. |
+| **accessSettings** | [**ParameterCampaignsAccessSetttings**](.md)| Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. |
 
 ### Return type
 

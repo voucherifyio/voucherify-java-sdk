@@ -349,7 +349,7 @@ null (empty response body)
 
 Create Earning Rule
 
-Create earning rules for a loyalty campaign.
+Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
 
 ### Example
 ```java
@@ -491,7 +491,7 @@ public class Example {
 
 Create Loyalty Campaign
 
-Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
 
 ### Example
 ```java
@@ -2057,7 +2057,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions"></a>
 # **listLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, order, startingAfterId)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(memberId, limit, order, filters, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -2088,9 +2088,10 @@ public class Example {
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterFiltersListMemberTransactions filters = new ParameterFiltersListMemberTransactions(); // ParameterFiltersListMemberTransactions | Filters for listing member transactions. id is the unique identifier of the transaction.
     String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, order, startingAfterId);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions(memberId, limit, order, filters, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions");
@@ -2110,6 +2111,7 @@ public class Example {
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **filters** | [**ParameterFiltersListMemberTransactions**](.md)| Filters for listing member transactions. id is the unique identifier of the transaction. |
 | **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
@@ -2132,7 +2134,7 @@ public class Example {
 
 <a id="listLoyaltyCardTransactions1"></a>
 # **listLoyaltyCardTransactions1**
-> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId)
+> LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(campaignId, memberId, limit, order, filters, startingAfterId)
 
 List Loyalty Card Transactions
 
@@ -2164,9 +2166,10 @@ public class Example {
     String memberId = "memberId_example"; // String | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     ParameterOrderListTransactions order = ParameterOrderListTransactions.fromValue("id"); // ParameterOrderListTransactions | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+    ParameterFiltersListMemberTransactions filters = new ParameterFiltersListMemberTransactions(); // ParameterFiltersListMemberTransactions | Filters for listing member transactions. id is the unique identifier of the transaction.
     String startingAfterId = "startingAfterId_example"; // String | A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID.
     try {
-      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, order, startingAfterId);
+      LoyaltiesMembersTransactionsListResponseBody result = apiInstance.listLoyaltyCardTransactions1(campaignId, memberId, limit, order, filters, startingAfterId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyCardTransactions1");
@@ -2187,6 +2190,7 @@ public class Example {
 | **memberId** | **String**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **order** | [**ParameterOrderListTransactions**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
+| **filters** | [**ParameterFiltersListMemberTransactions**](.md)| Filters for listing member transactions. id is the unique identifier of the transaction. |
 | **startingAfterId** | **String**| A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. |
 
 ### Return type
@@ -2209,7 +2213,7 @@ public class Example {
 
 <a id="listLoyaltyPrograms"></a>
 # **listLoyaltyPrograms**
-> LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(limit, page, order)
+> LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(limit, page, expand, order)
 
 List Loyalty Campaigns
 
@@ -2239,9 +2243,10 @@ public class Example {
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    ParameterExpandListCampaigns expand = ParameterExpandListCampaigns.fromValue("category"); // ParameterExpandListCampaigns | Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores.
     ParameterOrderListCampaigns order = ParameterOrderListCampaigns.fromValue("created_at"); // ParameterOrderListCampaigns | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
     try {
-      LoyaltiesListCampaignsResponseBody result = apiInstance.listLoyaltyPrograms(limit, page, order);
+      LoyaltiesListCampaignsResponseBody result = apiInstance.listLoyaltyPrograms(limit, page, expand, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#listLoyaltyPrograms");
@@ -2260,6 +2265,7 @@ public class Example {
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **expand** | [**ParameterExpandListCampaigns**](.md)| Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. |
 | **order** | [**ParameterOrderListCampaigns**](.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. |
 
 ### Return type

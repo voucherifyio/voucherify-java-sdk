@@ -195,9 +195,8 @@ public class ProductsTest {
             ProductsSkusUpdateResponseBody responseBody = products.updateSku(productId, skuId, sku);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -210,9 +209,8 @@ public class ProductsTest {
             SkusGetResponseBody responseBody = products.getSku(VoucherifyStore.getInstance().getSku().getId());
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId", "createdAt", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }
@@ -227,9 +225,8 @@ public class ProductsTest {
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "productId",
                     "createdAt", "updatedAt");
-            //JsonHelper.checkStrictAssertEquals(snapshotPath, responseBody, keysToRemove);
-
-        } catch (ApiException e) {
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+        } catch (Exception e) {
             fail();
         }
     }

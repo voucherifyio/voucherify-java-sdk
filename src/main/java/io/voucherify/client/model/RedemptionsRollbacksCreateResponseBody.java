@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.RedemptionRollback;
+import io.voucherify.client.model.RedemptionsRollbacksCreateResponseBodyOrder;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ public class RedemptionsRollbacksCreateResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private RedemptionsRollbacksCreateResponseBodyOrder order;
 
   public RedemptionsRollbacksCreateResponseBody() {
   }
@@ -122,7 +122,7 @@ public class RedemptionsRollbacksCreateResponseBody {
   }
 
 
-  public RedemptionsRollbacksCreateResponseBody order(OrderCalculated order) {
+  public RedemptionsRollbacksCreateResponseBody order(RedemptionsRollbacksCreateResponseBodyOrder order) {
     
     this.order = order;
     return this;
@@ -133,12 +133,12 @@ public class RedemptionsRollbacksCreateResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public RedemptionsRollbacksCreateResponseBodyOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(RedemptionsRollbacksCreateResponseBodyOrder order) {
     this.order = order;
   }
 

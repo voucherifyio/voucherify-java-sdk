@@ -47,7 +47,9 @@ import io.voucherify.client.model.CampaignsVouchersCreateRequestBody;
 import io.voucherify.client.model.CampaignsVouchersCreateResponseBody;
 import java.io.File;
 import java.time.LocalDate;
+import io.voucherify.client.model.ParameterCampaignStatusListCampaigns;
 import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterCampaignsAccessSetttings;
 import io.voucherify.client.model.ParameterExpandListCampaigns;
 import io.voucherify.client.model.ParameterFiltersListCampaigns;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
@@ -1437,13 +1439,16 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1484,12 +1489,24 @@ public class CampaignsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand", expand));
         }
 
+        if (campaignStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_status", campaignStatus));
+        }
+
+        if (isReferralCode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_referral_code", isReferralCode));
+        }
+
         if (order != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
         if (filters != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        if (accessSettings != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_settings", accessSettings));
         }
 
         final String[] localVarAccepts = {
@@ -1512,8 +1529,8 @@ public class CampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
-        return listCampaignsCall(limit, page, campaignType, expand, order, filters, _callback);
+    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback _callback) throws ApiException {
+        return listCampaignsCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, _callback);
 
     }
 
@@ -1524,13 +1541,16 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @return CampaignsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
-        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, order, filters);
+    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings) throws ApiException {
+        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings);
         return localVarResp.getData();
     }
 
@@ -1541,13 +1561,16 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @return ApiResponse&lt;CampaignsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, null);
+    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, null);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1559,15 +1582,18 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, _callback);
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, _callback);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

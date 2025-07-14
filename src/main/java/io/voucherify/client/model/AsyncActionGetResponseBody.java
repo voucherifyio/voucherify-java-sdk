@@ -117,9 +117,58 @@ public class AsyncActionGetResponseBody {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
+  /**
+   * Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.
+   */
+  @JsonAdapter(OperationStatusEnum.Adapter.class)
+  public enum OperationStatusEnum {
+    FAILED("FAILED"),
+    
+    SUCCESS("SUCCESS"),
+    
+    UNKNOWN("UNKNOWN");
+
+    private String value;
+
+    OperationStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperationStatusEnum fromValue(String value) {
+      for (OperationStatusEnum b : OperationStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<OperationStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperationStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperationStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OperationStatusEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OPERATION_STATUS = "operation_status";
   @SerializedName(SERIALIZED_NAME_OPERATION_STATUS)
-  private String operationStatus;
+  private OperationStatusEnum operationStatus;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -260,7 +309,7 @@ public class AsyncActionGetResponseBody {
   }
 
 
-  public AsyncActionGetResponseBody operationStatus(String operationStatus) {
+  public AsyncActionGetResponseBody operationStatus(OperationStatusEnum operationStatus) {
     
     this.operationStatus = operationStatus;
     return this;
@@ -271,12 +320,12 @@ public class AsyncActionGetResponseBody {
    * @return operationStatus
   **/
   @javax.annotation.Nullable
-  public String getOperationStatus() {
+  public OperationStatusEnum getOperationStatus() {
     return operationStatus;
   }
 
 
-  public void setOperationStatus(String operationStatus) {
+  public void setOperationStatus(OperationStatusEnum operationStatus) {
     this.operationStatus = operationStatus;
   }
 

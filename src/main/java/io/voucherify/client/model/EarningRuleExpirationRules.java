@@ -54,10 +54,12 @@ import io.voucherify.client.JSON;
 
 public class EarningRuleExpirationRules {
   /**
-   * Type of period. Currently, only &#x60;MONTH&#x60; is allowed.
+   * Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.
    */
   @JsonAdapter(PeriodTypeEnum.Adapter.class)
   public enum PeriodTypeEnum {
+    FIXED_DAY_OF_YEAR("FIXED_DAY_OF_YEAR"),
+    
     MONTH("MONTH");
 
     private String value;
@@ -100,14 +102,14 @@ public class EarningRuleExpirationRules {
 
   public static final String SERIALIZED_NAME_PERIOD_TYPE = "period_type";
   @SerializedName(SERIALIZED_NAME_PERIOD_TYPE)
-  private PeriodTypeEnum periodType = PeriodTypeEnum.MONTH;
+  private PeriodTypeEnum periodType;
 
   public static final String SERIALIZED_NAME_PERIOD_VALUE = "period_value";
   @SerializedName(SERIALIZED_NAME_PERIOD_VALUE)
   private Integer periodValue;
 
   /**
-   * Type of rounding of the expiration period.
+   * Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.
    */
   @JsonAdapter(RoundingTypeEnum.Adapter.class)
   public enum RoundingTypeEnum {
@@ -167,6 +169,14 @@ public class EarningRuleExpirationRules {
   @SerializedName(SERIALIZED_NAME_ROUNDING_VALUE)
   private Integer roundingValue;
 
+  public static final String SERIALIZED_NAME_FIXED_MONTH = "fixed_month";
+  @SerializedName(SERIALIZED_NAME_FIXED_MONTH)
+  private Integer fixedMonth;
+
+  public static final String SERIALIZED_NAME_FIXED_DAY = "fixed_day";
+  @SerializedName(SERIALIZED_NAME_FIXED_DAY)
+  private Integer fixedDay;
+
   public EarningRuleExpirationRules() {
   }
 
@@ -177,7 +187,7 @@ public class EarningRuleExpirationRules {
   }
 
    /**
-   * Type of period. Currently, only &#x60;MONTH&#x60; is allowed.
+   * Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.
    * @return periodType
   **/
   @javax.annotation.Nullable
@@ -198,7 +208,7 @@ public class EarningRuleExpirationRules {
   }
 
    /**
-   * Value of the period.
+   * Value of the period. Required for the &#x60;period_type: MONTH&#x60;.
    * @return periodValue
   **/
   @javax.annotation.Nullable
@@ -219,7 +229,7 @@ public class EarningRuleExpirationRules {
   }
 
    /**
-   * Type of rounding of the expiration period.
+   * Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.
    * @return roundingType
   **/
   @javax.annotation.Nullable
@@ -240,7 +250,7 @@ public class EarningRuleExpirationRules {
   }
 
    /**
-   * Value of rounding of the expiration period.
+   * Value of rounding of the expiration period. Required for the &#x60;rounding_type&#x60;.
    * @return roundingValue
   **/
   @javax.annotation.Nullable
@@ -251,6 +261,52 @@ public class EarningRuleExpirationRules {
 
   public void setRoundingValue(Integer roundingValue) {
     this.roundingValue = roundingValue;
+  }
+
+
+  public EarningRuleExpirationRules fixedMonth(Integer fixedMonth) {
+    
+    this.fixedMonth = fixedMonth;
+    return this;
+  }
+
+   /**
+   * Determines the month when the points expire; &#x60;1&#x60; is January, &#x60;2&#x60; is February, and so on. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.
+   * minimum: 1
+   * maximum: 12
+   * @return fixedMonth
+  **/
+  @javax.annotation.Nullable
+  public Integer getFixedMonth() {
+    return fixedMonth;
+  }
+
+
+  public void setFixedMonth(Integer fixedMonth) {
+    this.fixedMonth = fixedMonth;
+  }
+
+
+  public EarningRuleExpirationRules fixedDay(Integer fixedDay) {
+    
+    this.fixedDay = fixedDay;
+    return this;
+  }
+
+   /**
+   * Determines the day of the month when the points expire. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.
+   * minimum: 1
+   * maximum: 31
+   * @return fixedDay
+  **/
+  @javax.annotation.Nullable
+  public Integer getFixedDay() {
+    return fixedDay;
+  }
+
+
+  public void setFixedDay(Integer fixedDay) {
+    this.fixedDay = fixedDay;
   }
 
 
@@ -267,7 +323,9 @@ public class EarningRuleExpirationRules {
     return Objects.equals(this.periodType, earningRuleExpirationRules.periodType) &&
         Objects.equals(this.periodValue, earningRuleExpirationRules.periodValue) &&
         Objects.equals(this.roundingType, earningRuleExpirationRules.roundingType) &&
-        Objects.equals(this.roundingValue, earningRuleExpirationRules.roundingValue);
+        Objects.equals(this.roundingValue, earningRuleExpirationRules.roundingValue) &&
+        Objects.equals(this.fixedMonth, earningRuleExpirationRules.fixedMonth) &&
+        Objects.equals(this.fixedDay, earningRuleExpirationRules.fixedDay);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -276,7 +334,7 @@ public class EarningRuleExpirationRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(periodType, periodValue, roundingType, roundingValue);
+    return Objects.hash(periodType, periodValue, roundingType, roundingValue, fixedMonth, fixedDay);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -294,6 +352,8 @@ public class EarningRuleExpirationRules {
     sb.append("    periodValue: ").append(toIndentedString(periodValue)).append("\n");
     sb.append("    roundingType: ").append(toIndentedString(roundingType)).append("\n");
     sb.append("    roundingValue: ").append(toIndentedString(roundingValue)).append("\n");
+    sb.append("    fixedMonth: ").append(toIndentedString(fixedMonth)).append("\n");
+    sb.append("    fixedDay: ").append(toIndentedString(fixedDay)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -320,6 +380,8 @@ public class EarningRuleExpirationRules {
     openapiFields.add("period_value");
     openapiFields.add("rounding_type");
     openapiFields.add("rounding_value");
+    openapiFields.add("fixed_month");
+    openapiFields.add("fixed_day");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

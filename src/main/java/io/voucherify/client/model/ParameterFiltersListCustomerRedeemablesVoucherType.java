@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ParameterFiltersListCustomerRedeemablesVoucherTypeConditions;
+import io.voucherify.client.model.ParameterFiltersListCampaignsVoucherTypeConditions;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -55,12 +55,12 @@ import io.voucherify.client.JSON;
 public class ParameterFiltersListCustomerRedeemablesVoucherType {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions;
+  private ParameterFiltersListCampaignsVoucherTypeConditions conditions;
 
   public ParameterFiltersListCustomerRedeemablesVoucherType() {
   }
 
-  public ParameterFiltersListCustomerRedeemablesVoucherType conditions(ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions) {
+  public ParameterFiltersListCustomerRedeemablesVoucherType conditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     
     this.conditions = conditions;
     return this;
@@ -71,12 +71,12 @@ public class ParameterFiltersListCustomerRedeemablesVoucherType {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public ParameterFiltersListCustomerRedeemablesVoucherTypeConditions getConditions() {
+  public ParameterFiltersListCampaignsVoucherTypeConditions getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(ParameterFiltersListCustomerRedeemablesVoucherTypeConditions conditions) {
+  public void setConditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     this.conditions = conditions;
   }
 

@@ -8,7 +8,7 @@ Contains the detailed information about the transaction.
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**balance** | [**LoyaltyCardTransactionDetailsBalance**](LoyaltyCardTransactionDetailsBalance.md) |  |
+|**balance** | [**VoucherBalance**](VoucherBalance.md) |  |
 |**order** | [**LoyaltyCardTransactionDetailsOrder**](LoyaltyCardTransactionDetailsOrder.md) |  |
 |**event** | [**LoyaltyCardTransactionDetailsEvent**](LoyaltyCardTransactionDetailsEvent.md) |  |
 |**earningRule** | [**LoyaltyCardTransactionDetailsEarningRule**](LoyaltyCardTransactionDetailsEarningRule.md) |  |

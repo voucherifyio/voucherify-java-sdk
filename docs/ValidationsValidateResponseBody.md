@@ -13,7 +13,7 @@ Response body schema for **POST** `v1/validations`.
 |**redeemables** | [**List&lt;ValidationsValidateResponseBodyRedeemablesItem&gt;**](ValidationsValidateResponseBodyRedeemablesItem.md) |  |
 |**skippedRedeemables** | [**List&lt;ValidationsRedeemableSkipped&gt;**](ValidationsRedeemableSkipped.md) | Lists validation results of each skipped redeemable. |
 |**inapplicableRedeemables** | [**List&lt;ValidationsRedeemableInapplicable&gt;**](ValidationsRedeemableInapplicable.md) | Lists validation results of each inapplicable redeemable. |
-|**order** | [**OrderCalculated**](OrderCalculated.md) |  |
+|**order** | [**ValidationsValidateResponseBodyOrder**](ValidationsValidateResponseBodyOrder.md) |  |
 |**trackingId** | **String** | Hashed customer source ID. |
 |**session** | [**Session**](Session.md) |  |
 |**stackingRules** | [**StackingRules**](StackingRules.md) |  |

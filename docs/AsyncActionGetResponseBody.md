@@ -11,7 +11,7 @@ Response body schema for **GET** `v1/async-actions/{asyncActionId}`.
 |**id** | **String** | Async action unique ID. |
 |**type** | **String** | Type of async action. |
 |**status** | [**StatusEnum**](#StatusEnum) | Status of the async action. Informs you whether the async action has already been completed. |
-|**operationStatus** | **String** | Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown. |
+|**operationStatus** | [**OperationStatusEnum**](#OperationStatusEnum) | Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the async action was scheduled in ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the async action was updated. The value is shown in the ISO 8601 format. |
 |**requestId** | **String** | Unique request ID. |
@@ -30,6 +30,16 @@ Response body schema for **GET** `v1/async-actions/{asyncActionId}`.
 | ENQUEUED | &quot;ENQUEUED&quot; |
 | FAILED | &quot;FAILED&quot; |
 | IN_PROGRESS | &quot;IN_PROGRESS&quot; |
+
+
+
+## Enum: OperationStatusEnum
+
+| Name | Value |
+|---- | -----|
+| FAILED | &quot;FAILED&quot; |
+| SUCCESS | &quot;SUCCESS&quot; |
+| UNKNOWN | &quot;UNKNOWN&quot; |
 
 
 

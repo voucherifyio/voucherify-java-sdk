@@ -85,6 +85,8 @@ import io.voucherify.client.model.LoyaltiesUpdateCampaignRequestBody;
 import io.voucherify.client.model.LoyaltiesUpdateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltyTier;
 import io.voucherify.client.model.ParameterCreatedBeforeAfter;
+import io.voucherify.client.model.ParameterExpandListCampaigns;
+import io.voucherify.client.model.ParameterFiltersListMemberTransactions;
 import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
@@ -652,7 +654,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule
-     * Create earning rules for a loyalty campaign.
+     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;
@@ -665,7 +667,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule
-     * Create earning rules for a loyalty campaign.
+     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return ApiResponse&lt;List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;&gt;
@@ -679,7 +681,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule (asynchronously)
-     * Create earning rules for a loyalty campaign.
+     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -861,7 +863,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign
-     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @return LoyaltiesCreateCampaignResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -873,7 +875,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign
-     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @return ApiResponse&lt;LoyaltiesCreateCampaignResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -886,7 +888,7 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign (asynchronously)
-     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+     * Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3280,12 +3282,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3319,6 +3322,10 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
         if (startingAfterId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
         }
@@ -3343,13 +3350,13 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
         if (memberId == null) {
             throw new ApiException("Missing the required parameter 'memberId' when calling listLoyaltyCardTransactions(Async)");
         }
 
-        return listLoyaltyCardTransactionsCall(memberId, limit, order, startingAfterId, _callback);
+        return listLoyaltyCardTransactionsCall(memberId, limit, order, filters, startingAfterId, _callback);
 
     }
 
@@ -3359,12 +3366,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
-        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, order, startingAfterId);
+    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, order, filters, startingAfterId);
         return localVarResp.getData();
     }
 
@@ -3374,12 +3382,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, startingAfterId, null);
+    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, filters, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3390,14 +3399,15 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
+        okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, filters, startingAfterId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3408,12 +3418,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3448,6 +3459,10 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
         if (startingAfterId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
         }
@@ -3472,7 +3487,7 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling listLoyaltyCardTransactions1(Async)");
@@ -3483,7 +3498,7 @@ public class LoyaltiesApi {
             throw new ApiException("Missing the required parameter 'memberId' when calling listLoyaltyCardTransactions1(Async)");
         }
 
-        return listLoyaltyCardTransactions1Call(campaignId, memberId, limit, order, startingAfterId, _callback);
+        return listLoyaltyCardTransactions1Call(campaignId, memberId, limit, order, filters, startingAfterId, _callback);
 
     }
 
@@ -3494,12 +3509,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
-        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
+    public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, filters, startingAfterId);
         return localVarResp.getData();
     }
 
@@ -3510,12 +3526,13 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
+    public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, filters, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3527,14 +3544,15 @@ public class LoyaltiesApi {
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param filters Filters for listing member transactions. id is the unique identifier of the transaction. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
+        okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, filters, startingAfterId, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3543,12 +3561,13 @@ public class LoyaltiesApi {
      * Build call for listLoyaltyPrograms
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listLoyaltyProgramsCall(Integer limit, Integer page, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyProgramsCall(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3581,6 +3600,10 @@ public class LoyaltiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand", expand));
+        }
+
         if (order != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
@@ -3605,8 +3628,8 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLoyaltyProgramsValidateBeforeCall(Integer limit, Integer page, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
-        return listLoyaltyProgramsCall(limit, page, order, _callback);
+    private okhttp3.Call listLoyaltyProgramsValidateBeforeCall(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
+        return listLoyaltyProgramsCall(limit, page, expand, order, _callback);
 
     }
 
@@ -3615,12 +3638,13 @@ public class LoyaltiesApi {
      * Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return LoyaltiesListCampaignsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(Integer limit, Integer page, ParameterOrderListCampaigns order) throws ApiException {
-        ApiResponse<LoyaltiesListCampaignsResponseBody> localVarResp = listLoyaltyProgramsWithHttpInfo(limit, page, order);
+    public LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
+        ApiResponse<LoyaltiesListCampaignsResponseBody> localVarResp = listLoyaltyProgramsWithHttpInfo(limit, page, expand, order);
         return localVarResp.getData();
     }
 
@@ -3629,12 +3653,13 @@ public class LoyaltiesApi {
      * Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;LoyaltiesListCampaignsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LoyaltiesListCampaignsResponseBody> listLoyaltyProgramsWithHttpInfo(Integer limit, Integer page, ParameterOrderListCampaigns order) throws ApiException {
-        okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, order, null);
+    public ApiResponse<LoyaltiesListCampaignsResponseBody> listLoyaltyProgramsWithHttpInfo(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
+        okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, expand, order, null);
         Type localVarReturnType = new TypeToken<LoyaltiesListCampaignsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3644,14 +3669,15 @@ public class LoyaltiesApi {
      * Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listLoyaltyProgramsAsync(Integer limit, Integer page, ParameterOrderListCampaigns order, final ApiCallback<LoyaltiesListCampaignsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listLoyaltyProgramsAsync(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback<LoyaltiesListCampaignsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, order, _callback);
+        okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, expand, order, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesListCampaignsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

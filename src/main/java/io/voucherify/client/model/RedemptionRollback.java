@@ -19,13 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionRewardResult;
 import io.voucherify.client.model.RedemptionRollbackChannel;
 import io.voucherify.client.model.RedemptionRollbackGift;
 import io.voucherify.client.model.RedemptionRollbackLoyaltyCard;
-import io.voucherify.client.model.RedemptionRollbackRelatedRedemptions;
+import io.voucherify.client.model.RedemptionRollbackOrder;
 import io.voucherify.client.model.SimpleCustomer;
 import io.voucherify.client.model.Voucher;
 import java.io.IOException;
@@ -256,7 +255,7 @@ public class RedemptionRollback {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private RedemptionRollbackOrder order;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -342,10 +341,6 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionRollbackLoyaltyCard loyaltyCard;
-
-  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
-  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionRollbackRelatedRedemptions relatedRedemptions;
 
   public RedemptionRollback() {
   }
@@ -623,7 +618,7 @@ public class RedemptionRollback {
   }
 
 
-  public RedemptionRollback order(OrderCalculated order) {
+  public RedemptionRollback order(RedemptionRollbackOrder order) {
     
     this.order = order;
     return this;
@@ -634,12 +629,12 @@ public class RedemptionRollback {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public RedemptionRollbackOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(RedemptionRollbackOrder order) {
     this.order = order;
   }
 
@@ -833,27 +828,6 @@ public class RedemptionRollback {
   }
 
 
-  public RedemptionRollback relatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
-    
-    this.relatedRedemptions = relatedRedemptions;
-    return this;
-  }
-
-   /**
-   * Get relatedRedemptions
-   * @return relatedRedemptions
-  **/
-  @javax.annotation.Nullable
-  public RedemptionRollbackRelatedRedemptions getRelatedRedemptions() {
-    return relatedRedemptions;
-  }
-
-
-  public void setRelatedRedemptions(RedemptionRollbackRelatedRedemptions relatedRedemptions) {
-    this.relatedRedemptions = relatedRedemptions;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -886,8 +860,7 @@ public class RedemptionRollback {
         Objects.equals(this.promotionTier, redemptionRollback.promotionTier) &&
         Objects.equals(this.reward, redemptionRollback.reward) &&
         Objects.equals(this.gift, redemptionRollback.gift) &&
-        Objects.equals(this.loyaltyCard, redemptionRollback.loyaltyCard) &&
-        Objects.equals(this.relatedRedemptions, redemptionRollback.relatedRedemptions);
+        Objects.equals(this.loyaltyCard, redemptionRollback.loyaltyCard);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -896,7 +869,7 @@ public class RedemptionRollback {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard, relatedRedemptions);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -933,7 +906,6 @@ public class RedemptionRollback {
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
-    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -979,7 +951,6 @@ public class RedemptionRollback {
     openapiFields.add("reward");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
-    openapiFields.add("related_redemptions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

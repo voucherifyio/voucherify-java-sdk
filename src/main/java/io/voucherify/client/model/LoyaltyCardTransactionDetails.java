@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.LoyaltyCardTransactionDetailsBalance;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsCustomEvent;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsEarningRule;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsEvent;
@@ -33,6 +32,7 @@ import io.voucherify.client.model.LoyaltyCardTransactionDetailsRollback;
 import io.voucherify.client.model.LoyaltyCardTransactionDetailsSegment;
 import io.voucherify.client.model.LoyaltyPendingPoints;
 import io.voucherify.client.model.SimpleVoucher;
+import io.voucherify.client.model.VoucherBalance;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -69,7 +69,7 @@ import io.voucherify.client.JSON;
 public class LoyaltyCardTransactionDetails {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
-  private LoyaltyCardTransactionDetailsBalance balance;
+  private VoucherBalance balance;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -130,7 +130,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails() {
   }
 
-  public LoyaltyCardTransactionDetails balance(LoyaltyCardTransactionDetailsBalance balance) {
+  public LoyaltyCardTransactionDetails balance(VoucherBalance balance) {
     
     this.balance = balance;
     return this;
@@ -141,12 +141,12 @@ public class LoyaltyCardTransactionDetails {
    * @return balance
   **/
   @javax.annotation.Nullable
-  public LoyaltyCardTransactionDetailsBalance getBalance() {
+  public VoucherBalance getBalance() {
     return balance;
   }
 
 
-  public void setBalance(LoyaltyCardTransactionDetailsBalance balance) {
+  public void setBalance(VoucherBalance balance) {
     this.balance = balance;
   }
 

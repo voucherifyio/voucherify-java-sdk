@@ -165,7 +165,7 @@ public class RedemptionsTest {
         campaign.setType(CampaignsCreateRequestBody.TypeEnum.AUTO_UPDATE);
         campaign.setName(Utils.getAlphaNumericString(20));
         campaign.setVoucher(voucher);
-
+        
         try {
             return campaigns.createCampaign(campaign);
         } catch (ApiException | JsonSyntaxException e) {
