@@ -130,11 +130,16 @@ public class Example {
 
 It may be useful to check the test implementation in the folder **test** `(./src/test)`
 
-## 🐳 Running local tests with docker
+## 🐳 Running local tests automatically -  with docker
 
 1. Copy `.env.example` to `.env` and fill in the values.
 2. Run `docker build -t java .` to build the image.
 3. Run `docker run --rm java` to run the tests and delete container immediately after.
+
+## Running local tests manually - with commands
+
+1. Make sure you have OpenJDK (desired version) installed (via Homebrew)
+2. From the main java folder run `mvn test`
 
 ## 🛠️ Contributing
 
@@ -142,7 +147,89 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
+## Link tags
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/tags/sdk-java-17.0.0)
+
 ## 📅 Changelog
+- **2025-07-06** - `17.0.0`
+ADDED:
+  - ClientQualificationsCheckEligibilityResponseBodyOrder model for order object in ClientQualificationsCheckEligibilityResponseBody model
+  - ClientRedemptionsRedeemResponseBodyOrder model for order object in ClientRedemptionsRedeemResponseBody model
+  - ClientValidationsValidateResponseBodyRedeemablesItemOrder model for order object in ClientValidationsValidateResponseBody model
+  - ClientValidationsValidateResponseBodyOrder model for order object in ClientValidationsValidateResponseBody model
+  - LoyaltiesMembersRedemptionRedeemResponseBodyOrder model for order object in LoyaltiesMembersRedemptionRedeemResponseBody model
+  - ParameterCampaignStatusListCampaigns model
+  - ParameterCampaignsAccessSetttings model
+  - ParameterFiltersListMemberTransactions model
+  - ParameterIsReferralCodeListCampaigns model
+  - ParameterPage99 model
+  - QualificationsCheckEligibilityResponseBodyOrder model for order object in QualificationsCheckEligibilityResponseBody model
+  - RedemptionsGetResponseBodyOrderItemsItem model for items object in RedemptionsGetResponseBody model
+  - `target` enum in ApplicableTo model
+  - `operation_status` enum in AsyncActionBase model
+  - `$contains`, `$not_contains` in FilterConditionsString model
+  - `properties` in MemberActivity model
+  - EventSource model 
+  - `target` enum in InapplicableTo model
+  - MemberActivityData model
+  - ListPublicationsItemValidSingleVoucher model
+  - SimpleCampaign model
+  - SimpleCampaignVoucher model
+
+UPDATED:
+  - ParameterFiltersListCampaigns model:
+    - campaigns (ParameterFiltersListCampaignsCampaigns model) as NEW, 
+    - campaigns_id (ParameterFiltersListCampaignsCampaignsId model) as NEW, 
+    - status (ParameterFiltersListCampaignsStatus model) as NEW
+    - voucher_type (ParameterFiltersListCampaignsVoucherType model) -> properties -> conditions -> properties (FilterConditionsString model removed) as UPDATED
+    - type (ParameterFiltersListCampaignsType model) as NEW
+    - created_at (ParameterFiltersListCampaignsCreatedDate model) as NEW
+    - updated_at (ParameterFiltersListCampaignsUpdatedAt model) as NEW
+    - start_date (ParameterFiltersListCampaignsStartDate model) as NEW
+    - expiration_date (ParameterFiltersListCampaignsExpirationDate model) as NEW
+    - validitiy_day_of_week (ParameterFiltersListCampaignsValidityDayOfWeek model) as NEW
+  - `conditions` object (ParameterFiltersListCampaignsIsReferralCodeConditions model) in `is_referral_code` (ParameterFiltersListCampaignsIsReferralCode model)
+  - `properties` array in `voucher_type` (ParameterFiltersListCampaignsVoucherType model)
+  - RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRollbacks as nullable = true
+  - `redemptions` (RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptions model) as nullable = true
+  - `related_redemptions` (RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions) as nullable = true
+  - `id` object in RedemptionsGetResponseBodyRelatedRedemptionsRollbacksItem
+  - `items` in LoyaltiesMembersPointsExpirationListResponseBody model has been moved to the new model LoyaltyPointsBucket
+  - `items` in OrdersListResponseBody model has been updated to array of OrderCalculated model
+  - ParameterCustomerEvent has been updated from type string to enum
+  - `items` in RedemptionsListResponseBodyRedemptions model has been updated to the new model RedemptionsListResponseBodyRedemptionsItemOrderItemsItem
+  - `order` in RedemptionsRedeemResponseBody model has been updated to the new model RedemptionsRedeemResponseBodyOrder
+  - `order` in RedemptionsRollbackCreateResponseBody model has been updated to the new model RedemptionsRollbackCreateResponseBodyOrder
+  - `order` in RedemptionsRollbacksCreateResponseBody model has been updated to the new model RedemptionsRollbacksCreateResponseBodyOrder
+  - `order` in ValidationsValidateResponseBody model has been updated to the new model ValidationsValidateResponseBodyRedeemablesItemOrder
+  - `order` in ValidationsValidateResponseBody model has been updated to the new model ValidationsValidateResponseBodyOrder
+  - `type` in CustomerActivity model updated with new enum options
+  - `balance` in LoyaltyCardTransaction model updated to the new model VoucherBalance
+  - `type` in MemberActivity model updated with new enum options
+  - `format` in `expires_at` object in LoyaltyPointsBucket model has been updated from `date-time` to `date`
+  - `order` in Redemption model has been updated to the new model RedemptionOrder
+  - `id` in `related_redemptions` in RedemptionEntry model has been updated with new `example` and `description` properties
+  - `items` in RedemptionsEntry model has been updated to the new model RedemptionEntryOrderItemsItem
+  - `order` in RedemptionRollback model has been updated to the new model RedemptionRollbackOrder
+  - `balance` in VoucherTransaction model has been updated to the new model VoucherBalance
+  - `PENDING_POINTS_ACTIVATION` enum option in type object (VoucherTranscation, LoyaltyCardTransactionsType models) has been updated to `PENDING_POINTS_ACTIVATION` name
+  - `order` in QualificationsRedeemable has been updated to the new model QualificationsRedeemableOrder
+  - old EventSource model has been updated to CustomEvent name with new properties
+  - `order` in QualificationsRedeemableBase has been updated to the new model QualificationsRedeemableBaseOrder
+
+REMOVED:
+  - `validations_rules` from LoyaltiesCreateCampaignRequestBody model - v1/loyalties [POST]
+  - FilterConditionsString from `voucher_type` (ParameterFiltersListCampaignsVoucherType model)
+  - `related_redemptions` from RedemptionsRollbackCreateResponseBody model
+  - `LOYALTY_CARD`, `GIFT_VOUCHER` from type enum in VouchersUpdateRequesteBody model
+  - `loyalty_card` from VouchersUpdateRequesteBody model
+  - `gift` from VouchersUpdateRequestBody model
+  - `target` object nullable = true from ApplicableTo model
+  - `strict` object from ApplicableTo model
+  - `items` array from OrderCalculated model
+  - `application_details` from OrderCalculatedItem model
+  - `related_redemptions` from RedemptionRollback model
+
 - **2024-01-29** - `16.0.3`
   - Added support for **GET** /v1/loyalties/{campaignId}/pending-points
   - Added support for **GET** /v1/loyalties/members/{memberId}/pending-points
