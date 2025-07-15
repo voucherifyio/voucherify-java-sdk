@@ -49,7 +49,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * CustomerSummaryOrders
+ * Lists details about orders related to the customer. Lists only data for orders with the &#x60;PAID&#x60; or &#x60;FULFILLED&#x60; status. Data from orders with a &#x60;CREATED&#x60; or &#x60;CANCELED&#x60; status are not included. The data is updated also when an order changes status.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

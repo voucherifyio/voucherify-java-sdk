@@ -259,7 +259,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules
-     * Create validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ValidationRulesCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -271,7 +271,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules
-     * Create validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ApiResponse&lt;ValidationRulesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -284,7 +284,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules (asynchronously)
-     * Create validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

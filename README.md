@@ -175,6 +175,8 @@ ADDED:
   - ListPublicationsItemValidSingleVoucher model
   - SimpleCampaign model
   - SimpleCampaignVoucher model
+  - `units_limit_exceeded` in ApplicableTo model
+  - `limit` in Bundle and ValidationRuleBundleRules models
 
 UPDATED:
   - ParameterFiltersListCampaigns model:
@@ -229,6 +231,7 @@ REMOVED:
   - `items` array from OrderCalculated model
   - `application_details` from OrderCalculatedItem model
   - `related_redemptions` from RedemptionRollback model
+  - `logic` from ValidationRuleBundleRules model
 
 - **2024-01-29** - `16.0.3`
   - Added support for **GET** /v1/loyalties/{campaignId}/pending-points

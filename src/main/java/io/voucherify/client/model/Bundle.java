@@ -61,6 +61,10 @@ public class Bundle {
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
 
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Integer limit;
+
   public static final String SERIALIZED_NAME_IDENTIFIED = "identified";
   @SerializedName(SERIALIZED_NAME_IDENTIFIED)
   private List<BundleIdentifiedItem> identified;
@@ -79,8 +83,9 @@ public class Bundle {
   }
 
    /**
-   * Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;.
+   * Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;. The maximum number of identified bundles can equal the number set in &#x60;limit&#x60;. Also defines the multiplier of the discount for &#x60;AMOUNT&#x60;, &#x60;PERCENT&#x60;, and &#x60;UNIT&#x60; discount types. To inform end-customers that more products can be added to meet additional bundles, compare this parameter with &#x60;limit&#x60;.
    * minimum: 0
+   * maximum: 100
    * @return quantity
   **/
   @javax.annotation.Nullable
@@ -91,6 +96,29 @@ public class Bundle {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+  }
+
+
+  public Bundle limit(Integer limit) {
+    
+    this.limit = limit;
+    return this;
+  }
+
+   /**
+   * Determines the maximum number of identified bundles. This also defines the maximum multiplier of the bundle discount.
+   * minimum: 1
+   * maximum: 100
+   * @return limit
+  **/
+  @javax.annotation.Nullable
+  public Integer getLimit() {
+    return limit;
+  }
+
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
   }
 
 
@@ -138,7 +166,7 @@ public class Bundle {
   }
 
    /**
-   * Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection.
+   * Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection. Not returned when all required bundle items are in the order.
    * @return missing
   **/
   @javax.annotation.Nullable
@@ -163,6 +191,7 @@ public class Bundle {
     }
     Bundle bundle = (Bundle) o;
     return Objects.equals(this.quantity, bundle.quantity) &&
+        Objects.equals(this.limit, bundle.limit) &&
         Objects.equals(this.identified, bundle.identified) &&
         Objects.equals(this.missing, bundle.missing);
   }
@@ -173,7 +202,7 @@ public class Bundle {
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantity, identified, missing);
+    return Objects.hash(quantity, limit, identified, missing);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -188,6 +217,7 @@ public class Bundle {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bundle {\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    identified: ").append(toIndentedString(identified)).append("\n");
     sb.append("    missing: ").append(toIndentedString(missing)).append("\n");
     sb.append("}");
@@ -213,6 +243,7 @@ public class Bundle {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("quantity");
+    openapiFields.add("limit");
     openapiFields.add("identified");
     openapiFields.add("missing");
 
