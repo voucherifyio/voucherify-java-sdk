@@ -148,7 +148,7 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/tags/sdk-java-17.0.0)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.0)
 
 ## 📅 Changelog
 - **2025-07-06** - `17.0.0`
