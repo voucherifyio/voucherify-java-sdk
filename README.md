@@ -153,6 +153,16 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 ## 📅 Changelog
 - **2025-07-06** - `17.0.0`
 ADDED:
+- ParameterFiltersListCampaigns model:
+    - campaigns (ParameterFiltersListCampaignsCampaigns model), 
+    - campaigns_id (ParameterFiltersListCampaignsCampaignsId model)
+    - status (ParameterFiltersListCampaignsStatus model)
+    - type (ParameterFiltersListCampaignsType model)
+    - created_at (ParameterFiltersListCampaignsCreatedDate model)
+    - updated_at (ParameterFiltersListCampaignsUpdatedAt model)
+    - start_date (ParameterFiltersListCampaignsStartDate model)
+    - expiration_date (ParameterFiltersListCampaignsExpirationDate model)
+    - validitiy_day_of_week (ParameterFiltersListCampaignsValidityDayOfWeek model)
   - ClientQualificationsCheckEligibilityResponseBodyOrder model for order object in ClientQualificationsCheckEligibilityResponseBody model
   - ClientRedemptionsRedeemResponseBodyOrder model for order object in ClientRedemptionsRedeemResponseBody model
   - ClientValidationsValidateResponseBodyRedeemablesItemOrder model for order object in ClientValidationsValidateResponseBody model
@@ -165,12 +175,10 @@ ADDED:
   - ParameterPage99 model
   - QualificationsCheckEligibilityResponseBodyOrder model for order object in QualificationsCheckEligibilityResponseBody model
   - RedemptionsGetResponseBodyOrderItemsItem model for items object in RedemptionsGetResponseBody model
-  - `target` enum in ApplicableTo model
   - `operation_status` enum in AsyncActionBase model
   - `$contains`, `$not_contains` in FilterConditionsString model
   - `properties` in MemberActivity model
   - EventSource model 
-  - `target` enum in InapplicableTo model
   - MemberActivityData model
   - ListPublicationsItemValidSingleVoucher model
   - SimpleCampaign model
@@ -179,17 +187,7 @@ ADDED:
   - `limit` in Bundle and ValidationRuleBundleRules models
 
 UPDATED:
-  - ParameterFiltersListCampaigns model:
-    - campaigns (ParameterFiltersListCampaignsCampaigns model) as NEW, 
-    - campaigns_id (ParameterFiltersListCampaignsCampaignsId model) as NEW, 
-    - status (ParameterFiltersListCampaignsStatus model) as NEW
-    - voucher_type (ParameterFiltersListCampaignsVoucherType model) -> properties -> conditions -> properties (FilterConditionsString model removed) as UPDATED
-    - type (ParameterFiltersListCampaignsType model) as NEW
-    - created_at (ParameterFiltersListCampaignsCreatedDate model) as NEW
-    - updated_at (ParameterFiltersListCampaignsUpdatedAt model) as NEW
-    - start_date (ParameterFiltersListCampaignsStartDate model) as NEW
-    - expiration_date (ParameterFiltersListCampaignsExpirationDate model) as NEW
-    - validitiy_day_of_week (ParameterFiltersListCampaignsValidityDayOfWeek model) as NEW
+  - voucher_type (ParameterFiltersListCampaignsVoucherType model) -> properties -> conditions -> properties (FilterConditionsString model removed)
   - `conditions` object (ParameterFiltersListCampaignsIsReferralCodeConditions model) in `is_referral_code` (ParameterFiltersListCampaignsIsReferralCode model)
   - `properties` array in `voucher_type` (ParameterFiltersListCampaignsVoucherType model)
   - RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRollbacks as nullable = true
@@ -198,6 +196,8 @@ UPDATED:
   - `id` object in RedemptionsGetResponseBodyRelatedRedemptionsRollbacksItem
   - `items` in LoyaltiesMembersPointsExpirationListResponseBody model has been moved to the new model LoyaltyPointsBucket
   - `items` in OrdersListResponseBody model has been updated to array of OrderCalculated model
+  - `target` has been updated from string type to enum in ApplicableTo and InapplicableTo models
+  - `operationStatus` has been updated from string type to enum in AsyncActionBase and AsyncActionGetResponseBody models
   - ParameterCustomerEvent has been updated from type string to enum
   - `items` in RedemptionsListResponseBodyRedemptions model has been updated to the new model RedemptionsListResponseBodyRedemptionsItemOrderItemsItem
   - `order` in RedemptionsRedeemResponseBody model has been updated to the new model RedemptionsRedeemResponseBodyOrder
