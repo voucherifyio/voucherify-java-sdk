@@ -181,7 +181,7 @@ public class Example {
 
     RedemptionsApi apiInstance = new RedemptionsApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1, the highest value is 99.
     String result = "result_example"; // String | A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param.
     String campaign = "campaign_example"; // String | A filter by the campaign **name** that the redemption resources originate from.
     String customer = "customer_example"; // String | Return redemptions performed by the customer with given id or source_id.
@@ -207,7 +207,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1, the highest value is 99. |
 | **result** | **String**| A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. |
 | **campaign** | **String**| A filter by the campaign **name** that the redemption resources originate from. |
 | **customer** | **String**| Return redemptions performed by the customer with given id or source_id. |
@@ -308,7 +308,7 @@ public class Example {
 
 Rollback Redemption
 
-Your business logic may include a case when you need to undo a redemption. You can revert a redemption by calling this API endpoint.  🚧  You can roll back a redemption up to 3 months back.   # Effect  The operation  - creates a rollback entry in vouchers redemption history (redemption.redemption_entries) and  - gives 1 redemption back to the pool (decreases redeemed_quantity by 1).  # Returned funds  In case of *gift card vouchers*, this method returns funds back according to the source redemption. In case of *loyalty card vouchers*, this method returns points back according to the source redemption.
+Your business logic may include a case when you need to undo a redemption. You can revert a redemption by calling this API endpoint. This endpoint rolls back only single redemptions, meaning those that are not stacked. Stacked redemptions belong to a parent redemption. To roll back a parent redemption, including all of its individual redemptions, use the POST Rollback Stackable Redemptions  🚧  You can roll back a redemption up to 3 months back.   # Effect  The operation  - creates a rollback entry in vouchers redemption history (redemption.redemption_entries) and  - gives 1 redemption back to the pool (decreases redeemed_quantity by 1).  # Returned funds  In case of *gift card vouchers*, this method returns funds back according to the source redemption. In case of *loyalty card vouchers*, this method returns points back according to the source redemption.
 
 ### Example
 ```java
@@ -383,7 +383,7 @@ public class Example {
 
 Rollback Stackable Redemptions
 
-Rollback a stackable redemption. When you rollback a stacked redemption, all child redemptions will be rolled back. Provide the parent redemption ID as the path parameter.  🚧   You can roll back a redemption up to 3 months back.
+Rollback a stackable redemption. When you roll back a stacked redemption, all child redemptions will be rolled back. Provide the parent redemption ID as the path parameter. However, you can use this endpoint to roll back a single redemption that does not have a parent, similarly to POST Rollback redemption. 🚧   You can roll back a redemption up to 3 months back.
 
 ### Example
 ```java

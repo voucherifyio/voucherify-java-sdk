@@ -24,6 +24,7 @@ Response body schema for **GET** `v1/v1/segments/{segmentId}`.
 |---- | -----|
 | AUTO_UPDATE | &quot;auto-update&quot; |
 | STATIC | &quot;static&quot; |
+| PASSIVE | &quot;passive&quot; |
 
 
 

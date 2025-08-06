@@ -17,6 +17,7 @@
 |**redemption** | **String** | Unique redemption ID of the parent redemption. |
 |**result** | [**ResultEnum**](#ResultEnum) | Redemption result. |
 |**status** | [**StatusEnum**](#StatusEnum) |  |
+|**session** | [**RedemptionsListResponseBodyRedemptionsItemSession**](RedemptionsListResponseBodyRedemptionsItemSession.md) |  |
 |**relatedRedemptions** | [**RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions**](RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions.md) |  |
 |**failureCode** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. |
 |**failureMessage** | **String** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. |

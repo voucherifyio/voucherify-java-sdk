@@ -46,6 +46,7 @@ import java.io.File;
 import java.time.OffsetDateTime;
 import io.voucherify.client.model.ParameterActivityCategory;
 import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterCustomerEvent;
 import io.voucherify.client.model.ParameterFiltersListCustomerRedeemables;
 import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCustomers;
@@ -614,7 +615,7 @@ public class CustomersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listCustomerActivityCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCustomerActivityCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, ParameterCustomerEvent type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -696,7 +697,7 @@ public class CustomersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCustomerActivityValidateBeforeCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCustomerActivityValidateBeforeCall(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, ParameterCustomerEvent type, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'customerId' is set
         if (customerId == null) {
             throw new ApiException("Missing the required parameter 'customerId' when calling listCustomerActivity(Async)");
@@ -722,7 +723,7 @@ public class CustomersApi {
      * @return CustomersActivityListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomersActivityListResponseBody listCustomerActivity(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+    public CustomersActivityListResponseBody listCustomerActivity(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, ParameterCustomerEvent type) throws ApiException {
         ApiResponse<CustomersActivityListResponseBody> localVarResp = listCustomerActivityWithHttpInfo(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type);
         return localVarResp.getData();
     }
@@ -743,7 +744,7 @@ public class CustomersApi {
      * @return ApiResponse&lt;CustomersActivityListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomersActivityListResponseBody> listCustomerActivityWithHttpInfo(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type) throws ApiException {
+    public ApiResponse<CustomersActivityListResponseBody> listCustomerActivityWithHttpInfo(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, ParameterCustomerEvent type) throws ApiException {
         okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, null);
         Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -766,7 +767,7 @@ public class CustomersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listCustomerActivityAsync(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, String type, final ApiCallback<CustomersActivityListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listCustomerActivityAsync(String customerId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, OffsetDateTime startDate, OffsetDateTime endDate, String campaignId, ParameterCampaignType campaignType, ParameterActivityCategory category, ParameterCustomerEvent type, final ApiCallback<CustomersActivityListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCustomerActivityValidateBeforeCall(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type, _callback);
         Type localVarReturnType = new TypeToken<CustomersActivityListResponseBody>(){}.getType();
@@ -1014,7 +1015,7 @@ public class CustomersApi {
     /**
      * Build call for listCustomers
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param page Which page of results to return. The lowest value is 1, the highest value is 99. (optional)
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
@@ -1131,7 +1132,7 @@ public class CustomersApi {
      * List Customers
      * Returns a list of customers.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param page Which page of results to return. The lowest value is 1, the highest value is 99. (optional)
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
@@ -1154,7 +1155,7 @@ public class CustomersApi {
      * List Customers
      * Returns a list of customers.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param page Which page of results to return. The lowest value is 1, the highest value is 99. (optional)
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
@@ -1178,7 +1179,7 @@ public class CustomersApi {
      * List Customers (asynchronously)
      * Returns a list of customers.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
-     * @param page Which page of results to return. The lowest value is 1. (optional)
+     * @param page Which page of results to return. The lowest value is 1, the highest value is 99. (optional)
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)

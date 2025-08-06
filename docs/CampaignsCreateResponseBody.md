@@ -12,10 +12,10 @@ Response body schema for **POST** `v1/campaigns/{campaignId}`.
 |**name** | **String** | Campaign name. |
 |**description** | **String** | An optional field to keep any extra textual information about the campaign such as a campaign description and details. |
 |**campaignType** | [**CampaignTypeEnum**](#CampaignTypeEnum) | Type of campaign. |
-|**type** | [**TypeEnum**](#TypeEnum) | Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers |
+|**type** | [**TypeEnum**](#TypeEnum) | Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers |
 |**voucher** | [**CampaignVoucher**](CampaignVoucher.md) |  |
 |**autoJoin** | **Boolean** | Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled. |
-|**joinOnce** | **Boolean** | If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them. |
+|**joinOnce** | **Boolean** | If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them. |
 |**useVoucherMetadataSchema** | **Boolean** | Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema. |
 |**validityTimeframe** | [**ValidityTimeframe**](ValidityTimeframe.md) |  |
 |**validityDayOfWeek** | [**List&lt;ValidityDayOfWeekEnum&gt;**](#List&lt;ValidityDayOfWeekEnum&gt;) | Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday |
@@ -31,10 +31,10 @@ Response body schema for **POST** `v1/campaigns/{campaignId}`.
 |**category** | **String** | Unique category name. |
 |**creationStatus** | [**CreationStatusEnum**](#CreationStatusEnum) | Indicates the status of the campaign creation. |
 |**vouchersGenerationStatus** | [**VouchersGenerationStatusEnum**](#VouchersGenerationStatusEnum) | Indicates the status of the campaign&#39;s voucher generation. |
-|**readonly** | **Boolean** | Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. |
+|**readonly** | **Boolean** | Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](ref:campaign-summary) endpoint. |
 |**_protected** | **Boolean** | Indicates whether the resource can be deleted. |
 |**categoryId** | **String** | Unique category ID that this campaign belongs to. |
-|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. |
+|**categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the campaign category. For the GET [List campaigns](ref:list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](ref:get-campaign-summary) endpoint, it is always returned as an empty array. |
 |**_object** | **String** | The type of the object represented by JSON. This object stores information about the campaign. |
 |**referralProgram** | [**ReferralProgram**](ReferralProgram.md) |  |
 |**loyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  |

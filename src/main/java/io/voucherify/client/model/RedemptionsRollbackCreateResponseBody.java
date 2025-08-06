@@ -19,13 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionRewardResult;
 import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyChannel;
 import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyGift;
 import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyLoyaltyCard;
-import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyRelatedRedemptions;
+import io.voucherify.client.model.RedemptionsRollbackCreateResponseBodyOrder;
 import io.voucherify.client.model.SimpleCustomer;
 import io.voucherify.client.model.Voucher;
 import java.io.IOException;
@@ -246,10 +245,6 @@ public class RedemptionsRollbackCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
-  @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
-  private RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions;
-
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
@@ -260,7 +255,7 @@ public class RedemptionsRollbackCreateResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private RedemptionsRollbackCreateResponseBodyOrder order;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -581,27 +576,6 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
-  public RedemptionsRollbackCreateResponseBody relatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
-    
-    this.relatedRedemptions = relatedRedemptions;
-    return this;
-  }
-
-   /**
-   * Get relatedRedemptions
-   * @return relatedRedemptions
-  **/
-  @javax.annotation.Nullable
-  public RedemptionsRollbackCreateResponseBodyRelatedRedemptions getRelatedRedemptions() {
-    return relatedRedemptions;
-  }
-
-
-  public void setRelatedRedemptions(RedemptionsRollbackCreateResponseBodyRelatedRedemptions relatedRedemptions) {
-    this.relatedRedemptions = relatedRedemptions;
-  }
-
-
   public RedemptionsRollbackCreateResponseBody failureCode(String failureCode) {
     
     this.failureCode = failureCode;
@@ -644,7 +618,7 @@ public class RedemptionsRollbackCreateResponseBody {
   }
 
 
-  public RedemptionsRollbackCreateResponseBody order(OrderCalculated order) {
+  public RedemptionsRollbackCreateResponseBody order(RedemptionsRollbackCreateResponseBodyOrder order) {
     
     this.order = order;
     return this;
@@ -655,12 +629,12 @@ public class RedemptionsRollbackCreateResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public RedemptionsRollbackCreateResponseBodyOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(RedemptionsRollbackCreateResponseBodyOrder order) {
     this.order = order;
   }
 
@@ -875,7 +849,6 @@ public class RedemptionsRollbackCreateResponseBody {
         Objects.equals(this.reason, redemptionsRollbackCreateResponseBody.reason) &&
         Objects.equals(this.result, redemptionsRollbackCreateResponseBody.result) &&
         Objects.equals(this.status, redemptionsRollbackCreateResponseBody.status) &&
-        Objects.equals(this.relatedRedemptions, redemptionsRollbackCreateResponseBody.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemptionsRollbackCreateResponseBody.failureCode) &&
         Objects.equals(this.failureMessage, redemptionsRollbackCreateResponseBody.failureMessage) &&
         Objects.equals(this.order, redemptionsRollbackCreateResponseBody.order) &&
@@ -896,7 +869,7 @@ public class RedemptionsRollbackCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, reason, result, status, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, voucher, promotionTier, reward, gift, loyaltyCard);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -921,7 +894,6 @@ public class RedemptionsRollbackCreateResponseBody {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
@@ -967,7 +939,6 @@ public class RedemptionsRollbackCreateResponseBody {
     openapiFields.add("reason");
     openapiFields.add("result");
     openapiFields.add("status");
-    openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");
     openapiFields.add("order");

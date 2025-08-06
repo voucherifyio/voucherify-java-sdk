@@ -20,15 +20,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerId;
-import io.voucherify.client.model.OrderCalculatedItem;
 import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.ReferrerId;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -241,10 +238,6 @@ public class OrderCalculated {
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
   private Map<String, OrderRedemptionsEntry> redemptions;
-
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderCalculatedItem> items;
 
   public OrderCalculated() {
   }
@@ -698,35 +691,6 @@ public class OrderCalculated {
   }
 
 
-  public OrderCalculated items(List<OrderCalculatedItem> items) {
-    
-    this.items = items;
-    return this;
-  }
-
-  public OrderCalculated addItemsItem(OrderCalculatedItem itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-   /**
-   * Array of items applied to the order. It can include up 500 items.
-   * @return items
-  **/
-  @javax.annotation.Nullable
-  public List<OrderCalculatedItem> getItems() {
-    return items;
-  }
-
-
-  public void setItems(List<OrderCalculatedItem> items) {
-    this.items = items;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -757,8 +721,7 @@ public class OrderCalculated {
         Objects.equals(this.referrerId, orderCalculated.referrerId) &&
         Objects.equals(this.customer, orderCalculated.customer) &&
         Objects.equals(this.referrer, orderCalculated.referrer) &&
-        Objects.equals(this.redemptions, orderCalculated.redemptions) &&
-        Objects.equals(this.items, orderCalculated.items);
+        Objects.equals(this.redemptions, orderCalculated.redemptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -767,7 +730,7 @@ public class OrderCalculated {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions, items);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, itemsDiscountAmount, totalDiscountAmount, totalAmount, appliedDiscountAmount, itemsAppliedDiscountAmount, totalAppliedDiscountAmount, metadata, _object, createdAt, updatedAt, customerId, referrerId, customer, referrer, redemptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -802,7 +765,6 @@ public class OrderCalculated {
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
     sb.append("    redemptions: ").append(toIndentedString(redemptions)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -846,7 +808,6 @@ public class OrderCalculated {
     openapiFields.add("customer");
     openapiFields.add("referrer");
     openapiFields.add("redemptions");
-    openapiFields.add("items");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

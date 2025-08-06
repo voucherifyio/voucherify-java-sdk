@@ -199,7 +199,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   private RedeemablesApplicationModeEnum redeemablesApplicationMode;
 
   /**
-   * Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.
+   * Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.
    */
   @JsonAdapter(RedeemablesSortingRuleEnum.Adapter.class)
   public enum RedeemablesSortingRuleEnum {
@@ -249,6 +249,167 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_SORTING_RULE)
   private RedeemablesSortingRuleEnum redeemablesSortingRule;
 
+  /**
+   * Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.
+   */
+  @JsonAdapter(RedeemablesProductsApplicationModeEnum.Adapter.class)
+  public enum RedeemablesProductsApplicationModeEnum {
+    STACK("STACK"),
+    
+    ONCE("ONCE");
+
+    private String value;
+
+    RedeemablesProductsApplicationModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesProductsApplicationModeEnum fromValue(String value) {
+      for (RedeemablesProductsApplicationModeEnum b : RedeemablesProductsApplicationModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesProductsApplicationModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesProductsApplicationModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesProductsApplicationModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesProductsApplicationModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE = "redeemables_products_application_mode";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE)
+  private RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode;
+
+  /**
+   * Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.
+   */
+  @JsonAdapter(RedeemablesNoEffectRuleEnum.Adapter.class)
+  public enum RedeemablesNoEffectRuleEnum {
+    REDEEM_ANYWAY("REDEEM_ANYWAY"),
+    
+    SKIP("SKIP");
+
+    private String value;
+
+    RedeemablesNoEffectRuleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesNoEffectRuleEnum fromValue(String value) {
+      for (RedeemablesNoEffectRuleEnum b : RedeemablesNoEffectRuleEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesNoEffectRuleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesNoEffectRuleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesNoEffectRuleEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesNoEffectRuleEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE = "redeemables_no_effect_rule";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE)
+  private RedeemablesNoEffectRuleEnum redeemablesNoEffectRule;
+
+  public static final String SERIALIZED_NAME_NO_EFFECT_SKIP_CATEGORIES = "no_effect_skip_categories";
+  @SerializedName(SERIALIZED_NAME_NO_EFFECT_SKIP_CATEGORIES)
+  private List<String> noEffectSkipCategories;
+
+  public static final String SERIALIZED_NAME_NO_EFFECT_REDEEM_ANYWAY_CATEGORIES = "no_effect_redeem_anyway_categories";
+  @SerializedName(SERIALIZED_NAME_NO_EFFECT_REDEEM_ANYWAY_CATEGORIES)
+  private List<String> noEffectRedeemAnywayCategories;
+
+  /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
+   */
+  @JsonAdapter(RedeemablesRollbackOrderModeEnum.Adapter.class)
+  public enum RedeemablesRollbackOrderModeEnum {
+    WITH_ORDER("WITH_ORDER"),
+    
+    WITHOUT_ORDER("WITHOUT_ORDER");
+
+    private String value;
+
+    RedeemablesRollbackOrderModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedeemablesRollbackOrderModeEnum fromValue(String value) {
+      for (RedeemablesRollbackOrderModeEnum b : RedeemablesRollbackOrderModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RedeemablesRollbackOrderModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedeemablesRollbackOrderModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedeemablesRollbackOrderModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedeemablesRollbackOrderModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE = "redeemables_rollback_order_mode";
+  @SerializedName(SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE)
+  private RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -296,7 +457,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Lists the IDs of the categories that are exclusive.
+   * Lists the IDs of exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint.
    * @return exclusiveCategories
   **/
   @javax.annotation.Nullable
@@ -325,7 +486,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Lists the IDs of the categories that are joint.
+   * Lists the IDs of the joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns.
    * @return jointCategories
   **/
   @javax.annotation.Nullable
@@ -346,7 +507,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines how many redeemables can be sent to Voucherify for validation at the same time.
+   * Defines how many redeemables can be sent in one request. Note: more redeemables means more processing time.
    * minimum: 1
    * maximum: 30
    * @return redeemablesLimit
@@ -369,8 +530,9 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines how many redeemables can be applied at the same time. The number must be less than or equal to &#x60;\&quot;redeemables_limit\&quot;&#x60;.
+   * Defines how many redeemables can be applied in one request. The number must be less than or equal to &#x60;redeemables_limit&#x60;. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
    * minimum: 1
+   * maximum: 30
    * @return applicableRedeemablesLimit
   **/
   @javax.annotation.Nullable
@@ -391,7 +553,9 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines how many redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_redeemables_limit\&quot;&#x60;.
+   * Defines how many redeemables with the same category can be applied in one request. The number must be less than or equal to &#x60;applicable_redeemables_limit&#x60;. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
+   * minimum: 1
+   * maximum: 30
    * @return applicableRedeemablesPerCategoryLimit
   **/
   @javax.annotation.Nullable
@@ -412,7 +576,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines how many redeemables with an assigned exclusive category can be applied at the same time.
+   * Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
    * minimum: 1
    * maximum: 5
    * @return applicableExclusiveRedeemablesLimit
@@ -435,7 +599,9 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines how many exclusive redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_exclusive_redeemables_limit\&quot;&#x60;.
+   * Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;. The number must be less than or equal to &#x60;applicable_exclusive_redeemables_limit&#x60;.
+   * minimum: 1
+   * maximum: 30
    * @return applicableExclusiveRedeemablesPerCategoryLimit
   **/
   @javax.annotation.Nullable
@@ -556,7 +722,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
   }
 
    /**
-   * Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.
+   * Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.
    * @return redeemablesSortingRule
   **/
   @javax.annotation.Nullable
@@ -567,6 +733,127 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
 
   public void setRedeemablesSortingRule(RedeemablesSortingRuleEnum redeemablesSortingRule) {
     this.redeemablesSortingRule = redeemablesSortingRule;
+  }
+
+
+  public ManagementProjectsStackingRulesCreateResponseBody redeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
+    
+    this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+    return this;
+  }
+
+   /**
+   * Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.
+   * @return redeemablesProductsApplicationMode
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesProductsApplicationModeEnum getRedeemablesProductsApplicationMode() {
+    return redeemablesProductsApplicationMode;
+  }
+
+
+  public void setRedeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
+    this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+  }
+
+
+  public ManagementProjectsStackingRulesCreateResponseBody redeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
+    
+    this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+    return this;
+  }
+
+   /**
+   * Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.
+   * @return redeemablesNoEffectRule
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesNoEffectRuleEnum getRedeemablesNoEffectRule() {
+    return redeemablesNoEffectRule;
+  }
+
+
+  public void setRedeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
+    this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+  }
+
+
+  public ManagementProjectsStackingRulesCreateResponseBody noEffectSkipCategories(List<String> noEffectSkipCategories) {
+    
+    this.noEffectSkipCategories = noEffectSkipCategories;
+    return this;
+  }
+
+  public ManagementProjectsStackingRulesCreateResponseBody addNoEffectSkipCategoriesItem(String noEffectSkipCategoriesItem) {
+    if (this.noEffectSkipCategories == null) {
+      this.noEffectSkipCategories = new ArrayList<>();
+    }
+    this.noEffectSkipCategories.add(noEffectSkipCategoriesItem);
+    return this;
+  }
+
+   /**
+   * Lists category IDs. Redeemables with a given category are skipped even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;REDEEM_ANYWAY&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_redeem_anyway_categories&#x60;.
+   * @return noEffectSkipCategories
+  **/
+  @javax.annotation.Nullable
+  public List<String> getNoEffectSkipCategories() {
+    return noEffectSkipCategories;
+  }
+
+
+  public void setNoEffectSkipCategories(List<String> noEffectSkipCategories) {
+    this.noEffectSkipCategories = noEffectSkipCategories;
+  }
+
+
+  public ManagementProjectsStackingRulesCreateResponseBody noEffectRedeemAnywayCategories(List<String> noEffectRedeemAnywayCategories) {
+    
+    this.noEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+    return this;
+  }
+
+  public ManagementProjectsStackingRulesCreateResponseBody addNoEffectRedeemAnywayCategoriesItem(String noEffectRedeemAnywayCategoriesItem) {
+    if (this.noEffectRedeemAnywayCategories == null) {
+      this.noEffectRedeemAnywayCategories = new ArrayList<>();
+    }
+    this.noEffectRedeemAnywayCategories.add(noEffectRedeemAnywayCategoriesItem);
+    return this;
+  }
+
+   /**
+   * Lists category IDs. Redeemables with a given category are redeemed anyway even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;SKIP&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_skip_categories&#x60;.
+   * @return noEffectRedeemAnywayCategories
+  **/
+  @javax.annotation.Nullable
+  public List<String> getNoEffectRedeemAnywayCategories() {
+    return noEffectRedeemAnywayCategories;
+  }
+
+
+  public void setNoEffectRedeemAnywayCategories(List<String> noEffectRedeemAnywayCategories) {
+    this.noEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+  }
+
+
+  public ManagementProjectsStackingRulesCreateResponseBody redeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    return this;
+  }
+
+   /**
+   * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
+   * @return redeemablesRollbackOrderMode
+  **/
+  @javax.annotation.Nullable
+  public RedeemablesRollbackOrderModeEnum getRedeemablesRollbackOrderMode() {
+    return redeemablesRollbackOrderMode;
+  }
+
+
+  public void setRedeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
+    this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
   }
 
 
@@ -635,6 +922,11 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
         Objects.equals(this.discountedAmountModeCategories, managementProjectsStackingRulesCreateResponseBody.discountedAmountModeCategories) &&
         Objects.equals(this.redeemablesApplicationMode, managementProjectsStackingRulesCreateResponseBody.redeemablesApplicationMode) &&
         Objects.equals(this.redeemablesSortingRule, managementProjectsStackingRulesCreateResponseBody.redeemablesSortingRule) &&
+        Objects.equals(this.redeemablesProductsApplicationMode, managementProjectsStackingRulesCreateResponseBody.redeemablesProductsApplicationMode) &&
+        Objects.equals(this.redeemablesNoEffectRule, managementProjectsStackingRulesCreateResponseBody.redeemablesNoEffectRule) &&
+        Objects.equals(this.noEffectSkipCategories, managementProjectsStackingRulesCreateResponseBody.noEffectSkipCategories) &&
+        Objects.equals(this.noEffectRedeemAnywayCategories, managementProjectsStackingRulesCreateResponseBody.noEffectRedeemAnywayCategories) &&
+        Objects.equals(this.redeemablesRollbackOrderMode, managementProjectsStackingRulesCreateResponseBody.redeemablesRollbackOrderMode) &&
         Objects.equals(this.createdAt, managementProjectsStackingRulesCreateResponseBody.createdAt) &&
         Objects.equals(this.updatedAt, managementProjectsStackingRulesCreateResponseBody.updatedAt);
   }
@@ -645,7 +937,7 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, createdAt, updatedAt);
+    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, noEffectSkipCategories, noEffectRedeemAnywayCategories, redeemablesRollbackOrderMode, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -672,6 +964,11 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
     sb.append("    discountedAmountModeCategories: ").append(toIndentedString(discountedAmountModeCategories)).append("\n");
     sb.append("    redeemablesApplicationMode: ").append(toIndentedString(redeemablesApplicationMode)).append("\n");
     sb.append("    redeemablesSortingRule: ").append(toIndentedString(redeemablesSortingRule)).append("\n");
+    sb.append("    redeemablesProductsApplicationMode: ").append(toIndentedString(redeemablesProductsApplicationMode)).append("\n");
+    sb.append("    redeemablesNoEffectRule: ").append(toIndentedString(redeemablesNoEffectRule)).append("\n");
+    sb.append("    noEffectSkipCategories: ").append(toIndentedString(noEffectSkipCategories)).append("\n");
+    sb.append("    noEffectRedeemAnywayCategories: ").append(toIndentedString(noEffectRedeemAnywayCategories)).append("\n");
+    sb.append("    redeemablesRollbackOrderMode: ").append(toIndentedString(redeemablesRollbackOrderMode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -709,6 +1006,11 @@ public class ManagementProjectsStackingRulesCreateResponseBody {
     openapiFields.add("discounted_amount_mode_categories");
     openapiFields.add("redeemables_application_mode");
     openapiFields.add("redeemables_sorting_rule");
+    openapiFields.add("redeemables_products_application_mode");
+    openapiFields.add("redeemables_no_effect_rule");
+    openapiFields.add("no_effect_skip_categories");
+    openapiFields.add("no_effect_redeem_anyway_categories");
+    openapiFields.add("redeemables_rollback_order_mode");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
 

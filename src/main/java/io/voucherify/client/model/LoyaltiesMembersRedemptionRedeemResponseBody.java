@@ -22,9 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyChannel;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyGift;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyOrder;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions;
+import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodySession;
 import io.voucherify.client.model.LoyaltiesMembersRedemptionRedeemResponseBodyVoucher;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionRewardResult;
 import io.voucherify.client.model.SimpleCustomer;
@@ -244,6 +245,10 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
+  public static final String SERIALIZED_NAME_SESSION = "session";
+  @SerializedName(SERIALIZED_NAME_SESSION)
+  private LoyaltiesMembersRedemptionRedeemResponseBodySession session;
+
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
   private LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions;
@@ -258,7 +263,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private LoyaltiesMembersRedemptionRedeemResponseBodyOrder order;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -558,6 +563,27 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
+  public LoyaltiesMembersRedemptionRedeemResponseBody session(LoyaltiesMembersRedemptionRedeemResponseBodySession session) {
+    
+    this.session = session;
+    return this;
+  }
+
+   /**
+   * Get session
+   * @return session
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesMembersRedemptionRedeemResponseBodySession getSession() {
+    return session;
+  }
+
+
+  public void setSession(LoyaltiesMembersRedemptionRedeemResponseBodySession session) {
+    this.session = session;
+  }
+
+
   public LoyaltiesMembersRedemptionRedeemResponseBody relatedRedemptions(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
@@ -621,7 +647,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   }
 
 
-  public LoyaltiesMembersRedemptionRedeemResponseBody order(OrderCalculated order) {
+  public LoyaltiesMembersRedemptionRedeemResponseBody order(LoyaltiesMembersRedemptionRedeemResponseBodyOrder order) {
     
     this.order = order;
     return this;
@@ -632,12 +658,12 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public LoyaltiesMembersRedemptionRedeemResponseBodyOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(LoyaltiesMembersRedemptionRedeemResponseBodyOrder order) {
     this.order = order;
   }
 
@@ -851,6 +877,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
         Objects.equals(this.redemption, loyaltiesMembersRedemptionRedeemResponseBody.redemption) &&
         Objects.equals(this.result, loyaltiesMembersRedemptionRedeemResponseBody.result) &&
         Objects.equals(this.status, loyaltiesMembersRedemptionRedeemResponseBody.status) &&
+        Objects.equals(this.session, loyaltiesMembersRedemptionRedeemResponseBody.session) &&
         Objects.equals(this.relatedRedemptions, loyaltiesMembersRedemptionRedeemResponseBody.relatedRedemptions) &&
         Objects.equals(this.failureCode, loyaltiesMembersRedemptionRedeemResponseBody.failureCode) &&
         Objects.equals(this.failureMessage, loyaltiesMembersRedemptionRedeemResponseBody.failureMessage) &&
@@ -872,7 +899,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, session, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -896,6 +923,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
@@ -941,6 +969,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
     openapiFields.add("redemption");
     openapiFields.add("result");
     openapiFields.add("status");
+    openapiFields.add("session");
     openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");

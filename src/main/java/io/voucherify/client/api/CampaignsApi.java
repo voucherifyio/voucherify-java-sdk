@@ -35,6 +35,10 @@ import io.voucherify.client.model.CampaignsImportCreateResponseBody;
 import io.voucherify.client.model.CampaignsImportCsvCreateResponseBody;
 import io.voucherify.client.model.CampaignsImportVoucherItem;
 import io.voucherify.client.model.CampaignsListResponseBody;
+import io.voucherify.client.model.CampaignsSummaryGetResponseBody;
+import io.voucherify.client.model.CampaignsTransactionsExportCreateRequestBody;
+import io.voucherify.client.model.CampaignsTransactionsExportCreateResponseBody;
+import io.voucherify.client.model.CampaignsTransactionsListResponseBody;
 import io.voucherify.client.model.CampaignsUpdateRequestBody;
 import io.voucherify.client.model.CampaignsUpdateResponseBody;
 import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBody;
@@ -42,10 +46,15 @@ import io.voucherify.client.model.CampaignsVouchersCreateInBulkRequestBody;
 import io.voucherify.client.model.CampaignsVouchersCreateRequestBody;
 import io.voucherify.client.model.CampaignsVouchersCreateResponseBody;
 import java.io.File;
+import java.time.LocalDate;
+import io.voucherify.client.model.ParameterCampaignStatusListCampaigns;
 import io.voucherify.client.model.ParameterCampaignType;
+import io.voucherify.client.model.ParameterCampaignsAccessSetttings;
 import io.voucherify.client.model.ParameterExpandListCampaigns;
 import io.voucherify.client.model.ParameterFiltersListCampaigns;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
+import io.voucherify.client.model.ParameterOrderListTransactions;
+import io.voucherify.client.model.ParametersFiltersListCampaignTransactions;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -384,7 +393,7 @@ public class CampaignsApi {
 
     /**
      * Create Campaign
-     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), standalone vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
+     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) voucherss created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
      * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
      * @return CampaignsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -396,7 +405,7 @@ public class CampaignsApi {
 
     /**
      * Create Campaign
-     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), standalone vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
+     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) voucherss created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
      * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
      * @return ApiResponse&lt;CampaignsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -409,7 +418,7 @@ public class CampaignsApi {
 
     /**
      * Create Campaign (asynchronously)
-     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), standalone vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
+     * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the campaign object description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) voucherss created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004) for more details about released features.
      * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -740,6 +749,114 @@ public class CampaignsApi {
         return localVarCall;
     }
     /**
+     * Build call for exportCampaignTransactions
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call exportCampaignTransactionsCall(String campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = campaignsTransactionsExportCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/v1/campaigns/{campaignId}/transactions/export"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exportCampaignTransactionsValidateBeforeCall(String campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling exportCampaignTransactions(Async)");
+        }
+
+        return exportCampaignTransactionsCall(campaignId, campaignsTransactionsExportCreateRequestBody, _callback);
+
+    }
+
+    /**
+     * Export Campaign Transactions
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the GET Export method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the POST Export Loyalty Campaign Transactions does.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
+     * @return CampaignsTransactionsExportCreateResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CampaignsTransactionsExportCreateResponseBody exportCampaignTransactions(String campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody) throws ApiException {
+        ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResp = exportCampaignTransactionsWithHttpInfo(campaignId, campaignsTransactionsExportCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Export Campaign Transactions
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the GET Export method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the POST Export Loyalty Campaign Transactions does.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
+     * @return ApiResponse&lt;CampaignsTransactionsExportCreateResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CampaignsTransactionsExportCreateResponseBody> exportCampaignTransactionsWithHttpInfo(String campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = exportCampaignTransactionsValidateBeforeCall(campaignId, campaignsTransactionsExportCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<CampaignsTransactionsExportCreateResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Export Campaign Transactions (asynchronously)
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the GET Export method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the POST Export Loyalty Campaign Transactions does.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call exportCampaignTransactionsAsync(String campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, final ApiCallback<CampaignsTransactionsExportCreateResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = exportCampaignTransactionsValidateBeforeCall(campaignId, campaignsTransactionsExportCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<CampaignsTransactionsExportCreateResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getCampaign
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param _callback Callback for upload/download progress
@@ -839,6 +956,125 @@ public class CampaignsApi {
 
         okhttp3.Call localVarCall = getCampaignValidateBeforeCall(campaignId, _callback);
         Type localVarReturnType = new TypeToken<CampaignsGetResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCampaignSummary
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param startDate Timestamp representing the date which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date which results must end on. Represented in ISO 8601 format. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getCampaignSummaryCall(String campaignId, LocalDate startDate, LocalDate endDate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/campaigns/{campaignId}/summary"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCampaignSummaryValidateBeforeCall(String campaignId, LocalDate startDate, LocalDate endDate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling getCampaignSummary(Async)");
+        }
+
+        return getCampaignSummaryCall(campaignId, startDate, endDate, _callback);
+
+    }
+
+    /**
+     * Get Campaign Summary
+     * Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before v20250602 version This endpoint returns analytics data for campaigns that were created after the [v20250602 version](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20250602) was released on 17 June 2025. Older campaigns return empty data.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param startDate Timestamp representing the date which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date which results must end on. Represented in ISO 8601 format. (optional)
+     * @return CampaignsSummaryGetResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CampaignsSummaryGetResponseBody getCampaignSummary(String campaignId, LocalDate startDate, LocalDate endDate) throws ApiException {
+        ApiResponse<CampaignsSummaryGetResponseBody> localVarResp = getCampaignSummaryWithHttpInfo(campaignId, startDate, endDate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Campaign Summary
+     * Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before v20250602 version This endpoint returns analytics data for campaigns that were created after the [v20250602 version](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20250602) was released on 17 June 2025. Older campaigns return empty data.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param startDate Timestamp representing the date which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date which results must end on. Represented in ISO 8601 format. (optional)
+     * @return ApiResponse&lt;CampaignsSummaryGetResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CampaignsSummaryGetResponseBody> getCampaignSummaryWithHttpInfo(String campaignId, LocalDate startDate, LocalDate endDate) throws ApiException {
+        okhttp3.Call localVarCall = getCampaignSummaryValidateBeforeCall(campaignId, startDate, endDate, null);
+        Type localVarReturnType = new TypeToken<CampaignsSummaryGetResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Campaign Summary (asynchronously)
+     * Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before v20250602 version This endpoint returns analytics data for campaigns that were created after the [v20250602 version](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20250602) was released on 17 June 2025. Older campaigns return empty data.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param startDate Timestamp representing the date which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param endDate Timestamp representing the date which results must end on. Represented in ISO 8601 format. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getCampaignSummaryAsync(String campaignId, LocalDate startDate, LocalDate endDate, final ApiCallback<CampaignsSummaryGetResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCampaignSummaryValidateBeforeCall(campaignId, startDate, endDate, _callback);
+        Type localVarReturnType = new TypeToken<CampaignsSummaryGetResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1063,18 +1299,156 @@ public class CampaignsApi {
         return localVarCall;
     }
     /**
+     * Build call for listCampaignTransactions
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
+     * @param filters Filters for listing responses. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCampaignTransactionsCall(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/campaigns/{campaignId}/transactions"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCampaignTransactionsValidateBeforeCall(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listCampaignTransactions(Async)");
+        }
+
+        return listCampaignTransactionsCall(campaignId, limit, order, startingAfterId, filters, _callback);
+
+    }
+
+    /**
+     * List Campaign Transactions
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
+     * @param filters Filters for listing responses. (optional)
+     * @return CampaignsTransactionsListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CampaignsTransactionsListResponseBody listCampaignTransactions(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters) throws ApiException {
+        ApiResponse<CampaignsTransactionsListResponseBody> localVarResp = listCampaignTransactionsWithHttpInfo(campaignId, limit, order, startingAfterId, filters);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Campaign Transactions
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
+     * @param filters Filters for listing responses. (optional)
+     * @return ApiResponse&lt;CampaignsTransactionsListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CampaignsTransactionsListResponseBody> listCampaignTransactionsWithHttpInfo(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignTransactionsValidateBeforeCall(campaignId, limit, order, startingAfterId, filters, null);
+        Type localVarReturnType = new TypeToken<CampaignsTransactionsListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Campaign Transactions (asynchronously)
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+     * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
+     * @param filters Filters for listing responses. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCampaignTransactionsAsync(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback<CampaignsTransactionsListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCampaignTransactionsValidateBeforeCall(campaignId, limit, order, startingAfterId, filters, _callback);
+        Type localVarReturnType = new TypeToken<CampaignsTransactionsListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listCampaigns
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
+     * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCampaignsCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1115,12 +1489,24 @@ public class CampaignsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand", expand));
         }
 
+        if (campaignStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("campaign_status", campaignStatus));
+        }
+
+        if (isReferralCode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_referral_code", isReferralCode));
+        }
+
         if (order != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
         if (filters != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
+        if (accessSettings != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("access_settings", accessSettings));
         }
 
         final String[] localVarAccepts = {
@@ -1143,8 +1529,8 @@ public class CampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback _callback) throws ApiException {
-        return listCampaignsCall(limit, page, campaignType, expand, order, filters, _callback);
+    private okhttp3.Call listCampaignsValidateBeforeCall(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback _callback) throws ApiException {
+        return listCampaignsCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, _callback);
 
     }
 
@@ -1155,13 +1541,16 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
+     * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @return CampaignsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
-        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, order, filters);
+    public CampaignsListResponseBody listCampaigns(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings) throws ApiException {
+        ApiResponse<CampaignsListResponseBody> localVarResp = listCampaignsWithHttpInfo(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings);
         return localVarResp.getData();
     }
 
@@ -1172,13 +1561,16 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
+     * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @return ApiResponse&lt;CampaignsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters) throws ApiException {
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, null);
+    public ApiResponse<CampaignsListResponseBody> listCampaignsWithHttpInfo(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings) throws ApiException {
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, null);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1190,15 +1582,18 @@ public class CampaignsApi {
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param campaignType This attribute allows filtering by campaign type. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
+     * @param campaignStatus Sorts the results by the status of the campaign. (optional)
+     * @param isReferralCode Sorts the results that are or are not referral campaigns. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param filters Filters the results by campaign status or whether the campaign is a referral campaign. (optional)
+     * @param filters Filters the results by various campaign properties. (optional)
+     * @param accessSettings Filter by areas and stores IDs to return campaigns that are assigned to areas, stores, and all stores in an area. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listCampaignsAsync(Integer limit, Integer page, ParameterCampaignType campaignType, ParameterExpandListCampaigns expand, ParameterCampaignStatusListCampaigns campaignStatus, Boolean isReferralCode, ParameterOrderListCampaigns order, ParameterFiltersListCampaigns filters, ParameterCampaignsAccessSetttings accessSettings, final ApiCallback<CampaignsListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, order, filters, _callback);
+        okhttp3.Call localVarCall = listCampaignsValidateBeforeCall(limit, page, campaignType, expand, campaignStatus, isReferralCode, order, filters, accessSettings, _callback);
         Type localVarReturnType = new TypeToken<CampaignsListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

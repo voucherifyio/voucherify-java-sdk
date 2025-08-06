@@ -401,7 +401,7 @@ public class Example {
     String campaignId = "campaignId_example"; // String | Requests only events related to specific campaign identified by its ID.
     ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM.
     ParameterActivityCategory category = ParameterActivityCategory.fromValue("ACTION"); // ParameterActivityCategory | Filters activities for actions or effects. Allowed values:  ACTION, EFFECT.
-    String type = "type_example"; // String | Event name of the customer event.
+    ParameterCustomerEvent type = ParameterCustomerEvent.fromValue("customer.confirmed"); // ParameterCustomerEvent | Event name of the customer event.
     try {
       CustomersActivityListResponseBody result = apiInstance.listCustomerActivity(customerId, limit, order, startingAfterId, startDate, endDate, campaignId, campaignType, category, type);
       System.out.println(result);
@@ -429,7 +429,7 @@ public class Example {
 | **campaignId** | **String**| Requests only events related to specific campaign identified by its ID. |
 | **campaignType** | [**ParameterCampaignType**](.md)| Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. |
 | **category** | [**ParameterActivityCategory**](.md)| Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. |
-| **type** | **String**| Event name of the customer event. |
+| **type** | [**ParameterCustomerEvent**](.md)| Event name of the customer event. |
 
 ### Return type
 
@@ -626,7 +626,7 @@ public class Example {
 
     CustomersApi apiInstance = new CustomersApi(defaultClient);
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
-    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
+    Integer page = 56; // Integer | Which page of results to return. The lowest value is 1, the highest value is 99.
     String email = "email_example"; // String | Limit the customers to the ones that have this specific email address.
     String city = "city_example"; // String | Limit the customers to the ones that are located in the specified city.
     String name = "name_example"; // String | Filter customers by the name property.
@@ -656,7 +656,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
-| **page** | **Integer**| Which page of results to return. The lowest value is 1. |
+| **page** | **Integer**| Which page of results to return. The lowest value is 1, the highest value is 99. |
 | **email** | **String**| Limit the customers to the ones that have this specific email address. |
 | **city** | **String**| Limit the customers to the ones that are located in the specified city. |
 | **name** | **String**| Filter customers by the name property. |

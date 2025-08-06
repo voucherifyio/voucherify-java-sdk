@@ -19,13 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.PromotionTier;
 import io.voucherify.client.model.RedemptionChannel;
 import io.voucherify.client.model.RedemptionGift;
 import io.voucherify.client.model.RedemptionLoyaltyCard;
+import io.voucherify.client.model.RedemptionOrder;
 import io.voucherify.client.model.RedemptionRelatedRedemptions;
 import io.voucherify.client.model.RedemptionRewardResult;
+import io.voucherify.client.model.RedemptionSession;
 import io.voucherify.client.model.RedemptionVoucher;
 import io.voucherify.client.model.SimpleCustomer;
 import java.io.IOException;
@@ -244,6 +245,10 @@ public class Redemption {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
+  public static final String SERIALIZED_NAME_SESSION = "session";
+  @SerializedName(SERIALIZED_NAME_SESSION)
+  private RedemptionSession session;
+
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
   private RedemptionRelatedRedemptions relatedRedemptions;
@@ -258,7 +263,7 @@ public class Redemption {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private RedemptionOrder order;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -558,6 +563,27 @@ public class Redemption {
   }
 
 
+  public Redemption session(RedemptionSession session) {
+    
+    this.session = session;
+    return this;
+  }
+
+   /**
+   * Get session
+   * @return session
+  **/
+  @javax.annotation.Nullable
+  public RedemptionSession getSession() {
+    return session;
+  }
+
+
+  public void setSession(RedemptionSession session) {
+    this.session = session;
+  }
+
+
   public Redemption relatedRedemptions(RedemptionRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
@@ -621,7 +647,7 @@ public class Redemption {
   }
 
 
-  public Redemption order(OrderCalculated order) {
+  public Redemption order(RedemptionOrder order) {
     
     this.order = order;
     return this;
@@ -632,12 +658,12 @@ public class Redemption {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public RedemptionOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(RedemptionOrder order) {
     this.order = order;
   }
 
@@ -851,6 +877,7 @@ public class Redemption {
         Objects.equals(this.redemption, redemption.redemption) &&
         Objects.equals(this.result, redemption.result) &&
         Objects.equals(this.status, redemption.status) &&
+        Objects.equals(this.session, redemption.session) &&
         Objects.equals(this.relatedRedemptions, redemption.relatedRedemptions) &&
         Objects.equals(this.failureCode, redemption.failureCode) &&
         Objects.equals(this.failureMessage, redemption.failureMessage) &&
@@ -872,7 +899,7 @@ public class Redemption {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
+    return Objects.hash(id, _object, date, customerId, trackingId, metadata, amount, redemption, result, status, session, relatedRedemptions, failureCode, failureMessage, order, channel, customer, relatedObjectType, relatedObjectId, promotionTier, reward, gift, loyaltyCard, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -896,6 +923,7 @@ public class Redemption {
     sb.append("    redemption: ").append(toIndentedString(redemption)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    session: ").append(toIndentedString(session)).append("\n");
     sb.append("    relatedRedemptions: ").append(toIndentedString(relatedRedemptions)).append("\n");
     sb.append("    failureCode: ").append(toIndentedString(failureCode)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
@@ -941,6 +969,7 @@ public class Redemption {
     openapiFields.add("redemption");
     openapiFields.add("result");
     openapiFields.add("status");
+    openapiFields.add("session");
     openapiFields.add("related_redemptions");
     openapiFields.add("failure_code");
     openapiFields.add("failure_message");

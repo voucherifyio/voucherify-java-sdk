@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
+import io.voucherify.client.model.OrdersListResponseBodyOrdersItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,7 +156,7 @@ public class OrdersListResponseBody {
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
   @SerializedName(SERIALIZED_NAME_ORDERS)
-  private List<OrderCalculated> orders;
+  private List<OrdersListResponseBodyOrdersItem> orders;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -207,13 +207,13 @@ public class OrdersListResponseBody {
   }
 
 
-  public OrdersListResponseBody orders(List<OrderCalculated> orders) {
+  public OrdersListResponseBody orders(List<OrdersListResponseBodyOrdersItem> orders) {
     
     this.orders = orders;
     return this;
   }
 
-  public OrdersListResponseBody addOrdersItem(OrderCalculated ordersItem) {
+  public OrdersListResponseBody addOrdersItem(OrdersListResponseBodyOrdersItem ordersItem) {
     if (this.orders == null) {
       this.orders = new ArrayList<>();
     }
@@ -226,12 +226,12 @@ public class OrdersListResponseBody {
    * @return orders
   **/
   @javax.annotation.Nullable
-  public List<OrderCalculated> getOrders() {
+  public List<OrdersListResponseBodyOrdersItem> getOrders() {
     return orders;
   }
 
 
-  public void setOrders(List<OrderCalculated> orders) {
+  public void setOrders(List<OrdersListResponseBodyOrdersItem> orders) {
     this.orders = orders;
   }
 

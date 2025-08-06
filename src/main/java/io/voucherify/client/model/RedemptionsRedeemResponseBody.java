@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.Redemption;
+import io.voucherify.client.model.RedemptionsRedeemResponseBodyOrder;
 import io.voucherify.client.model.ValidationsRedeemableInapplicable;
 import io.voucherify.client.model.ValidationsRedeemableSkipped;
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class RedemptionsRedeemResponseBody {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private RedemptionsRedeemResponseBodyOrder order;
 
   public static final String SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES = "inapplicable_redeemables";
   @SerializedName(SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES)
@@ -132,7 +132,7 @@ public class RedemptionsRedeemResponseBody {
   }
 
 
-  public RedemptionsRedeemResponseBody order(OrderCalculated order) {
+  public RedemptionsRedeemResponseBody order(RedemptionsRedeemResponseBodyOrder order) {
     
     this.order = order;
     return this;
@@ -143,12 +143,12 @@ public class RedemptionsRedeemResponseBody {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public RedemptionsRedeemResponseBodyOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(RedemptionsRedeemResponseBodyOrder order) {
     this.order = order;
   }
 

@@ -87,6 +87,14 @@ public class FilterConditionsString {
   @SerializedName(SERIALIZED_NAME_$_ENDS_WITH)
   private String $endsWith;
 
+  public static final String SERIALIZED_NAME_$_CONTAINS = "$contains";
+  @SerializedName(SERIALIZED_NAME_$_CONTAINS)
+  private String $contains;
+
+  public static final String SERIALIZED_NAME_$_NOT_CONTAIN = "$not_contain";
+  @SerializedName(SERIALIZED_NAME_$_NOT_CONTAIN)
+  private String $notContain;
+
   public FilterConditionsString() {
   }
 
@@ -274,6 +282,48 @@ public class FilterConditionsString {
   }
 
 
+  public FilterConditionsString $contains(String $contains) {
+    
+    this.$contains = $contains;
+    return this;
+  }
+
+   /**
+   * Value includes the specified string.
+   * @return $contains
+  **/
+  @javax.annotation.Nullable
+  public String get$Contains() {
+    return $contains;
+  }
+
+
+  public void set$Contains(String $contains) {
+    this.$contains = $contains;
+  }
+
+
+  public FilterConditionsString $notContain(String $notContain) {
+    
+    this.$notContain = $notContain;
+    return this;
+  }
+
+   /**
+   * Value does NOT include the specified string.
+   * @return $notContain
+  **/
+  @javax.annotation.Nullable
+  public String get$NotContain() {
+    return $notContain;
+  }
+
+
+  public void set$NotContain(String $notContain) {
+    this.$notContain = $notContain;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -291,7 +341,9 @@ public class FilterConditionsString {
         Objects.equals(this.$hasValue, filterConditionsString.$hasValue) &&
         Objects.equals(this.$isUnknown, filterConditionsString.$isUnknown) &&
         Objects.equals(this.$startsWith, filterConditionsString.$startsWith) &&
-        Objects.equals(this.$endsWith, filterConditionsString.$endsWith);
+        Objects.equals(this.$endsWith, filterConditionsString.$endsWith) &&
+        Objects.equals(this.$contains, filterConditionsString.$contains) &&
+        Objects.equals(this.$notContain, filterConditionsString.$notContain);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -300,7 +352,7 @@ public class FilterConditionsString {
 
   @Override
   public int hashCode() {
-    return Objects.hash($in, $notIn, $is, $isNot, $hasValue, $isUnknown, $startsWith, $endsWith);
+    return Objects.hash($in, $notIn, $is, $isNot, $hasValue, $isUnknown, $startsWith, $endsWith, $contains, $notContain);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -322,6 +374,8 @@ public class FilterConditionsString {
     sb.append("    $isUnknown: ").append(toIndentedString($isUnknown)).append("\n");
     sb.append("    $startsWith: ").append(toIndentedString($startsWith)).append("\n");
     sb.append("    $endsWith: ").append(toIndentedString($endsWith)).append("\n");
+    sb.append("    $contains: ").append(toIndentedString($contains)).append("\n");
+    sb.append("    $notContain: ").append(toIndentedString($notContain)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -352,6 +406,8 @@ public class FilterConditionsString {
     openapiFields.add("$is_unknown");
     openapiFields.add("$starts_with");
     openapiFields.add("$ends_with");
+    openapiFields.add("$contains");
+    openapiFields.add("$not_contain");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

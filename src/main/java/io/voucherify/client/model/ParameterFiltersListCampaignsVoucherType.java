@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.FilterConditionsString;
+import io.voucherify.client.model.ParameterFiltersListCampaignsVoucherTypeConditions;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -48,19 +48,19 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Filter by voucher type
+ * Type of the voucher. Allowed values: &#x60;DISCOUNT_VOUCHER&#x60;, &#x60;GIFT_VOUCHER&#x60;, &#x60;LOYALTY_CARD&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ParameterFiltersListCampaignsVoucherType {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private FilterConditionsString conditions;
+  private ParameterFiltersListCampaignsVoucherTypeConditions conditions;
 
   public ParameterFiltersListCampaignsVoucherType() {
   }
 
-  public ParameterFiltersListCampaignsVoucherType conditions(FilterConditionsString conditions) {
+  public ParameterFiltersListCampaignsVoucherType conditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     
     this.conditions = conditions;
     return this;
@@ -71,12 +71,12 @@ public class ParameterFiltersListCampaignsVoucherType {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public FilterConditionsString getConditions() {
+  public ParameterFiltersListCampaignsVoucherTypeConditions getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(FilterConditionsString conditions) {
+  public void setConditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     this.conditions = conditions;
   }
 

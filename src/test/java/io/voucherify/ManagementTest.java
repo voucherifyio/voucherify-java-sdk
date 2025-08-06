@@ -19,6 +19,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+import java.io.InputStream;
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 @org.junit.jupiter.api.Order(14)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -26,31 +31,84 @@ public class ManagementTest {
     public static ApiClient defaultClient = null;
     public static ManagementApi managementApi = null;
     public static String projectId = null;
+    public static String clusterId = null;
+    private static Properties properties = new Properties();
+    private static InputStream input = null;
 
     @BeforeAll
     public static void beforeAll() {
-        defaultClient = Utils.getClient();
-        managementApi = new ManagementApi(defaultClient);
+        try {
+            // Load properties from .env file if it exists
+            try {
+                String dir = System.getProperty("user.dir");
+                input = new FileInputStream(dir + "/.env");
+                properties.load(input);
+            } catch (IOException ex) {
+                System.out.println("[INFO] No .env file found, using environment variables");
+                ex.printStackTrace();
+            } finally {
+                if (input != null) {
+                    try {
+                        input.close();
+                    } catch (IOException e) {
+                        System.err.println("[WARN] Failed to close .env file: " + e.getMessage());
+                    }
+                }
+            }
+
+            defaultClient = Utils.getClient();
+            managementApi = new ManagementApi(defaultClient);
+
+            // Get VOUCHERIFY_HOST from environment variables or .env file
+            String voucherifyHost = System.getenv("VOUCHERIFY_HOST");
+            if ((voucherifyHost == null || voucherifyHost.isEmpty()) && properties != null) {
+                voucherifyHost = properties.getProperty("VOUCHERIFY_HOST");
+            }
+
+            if (voucherifyHost != null && !voucherifyHost.isEmpty()) {
+                // Extract cluster ID from host (e.g., https://dev2.api.voucherify.io -> dev2)
+                String[] parts = voucherifyHost.split("//");
+                if (parts.length > 1) {
+                    clusterId = parts[1].split("\\.")[0];
+                }
+            }
+
+            // Default to 'eu1' if clusterId couldn't be determined or is too short
+            if (clusterId == null || clusterId.length() > 4) {
+                clusterId = "eu1";
+            }
+
+            System.out.println("[INFO] Using cluster ID: " + clusterId);
+        } catch (Exception e) {
+            System.err.println("[ERROR] Failed to initialize test environment: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Failed to initialize test environment", e);
+        }
     }
 
     @Test
     @Order(1)
     public void createProjectTest() {
+        System.out.println("[TEST] Starting createProjectTest");
         ManagementProjectsCreateRequestBody managementProject = new ManagementProjectsCreateRequestBody();
         managementProject.setCaseSensitiveCodes(false);
         managementProject.setName(Utils.getAlphaNumericString(10));
         managementProject.setTimezone("Europe/Warsaw");
         managementProject.setCurrency("EUR");
+        System.out.println("[INFO] clusterId: " + clusterId);
+        managementProject.setClusterId(clusterId);
 
         try {
             ManagementProjectsCreateResponseBody responseBody = managementApi.createProject(managementProject);
 
-            assertNotNull(responseBody);
-            assertNotNull(responseBody.getId());
-
+            System.out.println("[DEBUG] Project creation response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            assertNotNull(responseBody.getId(), "Project ID should not be null");
+            System.out.println("[INFO] Successfully created project with ID: " + responseBody.getId());
             VoucherifyStore.getInstance().getManagement().setProjectId(responseBody.getId());
             projectId = responseBody.getId();
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -61,9 +119,11 @@ public class ManagementTest {
         try {
             ManagementProjectsListResponseBody responseBody = managementApi.listProjects();
 
-            assertNotNull(responseBody);
-            assertNotNull(responseBody.getData());
+            System.out.println("[DEBUG] Project list response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            assertNotNull(responseBody.getData(), "Project data should not be null");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -71,11 +131,15 @@ public class ManagementTest {
     @Test
     @Order(3)
     public void getProjectTest() {
+        System.out.println("[TEST] Starting getProjectTest for project ID: " + projectId);
         try {
             ManagementProjectsGetResponseBody responseBody = managementApi.getProject(projectId);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Get project response: " + responseBody);
+            assertNotNull(responseBody, "Project details should not be null");
+            System.out.println("[INFO] Successfully retrieved project details");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -83,14 +147,18 @@ public class ManagementTest {
     @Test
     @Order(4)
     public void updateProjectTest() {
+        System.out.println("[TEST] Starting updateProjectTest for project ID: " + projectId);
         ManagementProjectsUpdateRequestBody updatedProject = new ManagementProjectsUpdateRequestBody();
         updatedProject.setDialCode("+48");
         try {
             ManagementProjectsUpdateResponseBody responseBody = managementApi.updateProject(projectId, updatedProject);
 
-            assertNotNull(responseBody);
-            assertNotNull(responseBody.getDialCode());
+            System.out.println("[DEBUG] Update project response: " + responseBody);
+
+            assertNotNull(responseBody, "Project details should not be null");
+            System.out.println("[INFO] Successfully retrieved project details");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -98,6 +166,7 @@ public class ManagementTest {
     @Test
     @Order(5)
     public void listUsersTest() {
+        System.out.println("[TEST] Starting listUsersTest for project ID: " + projectId);
         try {
             ManagementProjectsUsersListResponseBody responseBody = managementApi.listUsers(projectId);
 
@@ -106,7 +175,7 @@ public class ManagementTest {
                 VoucherifyStore.getInstance().getManagement().setProjectUserId(data.get(0).getId());
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -115,12 +184,16 @@ public class ManagementTest {
     @Order(6)
     public void getUserTest() {
         String userId = VoucherifyStore.getInstance().getManagement().getProjectUserId();
+        System.out.println("[TEST] Starting getUserTest for user ID: " + userId);
         try {
             if (userId != null) {
                 ManagementProjectsUsersGetUserResponseBody responseBody = managementApi.getUser(projectId, userId);
-                assertNotNull(responseBody);
+                System.out.println("[DEBUG] Get user response: " + responseBody);
+                assertNotNull(responseBody, "User details should not be null");
+                System.out.println("[INFO] Successfully retrieved user details");
             }
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -128,6 +201,8 @@ public class ManagementTest {
     @Test
     @Order(7)
     public void createMetadataSchemaTest() {
+        System.out.println("[TEST] Starting createMetadataSchemaTest for project ID: " + projectId);
+        System.out.println("[DEBUG] Creating metadata schema with test properties");
         ManagementProjectsMetadataSchemasCreateRequestBody createdMetadataSchema = new ManagementProjectsMetadataSchemasCreateRequestBody();
         ManagementProjectsMetadataSchemaDefinition schemaDefinition = new ManagementProjectsMetadataSchemaDefinition();
         schemaDefinition.setType(TypeEnum.STRING);
@@ -143,11 +218,13 @@ public class ManagementTest {
             ManagementProjectsMetadataSchemasCreateResponseBody responseBody = managementApi
                     .createMetadataSchema(projectId, createdMetadataSchema);
 
-            assertNotNull(responseBody);
-            assertEquals("metadata_schema", responseBody.getObject());
-
+            System.out.println("[DEBUG] Create metadata schema response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            assertEquals("metadata_schema", responseBody.getObject(), "Object type should be 'metadata_schema'");
+            System.out.println("[INFO] Successfully created metadata schema with ID: " + responseBody.getId());
             VoucherifyStore.getInstance().getManagement().setMetadataSchemaId(responseBody.getId());
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -158,10 +235,13 @@ public class ManagementTest {
         try {
             ManagementProjectsMetadataSchemasListResponseBody responseBody = managementApi
                     .listMetadataSchemas1(projectId);
-            assertNotNull(responseBody);
-            assertEquals(ManagementProjectsMetadataSchemasListResponseBody.ObjectEnum.LIST, responseBody.getObject());
 
+            System.out.println("[DEBUG] List metadata schemas response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            assertEquals(ManagementProjectsMetadataSchemasListResponseBody.ObjectEnum.LIST, responseBody.getObject(),
+                    "Object type should be 'list'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -174,11 +254,11 @@ public class ManagementTest {
             ManagementProjectsMetadataSchemasGetResponseBody responseBody = managementApi.getMetadataSchema1(projectId,
                     metadataSchemaId);
 
-            assertNotNull(responseBody);
-            assertEquals("metadata_schema", responseBody.getObject());
-            assertEquals("metadata_schema", responseBody.getObject());
-
+            System.out.println("[DEBUG] Get metadata schema response: " + responseBody);
+            assertNotNull(responseBody, "Metadata schema details should not be null");
+            assertEquals("metadata_schema", responseBody.getObject(), "Object type should be 'metadata_schema'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -201,9 +281,11 @@ public class ManagementTest {
             ManagementProjectsMetadataSchemasUpdateResponseBody responseBody = managementApi
                     .updateMetadataSchema(projectId, metadataSchemaId, updatedMetadataSchema);
 
-            assertNotNull(responseBody);
-            assertEquals("metadata_schema", responseBody.getObject());
+            System.out.println("[DEBUG] Update metadata schema response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            assertEquals("metadata_schema", responseBody.getObject(), "Object type should be 'metadata_schema'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -227,12 +309,14 @@ public class ManagementTest {
             ManagementProjectsCustomEventSchemasCreateResponseBody responseBody = managementApi
                     .createCustomEventSchema(projectId, eventSchema);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Create custom event schema response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
             assertEquals(ManagementProjectsCustomEventSchemasCreateResponseBody.ObjectEnum.CUSTOM_EVENT_SCHEMA,
-                    responseBody.getObject());
-
+                    responseBody.getObject(), "Object type should be 'custom_event_schema'");
+            System.out.println("[INFO] Successfully created custom event schema with ID: " + responseBody.getId());
             VoucherifyStore.getInstance().getManagement().setCustomEventSchemaId(responseBody.getId());
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -244,10 +328,12 @@ public class ManagementTest {
             ManagementProjectsCustomEventSchemasListResponseBody responseBody = managementApi
                     .listCustomEventSchemas(projectId);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] List custom event schemas response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
             assertEquals(ManagementProjectsCustomEventSchemasListResponseBody.ObjectEnum.LIST,
-                    responseBody.getObject());
+                    responseBody.getObject(), "Object type should be 'list'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -260,10 +346,12 @@ public class ManagementTest {
             ManagementProjectsCustomEventSchemasGetResponseBody responseBody = managementApi
                     .getCustomEventSchema(projectId, customSchemaId);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Get custom event schema response: " + responseBody);
+            assertNotNull(responseBody, "Custom event schema details should not be null");
             assertEquals(ManagementProjectsCustomEventSchemasGetResponseBody.ObjectEnum.CUSTOM_EVENT_SCHEMA,
-                    responseBody.getObject());
+                    responseBody.getObject(), "Object type should be 'custom_event_schema'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -288,10 +376,12 @@ public class ManagementTest {
             ManagementProjectsCustomEventSchemasUpdateResponseBody responseBody = managementApi
                     .updateCustomEventSchema(projectId, customSchemaId, eventSchema);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Update custom event schema response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
             assertEquals(ManagementProjectsCustomEventSchemasUpdateResponseBody.ObjectEnum.CUSTOM_EVENT_SCHEMA,
-                    responseBody.getObject());
+                    responseBody.getObject(), "Object type should be 'custom_event_schema'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -319,10 +409,12 @@ public class ManagementTest {
             ManagementProjectsBrandingCreateResponseBody responseBody = managementApi.createBrand(projectId,
                     createdBrandingRequestBody);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Create brand response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            System.out.println("[INFO] Successfully created brand with ID: " + responseBody.getId());
             VoucherifyStore.getInstance().getManagement().setBrandId(responseBody.getId());
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -334,11 +426,12 @@ public class ManagementTest {
         String brandId = VoucherifyStore.getInstance().getManagement().getbrandId();
         try {
             ManagementProjectsBrandingGetResponseBody responseBody = managementApi.getBrand(projectId, brandId);
-            assertNotNull(responseBody);
-
+            System.out.println("[DEBUG] Get brand response: " + responseBody);
+            assertNotNull(responseBody, "Brand details should not be null");
+            System.out.println("[INFO] Successfully retrieved brand details");
             VoucherifyStore.getInstance().getManagement().setBrandId(responseBody.getId());
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }
@@ -367,10 +460,12 @@ public class ManagementTest {
             ManagementProjectsBrandingUpdateResponseBody responseBody = managementApi.updateBrand(projectId, brandId,
                     updatedBrandingRequestBody);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] Update brand response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
+            System.out.println("[INFO] Successfully updated brand with ID: " + responseBody.getId());
             VoucherifyStore.getInstance().getManagement().setBrandId(responseBody.getId());
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -383,10 +478,12 @@ public class ManagementTest {
             ManagementProjectsTemplatesCampaignsListResponseBody responseBody = managementApi
                     .managementListCampaignTemplates(projectId, null, projectId, null, null, null);
 
-            assertNotNull(responseBody);
+            System.out.println("[DEBUG] List campaign templates response: " + responseBody);
+            assertNotNull(responseBody, "Response body should not be null");
             assertEquals(ManagementProjectsTemplatesCampaignsListResponseBody.ObjectEnum.LIST,
-                    responseBody.getObject());
+                    responseBody.getObject(), "Object type should be 'list'");
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -399,7 +496,9 @@ public class ManagementTest {
 
         try {
             managementApi.deleteMetadataSchema(projectId, metadataSchemaId);
+            System.out.println("[INFO] Successfully deleted metadata schema with ID: " + metadataSchemaId);
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -412,7 +511,9 @@ public class ManagementTest {
 
         try {
             managementApi.deleteCustomEventSchema(projectId, customEventSchemaId);
+            System.out.println("[INFO] Successfully deleted custom event schema with ID: " + customEventSchemaId);
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -425,7 +526,9 @@ public class ManagementTest {
 
         try {
             managementApi.deleteBrand(projectId, brandId);
+            System.out.println("[INFO] Successfully deleted brand with ID: " + brandId);
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
 
@@ -436,7 +539,9 @@ public class ManagementTest {
     public void deleteProject() {
         try {
             managementApi.deleteProject(projectId);
+            System.out.println("[INFO] Successfully deleted project with ID: " + projectId);
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
             fail();
         }
     }

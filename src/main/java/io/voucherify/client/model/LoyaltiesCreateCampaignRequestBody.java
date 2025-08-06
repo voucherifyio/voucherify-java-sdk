@@ -69,7 +69,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   private String description;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -232,10 +232,6 @@ public class LoyaltiesCreateCampaignRequestBody {
   @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS)
   private AccessSettings accessSettings;
 
-  public static final String SERIALIZED_NAME_VALIDATION_RULES = "validation_rules";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
-  private List<String> validationRules;
-
   /**
    * Type of campaign.
    */
@@ -341,7 +337,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    * @return type
   **/
   @javax.annotation.Nullable
@@ -362,7 +358,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
+   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
    * @return joinOnce
   **/
   @javax.annotation.Nullable
@@ -657,35 +653,6 @@ public class LoyaltiesCreateCampaignRequestBody {
   }
 
 
-  public LoyaltiesCreateCampaignRequestBody validationRules(List<String> validationRules) {
-    
-    this.validationRules = validationRules;
-    return this;
-  }
-
-  public LoyaltiesCreateCampaignRequestBody addValidationRulesItem(String validationRulesItem) {
-    if (this.validationRules == null) {
-      this.validationRules = new ArrayList<>();
-    }
-    this.validationRules.add(validationRulesItem);
-    return this;
-  }
-
-   /**
-   * Array containing the ID of the validation rule associated with the promotion tier.
-   * @return validationRules
-  **/
-  @javax.annotation.Nullable
-  public List<String> getValidationRules() {
-    return validationRules;
-  }
-
-
-  public void setValidationRules(List<String> validationRules) {
-    this.validationRules = validationRules;
-  }
-
-
   public LoyaltiesCreateCampaignRequestBody campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
@@ -755,7 +722,6 @@ public class LoyaltiesCreateCampaignRequestBody {
         Objects.equals(this.category, loyaltiesCreateCampaignRequestBody.category) &&
         Objects.equals(this.metadata, loyaltiesCreateCampaignRequestBody.metadata) &&
         Objects.equals(this.accessSettings, loyaltiesCreateCampaignRequestBody.accessSettings) &&
-        Objects.equals(this.validationRules, loyaltiesCreateCampaignRequestBody.validationRules) &&
         Objects.equals(this.campaignType, loyaltiesCreateCampaignRequestBody.campaignType) &&
         Objects.equals(this.voucher, loyaltiesCreateCampaignRequestBody.voucher);
   }
@@ -766,7 +732,7 @@ public class LoyaltiesCreateCampaignRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, accessSettings, validationRules, campaignType, voucher);
+    return Objects.hash(name, description, type, joinOnce, autoJoin, useVoucherMetadataSchema, vouchersCount, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, activityDurationAfterPublishing, categoryId, category, metadata, accessSettings, campaignType, voucher);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -797,7 +763,6 @@ public class LoyaltiesCreateCampaignRequestBody {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    accessSettings: ").append(toIndentedString(accessSettings)).append("\n");
-    sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
     sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
     sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("}");
@@ -839,7 +804,6 @@ public class LoyaltiesCreateCampaignRequestBody {
     openapiFields.add("category");
     openapiFields.add("metadata");
     openapiFields.add("access_settings");
-    openapiFields.add("validation_rules");
     openapiFields.add("campaign_type");
     openapiFields.add("voucher");
 

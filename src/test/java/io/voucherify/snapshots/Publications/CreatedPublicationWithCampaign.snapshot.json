@@ -27,11 +27,6 @@
     "assets": null,
     "object": "CUSTOMER"
   },
-  "vouchersId": [
-    "v_MBmopE3AIE6JEnVlg5ZIIXl4oEeyhDtC",
-    "v_CYBD2XlhG0xH024t7F7DRwx9FixPzTsM"
-  ],
-  "voucher": null,
-  "vouchers": ["c0SXGtbM", "vQido5z6"],
+  "voucher": {},
   "object": "PUBLICATION"
 }

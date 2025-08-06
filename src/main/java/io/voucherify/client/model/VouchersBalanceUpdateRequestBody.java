@@ -75,7 +75,7 @@ public class VouchersBalanceUpdateRequestBody {
   }
 
    /**
-   * The incremental amount to be added to or removed from the current balance on the gift card or loyalty card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000. To remove balance, simply add a minus sign before the value, i.e. to remove $20, use -2000.
+   * The incremental amount to be added to or removed from the current balance on the gift card or loyalty card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. To remove balance, simply add a minus sign before the value, i.e. to remove $20, use -2000.
    * @return amount
   **/
   @javax.annotation.Nullable

@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.ApplicableToResultList;
 import io.voucherify.client.model.CategoryWithStackingRulesType;
 import io.voucherify.client.model.InapplicableToResultList;
-import io.voucherify.client.model.OrderCalculated;
 import io.voucherify.client.model.QualificationsRedeemableBase;
+import io.voucherify.client.model.QualificationsRedeemableOrder;
 import io.voucherify.client.model.RedeemableResult;
 import io.voucherify.client.model.ValidationRulesAssignmentsList;
 import java.io.IOException;
@@ -132,7 +132,7 @@ public class QualificationsRedeemable {
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
-  private OrderCalculated order;
+  private QualificationsRedeemableOrder order;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
@@ -265,7 +265,7 @@ public class QualificationsRedeemable {
   }
 
 
-  public QualificationsRedeemable order(OrderCalculated order) {
+  public QualificationsRedeemable order(QualificationsRedeemableOrder order) {
     
     this.order = order;
     return this;
@@ -276,12 +276,12 @@ public class QualificationsRedeemable {
    * @return order
   **/
   @javax.annotation.Nullable
-  public OrderCalculated getOrder() {
+  public QualificationsRedeemableOrder getOrder() {
     return order;
   }
 
 
-  public void setOrder(OrderCalculated order) {
+  public void setOrder(QualificationsRedeemableOrder order) {
     this.order = order;
   }
 

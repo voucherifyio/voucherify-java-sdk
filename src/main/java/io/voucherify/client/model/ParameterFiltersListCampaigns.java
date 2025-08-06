@@ -20,10 +20,20 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Junction;
+import io.voucherify.client.model.ParameterFiltersListCampaignsActive;
 import io.voucherify.client.model.ParameterFiltersListCampaignsCampaignStatus;
+import io.voucherify.client.model.ParameterFiltersListCampaignsCampaigns;
+import io.voucherify.client.model.ParameterFiltersListCampaignsCampaignsId;
 import io.voucherify.client.model.ParameterFiltersListCampaignsCategories;
 import io.voucherify.client.model.ParameterFiltersListCampaignsCategoryIds;
+import io.voucherify.client.model.ParameterFiltersListCampaignsCreatedDate;
+import io.voucherify.client.model.ParameterFiltersListCampaignsExpirationDate;
 import io.voucherify.client.model.ParameterFiltersListCampaignsIsReferralCode;
+import io.voucherify.client.model.ParameterFiltersListCampaignsStartDate;
+import io.voucherify.client.model.ParameterFiltersListCampaignsStatus;
+import io.voucherify.client.model.ParameterFiltersListCampaignsType;
+import io.voucherify.client.model.ParameterFiltersListCampaignsUpdatedAt;
+import io.voucherify.client.model.ParameterFiltersListCampaignsValidityDayOfWeek;
 import io.voucherify.client.model.ParameterFiltersListCampaignsValidityTimeframe;
 import io.voucherify.client.model.ParameterFiltersListCampaignsVoucherType;
 import java.io.IOException;
@@ -60,9 +70,25 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ParameterFiltersListCampaigns {
+  public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGNS)
+  private ParameterFiltersListCampaignsCampaigns campaigns;
+
+  public static final String SERIALIZED_NAME_CAMPAIGNS_ID = "campaigns_id";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGNS_ID)
+  private ParameterFiltersListCampaignsCampaignsId campaignsId;
+
   public static final String SERIALIZED_NAME_CAMPAIGN_STATUS = "campaign_status";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_STATUS)
   private ParameterFiltersListCampaignsCampaignStatus campaignStatus;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private ParameterFiltersListCampaignsStatus status;
+
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private ParameterFiltersListCampaignsActive active;
 
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
@@ -84,12 +110,78 @@ public class ParameterFiltersListCampaigns {
   @SerializedName(SERIALIZED_NAME_CATEGORY_IDS)
   private ParameterFiltersListCampaignsCategoryIds categoryIds;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private ParameterFiltersListCampaignsType type;
+
+  public static final String SERIALIZED_NAME_CREATED_DATE = "created_date";
+  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  private ParameterFiltersListCampaignsCreatedDate createdDate;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private ParameterFiltersListCampaignsUpdatedAt updatedAt;
+
+  public static final String SERIALIZED_NAME_START_DATE = "start_date";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private ParameterFiltersListCampaignsStartDate startDate;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
+  private ParameterFiltersListCampaignsExpirationDate expirationDate;
+
+  public static final String SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK = "validity_day_of_week";
+  @SerializedName(SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK)
+  private ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek;
+
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
   private Junction junction;
 
   public ParameterFiltersListCampaigns() {
   }
+
+  public ParameterFiltersListCampaigns campaigns(ParameterFiltersListCampaignsCampaigns campaigns) {
+    
+    this.campaigns = campaigns;
+    return this;
+  }
+
+   /**
+   * Get campaigns
+   * @return campaigns
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsCampaigns getCampaigns() {
+    return campaigns;
+  }
+
+
+  public void setCampaigns(ParameterFiltersListCampaignsCampaigns campaigns) {
+    this.campaigns = campaigns;
+  }
+
+
+  public ParameterFiltersListCampaigns campaignsId(ParameterFiltersListCampaignsCampaignsId campaignsId) {
+    
+    this.campaignsId = campaignsId;
+    return this;
+  }
+
+   /**
+   * Get campaignsId
+   * @return campaignsId
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsCampaignsId getCampaignsId() {
+    return campaignsId;
+  }
+
+
+  public void setCampaignsId(ParameterFiltersListCampaignsCampaignsId campaignsId) {
+    this.campaignsId = campaignsId;
+  }
+
 
   public ParameterFiltersListCampaigns campaignStatus(ParameterFiltersListCampaignsCampaignStatus campaignStatus) {
     
@@ -109,6 +201,48 @@ public class ParameterFiltersListCampaigns {
 
   public void setCampaignStatus(ParameterFiltersListCampaignsCampaignStatus campaignStatus) {
     this.campaignStatus = campaignStatus;
+  }
+
+
+  public ParameterFiltersListCampaigns status(ParameterFiltersListCampaignsStatus status) {
+    
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsStatus getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(ParameterFiltersListCampaignsStatus status) {
+    this.status = status;
+  }
+
+
+  public ParameterFiltersListCampaigns active(ParameterFiltersListCampaignsActive active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsActive getActive() {
+    return active;
+  }
+
+
+  public void setActive(ParameterFiltersListCampaignsActive active) {
+    this.active = active;
   }
 
 
@@ -217,6 +351,132 @@ public class ParameterFiltersListCampaigns {
   }
 
 
+  public ParameterFiltersListCampaigns type(ParameterFiltersListCampaignsType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsType getType() {
+    return type;
+  }
+
+
+  public void setType(ParameterFiltersListCampaignsType type) {
+    this.type = type;
+  }
+
+
+  public ParameterFiltersListCampaigns createdDate(ParameterFiltersListCampaignsCreatedDate createdDate) {
+    
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Get createdDate
+   * @return createdDate
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsCreatedDate getCreatedDate() {
+    return createdDate;
+  }
+
+
+  public void setCreatedDate(ParameterFiltersListCampaignsCreatedDate createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public ParameterFiltersListCampaigns updatedAt(ParameterFiltersListCampaignsUpdatedAt updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsUpdatedAt getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(ParameterFiltersListCampaignsUpdatedAt updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  public ParameterFiltersListCampaigns startDate(ParameterFiltersListCampaignsStartDate startDate) {
+    
+    this.startDate = startDate;
+    return this;
+  }
+
+   /**
+   * Get startDate
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsStartDate getStartDate() {
+    return startDate;
+  }
+
+
+  public void setStartDate(ParameterFiltersListCampaignsStartDate startDate) {
+    this.startDate = startDate;
+  }
+
+
+  public ParameterFiltersListCampaigns expirationDate(ParameterFiltersListCampaignsExpirationDate expirationDate) {
+    
+    this.expirationDate = expirationDate;
+    return this;
+  }
+
+   /**
+   * Get expirationDate
+   * @return expirationDate
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsExpirationDate getExpirationDate() {
+    return expirationDate;
+  }
+
+
+  public void setExpirationDate(ParameterFiltersListCampaignsExpirationDate expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+
+  public ParameterFiltersListCampaigns validityDayOfWeek(ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek) {
+    
+    this.validityDayOfWeek = validityDayOfWeek;
+    return this;
+  }
+
+   /**
+   * Get validityDayOfWeek
+   * @return validityDayOfWeek
+  **/
+  @javax.annotation.Nullable
+  public ParameterFiltersListCampaignsValidityDayOfWeek getValidityDayOfWeek() {
+    return validityDayOfWeek;
+  }
+
+
+  public void setValidityDayOfWeek(ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek) {
+    this.validityDayOfWeek = validityDayOfWeek;
+  }
+
+
   public ParameterFiltersListCampaigns junction(Junction junction) {
     
     this.junction = junction;
@@ -248,12 +508,22 @@ public class ParameterFiltersListCampaigns {
       return false;
     }
     ParameterFiltersListCampaigns parameterFiltersListCampaigns = (ParameterFiltersListCampaigns) o;
-    return Objects.equals(this.campaignStatus, parameterFiltersListCampaigns.campaignStatus) &&
+    return Objects.equals(this.campaigns, parameterFiltersListCampaigns.campaigns) &&
+        Objects.equals(this.campaignsId, parameterFiltersListCampaigns.campaignsId) &&
+        Objects.equals(this.campaignStatus, parameterFiltersListCampaigns.campaignStatus) &&
+        Objects.equals(this.status, parameterFiltersListCampaigns.status) &&
+        Objects.equals(this.active, parameterFiltersListCampaigns.active) &&
         Objects.equals(this.isReferralCode, parameterFiltersListCampaigns.isReferralCode) &&
         Objects.equals(this.validityTimeframe, parameterFiltersListCampaigns.validityTimeframe) &&
         Objects.equals(this.voucherType, parameterFiltersListCampaigns.voucherType) &&
         Objects.equals(this.categories, parameterFiltersListCampaigns.categories) &&
         Objects.equals(this.categoryIds, parameterFiltersListCampaigns.categoryIds) &&
+        Objects.equals(this.type, parameterFiltersListCampaigns.type) &&
+        Objects.equals(this.createdDate, parameterFiltersListCampaigns.createdDate) &&
+        Objects.equals(this.updatedAt, parameterFiltersListCampaigns.updatedAt) &&
+        Objects.equals(this.startDate, parameterFiltersListCampaigns.startDate) &&
+        Objects.equals(this.expirationDate, parameterFiltersListCampaigns.expirationDate) &&
+        Objects.equals(this.validityDayOfWeek, parameterFiltersListCampaigns.validityDayOfWeek) &&
         Objects.equals(this.junction, parameterFiltersListCampaigns.junction);
   }
 
@@ -263,7 +533,7 @@ public class ParameterFiltersListCampaigns {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignStatus, isReferralCode, validityTimeframe, voucherType, categories, categoryIds, junction);
+    return Objects.hash(campaigns, campaignsId, campaignStatus, status, active, isReferralCode, validityTimeframe, voucherType, categories, categoryIds, type, createdDate, updatedAt, startDate, expirationDate, validityDayOfWeek, junction);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -277,12 +547,22 @@ public class ParameterFiltersListCampaigns {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterFiltersListCampaigns {\n");
+    sb.append("    campaigns: ").append(toIndentedString(campaigns)).append("\n");
+    sb.append("    campaignsId: ").append(toIndentedString(campaignsId)).append("\n");
     sb.append("    campaignStatus: ").append(toIndentedString(campaignStatus)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    isReferralCode: ").append(toIndentedString(isReferralCode)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    voucherType: ").append(toIndentedString(voucherType)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    categoryIds: ").append(toIndentedString(categoryIds)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    junction: ").append(toIndentedString(junction)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -306,12 +586,22 @@ public class ParameterFiltersListCampaigns {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("campaigns");
+    openapiFields.add("campaigns_id");
     openapiFields.add("campaign_status");
+    openapiFields.add("status");
+    openapiFields.add("active");
     openapiFields.add("is_referral_code");
     openapiFields.add("validity_timeframe");
     openapiFields.add("voucher_type");
     openapiFields.add("categories");
     openapiFields.add("category_ids");
+    openapiFields.add("type");
+    openapiFields.add("created_date");
+    openapiFields.add("updated_at");
+    openapiFields.add("start_date");
+    openapiFields.add("expiration_date");
+    openapiFields.add("validity_day_of_week");
     openapiFields.add("junction");
 
     // a set of required properties/fields (JSON key names)

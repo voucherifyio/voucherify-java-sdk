@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.MemberActivityData1;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -58,13 +59,108 @@ public class MemberActivity {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  /**
+   * Event type.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    LOYALTY_TIER_UPGRADED("customer.loyalty.tier.upgraded"),
+    
+    LOYALTY_TIER_DOWNGRADED("customer.loyalty.tier.downgraded"),
+    
+    LOYALTY_TIER_PROLONGED("customer.loyalty.tier.prolonged"),
+    
+    LOYALTY_TIER_EXPIRATION_CHANGED("customer.loyalty.tier.expiration.changed"),
+    
+    LOYALTY_TIER_JOINED("customer.loyalty.tier.joined"),
+    
+    LOYALTY_TIER_LEFT("customer.loyalty.tier.left"),
+    
+    PUBLICATION_SUCCEEDED("customer.publication.succeeded"),
+    
+    PUBLICATION_FAILED("customer.publication.failed"),
+    
+    REDEMPTION_FAILED("customer.redemption.failed"),
+    
+    REDEMPTION_SUCCCEEDED("customer.redemption.succceeded"),
+    
+    REDEMPTION_ROLLBACK_FAILED("customer.redemption.rollback.failed"),
+    
+    REDEMPTION_ROLLBACK_SUCCCEEDED("customer.redemption.rollback.succceeded"),
+    
+    REWARDED("customer.rewarded"),
+    
+    REWARDED_LOYALTY_POINTS("customer.rewarded.loyalty_points"),
+    
+    REWARD_REDEMPTIONS_CREATED("customer.reward_redemptions.created"),
+    
+    REWARD_REDEMPTIONS_PENDING("customer.reward_redemptions.pending"),
+    
+    REWARD_REDEMPTIONS_COMPLETED("customer.reward_redemptions.completed"),
+    
+    REWARD_REDEMPTIONS_ROLLEDBACK("customer.reward_redemptions.rolledback"),
+    
+    VOUCHER_DELETED("customer.voucher.deleted"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ACTIVATED("customer.voucher.loyalty_card.pending_points.activated"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_ADDED("customer.voucher.loyalty_card.pending_points.added"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_CANCELED("customer.voucher.loyalty_card.pending_points.canceled"),
+    
+    VOUCHER_LOYALTY_CARD_PENDING_POINTS_UPDATED("customer.voucher.loyalty_card.pending_points.updated"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_ADDED("customer.voucher.loyalty_card.points_added"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_TRANSFERRED("customer.voucher.loyalty_card.points_transferred"),
+    
+    VOUCHER_LOYALTY_CARD_POINTS_EXPIRED("customer.voucher.loyalty_card.points_expired");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private Object data;
+  private MemberActivityData1 data;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -98,7 +194,7 @@ public class MemberActivity {
   }
 
 
-  public MemberActivity type(String type) {
+  public MemberActivity type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -109,33 +205,33 @@ public class MemberActivity {
    * @return type
   **/
   @javax.annotation.Nullable
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public MemberActivity data(Object data) {
+  public MemberActivity data(MemberActivityData1 data) {
     
     this.data = data;
     return this;
   }
 
    /**
-   * Contains details about the event. The objects that are returned in the data attribute differ based on the context of the event type.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  public Object getData() {
+  public MemberActivityData1 getData() {
     return data;
   }
 
 
-  public void setData(Object data) {
+  public void setData(MemberActivityData1 data) {
     this.data = data;
   }
 

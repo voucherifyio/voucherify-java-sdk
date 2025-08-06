@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.Bundle;
 import io.voucherify.client.model.Error;
 import io.voucherify.client.model.ValidationsValidateResponseBodyRedeemablesItemResultDetails;
 import io.voucherify.client.model.ValidationsValidateResponseBodyRedeemablesItemResultDiscount;
@@ -62,6 +63,10 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
   private ValidationsValidateResponseBodyRedeemablesItemResultDiscount discount;
 
+  public static final String SERIALIZED_NAME_BUNDLE = "bundle";
+  @SerializedName(SERIALIZED_NAME_BUNDLE)
+  private Bundle bundle;
+
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private ValidationsValidateResponseBodyRedeemablesItemResultGift gift;
@@ -99,6 +104,27 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
 
   public void setDiscount(ValidationsValidateResponseBodyRedeemablesItemResultDiscount discount) {
     this.discount = discount;
+  }
+
+
+  public ValidationsValidateResponseBodyRedeemablesItemResult bundle(Bundle bundle) {
+    
+    this.bundle = bundle;
+    return this;
+  }
+
+   /**
+   * Get bundle
+   * @return bundle
+  **/
+  @javax.annotation.Nullable
+  public Bundle getBundle() {
+    return bundle;
+  }
+
+
+  public void setBundle(Bundle bundle) {
+    this.bundle = bundle;
   }
 
 
@@ -197,6 +223,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
     }
     ValidationsValidateResponseBodyRedeemablesItemResult validationsValidateResponseBodyRedeemablesItemResult = (ValidationsValidateResponseBodyRedeemablesItemResult) o;
     return Objects.equals(this.discount, validationsValidateResponseBodyRedeemablesItemResult.discount) &&
+        Objects.equals(this.bundle, validationsValidateResponseBodyRedeemablesItemResult.bundle) &&
         Objects.equals(this.gift, validationsValidateResponseBodyRedeemablesItemResult.gift) &&
         Objects.equals(this.loyaltyCard, validationsValidateResponseBodyRedeemablesItemResult.loyaltyCard) &&
         Objects.equals(this.error, validationsValidateResponseBodyRedeemablesItemResult.error) &&
@@ -209,7 +236,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(discount, gift, loyaltyCard, error, details);
+    return Objects.hash(discount, bundle, gift, loyaltyCard, error, details);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -224,6 +251,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidationsValidateResponseBodyRedeemablesItemResult {\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
+    sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
@@ -251,6 +279,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResult {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("discount");
+    openapiFields.add("bundle");
     openapiFields.add("gift");
     openapiFields.add("loyalty_card");
     openapiFields.add("error");

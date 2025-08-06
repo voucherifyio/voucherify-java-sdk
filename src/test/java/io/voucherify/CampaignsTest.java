@@ -1,23 +1,48 @@
 package io.voucherify;
 
-import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.DeepMatch;
-
-import org.junit.jupiter.api.*;
-
-import io.voucherify.client.ApiClient;
-import io.voucherify.client.api.CampaignsApi;
-import io.voucherify.client.api.PromotionsApi;
-import io.voucherify.client.api.RewardsApi;
-import io.voucherify.client.model.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.api.CampaignsApi;
+import io.voucherify.client.api.PromotionsApi;
+import io.voucherify.client.api.PublicationsApi;
+import io.voucherify.client.api.RewardsApi;
+import io.voucherify.client.model.CampaignLoyaltyCard;
+import io.voucherify.client.model.CampaignsCreateRequestBody;
+import io.voucherify.client.model.CampaignsCreateRequestBodyVoucher;
+import io.voucherify.client.model.CampaignsCreateResponseBody;
+import io.voucherify.client.model.CampaignsGetResponseBody;
+import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBody;
+import io.voucherify.client.model.CampaignsVouchersCreateInBulkRequestBody;
+import io.voucherify.client.model.Customer;
+import io.voucherify.client.model.Discount;
+import io.voucherify.client.model.PromotionsTiersCreateRequestBody;
+import io.voucherify.client.model.PromotionsTiersCreateRequestBodyAction;
+import io.voucherify.client.model.PromotionsTiersCreateResponseBody;
+import io.voucherify.client.model.PromotionsTiersUpdateRequestBody;
+import io.voucherify.client.model.PromotionsTiersUpdateResponseBody;
+import io.voucherify.client.model.PublicationsCreateRequestBody;
+import io.voucherify.client.model.PublicationsCreateResponseBody;
+import io.voucherify.client.model.RewardsCreateRequestBody;
+import io.voucherify.client.model.RewardsCreateRequestBodyParameters;
+import io.voucherify.client.model.RewardsCreateRequestBodyParametersCampaign;
+import io.voucherify.client.model.RewardsCreateResponseBody;
+import io.voucherify.client.model.RewardsUpdateRequestBody;
+import io.voucherify.client.model.RewardsUpdateResponseBody;
+import io.voucherify.data.VoucherifyStore;
+import io.voucherify.helpers.DeepMatch;
 
 @org.junit.jupiter.api.Order(1)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -27,6 +52,7 @@ public class CampaignsTest {
     public static CampaignsApi campaigns;
     public static PromotionsApi promotions;
     public static RewardsApi rewards;
+    public static PublicationsApi publications;
 
     public String loyaltyProgramId = null;
 
@@ -36,6 +62,7 @@ public class CampaignsTest {
         campaigns = new CampaignsApi(defaultClient);
         promotions = new PromotionsApi(defaultClient);
         rewards = new RewardsApi(defaultClient);
+        publications = new PublicationsApi(defaultClient);
     }
 
     @Test
@@ -275,4 +302,45 @@ public class CampaignsTest {
             fail();
         }
     }
+
+    @Test
+    @org.junit.jupiter.api.Order(8)
+    public void publishCampaignVoucher() {
+        String snapshotPath = "src/test/java/io/voucherify/snapshots/Campaigns/PublishedVoucher.snapshot.json";
+        
+        try {
+            Discount discount = new Discount();
+            discount.setType(Discount.TypeEnum.AMOUNT);
+            discount.setAmountOff(BigDecimal.valueOf(1));
+
+            CampaignsCreateRequestBodyVoucher voucher = new CampaignsCreateRequestBodyVoucher();
+            voucher.setDiscount(discount);
+            voucher.setType(CampaignsCreateRequestBodyVoucher.TypeEnum.DISCOUNT_VOUCHER);
+
+            CampaignsCreateRequestBody campaign = new CampaignsCreateRequestBody();
+            campaign.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.DISCOUNT_COUPONS);
+            campaign.setType(CampaignsCreateRequestBody.TypeEnum.AUTO_UPDATE);
+            campaign.setName(Utils.getAlphaNumericString(20));
+            campaign.setVoucher(voucher);
+            
+            CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
+        
+            CampaignsVouchersCreateCombinedResponseBody voucherResult = campaigns.addVouchersToCampaign(campaignResult.getId(), 1, null);
+            
+            PublicationsCreateRequestBody publicationsCreateRequestBody = new PublicationsCreateRequestBody();
+            Customer customer = new Customer();
+            customer.setId(VoucherifyStore.getInstance().getCustomer().getId());
+            publicationsCreateRequestBody.setCustomer(customer);
+            publicationsCreateRequestBody.setVoucher(voucherResult.getId());
+
+            PublicationsCreateResponseBody result = publications.createPublication(false, publicationsCreateRequestBody);
+            List<String> keysToRemove = Arrays.asList("id", "createdAt", "customerId", "campaignId", "assets", "updatedAt", "publish", "redemption", "vouchersId", "code", "campaign", "type", "discount", "holderId");
+
+            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, result, keysToRemove));
+            
+        } catch (Exception e) {
+            fail();
+        }
+    }
+
 }

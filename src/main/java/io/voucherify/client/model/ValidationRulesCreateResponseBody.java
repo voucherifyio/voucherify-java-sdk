@@ -64,6 +64,10 @@ public class ValidationRulesCreateResponseBody {
   @SerializedName(SERIALIZED_NAME_RULES)
   private Object rules;
 
+  public static final String SERIALIZED_NAME_BUNDLE_RULES = "bundle_rules";
+  @SerializedName(SERIALIZED_NAME_BUNDLE_RULES)
+  private Object bundleRules;
+
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private ValidationRulesCreateResponseBodyError error;
@@ -349,6 +353,27 @@ public class ValidationRulesCreateResponseBody {
   }
 
 
+  public ValidationRulesCreateResponseBody bundleRules(Object bundleRules) {
+    
+    this.bundleRules = bundleRules;
+    return this;
+  }
+
+   /**
+   * Contains all the definitions for the bundle rules. It is a set of key value pairs representing the rules and logic between them. The keys are numbered consecutively beginning from &#x60;1&#x60;. The values are objects containing the rule conditions.  While updating with the PUT method, you can pass &#x60;\&quot;bundle_rules\&quot;: null&#x60; to delete the configuration; in the response, an empty object is then returned.
+   * @return bundleRules
+  **/
+  @javax.annotation.Nullable
+  public Object getBundleRules() {
+    return bundleRules;
+  }
+
+
+  public void setBundleRules(Object bundleRules) {
+    this.bundleRules = bundleRules;
+  }
+
+
   public ValidationRulesCreateResponseBody error(ValidationRulesCreateResponseBodyError error) {
     
     this.error = error;
@@ -550,6 +575,7 @@ public class ValidationRulesCreateResponseBody {
     ValidationRulesCreateResponseBody validationRulesCreateResponseBody = (ValidationRulesCreateResponseBody) o;
     return Objects.equals(this.name, validationRulesCreateResponseBody.name) &&
         Objects.equals(this.rules, validationRulesCreateResponseBody.rules) &&
+        Objects.equals(this.bundleRules, validationRulesCreateResponseBody.bundleRules) &&
         Objects.equals(this.error, validationRulesCreateResponseBody.error) &&
         Objects.equals(this.applicableTo, validationRulesCreateResponseBody.applicableTo) &&
         Objects.equals(this.type, validationRulesCreateResponseBody.type) &&
@@ -567,7 +593,7 @@ public class ValidationRulesCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, rules, error, applicableTo, type, contextType, id, createdAt, updatedAt, assignmentsCount, _object);
+    return Objects.hash(name, rules, bundleRules, error, applicableTo, type, contextType, id, createdAt, updatedAt, assignmentsCount, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -583,6 +609,7 @@ public class ValidationRulesCreateResponseBody {
     sb.append("class ValidationRulesCreateResponseBody {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+    sb.append("    bundleRules: ").append(toIndentedString(bundleRules)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    applicableTo: ").append(toIndentedString(applicableTo)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -616,6 +643,7 @@ public class ValidationRulesCreateResponseBody {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("rules");
+    openapiFields.add("bundle_rules");
     openapiFields.add("error");
     openapiFields.add("applicable_to");
     openapiFields.add("type");

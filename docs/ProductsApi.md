@@ -835,7 +835,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = Arrays.asList(); // List<ProductsUpdateInBulkRequestBody> | List the product fields to be updated in each customer object.
+    List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = Arrays.asList(); // List<ProductsUpdateInBulkRequestBody> | List the product fields to be updated in each product object.
     try {
       ProductsUpdateInBulkResponseBody result = apiInstance.updateProductsInBulk(productsUpdateInBulkRequestBody);
       System.out.println(result);
@@ -854,7 +854,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **productsUpdateInBulkRequestBody** | [**List&lt;ProductsUpdateInBulkRequestBody&gt;**](ProductsUpdateInBulkRequestBody.md)| List the product fields to be updated in each customer object. |
+| **productsUpdateInBulkRequestBody** | [**List&lt;ProductsUpdateInBulkRequestBody&gt;**](ProductsUpdateInBulkRequestBody.md)| List the product fields to be updated in each product object. |
 
 ### Return type
 

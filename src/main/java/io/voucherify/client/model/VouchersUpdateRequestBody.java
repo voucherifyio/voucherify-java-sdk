@@ -20,8 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.Discount;
-import io.voucherify.client.model.Gift;
-import io.voucherify.client.model.SimpleLoyaltyCard;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
 import java.io.IOException;
@@ -159,14 +157,10 @@ public class VouchersUpdateRequestBody {
   private Object metadata;
 
   /**
-   * Gets or Sets type
+   * Defines the type of the voucher. 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    LOYALTY_CARD("LOYALTY_CARD"),
-    
-    GIFT_VOUCHER("GIFT_VOUCHER"),
-    
     DISCOUNT_VOUCHER("DISCOUNT_VOUCHER");
 
     private String value;
@@ -209,15 +203,7 @@ public class VouchersUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
-  @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
-  private SimpleLoyaltyCard loyaltyCard;
-
-  public static final String SERIALIZED_NAME_GIFT = "gift";
-  @SerializedName(SERIALIZED_NAME_GIFT)
-  private Gift gift;
+  private TypeEnum type = TypeEnum.DISCOUNT_VOUCHER;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
@@ -451,7 +437,7 @@ public class VouchersUpdateRequestBody {
   }
 
    /**
-   * Get type
+   * Defines the type of the voucher. 
    * @return type
   **/
   @javax.annotation.Nullable
@@ -462,48 +448,6 @@ public class VouchersUpdateRequestBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-
-  public VouchersUpdateRequestBody loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
-    
-    this.loyaltyCard = loyaltyCard;
-    return this;
-  }
-
-   /**
-   * Get loyaltyCard
-   * @return loyaltyCard
-  **/
-  @javax.annotation.Nullable
-  public SimpleLoyaltyCard getLoyaltyCard() {
-    return loyaltyCard;
-  }
-
-
-  public void setLoyaltyCard(SimpleLoyaltyCard loyaltyCard) {
-    this.loyaltyCard = loyaltyCard;
-  }
-
-
-  public VouchersUpdateRequestBody gift(Gift gift) {
-    
-    this.gift = gift;
-    return this;
-  }
-
-   /**
-   * Get gift
-   * @return gift
-  **/
-  @javax.annotation.Nullable
-  public Gift getGift() {
-    return gift;
-  }
-
-
-  public void setGift(Gift gift) {
-    this.gift = gift;
   }
 
 
@@ -549,8 +493,6 @@ public class VouchersUpdateRequestBody {
         Objects.equals(this.additionalInfo, vouchersUpdateRequestBody.additionalInfo) &&
         Objects.equals(this.metadata, vouchersUpdateRequestBody.metadata) &&
         Objects.equals(this.type, vouchersUpdateRequestBody.type) &&
-        Objects.equals(this.loyaltyCard, vouchersUpdateRequestBody.loyaltyCard) &&
-        Objects.equals(this.gift, vouchersUpdateRequestBody.gift) &&
         Objects.equals(this.discount, vouchersUpdateRequestBody.discount);
   }
 
@@ -560,7 +502,7 @@ public class VouchersUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, categoryId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, type, loyaltyCard, gift, discount);
+    return Objects.hash(category, categoryId, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, active, additionalInfo, metadata, type, discount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -585,8 +527,6 @@ public class VouchersUpdateRequestBody {
     sb.append("    additionalInfo: ").append(toIndentedString(additionalInfo)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    loyaltyCard: ").append(toIndentedString(loyaltyCard)).append("\n");
-    sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -621,8 +561,6 @@ public class VouchersUpdateRequestBody {
     openapiFields.add("additional_info");
     openapiFields.add("metadata");
     openapiFields.add("type");
-    openapiFields.add("loyalty_card");
-    openapiFields.add("gift");
     openapiFields.add("discount");
 
     // a set of required properties/fields (JSON key names)

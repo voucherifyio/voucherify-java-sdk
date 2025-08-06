@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.EarningRuleExpirationRules;
 import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyLoyalty;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodyPendingPoints;
 import io.voucherify.client.model.LoyaltiesEarningRulesUpdateRequestBodySource;
 import io.voucherify.client.model.ValidityHours;
 import io.voucherify.client.model.ValidityTimeframe;
@@ -83,6 +85,14 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+
+  public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
+  @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
+  private LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
+  private EarningRuleExpirationRules expirationRules;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -251,7 +261,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   }
 
    /**
-   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. 
+   * Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it will inherit the campaign start date by default. 
    * @return startDate
   **/
   @javax.annotation.Nullable
@@ -272,7 +282,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   }
 
    /**
-   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+   * Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it will inherit the campaign expiration date by default.
    * @return expirationDate
   **/
   @javax.annotation.Nullable
@@ -283,6 +293,48 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+
+  public LoyaltiesEarningRulesUpdateRequestBody pendingPoints(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints) {
+    
+    this.pendingPoints = pendingPoints;
+    return this;
+  }
+
+   /**
+   * Get pendingPoints
+   * @return pendingPoints
+  **/
+  @javax.annotation.Nullable
+  public LoyaltiesEarningRulesUpdateRequestBodyPendingPoints getPendingPoints() {
+    return pendingPoints;
+  }
+
+
+  public void setPendingPoints(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints) {
+    this.pendingPoints = pendingPoints;
+  }
+
+
+  public LoyaltiesEarningRulesUpdateRequestBody expirationRules(EarningRuleExpirationRules expirationRules) {
+    
+    this.expirationRules = expirationRules;
+    return this;
+  }
+
+   /**
+   * Get expirationRules
+   * @return expirationRules
+  **/
+  @javax.annotation.Nullable
+  public EarningRuleExpirationRules getExpirationRules() {
+    return expirationRules;
+  }
+
+
+  public void setExpirationRules(EarningRuleExpirationRules expirationRules) {
+    this.expirationRules = expirationRules;
   }
 
 
@@ -394,6 +446,8 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
         Objects.equals(this.active, loyaltiesEarningRulesUpdateRequestBody.active) &&
         Objects.equals(this.startDate, loyaltiesEarningRulesUpdateRequestBody.startDate) &&
         Objects.equals(this.expirationDate, loyaltiesEarningRulesUpdateRequestBody.expirationDate) &&
+        Objects.equals(this.pendingPoints, loyaltiesEarningRulesUpdateRequestBody.pendingPoints) &&
+        Objects.equals(this.expirationRules, loyaltiesEarningRulesUpdateRequestBody.expirationRules) &&
         Objects.equals(this.validityTimeframe, loyaltiesEarningRulesUpdateRequestBody.validityTimeframe) &&
         Objects.equals(this.validityDayOfWeek, loyaltiesEarningRulesUpdateRequestBody.validityDayOfWeek) &&
         Objects.equals(this.validityHours, loyaltiesEarningRulesUpdateRequestBody.validityHours) &&
@@ -406,7 +460,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationRuleId, loyalty, source, active, startDate, expirationDate, validityTimeframe, validityDayOfWeek, validityHours, metadata);
+    return Objects.hash(validationRuleId, loyalty, source, active, startDate, expirationDate, pendingPoints, expirationRules, validityTimeframe, validityDayOfWeek, validityHours, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -426,6 +480,8 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    pendingPoints: ").append(toIndentedString(pendingPoints)).append("\n");
+    sb.append("    expirationRules: ").append(toIndentedString(expirationRules)).append("\n");
     sb.append("    validityTimeframe: ").append(toIndentedString(validityTimeframe)).append("\n");
     sb.append("    validityDayOfWeek: ").append(toIndentedString(validityDayOfWeek)).append("\n");
     sb.append("    validityHours: ").append(toIndentedString(validityHours)).append("\n");
@@ -458,6 +514,8 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
     openapiFields.add("active");
     openapiFields.add("start_date");
     openapiFields.add("expiration_date");
+    openapiFields.add("pending_points");
+    openapiFields.add("expiration_rules");
     openapiFields.add("validity_timeframe");
     openapiFields.add("validity_day_of_week");
     openapiFields.add("validity_hours");

@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.OrderCalculatedItem;
 import io.voucherify.client.model.OrderRedemptionsEntry;
 import io.voucherify.client.model.RedemptionsGetResponseBodyOrderCustomer;
+import io.voucherify.client.model.RedemptionsGetResponseBodyOrderItemsItem;
 import io.voucherify.client.model.RedemptionsGetResponseBodyOrderReferrer;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -244,7 +244,7 @@ public class RedemptionsGetResponseBodyOrder {
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<OrderCalculatedItem> items;
+  private List<RedemptionsGetResponseBodyOrderItemsItem> items;
 
   public RedemptionsGetResponseBodyOrder() {
   }
@@ -698,13 +698,13 @@ public class RedemptionsGetResponseBodyOrder {
   }
 
 
-  public RedemptionsGetResponseBodyOrder items(List<OrderCalculatedItem> items) {
+  public RedemptionsGetResponseBodyOrder items(List<RedemptionsGetResponseBodyOrderItemsItem> items) {
     
     this.items = items;
     return this;
   }
 
-  public RedemptionsGetResponseBodyOrder addItemsItem(OrderCalculatedItem itemsItem) {
+  public RedemptionsGetResponseBodyOrder addItemsItem(RedemptionsGetResponseBodyOrderItemsItem itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -713,16 +713,16 @@ public class RedemptionsGetResponseBodyOrder {
   }
 
    /**
-   * Array of items applied to the order. It can include up 500 items.
+   * Array of items applied to the order. It can include up to 500 items.
    * @return items
   **/
   @javax.annotation.Nullable
-  public List<OrderCalculatedItem> getItems() {
+  public List<RedemptionsGetResponseBodyOrderItemsItem> getItems() {
     return items;
   }
 
 
-  public void setItems(List<OrderCalculatedItem> items) {
+  public void setItems(List<RedemptionsGetResponseBodyOrderItemsItem> items) {
     this.items = items;
   }
 

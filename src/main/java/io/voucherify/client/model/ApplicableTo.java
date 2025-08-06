@@ -127,10 +127,6 @@ public class ApplicableTo {
   @SerializedName(SERIALIZED_NAME_PRODUCT_SOURCE_ID)
   private String productSourceId;
 
-  public static final String SERIALIZED_NAME_STRICT = "strict";
-  @SerializedName(SERIALIZED_NAME_STRICT)
-  private Boolean strict;
-
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
@@ -175,9 +171,56 @@ public class ApplicableTo {
   @SerializedName(SERIALIZED_NAME_SKIP_INITIALLY)
   private Integer skipInitially;
 
+  /**
+   * Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.
+   */
+  @JsonAdapter(TargetEnum.Adapter.class)
+  public enum TargetEnum {
+    ITEM("ITEM"),
+    
+    UNIT("UNIT");
+
+    private String value;
+
+    TargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TargetEnum fromValue(String value) {
+      for (TargetEnum b : TargetEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TargetEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  private String target;
+  private TargetEnum target;
 
   public ApplicableTo() {
   }
@@ -284,27 +327,6 @@ public class ApplicableTo {
 
   public void setProductSourceId(String productSourceId) {
     this.productSourceId = productSourceId;
-  }
-
-
-  public ApplicableTo strict(Boolean strict) {
-    
-    this.strict = strict;
-    return this;
-  }
-
-   /**
-   * Get strict
-   * @return strict
-  **/
-  @javax.annotation.Nullable
-  public Boolean getStrict() {
-    return strict;
-  }
-
-
-  public void setStrict(Boolean strict) {
-    this.strict = strict;
   }
 
 
@@ -555,7 +577,7 @@ public class ApplicableTo {
   }
 
 
-  public ApplicableTo target(String target) {
+  public ApplicableTo target(TargetEnum target) {
     
     this.target = target;
     return this;
@@ -566,12 +588,12 @@ public class ApplicableTo {
    * @return target
   **/
   @javax.annotation.Nullable
-  public String getTarget() {
+  public TargetEnum getTarget() {
     return target;
   }
 
 
-  public void setTarget(String target) {
+  public void setTarget(TargetEnum target) {
     this.target = target;
   }
 
@@ -591,7 +613,6 @@ public class ApplicableTo {
         Objects.equals(this.sourceId, applicableTo.sourceId) &&
         Objects.equals(this.productId, applicableTo.productId) &&
         Objects.equals(this.productSourceId, applicableTo.productSourceId) &&
-        Objects.equals(this.strict, applicableTo.strict) &&
         Objects.equals(this.price, applicableTo.price) &&
         Objects.equals(this.priceFormula, applicableTo.priceFormula) &&
         Objects.equals(this.effect, applicableTo.effect) &&
@@ -612,7 +633,7 @@ public class ApplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, strict, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -631,7 +652,6 @@ public class ApplicableTo {
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    productSourceId: ").append(toIndentedString(productSourceId)).append("\n");
-    sb.append("    strict: ").append(toIndentedString(strict)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    priceFormula: ").append(toIndentedString(priceFormula)).append("\n");
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
@@ -671,7 +691,6 @@ public class ApplicableTo {
     openapiFields.add("source_id");
     openapiFields.add("product_id");
     openapiFields.add("product_source_id");
-    openapiFields.add("strict");
     openapiFields.add("price");
     openapiFields.add("price_formula");
     openapiFields.add("effect");

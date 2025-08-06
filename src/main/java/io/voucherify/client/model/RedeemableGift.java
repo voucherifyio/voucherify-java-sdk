@@ -62,6 +62,10 @@ public class RedeemableGift {
   @SerializedName(SERIALIZED_NAME_CREDITS)
   private BigDecimal credits;
 
+  public static final String SERIALIZED_NAME_LOCKED_CREDITS = "locked_credits";
+  @SerializedName(SERIALIZED_NAME_LOCKED_CREDITS)
+  private BigDecimal lockedCredits;
+
   public RedeemableGift() {
   }
 
@@ -72,7 +76,7 @@ public class RedeemableGift {
   }
 
    /**
-   * Available funds. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+   * Available funds. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable
@@ -93,7 +97,7 @@ public class RedeemableGift {
   }
 
    /**
-   * The number of credits that the user wants to use from the gift card to fulfil the order. The value of credits cannot be higher than the current balance on the gift card. If the user gives more points than he has on the gift card, the application will return an error code in response. Value is multiplied by 100 to precisely represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * The number of credits that the user wants to use from the gift card to fulfil the order. The value of credits cannot be higher than the current balance on the gift card. If the user gives more points than he has on the gift card, the application will return an error code in response. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return credits
   **/
   @javax.annotation.Nullable
@@ -104,6 +108,27 @@ public class RedeemableGift {
 
   public void setCredits(BigDecimal credits) {
     this.credits = credits;
+  }
+
+
+  public RedeemableGift lockedCredits(BigDecimal lockedCredits) {
+    
+    this.lockedCredits = lockedCredits;
+    return this;
+  }
+
+   /**
+   * The number of credits that are locked under a validation session. This is returned if the qualification request includes &#x60;session.type: LOCK&#x60; parameter in the body. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000&#x60; for &#x60;$100.00&#x60;. Returns &#x60;0&#x60; if there aren&#39;t any active validation sessions for the gift card.
+   * @return lockedCredits
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getLockedCredits() {
+    return lockedCredits;
+  }
+
+
+  public void setLockedCredits(BigDecimal lockedCredits) {
+    this.lockedCredits = lockedCredits;
   }
 
 
@@ -118,7 +143,8 @@ public class RedeemableGift {
     }
     RedeemableGift redeemableGift = (RedeemableGift) o;
     return Objects.equals(this.balance, redeemableGift.balance) &&
-        Objects.equals(this.credits, redeemableGift.credits);
+        Objects.equals(this.credits, redeemableGift.credits) &&
+        Objects.equals(this.lockedCredits, redeemableGift.lockedCredits);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -127,7 +153,7 @@ public class RedeemableGift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(balance, credits);
+    return Objects.hash(balance, credits, lockedCredits);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -143,6 +169,7 @@ public class RedeemableGift {
     sb.append("class RedeemableGift {\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    credits: ").append(toIndentedString(credits)).append("\n");
+    sb.append("    lockedCredits: ").append(toIndentedString(lockedCredits)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -167,6 +194,7 @@ public class RedeemableGift {
     openapiFields = new HashSet<String>();
     openapiFields.add("balance");
     openapiFields.add("credits");
+    openapiFields.add("locked_credits");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
