@@ -1,15 +1,11 @@
 package io.voucherify;
 
 import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Order;
-
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.api.ManagementApi;
 import io.voucherify.client.model.*;
-import io.voucherify.client.model.ManagementProjectsCustomEventSchemasCreateResponseBody.ObjectEnum;
 import io.voucherify.client.model.ManagementProjectsMetadataSchemaDefinition.TypeEnum;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,11 +15,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.io.InputStream;
-import java.util.Properties;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 @org.junit.jupiter.api.Order(14)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -32,45 +23,17 @@ public class ManagementTest {
     public static ManagementApi managementApi = null;
     public static String projectId = null;
     public static String clusterId = null;
-    private static Properties properties = new Properties();
-    private static InputStream input = null;
 
     @BeforeAll
     public static void beforeAll() {
         try {
-            // Load properties from .env file if it exists
-            try {
-                String dir = System.getProperty("user.dir");
-                input = new FileInputStream(dir + "/.env");
-                properties.load(input);
-            } catch (IOException ex) {
-                System.out.println("[INFO] No .env file found, using environment variables");
-                ex.printStackTrace();
-            } finally {
-                if (input != null) {
-                    try {
-                        input.close();
-                    } catch (IOException e) {
-                        System.err.println("[WARN] Failed to close .env file: " + e.getMessage());
-                    }
-                }
-            }
-
             defaultClient = Utils.getClient();
             managementApi = new ManagementApi(defaultClient);
 
-            // Get VOUCHERIFY_HOST from environment variables or .env file
-            String voucherifyHost = System.getenv("VOUCHERIFY_HOST");
-            if ((voucherifyHost == null || voucherifyHost.isEmpty()) && properties != null) {
-                voucherifyHost = properties.getProperty("VOUCHERIFY_HOST");
-            }
-
-            if (voucherifyHost != null && !voucherifyHost.isEmpty()) {
-                // Extract cluster ID from host (e.g., https://dev2.api.voucherify.io -> dev2)
-                String[] parts = voucherifyHost.split("//");
-                if (parts.length > 1) {
-                    clusterId = parts[1].split("\\.")[0];
-                }
+            // Extract cluster ID from host (e.g., https://dev2.api.voucherify.io -> dev2)
+            String[] parts = defaultClient.getBasePath().split("//");
+            if (parts.length > 1) {
+                clusterId = parts[1].split("\\.")[0];
             }
 
             // Default to 'eu1' if clusterId couldn't be determined or is too short
