@@ -22,7 +22,7 @@ build
 
 
 # Other
-/.github/
+/.github/workflows/maven.yml
 /.openapi-generator/
 /.openapi-generator-ignore
 /.travis.yml
@@ -30,3 +30,4 @@ build
 /.env
 /.idea
 gradle.properties
+
