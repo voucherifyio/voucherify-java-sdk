@@ -1,28 +1,24 @@
 package io.voucherify;
 
-import io.voucherify.data.VoucherifyStore;
-import io.voucherify.helpers.JsonHelper;
-
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
-
-import io.voucherify.client.ApiClient;
-import io.voucherify.client.api.ManagementApi;
-import io.voucherify.client.model.*;
-import io.voucherify.client.model.ManagementProjectsCustomEventSchemasCreateResponseBody.ObjectEnum;
-import io.voucherify.client.model.ManagementProjectsMetadataSchemaDefinition.TypeEnum;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import io.voucherify.data.VoucherifyStore;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Order;
+import io.voucherify.client.ApiClient;
+import io.voucherify.client.api.ManagementApi;
+import io.voucherify.client.model.*;
+import io.voucherify.client.model.ManagementProjectsMetadataSchemaDefinition.TypeEnum;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.io.InputStream;
-import java.util.Properties;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 @org.junit.jupiter.api.Order(14)
@@ -32,7 +28,7 @@ public class ManagementTest {
     public static ManagementApi managementApi = null;
     public static String projectId = null;
     public static String clusterId = null;
-    private static Properties properties = new Properties();
+    private static final Properties properties = new Properties();
     private static InputStream input = null;
 
     @BeforeAll
@@ -41,7 +37,7 @@ public class ManagementTest {
             // Load properties from .env file if it exists
             try {
                 String dir = System.getProperty("user.dir");
-                input = new FileInputStream(dir + "/.env");
+                input = Files.newInputStream(Paths.get(dir + "/.env"));
                 properties.load(input);
             } catch (IOException ex) {
                 System.out.println("[INFO] No .env file found, using environment variables");
@@ -61,7 +57,7 @@ public class ManagementTest {
 
             // Get VOUCHERIFY_HOST from environment variables or .env file
             String voucherifyHost = System.getenv("VOUCHERIFY_HOST");
-            if ((voucherifyHost == null || voucherifyHost.isEmpty()) && properties != null) {
+            if (voucherifyHost == null || voucherifyHost.isEmpty()) {
                 voucherifyHost = properties.getProperty("VOUCHERIFY_HOST");
             }
 
@@ -74,7 +70,7 @@ public class ManagementTest {
             }
 
             // Default to 'eu1' if clusterId couldn't be determined or is too short
-            if (clusterId == null || clusterId.length() > 4) {
+            if (clusterId == null || clusterId.equals("API") || clusterId.length() > 4) {
                 clusterId = "eu1";
             }
 
