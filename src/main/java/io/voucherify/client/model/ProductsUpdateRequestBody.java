@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,22 +60,27 @@ public class ProductsUpdateRequestBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private Integer price;
+    private boolean priceIsSet = false;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private List<String> attributes;
+    private boolean attributesIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_IMAGE_URL = "image_url";
   @SerializedName(SERIALIZED_NAME_IMAGE_URL)
   private String imageUrl;
+    private boolean imageUrlIsSet = false;
 
   public ProductsUpdateRequestBody() {
   }
@@ -96,6 +103,10 @@ public class ProductsUpdateRequestBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -117,6 +128,10 @@ public class ProductsUpdateRequestBody {
 
   public void setPrice(Integer price) {
     this.price = price;
+    this.priceIsSet = true;
+  }
+  public boolean isPriceSet() {
+    return priceIsSet;
   }
 
 
@@ -146,6 +161,10 @@ public class ProductsUpdateRequestBody {
 
   public void setAttributes(List<String> attributes) {
     this.attributes = attributes;
+    this.attributesIsSet = true;
+  }
+  public boolean isAttributesSet() {
+    return attributesIsSet;
   }
 
 
@@ -167,6 +186,10 @@ public class ProductsUpdateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -188,6 +211,10 @@ public class ProductsUpdateRequestBody {
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
+  }
+  public boolean isImageUrlSet() {
+    return imageUrlIsSet;
   }
 
 
@@ -279,7 +306,37 @@ public class ProductsUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ProductsUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, ProductsUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ProductsUpdateRequestBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ProductsUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

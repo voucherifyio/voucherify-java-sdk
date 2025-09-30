@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,26 +59,32 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_OVERRIDE = "override";
   @SerializedName(SERIALIZED_NAME_OVERRIDE)
   private Boolean override;
+    private boolean overrideIsSet = false;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
   private String sku;
+    private boolean skuIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
+    private boolean priceIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public MemberActivityDataRedemptionOrderItemsItemSku() {
   }
@@ -99,6 +107,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -120,6 +132,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -141,6 +157,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setOverride(Boolean override) {
     this.override = override;
+    this.overrideIsSet = true;
+  }
+  public boolean isOverrideSet() {
+    return overrideIsSet;
   }
 
 
@@ -162,6 +182,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setSku(String sku) {
     this.sku = sku;
+    this.skuIsSet = true;
+  }
+  public boolean isSkuSet() {
+    return skuIsSet;
   }
 
 
@@ -183,6 +207,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setPrice(BigDecimal price) {
     this.price = price;
+    this.priceIsSet = true;
+  }
+  public boolean isPriceSet() {
+    return priceIsSet;
   }
 
 
@@ -204,6 +232,10 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -298,7 +330,37 @@ public class MemberActivityDataRedemptionOrderItemsItemSku {
        return (TypeAdapter<T>) new TypeAdapter<MemberActivityDataRedemptionOrderItemsItemSku>() {
            @Override
            public void write(JsonWriter out, MemberActivityDataRedemptionOrderItemsItemSku value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : MemberActivityDataRedemptionOrderItemsItemSku.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = MemberActivityDataRedemptionOrderItemsItemSku.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

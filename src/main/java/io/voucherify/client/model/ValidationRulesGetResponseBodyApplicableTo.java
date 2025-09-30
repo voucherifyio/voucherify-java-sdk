@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,14 +61,17 @@ public class ValidationRulesGetResponseBodyApplicableTo {
   public static final String SERIALIZED_NAME_EXCLUDED = "excluded";
   @SerializedName(SERIALIZED_NAME_EXCLUDED)
   private List<ApplicableTo> excluded;
+    private boolean excludedIsSet = false;
 
   public static final String SERIALIZED_NAME_INCLUDED = "included";
   @SerializedName(SERIALIZED_NAME_INCLUDED)
   private List<ApplicableTo> included;
+    private boolean includedIsSet = false;
 
   public static final String SERIALIZED_NAME_INCLUDED_ALL = "included_all";
   @SerializedName(SERIALIZED_NAME_INCLUDED_ALL)
   private Boolean includedAll;
+    private boolean includedAllIsSet = false;
 
   public ValidationRulesGetResponseBodyApplicableTo() {
   }
@@ -97,6 +102,10 @@ public class ValidationRulesGetResponseBodyApplicableTo {
 
   public void setExcluded(List<ApplicableTo> excluded) {
     this.excluded = excluded;
+    this.excludedIsSet = true;
+  }
+  public boolean isExcludedSet() {
+    return excludedIsSet;
   }
 
 
@@ -126,6 +135,10 @@ public class ValidationRulesGetResponseBodyApplicableTo {
 
   public void setIncluded(List<ApplicableTo> included) {
     this.included = included;
+    this.includedIsSet = true;
+  }
+  public boolean isIncludedSet() {
+    return includedIsSet;
   }
 
 
@@ -147,6 +160,10 @@ public class ValidationRulesGetResponseBodyApplicableTo {
 
   public void setIncludedAll(Boolean includedAll) {
     this.includedAll = includedAll;
+    this.includedAllIsSet = true;
+  }
+  public boolean isIncludedAllSet() {
+    return includedAllIsSet;
   }
 
 
@@ -232,7 +249,37 @@ public class ValidationRulesGetResponseBodyApplicableTo {
        return (TypeAdapter<T>) new TypeAdapter<ValidationRulesGetResponseBodyApplicableTo>() {
            @Override
            public void write(JsonWriter out, ValidationRulesGetResponseBodyApplicableTo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ValidationRulesGetResponseBodyApplicableTo.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ValidationRulesGetResponseBodyApplicableTo.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

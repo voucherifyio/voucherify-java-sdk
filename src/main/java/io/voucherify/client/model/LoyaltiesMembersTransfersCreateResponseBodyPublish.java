@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -103,18 +105,22 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.LIST;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
+    private boolean countIsSet = false;
 
   public static final String SERIALIZED_NAME_ENTRIES = "entries";
   @SerializedName(SERIALIZED_NAME_ENTRIES)
   private List<String> entries;
+    private boolean entriesIsSet = false;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+    private boolean urlIsSet = false;
 
   public LoyaltiesMembersTransfersCreateResponseBodyPublish() {
   }
@@ -137,6 +143,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -158,6 +168,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
 
   public void setCount(Integer count) {
     this.count = count;
+    this.countIsSet = true;
+  }
+  public boolean isCountSet() {
+    return countIsSet;
   }
 
 
@@ -187,6 +201,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
 
   public void setEntries(List<String> entries) {
     this.entries = entries;
+    this.entriesIsSet = true;
+  }
+  public boolean isEntriesSet() {
+    return entriesIsSet;
   }
 
 
@@ -208,6 +226,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
 
   public void setUrl(String url) {
     this.url = url;
+    this.urlIsSet = true;
+  }
+  public boolean isUrlSet() {
+    return urlIsSet;
   }
 
 
@@ -296,7 +318,37 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesMembersTransfersCreateResponseBodyPublish>() {
            @Override
            public void write(JsonWriter out, LoyaltiesMembersTransfersCreateResponseBodyPublish value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesMembersTransfersCreateResponseBodyPublish.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesMembersTransfersCreateResponseBodyPublish.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

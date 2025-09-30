@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,10 +59,12 @@ public class AsyncActionBase {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+    private boolean typeIsSet = false;
 
   /**
    * Status of the async action. Informs you whether the async action has already been completed.
@@ -116,6 +120,7 @@ public class AsyncActionBase {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+    private boolean statusIsSet = false;
 
   /**
    * Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.
@@ -169,26 +174,32 @@ public class AsyncActionBase {
   public static final String SERIALIZED_NAME_OPERATION_STATUS = "operation_status";
   @SerializedName(SERIALIZED_NAME_OPERATION_STATUS)
   private OperationStatusEnum operationStatus;
+    private boolean operationStatusIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
+    private boolean requestIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PROCESSING_TIME = "processing_time";
   @SerializedName(SERIALIZED_NAME_PROCESSING_TIME)
   private Integer processingTime;
+    private boolean processingTimeIsSet = false;
 
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   private Integer progress;
+    private boolean progressIsSet = false;
 
   /**
    * The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;.
@@ -238,6 +249,7 @@ public class AsyncActionBase {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.ASYNC_ACTION;
+    private boolean _objectIsSet = false;
 
   public AsyncActionBase() {
   }
@@ -260,6 +272,10 @@ public class AsyncActionBase {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -281,6 +297,10 @@ public class AsyncActionBase {
 
   public void setType(String type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -302,6 +322,10 @@ public class AsyncActionBase {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -323,6 +347,10 @@ public class AsyncActionBase {
 
   public void setOperationStatus(OperationStatusEnum operationStatus) {
     this.operationStatus = operationStatus;
+    this.operationStatusIsSet = true;
+  }
+  public boolean isOperationStatusSet() {
+    return operationStatusIsSet;
   }
 
 
@@ -344,6 +372,10 @@ public class AsyncActionBase {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -365,6 +397,10 @@ public class AsyncActionBase {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -386,6 +422,10 @@ public class AsyncActionBase {
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+    this.requestIdIsSet = true;
+  }
+  public boolean isRequestIdSet() {
+    return requestIdIsSet;
   }
 
 
@@ -407,6 +447,10 @@ public class AsyncActionBase {
 
   public void setProcessingTime(Integer processingTime) {
     this.processingTime = processingTime;
+    this.processingTimeIsSet = true;
+  }
+  public boolean isProcessingTimeSet() {
+    return processingTimeIsSet;
   }
 
 
@@ -430,6 +474,10 @@ public class AsyncActionBase {
 
   public void setProgress(Integer progress) {
     this.progress = progress;
+    this.progressIsSet = true;
+  }
+  public boolean isProgressSet() {
+    return progressIsSet;
   }
 
 
@@ -451,6 +499,10 @@ public class AsyncActionBase {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -557,7 +609,37 @@ public class AsyncActionBase {
        return (TypeAdapter<T>) new TypeAdapter<AsyncActionBase>() {
            @Override
            public void write(JsonWriter out, AsyncActionBase value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : AsyncActionBase.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = AsyncActionBase.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,14 +64,17 @@ public class SimpleCampaign {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
   private String campaignType;
+    private boolean campaignTypeIsSet = false;
 
   /**
    * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
@@ -123,10 +128,12 @@ public class SimpleCampaign {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private Boolean isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
@@ -139,50 +146,62 @@ public class SimpleCampaign {
   public static final String SERIALIZED_NAME_AUTO_JOIN = "auto_join";
   @SerializedName(SERIALIZED_NAME_AUTO_JOIN)
   private Boolean autoJoin;
+    private boolean autoJoinIsSet = false;
 
   public static final String SERIALIZED_NAME_JOIN_ONCE = "join_once";
   @SerializedName(SERIALIZED_NAME_JOIN_ONCE)
   private Boolean joinOnce;
+    private boolean joinOnceIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
+    private boolean categoryIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<Category> categories;
+    private boolean categoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+    private boolean descriptionIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   /**
    * The type of the object represented by JSON. This object stores information about the campaign.
@@ -232,6 +251,7 @@ public class SimpleCampaign {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.CAMPAIGN;
+    private boolean _objectIsSet = false;
 
   public SimpleCampaign() {
   }
@@ -254,6 +274,10 @@ public class SimpleCampaign {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -275,6 +299,10 @@ public class SimpleCampaign {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -296,6 +324,10 @@ public class SimpleCampaign {
 
   public void setCampaignType(String campaignType) {
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
+  }
+  public boolean isCampaignTypeSet() {
+    return campaignTypeIsSet;
   }
 
 
@@ -317,6 +349,10 @@ public class SimpleCampaign {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -338,6 +374,10 @@ public class SimpleCampaign {
 
   public void setIsReferralCode(Boolean isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -401,6 +441,10 @@ public class SimpleCampaign {
 
   public void setAutoJoin(Boolean autoJoin) {
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
+  }
+  public boolean isAutoJoinSet() {
+    return autoJoinIsSet;
   }
 
 
@@ -422,6 +466,10 @@ public class SimpleCampaign {
 
   public void setJoinOnce(Boolean joinOnce) {
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
+  }
+  public boolean isJoinOnceSet() {
+    return joinOnceIsSet;
   }
 
 
@@ -443,6 +491,10 @@ public class SimpleCampaign {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -464,6 +516,10 @@ public class SimpleCampaign {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -485,6 +541,10 @@ public class SimpleCampaign {
 
   public void setCategory(String category) {
     this.category = category;
+    this.categoryIsSet = true;
+  }
+  public boolean isCategorySet() {
+    return categoryIsSet;
   }
 
 
@@ -514,6 +574,10 @@ public class SimpleCampaign {
 
   public void setCategories(List<Category> categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -535,6 +599,10 @@ public class SimpleCampaign {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -556,6 +624,10 @@ public class SimpleCampaign {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -577,6 +649,10 @@ public class SimpleCampaign {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -598,6 +674,10 @@ public class SimpleCampaign {
 
   public void setDescription(String description) {
     this.description = description;
+    this.descriptionIsSet = true;
+  }
+  public boolean isDescriptionSet() {
+    return descriptionIsSet;
   }
 
 
@@ -619,6 +699,10 @@ public class SimpleCampaign {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -640,6 +724,10 @@ public class SimpleCampaign {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -661,6 +749,10 @@ public class SimpleCampaign {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -797,7 +889,37 @@ public class SimpleCampaign {
        return (TypeAdapter<T>) new TypeAdapter<SimpleCampaign>() {
            @Override
            public void write(JsonWriter out, SimpleCampaign value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : SimpleCampaign.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = SimpleCampaign.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

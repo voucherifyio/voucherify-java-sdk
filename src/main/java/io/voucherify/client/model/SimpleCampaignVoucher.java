@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -110,6 +112,7 @@ public class SimpleCampaignVoucher {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
@@ -126,6 +129,7 @@ public class SimpleCampaignVoucher {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private SimpleCampaignVoucherRedemption redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
   @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
@@ -152,6 +156,10 @@ public class SimpleCampaignVoucher {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -236,6 +244,10 @@ public class SimpleCampaignVoucher {
 
   public void setRedemption(SimpleCampaignVoucherRedemption redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -352,7 +364,37 @@ public class SimpleCampaignVoucher {
        return (TypeAdapter<T>) new TypeAdapter<SimpleCampaignVoucher>() {
            @Override
            public void write(JsonWriter out, SimpleCampaignVoucher value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : SimpleCampaignVoucher.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = SimpleCampaignVoucher.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

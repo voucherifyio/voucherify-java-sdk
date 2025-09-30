@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,26 +61,32 @@ public class BusValRuleAssignment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_RULE_ID = "rule_id";
   @SerializedName(SERIALIZED_NAME_RULE_ID)
   private String ruleId;
+    private boolean ruleIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "related_object_type";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
   private String relatedObjectType;
+    private boolean relatedObjectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   /**
    * The type of the object represented by JSON.
@@ -128,6 +136,7 @@ public class BusValRuleAssignment {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.VALIDATION_RULES_ASSIGNMENT;
+    private boolean _objectIsSet = false;
 
   /**
    * The validation status of the assignment
@@ -181,10 +190,12 @@ public class BusValRuleAssignment {
   public static final String SERIALIZED_NAME_VALIDATION_STATUS = "validation_status";
   @SerializedName(SERIALIZED_NAME_VALIDATION_STATUS)
   private ValidationStatusEnum validationStatus;
+    private boolean validationStatusIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATION_OMITTED_RULES = "validation_omitted_rules";
   @SerializedName(SERIALIZED_NAME_VALIDATION_OMITTED_RULES)
   private List<String> validationOmittedRules;
+    private boolean validationOmittedRulesIsSet = false;
 
   public BusValRuleAssignment() {
   }
@@ -207,6 +218,10 @@ public class BusValRuleAssignment {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -228,6 +243,10 @@ public class BusValRuleAssignment {
 
   public void setRuleId(String ruleId) {
     this.ruleId = ruleId;
+    this.ruleIdIsSet = true;
+  }
+  public boolean isRuleIdSet() {
+    return ruleIdIsSet;
   }
 
 
@@ -249,6 +268,10 @@ public class BusValRuleAssignment {
 
   public void setRelatedObjectId(String relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -270,6 +293,10 @@ public class BusValRuleAssignment {
 
   public void setRelatedObjectType(String relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+  }
+  public boolean isRelatedObjectTypeSet() {
+    return relatedObjectTypeIsSet;
   }
 
 
@@ -291,6 +318,10 @@ public class BusValRuleAssignment {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -312,6 +343,10 @@ public class BusValRuleAssignment {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -333,6 +368,10 @@ public class BusValRuleAssignment {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -354,6 +393,10 @@ public class BusValRuleAssignment {
 
   public void setValidationStatus(ValidationStatusEnum validationStatus) {
     this.validationStatus = validationStatus;
+    this.validationStatusIsSet = true;
+  }
+  public boolean isValidationStatusSet() {
+    return validationStatusIsSet;
   }
 
 
@@ -383,6 +426,10 @@ public class BusValRuleAssignment {
 
   public void setValidationOmittedRules(List<String> validationOmittedRules) {
     this.validationOmittedRules = validationOmittedRules;
+    this.validationOmittedRulesIsSet = true;
+  }
+  public boolean isValidationOmittedRulesSet() {
+    return validationOmittedRulesIsSet;
   }
 
 
@@ -486,7 +533,37 @@ public class BusValRuleAssignment {
        return (TypeAdapter<T>) new TypeAdapter<BusValRuleAssignment>() {
            @Override
            public void write(JsonWriter out, BusValRuleAssignment value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : BusValRuleAssignment.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = BusValRuleAssignment.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

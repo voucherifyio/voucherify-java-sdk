@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,22 +58,27 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public static final String SERIALIZED_NAME_CAMPAIGNS_OVERVIEW_ENABLED = "campaigns_overview_enabled";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_OVERVIEW_ENABLED)
   private Boolean campaignsOverviewEnabled;
+    private boolean campaignsOverviewEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_ENABLED = "loyalty_enabled";
   @SerializedName(SERIALIZED_NAME_LOYALTY_ENABLED)
   private Boolean loyaltyEnabled;
+    private boolean loyaltyEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_GIFT_CARDS_ENABLED = "gift_cards_enabled";
   @SerializedName(SERIALIZED_NAME_GIFT_CARDS_ENABLED)
   private Boolean giftCardsEnabled;
+    private boolean giftCardsEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_COUPONS_ENABLED = "coupons_enabled";
   @SerializedName(SERIALIZED_NAME_COUPONS_ENABLED)
   private Boolean couponsEnabled;
+    private boolean couponsEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_REFERRALS_ENABLED = "referrals_enabled";
   @SerializedName(SERIALIZED_NAME_REFERRALS_ENABLED)
   private Boolean referralsEnabled;
+    private boolean referralsEnabledIsSet = false;
 
   /**
    * Determines the color scheme of the customer cockpit.
@@ -135,14 +142,17 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public static final String SERIALIZED_NAME_THEME = "theme";
   @SerializedName(SERIALIZED_NAME_THEME)
   private ThemeEnum theme;
+    private boolean themeIsSet = false;
 
   public static final String SERIALIZED_NAME_USE_CUSTOM_DOUBLE_OPT_IN_REDIRECT_URL = "use_custom_double_opt_in_redirect_url";
   @SerializedName(SERIALIZED_NAME_USE_CUSTOM_DOUBLE_OPT_IN_REDIRECT_URL)
   private Boolean useCustomDoubleOptInRedirectUrl;
+    private boolean useCustomDoubleOptInRedirectUrlIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOM_DOUBLE_OPT_IN_REDIRECT_URL = "custom_double_opt_in_redirect_url";
   @SerializedName(SERIALIZED_NAME_CUSTOM_DOUBLE_OPT_IN_REDIRECT_URL)
   private String customDoubleOptInRedirectUrl;
+    private boolean customDoubleOptInRedirectUrlIsSet = false;
 
   public ManagementProjectsBrandingGetResponseBodyCockpits() {
   }
@@ -165,6 +175,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setCampaignsOverviewEnabled(Boolean campaignsOverviewEnabled) {
     this.campaignsOverviewEnabled = campaignsOverviewEnabled;
+    this.campaignsOverviewEnabledIsSet = true;
+  }
+  public boolean isCampaignsOverviewEnabledSet() {
+    return campaignsOverviewEnabledIsSet;
   }
 
 
@@ -186,6 +200,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setLoyaltyEnabled(Boolean loyaltyEnabled) {
     this.loyaltyEnabled = loyaltyEnabled;
+    this.loyaltyEnabledIsSet = true;
+  }
+  public boolean isLoyaltyEnabledSet() {
+    return loyaltyEnabledIsSet;
   }
 
 
@@ -207,6 +225,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setGiftCardsEnabled(Boolean giftCardsEnabled) {
     this.giftCardsEnabled = giftCardsEnabled;
+    this.giftCardsEnabledIsSet = true;
+  }
+  public boolean isGiftCardsEnabledSet() {
+    return giftCardsEnabledIsSet;
   }
 
 
@@ -228,6 +250,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setCouponsEnabled(Boolean couponsEnabled) {
     this.couponsEnabled = couponsEnabled;
+    this.couponsEnabledIsSet = true;
+  }
+  public boolean isCouponsEnabledSet() {
+    return couponsEnabledIsSet;
   }
 
 
@@ -249,6 +275,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setReferralsEnabled(Boolean referralsEnabled) {
     this.referralsEnabled = referralsEnabled;
+    this.referralsEnabledIsSet = true;
+  }
+  public boolean isReferralsEnabledSet() {
+    return referralsEnabledIsSet;
   }
 
 
@@ -270,6 +300,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setTheme(ThemeEnum theme) {
     this.theme = theme;
+    this.themeIsSet = true;
+  }
+  public boolean isThemeSet() {
+    return themeIsSet;
   }
 
 
@@ -291,6 +325,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setUseCustomDoubleOptInRedirectUrl(Boolean useCustomDoubleOptInRedirectUrl) {
     this.useCustomDoubleOptInRedirectUrl = useCustomDoubleOptInRedirectUrl;
+    this.useCustomDoubleOptInRedirectUrlIsSet = true;
+  }
+  public boolean isUseCustomDoubleOptInRedirectUrlSet() {
+    return useCustomDoubleOptInRedirectUrlIsSet;
   }
 
 
@@ -312,6 +350,10 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
 
   public void setCustomDoubleOptInRedirectUrl(String customDoubleOptInRedirectUrl) {
     this.customDoubleOptInRedirectUrl = customDoubleOptInRedirectUrl;
+    this.customDoubleOptInRedirectUrlIsSet = true;
+  }
+  public boolean isCustomDoubleOptInRedirectUrlSet() {
+    return customDoubleOptInRedirectUrlIsSet;
   }
 
 
@@ -412,7 +454,37 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsBrandingGetResponseBodyCockpits>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsBrandingGetResponseBodyCockpits value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ManagementProjectsBrandingGetResponseBodyCockpits.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ManagementProjectsBrandingGetResponseBodyCockpits.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

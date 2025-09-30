@@ -37,6 +37,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -46,6 +47,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -63,42 +65,52 @@ public class LoyaltiesTiersGetResponseBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_EARNING_RULES = "earning_rules";
   @SerializedName(SERIALIZED_NAME_EARNING_RULES)
   private Map<String, MappingPoints> earningRules;
+    private boolean earningRulesIsSet = false;
 
   public static final String SERIALIZED_NAME_REWARDS = "rewards";
   @SerializedName(SERIALIZED_NAME_REWARDS)
   private Map<String, MappingPoints> rewards;
+    private boolean rewardsIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private LoyaltiesTiersGetResponseBodyPoints points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_CONFIG = "config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
   private LoyaltiesTiersGetResponseBodyConfig config;
+    private boolean configIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
@@ -152,6 +164,7 @@ public class LoyaltiesTiersGetResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.LOYALTY_TIER;
+    private boolean _objectIsSet = false;
 
   public LoyaltiesTiersGetResponseBody() {
   }
@@ -174,6 +187,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -203,6 +220,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setEarningRules(Map<String, MappingPoints> earningRules) {
     this.earningRules = earningRules;
+    this.earningRulesIsSet = true;
+  }
+  public boolean isEarningRulesSet() {
+    return earningRulesIsSet;
   }
 
 
@@ -232,6 +253,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setRewards(Map<String, MappingPoints> rewards) {
     this.rewards = rewards;
+    this.rewardsIsSet = true;
+  }
+  public boolean isRewardsSet() {
+    return rewardsIsSet;
   }
 
 
@@ -253,6 +278,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setPoints(LoyaltiesTiersGetResponseBodyPoints points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -274,6 +303,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -295,6 +328,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -316,6 +353,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -337,6 +378,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -358,6 +403,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -379,6 +428,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setConfig(LoyaltiesTiersGetResponseBodyConfig config) {
     this.config = config;
+    this.configIsSet = true;
+  }
+  public boolean isConfigSet() {
+    return configIsSet;
   }
 
 
@@ -421,6 +474,10 @@ public class LoyaltiesTiersGetResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -533,7 +590,37 @@ public class LoyaltiesTiersGetResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesTiersGetResponseBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesTiersGetResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesTiersGetResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesTiersGetResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

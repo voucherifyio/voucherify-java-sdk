@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,14 +58,17 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
   public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
   @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
   private String sourceType;
+    private boolean sourceTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_DISTRIBUTION_ID = "distribution_id";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTION_ID)
   private String distributionId;
+    private boolean distributionIdIsSet = false;
 
   public PublicationsListResponseBodyPublicationsItemMetadata() {
   }
@@ -86,6 +91,10 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
 
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
+    this.sourceTypeIsSet = true;
+  }
+  public boolean isSourceTypeSet() {
+    return sourceTypeIsSet;
   }
 
 
@@ -107,6 +116,10 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -128,6 +141,10 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
 
   public void setDistributionId(String distributionId) {
     this.distributionId = distributionId;
+    this.distributionIdIsSet = true;
+  }
+  public boolean isDistributionIdSet() {
+    return distributionIdIsSet;
   }
 
 
@@ -213,7 +230,37 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
        return (TypeAdapter<T>) new TypeAdapter<PublicationsListResponseBodyPublicationsItemMetadata>() {
            @Override
            public void write(JsonWriter out, PublicationsListResponseBodyPublicationsItemMetadata value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : PublicationsListResponseBodyPublicationsItemMetadata.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = PublicationsListResponseBodyPublicationsItemMetadata.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

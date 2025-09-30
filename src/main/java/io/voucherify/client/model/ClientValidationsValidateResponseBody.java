@@ -38,6 +38,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -47,6 +48,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -64,30 +66,37 @@ public class ClientValidationsValidateResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_VALID = "valid";
   @SerializedName(SERIALIZED_NAME_VALID)
   private Boolean valid;
+    private boolean validIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
   private List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables;
+    private boolean redeemablesIsSet = false;
 
   public static final String SERIALIZED_NAME_SKIPPED_REDEEMABLES = "skipped_redeemables";
   @SerializedName(SERIALIZED_NAME_SKIPPED_REDEEMABLES)
   private List<ValidationsRedeemableSkipped> skippedRedeemables;
+    private boolean skippedRedeemablesIsSet = false;
 
   public static final String SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES = "inapplicable_redeemables";
   @SerializedName(SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES)
   private List<ValidationsRedeemableInapplicable> inapplicableRedeemables;
+    private boolean inapplicableRedeemablesIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private ClientValidationsValidateResponseBodyOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
   private String trackingId;
+    private boolean trackingIdIsSet = false;
 
   public static final String SERIALIZED_NAME_SESSION = "session";
   @SerializedName(SERIALIZED_NAME_SESSION)
@@ -118,6 +127,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -139,6 +152,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setValid(Boolean valid) {
     this.valid = valid;
+    this.validIsSet = true;
+  }
+  public boolean isValidSet() {
+    return validIsSet;
   }
 
 
@@ -168,6 +185,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setRedeemables(List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
+  }
+  public boolean isRedeemablesSet() {
+    return redeemablesIsSet;
   }
 
 
@@ -197,6 +218,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setSkippedRedeemables(List<ValidationsRedeemableSkipped> skippedRedeemables) {
     this.skippedRedeemables = skippedRedeemables;
+    this.skippedRedeemablesIsSet = true;
+  }
+  public boolean isSkippedRedeemablesSet() {
+    return skippedRedeemablesIsSet;
   }
 
 
@@ -226,6 +251,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setInapplicableRedeemables(List<ValidationsRedeemableInapplicable> inapplicableRedeemables) {
     this.inapplicableRedeemables = inapplicableRedeemables;
+    this.inapplicableRedeemablesIsSet = true;
+  }
+  public boolean isInapplicableRedeemablesSet() {
+    return inapplicableRedeemablesIsSet;
   }
 
 
@@ -247,6 +276,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setOrder(ClientValidationsValidateResponseBodyOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -268,6 +301,10 @@ public class ClientValidationsValidateResponseBody {
 
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
+  }
+  public boolean isTrackingIdSet() {
+    return trackingIdIsSet;
   }
 
 
@@ -414,7 +451,37 @@ public class ClientValidationsValidateResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<ClientValidationsValidateResponseBody>() {
            @Override
            public void write(JsonWriter out, ClientValidationsValidateResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ClientValidationsValidateResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ClientValidationsValidateResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

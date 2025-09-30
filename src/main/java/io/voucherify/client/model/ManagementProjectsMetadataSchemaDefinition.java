@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -118,58 +120,72 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
   private Boolean optional;
+    private boolean optionalIsSet = false;
 
   public static final String SERIALIZED_NAME_ARRAY = "array";
   @SerializedName(SERIALIZED_NAME_ARRAY)
   private Boolean array;
+    private boolean arrayIsSet = false;
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
   private Boolean deleted;
+    private boolean deletedIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT_TYPE = "object_type";
   @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
   private String objectType;
+    private boolean objectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_MIN_LENGTH = "min_length";
   @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
   private Integer minLength;
+    private boolean minLengthIsSet = false;
 
   public static final String SERIALIZED_NAME_MAX_LENGTH = "max_length";
   @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
   private Integer maxLength;
+    private boolean maxLengthIsSet = false;
 
   public static final String SERIALIZED_NAME_EXACT_LENGTH = "exact_length";
   @SerializedName(SERIALIZED_NAME_EXACT_LENGTH)
   private Integer exactLength;
+    private boolean exactLengthIsSet = false;
 
   public static final String SERIALIZED_NAME_EQ = "eq";
   @SerializedName(SERIALIZED_NAME_EQ)
   private List<Object> eq;
+    private boolean eqIsSet = false;
 
   public static final String SERIALIZED_NAME_NE = "ne";
   @SerializedName(SERIALIZED_NAME_NE)
   private List<BigDecimal> ne;
+    private boolean neIsSet = false;
 
   public static final String SERIALIZED_NAME_LT = "lt";
   @SerializedName(SERIALIZED_NAME_LT)
   private BigDecimal lt;
+    private boolean ltIsSet = false;
 
   public static final String SERIALIZED_NAME_LTE = "lte";
   @SerializedName(SERIALIZED_NAME_LTE)
   private BigDecimal lte;
+    private boolean lteIsSet = false;
 
   public static final String SERIALIZED_NAME_GT = "gt";
   @SerializedName(SERIALIZED_NAME_GT)
   private BigDecimal gt;
+    private boolean gtIsSet = false;
 
   public static final String SERIALIZED_NAME_GTE = "gte";
   @SerializedName(SERIALIZED_NAME_GTE)
   private BigDecimal gte;
+    private boolean gteIsSet = false;
 
   public ManagementProjectsMetadataSchemaDefinition() {
   }
@@ -192,6 +208,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -213,6 +233,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setOptional(Boolean optional) {
     this.optional = optional;
+    this.optionalIsSet = true;
+  }
+  public boolean isOptionalSet() {
+    return optionalIsSet;
   }
 
 
@@ -234,6 +258,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setArray(Boolean array) {
     this.array = array;
+    this.arrayIsSet = true;
+  }
+  public boolean isArraySet() {
+    return arrayIsSet;
   }
 
 
@@ -255,6 +283,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setDeleted(Boolean deleted) {
     this.deleted = deleted;
+    this.deletedIsSet = true;
+  }
+  public boolean isDeletedSet() {
+    return deletedIsSet;
   }
 
 
@@ -276,6 +308,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setObjectType(String objectType) {
     this.objectType = objectType;
+    this.objectTypeIsSet = true;
+  }
+  public boolean isObjectTypeSet() {
+    return objectTypeIsSet;
   }
 
 
@@ -297,6 +333,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setMinLength(Integer minLength) {
     this.minLength = minLength;
+    this.minLengthIsSet = true;
+  }
+  public boolean isMinLengthSet() {
+    return minLengthIsSet;
   }
 
 
@@ -318,6 +358,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setMaxLength(Integer maxLength) {
     this.maxLength = maxLength;
+    this.maxLengthIsSet = true;
+  }
+  public boolean isMaxLengthSet() {
+    return maxLengthIsSet;
   }
 
 
@@ -339,6 +383,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setExactLength(Integer exactLength) {
     this.exactLength = exactLength;
+    this.exactLengthIsSet = true;
+  }
+  public boolean isExactLengthSet() {
+    return exactLengthIsSet;
   }
 
 
@@ -368,6 +416,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setEq(List<Object> eq) {
     this.eq = eq;
+    this.eqIsSet = true;
+  }
+  public boolean isEqSet() {
+    return eqIsSet;
   }
 
 
@@ -397,6 +449,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setNe(List<BigDecimal> ne) {
     this.ne = ne;
+    this.neIsSet = true;
+  }
+  public boolean isNeSet() {
+    return neIsSet;
   }
 
 
@@ -418,6 +474,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setLt(BigDecimal lt) {
     this.lt = lt;
+    this.ltIsSet = true;
+  }
+  public boolean isLtSet() {
+    return ltIsSet;
   }
 
 
@@ -439,6 +499,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setLte(BigDecimal lte) {
     this.lte = lte;
+    this.lteIsSet = true;
+  }
+  public boolean isLteSet() {
+    return lteIsSet;
   }
 
 
@@ -460,6 +524,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setGt(BigDecimal gt) {
     this.gt = gt;
+    this.gtIsSet = true;
+  }
+  public boolean isGtSet() {
+    return gtIsSet;
   }
 
 
@@ -481,6 +549,10 @@ public class ManagementProjectsMetadataSchemaDefinition {
 
   public void setGte(BigDecimal gte) {
     this.gte = gte;
+    this.gteIsSet = true;
+  }
+  public boolean isGteSet() {
+    return gteIsSet;
   }
 
 
@@ -599,7 +671,37 @@ public class ManagementProjectsMetadataSchemaDefinition {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsMetadataSchemaDefinition>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsMetadataSchemaDefinition value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ManagementProjectsMetadataSchemaDefinition.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ManagementProjectsMetadataSchemaDefinition.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,22 +58,27 @@ public class ManagementProjectsBrandingBrand {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_PRIVACY_POLICY_URL = "privacy_policy_url";
   @SerializedName(SERIALIZED_NAME_PRIVACY_POLICY_URL)
   private String privacyPolicyUrl;
+    private boolean privacyPolicyUrlIsSet = false;
 
   public static final String SERIALIZED_NAME_TERMS_OF_USE_URL = "terms_of_use_url";
   @SerializedName(SERIALIZED_NAME_TERMS_OF_USE_URL)
   private String termsOfUseUrl;
+    private boolean termsOfUseUrlIsSet = false;
 
   public static final String SERIALIZED_NAME_PERMISSION_REMINDER = "permission_reminder";
   @SerializedName(SERIALIZED_NAME_PERMISSION_REMINDER)
   private String permissionReminder;
+    private boolean permissionReminderIsSet = false;
 
   public static final String SERIALIZED_NAME_WEBSITE_URL = "website_url";
   @SerializedName(SERIALIZED_NAME_WEBSITE_URL)
   private String websiteUrl;
+    private boolean websiteUrlIsSet = false;
 
   public ManagementProjectsBrandingBrand() {
   }
@@ -94,6 +101,10 @@ public class ManagementProjectsBrandingBrand {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -115,6 +126,10 @@ public class ManagementProjectsBrandingBrand {
 
   public void setPrivacyPolicyUrl(String privacyPolicyUrl) {
     this.privacyPolicyUrl = privacyPolicyUrl;
+    this.privacyPolicyUrlIsSet = true;
+  }
+  public boolean isPrivacyPolicyUrlSet() {
+    return privacyPolicyUrlIsSet;
   }
 
 
@@ -136,6 +151,10 @@ public class ManagementProjectsBrandingBrand {
 
   public void setTermsOfUseUrl(String termsOfUseUrl) {
     this.termsOfUseUrl = termsOfUseUrl;
+    this.termsOfUseUrlIsSet = true;
+  }
+  public boolean isTermsOfUseUrlSet() {
+    return termsOfUseUrlIsSet;
   }
 
 
@@ -157,6 +176,10 @@ public class ManagementProjectsBrandingBrand {
 
   public void setPermissionReminder(String permissionReminder) {
     this.permissionReminder = permissionReminder;
+    this.permissionReminderIsSet = true;
+  }
+  public boolean isPermissionReminderSet() {
+    return permissionReminderIsSet;
   }
 
 
@@ -178,6 +201,10 @@ public class ManagementProjectsBrandingBrand {
 
   public void setWebsiteUrl(String websiteUrl) {
     this.websiteUrl = websiteUrl;
+    this.websiteUrlIsSet = true;
+  }
+  public boolean isWebsiteUrlSet() {
+    return websiteUrlIsSet;
   }
 
 
@@ -269,7 +296,37 @@ public class ManagementProjectsBrandingBrand {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsBrandingBrand>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsBrandingBrand value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ManagementProjectsBrandingBrand.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ManagementProjectsBrandingBrand.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

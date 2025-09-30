@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,34 +61,42 @@ public class OrderRedemptionsEntry {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
+    private boolean dateIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACK_ID = "rollback_id";
   @SerializedName(SERIALIZED_NAME_ROLLBACK_ID)
   private String rollbackId;
+    private boolean rollbackIdIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACK_DATE = "rollback_date";
   @SerializedName(SERIALIZED_NAME_ROLLBACK_DATE)
   private OffsetDateTime rollbackDate;
+    private boolean rollbackDateIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "related_object_type";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
   private String relatedObjectType = "redemption";
+    private boolean relatedObjectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID = "related_object_parent_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID)
   private String relatedObjectParentId;
+    private boolean relatedObjectParentIdIsSet = false;
 
   public static final String SERIALIZED_NAME_STACKED = "stacked";
   @SerializedName(SERIALIZED_NAME_STACKED)
   private List<String> stacked;
+    private boolean stackedIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACK_STACKED = "rollback_stacked";
   @SerializedName(SERIALIZED_NAME_ROLLBACK_STACKED)
   private List<String> rollbackStacked;
+    private boolean rollbackStackedIsSet = false;
 
   public OrderRedemptionsEntry() {
   }
@@ -109,6 +119,10 @@ public class OrderRedemptionsEntry {
 
   public void setDate(OffsetDateTime date) {
     this.date = date;
+    this.dateIsSet = true;
+  }
+  public boolean isDateSet() {
+    return dateIsSet;
   }
 
 
@@ -130,6 +144,10 @@ public class OrderRedemptionsEntry {
 
   public void setRollbackId(String rollbackId) {
     this.rollbackId = rollbackId;
+    this.rollbackIdIsSet = true;
+  }
+  public boolean isRollbackIdSet() {
+    return rollbackIdIsSet;
   }
 
 
@@ -151,6 +169,10 @@ public class OrderRedemptionsEntry {
 
   public void setRollbackDate(OffsetDateTime rollbackDate) {
     this.rollbackDate = rollbackDate;
+    this.rollbackDateIsSet = true;
+  }
+  public boolean isRollbackDateSet() {
+    return rollbackDateIsSet;
   }
 
 
@@ -172,6 +194,10 @@ public class OrderRedemptionsEntry {
 
   public void setRelatedObjectType(String relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+  }
+  public boolean isRelatedObjectTypeSet() {
+    return relatedObjectTypeIsSet;
   }
 
 
@@ -193,6 +219,10 @@ public class OrderRedemptionsEntry {
 
   public void setRelatedObjectId(String relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -214,6 +244,10 @@ public class OrderRedemptionsEntry {
 
   public void setRelatedObjectParentId(String relatedObjectParentId) {
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
+  }
+  public boolean isRelatedObjectParentIdSet() {
+    return relatedObjectParentIdIsSet;
   }
 
 
@@ -243,6 +277,10 @@ public class OrderRedemptionsEntry {
 
   public void setStacked(List<String> stacked) {
     this.stacked = stacked;
+    this.stackedIsSet = true;
+  }
+  public boolean isStackedSet() {
+    return stackedIsSet;
   }
 
 
@@ -272,6 +310,10 @@ public class OrderRedemptionsEntry {
 
   public void setRollbackStacked(List<String> rollbackStacked) {
     this.rollbackStacked = rollbackStacked;
+    this.rollbackStackedIsSet = true;
+  }
+  public boolean isRollbackStackedSet() {
+    return rollbackStackedIsSet;
   }
 
 
@@ -372,7 +414,37 @@ public class OrderRedemptionsEntry {
        return (TypeAdapter<T>) new TypeAdapter<OrderRedemptionsEntry>() {
            @Override
            public void write(JsonWriter out, OrderRedemptionsEntry value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : OrderRedemptionsEntry.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = OrderRedemptionsEntry.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

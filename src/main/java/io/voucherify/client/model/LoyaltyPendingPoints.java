@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,30 +61,37 @@ public class LoyaltyPendingPoints {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER_ID = "voucher_id";
   @SerializedName(SERIALIZED_NAME_VOUCHER_ID)
   private String voucherId;
+    private boolean voucherIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private String customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   private String orderId;
+    private boolean orderIdIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVATES_AT = "activates_at";
   @SerializedName(SERIALIZED_NAME_ACTIVATES_AT)
   private LocalDate activatesAt;
+    private boolean activatesAtIsSet = false;
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
@@ -91,10 +100,12 @@ public class LoyaltyPendingPoints {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public LoyaltyPendingPoints() {
   }
@@ -117,6 +128,10 @@ public class LoyaltyPendingPoints {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -138,6 +153,10 @@ public class LoyaltyPendingPoints {
 
   public void setVoucherId(String voucherId) {
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
+  }
+  public boolean isVoucherIdSet() {
+    return voucherIdIsSet;
   }
 
 
@@ -159,6 +178,10 @@ public class LoyaltyPendingPoints {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -180,6 +203,10 @@ public class LoyaltyPendingPoints {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -201,6 +228,10 @@ public class LoyaltyPendingPoints {
 
   public void setOrderId(String orderId) {
     this.orderId = orderId;
+    this.orderIdIsSet = true;
+  }
+  public boolean isOrderIdSet() {
+    return orderIdIsSet;
   }
 
 
@@ -222,6 +253,10 @@ public class LoyaltyPendingPoints {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -243,6 +278,10 @@ public class LoyaltyPendingPoints {
 
   public void setActivatesAt(LocalDate activatesAt) {
     this.activatesAt = activatesAt;
+    this.activatesAtIsSet = true;
+  }
+  public boolean isActivatesAtSet() {
+    return activatesAtIsSet;
   }
 
 
@@ -285,6 +324,10 @@ public class LoyaltyPendingPoints {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -306,6 +349,10 @@ public class LoyaltyPendingPoints {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -413,7 +460,37 @@ public class LoyaltyPendingPoints {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltyPendingPoints>() {
            @Override
            public void write(JsonWriter out, LoyaltyPendingPoints value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltyPendingPoints.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltyPendingPoints.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,26 +61,32 @@ public class VouchersRedemptionGetResponseBody {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
+    private boolean quantityIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMED_QUANTITY = "redeemed_quantity";
   @SerializedName(SERIALIZED_NAME_REDEEMED_QUANTITY)
   private Integer redeemedQuantity;
+    private boolean redeemedQuantityIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "list";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+    private boolean urlIsSet = false;
 
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
   private String dataRef = "redemption_entries";
+    private boolean dataRefIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
+    private boolean totalIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION_ENTRIES = "redemption_entries";
   @SerializedName(SERIALIZED_NAME_REDEMPTION_ENTRIES)
@@ -105,6 +113,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+    this.quantityIsSet = true;
+  }
+  public boolean isQuantitySet() {
+    return quantityIsSet;
   }
 
 
@@ -126,6 +138,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setRedeemedQuantity(Integer redeemedQuantity) {
     this.redeemedQuantity = redeemedQuantity;
+    this.redeemedQuantityIsSet = true;
+  }
+  public boolean isRedeemedQuantitySet() {
+    return redeemedQuantityIsSet;
   }
 
 
@@ -147,6 +163,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -168,6 +188,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setUrl(String url) {
     this.url = url;
+    this.urlIsSet = true;
+  }
+  public boolean isUrlSet() {
+    return urlIsSet;
   }
 
 
@@ -189,6 +213,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setDataRef(String dataRef) {
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
+  }
+  public boolean isDataRefSet() {
+    return dataRefIsSet;
   }
 
 
@@ -210,6 +238,10 @@ public class VouchersRedemptionGetResponseBody {
 
   public void setTotal(Integer total) {
     this.total = total;
+    this.totalIsSet = true;
+  }
+  public boolean isTotalSet() {
+    return totalIsSet;
   }
 
 
@@ -337,7 +369,37 @@ public class VouchersRedemptionGetResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<VouchersRedemptionGetResponseBody>() {
            @Override
            public void write(JsonWriter out, VouchersRedemptionGetResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : VouchersRedemptionGetResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = VouchersRedemptionGetResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

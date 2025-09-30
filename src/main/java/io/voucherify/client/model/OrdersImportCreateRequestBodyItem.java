@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,10 +64,12 @@ public class OrdersImportCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   /**
    * The order status.
@@ -121,26 +125,32 @@ public class OrdersImportCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+    private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
+    private boolean amountIsSet = false;
 
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
+    private boolean initialAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
   private Integer discountAmount;
+    private boolean discountAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<OrderItem> items;
+    private boolean itemsIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -149,6 +159,7 @@ public class OrdersImportCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
   @SerializedName(SERIALIZED_NAME_REFERRER_ID)
   private String referrerId;
+    private boolean referrerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -179,6 +190,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -200,6 +215,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -221,6 +240,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -242,6 +265,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
+    this.amountIsSet = true;
+  }
+  public boolean isAmountSet() {
+    return amountIsSet;
   }
 
 
@@ -263,6 +290,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setInitialAmount(Integer initialAmount) {
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
+  }
+  public boolean isInitialAmountSet() {
+    return initialAmountIsSet;
   }
 
 
@@ -284,6 +315,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setDiscountAmount(Integer discountAmount) {
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
+  }
+  public boolean isDiscountAmountSet() {
+    return discountAmountIsSet;
   }
 
 
@@ -313,6 +348,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setItems(List<OrderItem> items) {
     this.items = items;
+    this.itemsIsSet = true;
+  }
+  public boolean isItemsSet() {
+    return itemsIsSet;
   }
 
 
@@ -334,6 +373,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -376,6 +419,10 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setReferrerId(String referrerId) {
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
+  }
+  public boolean isReferrerIdSet() {
+    return referrerIdIsSet;
   }
 
 
@@ -530,7 +577,37 @@ public class OrdersImportCreateRequestBodyItem {
        return (TypeAdapter<T>) new TypeAdapter<OrdersImportCreateRequestBodyItem>() {
            @Override
            public void write(JsonWriter out, OrdersImportCreateRequestBodyItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : OrdersImportCreateRequestBodyItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = OrdersImportCreateRequestBodyItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

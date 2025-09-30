@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,10 +60,12 @@ public class AccessSettings {
   public static final String SERIALIZED_NAME_ASSIGN = "assign";
   @SerializedName(SERIALIZED_NAME_ASSIGN)
   private AccessSettingsAssign assign;
+    private boolean assignIsSet = false;
 
   public static final String SERIALIZED_NAME_UNASSIGN = "unassign";
   @SerializedName(SERIALIZED_NAME_UNASSIGN)
   private AccessSettingsUnassign unassign;
+    private boolean unassignIsSet = false;
 
   public AccessSettings() {
   }
@@ -84,6 +88,10 @@ public class AccessSettings {
 
   public void setAssign(AccessSettingsAssign assign) {
     this.assign = assign;
+    this.assignIsSet = true;
+  }
+  public boolean isAssignSet() {
+    return assignIsSet;
   }
 
 
@@ -105,6 +113,10 @@ public class AccessSettings {
 
   public void setUnassign(AccessSettingsUnassign unassign) {
     this.unassign = unassign;
+    this.unassignIsSet = true;
+  }
+  public boolean isUnassignSet() {
+    return unassignIsSet;
   }
 
 
@@ -187,7 +199,37 @@ public class AccessSettings {
        return (TypeAdapter<T>) new TypeAdapter<AccessSettings>() {
            @Override
            public void write(JsonWriter out, AccessSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : AccessSettings.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = AccessSettings.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

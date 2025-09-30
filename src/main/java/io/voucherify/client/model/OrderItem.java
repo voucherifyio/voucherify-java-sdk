@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,10 +60,12 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_SKU_ID = "sku_id";
   @SerializedName(SERIALIZED_NAME_SKU_ID)
   private String skuId;
+    private boolean skuIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT_ID = "product_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
   private String productId;
+    private boolean productIdIsSet = false;
 
   /**
    * Used along with the source_id property, can be set to either sku or product.
@@ -113,50 +117,62 @@ public class OrderItem {
   public static final String SERIALIZED_NAME_RELATED_OBJECT = "related_object";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT)
   private RelatedObjectEnum relatedObject;
+    private boolean relatedObjectIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
+    private boolean quantityIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT_QUANTITY = "discount_quantity";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_QUANTITY)
   private Integer discountQuantity;
+    private boolean discountQuantityIsSet = false;
 
   public static final String SERIALIZED_NAME_INITIAL_QUANTITY = "initial_quantity";
   @SerializedName(SERIALIZED_NAME_INITIAL_QUANTITY)
   private Integer initialQuantity;
+    private boolean initialQuantityIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
+    private boolean amountIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT_AMOUNT = "discount_amount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_AMOUNT)
   private Integer discountAmount;
+    private boolean discountAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT = "initial_amount";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT)
   private Integer initialAmount;
+    private boolean initialAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private Integer price;
+    private boolean priceIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
   private OrderItemProduct product;
+    private boolean productIsSet = false;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
   private OrderItemSku sku;
+    private boolean skuIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public OrderItem() {
   }
@@ -179,6 +195,10 @@ public class OrderItem {
 
   public void setSkuId(String skuId) {
     this.skuId = skuId;
+    this.skuIdIsSet = true;
+  }
+  public boolean isSkuIdSet() {
+    return skuIdIsSet;
   }
 
 
@@ -200,6 +220,10 @@ public class OrderItem {
 
   public void setProductId(String productId) {
     this.productId = productId;
+    this.productIdIsSet = true;
+  }
+  public boolean isProductIdSet() {
+    return productIdIsSet;
   }
 
 
@@ -221,6 +245,10 @@ public class OrderItem {
 
   public void setRelatedObject(RelatedObjectEnum relatedObject) {
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
+  }
+  public boolean isRelatedObjectSet() {
+    return relatedObjectIsSet;
   }
 
 
@@ -242,6 +270,10 @@ public class OrderItem {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -263,6 +295,10 @@ public class OrderItem {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+    this.quantityIsSet = true;
+  }
+  public boolean isQuantitySet() {
+    return quantityIsSet;
   }
 
 
@@ -284,6 +320,10 @@ public class OrderItem {
 
   public void setDiscountQuantity(Integer discountQuantity) {
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
+  }
+  public boolean isDiscountQuantitySet() {
+    return discountQuantityIsSet;
   }
 
 
@@ -305,6 +345,10 @@ public class OrderItem {
 
   public void setInitialQuantity(Integer initialQuantity) {
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
+  }
+  public boolean isInitialQuantitySet() {
+    return initialQuantityIsSet;
   }
 
 
@@ -326,6 +370,10 @@ public class OrderItem {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
+    this.amountIsSet = true;
+  }
+  public boolean isAmountSet() {
+    return amountIsSet;
   }
 
 
@@ -347,6 +395,10 @@ public class OrderItem {
 
   public void setDiscountAmount(Integer discountAmount) {
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
+  }
+  public boolean isDiscountAmountSet() {
+    return discountAmountIsSet;
   }
 
 
@@ -368,6 +420,10 @@ public class OrderItem {
 
   public void setInitialAmount(Integer initialAmount) {
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
+  }
+  public boolean isInitialAmountSet() {
+    return initialAmountIsSet;
   }
 
 
@@ -389,6 +445,10 @@ public class OrderItem {
 
   public void setPrice(Integer price) {
     this.price = price;
+    this.priceIsSet = true;
+  }
+  public boolean isPriceSet() {
+    return priceIsSet;
   }
 
 
@@ -410,6 +470,10 @@ public class OrderItem {
 
   public void setProduct(OrderItemProduct product) {
     this.product = product;
+    this.productIsSet = true;
+  }
+  public boolean isProductSet() {
+    return productIsSet;
   }
 
 
@@ -431,6 +495,10 @@ public class OrderItem {
 
   public void setSku(OrderItemSku sku) {
     this.sku = sku;
+    this.skuIsSet = true;
+  }
+  public boolean isSkuSet() {
+    return skuIsSet;
   }
 
 
@@ -452,6 +520,10 @@ public class OrderItem {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -570,7 +642,37 @@ public class OrderItem {
        return (TypeAdapter<T>) new TypeAdapter<OrderItem>() {
            @Override
            public void write(JsonWriter out, OrderItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : OrderItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = OrderItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

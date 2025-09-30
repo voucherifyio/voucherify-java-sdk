@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -60,10 +62,12 @@ public class ManagementProjectsUpdateResponseBodyLimits {
   public static final String SERIALIZED_NAME_API_CALLS = "api_calls";
   @SerializedName(SERIALIZED_NAME_API_CALLS)
   private List<ManagementProjectsUpdateResponseBodyLimitsApiCallsItem> apiCalls;
+    private boolean apiCallsIsSet = false;
 
   public static final String SERIALIZED_NAME_BULK_API_CALLS = "bulk_api_calls";
   @SerializedName(SERIALIZED_NAME_BULK_API_CALLS)
   private List<ManagementProjectsUpdateResponseBodyLimitsBulkApiCallsItem> bulkApiCalls;
+    private boolean bulkApiCallsIsSet = false;
 
   public ManagementProjectsUpdateResponseBodyLimits() {
   }
@@ -94,6 +98,10 @@ public class ManagementProjectsUpdateResponseBodyLimits {
 
   public void setApiCalls(List<ManagementProjectsUpdateResponseBodyLimitsApiCallsItem> apiCalls) {
     this.apiCalls = apiCalls;
+    this.apiCallsIsSet = true;
+  }
+  public boolean isApiCallsSet() {
+    return apiCallsIsSet;
   }
 
 
@@ -123,6 +131,10 @@ public class ManagementProjectsUpdateResponseBodyLimits {
 
   public void setBulkApiCalls(List<ManagementProjectsUpdateResponseBodyLimitsBulkApiCallsItem> bulkApiCalls) {
     this.bulkApiCalls = bulkApiCalls;
+    this.bulkApiCallsIsSet = true;
+  }
+  public boolean isBulkApiCallsSet() {
+    return bulkApiCallsIsSet;
   }
 
 
@@ -205,7 +217,37 @@ public class ManagementProjectsUpdateResponseBodyLimits {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsUpdateResponseBodyLimits>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsUpdateResponseBodyLimits value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ManagementProjectsUpdateResponseBodyLimits.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ManagementProjectsUpdateResponseBodyLimits.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -37,6 +37,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -46,6 +47,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -116,6 +118,7 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   /**
    * Redeemable&#39;s object type.
@@ -167,6 +170,7 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -187,22 +191,27 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<CategoryWithStackingRulesType> categories;
+    private boolean categoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
   private String campaignName;
+    private boolean campaignNameIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public ValidationsValidateResponseBodyRedeemablesItem() {
   }
@@ -246,6 +255,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -267,6 +280,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -372,6 +389,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -401,6 +422,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setCategories(List<CategoryWithStackingRulesType> categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -422,6 +447,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setCampaignName(String campaignName) {
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
+  }
+  public boolean isCampaignNameSet() {
+    return campaignNameIsSet;
   }
 
 
@@ -443,6 +472,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -464,6 +497,10 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -576,7 +613,37 @@ public class ValidationsValidateResponseBodyRedeemablesItem {
        return (TypeAdapter<T>) new TypeAdapter<ValidationsValidateResponseBodyRedeemablesItem>() {
            @Override
            public void write(JsonWriter out, ValidationsValidateResponseBodyRedeemablesItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ValidationsValidateResponseBodyRedeemablesItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ValidationsValidateResponseBodyRedeemablesItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

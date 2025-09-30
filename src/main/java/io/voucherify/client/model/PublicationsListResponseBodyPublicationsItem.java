@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,6 +64,7 @@ public class PublicationsListResponseBodyPublicationsItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   /**
    * The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;.
@@ -111,18 +114,22 @@ public class PublicationsListResponseBodyPublicationsItem {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.PUBLICATION;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private String customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
   private String trackingId;
+    private boolean trackingIdIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -131,10 +138,12 @@ public class PublicationsListResponseBodyPublicationsItem {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private String channel;
+    private boolean channelIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -147,6 +156,7 @@ public class PublicationsListResponseBodyPublicationsItem {
   public static final String SERIALIZED_NAME_VOUCHERS_ID = "vouchers_id";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_ID)
   private List<String> vouchersId;
+    private boolean vouchersIdIsSet = false;
 
   /**
    * Gets or Sets result
@@ -206,10 +216,12 @@ public class PublicationsListResponseBodyPublicationsItem {
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
+    private boolean failureCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
   private String failureMessage;
+    private boolean failureMessageIsSet = false;
 
   public PublicationsListResponseBodyPublicationsItem() {
   }
@@ -232,6 +244,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -253,6 +269,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -274,6 +294,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -295,6 +319,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -316,6 +344,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
+  }
+  public boolean isTrackingIdSet() {
+    return trackingIdIsSet;
   }
 
 
@@ -358,6 +390,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setChannel(String channel) {
     this.channel = channel;
+    this.channelIsSet = true;
+  }
+  public boolean isChannelSet() {
+    return channelIsSet;
   }
 
 
@@ -379,6 +415,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -458,6 +498,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setVouchersId(List<String> vouchersId) {
     this.vouchersId = vouchersId;
+    this.vouchersIdIsSet = true;
+  }
+  public boolean isVouchersIdSet() {
+    return vouchersIdIsSet;
   }
 
 
@@ -521,6 +565,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setFailureCode(String failureCode) {
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
+  }
+  public boolean isFailureCodeSet() {
+    return failureCodeIsSet;
   }
 
 
@@ -542,6 +590,10 @@ public class PublicationsListResponseBodyPublicationsItem {
 
   public void setFailureMessage(String failureMessage) {
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
+  }
+  public boolean isFailureMessageSet() {
+    return failureMessageIsSet;
   }
 
 
@@ -663,7 +715,37 @@ public class PublicationsListResponseBodyPublicationsItem {
        return (TypeAdapter<T>) new TypeAdapter<PublicationsListResponseBodyPublicationsItem>() {
            @Override
            public void write(JsonWriter out, PublicationsListResponseBodyPublicationsItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : PublicationsListResponseBodyPublicationsItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = PublicationsListResponseBodyPublicationsItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

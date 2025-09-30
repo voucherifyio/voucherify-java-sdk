@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -61,14 +63,17 @@ public class PromotionTierCampaign {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -142,14 +147,17 @@ public class PromotionTierCampaign {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "campaign";
+    private boolean _objectIsSet = false;
 
   public PromotionTierCampaign() {
   }
@@ -172,6 +180,10 @@ public class PromotionTierCampaign {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -193,6 +205,10 @@ public class PromotionTierCampaign {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -214,6 +230,10 @@ public class PromotionTierCampaign {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -306,6 +326,10 @@ public class PromotionTierCampaign {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -327,6 +351,10 @@ public class PromotionTierCampaign {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -348,6 +376,10 @@ public class PromotionTierCampaign {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -451,7 +483,37 @@ public class PromotionTierCampaign {
        return (TypeAdapter<T>) new TypeAdapter<PromotionTierCampaign>() {
            @Override
            public void write(JsonWriter out, PromotionTierCampaign value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : PromotionTierCampaign.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = PromotionTierCampaign.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

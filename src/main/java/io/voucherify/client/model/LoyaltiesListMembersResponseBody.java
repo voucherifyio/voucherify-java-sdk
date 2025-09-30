@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,6 +61,7 @@ public class LoyaltiesListMembersResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "list";
+    private boolean _objectIsSet = false;
 
   /**
    * Identifies the name of the attribute that contains the array of voucher objects.
@@ -108,14 +111,17 @@ public class LoyaltiesListMembersResponseBody {
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
   private DataRefEnum dataRef = DataRefEnum.VOUCHERS;
+    private boolean dataRefIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHERS = "vouchers";
   @SerializedName(SERIALIZED_NAME_VOUCHERS)
   private List<LoyaltyMember> vouchers;
+    private boolean vouchersIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
+    private boolean totalIsSet = false;
 
   public LoyaltiesListMembersResponseBody() {
   }
@@ -138,6 +144,10 @@ public class LoyaltiesListMembersResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -159,6 +169,10 @@ public class LoyaltiesListMembersResponseBody {
 
   public void setDataRef(DataRefEnum dataRef) {
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
+  }
+  public boolean isDataRefSet() {
+    return dataRefIsSet;
   }
 
 
@@ -188,6 +202,10 @@ public class LoyaltiesListMembersResponseBody {
 
   public void setVouchers(List<LoyaltyMember> vouchers) {
     this.vouchers = vouchers;
+    this.vouchersIsSet = true;
+  }
+  public boolean isVouchersSet() {
+    return vouchersIsSet;
   }
 
 
@@ -209,6 +227,10 @@ public class LoyaltiesListMembersResponseBody {
 
   public void setTotal(Integer total) {
     this.total = total;
+    this.totalIsSet = true;
+  }
+  public boolean isTotalSet() {
+    return totalIsSet;
   }
 
 
@@ -297,7 +319,37 @@ public class LoyaltiesListMembersResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesListMembersResponseBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesListMembersResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesListMembersResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesListMembersResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -110,30 +112,37 @@ public class ApplicableTo {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT_ID = "product_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
   private String productId;
+    private boolean productIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT_SOURCE_ID = "product_source_id";
   @SerializedName(SERIALIZED_NAME_PRODUCT_SOURCE_ID)
   private String productSourceId;
+    private boolean productSourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
+    private boolean priceIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE_FORMULA = "price_formula";
   @SerializedName(SERIALIZED_NAME_PRICE_FORMULA)
   private BigDecimal priceFormula;
+    private boolean priceFormulaIsSet = false;
 
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
@@ -142,34 +151,42 @@ public class ApplicableTo {
   public static final String SERIALIZED_NAME_QUANTITY_LIMIT = "quantity_limit";
   @SerializedName(SERIALIZED_NAME_QUANTITY_LIMIT)
   private Integer quantityLimit;
+    private boolean quantityLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_AGGREGATED_QUANTITY_LIMIT = "aggregated_quantity_limit";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_QUANTITY_LIMIT)
   private Integer aggregatedQuantityLimit;
+    private boolean aggregatedQuantityLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_LIMIT = "amount_limit";
   @SerializedName(SERIALIZED_NAME_AMOUNT_LIMIT)
   private Integer amountLimit;
+    private boolean amountLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_AGGREGATED_AMOUNT_LIMIT = "aggregated_amount_limit";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_AMOUNT_LIMIT)
   private Integer aggregatedAmountLimit;
+    private boolean aggregatedAmountLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER_ITEM_INDICES = "order_item_indices";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_INDICES)
   private List<Integer> orderItemIndices;
+    private boolean orderItemIndicesIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER_ITEM_UNITS = "order_item_units";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_UNITS)
   private List<ApplicableToOrderItemUnitsItem> orderItemUnits;
+    private boolean orderItemUnitsIsSet = false;
 
   public static final String SERIALIZED_NAME_REPEAT = "repeat";
   @SerializedName(SERIALIZED_NAME_REPEAT)
   private Integer repeat;
+    private boolean repeatIsSet = false;
 
   public static final String SERIALIZED_NAME_SKIP_INITIALLY = "skip_initially";
   @SerializedName(SERIALIZED_NAME_SKIP_INITIALLY)
   private Integer skipInitially;
+    private boolean skipInitiallyIsSet = false;
 
   /**
    * Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.
@@ -221,6 +238,7 @@ public class ApplicableTo {
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
   private TargetEnum target;
+    private boolean targetIsSet = false;
 
   public ApplicableTo() {
   }
@@ -243,6 +261,10 @@ public class ApplicableTo {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -264,6 +286,10 @@ public class ApplicableTo {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -285,6 +311,10 @@ public class ApplicableTo {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -306,6 +336,10 @@ public class ApplicableTo {
 
   public void setProductId(String productId) {
     this.productId = productId;
+    this.productIdIsSet = true;
+  }
+  public boolean isProductIdSet() {
+    return productIdIsSet;
   }
 
 
@@ -327,6 +361,10 @@ public class ApplicableTo {
 
   public void setProductSourceId(String productSourceId) {
     this.productSourceId = productSourceId;
+    this.productSourceIdIsSet = true;
+  }
+  public boolean isProductSourceIdSet() {
+    return productSourceIdIsSet;
   }
 
 
@@ -348,6 +386,10 @@ public class ApplicableTo {
 
   public void setPrice(BigDecimal price) {
     this.price = price;
+    this.priceIsSet = true;
+  }
+  public boolean isPriceSet() {
+    return priceIsSet;
   }
 
 
@@ -369,6 +411,10 @@ public class ApplicableTo {
 
   public void setPriceFormula(BigDecimal priceFormula) {
     this.priceFormula = priceFormula;
+    this.priceFormulaIsSet = true;
+  }
+  public boolean isPriceFormulaSet() {
+    return priceFormulaIsSet;
   }
 
 
@@ -411,6 +457,10 @@ public class ApplicableTo {
 
   public void setQuantityLimit(Integer quantityLimit) {
     this.quantityLimit = quantityLimit;
+    this.quantityLimitIsSet = true;
+  }
+  public boolean isQuantityLimitSet() {
+    return quantityLimitIsSet;
   }
 
 
@@ -432,6 +482,10 @@ public class ApplicableTo {
 
   public void setAggregatedQuantityLimit(Integer aggregatedQuantityLimit) {
     this.aggregatedQuantityLimit = aggregatedQuantityLimit;
+    this.aggregatedQuantityLimitIsSet = true;
+  }
+  public boolean isAggregatedQuantityLimitSet() {
+    return aggregatedQuantityLimitIsSet;
   }
 
 
@@ -453,6 +507,10 @@ public class ApplicableTo {
 
   public void setAmountLimit(Integer amountLimit) {
     this.amountLimit = amountLimit;
+    this.amountLimitIsSet = true;
+  }
+  public boolean isAmountLimitSet() {
+    return amountLimitIsSet;
   }
 
 
@@ -474,6 +532,10 @@ public class ApplicableTo {
 
   public void setAggregatedAmountLimit(Integer aggregatedAmountLimit) {
     this.aggregatedAmountLimit = aggregatedAmountLimit;
+    this.aggregatedAmountLimitIsSet = true;
+  }
+  public boolean isAggregatedAmountLimitSet() {
+    return aggregatedAmountLimitIsSet;
   }
 
 
@@ -503,6 +565,10 @@ public class ApplicableTo {
 
   public void setOrderItemIndices(List<Integer> orderItemIndices) {
     this.orderItemIndices = orderItemIndices;
+    this.orderItemIndicesIsSet = true;
+  }
+  public boolean isOrderItemIndicesSet() {
+    return orderItemIndicesIsSet;
   }
 
 
@@ -532,6 +598,10 @@ public class ApplicableTo {
 
   public void setOrderItemUnits(List<ApplicableToOrderItemUnitsItem> orderItemUnits) {
     this.orderItemUnits = orderItemUnits;
+    this.orderItemUnitsIsSet = true;
+  }
+  public boolean isOrderItemUnitsSet() {
+    return orderItemUnitsIsSet;
   }
 
 
@@ -553,6 +623,10 @@ public class ApplicableTo {
 
   public void setRepeat(Integer repeat) {
     this.repeat = repeat;
+    this.repeatIsSet = true;
+  }
+  public boolean isRepeatSet() {
+    return repeatIsSet;
   }
 
 
@@ -574,6 +648,10 @@ public class ApplicableTo {
 
   public void setSkipInitially(Integer skipInitially) {
     this.skipInitially = skipInitially;
+    this.skipInitiallyIsSet = true;
+  }
+  public boolean isSkipInitiallySet() {
+    return skipInitiallyIsSet;
   }
 
 
@@ -595,6 +673,10 @@ public class ApplicableTo {
 
   public void setTarget(TargetEnum target) {
     this.target = target;
+    this.targetIsSet = true;
+  }
+  public boolean isTargetSet() {
+    return targetIsSet;
   }
 
 
@@ -723,7 +805,37 @@ public class ApplicableTo {
        return (TypeAdapter<T>) new TypeAdapter<ApplicableTo>() {
            @Override
            public void write(JsonWriter out, ApplicableTo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ApplicableTo.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ApplicableTo.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

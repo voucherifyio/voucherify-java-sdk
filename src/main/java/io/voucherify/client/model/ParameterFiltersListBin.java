@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,18 +67,22 @@ public class ParameterFiltersListBin {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private ParameterFiltersListBinId id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
   private ParameterFiltersListBinResourceType resourceType;
+    private boolean resourceTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_NAME = "resource_name";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
   private ParameterFiltersListBinResourceName resourceName;
+    private boolean resourceNameIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
   private ParameterFiltersListBinResourceId resourceId;
+    private boolean resourceIdIsSet = false;
 
   public ParameterFiltersListBin() {
   }
@@ -120,6 +126,10 @@ public class ParameterFiltersListBin {
 
   public void setId(ParameterFiltersListBinId id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -141,6 +151,10 @@ public class ParameterFiltersListBin {
 
   public void setResourceType(ParameterFiltersListBinResourceType resourceType) {
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
+  }
+  public boolean isResourceTypeSet() {
+    return resourceTypeIsSet;
   }
 
 
@@ -162,6 +176,10 @@ public class ParameterFiltersListBin {
 
   public void setResourceName(ParameterFiltersListBinResourceName resourceName) {
     this.resourceName = resourceName;
+    this.resourceNameIsSet = true;
+  }
+  public boolean isResourceNameSet() {
+    return resourceNameIsSet;
   }
 
 
@@ -183,6 +201,10 @@ public class ParameterFiltersListBin {
 
   public void setResourceId(ParameterFiltersListBinResourceId resourceId) {
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
+  }
+  public boolean isResourceIdSet() {
+    return resourceIdIsSet;
   }
 
 
@@ -274,7 +296,37 @@ public class ParameterFiltersListBin {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListBin>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListBin value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ParameterFiltersListBin.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ParameterFiltersListBin.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

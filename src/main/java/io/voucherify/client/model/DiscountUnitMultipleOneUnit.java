@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,10 +61,12 @@ public class DiscountUnitMultipleOneUnit {
   public static final String SERIALIZED_NAME_UNIT_OFF = "unit_off";
   @SerializedName(SERIALIZED_NAME_UNIT_OFF)
   private BigDecimal unitOff;
+    private boolean unitOffIsSet = false;
 
   public static final String SERIALIZED_NAME_UNIT_OFF_FORMULA = "unit_off_formula";
   @SerializedName(SERIALIZED_NAME_UNIT_OFF_FORMULA)
   private String unitOffFormula;
+    private boolean unitOffFormulaIsSet = false;
 
   /**
    * Defines how the unit is added to the customer&#39;s order.  
@@ -114,10 +118,12 @@ public class DiscountUnitMultipleOneUnit {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
   private EffectEnum effect;
+    private boolean effectIsSet = false;
 
   public static final String SERIALIZED_NAME_UNIT_TYPE = "unit_type";
   @SerializedName(SERIALIZED_NAME_UNIT_TYPE)
   private String unitType;
+    private boolean unitTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
@@ -148,6 +154,10 @@ public class DiscountUnitMultipleOneUnit {
 
   public void setUnitOff(BigDecimal unitOff) {
     this.unitOff = unitOff;
+    this.unitOffIsSet = true;
+  }
+  public boolean isUnitOffSet() {
+    return unitOffIsSet;
   }
 
 
@@ -169,6 +179,10 @@ public class DiscountUnitMultipleOneUnit {
 
   public void setUnitOffFormula(String unitOffFormula) {
     this.unitOffFormula = unitOffFormula;
+    this.unitOffFormulaIsSet = true;
+  }
+  public boolean isUnitOffFormulaSet() {
+    return unitOffFormulaIsSet;
   }
 
 
@@ -190,6 +204,10 @@ public class DiscountUnitMultipleOneUnit {
 
   public void setEffect(EffectEnum effect) {
     this.effect = effect;
+    this.effectIsSet = true;
+  }
+  public boolean isEffectSet() {
+    return effectIsSet;
   }
 
 
@@ -211,6 +229,10 @@ public class DiscountUnitMultipleOneUnit {
 
   public void setUnitType(String unitType) {
     this.unitType = unitType;
+    this.unitTypeIsSet = true;
+  }
+  public boolean isUnitTypeSet() {
+    return unitTypeIsSet;
   }
 
 
@@ -347,7 +369,37 @@ public class DiscountUnitMultipleOneUnit {
        return (TypeAdapter<T>) new TypeAdapter<DiscountUnitMultipleOneUnit>() {
            @Override
            public void write(JsonWriter out, DiscountUnitMultipleOneUnit value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : DiscountUnitMultipleOneUnit.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = DiscountUnitMultipleOneUnit.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

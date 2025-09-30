@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,26 +59,32 @@ public class CodeConfig {
   public static final String SERIALIZED_NAME_LENGTH = "length";
   @SerializedName(SERIALIZED_NAME_LENGTH)
   private BigDecimal length;
+    private boolean lengthIsSet = false;
 
   public static final String SERIALIZED_NAME_CHARSET = "charset";
   @SerializedName(SERIALIZED_NAME_CHARSET)
   private String charset;
+    private boolean charsetIsSet = false;
 
   public static final String SERIALIZED_NAME_PREFIX = "prefix";
   @SerializedName(SERIALIZED_NAME_PREFIX)
   private String prefix;
+    private boolean prefixIsSet = false;
 
   public static final String SERIALIZED_NAME_POSTFIX = "postfix";
   @SerializedName(SERIALIZED_NAME_POSTFIX)
   private String postfix;
+    private boolean postfixIsSet = false;
 
   public static final String SERIALIZED_NAME_PATTERN = "pattern";
   @SerializedName(SERIALIZED_NAME_PATTERN)
   private String pattern;
+    private boolean patternIsSet = false;
 
   public static final String SERIALIZED_NAME_INITIAL_COUNT = "initial_count";
   @SerializedName(SERIALIZED_NAME_INITIAL_COUNT)
   private Integer initialCount;
+    private boolean initialCountIsSet = false;
 
   public CodeConfig() {
   }
@@ -99,6 +107,10 @@ public class CodeConfig {
 
   public void setLength(BigDecimal length) {
     this.length = length;
+    this.lengthIsSet = true;
+  }
+  public boolean isLengthSet() {
+    return lengthIsSet;
   }
 
 
@@ -120,6 +132,10 @@ public class CodeConfig {
 
   public void setCharset(String charset) {
     this.charset = charset;
+    this.charsetIsSet = true;
+  }
+  public boolean isCharsetSet() {
+    return charsetIsSet;
   }
 
 
@@ -141,6 +157,10 @@ public class CodeConfig {
 
   public void setPrefix(String prefix) {
     this.prefix = prefix;
+    this.prefixIsSet = true;
+  }
+  public boolean isPrefixSet() {
+    return prefixIsSet;
   }
 
 
@@ -162,6 +182,10 @@ public class CodeConfig {
 
   public void setPostfix(String postfix) {
     this.postfix = postfix;
+    this.postfixIsSet = true;
+  }
+  public boolean isPostfixSet() {
+    return postfixIsSet;
   }
 
 
@@ -183,6 +207,10 @@ public class CodeConfig {
 
   public void setPattern(String pattern) {
     this.pattern = pattern;
+    this.patternIsSet = true;
+  }
+  public boolean isPatternSet() {
+    return patternIsSet;
   }
 
 
@@ -204,6 +232,10 @@ public class CodeConfig {
 
   public void setInitialCount(Integer initialCount) {
     this.initialCount = initialCount;
+    this.initialCountIsSet = true;
+  }
+  public boolean isInitialCountSet() {
+    return initialCountIsSet;
   }
 
 
@@ -298,7 +330,37 @@ public class CodeConfig {
        return (TypeAdapter<T>) new TypeAdapter<CodeConfig>() {
            @Override
            public void write(JsonWriter out, CodeConfig value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : CodeConfig.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = CodeConfig.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

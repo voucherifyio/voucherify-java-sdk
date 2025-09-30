@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -60,14 +62,17 @@ public class QualificationsOption {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Integer limit;
+    private boolean limitIsSet = false;
 
   public static final String SERIALIZED_NAME_STARTING_AFTER = "starting_after";
   @SerializedName(SERIALIZED_NAME_STARTING_AFTER)
   private OffsetDateTime startingAfter;
+    private boolean startingAfterIsSet = false;
 
   public static final String SERIALIZED_NAME_FILTERS = "filters";
   @SerializedName(SERIALIZED_NAME_FILTERS)
   private QualificationsOptionFilters filters;
+    private boolean filtersIsSet = false;
 
   /**
    * Gets or Sets expand
@@ -121,6 +126,7 @@ public class QualificationsOption {
   public static final String SERIALIZED_NAME_EXPAND = "expand";
   @SerializedName(SERIALIZED_NAME_EXPAND)
   private List<ExpandEnum> expand;
+    private boolean expandIsSet = false;
 
   /**
    * Is used to determine the order in which data is displayed in the result array.    - &#x60;DEFAULT&#x60; - Sorting descending by &#x60;created_at&#x60;   - &#x60;BEST_DEAL&#x60; - Sorting descending by &#x60;total_applied_discount_amount&#x60;   - &#x60;LEAST_DEAL&#x60; - Sorting ascending by &#x60;total_applied_discount_amount&#x60;
@@ -174,6 +180,7 @@ public class QualificationsOption {
   public static final String SERIALIZED_NAME_SORTING_RULE = "sorting_rule";
   @SerializedName(SERIALIZED_NAME_SORTING_RULE)
   private SortingRuleEnum sortingRule;
+    private boolean sortingRuleIsSet = false;
 
   public QualificationsOption() {
   }
@@ -197,6 +204,10 @@ public class QualificationsOption {
 
   public void setLimit(Integer limit) {
     this.limit = limit;
+    this.limitIsSet = true;
+  }
+  public boolean isLimitSet() {
+    return limitIsSet;
   }
 
 
@@ -218,6 +229,10 @@ public class QualificationsOption {
 
   public void setStartingAfter(OffsetDateTime startingAfter) {
     this.startingAfter = startingAfter;
+    this.startingAfterIsSet = true;
+  }
+  public boolean isStartingAfterSet() {
+    return startingAfterIsSet;
   }
 
 
@@ -239,6 +254,10 @@ public class QualificationsOption {
 
   public void setFilters(QualificationsOptionFilters filters) {
     this.filters = filters;
+    this.filtersIsSet = true;
+  }
+  public boolean isFiltersSet() {
+    return filtersIsSet;
   }
 
 
@@ -268,6 +287,10 @@ public class QualificationsOption {
 
   public void setExpand(List<ExpandEnum> expand) {
     this.expand = expand;
+    this.expandIsSet = true;
+  }
+  public boolean isExpandSet() {
+    return expandIsSet;
   }
 
 
@@ -289,6 +312,10 @@ public class QualificationsOption {
 
   public void setSortingRule(SortingRuleEnum sortingRule) {
     this.sortingRule = sortingRule;
+    this.sortingRuleIsSet = true;
+  }
+  public boolean isSortingRuleSet() {
+    return sortingRuleIsSet;
   }
 
 
@@ -380,7 +407,37 @@ public class QualificationsOption {
        return (TypeAdapter<T>) new TypeAdapter<QualificationsOption>() {
            @Override
            public void write(JsonWriter out, QualificationsOption value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : QualificationsOption.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = QualificationsOption.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

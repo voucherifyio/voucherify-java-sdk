@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,14 +58,17 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
+    private boolean quantityIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMED_POINTS = "redeemed_points";
   @SerializedName(SERIALIZED_NAME_REDEEMED_POINTS)
   private Integer redeemedPoints;
+    private boolean redeemedPointsIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMED_QUANTITY = "redeemed_quantity";
   @SerializedName(SERIALIZED_NAME_REDEEMED_QUANTITY)
   private Integer redeemedQuantity;
+    private boolean redeemedQuantityIsSet = false;
 
   /**
    * The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute.
@@ -113,10 +118,12 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.LIST;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+    private boolean urlIsSet = false;
 
   public LoyaltiesMembersTransfersCreateResponseBodyRedemption() {
   }
@@ -139,6 +146,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+    this.quantityIsSet = true;
+  }
+  public boolean isQuantitySet() {
+    return quantityIsSet;
   }
 
 
@@ -160,6 +171,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
 
   public void setRedeemedPoints(Integer redeemedPoints) {
     this.redeemedPoints = redeemedPoints;
+    this.redeemedPointsIsSet = true;
+  }
+  public boolean isRedeemedPointsSet() {
+    return redeemedPointsIsSet;
   }
 
 
@@ -181,6 +196,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
 
   public void setRedeemedQuantity(Integer redeemedQuantity) {
     this.redeemedQuantity = redeemedQuantity;
+    this.redeemedQuantityIsSet = true;
+  }
+  public boolean isRedeemedQuantitySet() {
+    return redeemedQuantityIsSet;
   }
 
 
@@ -202,6 +221,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -223,6 +246,10 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
 
   public void setUrl(String url) {
     this.url = url;
+    this.urlIsSet = true;
+  }
+  public boolean isUrlSet() {
+    return urlIsSet;
   }
 
 
@@ -314,7 +341,37 @@ public class LoyaltiesMembersTransfersCreateResponseBodyRedemption {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesMembersTransfersCreateResponseBodyRedemption>() {
            @Override
            public void write(JsonWriter out, LoyaltiesMembersTransfersCreateResponseBodyRedemption value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesMembersTransfersCreateResponseBodyRedemption.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesMembersTransfersCreateResponseBodyRedemption.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

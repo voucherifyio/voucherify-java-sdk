@@ -37,6 +37,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -46,6 +47,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -63,30 +65,37 @@ public class PromotionsTiersUpdateRequestBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_BANNER = "banner";
   @SerializedName(SERIALIZED_NAME_BANNER)
   private String banner;
+    private boolean bannerIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   private PromotionsTiersUpdateRequestBodyAction action;
+    private boolean actionIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_HIERARCHY = "hierarchy";
   @SerializedName(SERIALIZED_NAME_HIERARCHY)
   private Integer hierarchy;
+    private boolean hierarchyIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -164,10 +173,12 @@ public class PromotionsTiersUpdateRequestBody {
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
+    private boolean categoryIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public PromotionsTiersUpdateRequestBody() {
   }
@@ -190,6 +201,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -211,6 +226,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setBanner(String banner) {
     this.banner = banner;
+    this.bannerIsSet = true;
+  }
+  public boolean isBannerSet() {
+    return bannerIsSet;
   }
 
 
@@ -232,6 +251,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setAction(PromotionsTiersUpdateRequestBodyAction action) {
     this.action = action;
+    this.actionIsSet = true;
+  }
+  public boolean isActionSet() {
+    return actionIsSet;
   }
 
 
@@ -253,6 +276,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -274,6 +301,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setHierarchy(Integer hierarchy) {
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
+  }
+  public boolean isHierarchySet() {
+    return hierarchyIsSet;
   }
 
 
@@ -295,6 +326,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -316,6 +351,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -429,6 +468,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setCategory(String category) {
     this.category = category;
+    this.categoryIsSet = true;
+  }
+  public boolean isCategorySet() {
+    return categoryIsSet;
   }
 
 
@@ -450,6 +493,10 @@ public class PromotionsTiersUpdateRequestBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -565,7 +612,37 @@ public class PromotionsTiersUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<PromotionsTiersUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, PromotionsTiersUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : PromotionsTiersUpdateRequestBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = PromotionsTiersUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

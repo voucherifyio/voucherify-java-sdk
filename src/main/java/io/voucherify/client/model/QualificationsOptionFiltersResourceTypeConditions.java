@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,18 +61,22 @@ public class QualificationsOptionFiltersResourceTypeConditions {
   public static final String SERIALIZED_NAME_$_IS = "$is";
   @SerializedName(SERIALIZED_NAME_$_IS)
   private List<ResourceTypes> $is;
+    private boolean $isIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_NOT = "$is_not";
   @SerializedName(SERIALIZED_NAME_$_IS_NOT)
   private List<ResourceTypes> $isNot;
+    private boolean $isNotIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IN = "$in";
   @SerializedName(SERIALIZED_NAME_$_IN)
   private List<ResourceTypes> $in;
+    private boolean $inIsSet = false;
 
   public static final String SERIALIZED_NAME_$_NOT_IN = "$not_in";
   @SerializedName(SERIALIZED_NAME_$_NOT_IN)
   private List<ResourceTypes> $notIn;
+    private boolean $notInIsSet = false;
 
   public QualificationsOptionFiltersResourceTypeConditions() {
   }
@@ -101,6 +107,10 @@ public class QualificationsOptionFiltersResourceTypeConditions {
 
   public void set$Is(List<ResourceTypes> $is) {
     this.$is = $is;
+    this.$isIsSet = true;
+  }
+  public boolean is$IsSet() {
+    return $isIsSet;
   }
 
 
@@ -130,6 +140,10 @@ public class QualificationsOptionFiltersResourceTypeConditions {
 
   public void set$IsNot(List<ResourceTypes> $isNot) {
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
+  }
+  public boolean is$IsNotSet() {
+    return $isNotIsSet;
   }
 
 
@@ -159,6 +173,10 @@ public class QualificationsOptionFiltersResourceTypeConditions {
 
   public void set$In(List<ResourceTypes> $in) {
     this.$in = $in;
+    this.$inIsSet = true;
+  }
+  public boolean is$InSet() {
+    return $inIsSet;
   }
 
 
@@ -188,6 +206,10 @@ public class QualificationsOptionFiltersResourceTypeConditions {
 
   public void set$NotIn(List<ResourceTypes> $notIn) {
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
+  }
+  public boolean is$NotInSet() {
+    return $notInIsSet;
   }
 
 
@@ -276,7 +298,37 @@ public class QualificationsOptionFiltersResourceTypeConditions {
        return (TypeAdapter<T>) new TypeAdapter<QualificationsOptionFiltersResourceTypeConditions>() {
            @Override
            public void write(JsonWriter out, QualificationsOptionFiltersResourceTypeConditions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : QualificationsOptionFiltersResourceTypeConditions.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = QualificationsOptionFiltersResourceTypeConditions.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

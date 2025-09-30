@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -60,18 +62,22 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_EARNING_RULES = "earning_rules";
   @SerializedName(SERIALIZED_NAME_EARNING_RULES)
   private Map<String, MappingPoints> earningRules;
+    private boolean earningRulesIsSet = false;
 
   public static final String SERIALIZED_NAME_REWARDS = "rewards";
   @SerializedName(SERIALIZED_NAME_REWARDS)
   private Map<String, MappingPoints> rewards;
+    private boolean rewardsIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private LoyaltyTierBasePoints points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -98,6 +104,10 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -127,6 +137,10 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
 
   public void setEarningRules(Map<String, MappingPoints> earningRules) {
     this.earningRules = earningRules;
+    this.earningRulesIsSet = true;
+  }
+  public boolean isEarningRulesSet() {
+    return earningRulesIsSet;
   }
 
 
@@ -156,6 +170,10 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
 
   public void setRewards(Map<String, MappingPoints> rewards) {
     this.rewards = rewards;
+    this.rewardsIsSet = true;
+  }
+  public boolean isRewardsSet() {
+    return rewardsIsSet;
   }
 
 
@@ -177,6 +195,10 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
 
   public void setPoints(LoyaltyTierBasePoints points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -289,7 +311,37 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesTiersCreateInBulkRequestBodyItem>() {
            @Override
            public void write(JsonWriter out, LoyaltiesTiersCreateInBulkRequestBodyItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesTiersCreateInBulkRequestBodyItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesTiersCreateInBulkRequestBodyItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

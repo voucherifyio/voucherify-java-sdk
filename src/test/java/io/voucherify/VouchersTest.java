@@ -9,6 +9,7 @@ import io.voucherify.data.VoucherifyStore;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.OffsetDateTime;
 import java.util.*;
 
 import io.voucherify.helpers.DeepMatch;
@@ -99,6 +100,35 @@ public class VouchersTest {
             assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
         } catch (Exception e) {
             fail();
+        }
+    }
+
+      @Test
+    @org.junit.jupiter.api.Order(5)
+    public void updateVoucherExpirationDateToNullTest() {
+        try {
+            VouchersGetResponseBody voucherResult = vouchers
+                    .getVoucher(VoucherifyStore.getInstance().getLoyaltyCampaign().getVoucherIds()
+                            .get(0));
+
+            VouchersUpdateRequestBody setExpirationRequest = new VouchersUpdateRequestBody();
+            setExpirationRequest.setType(VouchersUpdateRequestBody.TypeEnum.DISCOUNT_VOUCHER);
+            setExpirationRequest.setExpirationDate(OffsetDateTime.now().plusDays(30));
+            VouchersUpdateResponseBody setResponse = vouchers.updateVoucher(voucherResult.getId(), setExpirationRequest);
+            
+            assertNotNull(setResponse);
+            assertNotNull(setResponse.getExpirationDate());
+            
+            // Now set expiration date to null to clear it
+            VouchersUpdateRequestBody clearExpirationRequest = new VouchersUpdateRequestBody();
+            clearExpirationRequest.setExpirationDate(null);
+            
+            VouchersUpdateResponseBody clearResponse = vouchers.updateVoucher(voucherResult.getId(), clearExpirationRequest);
+            assertNotNull(clearResponse);
+            assertNull(clearResponse.getExpirationDate(), "Voucher expiration date should be null after setting it to null");
+            
+        } catch (Exception e) {
+            fail(e.getMessage());
         }
     }
 }

@@ -40,6 +40,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,6 +50,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -70,38 +72,47 @@ public class ParameterFiltersListPublications {
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private ParameterFiltersListPublicationsFailureCode failureCode;
+    private boolean failureCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ParameterFiltersListPublicationsResult result;
+    private boolean resultIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private ParameterFiltersListPublicationsCustomerId customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
   private ParameterFiltersListPublicationsCampaignName campaignName;
+    private boolean campaignNameIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private ParameterFiltersListPublicationsVoucherType voucherType;
+    private boolean voucherTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private ParameterFiltersListPublicationsIsReferralCode isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_PARENT_OBJECT_ID = "parent_object_id";
   @SerializedName(SERIALIZED_NAME_PARENT_OBJECT_ID)
   private ParameterFiltersListPublicationsParentObjectId parentObjectId;
+    private boolean parentObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private ParameterFiltersListPublicationsRelatedObjectId relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private ParameterFiltersListPublicationsSourceId sourceId;
+    private boolean sourceIdIsSet = false;
 
   public ParameterFiltersListPublications() {
   }
@@ -145,6 +156,10 @@ public class ParameterFiltersListPublications {
 
   public void setFailureCode(ParameterFiltersListPublicationsFailureCode failureCode) {
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
+  }
+  public boolean isFailureCodeSet() {
+    return failureCodeIsSet;
   }
 
 
@@ -166,6 +181,10 @@ public class ParameterFiltersListPublications {
 
   public void setResult(ParameterFiltersListPublicationsResult result) {
     this.result = result;
+    this.resultIsSet = true;
+  }
+  public boolean isResultSet() {
+    return resultIsSet;
   }
 
 
@@ -187,6 +206,10 @@ public class ParameterFiltersListPublications {
 
   public void setCustomerId(ParameterFiltersListPublicationsCustomerId customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -208,6 +231,10 @@ public class ParameterFiltersListPublications {
 
   public void setCampaignName(ParameterFiltersListPublicationsCampaignName campaignName) {
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
+  }
+  public boolean isCampaignNameSet() {
+    return campaignNameIsSet;
   }
 
 
@@ -229,6 +256,10 @@ public class ParameterFiltersListPublications {
 
   public void setVoucherType(ParameterFiltersListPublicationsVoucherType voucherType) {
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
+  }
+  public boolean isVoucherTypeSet() {
+    return voucherTypeIsSet;
   }
 
 
@@ -250,6 +281,10 @@ public class ParameterFiltersListPublications {
 
   public void setIsReferralCode(ParameterFiltersListPublicationsIsReferralCode isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -271,6 +306,10 @@ public class ParameterFiltersListPublications {
 
   public void setParentObjectId(ParameterFiltersListPublicationsParentObjectId parentObjectId) {
     this.parentObjectId = parentObjectId;
+    this.parentObjectIdIsSet = true;
+  }
+  public boolean isParentObjectIdSet() {
+    return parentObjectIdIsSet;
   }
 
 
@@ -292,6 +331,10 @@ public class ParameterFiltersListPublications {
 
   public void setRelatedObjectId(ParameterFiltersListPublicationsRelatedObjectId relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -313,6 +356,10 @@ public class ParameterFiltersListPublications {
 
   public void setSourceId(ParameterFiltersListPublicationsSourceId sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -419,7 +466,37 @@ public class ParameterFiltersListPublications {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListPublications>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListPublications value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ParameterFiltersListPublications.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ParameterFiltersListPublications.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

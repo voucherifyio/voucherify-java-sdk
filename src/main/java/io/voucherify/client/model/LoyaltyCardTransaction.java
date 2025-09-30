@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,38 +61,47 @@ public class LoyaltyCardTransaction {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER_ID = "voucher_id";
   @SerializedName(SERIALIZED_NAME_VOUCHER_ID)
   private String voucherId;
+    private boolean voucherIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
+    private boolean sourceIsSet = false;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+    private boolean reasonIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_TRANSACTION_ID = "related_transaction_id";
   @SerializedName(SERIALIZED_NAME_RELATED_TRANSACTION_ID)
   private String relatedTransactionId;
+    private boolean relatedTransactionIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
   private LoyaltyCardTransactionDetails details;
+    private boolean detailsIsSet = false;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -117,6 +128,10 @@ public class LoyaltyCardTransaction {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -138,6 +153,10 @@ public class LoyaltyCardTransaction {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -159,6 +178,10 @@ public class LoyaltyCardTransaction {
 
   public void setVoucherId(String voucherId) {
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
+  }
+  public boolean isVoucherIdSet() {
+    return voucherIdIsSet;
   }
 
 
@@ -180,6 +203,10 @@ public class LoyaltyCardTransaction {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -201,6 +228,10 @@ public class LoyaltyCardTransaction {
 
   public void setSource(String source) {
     this.source = source;
+    this.sourceIsSet = true;
+  }
+  public boolean isSourceSet() {
+    return sourceIsSet;
   }
 
 
@@ -222,6 +253,10 @@ public class LoyaltyCardTransaction {
 
   public void setReason(String reason) {
     this.reason = reason;
+    this.reasonIsSet = true;
+  }
+  public boolean isReasonSet() {
+    return reasonIsSet;
   }
 
 
@@ -243,6 +278,10 @@ public class LoyaltyCardTransaction {
 
   public void setRelatedTransactionId(String relatedTransactionId) {
     this.relatedTransactionId = relatedTransactionId;
+    this.relatedTransactionIdIsSet = true;
+  }
+  public boolean isRelatedTransactionIdSet() {
+    return relatedTransactionIdIsSet;
   }
 
 
@@ -264,6 +303,10 @@ public class LoyaltyCardTransaction {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -285,6 +328,10 @@ public class LoyaltyCardTransaction {
 
   public void setDetails(LoyaltyCardTransactionDetails details) {
     this.details = details;
+    this.detailsIsSet = true;
+  }
+  public boolean isDetailsSet() {
+    return detailsIsSet;
   }
 
 
@@ -412,7 +459,37 @@ public class LoyaltyCardTransaction {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltyCardTransaction>() {
            @Override
            public void write(JsonWriter out, LoyaltyCardTransaction value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltyCardTransaction.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltyCardTransaction.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

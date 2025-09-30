@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,102 +58,127 @@ public class FiltersCondition {
   public static final String SERIALIZED_NAME_$_IN = "$in";
   @SerializedName(SERIALIZED_NAME_$_IN)
   private Object $in = null;
+    private boolean $inIsSet = false;
 
   public static final String SERIALIZED_NAME_$_NOT_IN = "$not_in";
   @SerializedName(SERIALIZED_NAME_$_NOT_IN)
   private Object $notIn = null;
+    private boolean $notInIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS = "$is";
   @SerializedName(SERIALIZED_NAME_$_IS)
   private Object $is = null;
+    private boolean $isIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_DAYS_AGO = "$is_days_ago";
   @SerializedName(SERIALIZED_NAME_$_IS_DAYS_AGO)
   private Object $isDaysAgo = null;
+    private boolean $isDaysAgoIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_DAYS_IN_FUTURE = "$is_days_in_future";
   @SerializedName(SERIALIZED_NAME_$_IS_DAYS_IN_FUTURE)
   private Object $isDaysInFuture = null;
+    private boolean $isDaysInFutureIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_NOT = "$is_not";
   @SerializedName(SERIALIZED_NAME_$_IS_NOT)
   private Object $isNot = null;
+    private boolean $isNotIsSet = false;
 
   public static final String SERIALIZED_NAME_$_HAS_VALUE = "$has_value";
   @SerializedName(SERIALIZED_NAME_$_HAS_VALUE)
   private Object $hasValue = null;
+    private boolean $hasValueIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_UNKNOWN = "$is_unknown";
   @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
   private Object $isUnknown = null;
+    private boolean $isUnknownIsSet = false;
 
   public static final String SERIALIZED_NAME_$_CONTAINS = "$contains";
   @SerializedName(SERIALIZED_NAME_$_CONTAINS)
   private Object $contains = null;
+    private boolean $containsIsSet = false;
 
   public static final String SERIALIZED_NAME_$_NOT_CONTAIN = "$not_contain";
   @SerializedName(SERIALIZED_NAME_$_NOT_CONTAIN)
   private Object $notContain = null;
+    private boolean $notContainIsSet = false;
 
   public static final String SERIALIZED_NAME_$_STARTS_WITH = "$starts_with";
   @SerializedName(SERIALIZED_NAME_$_STARTS_WITH)
   private Object $startsWith = null;
+    private boolean $startsWithIsSet = false;
 
   public static final String SERIALIZED_NAME_$_ENDS_WITH = "$ends_with";
   @SerializedName(SERIALIZED_NAME_$_ENDS_WITH)
   private Object $endsWith = null;
+    private boolean $endsWithIsSet = false;
 
   public static final String SERIALIZED_NAME_$_MORE_THAN = "$more_than";
   @SerializedName(SERIALIZED_NAME_$_MORE_THAN)
   private Object $moreThan = null;
+    private boolean $moreThanIsSet = false;
 
   public static final String SERIALIZED_NAME_$_LESS_THAN = "$less_than";
   @SerializedName(SERIALIZED_NAME_$_LESS_THAN)
   private Object $lessThan = null;
+    private boolean $lessThanIsSet = false;
 
   public static final String SERIALIZED_NAME_$_MORE_THAN_AGO = "$more_than_ago";
   @SerializedName(SERIALIZED_NAME_$_MORE_THAN_AGO)
   private Object $moreThanAgo = null;
+    private boolean $moreThanAgoIsSet = false;
 
   public static final String SERIALIZED_NAME_$_LESS_THAN_AGO = "$less_than_ago";
   @SerializedName(SERIALIZED_NAME_$_LESS_THAN_AGO)
   private Object $lessThanAgo = null;
+    private boolean $lessThanAgoIsSet = false;
 
   public static final String SERIALIZED_NAME_$_MORE_THAN_FUTURE = "$more_than_future";
   @SerializedName(SERIALIZED_NAME_$_MORE_THAN_FUTURE)
   private Object $moreThanFuture = null;
+    private boolean $moreThanFutureIsSet = false;
 
   public static final String SERIALIZED_NAME_$_LESS_THAN_FUTURE = "$less_than_future";
   @SerializedName(SERIALIZED_NAME_$_LESS_THAN_FUTURE)
   private Object $lessThanFuture = null;
+    private boolean $lessThanFutureIsSet = false;
 
   public static final String SERIALIZED_NAME_$_MORE_THAN_EQUAL = "$more_than_equal";
   @SerializedName(SERIALIZED_NAME_$_MORE_THAN_EQUAL)
   private Object $moreThanEqual = null;
+    private boolean $moreThanEqualIsSet = false;
 
   public static final String SERIALIZED_NAME_$_LESS_THAN_EQUAL = "$less_than_equal";
   @SerializedName(SERIALIZED_NAME_$_LESS_THAN_EQUAL)
   private Object $lessThanEqual = null;
+    private boolean $lessThanEqualIsSet = false;
 
   public static final String SERIALIZED_NAME_$_AFTER = "$after";
   @SerializedName(SERIALIZED_NAME_$_AFTER)
   private Object $after = null;
+    private boolean $afterIsSet = false;
 
   public static final String SERIALIZED_NAME_$_BEFORE = "$before";
   @SerializedName(SERIALIZED_NAME_$_BEFORE)
   private Object $before = null;
+    private boolean $beforeIsSet = false;
 
   public static final String SERIALIZED_NAME_$_COUNT = "$count";
   @SerializedName(SERIALIZED_NAME_$_COUNT)
   private Object $count = null;
+    private boolean $countIsSet = false;
 
   public static final String SERIALIZED_NAME_$_COUNT_LESS = "$count_less";
   @SerializedName(SERIALIZED_NAME_$_COUNT_LESS)
   private Object $countLess = null;
+    private boolean $countLessIsSet = false;
 
   public static final String SERIALIZED_NAME_$_COUNT_MORE = "$count_more";
   @SerializedName(SERIALIZED_NAME_$_COUNT_MORE)
   private Object $countMore = null;
+    private boolean $countMoreIsSet = false;
 
   public FiltersCondition() {
   }
@@ -174,6 +201,10 @@ public class FiltersCondition {
 
   public void set$In(Object $in) {
     this.$in = $in;
+    this.$inIsSet = true;
+  }
+  public boolean is$InSet() {
+    return $inIsSet;
   }
 
 
@@ -195,6 +226,10 @@ public class FiltersCondition {
 
   public void set$NotIn(Object $notIn) {
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
+  }
+  public boolean is$NotInSet() {
+    return $notInIsSet;
   }
 
 
@@ -216,6 +251,10 @@ public class FiltersCondition {
 
   public void set$Is(Object $is) {
     this.$is = $is;
+    this.$isIsSet = true;
+  }
+  public boolean is$IsSet() {
+    return $isIsSet;
   }
 
 
@@ -237,6 +276,10 @@ public class FiltersCondition {
 
   public void set$IsDaysAgo(Object $isDaysAgo) {
     this.$isDaysAgo = $isDaysAgo;
+    this.$isDaysAgoIsSet = true;
+  }
+  public boolean is$IsDaysAgoSet() {
+    return $isDaysAgoIsSet;
   }
 
 
@@ -258,6 +301,10 @@ public class FiltersCondition {
 
   public void set$IsDaysInFuture(Object $isDaysInFuture) {
     this.$isDaysInFuture = $isDaysInFuture;
+    this.$isDaysInFutureIsSet = true;
+  }
+  public boolean is$IsDaysInFutureSet() {
+    return $isDaysInFutureIsSet;
   }
 
 
@@ -279,6 +326,10 @@ public class FiltersCondition {
 
   public void set$IsNot(Object $isNot) {
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
+  }
+  public boolean is$IsNotSet() {
+    return $isNotIsSet;
   }
 
 
@@ -300,6 +351,10 @@ public class FiltersCondition {
 
   public void set$HasValue(Object $hasValue) {
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
+  }
+  public boolean is$HasValueSet() {
+    return $hasValueIsSet;
   }
 
 
@@ -321,6 +376,10 @@ public class FiltersCondition {
 
   public void set$IsUnknown(Object $isUnknown) {
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
+  }
+  public boolean is$IsUnknownSet() {
+    return $isUnknownIsSet;
   }
 
 
@@ -342,6 +401,10 @@ public class FiltersCondition {
 
   public void set$Contains(Object $contains) {
     this.$contains = $contains;
+    this.$containsIsSet = true;
+  }
+  public boolean is$ContainsSet() {
+    return $containsIsSet;
   }
 
 
@@ -363,6 +426,10 @@ public class FiltersCondition {
 
   public void set$NotContain(Object $notContain) {
     this.$notContain = $notContain;
+    this.$notContainIsSet = true;
+  }
+  public boolean is$NotContainSet() {
+    return $notContainIsSet;
   }
 
 
@@ -384,6 +451,10 @@ public class FiltersCondition {
 
   public void set$StartsWith(Object $startsWith) {
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
+  }
+  public boolean is$StartsWithSet() {
+    return $startsWithIsSet;
   }
 
 
@@ -405,6 +476,10 @@ public class FiltersCondition {
 
   public void set$EndsWith(Object $endsWith) {
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
+  }
+  public boolean is$EndsWithSet() {
+    return $endsWithIsSet;
   }
 
 
@@ -426,6 +501,10 @@ public class FiltersCondition {
 
   public void set$MoreThan(Object $moreThan) {
     this.$moreThan = $moreThan;
+    this.$moreThanIsSet = true;
+  }
+  public boolean is$MoreThanSet() {
+    return $moreThanIsSet;
   }
 
 
@@ -447,6 +526,10 @@ public class FiltersCondition {
 
   public void set$LessThan(Object $lessThan) {
     this.$lessThan = $lessThan;
+    this.$lessThanIsSet = true;
+  }
+  public boolean is$LessThanSet() {
+    return $lessThanIsSet;
   }
 
 
@@ -468,6 +551,10 @@ public class FiltersCondition {
 
   public void set$MoreThanAgo(Object $moreThanAgo) {
     this.$moreThanAgo = $moreThanAgo;
+    this.$moreThanAgoIsSet = true;
+  }
+  public boolean is$MoreThanAgoSet() {
+    return $moreThanAgoIsSet;
   }
 
 
@@ -489,6 +576,10 @@ public class FiltersCondition {
 
   public void set$LessThanAgo(Object $lessThanAgo) {
     this.$lessThanAgo = $lessThanAgo;
+    this.$lessThanAgoIsSet = true;
+  }
+  public boolean is$LessThanAgoSet() {
+    return $lessThanAgoIsSet;
   }
 
 
@@ -510,6 +601,10 @@ public class FiltersCondition {
 
   public void set$MoreThanFuture(Object $moreThanFuture) {
     this.$moreThanFuture = $moreThanFuture;
+    this.$moreThanFutureIsSet = true;
+  }
+  public boolean is$MoreThanFutureSet() {
+    return $moreThanFutureIsSet;
   }
 
 
@@ -531,6 +626,10 @@ public class FiltersCondition {
 
   public void set$LessThanFuture(Object $lessThanFuture) {
     this.$lessThanFuture = $lessThanFuture;
+    this.$lessThanFutureIsSet = true;
+  }
+  public boolean is$LessThanFutureSet() {
+    return $lessThanFutureIsSet;
   }
 
 
@@ -552,6 +651,10 @@ public class FiltersCondition {
 
   public void set$MoreThanEqual(Object $moreThanEqual) {
     this.$moreThanEqual = $moreThanEqual;
+    this.$moreThanEqualIsSet = true;
+  }
+  public boolean is$MoreThanEqualSet() {
+    return $moreThanEqualIsSet;
   }
 
 
@@ -573,6 +676,10 @@ public class FiltersCondition {
 
   public void set$LessThanEqual(Object $lessThanEqual) {
     this.$lessThanEqual = $lessThanEqual;
+    this.$lessThanEqualIsSet = true;
+  }
+  public boolean is$LessThanEqualSet() {
+    return $lessThanEqualIsSet;
   }
 
 
@@ -594,6 +701,10 @@ public class FiltersCondition {
 
   public void set$After(Object $after) {
     this.$after = $after;
+    this.$afterIsSet = true;
+  }
+  public boolean is$AfterSet() {
+    return $afterIsSet;
   }
 
 
@@ -615,6 +726,10 @@ public class FiltersCondition {
 
   public void set$Before(Object $before) {
     this.$before = $before;
+    this.$beforeIsSet = true;
+  }
+  public boolean is$BeforeSet() {
+    return $beforeIsSet;
   }
 
 
@@ -636,6 +751,10 @@ public class FiltersCondition {
 
   public void set$Count(Object $count) {
     this.$count = $count;
+    this.$countIsSet = true;
+  }
+  public boolean is$CountSet() {
+    return $countIsSet;
   }
 
 
@@ -657,6 +776,10 @@ public class FiltersCondition {
 
   public void set$CountLess(Object $countLess) {
     this.$countLess = $countLess;
+    this.$countLessIsSet = true;
+  }
+  public boolean is$CountLessSet() {
+    return $countLessIsSet;
   }
 
 
@@ -678,6 +801,10 @@ public class FiltersCondition {
 
   public void set$CountMore(Object $countMore) {
     this.$countMore = $countMore;
+    this.$countMoreIsSet = true;
+  }
+  public boolean is$CountMoreSet() {
+    return $countMoreIsSet;
   }
 
 
@@ -829,7 +956,37 @@ public class FiltersCondition {
        return (TypeAdapter<T>) new TypeAdapter<FiltersCondition>() {
            @Override
            public void write(JsonWriter out, FiltersCondition value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : FiltersCondition.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = FiltersCondition.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

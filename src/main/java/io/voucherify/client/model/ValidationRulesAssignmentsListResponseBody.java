@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,18 +61,22 @@ public class ValidationRulesAssignmentsListResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "list";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
   private String dataRef = "data";
+    private boolean dataRefIsSet = false;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<ValidationRuleAssignment> data;
+    private boolean dataIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
+    private boolean totalIsSet = false;
 
   public ValidationRulesAssignmentsListResponseBody() {
   }
@@ -93,6 +99,10 @@ public class ValidationRulesAssignmentsListResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -114,6 +124,10 @@ public class ValidationRulesAssignmentsListResponseBody {
 
   public void setDataRef(String dataRef) {
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
+  }
+  public boolean isDataRefSet() {
+    return dataRefIsSet;
   }
 
 
@@ -143,6 +157,10 @@ public class ValidationRulesAssignmentsListResponseBody {
 
   public void setData(List<ValidationRuleAssignment> data) {
     this.data = data;
+    this.dataIsSet = true;
+  }
+  public boolean isDataSet() {
+    return dataIsSet;
   }
 
 
@@ -164,6 +182,10 @@ public class ValidationRulesAssignmentsListResponseBody {
 
   public void setTotal(Integer total) {
     this.total = total;
+    this.totalIsSet = true;
+  }
+  public boolean isTotalSet() {
+    return totalIsSet;
   }
 
 
@@ -252,7 +274,37 @@ public class ValidationRulesAssignmentsListResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<ValidationRulesAssignmentsListResponseBody>() {
            @Override
            public void write(JsonWriter out, ValidationRulesAssignmentsListResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ValidationRulesAssignmentsListResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ValidationRulesAssignmentsListResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

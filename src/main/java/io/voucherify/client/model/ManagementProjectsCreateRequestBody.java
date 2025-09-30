@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -61,26 +63,32 @@ public class ManagementProjectsCreateRequestBody {
   public static final String SERIALIZED_NAME_CASE_SENSITIVE_CODES = "case_sensitive_codes";
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE_CODES)
   private Boolean caseSensitiveCodes;
+    private boolean caseSensitiveCodesIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+    private boolean descriptionIsSet = false;
 
   public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
   @SerializedName(SERIALIZED_NAME_TIMEZONE)
   private String timezone;
+    private boolean timezoneIsSet = false;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
+    private boolean currencyIsSet = false;
 
   public static final String SERIALIZED_NAME_DIAL_CODE = "dial_code";
   @SerializedName(SERIALIZED_NAME_DIAL_CODE)
   private String dialCode;
+    private boolean dialCodeIsSet = false;
 
   /**
    * The webhook version used in the project.
@@ -130,46 +138,57 @@ public class ManagementProjectsCreateRequestBody {
   public static final String SERIALIZED_NAME_WEBHOOK_VERSION = "webhook_version";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_VERSION)
   private WebhookVersionEnum webhookVersion = WebhookVersionEnum.V2024_01_01;
+    private boolean webhookVersionIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_TRUSTED_DOMAINS = "client_trusted_domains";
   @SerializedName(SERIALIZED_NAME_CLIENT_TRUSTED_DOMAINS)
   private List<String> clientTrustedDomains;
+    private boolean clientTrustedDomainsIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_REDEEM_ENABLED = "client_redeem_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_REDEEM_ENABLED)
   private Boolean clientRedeemEnabled;
+    private boolean clientRedeemEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_PUBLISH_ENABLED = "client_publish_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_PUBLISH_ENABLED)
   private Boolean clientPublishEnabled;
+    private boolean clientPublishEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_LIST_VOUCHERS_ENABLED = "client_list_vouchers_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_LIST_VOUCHERS_ENABLED)
   private Boolean clientListVouchersEnabled;
+    private boolean clientListVouchersEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_CREATE_CUSTOMER_ENABLED = "client_create_customer_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_CREATE_CUSTOMER_ENABLED)
   private Boolean clientCreateCustomerEnabled;
+    private boolean clientCreateCustomerEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_LOYALTY_EVENTS_ENABLED = "client_loyalty_events_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_LOYALTY_EVENTS_ENABLED)
   private Boolean clientLoyaltyEventsEnabled;
+    private boolean clientLoyaltyEventsEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_CLIENT_SET_VOUCHER_EXPIRATION_DATE_ENABLED = "client_set_voucher_expiration_date_enabled";
   @SerializedName(SERIALIZED_NAME_CLIENT_SET_VOUCHER_EXPIRATION_DATE_ENABLED)
   private Boolean clientSetVoucherExpirationDateEnabled;
+    private boolean clientSetVoucherExpirationDateEnabledIsSet = false;
 
   public static final String SERIALIZED_NAME_WEBHOOKS_CALLOUT_NOTIFICATIONS = "webhooks_callout_notifications";
   @SerializedName(SERIALIZED_NAME_WEBHOOKS_CALLOUT_NOTIFICATIONS)
   private ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications webhooksCalloutNotifications;
+    private boolean webhooksCalloutNotificationsIsSet = false;
 
   public static final String SERIALIZED_NAME_API_USAGE_NOTIFICATIONS = "api_usage_notifications";
   @SerializedName(SERIALIZED_NAME_API_USAGE_NOTIFICATIONS)
   private ManagementProjectsCreateRequestBodyApiUsageNotifications apiUsageNotifications;
+    private boolean apiUsageNotificationsIsSet = false;
 
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
   private String clusterId;
+    private boolean clusterIdIsSet = false;
 
   /**
    * The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;.
@@ -219,10 +238,12 @@ public class ManagementProjectsCreateRequestBody {
   public static final String SERIALIZED_NAME_API_VERSION = "api_version";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private ApiVersionEnum apiVersion = ApiVersionEnum.V2018_08_01;
+    private boolean apiVersionIsSet = false;
 
   public static final String SERIALIZED_NAME_USERS = "users";
   @SerializedName(SERIALIZED_NAME_USERS)
   private List<ManagementProjectsCreateRequestBodyUsersItem> users;
+    private boolean usersIsSet = false;
 
   public ManagementProjectsCreateRequestBody() {
   }
@@ -245,6 +266,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setCaseSensitiveCodes(Boolean caseSensitiveCodes) {
     this.caseSensitiveCodes = caseSensitiveCodes;
+    this.caseSensitiveCodesIsSet = true;
+  }
+  public boolean isCaseSensitiveCodesSet() {
+    return caseSensitiveCodesIsSet;
   }
 
 
@@ -266,6 +291,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -287,6 +316,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setDescription(String description) {
     this.description = description;
+    this.descriptionIsSet = true;
+  }
+  public boolean isDescriptionSet() {
+    return descriptionIsSet;
   }
 
 
@@ -308,6 +341,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setTimezone(String timezone) {
     this.timezone = timezone;
+    this.timezoneIsSet = true;
+  }
+  public boolean isTimezoneSet() {
+    return timezoneIsSet;
   }
 
 
@@ -329,6 +366,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setCurrency(String currency) {
     this.currency = currency;
+    this.currencyIsSet = true;
+  }
+  public boolean isCurrencySet() {
+    return currencyIsSet;
   }
 
 
@@ -350,6 +391,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setDialCode(String dialCode) {
     this.dialCode = dialCode;
+    this.dialCodeIsSet = true;
+  }
+  public boolean isDialCodeSet() {
+    return dialCodeIsSet;
   }
 
 
@@ -371,6 +416,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setWebhookVersion(WebhookVersionEnum webhookVersion) {
     this.webhookVersion = webhookVersion;
+    this.webhookVersionIsSet = true;
+  }
+  public boolean isWebhookVersionSet() {
+    return webhookVersionIsSet;
   }
 
 
@@ -400,6 +449,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientTrustedDomains(List<String> clientTrustedDomains) {
     this.clientTrustedDomains = clientTrustedDomains;
+    this.clientTrustedDomainsIsSet = true;
+  }
+  public boolean isClientTrustedDomainsSet() {
+    return clientTrustedDomainsIsSet;
   }
 
 
@@ -421,6 +474,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientRedeemEnabled(Boolean clientRedeemEnabled) {
     this.clientRedeemEnabled = clientRedeemEnabled;
+    this.clientRedeemEnabledIsSet = true;
+  }
+  public boolean isClientRedeemEnabledSet() {
+    return clientRedeemEnabledIsSet;
   }
 
 
@@ -442,6 +499,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientPublishEnabled(Boolean clientPublishEnabled) {
     this.clientPublishEnabled = clientPublishEnabled;
+    this.clientPublishEnabledIsSet = true;
+  }
+  public boolean isClientPublishEnabledSet() {
+    return clientPublishEnabledIsSet;
   }
 
 
@@ -463,6 +524,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientListVouchersEnabled(Boolean clientListVouchersEnabled) {
     this.clientListVouchersEnabled = clientListVouchersEnabled;
+    this.clientListVouchersEnabledIsSet = true;
+  }
+  public boolean isClientListVouchersEnabledSet() {
+    return clientListVouchersEnabledIsSet;
   }
 
 
@@ -484,6 +549,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientCreateCustomerEnabled(Boolean clientCreateCustomerEnabled) {
     this.clientCreateCustomerEnabled = clientCreateCustomerEnabled;
+    this.clientCreateCustomerEnabledIsSet = true;
+  }
+  public boolean isClientCreateCustomerEnabledSet() {
+    return clientCreateCustomerEnabledIsSet;
   }
 
 
@@ -505,6 +574,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientLoyaltyEventsEnabled(Boolean clientLoyaltyEventsEnabled) {
     this.clientLoyaltyEventsEnabled = clientLoyaltyEventsEnabled;
+    this.clientLoyaltyEventsEnabledIsSet = true;
+  }
+  public boolean isClientLoyaltyEventsEnabledSet() {
+    return clientLoyaltyEventsEnabledIsSet;
   }
 
 
@@ -526,6 +599,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClientSetVoucherExpirationDateEnabled(Boolean clientSetVoucherExpirationDateEnabled) {
     this.clientSetVoucherExpirationDateEnabled = clientSetVoucherExpirationDateEnabled;
+    this.clientSetVoucherExpirationDateEnabledIsSet = true;
+  }
+  public boolean isClientSetVoucherExpirationDateEnabledSet() {
+    return clientSetVoucherExpirationDateEnabledIsSet;
   }
 
 
@@ -547,6 +624,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setWebhooksCalloutNotifications(ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications webhooksCalloutNotifications) {
     this.webhooksCalloutNotifications = webhooksCalloutNotifications;
+    this.webhooksCalloutNotificationsIsSet = true;
+  }
+  public boolean isWebhooksCalloutNotificationsSet() {
+    return webhooksCalloutNotificationsIsSet;
   }
 
 
@@ -568,6 +649,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setApiUsageNotifications(ManagementProjectsCreateRequestBodyApiUsageNotifications apiUsageNotifications) {
     this.apiUsageNotifications = apiUsageNotifications;
+    this.apiUsageNotificationsIsSet = true;
+  }
+  public boolean isApiUsageNotificationsSet() {
+    return apiUsageNotificationsIsSet;
   }
 
 
@@ -589,6 +674,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+    this.clusterIdIsSet = true;
+  }
+  public boolean isClusterIdSet() {
+    return clusterIdIsSet;
   }
 
 
@@ -610,6 +699,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setApiVersion(ApiVersionEnum apiVersion) {
     this.apiVersion = apiVersion;
+    this.apiVersionIsSet = true;
+  }
+  public boolean isApiVersionSet() {
+    return apiVersionIsSet;
   }
 
 
@@ -639,6 +732,10 @@ public class ManagementProjectsCreateRequestBody {
 
   public void setUsers(List<ManagementProjectsCreateRequestBodyUsersItem> users) {
     this.users = users;
+    this.usersIsSet = true;
+  }
+  public boolean isUsersSet() {
+    return usersIsSet;
   }
 
 
@@ -772,7 +869,37 @@ public class ManagementProjectsCreateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsCreateRequestBody>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsCreateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ManagementProjectsCreateRequestBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ManagementProjectsCreateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

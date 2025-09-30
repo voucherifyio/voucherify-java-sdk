@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -117,58 +119,72 @@ public class MetadataSchemaDefinitionDeprecated {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_ARRAY = "array";
   @SerializedName(SERIALIZED_NAME_ARRAY)
   private Boolean array;
+    private boolean arrayIsSet = false;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
   private Boolean optional;
+    private boolean optionalIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT_TYPE = "objectType";
   @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
   private String objectType;
+    private boolean objectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_EQ = "eq";
   @SerializedName(SERIALIZED_NAME_EQ)
   private List<Object> eq;
+    private boolean eqIsSet = false;
 
   public static final String SERIALIZED_NAME_NE = "ne";
   @SerializedName(SERIALIZED_NAME_NE)
   private List<Object> ne;
+    private boolean neIsSet = false;
 
   public static final String SERIALIZED_NAME_LT = "lt";
   @SerializedName(SERIALIZED_NAME_LT)
   private Integer lt;
+    private boolean ltIsSet = false;
 
   public static final String SERIALIZED_NAME_LTE = "lte";
   @SerializedName(SERIALIZED_NAME_LTE)
   private Integer lte;
+    private boolean lteIsSet = false;
 
   public static final String SERIALIZED_NAME_GT = "gt";
   @SerializedName(SERIALIZED_NAME_GT)
   private Integer gt;
+    private boolean gtIsSet = false;
 
   public static final String SERIALIZED_NAME_GTE = "gte";
   @SerializedName(SERIALIZED_NAME_GTE)
   private Integer gte;
+    private boolean gteIsSet = false;
 
   public static final String SERIALIZED_NAME_DELETED = "deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
   private Boolean deleted;
+    private boolean deletedIsSet = false;
 
   public static final String SERIALIZED_NAME_MAX_LENGTH = "maxLength";
   @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
   private Integer maxLength;
+    private boolean maxLengthIsSet = false;
 
   public static final String SERIALIZED_NAME_MIN_LENGTH = "minLength";
   @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
   private Integer minLength;
+    private boolean minLengthIsSet = false;
 
   public static final String SERIALIZED_NAME_EXACT_LENGTH = "exactLength";
   @SerializedName(SERIALIZED_NAME_EXACT_LENGTH)
   private Integer exactLength;
+    private boolean exactLengthIsSet = false;
 
   public MetadataSchemaDefinitionDeprecated() {
   }
@@ -191,6 +207,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -212,6 +232,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setArray(Boolean array) {
     this.array = array;
+    this.arrayIsSet = true;
+  }
+  public boolean isArraySet() {
+    return arrayIsSet;
   }
 
 
@@ -233,6 +257,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setOptional(Boolean optional) {
     this.optional = optional;
+    this.optionalIsSet = true;
+  }
+  public boolean isOptionalSet() {
+    return optionalIsSet;
   }
 
 
@@ -254,6 +282,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setObjectType(String objectType) {
     this.objectType = objectType;
+    this.objectTypeIsSet = true;
+  }
+  public boolean isObjectTypeSet() {
+    return objectTypeIsSet;
   }
 
 
@@ -283,6 +315,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setEq(List<Object> eq) {
     this.eq = eq;
+    this.eqIsSet = true;
+  }
+  public boolean isEqSet() {
+    return eqIsSet;
   }
 
 
@@ -312,6 +348,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setNe(List<Object> ne) {
     this.ne = ne;
+    this.neIsSet = true;
+  }
+  public boolean isNeSet() {
+    return neIsSet;
   }
 
 
@@ -333,6 +373,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setLt(Integer lt) {
     this.lt = lt;
+    this.ltIsSet = true;
+  }
+  public boolean isLtSet() {
+    return ltIsSet;
   }
 
 
@@ -354,6 +398,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setLte(Integer lte) {
     this.lte = lte;
+    this.lteIsSet = true;
+  }
+  public boolean isLteSet() {
+    return lteIsSet;
   }
 
 
@@ -375,6 +423,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setGt(Integer gt) {
     this.gt = gt;
+    this.gtIsSet = true;
+  }
+  public boolean isGtSet() {
+    return gtIsSet;
   }
 
 
@@ -396,6 +448,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setGte(Integer gte) {
     this.gte = gte;
+    this.gteIsSet = true;
+  }
+  public boolean isGteSet() {
+    return gteIsSet;
   }
 
 
@@ -417,6 +473,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setDeleted(Boolean deleted) {
     this.deleted = deleted;
+    this.deletedIsSet = true;
+  }
+  public boolean isDeletedSet() {
+    return deletedIsSet;
   }
 
 
@@ -438,6 +498,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setMaxLength(Integer maxLength) {
     this.maxLength = maxLength;
+    this.maxLengthIsSet = true;
+  }
+  public boolean isMaxLengthSet() {
+    return maxLengthIsSet;
   }
 
 
@@ -459,6 +523,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setMinLength(Integer minLength) {
     this.minLength = minLength;
+    this.minLengthIsSet = true;
+  }
+  public boolean isMinLengthSet() {
+    return minLengthIsSet;
   }
 
 
@@ -480,6 +548,10 @@ public class MetadataSchemaDefinitionDeprecated {
 
   public void setExactLength(Integer exactLength) {
     this.exactLength = exactLength;
+    this.exactLengthIsSet = true;
+  }
+  public boolean isExactLengthSet() {
+    return exactLengthIsSet;
   }
 
 
@@ -598,7 +670,37 @@ public class MetadataSchemaDefinitionDeprecated {
        return (TypeAdapter<T>) new TypeAdapter<MetadataSchemaDefinitionDeprecated>() {
            @Override
            public void write(JsonWriter out, MetadataSchemaDefinitionDeprecated value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : MetadataSchemaDefinitionDeprecated.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = MetadataSchemaDefinitionDeprecated.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

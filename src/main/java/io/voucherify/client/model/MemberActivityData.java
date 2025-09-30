@@ -55,6 +55,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -64,6 +65,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -97,6 +99,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
@@ -105,6 +108,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_PUBLICATION = "publication";
   @SerializedName(SERIALIZED_NAME_PUBLICATION)
@@ -113,6 +117,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private MemberActivityDataOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
@@ -133,6 +138,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private MemberActivityDataRedemption redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION_ROLLBACK = "redemption_rollback";
   @SerializedName(SERIALIZED_NAME_REDEMPTION_ROLLBACK)
@@ -149,6 +155,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private MemberActivityDataBalance balance;
+    private boolean balanceIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
@@ -157,6 +164,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_CUSTOMER_EVENT = "customer_event";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_EVENT)
   private MemberActivityDataCustomerEvent customerEvent;
+    private boolean customerEventIsSet = false;
 
   public static final String SERIALIZED_NAME_EARNING_RULE = "earning_rule";
   @SerializedName(SERIALIZED_NAME_EARNING_RULE)
@@ -169,6 +177,7 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_REWARD_REDEMPTION = "reward_redemption";
   @SerializedName(SERIALIZED_NAME_REWARD_REDEMPTION)
   private Object rewardRedemption;
+    private boolean rewardRedemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_REWARD_ASSIGNMENT = "reward_assignment";
   @SerializedName(SERIALIZED_NAME_REWARD_ASSIGNMENT)
@@ -177,10 +186,12 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
+    private boolean sourceIsSet = false;
 
   public static final String SERIALIZED_NAME_TRANSACTION = "transaction";
   @SerializedName(SERIALIZED_NAME_TRANSACTION)
   private MemberActivityDataTransaction transaction;
+    private boolean transactionIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
@@ -201,10 +212,12 @@ public class MemberActivityData {
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_BUCKETS = "buckets";
   @SerializedName(SERIALIZED_NAME_BUCKETS)
   private List<LoyaltyPointsBucket> buckets;
+    private boolean bucketsIsSet = false;
 
   public MemberActivityData() {
   }
@@ -311,6 +324,10 @@ public class MemberActivityData {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -353,6 +370,10 @@ public class MemberActivityData {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -395,6 +416,10 @@ public class MemberActivityData {
 
   public void setOrder(MemberActivityDataOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -500,6 +525,10 @@ public class MemberActivityData {
 
   public void setRedemption(MemberActivityDataRedemption redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -584,6 +613,10 @@ public class MemberActivityData {
 
   public void setBalance(MemberActivityDataBalance balance) {
     this.balance = balance;
+    this.balanceIsSet = true;
+  }
+  public boolean isBalanceSet() {
+    return balanceIsSet;
   }
 
 
@@ -626,6 +659,10 @@ public class MemberActivityData {
 
   public void setCustomerEvent(MemberActivityDataCustomerEvent customerEvent) {
     this.customerEvent = customerEvent;
+    this.customerEventIsSet = true;
+  }
+  public boolean isCustomerEventSet() {
+    return customerEventIsSet;
   }
 
 
@@ -689,6 +726,10 @@ public class MemberActivityData {
 
   public void setRewardRedemption(Object rewardRedemption) {
     this.rewardRedemption = rewardRedemption;
+    this.rewardRedemptionIsSet = true;
+  }
+  public boolean isRewardRedemptionSet() {
+    return rewardRedemptionIsSet;
   }
 
 
@@ -731,6 +772,10 @@ public class MemberActivityData {
 
   public void setSource(String source) {
     this.source = source;
+    this.sourceIsSet = true;
+  }
+  public boolean isSourceSet() {
+    return sourceIsSet;
   }
 
 
@@ -752,6 +797,10 @@ public class MemberActivityData {
 
   public void setTransaction(MemberActivityDataTransaction transaction) {
     this.transaction = transaction;
+    this.transactionIsSet = true;
+  }
+  public boolean isTransactionSet() {
+    return transactionIsSet;
   }
 
 
@@ -857,6 +906,10 @@ public class MemberActivityData {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -886,6 +939,10 @@ public class MemberActivityData {
 
   public void setBuckets(List<LoyaltyPointsBucket> buckets) {
     this.buckets = buckets;
+    this.bucketsIsSet = true;
+  }
+  public boolean isBucketsSet() {
+    return bucketsIsSet;
   }
 
 
@@ -1058,7 +1115,37 @@ public class MemberActivityData {
        return (TypeAdapter<T>) new TypeAdapter<MemberActivityData>() {
            @Override
            public void write(JsonWriter out, MemberActivityData value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : MemberActivityData.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = MemberActivityData.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,18 +59,22 @@ public class TrashBinItem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_DELETED_BY_USER_ID = "deleted_by_user_id";
   @SerializedName(SERIALIZED_NAME_DELETED_BY_USER_ID)
   private String deletedByUserId;
+    private boolean deletedByUserIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
   private String resourceId;
+    private boolean resourceIdIsSet = false;
 
   /**
    * Type of the resource moved to the bin.
@@ -124,14 +130,17 @@ public class TrashBinItem {
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
   private ResourceTypeEnum resourceType;
+    private boolean resourceTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_NAME = "resource_name";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
   private String resourceName;
+    private boolean resourceNameIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_PARENT_ID = "resource_parent_id";
   @SerializedName(SERIALIZED_NAME_RESOURCE_PARENT_ID)
   private String resourceParentId;
+    private boolean resourceParentIdIsSet = false;
 
   /**
    * The type of the object represented by JSON. It is equal to the &#x60;resource_type&#x60;.
@@ -187,6 +196,7 @@ public class TrashBinItem {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object;
+    private boolean _objectIsSet = false;
 
   public TrashBinItem() {
   }
@@ -209,6 +219,10 @@ public class TrashBinItem {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -230,6 +244,10 @@ public class TrashBinItem {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -251,6 +269,10 @@ public class TrashBinItem {
 
   public void setDeletedByUserId(String deletedByUserId) {
     this.deletedByUserId = deletedByUserId;
+    this.deletedByUserIdIsSet = true;
+  }
+  public boolean isDeletedByUserIdSet() {
+    return deletedByUserIdIsSet;
   }
 
 
@@ -272,6 +294,10 @@ public class TrashBinItem {
 
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
+  }
+  public boolean isResourceIdSet() {
+    return resourceIdIsSet;
   }
 
 
@@ -293,6 +319,10 @@ public class TrashBinItem {
 
   public void setResourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
+  }
+  public boolean isResourceTypeSet() {
+    return resourceTypeIsSet;
   }
 
 
@@ -314,6 +344,10 @@ public class TrashBinItem {
 
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
+    this.resourceNameIsSet = true;
+  }
+  public boolean isResourceNameSet() {
+    return resourceNameIsSet;
   }
 
 
@@ -335,6 +369,10 @@ public class TrashBinItem {
 
   public void setResourceParentId(String resourceParentId) {
     this.resourceParentId = resourceParentId;
+    this.resourceParentIdIsSet = true;
+  }
+  public boolean isResourceParentIdSet() {
+    return resourceParentIdIsSet;
   }
 
 
@@ -356,6 +394,10 @@ public class TrashBinItem {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -456,7 +498,37 @@ public class TrashBinItem {
        return (TypeAdapter<T>) new TypeAdapter<TrashBinItem>() {
            @Override
            public void write(JsonWriter out, TrashBinItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : TrashBinItem.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = TrashBinItem.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

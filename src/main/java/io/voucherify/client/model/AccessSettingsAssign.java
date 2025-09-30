@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,14 +60,17 @@ public class AccessSettingsAssign {
   public static final String SERIALIZED_NAME_AREAS_IDS = "areas_ids";
   @SerializedName(SERIALIZED_NAME_AREAS_IDS)
   private List<String> areasIds;
+    private boolean areasIdsIsSet = false;
 
   public static final String SERIALIZED_NAME_AREA_STORES_IDS = "area_stores_ids";
   @SerializedName(SERIALIZED_NAME_AREA_STORES_IDS)
   private List<String> areaStoresIds;
+    private boolean areaStoresIdsIsSet = false;
 
   public static final String SERIALIZED_NAME_AREA_ALL_STORES_IDS = "area_all_stores_ids";
   @SerializedName(SERIALIZED_NAME_AREA_ALL_STORES_IDS)
   private List<String> areaAllStoresIds;
+    private boolean areaAllStoresIdsIsSet = false;
 
   public AccessSettingsAssign() {
   }
@@ -96,6 +101,10 @@ public class AccessSettingsAssign {
 
   public void setAreasIds(List<String> areasIds) {
     this.areasIds = areasIds;
+    this.areasIdsIsSet = true;
+  }
+  public boolean isAreasIdsSet() {
+    return areasIdsIsSet;
   }
 
 
@@ -125,6 +134,10 @@ public class AccessSettingsAssign {
 
   public void setAreaStoresIds(List<String> areaStoresIds) {
     this.areaStoresIds = areaStoresIds;
+    this.areaStoresIdsIsSet = true;
+  }
+  public boolean isAreaStoresIdsSet() {
+    return areaStoresIdsIsSet;
   }
 
 
@@ -154,6 +167,10 @@ public class AccessSettingsAssign {
 
   public void setAreaAllStoresIds(List<String> areaAllStoresIds) {
     this.areaAllStoresIds = areaAllStoresIds;
+    this.areaAllStoresIdsIsSet = true;
+  }
+  public boolean isAreaAllStoresIdsSet() {
+    return areaAllStoresIdsIsSet;
   }
 
 
@@ -239,7 +256,37 @@ public class AccessSettingsAssign {
        return (TypeAdapter<T>) new TypeAdapter<AccessSettingsAssign>() {
            @Override
            public void write(JsonWriter out, AccessSettingsAssign value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : AccessSettingsAssign.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = AccessSettingsAssign.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

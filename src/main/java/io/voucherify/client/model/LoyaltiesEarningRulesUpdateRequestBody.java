@@ -39,6 +39,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,6 +49,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,30 +67,37 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
   private String validationRuleId;
+    private boolean validationRuleIdIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   private LoyaltiesEarningRulesUpdateRequestBodyLoyalty loyalty;
+    private boolean loyaltyIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private LoyaltiesEarningRulesUpdateRequestBodySource source;
+    private boolean sourceIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
   private LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints;
+    private boolean pendingPointsIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
@@ -166,6 +175,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public LoyaltiesEarningRulesUpdateRequestBody() {
   }
@@ -188,6 +198,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setValidationRuleId(String validationRuleId) {
     this.validationRuleId = validationRuleId;
+    this.validationRuleIdIsSet = true;
+  }
+  public boolean isValidationRuleIdSet() {
+    return validationRuleIdIsSet;
   }
 
 
@@ -209,6 +223,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setLoyalty(LoyaltiesEarningRulesUpdateRequestBodyLoyalty loyalty) {
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
+  }
+  public boolean isLoyaltySet() {
+    return loyaltyIsSet;
   }
 
 
@@ -230,6 +248,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setSource(LoyaltiesEarningRulesUpdateRequestBodySource source) {
     this.source = source;
+    this.sourceIsSet = true;
+  }
+  public boolean isSourceSet() {
+    return sourceIsSet;
   }
 
 
@@ -251,6 +273,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -272,6 +298,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -293,6 +323,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -314,6 +348,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setPendingPoints(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
+  }
+  public boolean isPendingPointsSet() {
+    return pendingPointsIsSet;
   }
 
 
@@ -427,6 +465,10 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -539,7 +581,37 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesEarningRulesUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesEarningRulesUpdateRequestBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesEarningRulesUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

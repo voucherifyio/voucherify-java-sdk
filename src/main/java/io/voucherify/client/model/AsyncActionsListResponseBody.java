@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -104,6 +106,7 @@ public class AsyncActionsListResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.LIST;
+    private boolean _objectIsSet = false;
 
   /**
    * Identifies the name of the JSON property that contains the array of asynchronous actions.
@@ -153,14 +156,17 @@ public class AsyncActionsListResponseBody {
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
   private DataRefEnum dataRef = DataRefEnum.ASYNC_ACTIONS;
+    private boolean dataRefIsSet = false;
 
   public static final String SERIALIZED_NAME_ASYNC_ACTIONS = "async_actions";
   @SerializedName(SERIALIZED_NAME_ASYNC_ACTIONS)
   private List<AsyncActionBase> asyncActions;
+    private boolean asyncActionsIsSet = false;
 
   public static final String SERIALIZED_NAME_HAS_MORE = "has_more";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   private Boolean hasMore;
+    private boolean hasMoreIsSet = false;
 
   public AsyncActionsListResponseBody() {
   }
@@ -183,6 +189,10 @@ public class AsyncActionsListResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -204,6 +214,10 @@ public class AsyncActionsListResponseBody {
 
   public void setDataRef(DataRefEnum dataRef) {
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
+  }
+  public boolean isDataRefSet() {
+    return dataRefIsSet;
   }
 
 
@@ -233,6 +247,10 @@ public class AsyncActionsListResponseBody {
 
   public void setAsyncActions(List<AsyncActionBase> asyncActions) {
     this.asyncActions = asyncActions;
+    this.asyncActionsIsSet = true;
+  }
+  public boolean isAsyncActionsSet() {
+    return asyncActionsIsSet;
   }
 
 
@@ -254,6 +272,10 @@ public class AsyncActionsListResponseBody {
 
   public void setHasMore(Boolean hasMore) {
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
+  }
+  public boolean isHasMoreSet() {
+    return hasMoreIsSet;
   }
 
 
@@ -342,7 +364,37 @@ public class AsyncActionsListResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<AsyncActionsListResponseBody>() {
            @Override
            public void write(JsonWriter out, AsyncActionsListResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : AsyncActionsListResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = AsyncActionsListResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

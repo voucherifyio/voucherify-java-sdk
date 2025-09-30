@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,6 +61,7 @@ public class ExportsGetResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   /**
    * The type of object being represented. This object stores information about the export.
@@ -108,10 +111,12 @@ public class ExportsGetResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.EXPORT;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   /**
    * Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
@@ -167,18 +172,22 @@ public class ExportsGetResponseBody {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+    private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private String channel;
+    private boolean channelIsSet = false;
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ExportsGetResponseBodyResult result;
+    private boolean resultIsSet = false;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
+    private boolean userIdIsSet = false;
 
   /**
    * Gets or Sets exportedObject
@@ -240,10 +249,12 @@ public class ExportsGetResponseBody {
   public static final String SERIALIZED_NAME_EXPORTED_OBJECT = "exported_object";
   @SerializedName(SERIALIZED_NAME_EXPORTED_OBJECT)
   private ExportedObjectEnum exportedObject;
+    private boolean exportedObjectIsSet = false;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private ExportsGetResponseBodyParameters parameters;
+    private boolean parametersIsSet = false;
 
   public ExportsGetResponseBody() {
   }
@@ -266,6 +277,10 @@ public class ExportsGetResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -287,6 +302,10 @@ public class ExportsGetResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -308,6 +327,10 @@ public class ExportsGetResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -329,6 +352,10 @@ public class ExportsGetResponseBody {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -350,6 +377,10 @@ public class ExportsGetResponseBody {
 
   public void setChannel(String channel) {
     this.channel = channel;
+    this.channelIsSet = true;
+  }
+  public boolean isChannelSet() {
+    return channelIsSet;
   }
 
 
@@ -371,6 +402,10 @@ public class ExportsGetResponseBody {
 
   public void setResult(ExportsGetResponseBodyResult result) {
     this.result = result;
+    this.resultIsSet = true;
+  }
+  public boolean isResultSet() {
+    return resultIsSet;
   }
 
 
@@ -392,6 +427,10 @@ public class ExportsGetResponseBody {
 
   public void setUserId(String userId) {
     this.userId = userId;
+    this.userIdIsSet = true;
+  }
+  public boolean isUserIdSet() {
+    return userIdIsSet;
   }
 
 
@@ -413,6 +452,10 @@ public class ExportsGetResponseBody {
 
   public void setExportedObject(ExportedObjectEnum exportedObject) {
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
+  }
+  public boolean isExportedObjectSet() {
+    return exportedObjectIsSet;
   }
 
 
@@ -434,6 +477,10 @@ public class ExportsGetResponseBody {
 
   public void setParameters(ExportsGetResponseBodyParameters parameters) {
     this.parameters = parameters;
+    this.parametersIsSet = true;
+  }
+  public boolean isParametersSet() {
+    return parametersIsSet;
   }
 
 
@@ -537,7 +584,37 @@ public class ExportsGetResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<ExportsGetResponseBody>() {
            @Override
            public void write(JsonWriter out, ExportsGetResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ExportsGetResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ExportsGetResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

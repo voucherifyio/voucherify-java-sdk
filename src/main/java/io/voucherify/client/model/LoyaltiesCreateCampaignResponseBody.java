@@ -40,6 +40,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,6 +50,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -66,14 +68,17 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+    private boolean descriptionIsSet = false;
 
   /**
    * Type of campaign.
@@ -123,6 +128,7 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
   private CampaignTypeEnum campaignType = CampaignTypeEnum.LOYALTY_PROGRAM;
+    private boolean campaignTypeIsSet = false;
 
   /**
    * Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published
@@ -174,6 +180,7 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
@@ -182,14 +189,17 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_AUTO_JOIN = "auto_join";
   @SerializedName(SERIALIZED_NAME_AUTO_JOIN)
   private Boolean autoJoin;
+    private boolean autoJoinIsSet = false;
 
   public static final String SERIALIZED_NAME_JOIN_ONCE = "join_once";
   @SerializedName(SERIALIZED_NAME_JOIN_ONCE)
   private Boolean joinOnce;
+    private boolean joinOnceIsSet = false;
 
   public static final String SERIALIZED_NAME_USE_VOUCHER_METADATA_SCHEMA = "use_voucher_metadata_schema";
   @SerializedName(SERIALIZED_NAME_USE_VOUCHER_METADATA_SCHEMA)
   private Boolean useVoucherMetadataSchema;
+    private boolean useVoucherMetadataSchemaIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -263,38 +273,47 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING = "activity_duration_after_publishing";
   @SerializedName(SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING)
   private String activityDurationAfterPublishing;
+    private boolean activityDurationAfterPublishingIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHERS_COUNT = "vouchers_count";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_COUNT)
   private Integer vouchersCount;
+    private boolean vouchersCountIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
+    private boolean categoryIsSet = false;
 
   /**
    * Indicates the status of the campaign creation.
@@ -352,6 +371,7 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_CREATION_STATUS = "creation_status";
   @SerializedName(SERIALIZED_NAME_CREATION_STATUS)
   private CreationStatusEnum creationStatus;
+    private boolean creationStatusIsSet = false;
 
   /**
    * Indicates the status of the campaign&#39;s voucher generation.
@@ -409,26 +429,32 @@ public class LoyaltiesCreateCampaignResponseBody {
   public static final String SERIALIZED_NAME_VOUCHERS_GENERATION_STATUS = "vouchers_generation_status";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_GENERATION_STATUS)
   private VouchersGenerationStatusEnum vouchersGenerationStatus;
+    private boolean vouchersGenerationStatusIsSet = false;
 
   public static final String SERIALIZED_NAME_READONLY = "readonly";
   @SerializedName(SERIALIZED_NAME_READONLY)
   private Boolean readonly;
+    private boolean readonlyIsSet = false;
 
   public static final String SERIALIZED_NAME_PROTECTED = "protected";
   @SerializedName(SERIALIZED_NAME_PROTECTED)
   private Boolean _protected;
+    private boolean _protectedIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<Category> categories;
+    private boolean categoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "campaign";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION = "loyalty_tiers_expiration";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIERS_EXPIRATION)
@@ -463,6 +489,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -484,6 +514,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -505,6 +539,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setDescription(String description) {
     this.description = description;
+    this.descriptionIsSet = true;
+  }
+  public boolean isDescriptionSet() {
+    return descriptionIsSet;
   }
 
 
@@ -526,6 +564,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCampaignType(CampaignTypeEnum campaignType) {
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
+  }
+  public boolean isCampaignTypeSet() {
+    return campaignTypeIsSet;
   }
 
 
@@ -547,6 +589,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -589,6 +635,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setAutoJoin(Boolean autoJoin) {
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
+  }
+  public boolean isAutoJoinSet() {
+    return autoJoinIsSet;
   }
 
 
@@ -610,6 +660,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setJoinOnce(Boolean joinOnce) {
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
+  }
+  public boolean isJoinOnceSet() {
+    return joinOnceIsSet;
   }
 
 
@@ -631,6 +685,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setUseVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
+  }
+  public boolean isUseVoucherMetadataSchemaSet() {
+    return useVoucherMetadataSchemaIsSet;
   }
 
 
@@ -723,6 +781,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setActivityDurationAfterPublishing(String activityDurationAfterPublishing) {
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
+  }
+  public boolean isActivityDurationAfterPublishingSet() {
+    return activityDurationAfterPublishingIsSet;
   }
 
 
@@ -744,6 +806,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setVouchersCount(Integer vouchersCount) {
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
+  }
+  public boolean isVouchersCountSet() {
+    return vouchersCountIsSet;
   }
 
 
@@ -765,6 +831,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -786,6 +856,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -807,6 +881,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -828,6 +906,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -849,6 +931,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -870,6 +956,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -891,6 +981,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCategory(String category) {
     this.category = category;
+    this.categoryIsSet = true;
+  }
+  public boolean isCategorySet() {
+    return categoryIsSet;
   }
 
 
@@ -912,6 +1006,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCreationStatus(CreationStatusEnum creationStatus) {
     this.creationStatus = creationStatus;
+    this.creationStatusIsSet = true;
+  }
+  public boolean isCreationStatusSet() {
+    return creationStatusIsSet;
   }
 
 
@@ -933,6 +1031,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setVouchersGenerationStatus(VouchersGenerationStatusEnum vouchersGenerationStatus) {
     this.vouchersGenerationStatus = vouchersGenerationStatus;
+    this.vouchersGenerationStatusIsSet = true;
+  }
+  public boolean isVouchersGenerationStatusSet() {
+    return vouchersGenerationStatusIsSet;
   }
 
 
@@ -954,6 +1056,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setReadonly(Boolean readonly) {
     this.readonly = readonly;
+    this.readonlyIsSet = true;
+  }
+  public boolean isReadonlySet() {
+    return readonlyIsSet;
   }
 
 
@@ -975,6 +1081,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setProtected(Boolean _protected) {
     this._protected = _protected;
+    this._protectedIsSet = true;
+  }
+  public boolean isProtectedSet() {
+    return _protectedIsSet;
   }
 
 
@@ -996,6 +1106,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -1025,6 +1139,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setCategories(List<Category> categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -1046,6 +1164,10 @@ public class LoyaltiesCreateCampaignResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -1278,7 +1400,37 @@ public class LoyaltiesCreateCampaignResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesCreateCampaignResponseBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesCreateCampaignResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : LoyaltiesCreateCampaignResponseBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = LoyaltiesCreateCampaignResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

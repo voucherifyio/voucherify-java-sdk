@@ -1389,7 +1389,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersUpdateResponseBodyLoyaltyCard.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersUpdateResponseBodyPublish.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.voucherify.client.model.VouchersUpdateResponseBodyRedemption.CustomTypeAdapterFactory());
-        gson = gsonBuilder.create();
+        gson = gsonBuilder.serializeNulls().create();
     }
 
     /**

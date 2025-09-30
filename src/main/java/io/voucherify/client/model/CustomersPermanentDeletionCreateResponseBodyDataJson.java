@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,30 +58,37 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
   private Integer events;
+    private boolean eventsIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_EVENTS = "customer_events";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_EVENTS)
   private Integer customerEvents;
+    private boolean customerEventsIsSet = false;
 
   public static final String SERIALIZED_NAME_DAILY_EVENTS = "daily_events";
   @SerializedName(SERIALIZED_NAME_DAILY_EVENTS)
   private Integer dailyEvents;
+    private boolean dailyEventsIsSet = false;
 
   public static final String SERIALIZED_NAME_SEGMENTS = "segments";
   @SerializedName(SERIALIZED_NAME_SEGMENTS)
   private Integer segments;
+    private boolean segmentsIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDERS = "orders";
   @SerializedName(SERIALIZED_NAME_ORDERS)
   private Integer orders;
+    private boolean ordersIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER_EVENTS = "order_events";
   @SerializedName(SERIALIZED_NAME_ORDER_EVENTS)
   private Integer orderEvents;
+    private boolean orderEventsIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
   private Integer customer = 1;
+    private boolean customerIsSet = false;
 
   public CustomersPermanentDeletionCreateResponseBodyDataJson() {
   }
@@ -102,6 +111,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setEvents(Integer events) {
     this.events = events;
+    this.eventsIsSet = true;
+  }
+  public boolean isEventsSet() {
+    return eventsIsSet;
   }
 
 
@@ -123,6 +136,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setCustomerEvents(Integer customerEvents) {
     this.customerEvents = customerEvents;
+    this.customerEventsIsSet = true;
+  }
+  public boolean isCustomerEventsSet() {
+    return customerEventsIsSet;
   }
 
 
@@ -144,6 +161,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setDailyEvents(Integer dailyEvents) {
     this.dailyEvents = dailyEvents;
+    this.dailyEventsIsSet = true;
+  }
+  public boolean isDailyEventsSet() {
+    return dailyEventsIsSet;
   }
 
 
@@ -165,6 +186,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setSegments(Integer segments) {
     this.segments = segments;
+    this.segmentsIsSet = true;
+  }
+  public boolean isSegmentsSet() {
+    return segmentsIsSet;
   }
 
 
@@ -186,6 +211,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setOrders(Integer orders) {
     this.orders = orders;
+    this.ordersIsSet = true;
+  }
+  public boolean isOrdersSet() {
+    return ordersIsSet;
   }
 
 
@@ -207,6 +236,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setOrderEvents(Integer orderEvents) {
     this.orderEvents = orderEvents;
+    this.orderEventsIsSet = true;
+  }
+  public boolean isOrderEventsSet() {
+    return orderEventsIsSet;
   }
 
 
@@ -228,6 +261,10 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
 
   public void setCustomer(Integer customer) {
     this.customer = customer;
+    this.customerIsSet = true;
+  }
+  public boolean isCustomerSet() {
+    return customerIsSet;
   }
 
 
@@ -325,7 +362,37 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
        return (TypeAdapter<T>) new TypeAdapter<CustomersPermanentDeletionCreateResponseBodyDataJson>() {
            @Override
            public void write(JsonWriter out, CustomersPermanentDeletionCreateResponseBodyDataJson value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : CustomersPermanentDeletionCreateResponseBodyDataJson.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = CustomersPermanentDeletionCreateResponseBodyDataJson.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

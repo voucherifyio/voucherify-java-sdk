@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,14 +59,17 @@ public class RedeemableGift {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private BigDecimal balance;
+    private boolean balanceIsSet = false;
 
   public static final String SERIALIZED_NAME_CREDITS = "credits";
   @SerializedName(SERIALIZED_NAME_CREDITS)
   private BigDecimal credits;
+    private boolean creditsIsSet = false;
 
   public static final String SERIALIZED_NAME_LOCKED_CREDITS = "locked_credits";
   @SerializedName(SERIALIZED_NAME_LOCKED_CREDITS)
   private BigDecimal lockedCredits;
+    private boolean lockedCreditsIsSet = false;
 
   public RedeemableGift() {
   }
@@ -87,6 +92,10 @@ public class RedeemableGift {
 
   public void setBalance(BigDecimal balance) {
     this.balance = balance;
+    this.balanceIsSet = true;
+  }
+  public boolean isBalanceSet() {
+    return balanceIsSet;
   }
 
 
@@ -108,6 +117,10 @@ public class RedeemableGift {
 
   public void setCredits(BigDecimal credits) {
     this.credits = credits;
+    this.creditsIsSet = true;
+  }
+  public boolean isCreditsSet() {
+    return creditsIsSet;
   }
 
 
@@ -129,6 +142,10 @@ public class RedeemableGift {
 
   public void setLockedCredits(BigDecimal lockedCredits) {
     this.lockedCredits = lockedCredits;
+    this.lockedCreditsIsSet = true;
+  }
+  public boolean isLockedCreditsSet() {
+    return lockedCreditsIsSet;
   }
 
 
@@ -214,7 +231,37 @@ public class RedeemableGift {
        return (TypeAdapter<T>) new TypeAdapter<RedeemableGift>() {
            @Override
            public void write(JsonWriter out, RedeemableGift value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : RedeemableGift.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = RedeemableGift.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

@@ -39,6 +39,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,6 +49,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,6 +67,7 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   /**
    * The type of the object represented by the JSON
@@ -114,34 +117,42 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.REDEMPTION_ROLLBACK;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
+    private boolean dateIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private String customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
   private String trackingId;
+    private boolean trackingIdIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
+    private boolean amountIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private String redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+    private boolean reasonIsSet = false;
 
   /**
    * Redemption result.
@@ -193,6 +204,7 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ResultEnum result;
+    private boolean resultIsSet = false;
 
   /**
    * Redemption status.
@@ -244,22 +256,27 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+    private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
+    private boolean failureCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
   private String failureMessage;
+    private boolean failureMessageIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private RedemptionRollbackOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private RedemptionRollbackChannel channel;
+    private boolean channelIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -317,10 +334,12 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "related_object_type";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
   private RelatedObjectTypeEnum relatedObjectType;
+    private boolean relatedObjectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
@@ -337,10 +356,12 @@ public class RedemptionRollback {
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private RedemptionRollbackGift gift;
+    private boolean giftIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private RedemptionRollbackLoyaltyCard loyaltyCard;
+    private boolean loyaltyCardIsSet = false;
 
   public RedemptionRollback() {
   }
@@ -363,6 +384,10 @@ public class RedemptionRollback {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -384,6 +409,10 @@ public class RedemptionRollback {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -405,6 +434,10 @@ public class RedemptionRollback {
 
   public void setDate(OffsetDateTime date) {
     this.date = date;
+    this.dateIsSet = true;
+  }
+  public boolean isDateSet() {
+    return dateIsSet;
   }
 
 
@@ -426,6 +459,10 @@ public class RedemptionRollback {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -447,6 +484,10 @@ public class RedemptionRollback {
 
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
+  }
+  public boolean isTrackingIdSet() {
+    return trackingIdIsSet;
   }
 
 
@@ -468,6 +509,10 @@ public class RedemptionRollback {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -489,6 +534,10 @@ public class RedemptionRollback {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
+    this.amountIsSet = true;
+  }
+  public boolean isAmountSet() {
+    return amountIsSet;
   }
 
 
@@ -510,6 +559,10 @@ public class RedemptionRollback {
 
   public void setRedemption(String redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -531,6 +584,10 @@ public class RedemptionRollback {
 
   public void setReason(String reason) {
     this.reason = reason;
+    this.reasonIsSet = true;
+  }
+  public boolean isReasonSet() {
+    return reasonIsSet;
   }
 
 
@@ -552,6 +609,10 @@ public class RedemptionRollback {
 
   public void setResult(ResultEnum result) {
     this.result = result;
+    this.resultIsSet = true;
+  }
+  public boolean isResultSet() {
+    return resultIsSet;
   }
 
 
@@ -573,6 +634,10 @@ public class RedemptionRollback {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -594,6 +659,10 @@ public class RedemptionRollback {
 
   public void setFailureCode(String failureCode) {
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
+  }
+  public boolean isFailureCodeSet() {
+    return failureCodeIsSet;
   }
 
 
@@ -615,6 +684,10 @@ public class RedemptionRollback {
 
   public void setFailureMessage(String failureMessage) {
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
+  }
+  public boolean isFailureMessageSet() {
+    return failureMessageIsSet;
   }
 
 
@@ -636,6 +709,10 @@ public class RedemptionRollback {
 
   public void setOrder(RedemptionRollbackOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -657,6 +734,10 @@ public class RedemptionRollback {
 
   public void setChannel(RedemptionRollbackChannel channel) {
     this.channel = channel;
+    this.channelIsSet = true;
+  }
+  public boolean isChannelSet() {
+    return channelIsSet;
   }
 
 
@@ -699,6 +780,10 @@ public class RedemptionRollback {
 
   public void setRelatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+  }
+  public boolean isRelatedObjectTypeSet() {
+    return relatedObjectTypeIsSet;
   }
 
 
@@ -720,6 +805,10 @@ public class RedemptionRollback {
 
   public void setRelatedObjectId(String relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -804,6 +893,10 @@ public class RedemptionRollback {
 
   public void setGift(RedemptionRollbackGift gift) {
     this.gift = gift;
+    this.giftIsSet = true;
+  }
+  public boolean isGiftSet() {
+    return giftIsSet;
   }
 
 
@@ -825,6 +918,10 @@ public class RedemptionRollback {
 
   public void setLoyaltyCard(RedemptionRollbackLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
+  }
+  public boolean isLoyaltyCardSet() {
+    return loyaltyCardIsSet;
   }
 
 
@@ -970,7 +1067,37 @@ public class RedemptionRollback {
        return (TypeAdapter<T>) new TypeAdapter<RedemptionRollback>() {
            @Override
            public void write(JsonWriter out, RedemptionRollback value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : RedemptionRollback.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = RedemptionRollback.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

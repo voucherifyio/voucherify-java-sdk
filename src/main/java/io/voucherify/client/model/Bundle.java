@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -60,18 +62,22 @@ public class Bundle {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private Integer quantity;
+    private boolean quantityIsSet = false;
 
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   private Integer limit;
+    private boolean limitIsSet = false;
 
   public static final String SERIALIZED_NAME_IDENTIFIED = "identified";
   @SerializedName(SERIALIZED_NAME_IDENTIFIED)
   private List<BundleIdentifiedItem> identified;
+    private boolean identifiedIsSet = false;
 
   public static final String SERIALIZED_NAME_MISSING = "missing";
   @SerializedName(SERIALIZED_NAME_MISSING)
   private List<BundleMissingItem> missing;
+    private boolean missingIsSet = false;
 
   public Bundle() {
   }
@@ -96,6 +102,10 @@ public class Bundle {
 
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
+    this.quantityIsSet = true;
+  }
+  public boolean isQuantitySet() {
+    return quantityIsSet;
   }
 
 
@@ -119,6 +129,10 @@ public class Bundle {
 
   public void setLimit(Integer limit) {
     this.limit = limit;
+    this.limitIsSet = true;
+  }
+  public boolean isLimitSet() {
+    return limitIsSet;
   }
 
 
@@ -148,6 +162,10 @@ public class Bundle {
 
   public void setIdentified(List<BundleIdentifiedItem> identified) {
     this.identified = identified;
+    this.identifiedIsSet = true;
+  }
+  public boolean isIdentifiedSet() {
+    return identifiedIsSet;
   }
 
 
@@ -177,6 +195,10 @@ public class Bundle {
 
   public void setMissing(List<BundleMissingItem> missing) {
     this.missing = missing;
+    this.missingIsSet = true;
+  }
+  public boolean isMissingSet() {
+    return missingIsSet;
   }
 
 
@@ -265,7 +287,37 @@ public class Bundle {
        return (TypeAdapter<T>) new TypeAdapter<Bundle>() {
            @Override
            public void write(JsonWriter out, Bundle value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : Bundle.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = Bundle.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

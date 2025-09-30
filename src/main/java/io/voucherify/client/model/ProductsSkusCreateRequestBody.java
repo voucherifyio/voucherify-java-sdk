@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,34 +58,42 @@ public class ProductsSkusCreateRequestBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
+    private boolean sourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_SKU = "sku";
   @SerializedName(SERIALIZED_NAME_SKU)
   private String sku;
+    private boolean skuIsSet = false;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
   private Integer price;
+    private boolean priceIsSet = false;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
+    private boolean currencyIsSet = false;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Object attributes;
+    private boolean attributesIsSet = false;
 
   public static final String SERIALIZED_NAME_IMAGE_URL = "image_url";
   @SerializedName(SERIALIZED_NAME_IMAGE_URL)
   private String imageUrl;
+    private boolean imageUrlIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public ProductsSkusCreateRequestBody() {
   }
@@ -106,6 +116,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -127,6 +141,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setSourceId(String sourceId) {
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
+  }
+  public boolean isSourceIdSet() {
+    return sourceIdIsSet;
   }
 
 
@@ -148,6 +166,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setSku(String sku) {
     this.sku = sku;
+    this.skuIsSet = true;
+  }
+  public boolean isSkuSet() {
+    return skuIsSet;
   }
 
 
@@ -169,6 +191,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setPrice(Integer price) {
     this.price = price;
+    this.priceIsSet = true;
+  }
+  public boolean isPriceSet() {
+    return priceIsSet;
   }
 
 
@@ -190,6 +216,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setCurrency(String currency) {
     this.currency = currency;
+    this.currencyIsSet = true;
+  }
+  public boolean isCurrencySet() {
+    return currencyIsSet;
   }
 
 
@@ -211,6 +241,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setAttributes(Object attributes) {
     this.attributes = attributes;
+    this.attributesIsSet = true;
+  }
+  public boolean isAttributesSet() {
+    return attributesIsSet;
   }
 
 
@@ -232,6 +266,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
+  }
+  public boolean isImageUrlSet() {
+    return imageUrlIsSet;
   }
 
 
@@ -253,6 +291,10 @@ public class ProductsSkusCreateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -353,7 +395,37 @@ public class ProductsSkusCreateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ProductsSkusCreateRequestBody>() {
            @Override
            public void write(JsonWriter out, ProductsSkusCreateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : ProductsSkusCreateRequestBody.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = ProductsSkusCreateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 

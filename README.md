@@ -214,7 +214,7 @@ UPDATED:
   - `items` in RedemptionsEntry model has been updated to the new model RedemptionEntryOrderItemsItem
   - `order` in RedemptionRollback model has been updated to the new model RedemptionRollbackOrder
   - `balance` in VoucherTransaction model has been updated to the new model VoucherBalance
-  - `PENDING_POINTS_ACTIVATION` enum option in type object (VoucherTranscation, LoyaltyCardTransactionsType models) has been updated to `PENDING_POINTS_ACTIVATION` name
+  - `POINTS_PENDING_ACTIVATION` enum option in type object (VoucherTranscation, LoyaltyCardTransactionsType models) has been updated to `PENDING_POINTS_ACTIVATION` name
   - `order` in QualificationsRedeemable has been updated to the new model QualificationsRedeemableOrder
   - old EventSource model has been updated to CustomEvent name with new properties
   - `order` in QualificationsRedeemableBase has been updated to the new model QualificationsRedeemableBaseOrder

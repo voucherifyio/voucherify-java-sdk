@@ -1,10 +1,12 @@
 package io.voucherify;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +26,8 @@ import io.voucherify.client.model.CampaignsCreateRequestBody;
 import io.voucherify.client.model.CampaignsCreateRequestBodyVoucher;
 import io.voucherify.client.model.CampaignsCreateResponseBody;
 import io.voucherify.client.model.CampaignsGetResponseBody;
+import io.voucherify.client.model.CampaignsUpdateRequestBody;
+import io.voucherify.client.model.CampaignsUpdateResponseBody;
 import io.voucherify.client.model.CampaignsVouchersCreateCombinedResponseBody;
 import io.voucherify.client.model.CampaignsVouchersCreateInBulkRequestBody;
 import io.voucherify.client.model.Customer;
@@ -343,4 +347,29 @@ public class CampaignsTest {
         }
     }
 
+    @Test
+    @org.junit.jupiter.api.Order(15)
+    public void updateCampaignExpirationDateToNullTest() {
+        try {
+            CampaignsCreateRequestBody campaign = new CampaignsCreateRequestBody();
+            campaign.setName(Utils.getAlphaNumericString(20));
+            campaign.setCampaignType(CampaignsCreateRequestBody.CampaignTypeEnum.PROMOTION);
+            campaign.setExpirationDate(OffsetDateTime.now().plusDays(30));
+                        CampaignsCreateResponseBody campaignResult = campaigns.createCampaign(campaign);
+
+            assertNotNull(campaignResult);
+            assertNotNull(campaignResult.getExpirationDate());
+            
+            // Now set expiration date to null to clear it
+            CampaignsUpdateRequestBody clearExpirationRequest = new CampaignsUpdateRequestBody();
+            clearExpirationRequest.setExpirationDate(null);
+            
+            CampaignsUpdateResponseBody clearResponse = campaigns.updateCampaign(campaignResult.getId(), clearExpirationRequest);
+            assertNotNull(clearResponse);
+            assertNull(clearResponse.getExpirationDate(), "Campaign expiration date should be null after setting it to null");
+            
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }

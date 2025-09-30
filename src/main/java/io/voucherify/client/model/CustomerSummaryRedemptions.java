@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,34 +60,42 @@ public class CustomerSummaryRedemptions {
   public static final String SERIALIZED_NAME_TOTAL_REDEEMED = "total_redeemed";
   @SerializedName(SERIALIZED_NAME_TOTAL_REDEEMED)
   private Integer totalRedeemed;
+    private boolean totalRedeemedIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_FAILED = "total_failed";
   @SerializedName(SERIALIZED_NAME_TOTAL_FAILED)
   private Integer totalFailed;
+    private boolean totalFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_SUCCEEDED = "total_succeeded";
   @SerializedName(SERIALIZED_NAME_TOTAL_SUCCEEDED)
   private Integer totalSucceeded;
+    private boolean totalSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_ROLLED_BACK = "total_rolled_back";
   @SerializedName(SERIALIZED_NAME_TOTAL_ROLLED_BACK)
   private Integer totalRolledBack;
+    private boolean totalRolledBackIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_ROLLBACK_FAILED = "total_rollback_failed";
   @SerializedName(SERIALIZED_NAME_TOTAL_ROLLBACK_FAILED)
   private Integer totalRollbackFailed;
+    private boolean totalRollbackFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_ROLLBACK_SUCCEEDED = "total_rollback_succeeded";
   @SerializedName(SERIALIZED_NAME_TOTAL_ROLLBACK_SUCCEEDED)
   private Integer totalRollbackSucceeded;
+    private boolean totalRollbackSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private CustomerSummaryRedemptionsGift gift;
+    private boolean giftIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private CustomerSummaryRedemptionsLoyaltyCard loyaltyCard;
+    private boolean loyaltyCardIsSet = false;
 
   public CustomerSummaryRedemptions() {
   }
@@ -108,6 +118,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalRedeemed(Integer totalRedeemed) {
     this.totalRedeemed = totalRedeemed;
+    this.totalRedeemedIsSet = true;
+  }
+  public boolean isTotalRedeemedSet() {
+    return totalRedeemedIsSet;
   }
 
 
@@ -129,6 +143,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalFailed(Integer totalFailed) {
     this.totalFailed = totalFailed;
+    this.totalFailedIsSet = true;
+  }
+  public boolean isTotalFailedSet() {
+    return totalFailedIsSet;
   }
 
 
@@ -150,6 +168,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalSucceeded(Integer totalSucceeded) {
     this.totalSucceeded = totalSucceeded;
+    this.totalSucceededIsSet = true;
+  }
+  public boolean isTotalSucceededSet() {
+    return totalSucceededIsSet;
   }
 
 
@@ -171,6 +193,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalRolledBack(Integer totalRolledBack) {
     this.totalRolledBack = totalRolledBack;
+    this.totalRolledBackIsSet = true;
+  }
+  public boolean isTotalRolledBackSet() {
+    return totalRolledBackIsSet;
   }
 
 
@@ -192,6 +218,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalRollbackFailed(Integer totalRollbackFailed) {
     this.totalRollbackFailed = totalRollbackFailed;
+    this.totalRollbackFailedIsSet = true;
+  }
+  public boolean isTotalRollbackFailedSet() {
+    return totalRollbackFailedIsSet;
   }
 
 
@@ -213,6 +243,10 @@ public class CustomerSummaryRedemptions {
 
   public void setTotalRollbackSucceeded(Integer totalRollbackSucceeded) {
     this.totalRollbackSucceeded = totalRollbackSucceeded;
+    this.totalRollbackSucceededIsSet = true;
+  }
+  public boolean isTotalRollbackSucceededSet() {
+    return totalRollbackSucceededIsSet;
   }
 
 
@@ -234,6 +268,10 @@ public class CustomerSummaryRedemptions {
 
   public void setGift(CustomerSummaryRedemptionsGift gift) {
     this.gift = gift;
+    this.giftIsSet = true;
+  }
+  public boolean isGiftSet() {
+    return giftIsSet;
   }
 
 
@@ -255,6 +293,10 @@ public class CustomerSummaryRedemptions {
 
   public void setLoyaltyCard(CustomerSummaryRedemptionsLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
+  }
+  public boolean isLoyaltyCardSet() {
+    return loyaltyCardIsSet;
   }
 
 
@@ -355,7 +397,37 @@ public class CustomerSummaryRedemptions {
        return (TypeAdapter<T>) new TypeAdapter<CustomerSummaryRedemptions>() {
            @Override
            public void write(JsonWriter out, CustomerSummaryRedemptions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+              // 1. Strip all nulls and internal "isSet" markers
+              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+              // 2. Add back explicitly set nulls using reflection
+              for (Field field : CustomerSummaryRedemptions.class.getDeclaredFields()) {
+                String fieldName = field.getName();
+                if (fieldName.endsWith("IsSet")) continue;
+
+                try {
+                  Field isSetField = CustomerSummaryRedemptions.class.getDeclaredField(fieldName + "IsSet");
+                  isSetField.setAccessible(true);
+                  boolean isSet = (boolean) isSetField.get(value);
+
+                  field.setAccessible(true);
+                  Object fieldValue = field.get(value);
+
+                  if (isSet && fieldValue == null) {
+                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                    obj.add(jsonName, JsonNull.INSTANCE);
+                  }
+                } catch (NoSuchFieldException ignored) {
+                  // no isSet marker → skip
+                } catch (IllegalAccessException e) {
+                  throw new RuntimeException(e);
+                }
+              }
+
              elementAdapter.write(out, obj);
            }
 
