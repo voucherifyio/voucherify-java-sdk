@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.0</version>
+  <version>17.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.1"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-17.0.0.jar`
+* `target/voucherify-java-sdk-17.0.1.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -151,6 +151,14 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 [OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.0)
 
 ## 📅 Changelog
+- **2025-10-02** - `17.0.1`
+UPDATED:
+- all models with nullable fields:
+  - added `IsSet` property for each nullable property to track actual setting to null
+  - set null are included in serialized JSON
+- JSON
+  - `serializeNulls()` was added to `gson.create` in order to include nulls in final JSON sent to API
+  
 - **2025-07-06** - `17.0.0`
 ADDED:
 - ParameterFiltersListCampaigns model:

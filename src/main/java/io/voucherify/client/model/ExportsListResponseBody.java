@@ -364,36 +364,34 @@ public class ExportsListResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<ExportsListResponseBody>() {
            @Override
            public void write(JsonWriter out, ExportsListResponseBody value) throws IOException {
-
             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
 
-              // 1. Strip all nulls and internal "isSet" markers
-              obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
 
-              // 2. Add back explicitly set nulls using reflection
-              for (Field field : ExportsListResponseBody.class.getDeclaredFields()) {
-                String fieldName = field.getName();
-                if (fieldName.endsWith("IsSet")) continue;
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ExportsListResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ExportsListResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
 
-                try {
-                  Field isSetField = ExportsListResponseBody.class.getDeclaredField(fieldName + "IsSet");
-                  isSetField.setAccessible(true);
-                  boolean isSet = (boolean) isSetField.get(value);
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
 
-                  field.setAccessible(true);
-                  Object fieldValue = field.get(value);
-
-                  if (isSet && fieldValue == null) {
-                    // convert camelCase to snake_case (OpenAPI property names are snake_case)
-                    String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
-                    obj.add(jsonName, JsonNull.INSTANCE);
-                  }
-                } catch (NoSuchFieldException ignored) {
-                  // no isSet marker → skip
-                } catch (IllegalAccessException e) {
-                  throw new RuntimeException(e);
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
                 }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
               }
+            }
 
              elementAdapter.write(out, obj);
            }
