@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,22 +60,27 @@ public class CustomerRedeemable {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLE_ID = "redeemable_id";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE_ID)
   private String redeemableId;
+    private boolean redeemableIdIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLE_OBJECT = "redeemable_object";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE_OBJECT)
   private String redeemableObject;
+    private boolean redeemableObjectIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private String customerId;
+    private boolean customerIdIsSet = false;
 
   /**
    * Role of the holder.
@@ -127,10 +134,12 @@ public class CustomerRedeemable {
   public static final String SERIALIZED_NAME_HOLDER_ROLE = "holder_role";
   @SerializedName(SERIALIZED_NAME_HOLDER_ROLE)
   private HolderRoleEnum holderRole = HolderRoleEnum.OWNER;
+    private boolean holderRoleIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   /**
    * Defines the type of the campaign.
@@ -188,6 +197,7 @@ public class CustomerRedeemable {
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
   private CampaignTypeEnum campaignType = CampaignTypeEnum.DISCOUNT_COUPONS;
+    private boolean campaignTypeIsSet = false;
 
   /**
    * Defines the type of the voucher.
@@ -241,10 +251,12 @@ public class CustomerRedeemable {
   public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private VoucherTypeEnum voucherType = VoucherTypeEnum.DISCOUNT_VOUCHER;
+    private boolean voucherTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLE = "redeemable";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE)
   private CustomerRedeemableRedeemable redeemable;
+    private boolean redeemableIsSet = false;
 
   public CustomerRedeemable() {
   }
@@ -267,6 +279,10 @@ public class CustomerRedeemable {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -288,6 +304,10 @@ public class CustomerRedeemable {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -309,6 +329,10 @@ public class CustomerRedeemable {
 
   public void setRedeemableId(String redeemableId) {
     this.redeemableId = redeemableId;
+    this.redeemableIdIsSet = true;
+  }
+  public boolean isRedeemableIdSet() {
+    return redeemableIdIsSet;
   }
 
 
@@ -330,6 +354,10 @@ public class CustomerRedeemable {
 
   public void setRedeemableObject(String redeemableObject) {
     this.redeemableObject = redeemableObject;
+    this.redeemableObjectIsSet = true;
+  }
+  public boolean isRedeemableObjectSet() {
+    return redeemableObjectIsSet;
   }
 
 
@@ -351,6 +379,10 @@ public class CustomerRedeemable {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -372,6 +404,10 @@ public class CustomerRedeemable {
 
   public void setHolderRole(HolderRoleEnum holderRole) {
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
+  }
+  public boolean isHolderRoleSet() {
+    return holderRoleIsSet;
   }
 
 
@@ -393,6 +429,10 @@ public class CustomerRedeemable {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -414,6 +454,10 @@ public class CustomerRedeemable {
 
   public void setCampaignType(CampaignTypeEnum campaignType) {
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
+  }
+  public boolean isCampaignTypeSet() {
+    return campaignTypeIsSet;
   }
 
 
@@ -435,6 +479,10 @@ public class CustomerRedeemable {
 
   public void setVoucherType(VoucherTypeEnum voucherType) {
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
+  }
+  public boolean isVoucherTypeSet() {
+    return voucherTypeIsSet;
   }
 
 
@@ -456,6 +504,10 @@ public class CustomerRedeemable {
 
   public void setRedeemable(CustomerRedeemableRedeemable redeemable) {
     this.redeemable = redeemable;
+    this.redeemableIsSet = true;
+  }
+  public boolean isRedeemableSet() {
+    return redeemableIsSet;
   }
 
 
@@ -562,7 +614,35 @@ public class CustomerRedeemable {
        return (TypeAdapter<T>) new TypeAdapter<CustomerRedeemable>() {
            @Override
            public void write(JsonWriter out, CustomerRedeemable value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CustomerRedeemable.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CustomerRedeemable.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

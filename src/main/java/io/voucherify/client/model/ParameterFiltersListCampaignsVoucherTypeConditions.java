@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -107,6 +109,7 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
   public static final String SERIALIZED_NAME_$_IN = "$in";
   @SerializedName(SERIALIZED_NAME_$_IN)
   private List<InEnum> $in;
+    private boolean $inIsSet = false;
 
   /**
    * Gets or Sets $notIn
@@ -160,6 +163,7 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
   public static final String SERIALIZED_NAME_$_NOT_IN = "$not_in";
   @SerializedName(SERIALIZED_NAME_$_NOT_IN)
   private List<NotInEnum> $notIn;
+    private boolean $notInIsSet = false;
 
   /**
    * Value is exactly this value (single value).
@@ -213,6 +217,7 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
   public static final String SERIALIZED_NAME_$_IS = "$is";
   @SerializedName(SERIALIZED_NAME_$_IS)
   private IsEnum $is;
+    private boolean $isIsSet = false;
 
   /**
    * Results omit this value (single value).
@@ -266,22 +271,27 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
   public static final String SERIALIZED_NAME_$_IS_NOT = "$is_not";
   @SerializedName(SERIALIZED_NAME_$_IS_NOT)
   private IsNotEnum $isNot;
+    private boolean $isNotIsSet = false;
 
   public static final String SERIALIZED_NAME_$_HAS_VALUE = "$has_value";
   @SerializedName(SERIALIZED_NAME_$_HAS_VALUE)
   private String $hasValue;
+    private boolean $hasValueIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_UNKNOWN = "$is_unknown";
   @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
   private String $isUnknown;
+    private boolean $isUnknownIsSet = false;
 
   public static final String SERIALIZED_NAME_$_STARTS_WITH = "$starts_with";
   @SerializedName(SERIALIZED_NAME_$_STARTS_WITH)
   private String $startsWith;
+    private boolean $startsWithIsSet = false;
 
   public static final String SERIALIZED_NAME_$_ENDS_WITH = "$ends_with";
   @SerializedName(SERIALIZED_NAME_$_ENDS_WITH)
   private String $endsWith;
+    private boolean $endsWithIsSet = false;
 
   public ParameterFiltersListCampaignsVoucherTypeConditions() {
   }
@@ -312,6 +322,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$In(List<InEnum> $in) {
     this.$in = $in;
+    this.$inIsSet = true;
+  }
+  public boolean is$InSet() {
+    return $inIsSet;
   }
 
 
@@ -341,6 +355,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$NotIn(List<NotInEnum> $notIn) {
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
+  }
+  public boolean is$NotInSet() {
+    return $notInIsSet;
   }
 
 
@@ -362,6 +380,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$Is(IsEnum $is) {
     this.$is = $is;
+    this.$isIsSet = true;
+  }
+  public boolean is$IsSet() {
+    return $isIsSet;
   }
 
 
@@ -383,6 +405,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$IsNot(IsNotEnum $isNot) {
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
+  }
+  public boolean is$IsNotSet() {
+    return $isNotIsSet;
   }
 
 
@@ -404,6 +430,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$HasValue(String $hasValue) {
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
+  }
+  public boolean is$HasValueSet() {
+    return $hasValueIsSet;
   }
 
 
@@ -425,6 +455,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$IsUnknown(String $isUnknown) {
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
+  }
+  public boolean is$IsUnknownSet() {
+    return $isUnknownIsSet;
   }
 
 
@@ -446,6 +480,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$StartsWith(String $startsWith) {
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
+  }
+  public boolean is$StartsWithSet() {
+    return $startsWithIsSet;
   }
 
 
@@ -467,6 +505,10 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
 
   public void set$EndsWith(String $endsWith) {
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
+  }
+  public boolean is$EndsWithSet() {
+    return $endsWithIsSet;
   }
 
 
@@ -567,7 +609,35 @@ public class ParameterFiltersListCampaignsVoucherTypeConditions {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCampaignsVoucherTypeConditions>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListCampaignsVoucherTypeConditions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ParameterFiltersListCampaignsVoucherTypeConditions.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ParameterFiltersListCampaignsVoucherTypeConditions.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

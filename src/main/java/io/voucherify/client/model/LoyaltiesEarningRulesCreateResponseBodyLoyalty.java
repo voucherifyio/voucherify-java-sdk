@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -107,10 +109,12 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   /**
    * Gets or Sets calculationType
@@ -174,22 +178,27 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
   public static final String SERIALIZED_NAME_CALCULATION_TYPE = "calculation_type";
   @SerializedName(SERIALIZED_NAME_CALCULATION_TYPE)
   private CalculationTypeEnum calculationType;
+    private boolean calculationTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER_ITEMS = "order_items";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEMS)
   private LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderItems orderItems;
+    private boolean orderItemsIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
   private LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomer customer;
+    private boolean customerIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
   private LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomEvent customEvent;
+    private boolean customEventIsSet = false;
 
   public LoyaltiesEarningRulesCreateResponseBodyLoyalty() {
   }
@@ -212,6 +221,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -233,6 +246,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -254,6 +271,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setCalculationType(CalculationTypeEnum calculationType) {
     this.calculationType = calculationType;
+    this.calculationTypeIsSet = true;
+  }
+  public boolean isCalculationTypeSet() {
+    return calculationTypeIsSet;
   }
 
 
@@ -275,6 +296,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setOrder(LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -296,6 +321,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setOrderItems(LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderItems orderItems) {
     this.orderItems = orderItems;
+    this.orderItemsIsSet = true;
+  }
+  public boolean isOrderItemsSet() {
+    return orderItemsIsSet;
   }
 
 
@@ -317,6 +346,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setCustomer(LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomer customer) {
     this.customer = customer;
+    this.customerIsSet = true;
+  }
+  public boolean isCustomerSet() {
+    return customerIsSet;
   }
 
 
@@ -338,6 +371,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
 
   public void setCustomEvent(LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomEvent customEvent) {
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
+  }
+  public boolean isCustomEventSet() {
+    return customEventIsSet;
   }
 
 
@@ -435,7 +472,35 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyalty {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateResponseBodyLoyalty>() {
            @Override
            public void write(JsonWriter out, LoyaltiesEarningRulesCreateResponseBodyLoyalty value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesEarningRulesCreateResponseBodyLoyalty.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesEarningRulesCreateResponseBodyLoyalty.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

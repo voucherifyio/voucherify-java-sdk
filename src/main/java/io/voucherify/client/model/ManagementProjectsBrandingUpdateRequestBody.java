@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -60,18 +62,22 @@ public class ManagementProjectsBrandingUpdateRequestBody {
   public static final String SERIALIZED_NAME_BRAND = "brand";
   @SerializedName(SERIALIZED_NAME_BRAND)
   private ManagementProjectsBrandingUpdateRequestBodyBrand brand;
+    private boolean brandIsSet = false;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private ManagementProjectsBrandingUpdateRequestBodyAddress address;
+    private boolean addressIsSet = false;
 
   public static final String SERIALIZED_NAME_CONTACT = "contact";
   @SerializedName(SERIALIZED_NAME_CONTACT)
   private ManagementProjectsBrandingUpdateRequestBodyContact contact;
+    private boolean contactIsSet = false;
 
   public static final String SERIALIZED_NAME_COCKPITS = "cockpits";
   @SerializedName(SERIALIZED_NAME_COCKPITS)
   private ManagementProjectsBrandingUpdateRequestBodyCockpits cockpits;
+    private boolean cockpitsIsSet = false;
 
   public ManagementProjectsBrandingUpdateRequestBody() {
   }
@@ -94,6 +100,10 @@ public class ManagementProjectsBrandingUpdateRequestBody {
 
   public void setBrand(ManagementProjectsBrandingUpdateRequestBodyBrand brand) {
     this.brand = brand;
+    this.brandIsSet = true;
+  }
+  public boolean isBrandSet() {
+    return brandIsSet;
   }
 
 
@@ -115,6 +125,10 @@ public class ManagementProjectsBrandingUpdateRequestBody {
 
   public void setAddress(ManagementProjectsBrandingUpdateRequestBodyAddress address) {
     this.address = address;
+    this.addressIsSet = true;
+  }
+  public boolean isAddressSet() {
+    return addressIsSet;
   }
 
 
@@ -136,6 +150,10 @@ public class ManagementProjectsBrandingUpdateRequestBody {
 
   public void setContact(ManagementProjectsBrandingUpdateRequestBodyContact contact) {
     this.contact = contact;
+    this.contactIsSet = true;
+  }
+  public boolean isContactSet() {
+    return contactIsSet;
   }
 
 
@@ -157,6 +175,10 @@ public class ManagementProjectsBrandingUpdateRequestBody {
 
   public void setCockpits(ManagementProjectsBrandingUpdateRequestBodyCockpits cockpits) {
     this.cockpits = cockpits;
+    this.cockpitsIsSet = true;
+  }
+  public boolean isCockpitsSet() {
+    return cockpitsIsSet;
   }
 
 
@@ -245,7 +267,35 @@ public class ManagementProjectsBrandingUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsBrandingUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsBrandingUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsBrandingUpdateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsBrandingUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

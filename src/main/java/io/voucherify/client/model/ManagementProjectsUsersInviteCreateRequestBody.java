@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,18 +60,22 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+    private boolean emailIsSet = false;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
+    private boolean firstNameIsSet = false;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
+    private boolean lastNameIsSet = false;
 
   public static final String SERIALIZED_NAME_PROJECTS = "projects";
   @SerializedName(SERIALIZED_NAME_PROJECTS)
   private Map<String, String> projects;
+    private boolean projectsIsSet = false;
 
   public ManagementProjectsUsersInviteCreateRequestBody() {
   }
@@ -92,6 +98,10 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
 
   public void setEmail(String email) {
     this.email = email;
+    this.emailIsSet = true;
+  }
+  public boolean isEmailSet() {
+    return emailIsSet;
   }
 
 
@@ -113,6 +123,10 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    this.firstNameIsSet = true;
+  }
+  public boolean isFirstNameSet() {
+    return firstNameIsSet;
   }
 
 
@@ -134,6 +148,10 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    this.lastNameIsSet = true;
+  }
+  public boolean isLastNameSet() {
+    return lastNameIsSet;
   }
 
 
@@ -163,6 +181,10 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
 
   public void setProjects(Map<String, String> projects) {
     this.projects = projects;
+    this.projectsIsSet = true;
+  }
+  public boolean isProjectsSet() {
+    return projectsIsSet;
   }
 
 
@@ -251,7 +273,35 @@ public class ManagementProjectsUsersInviteCreateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsUsersInviteCreateRequestBody>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsUsersInviteCreateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsUsersInviteCreateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsUsersInviteCreateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

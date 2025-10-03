@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,30 +60,37 @@ public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_LOGIN = "login";
   @SerializedName(SERIALIZED_NAME_LOGIN)
   private String login;
+    private boolean loginIsSet = false;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+    private boolean emailIsSet = false;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
+    private boolean firstNameIsSet = false;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
+    private boolean lastNameIsSet = false;
 
   public static final String SERIALIZED_NAME_PROJECTS = "projects";
   @SerializedName(SERIALIZED_NAME_PROJECTS)
   private Map<String, String> projects;
+    private boolean projectsIsSet = false;
 
   public static final String SERIALIZED_NAME_IS_OWNER = "is_owner";
   @SerializedName(SERIALIZED_NAME_IS_OWNER)
   private Boolean isOwner;
+    private boolean isOwnerIsSet = false;
 
   public User() {
   }
@@ -104,6 +113,10 @@ public class User {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -125,6 +138,10 @@ public class User {
 
   public void setLogin(String login) {
     this.login = login;
+    this.loginIsSet = true;
+  }
+  public boolean isLoginSet() {
+    return loginIsSet;
   }
 
 
@@ -146,6 +163,10 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+    this.emailIsSet = true;
+  }
+  public boolean isEmailSet() {
+    return emailIsSet;
   }
 
 
@@ -167,6 +188,10 @@ public class User {
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+    this.firstNameIsSet = true;
+  }
+  public boolean isFirstNameSet() {
+    return firstNameIsSet;
   }
 
 
@@ -188,6 +213,10 @@ public class User {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+    this.lastNameIsSet = true;
+  }
+  public boolean isLastNameSet() {
+    return lastNameIsSet;
   }
 
 
@@ -217,6 +246,10 @@ public class User {
 
   public void setProjects(Map<String, String> projects) {
     this.projects = projects;
+    this.projectsIsSet = true;
+  }
+  public boolean isProjectsSet() {
+    return projectsIsSet;
   }
 
 
@@ -238,6 +271,10 @@ public class User {
 
   public void setIsOwner(Boolean isOwner) {
     this.isOwner = isOwner;
+    this.isOwnerIsSet = true;
+  }
+  public boolean isIsOwnerSet() {
+    return isOwnerIsSet;
   }
 
 
@@ -335,7 +372,35 @@ public class User {
        return (TypeAdapter<T>) new TypeAdapter<User>() {
            @Override
            public void write(JsonWriter out, User value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : User.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = User.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

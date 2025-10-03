@@ -35,6 +35,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +45,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -61,22 +63,27 @@ public class LoyaltyPendingPointsDetails {
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private LoyaltyPendingPointsDetailsLoyaltyTier loyaltyTier;
+    private boolean loyaltyTierIsSet = false;
 
   public static final String SERIALIZED_NAME_HOLDER_LOYALTY_TIER = "holder_loyalty_tier";
   @SerializedName(SERIALIZED_NAME_HOLDER_LOYALTY_TIER)
   private LoyaltyPendingPointsDetailsHolderLoyaltyTier holderLoyaltyTier;
+    private boolean holderLoyaltyTierIsSet = false;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
   private LoyaltyPendingPointsDetailsEvent event;
+    private boolean eventIsSet = false;
 
   public static final String SERIALIZED_NAME_EARNING_RULE = "earning_rule";
   @SerializedName(SERIALIZED_NAME_EARNING_RULE)
   private LoyaltyPendingPointsDetailsEarningRule earningRule;
+    private boolean earningRuleIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private LoyaltyPendingPointsDetailsOrder order;
+    private boolean orderIsSet = false;
 
   public LoyaltyPendingPointsDetails() {
   }
@@ -99,6 +106,10 @@ public class LoyaltyPendingPointsDetails {
 
   public void setLoyaltyTier(LoyaltyPendingPointsDetailsLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
+  }
+  public boolean isLoyaltyTierSet() {
+    return loyaltyTierIsSet;
   }
 
 
@@ -120,6 +131,10 @@ public class LoyaltyPendingPointsDetails {
 
   public void setHolderLoyaltyTier(LoyaltyPendingPointsDetailsHolderLoyaltyTier holderLoyaltyTier) {
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
+  }
+  public boolean isHolderLoyaltyTierSet() {
+    return holderLoyaltyTierIsSet;
   }
 
 
@@ -141,6 +156,10 @@ public class LoyaltyPendingPointsDetails {
 
   public void setEvent(LoyaltyPendingPointsDetailsEvent event) {
     this.event = event;
+    this.eventIsSet = true;
+  }
+  public boolean isEventSet() {
+    return eventIsSet;
   }
 
 
@@ -162,6 +181,10 @@ public class LoyaltyPendingPointsDetails {
 
   public void setEarningRule(LoyaltyPendingPointsDetailsEarningRule earningRule) {
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
+  }
+  public boolean isEarningRuleSet() {
+    return earningRuleIsSet;
   }
 
 
@@ -183,6 +206,10 @@ public class LoyaltyPendingPointsDetails {
 
   public void setOrder(LoyaltyPendingPointsDetailsOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -274,7 +301,35 @@ public class LoyaltyPendingPointsDetails {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltyPendingPointsDetails>() {
            @Override
            public void write(JsonWriter out, LoyaltyPendingPointsDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltyPendingPointsDetails.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltyPendingPointsDetails.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

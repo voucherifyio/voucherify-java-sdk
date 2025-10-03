@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,22 +60,27 @@ public class SimplePromotionStack {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   private SimplePromotionStackCampaign campaign;
+    private boolean campaignIsSet = false;
 
   public static final String SERIALIZED_NAME_TIERS = "tiers";
   @SerializedName(SERIALIZED_NAME_TIERS)
   private SimplePromotionStackTiers tiers;
+    private boolean tiersIsSet = false;
 
   public SimplePromotionStack() {
   }
@@ -96,6 +103,10 @@ public class SimplePromotionStack {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -117,6 +128,10 @@ public class SimplePromotionStack {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -138,6 +153,10 @@ public class SimplePromotionStack {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -159,6 +178,10 @@ public class SimplePromotionStack {
 
   public void setCampaign(SimplePromotionStackCampaign campaign) {
     this.campaign = campaign;
+    this.campaignIsSet = true;
+  }
+  public boolean isCampaignSet() {
+    return campaignIsSet;
   }
 
 
@@ -180,6 +203,10 @@ public class SimplePromotionStack {
 
   public void setTiers(SimplePromotionStackTiers tiers) {
     this.tiers = tiers;
+    this.tiersIsSet = true;
+  }
+  public boolean isTiersSet() {
+    return tiersIsSet;
   }
 
 
@@ -271,7 +298,35 @@ public class SimplePromotionStack {
        return (TypeAdapter<T>) new TypeAdapter<SimplePromotionStack>() {
            @Override
            public void write(JsonWriter out, SimplePromotionStack value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : SimplePromotionStack.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = SimplePromotionStack.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

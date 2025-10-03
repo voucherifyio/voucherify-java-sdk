@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.0</version>
+  <version>17.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.1"
   }
 ```
 
@@ -83,7 +83,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/voucherify-java-sdk-17.0.0.jar`
+* `target/voucherify-java-sdk-17.0.1.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Running code
@@ -148,9 +148,17 @@ Read more about how to Contribute to Voucherify Java SDK by visiting main repo [
 Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.0)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.1)
 
 ## 📅 Changelog
+- **2025-10-02** - `17.0.1`
+UPDATED:
+- all models with nullable fields:
+  - added `IsSet` property for each nullable property to track actual setting to null
+  - set null are included in serialized JSON
+- JSON
+  - `serializeNulls()` was added to `gson.create` in order to include nulls in final JSON sent to API
+
 - **2025-07-06** - `17.0.0`
 ADDED:
 - ParameterFiltersListCampaigns model:
@@ -214,7 +222,7 @@ UPDATED:
   - `items` in RedemptionsEntry model has been updated to the new model RedemptionEntryOrderItemsItem
   - `order` in RedemptionRollback model has been updated to the new model RedemptionRollbackOrder
   - `balance` in VoucherTransaction model has been updated to the new model VoucherBalance
-  - `PENDING_POINTS_ACTIVATION` enum option in type object (VoucherTranscation, LoyaltyCardTransactionsType models) has been updated to `PENDING_POINTS_ACTIVATION` name
+  - `POINTS_PENDING_ACTIVATION` enum option in type object (VoucherTranscation, LoyaltyCardTransactionsType models) has been updated to `PENDING_POINTS_ACTIVATION` name
   - `order` in QualificationsRedeemable has been updated to the new model QualificationsRedeemableOrder
   - old EventSource model has been updated to CustomEvent name with new properties
   - `order` in QualificationsRedeemableBase has been updated to the new model QualificationsRedeemableBaseOrder

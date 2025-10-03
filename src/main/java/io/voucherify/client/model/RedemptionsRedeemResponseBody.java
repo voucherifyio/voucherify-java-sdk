@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,6 +64,7 @@ public class RedemptionsRedeemResponseBody {
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
   private List<Redemption> redemptions;
+    private boolean redemptionsIsSet = false;
 
   public static final String SERIALIZED_NAME_PARENT_REDEMPTION = "parent_redemption";
   @SerializedName(SERIALIZED_NAME_PARENT_REDEMPTION)
@@ -70,14 +73,17 @@ public class RedemptionsRedeemResponseBody {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private RedemptionsRedeemResponseBodyOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES = "inapplicable_redeemables";
   @SerializedName(SERIALIZED_NAME_INAPPLICABLE_REDEEMABLES)
   private List<ValidationsRedeemableInapplicable> inapplicableRedeemables;
+    private boolean inapplicableRedeemablesIsSet = false;
 
   public static final String SERIALIZED_NAME_SKIPPED_REDEEMABLES = "skipped_redeemables";
   @SerializedName(SERIALIZED_NAME_SKIPPED_REDEEMABLES)
   private List<ValidationsRedeemableSkipped> skippedRedeemables;
+    private boolean skippedRedeemablesIsSet = false;
 
   public RedemptionsRedeemResponseBody() {
   }
@@ -108,6 +114,10 @@ public class RedemptionsRedeemResponseBody {
 
   public void setRedemptions(List<Redemption> redemptions) {
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
+  }
+  public boolean isRedemptionsSet() {
+    return redemptionsIsSet;
   }
 
 
@@ -150,6 +160,10 @@ public class RedemptionsRedeemResponseBody {
 
   public void setOrder(RedemptionsRedeemResponseBodyOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -179,6 +193,10 @@ public class RedemptionsRedeemResponseBody {
 
   public void setInapplicableRedeemables(List<ValidationsRedeemableInapplicable> inapplicableRedeemables) {
     this.inapplicableRedeemables = inapplicableRedeemables;
+    this.inapplicableRedeemablesIsSet = true;
+  }
+  public boolean isInapplicableRedeemablesSet() {
+    return inapplicableRedeemablesIsSet;
   }
 
 
@@ -208,6 +226,10 @@ public class RedemptionsRedeemResponseBody {
 
   public void setSkippedRedeemables(List<ValidationsRedeemableSkipped> skippedRedeemables) {
     this.skippedRedeemables = skippedRedeemables;
+    this.skippedRedeemablesIsSet = true;
+  }
+  public boolean isSkippedRedeemablesSet() {
+    return skippedRedeemablesIsSet;
   }
 
 
@@ -299,7 +321,35 @@ public class RedemptionsRedeemResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<RedemptionsRedeemResponseBody>() {
            @Override
            public void write(JsonWriter out, RedemptionsRedeemResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : RedemptionsRedeemResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = RedemptionsRedeemResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

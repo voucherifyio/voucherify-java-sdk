@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,22 +59,27 @@ public class CustomerSummaryOrders {
   public static final String SERIALIZED_NAME_TOTAL_AMOUNT = "total_amount";
   @SerializedName(SERIALIZED_NAME_TOTAL_AMOUNT)
   private Integer totalAmount;
+    private boolean totalAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
   @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
   private Integer totalCount;
+    private boolean totalCountIsSet = false;
 
   public static final String SERIALIZED_NAME_AVERAGE_AMOUNT = "average_amount";
   @SerializedName(SERIALIZED_NAME_AVERAGE_AMOUNT)
   private Integer averageAmount;
+    private boolean averageAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_LAST_ORDER_AMOUNT = "last_order_amount";
   @SerializedName(SERIALIZED_NAME_LAST_ORDER_AMOUNT)
   private Integer lastOrderAmount;
+    private boolean lastOrderAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_LAST_ORDER_DATE = "last_order_date";
   @SerializedName(SERIALIZED_NAME_LAST_ORDER_DATE)
   private OffsetDateTime lastOrderDate;
+    private boolean lastOrderDateIsSet = false;
 
   public CustomerSummaryOrders() {
   }
@@ -95,6 +102,10 @@ public class CustomerSummaryOrders {
 
   public void setTotalAmount(Integer totalAmount) {
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
+  }
+  public boolean isTotalAmountSet() {
+    return totalAmountIsSet;
   }
 
 
@@ -116,6 +127,10 @@ public class CustomerSummaryOrders {
 
   public void setTotalCount(Integer totalCount) {
     this.totalCount = totalCount;
+    this.totalCountIsSet = true;
+  }
+  public boolean isTotalCountSet() {
+    return totalCountIsSet;
   }
 
 
@@ -137,6 +152,10 @@ public class CustomerSummaryOrders {
 
   public void setAverageAmount(Integer averageAmount) {
     this.averageAmount = averageAmount;
+    this.averageAmountIsSet = true;
+  }
+  public boolean isAverageAmountSet() {
+    return averageAmountIsSet;
   }
 
 
@@ -158,6 +177,10 @@ public class CustomerSummaryOrders {
 
   public void setLastOrderAmount(Integer lastOrderAmount) {
     this.lastOrderAmount = lastOrderAmount;
+    this.lastOrderAmountIsSet = true;
+  }
+  public boolean isLastOrderAmountSet() {
+    return lastOrderAmountIsSet;
   }
 
 
@@ -179,6 +202,10 @@ public class CustomerSummaryOrders {
 
   public void setLastOrderDate(OffsetDateTime lastOrderDate) {
     this.lastOrderDate = lastOrderDate;
+    this.lastOrderDateIsSet = true;
+  }
+  public boolean isLastOrderDateSet() {
+    return lastOrderDateIsSet;
   }
 
 
@@ -270,7 +297,35 @@ public class CustomerSummaryOrders {
        return (TypeAdapter<T>) new TypeAdapter<CustomerSummaryOrders>() {
            @Override
            public void write(JsonWriter out, CustomerSummaryOrders value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CustomerSummaryOrders.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CustomerSummaryOrders.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

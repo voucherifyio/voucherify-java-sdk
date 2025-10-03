@@ -39,6 +39,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,6 +49,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,34 +67,42 @@ public class ParameterFiltersListCustomerRedeemables {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private ParameterFiltersListCustomerRedeemablesId id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private ParameterFiltersListCustomerRedeemablesCreatedAt createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLE_ID = "redeemable_id";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE_ID)
   private ParameterFiltersListCustomerRedeemablesRedeemableId redeemableId;
+    private boolean redeemableIdIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLE_OBJECT = "redeemable_object";
   @SerializedName(SERIALIZED_NAME_REDEEMABLE_OBJECT)
   private ParameterFiltersListCustomerRedeemablesRedeemableObject redeemableObject;
+    private boolean redeemableObjectIsSet = false;
 
   public static final String SERIALIZED_NAME_HOLDER_ROLE = "holder_role";
   @SerializedName(SERIALIZED_NAME_HOLDER_ROLE)
   private ParameterFiltersListCustomerRedeemablesHolderRole holderRole;
+    private boolean holderRoleIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private ParameterFiltersListCustomerRedeemablesCampaignId campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_TYPE = "campaign_type";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_TYPE)
   private ParameterFiltersListCustomerRedeemablesCampaignType campaignType;
+    private boolean campaignTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private ParameterFiltersListCustomerRedeemablesVoucherType voucherType;
+    private boolean voucherTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
@@ -119,6 +129,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setId(ParameterFiltersListCustomerRedeemablesId id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -140,6 +154,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setCreatedAt(ParameterFiltersListCustomerRedeemablesCreatedAt createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -161,6 +179,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setRedeemableId(ParameterFiltersListCustomerRedeemablesRedeemableId redeemableId) {
     this.redeemableId = redeemableId;
+    this.redeemableIdIsSet = true;
+  }
+  public boolean isRedeemableIdSet() {
+    return redeemableIdIsSet;
   }
 
 
@@ -182,6 +204,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setRedeemableObject(ParameterFiltersListCustomerRedeemablesRedeemableObject redeemableObject) {
     this.redeemableObject = redeemableObject;
+    this.redeemableObjectIsSet = true;
+  }
+  public boolean isRedeemableObjectSet() {
+    return redeemableObjectIsSet;
   }
 
 
@@ -203,6 +229,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setHolderRole(ParameterFiltersListCustomerRedeemablesHolderRole holderRole) {
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
+  }
+  public boolean isHolderRoleSet() {
+    return holderRoleIsSet;
   }
 
 
@@ -224,6 +254,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setCampaignId(ParameterFiltersListCustomerRedeemablesCampaignId campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -245,6 +279,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setCampaignType(ParameterFiltersListCustomerRedeemablesCampaignType campaignType) {
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
+  }
+  public boolean isCampaignTypeSet() {
+    return campaignTypeIsSet;
   }
 
 
@@ -266,6 +304,10 @@ public class ParameterFiltersListCustomerRedeemables {
 
   public void setVoucherType(ParameterFiltersListCustomerRedeemablesVoucherType voucherType) {
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
+  }
+  public boolean isVoucherTypeSet() {
+    return voucherTypeIsSet;
   }
 
 
@@ -390,7 +432,35 @@ public class ParameterFiltersListCustomerRedeemables {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCustomerRedeemables>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListCustomerRedeemables value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ParameterFiltersListCustomerRedeemables.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ParameterFiltersListCustomerRedeemables.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

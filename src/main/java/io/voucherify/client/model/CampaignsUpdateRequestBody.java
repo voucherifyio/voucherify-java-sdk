@@ -41,6 +41,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -50,6 +51,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -67,10 +69,12 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -144,22 +148,27 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+    private boolean descriptionIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
+    private boolean categoryIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_UNSET_METADATA_FIELDS = "unset_metadata_fields";
   @SerializedName(SERIALIZED_NAME_UNSET_METADATA_FIELDS)
   private List<String> unsetMetadataFields;
+    private boolean unsetMetadataFieldsIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_ACCESS_SETTINGS = "access_settings";
   @SerializedName(SERIALIZED_NAME_ACCESS_SETTINGS)
@@ -168,14 +177,17 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING = "activity_duration_after_publishing";
   @SerializedName(SERIALIZED_NAME_ACTIVITY_DURATION_AFTER_PUBLISHING)
   private String activityDurationAfterPublishing;
+    private boolean activityDurationAfterPublishingIsSet = false;
 
   public static final String SERIALIZED_NAME_JOIN_ONCE = "join_once";
   @SerializedName(SERIALIZED_NAME_JOIN_ONCE)
   private Boolean joinOnce;
+    private boolean joinOnceIsSet = false;
 
   public static final String SERIALIZED_NAME_AUTO_JOIN = "auto_join";
   @SerializedName(SERIALIZED_NAME_AUTO_JOIN)
   private Boolean autoJoin;
+    private boolean autoJoinIsSet = false;
 
   /**
    * Defines whether the campaign can be updated with new vouchers after campaign creation.  - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method). -  &#x60;STATIC&#x60;: vouchers need to be manually published.  If the &#x60;type&#x60; of the campaign is &#x60;STANDALONE&#x60;, the type cannot be changed. Also, the &#x60;type&#x60; cannot be changed to &#x60;STANDALONE&#x60;.
@@ -227,6 +239,7 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
@@ -247,6 +260,7 @@ public class CampaignsUpdateRequestBody {
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private CampaignsUpdateRequestBodyOptions options;
+    private boolean optionsIsSet = false;
 
   public CampaignsUpdateRequestBody() {
   }
@@ -269,6 +283,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -290,6 +308,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -382,6 +404,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setDescription(String description) {
     this.description = description;
+    this.descriptionIsSet = true;
+  }
+  public boolean isDescriptionSet() {
+    return descriptionIsSet;
   }
 
 
@@ -403,6 +429,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setCategory(String category) {
     this.category = category;
+    this.categoryIsSet = true;
+  }
+  public boolean isCategorySet() {
+    return categoryIsSet;
   }
 
 
@@ -424,6 +454,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -453,6 +487,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setUnsetMetadataFields(List<String> unsetMetadataFields) {
     this.unsetMetadataFields = unsetMetadataFields;
+    this.unsetMetadataFieldsIsSet = true;
+  }
+  public boolean isUnsetMetadataFieldsSet() {
+    return unsetMetadataFieldsIsSet;
   }
 
 
@@ -474,6 +512,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -516,6 +558,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setActivityDurationAfterPublishing(String activityDurationAfterPublishing) {
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
+  }
+  public boolean isActivityDurationAfterPublishingSet() {
+    return activityDurationAfterPublishingIsSet;
   }
 
 
@@ -537,6 +583,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setJoinOnce(Boolean joinOnce) {
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
+  }
+  public boolean isJoinOnceSet() {
+    return joinOnceIsSet;
   }
 
 
@@ -558,6 +608,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setAutoJoin(Boolean autoJoin) {
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
+  }
+  public boolean isAutoJoinSet() {
+    return autoJoinIsSet;
   }
 
 
@@ -579,6 +633,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -684,6 +742,10 @@ public class CampaignsUpdateRequestBody {
 
   public void setOptions(CampaignsUpdateRequestBodyOptions options) {
     this.options = options;
+    this.optionsIsSet = true;
+  }
+  public boolean isOptionsSet() {
+    return optionsIsSet;
   }
 
 
@@ -820,7 +882,35 @@ public class CampaignsUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<CampaignsUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, CampaignsUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CampaignsUpdateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CampaignsUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

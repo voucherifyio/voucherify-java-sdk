@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,34 +59,42 @@ public class Error {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private Integer code;
+    private boolean codeIsSet = false;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+    private boolean keyIsSet = false;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
+    private boolean messageIsSet = false;
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
   private String details;
+    private boolean detailsIsSet = false;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
+    private boolean requestIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
   private String resourceId;
+    private boolean resourceIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
   private String resourceType;
+    private boolean resourceTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private ErrorError error;
+    private boolean errorIsSet = false;
 
   public Error() {
   }
@@ -107,6 +117,10 @@ public class Error {
 
   public void setCode(Integer code) {
     this.code = code;
+    this.codeIsSet = true;
+  }
+  public boolean isCodeSet() {
+    return codeIsSet;
   }
 
 
@@ -128,6 +142,10 @@ public class Error {
 
   public void setKey(String key) {
     this.key = key;
+    this.keyIsSet = true;
+  }
+  public boolean isKeySet() {
+    return keyIsSet;
   }
 
 
@@ -149,6 +167,10 @@ public class Error {
 
   public void setMessage(String message) {
     this.message = message;
+    this.messageIsSet = true;
+  }
+  public boolean isMessageSet() {
+    return messageIsSet;
   }
 
 
@@ -170,6 +192,10 @@ public class Error {
 
   public void setDetails(String details) {
     this.details = details;
+    this.detailsIsSet = true;
+  }
+  public boolean isDetailsSet() {
+    return detailsIsSet;
   }
 
 
@@ -191,6 +217,10 @@ public class Error {
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+    this.requestIdIsSet = true;
+  }
+  public boolean isRequestIdSet() {
+    return requestIdIsSet;
   }
 
 
@@ -212,6 +242,10 @@ public class Error {
 
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
+  }
+  public boolean isResourceIdSet() {
+    return resourceIdIsSet;
   }
 
 
@@ -233,6 +267,10 @@ public class Error {
 
   public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
+  }
+  public boolean isResourceTypeSet() {
+    return resourceTypeIsSet;
   }
 
 
@@ -254,6 +292,10 @@ public class Error {
 
   public void setError(ErrorError error) {
     this.error = error;
+    this.errorIsSet = true;
+  }
+  public boolean isErrorSet() {
+    return errorIsSet;
   }
 
 
@@ -354,7 +396,35 @@ public class Error {
        return (TypeAdapter<T>) new TypeAdapter<Error>() {
            @Override
            public void write(JsonWriter out, Error value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : Error.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = Error.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

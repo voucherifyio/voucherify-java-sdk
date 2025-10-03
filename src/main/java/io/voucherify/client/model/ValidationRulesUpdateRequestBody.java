@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,6 +60,7 @@ public class ValidationRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)
@@ -70,10 +73,12 @@ public class ValidationRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private ValidationRulesUpdateRequestBodyError error;
+    private boolean errorIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
   private ValidationRulesUpdateRequestBodyApplicableTo applicableTo;
+    private boolean applicableToIsSet = false;
 
   /**
    * Type of validation rule.
@@ -129,6 +134,7 @@ public class ValidationRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type = TypeEnum.EXPRESSION;
+    private boolean typeIsSet = false;
 
   /**
    * Validation rule context type.    | **Context Type** | **Definition** | |:---|:---| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  |
@@ -286,6 +292,7 @@ public class ValidationRulesUpdateRequestBody {
   public static final String SERIALIZED_NAME_CONTEXT_TYPE = "context_type";
   @SerializedName(SERIALIZED_NAME_CONTEXT_TYPE)
   private ContextTypeEnum contextType = ContextTypeEnum.GLOBAL;
+    private boolean contextTypeIsSet = false;
 
   public ValidationRulesUpdateRequestBody() {
   }
@@ -308,6 +315,10 @@ public class ValidationRulesUpdateRequestBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -371,6 +382,10 @@ public class ValidationRulesUpdateRequestBody {
 
   public void setError(ValidationRulesUpdateRequestBodyError error) {
     this.error = error;
+    this.errorIsSet = true;
+  }
+  public boolean isErrorSet() {
+    return errorIsSet;
   }
 
 
@@ -392,6 +407,10 @@ public class ValidationRulesUpdateRequestBody {
 
   public void setApplicableTo(ValidationRulesUpdateRequestBodyApplicableTo applicableTo) {
     this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
+  }
+  public boolean isApplicableToSet() {
+    return applicableToIsSet;
   }
 
 
@@ -413,6 +432,10 @@ public class ValidationRulesUpdateRequestBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -434,6 +457,10 @@ public class ValidationRulesUpdateRequestBody {
 
   public void setContextType(ContextTypeEnum contextType) {
     this.contextType = contextType;
+    this.contextTypeIsSet = true;
+  }
+  public boolean isContextTypeSet() {
+    return contextTypeIsSet;
   }
 
 
@@ -531,7 +558,35 @@ public class ValidationRulesUpdateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ValidationRulesUpdateRequestBody>() {
            @Override
            public void write(JsonWriter out, ValidationRulesUpdateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ValidationRulesUpdateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ValidationRulesUpdateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

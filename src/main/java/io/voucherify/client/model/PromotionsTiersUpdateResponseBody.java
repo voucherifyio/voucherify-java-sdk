@@ -40,6 +40,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -49,6 +50,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -66,58 +68,72 @@ public class PromotionsTiersUpdateResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+    private boolean nameIsSet = false;
 
   public static final String SERIALIZED_NAME_BANNER = "banner";
   @SerializedName(SERIALIZED_NAME_BANNER)
   private String banner;
+    private boolean bannerIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   private PromotionsTiersUpdateResponseBodyAction action;
+    private boolean actionIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_HIERARCHY = "hierarchy";
   @SerializedName(SERIALIZED_NAME_HIERARCHY)
   private Integer hierarchy;
+    private boolean hierarchyIsSet = false;
 
   public static final String SERIALIZED_NAME_PROMOTION_ID = "promotion_id";
   @SerializedName(SERIALIZED_NAME_PROMOTION_ID)
   private String promotionId;
+    private boolean promotionIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   private PromotionsTiersUpdateResponseBodyCampaign campaign;
+    private boolean campaignIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -191,10 +207,12 @@ public class PromotionsTiersUpdateResponseBody {
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)
   private PromotionsTiersUpdateResponseBodySummary summary;
+    private boolean summaryIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "promotion_tier";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS = "validation_rule_assignments";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ASSIGNMENTS)
@@ -203,10 +221,12 @@ public class PromotionsTiersUpdateResponseBody {
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<Category> categories;
+    private boolean categoriesIsSet = false;
 
   public PromotionsTiersUpdateResponseBody() {
   }
@@ -229,6 +249,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -250,6 +274,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -271,6 +299,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -292,6 +324,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setName(String name) {
     this.name = name;
+    this.nameIsSet = true;
+  }
+  public boolean isNameSet() {
+    return nameIsSet;
   }
 
 
@@ -313,6 +349,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setBanner(String banner) {
     this.banner = banner;
+    this.bannerIsSet = true;
+  }
+  public boolean isBannerSet() {
+    return bannerIsSet;
   }
 
 
@@ -334,6 +374,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setAction(PromotionsTiersUpdateResponseBodyAction action) {
     this.action = action;
+    this.actionIsSet = true;
+  }
+  public boolean isActionSet() {
+    return actionIsSet;
   }
 
 
@@ -355,6 +399,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -376,6 +424,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setHierarchy(Integer hierarchy) {
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
+  }
+  public boolean isHierarchySet() {
+    return hierarchyIsSet;
   }
 
 
@@ -397,6 +449,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setPromotionId(String promotionId) {
     this.promotionId = promotionId;
+    this.promotionIdIsSet = true;
+  }
+  public boolean isPromotionIdSet() {
+    return promotionIdIsSet;
   }
 
 
@@ -418,6 +474,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setCampaign(PromotionsTiersUpdateResponseBodyCampaign campaign) {
     this.campaign = campaign;
+    this.campaignIsSet = true;
+  }
+  public boolean isCampaignSet() {
+    return campaignIsSet;
   }
 
 
@@ -439,6 +499,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -460,6 +524,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -481,6 +549,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -502,6 +574,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -594,6 +670,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setSummary(PromotionsTiersUpdateResponseBodySummary summary) {
     this.summary = summary;
+    this.summaryIsSet = true;
+  }
+  public boolean isSummarySet() {
+    return summaryIsSet;
   }
 
 
@@ -615,6 +695,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -657,6 +741,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -686,6 +774,10 @@ public class PromotionsTiersUpdateResponseBody {
 
   public void setCategories(List<Category> categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -828,7 +920,35 @@ public class PromotionsTiersUpdateResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<PromotionsTiersUpdateResponseBody>() {
            @Override
            public void write(JsonWriter out, PromotionsTiersUpdateResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : PromotionsTiersUpdateResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = PromotionsTiersUpdateResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

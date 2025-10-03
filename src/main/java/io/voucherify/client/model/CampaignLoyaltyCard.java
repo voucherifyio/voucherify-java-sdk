@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,10 +59,12 @@ public class CampaignLoyaltyCard {
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
   private CampaignLoyaltyCardExpirationRules expirationRules;
+    private boolean expirationRulesIsSet = false;
 
   public CampaignLoyaltyCard() {
   }
@@ -83,6 +87,10 @@ public class CampaignLoyaltyCard {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -104,6 +112,10 @@ public class CampaignLoyaltyCard {
 
   public void setExpirationRules(CampaignLoyaltyCardExpirationRules expirationRules) {
     this.expirationRules = expirationRules;
+    this.expirationRulesIsSet = true;
+  }
+  public boolean isExpirationRulesSet() {
+    return expirationRulesIsSet;
   }
 
 
@@ -186,7 +198,35 @@ public class CampaignLoyaltyCard {
        return (TypeAdapter<T>) new TypeAdapter<CampaignLoyaltyCard>() {
            @Override
            public void write(JsonWriter out, CampaignLoyaltyCard value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CampaignLoyaltyCard.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CampaignLoyaltyCard.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

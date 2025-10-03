@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,26 +58,32 @@ public class CustomersUpdateInBulkRequestBodyAddress {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
+    private boolean cityIsSet = false;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
+    private boolean stateIsSet = false;
 
   public static final String SERIALIZED_NAME_LINE1 = "line_1";
   @SerializedName(SERIALIZED_NAME_LINE1)
   private String line1;
+    private boolean line1IsSet = false;
 
   public static final String SERIALIZED_NAME_LINE2 = "line_2";
   @SerializedName(SERIALIZED_NAME_LINE2)
   private String line2;
+    private boolean line2IsSet = false;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
+    private boolean countryIsSet = false;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
   private String postalCode;
+    private boolean postalCodeIsSet = false;
 
   public CustomersUpdateInBulkRequestBodyAddress() {
   }
@@ -98,6 +106,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setCity(String city) {
     this.city = city;
+    this.cityIsSet = true;
+  }
+  public boolean isCitySet() {
+    return cityIsSet;
   }
 
 
@@ -119,6 +131,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setState(String state) {
     this.state = state;
+    this.stateIsSet = true;
+  }
+  public boolean isStateSet() {
+    return stateIsSet;
   }
 
 
@@ -140,6 +156,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setLine1(String line1) {
     this.line1 = line1;
+    this.line1IsSet = true;
+  }
+  public boolean isLine1Set() {
+    return line1IsSet;
   }
 
 
@@ -161,6 +181,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setLine2(String line2) {
     this.line2 = line2;
+    this.line2IsSet = true;
+  }
+  public boolean isLine2Set() {
+    return line2IsSet;
   }
 
 
@@ -182,6 +206,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setCountry(String country) {
     this.country = country;
+    this.countryIsSet = true;
+  }
+  public boolean isCountrySet() {
+    return countryIsSet;
   }
 
 
@@ -203,6 +231,10 @@ public class CustomersUpdateInBulkRequestBodyAddress {
 
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+    this.postalCodeIsSet = true;
+  }
+  public boolean isPostalCodeSet() {
+    return postalCodeIsSet;
   }
 
 
@@ -297,7 +329,35 @@ public class CustomersUpdateInBulkRequestBodyAddress {
        return (TypeAdapter<T>) new TypeAdapter<CustomersUpdateInBulkRequestBodyAddress>() {
            @Override
            public void write(JsonWriter out, CustomersUpdateInBulkRequestBodyAddress value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CustomersUpdateInBulkRequestBodyAddress.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CustomersUpdateInBulkRequestBodyAddress.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

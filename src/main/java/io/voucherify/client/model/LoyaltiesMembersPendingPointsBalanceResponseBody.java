@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,10 +59,12 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
+    private boolean totalIsSet = false;
 
   /**
    * The type of the object represented by JSON. Default is &#x60;balance&#x60;.
@@ -110,10 +114,12 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.BALANCE;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT = "related_object";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT)
   private LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject relatedObject;
+    private boolean relatedObjectIsSet = false;
 
   /**
    * The type of the operation being performed.
@@ -163,6 +169,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public static final String SERIALIZED_NAME_OPERATION_TYPE = "operation_type";
   @SerializedName(SERIALIZED_NAME_OPERATION_TYPE)
   private OperationTypeEnum operationType = OperationTypeEnum.MANUAL;
+    private boolean operationTypeIsSet = false;
 
   public LoyaltiesMembersPendingPointsBalanceResponseBody() {
   }
@@ -185,6 +192,10 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -206,6 +217,10 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
 
   public void setTotal(Integer total) {
     this.total = total;
+    this.totalIsSet = true;
+  }
+  public boolean isTotalSet() {
+    return totalIsSet;
   }
 
 
@@ -227,6 +242,10 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -248,6 +267,10 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
 
   public void setRelatedObject(LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject relatedObject) {
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
+  }
+  public boolean isRelatedObjectSet() {
+    return relatedObjectIsSet;
   }
 
 
@@ -269,6 +292,10 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
 
   public void setOperationType(OperationTypeEnum operationType) {
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
+  }
+  public boolean isOperationTypeSet() {
+    return operationTypeIsSet;
   }
 
 
@@ -360,7 +387,35 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesMembersPendingPointsBalanceResponseBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesMembersPendingPointsBalanceResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesMembersPendingPointsBalanceResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesMembersPendingPointsBalanceResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

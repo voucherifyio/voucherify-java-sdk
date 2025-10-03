@@ -42,6 +42,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -51,6 +52,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -68,6 +70,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_VALIDATION_RULE_ID = "validation_rule_id";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULE_ID)
   private String validationRuleId;
+    private boolean validationRuleIdIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
@@ -84,18 +87,22 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
   private LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints pendingPoints;
+    private boolean pendingPointsIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
@@ -173,18 +180,22 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
   private LoyaltiesEarningRulesCreateRequestBodyItemSegment segment;
+    private boolean segmentIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
   private LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent customEvent;
+    private boolean customEventIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier loyaltyTier;
+    private boolean loyaltyTierIsSet = false;
 
   public LoyaltiesEarningRulesCreateRequestBodyItem() {
   }
@@ -207,6 +218,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setValidationRuleId(String validationRuleId) {
     this.validationRuleId = validationRuleId;
+    this.validationRuleIdIsSet = true;
+  }
+  public boolean isValidationRuleIdSet() {
+    return validationRuleIdIsSet;
   }
 
 
@@ -291,6 +306,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -312,6 +331,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -333,6 +356,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -354,6 +381,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setPendingPoints(LoyaltiesEarningRulesCreateRequestBodyItemPendingPoints pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
+  }
+  public boolean isPendingPointsSet() {
+    return pendingPointsIsSet;
   }
 
 
@@ -467,6 +498,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -488,6 +523,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setSegment(LoyaltiesEarningRulesCreateRequestBodyItemSegment segment) {
     this.segment = segment;
+    this.segmentIsSet = true;
+  }
+  public boolean isSegmentSet() {
+    return segmentIsSet;
   }
 
 
@@ -509,6 +548,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setCustomEvent(LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent customEvent) {
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
+  }
+  public boolean isCustomEventSet() {
+    return customEventIsSet;
   }
 
 
@@ -530,6 +573,10 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
 
   public void setLoyaltyTier(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
+  }
+  public boolean isLoyaltyTierSet() {
+    return loyaltyTierIsSet;
   }
 
 
@@ -654,7 +701,35 @@ public class LoyaltiesEarningRulesCreateRequestBodyItem {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateRequestBodyItem>() {
            @Override
            public void write(JsonWriter out, LoyaltiesEarningRulesCreateRequestBodyItem value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesEarningRulesCreateRequestBodyItem.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesEarningRulesCreateRequestBodyItem.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

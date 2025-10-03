@@ -45,6 +45,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -54,6 +55,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -75,42 +77,52 @@ public class MemberActivityDataTransactionDetails {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private MemberActivityDataTransactionDetailsOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
   private MemberActivityDataTransactionDetailsEvent event;
+    private boolean eventIsSet = false;
 
   public static final String SERIALIZED_NAME_EARNING_RULE = "earning_rule";
   @SerializedName(SERIALIZED_NAME_EARNING_RULE)
   private MemberActivityDataTransactionDetailsEarningRule earningRule;
+    private boolean earningRuleIsSet = false;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
   private MemberActivityDataTransactionDetailsSegment segment;
+    private boolean segmentIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private MemberActivityDataTransactionDetailsLoyaltyTier loyaltyTier;
+    private boolean loyaltyTierIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private MemberActivityDataTransactionDetailsRedemption redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACK = "rollback";
   @SerializedName(SERIALIZED_NAME_ROLLBACK)
   private MemberActivityDataTransactionDetailsRollback rollback;
+    private boolean rollbackIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
   private MemberActivityDataTransactionDetailsCustomEvent customEvent;
+    private boolean customEventIsSet = false;
 
   public static final String SERIALIZED_NAME_EVENT_SCHEMA = "event_schema";
   @SerializedName(SERIALIZED_NAME_EVENT_SCHEMA)
   private MemberActivityDataTransactionDetailsEventSchema eventSchema;
+    private boolean eventSchemaIsSet = false;
 
   public static final String SERIALIZED_NAME_HOLDER_LOYALTY_TIER = "holder_loyalty_tier";
   @SerializedName(SERIALIZED_NAME_HOLDER_LOYALTY_TIER)
   private MemberActivityDataTransactionDetailsHolderLoyaltyTier holderLoyaltyTier;
+    private boolean holderLoyaltyTierIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
@@ -119,14 +131,17 @@ public class MemberActivityDataTransactionDetails {
   public static final String SERIALIZED_NAME_REWARD = "reward";
   @SerializedName(SERIALIZED_NAME_REWARD)
   private MemberActivityDataTransactionDetailsReward reward;
+    private boolean rewardIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE_VOUCHER = "source_voucher";
   @SerializedName(SERIALIZED_NAME_SOURCE_VOUCHER)
   private MemberActivityDataTransactionDetailsSourceVoucher sourceVoucher;
+    private boolean sourceVoucherIsSet = false;
 
   public static final String SERIALIZED_NAME_DESTINATION_VOUCHER = "destination_voucher";
   @SerializedName(SERIALIZED_NAME_DESTINATION_VOUCHER)
   private MemberActivityDataTransactionDetailsDestinationVoucher destinationVoucher;
+    private boolean destinationVoucherIsSet = false;
 
   public MemberActivityDataTransactionDetails() {
   }
@@ -170,6 +185,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setOrder(MemberActivityDataTransactionDetailsOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -191,6 +210,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setEvent(MemberActivityDataTransactionDetailsEvent event) {
     this.event = event;
+    this.eventIsSet = true;
+  }
+  public boolean isEventSet() {
+    return eventIsSet;
   }
 
 
@@ -212,6 +235,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setEarningRule(MemberActivityDataTransactionDetailsEarningRule earningRule) {
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
+  }
+  public boolean isEarningRuleSet() {
+    return earningRuleIsSet;
   }
 
 
@@ -233,6 +260,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setSegment(MemberActivityDataTransactionDetailsSegment segment) {
     this.segment = segment;
+    this.segmentIsSet = true;
+  }
+  public boolean isSegmentSet() {
+    return segmentIsSet;
   }
 
 
@@ -254,6 +285,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setLoyaltyTier(MemberActivityDataTransactionDetailsLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
+  }
+  public boolean isLoyaltyTierSet() {
+    return loyaltyTierIsSet;
   }
 
 
@@ -275,6 +310,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setRedemption(MemberActivityDataTransactionDetailsRedemption redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -296,6 +335,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setRollback(MemberActivityDataTransactionDetailsRollback rollback) {
     this.rollback = rollback;
+    this.rollbackIsSet = true;
+  }
+  public boolean isRollbackSet() {
+    return rollbackIsSet;
   }
 
 
@@ -317,6 +360,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setCustomEvent(MemberActivityDataTransactionDetailsCustomEvent customEvent) {
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
+  }
+  public boolean isCustomEventSet() {
+    return customEventIsSet;
   }
 
 
@@ -338,6 +385,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setEventSchema(MemberActivityDataTransactionDetailsEventSchema eventSchema) {
     this.eventSchema = eventSchema;
+    this.eventSchemaIsSet = true;
+  }
+  public boolean isEventSchemaSet() {
+    return eventSchemaIsSet;
   }
 
 
@@ -359,6 +410,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setHolderLoyaltyTier(MemberActivityDataTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
+  }
+  public boolean isHolderLoyaltyTierSet() {
+    return holderLoyaltyTierIsSet;
   }
 
 
@@ -401,6 +456,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setReward(MemberActivityDataTransactionDetailsReward reward) {
     this.reward = reward;
+    this.rewardIsSet = true;
+  }
+  public boolean isRewardSet() {
+    return rewardIsSet;
   }
 
 
@@ -422,6 +481,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setSourceVoucher(MemberActivityDataTransactionDetailsSourceVoucher sourceVoucher) {
     this.sourceVoucher = sourceVoucher;
+    this.sourceVoucherIsSet = true;
+  }
+  public boolean isSourceVoucherSet() {
+    return sourceVoucherIsSet;
   }
 
 
@@ -443,6 +506,10 @@ public class MemberActivityDataTransactionDetails {
 
   public void setDestinationVoucher(MemberActivityDataTransactionDetailsDestinationVoucher destinationVoucher) {
     this.destinationVoucher = destinationVoucher;
+    this.destinationVoucherIsSet = true;
+  }
+  public boolean isDestinationVoucherSet() {
+    return destinationVoucherIsSet;
   }
 
 
@@ -564,7 +631,35 @@ public class MemberActivityDataTransactionDetails {
        return (TypeAdapter<T>) new TypeAdapter<MemberActivityDataTransactionDetails>() {
            @Override
            public void write(JsonWriter out, MemberActivityDataTransactionDetails value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : MemberActivityDataTransactionDetails.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = MemberActivityDataTransactionDetails.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

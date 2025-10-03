@@ -37,6 +37,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -46,6 +47,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -63,10 +65,12 @@ public class ClientRedemptionsRedeemRequestBody {
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
   private ClientRedemptionsRedeemRequestBodyOptions options;
+    private boolean optionsIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLES = "redeemables";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES)
   private List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables;
+    private boolean redeemablesIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -83,10 +87,12 @@ public class ClientRedemptionsRedeemRequestBody {
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
   private String trackingId;
+    private boolean trackingIdIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public ClientRedemptionsRedeemRequestBody() {
   }
@@ -109,6 +115,10 @@ public class ClientRedemptionsRedeemRequestBody {
 
   public void setOptions(ClientRedemptionsRedeemRequestBodyOptions options) {
     this.options = options;
+    this.optionsIsSet = true;
+  }
+  public boolean isOptionsSet() {
+    return optionsIsSet;
   }
 
 
@@ -138,6 +148,10 @@ public class ClientRedemptionsRedeemRequestBody {
 
   public void setRedeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
+  }
+  public boolean isRedeemablesSet() {
+    return redeemablesIsSet;
   }
 
 
@@ -222,6 +236,10 @@ public class ClientRedemptionsRedeemRequestBody {
 
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
+  }
+  public boolean isTrackingIdSet() {
+    return trackingIdIsSet;
   }
 
 
@@ -243,6 +261,10 @@ public class ClientRedemptionsRedeemRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -340,7 +362,35 @@ public class ClientRedemptionsRedeemRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ClientRedemptionsRedeemRequestBody>() {
            @Override
            public void write(JsonWriter out, ClientRedemptionsRedeemRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ClientRedemptionsRedeemRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ClientRedemptionsRedeemRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

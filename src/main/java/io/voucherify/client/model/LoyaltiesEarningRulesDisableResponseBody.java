@@ -42,6 +42,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -51,6 +52,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -68,14 +70,17 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   private LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty;
+    private boolean loyaltyIsSet = false;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
@@ -84,22 +89,27 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_CUSTOM_EVENT = "custom_event";
   @SerializedName(SERIALIZED_NAME_CUSTOM_EVENT)
   private LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent;
+    private boolean customEventIsSet = false;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
   private LoyaltiesEarningRulesDisableResponseBodySegment segment;
+    private boolean segmentIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_TIER = "loyalty_tier";
   @SerializedName(SERIALIZED_NAME_LOYALTY_TIER)
   private LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier;
+    private boolean loyaltyTierIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS = "pending_points";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS)
   private LoyaltiesEarningRulesDisableResponseBodyPendingPoints pendingPoints;
+    private boolean pendingPointsIsSet = false;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private LoyaltiesEarningRulesDisableResponseBodySource source;
+    private boolean sourceIsSet = false;
 
   /**
    * The type of the object represented by JSON. Default is earning_rule.
@@ -149,18 +159,22 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.EARNING_RULE;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_AUTOMATION_ID = "automation_id";
   @SerializedName(SERIALIZED_NAME_AUTOMATION_ID)
   private String automationId;
+    private boolean automationIdIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private String startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private String expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -234,6 +248,7 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_RULES = "expiration_rules";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_RULES)
@@ -242,10 +257,12 @@ public class LoyaltiesEarningRulesDisableResponseBody {
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active = false;
+    private boolean activeIsSet = false;
 
   public LoyaltiesEarningRulesDisableResponseBody() {
   }
@@ -268,6 +285,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -289,6 +310,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -310,6 +335,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setLoyalty(LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty) {
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
+  }
+  public boolean isLoyaltySet() {
+    return loyaltyIsSet;
   }
 
 
@@ -352,6 +381,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setCustomEvent(LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent) {
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
+  }
+  public boolean isCustomEventSet() {
+    return customEventIsSet;
   }
 
 
@@ -373,6 +406,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setSegment(LoyaltiesEarningRulesDisableResponseBodySegment segment) {
     this.segment = segment;
+    this.segmentIsSet = true;
+  }
+  public boolean isSegmentSet() {
+    return segmentIsSet;
   }
 
 
@@ -394,6 +431,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setLoyaltyTier(LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier) {
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
+  }
+  public boolean isLoyaltyTierSet() {
+    return loyaltyTierIsSet;
   }
 
 
@@ -415,6 +456,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setPendingPoints(LoyaltiesEarningRulesDisableResponseBodyPendingPoints pendingPoints) {
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
+  }
+  public boolean isPendingPointsSet() {
+    return pendingPointsIsSet;
   }
 
 
@@ -436,6 +481,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setSource(LoyaltiesEarningRulesDisableResponseBodySource source) {
     this.source = source;
+    this.sourceIsSet = true;
+  }
+  public boolean isSourceSet() {
+    return sourceIsSet;
   }
 
 
@@ -457,6 +506,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -478,6 +531,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setAutomationId(String automationId) {
     this.automationId = automationId;
+    this.automationIdIsSet = true;
+  }
+  public boolean isAutomationIdSet() {
+    return automationIdIsSet;
   }
 
 
@@ -499,6 +556,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setStartDate(String startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -520,6 +581,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setExpirationDate(String expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -612,6 +677,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -654,6 +723,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -675,6 +748,10 @@ public class LoyaltiesEarningRulesDisableResponseBody {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -811,7 +888,35 @@ public class LoyaltiesEarningRulesDisableResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesDisableResponseBody>() {
            @Override
            public void write(JsonWriter out, LoyaltiesEarningRulesDisableResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesEarningRulesDisableResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesEarningRulesDisableResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

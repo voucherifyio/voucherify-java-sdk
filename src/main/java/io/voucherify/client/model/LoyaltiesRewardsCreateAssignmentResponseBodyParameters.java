@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,6 +59,7 @@ public class LoyaltiesRewardsCreateAssignmentResponseBodyParameters {
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   private LoyaltiesRewardsCreateAssignmentResponseBodyParametersLoyalty loyalty;
+    private boolean loyaltyIsSet = false;
 
   public LoyaltiesRewardsCreateAssignmentResponseBodyParameters() {
   }
@@ -79,6 +82,10 @@ public class LoyaltiesRewardsCreateAssignmentResponseBodyParameters {
 
   public void setLoyalty(LoyaltiesRewardsCreateAssignmentResponseBodyParametersLoyalty loyalty) {
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
+  }
+  public boolean isLoyaltySet() {
+    return loyaltyIsSet;
   }
 
 
@@ -158,7 +165,35 @@ public class LoyaltiesRewardsCreateAssignmentResponseBodyParameters {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesRewardsCreateAssignmentResponseBodyParameters>() {
            @Override
            public void write(JsonWriter out, LoyaltiesRewardsCreateAssignmentResponseBodyParameters value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesRewardsCreateAssignmentResponseBodyParameters.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesRewardsCreateAssignmentResponseBodyParameters.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

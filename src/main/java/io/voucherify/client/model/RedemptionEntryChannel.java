@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,6 +58,7 @@ public class RedemptionEntryChannel {
   public static final String SERIALIZED_NAME_CHANNEL_ID = "channel_id";
   @SerializedName(SERIALIZED_NAME_CHANNEL_ID)
   private String channelId;
+    private boolean channelIdIsSet = false;
 
   /**
    * Gets or Sets channelType
@@ -109,6 +112,7 @@ public class RedemptionEntryChannel {
   public static final String SERIALIZED_NAME_CHANNEL_TYPE = "channel_type";
   @SerializedName(SERIALIZED_NAME_CHANNEL_TYPE)
   private ChannelTypeEnum channelType;
+    private boolean channelTypeIsSet = false;
 
   public RedemptionEntryChannel() {
   }
@@ -131,6 +135,10 @@ public class RedemptionEntryChannel {
 
   public void setChannelId(String channelId) {
     this.channelId = channelId;
+    this.channelIdIsSet = true;
+  }
+  public boolean isChannelIdSet() {
+    return channelIdIsSet;
   }
 
 
@@ -152,6 +160,10 @@ public class RedemptionEntryChannel {
 
   public void setChannelType(ChannelTypeEnum channelType) {
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
+  }
+  public boolean isChannelTypeSet() {
+    return channelTypeIsSet;
   }
 
 
@@ -234,7 +246,35 @@ public class RedemptionEntryChannel {
        return (TypeAdapter<T>) new TypeAdapter<RedemptionEntryChannel>() {
            @Override
            public void write(JsonWriter out, RedemptionEntryChannel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : RedemptionEntryChannel.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = RedemptionEntryChannel.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

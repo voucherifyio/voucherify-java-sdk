@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,22 +58,27 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public static final String SERIALIZED_NAME_STREET = "street";
   @SerializedName(SERIALIZED_NAME_STREET)
   private String street;
+    private boolean streetIsSet = false;
 
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
+    private boolean cityIsSet = false;
 
   public static final String SERIALIZED_NAME_POSTAL = "postal";
   @SerializedName(SERIALIZED_NAME_POSTAL)
   private String postal;
+    private boolean postalIsSet = false;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state;
+    private boolean stateIsSet = false;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
+    private boolean countryIsSet = false;
 
   public ManagementProjectsBrandingUpdateResponseBodyAddress() {
   }
@@ -94,6 +101,10 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
 
   public void setStreet(String street) {
     this.street = street;
+    this.streetIsSet = true;
+  }
+  public boolean isStreetSet() {
+    return streetIsSet;
   }
 
 
@@ -115,6 +126,10 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
 
   public void setCity(String city) {
     this.city = city;
+    this.cityIsSet = true;
+  }
+  public boolean isCitySet() {
+    return cityIsSet;
   }
 
 
@@ -136,6 +151,10 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
 
   public void setPostal(String postal) {
     this.postal = postal;
+    this.postalIsSet = true;
+  }
+  public boolean isPostalSet() {
+    return postalIsSet;
   }
 
 
@@ -157,6 +176,10 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
 
   public void setState(String state) {
     this.state = state;
+    this.stateIsSet = true;
+  }
+  public boolean isStateSet() {
+    return stateIsSet;
   }
 
 
@@ -178,6 +201,10 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
 
   public void setCountry(String country) {
     this.country = country;
+    this.countryIsSet = true;
+  }
+  public boolean isCountrySet() {
+    return countryIsSet;
   }
 
 
@@ -269,7 +296,35 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsBrandingUpdateResponseBodyAddress>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsBrandingUpdateResponseBodyAddress value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsBrandingUpdateResponseBodyAddress.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsBrandingUpdateResponseBodyAddress.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

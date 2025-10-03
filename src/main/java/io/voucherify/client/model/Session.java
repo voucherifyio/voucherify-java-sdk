@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,6 +59,7 @@ public class Session {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+    private boolean keyIsSet = false;
 
   /**
    * This parameter is required to establish a new session.
@@ -106,10 +109,12 @@ public class Session {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type = TypeEnum.LOCK;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
   private BigDecimal ttl;
+    private boolean ttlIsSet = false;
 
   /**
    * Defines the type of unit in which the session time is counted.
@@ -171,6 +176,7 @@ public class Session {
   public static final String SERIALIZED_NAME_TTL_UNIT = "ttl_unit";
   @SerializedName(SERIALIZED_NAME_TTL_UNIT)
   private TtlUnitEnum ttlUnit;
+    private boolean ttlUnitIsSet = false;
 
   public Session() {
   }
@@ -193,6 +199,10 @@ public class Session {
 
   public void setKey(String key) {
     this.key = key;
+    this.keyIsSet = true;
+  }
+  public boolean isKeySet() {
+    return keyIsSet;
   }
 
 
@@ -214,6 +224,10 @@ public class Session {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -235,6 +249,10 @@ public class Session {
 
   public void setTtl(BigDecimal ttl) {
     this.ttl = ttl;
+    this.ttlIsSet = true;
+  }
+  public boolean isTtlSet() {
+    return ttlIsSet;
   }
 
 
@@ -256,6 +274,10 @@ public class Session {
 
   public void setTtlUnit(TtlUnitEnum ttlUnit) {
     this.ttlUnit = ttlUnit;
+    this.ttlUnitIsSet = true;
+  }
+  public boolean isTtlUnitSet() {
+    return ttlUnitIsSet;
   }
 
 
@@ -344,7 +366,35 @@ public class Session {
        return (TypeAdapter<T>) new TypeAdapter<Session>() {
            @Override
            public void write(JsonWriter out, Session value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : Session.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = Session.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

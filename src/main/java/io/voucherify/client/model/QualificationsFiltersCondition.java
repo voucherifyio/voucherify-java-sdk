@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,26 +60,32 @@ public class QualificationsFiltersCondition {
   public static final String SERIALIZED_NAME_$_IS = "$is";
   @SerializedName(SERIALIZED_NAME_$_IS)
   private List<String> $is;
+    private boolean $isIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_NOT = "$is_not";
   @SerializedName(SERIALIZED_NAME_$_IS_NOT)
   private List<String> $isNot;
+    private boolean $isNotIsSet = false;
 
   public static final String SERIALIZED_NAME_$_HAS_VALUE = "$has_value";
   @SerializedName(SERIALIZED_NAME_$_HAS_VALUE)
   private Object $hasValue = null;
+    private boolean $hasValueIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_UNKNOWN = "$is_unknown";
   @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
   private Object $isUnknown = null;
+    private boolean $isUnknownIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IN = "$in";
   @SerializedName(SERIALIZED_NAME_$_IN)
   private List<String> $in;
+    private boolean $inIsSet = false;
 
   public static final String SERIALIZED_NAME_$_NOT_IN = "$not_in";
   @SerializedName(SERIALIZED_NAME_$_NOT_IN)
   private List<String> $notIn;
+    private boolean $notInIsSet = false;
 
   public QualificationsFiltersCondition() {
   }
@@ -108,6 +116,10 @@ public class QualificationsFiltersCondition {
 
   public void set$Is(List<String> $is) {
     this.$is = $is;
+    this.$isIsSet = true;
+  }
+  public boolean is$IsSet() {
+    return $isIsSet;
   }
 
 
@@ -137,6 +149,10 @@ public class QualificationsFiltersCondition {
 
   public void set$IsNot(List<String> $isNot) {
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
+  }
+  public boolean is$IsNotSet() {
+    return $isNotIsSet;
   }
 
 
@@ -158,6 +174,10 @@ public class QualificationsFiltersCondition {
 
   public void set$HasValue(Object $hasValue) {
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
+  }
+  public boolean is$HasValueSet() {
+    return $hasValueIsSet;
   }
 
 
@@ -179,6 +199,10 @@ public class QualificationsFiltersCondition {
 
   public void set$IsUnknown(Object $isUnknown) {
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
+  }
+  public boolean is$IsUnknownSet() {
+    return $isUnknownIsSet;
   }
 
 
@@ -208,6 +232,10 @@ public class QualificationsFiltersCondition {
 
   public void set$In(List<String> $in) {
     this.$in = $in;
+    this.$inIsSet = true;
+  }
+  public boolean is$InSet() {
+    return $inIsSet;
   }
 
 
@@ -237,6 +265,10 @@ public class QualificationsFiltersCondition {
 
   public void set$NotIn(List<String> $notIn) {
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
+  }
+  public boolean is$NotInSet() {
+    return $notInIsSet;
   }
 
 
@@ -331,7 +363,35 @@ public class QualificationsFiltersCondition {
        return (TypeAdapter<T>) new TypeAdapter<QualificationsFiltersCondition>() {
            @Override
            public void write(JsonWriter out, QualificationsFiltersCondition value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : QualificationsFiltersCondition.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = QualificationsFiltersCondition.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

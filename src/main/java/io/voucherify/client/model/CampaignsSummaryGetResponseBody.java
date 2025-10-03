@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -102,6 +104,7 @@ public class CampaignsSummaryGetResponseBody {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.CAMPAIGN_SUMMARY;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
@@ -110,158 +113,197 @@ public class CampaignsSummaryGetResponseBody {
   public static final String SERIALIZED_NAME_REDEMPTIONS = "redemptions";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS)
   private Integer redemptions;
+    private boolean redemptionsIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTIONS_SUCCEEDED = "redemptions_succeeded";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS_SUCCEEDED)
   private Integer redemptionsSucceeded;
+    private boolean redemptionsSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTIONS_FAILED = "redemptions_failed";
   @SerializedName(SERIALIZED_NAME_REDEMPTIONS_FAILED)
   private Integer redemptionsFailed;
+    private boolean redemptionsFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACKS = "rollbacks";
   @SerializedName(SERIALIZED_NAME_ROLLBACKS)
   private Integer rollbacks;
+    private boolean rollbacksIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACKS_SUCCEEDED = "rollbacks_succeeded";
   @SerializedName(SERIALIZED_NAME_ROLLBACKS_SUCCEEDED)
   private Integer rollbacksSucceeded;
+    private boolean rollbacksSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLBACKS_FAILED = "rollbacks_failed";
   @SerializedName(SERIALIZED_NAME_ROLLBACKS_FAILED)
   private Integer rollbacksFailed;
+    private boolean rollbacksFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATIONS = "validations";
   @SerializedName(SERIALIZED_NAME_VALIDATIONS)
   private Integer validations;
+    private boolean validationsIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATIONS_SUCCEEDED = "validations_succeeded";
   @SerializedName(SERIALIZED_NAME_VALIDATIONS_SUCCEEDED)
   private Integer validationsSucceeded;
+    private boolean validationsSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATIONS_FAILED = "validations_failed";
   @SerializedName(SERIALIZED_NAME_VALIDATIONS_FAILED)
   private Integer validationsFailed;
+    private boolean validationsFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDERS_AMOUNT = "orders_amount";
   @SerializedName(SERIALIZED_NAME_ORDERS_AMOUNT)
   private Integer ordersAmount;
+    private boolean ordersAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDERS_ROLLEDBACK_AMOUNT = "orders_rolledback_amount";
   @SerializedName(SERIALIZED_NAME_ORDERS_ROLLEDBACK_AMOUNT)
   private Integer ordersRolledbackAmount;
+    private boolean ordersRolledbackAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHERS_CREATED = "vouchers_created";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_CREATED)
   private Integer vouchersCreated;
+    private boolean vouchersCreatedIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHERS_DELETED = "vouchers_deleted";
   @SerializedName(SERIALIZED_NAME_VOUCHERS_DELETED)
   private Integer vouchersDeleted;
+    private boolean vouchersDeletedIsSet = false;
 
   public static final String SERIALIZED_NAME_PUBLICATIONS = "publications";
   @SerializedName(SERIALIZED_NAME_PUBLICATIONS)
   private Integer publications;
+    private boolean publicationsIsSet = false;
 
   public static final String SERIALIZED_NAME_PUBLICATIONS_SUCCEEDED = "publications_succeeded";
   @SerializedName(SERIALIZED_NAME_PUBLICATIONS_SUCCEEDED)
   private Integer publicationsSucceeded;
+    private boolean publicationsSucceededIsSet = false;
 
   public static final String SERIALIZED_NAME_PUBLICATIONS_FAILED = "publications_failed";
   @SerializedName(SERIALIZED_NAME_PUBLICATIONS_FAILED)
   private Integer publicationsFailed;
+    private boolean publicationsFailedIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNTED_AMOUNT = "discounted_amount";
   @SerializedName(SERIALIZED_NAME_DISCOUNTED_AMOUNT)
   private Integer discountedAmount;
+    private boolean discountedAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLLEDBACK_DISCOUNTED_AMOUNT = "rolledback_discounted_amount";
   @SerializedName(SERIALIZED_NAME_ROLLEDBACK_DISCOUNTED_AMOUNT)
   private Integer rolledbackDiscountedAmount;
+    private boolean rolledbackDiscountedAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_VOUCHERS_AMOUNT = "created_vouchers_amount";
   @SerializedName(SERIALIZED_NAME_CREATED_VOUCHERS_AMOUNT)
   private Integer createdVouchersAmount;
+    private boolean createdVouchersAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_ADDED = "amount_added";
   @SerializedName(SERIALIZED_NAME_AMOUNT_ADDED)
   private Integer amountAdded;
+    private boolean amountAddedIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_DELETED = "amount_deleted";
   @SerializedName(SERIALIZED_NAME_AMOUNT_DELETED)
   private Integer amountDeleted;
+    private boolean amountDeletedIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_REDEEMED = "amount_redeemed";
   @SerializedName(SERIALIZED_NAME_AMOUNT_REDEEMED)
   private Integer amountRedeemed;
+    private boolean amountRedeemedIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_ROLLEDBACK = "amount_rolledback";
   @SerializedName(SERIALIZED_NAME_AMOUNT_ROLLEDBACK)
   private Integer amountRolledback;
+    private boolean amountRolledbackIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_SUBTRACTED = "amount_subtracted";
   @SerializedName(SERIALIZED_NAME_AMOUNT_SUBTRACTED)
   private Integer amountSubtracted;
+    private boolean amountSubtractedIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_VOUCHERS_POINTS = "created_vouchers_points";
   @SerializedName(SERIALIZED_NAME_CREATED_VOUCHERS_POINTS)
   private Integer createdVouchersPoints;
+    private boolean createdVouchersPointsIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_DELETED = "points_deleted";
   @SerializedName(SERIALIZED_NAME_POINTS_DELETED)
   private Integer pointsDeleted;
+    private boolean pointsDeletedIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_SUBTRACTED = "points_subtracted";
   @SerializedName(SERIALIZED_NAME_POINTS_SUBTRACTED)
   private Integer pointsSubtracted;
+    private boolean pointsSubtractedIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_ADDED = "points_added";
   @SerializedName(SERIALIZED_NAME_POINTS_ADDED)
   private Integer pointsAdded;
+    private boolean pointsAddedIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_REWARDED = "points_rewarded";
   @SerializedName(SERIALIZED_NAME_POINTS_REWARDED)
   private Integer pointsRewarded;
+    private boolean pointsRewardedIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_REDEEMED = "points_redeemed";
   @SerializedName(SERIALIZED_NAME_POINTS_REDEEMED)
   private Integer pointsRedeemed;
+    private boolean pointsRedeemedIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_ROLLEDBACK = "points_rolledback";
   @SerializedName(SERIALIZED_NAME_POINTS_ROLLEDBACK)
   private Integer pointsRolledback;
+    private boolean pointsRolledbackIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_EXPIRED = "points_expired";
   @SerializedName(SERIALIZED_NAME_POINTS_EXPIRED)
   private Integer pointsExpired;
+    private boolean pointsExpiredIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_TRANSFERRED_OUT = "points_transferred_out";
   @SerializedName(SERIALIZED_NAME_POINTS_TRANSFERRED_OUT)
   private Integer pointsTransferredOut;
+    private boolean pointsTransferredOutIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_TRANSFERRED_IN = "points_transferred_in";
   @SerializedName(SERIALIZED_NAME_POINTS_TRANSFERRED_IN)
   private Integer pointsTransferredIn;
+    private boolean pointsTransferredInIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS_ADDED = "pending_points_added";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS_ADDED)
   private Integer pendingPointsAdded;
+    private boolean pendingPointsAddedIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS_SUBTRACTED = "pending_points_subtracted";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS_SUBTRACTED)
   private Integer pendingPointsSubtracted;
+    private boolean pendingPointsSubtractedIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS_ACTIVATED = "pending_points_activated";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS_ACTIVATED)
   private Integer pendingPointsActivated;
+    private boolean pendingPointsActivatedIsSet = false;
 
   public static final String SERIALIZED_NAME_PENDING_POINTS_CANCELED = "pending_points_canceled";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS_CANCELED)
   private Integer pendingPointsCanceled;
+    private boolean pendingPointsCanceledIsSet = false;
 
   public static final String SERIALIZED_NAME_REFERRED_CUSTOMERS = "referred_customers";
   @SerializedName(SERIALIZED_NAME_REFERRED_CUSTOMERS)
   private Integer referredCustomers;
+    private boolean referredCustomersIsSet = false;
 
   public CampaignsSummaryGetResponseBody() {
   }
@@ -284,6 +326,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -326,6 +372,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRedemptions(Integer redemptions) {
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
+  }
+  public boolean isRedemptionsSet() {
+    return redemptionsIsSet;
   }
 
 
@@ -347,6 +397,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRedemptionsSucceeded(Integer redemptionsSucceeded) {
     this.redemptionsSucceeded = redemptionsSucceeded;
+    this.redemptionsSucceededIsSet = true;
+  }
+  public boolean isRedemptionsSucceededSet() {
+    return redemptionsSucceededIsSet;
   }
 
 
@@ -368,6 +422,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRedemptionsFailed(Integer redemptionsFailed) {
     this.redemptionsFailed = redemptionsFailed;
+    this.redemptionsFailedIsSet = true;
+  }
+  public boolean isRedemptionsFailedSet() {
+    return redemptionsFailedIsSet;
   }
 
 
@@ -389,6 +447,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRollbacks(Integer rollbacks) {
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
+  }
+  public boolean isRollbacksSet() {
+    return rollbacksIsSet;
   }
 
 
@@ -410,6 +472,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRollbacksSucceeded(Integer rollbacksSucceeded) {
     this.rollbacksSucceeded = rollbacksSucceeded;
+    this.rollbacksSucceededIsSet = true;
+  }
+  public boolean isRollbacksSucceededSet() {
+    return rollbacksSucceededIsSet;
   }
 
 
@@ -431,6 +497,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRollbacksFailed(Integer rollbacksFailed) {
     this.rollbacksFailed = rollbacksFailed;
+    this.rollbacksFailedIsSet = true;
+  }
+  public boolean isRollbacksFailedSet() {
+    return rollbacksFailedIsSet;
   }
 
 
@@ -452,6 +522,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setValidations(Integer validations) {
     this.validations = validations;
+    this.validationsIsSet = true;
+  }
+  public boolean isValidationsSet() {
+    return validationsIsSet;
   }
 
 
@@ -473,6 +547,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setValidationsSucceeded(Integer validationsSucceeded) {
     this.validationsSucceeded = validationsSucceeded;
+    this.validationsSucceededIsSet = true;
+  }
+  public boolean isValidationsSucceededSet() {
+    return validationsSucceededIsSet;
   }
 
 
@@ -494,6 +572,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setValidationsFailed(Integer validationsFailed) {
     this.validationsFailed = validationsFailed;
+    this.validationsFailedIsSet = true;
+  }
+  public boolean isValidationsFailedSet() {
+    return validationsFailedIsSet;
   }
 
 
@@ -515,6 +597,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setOrdersAmount(Integer ordersAmount) {
     this.ordersAmount = ordersAmount;
+    this.ordersAmountIsSet = true;
+  }
+  public boolean isOrdersAmountSet() {
+    return ordersAmountIsSet;
   }
 
 
@@ -536,6 +622,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setOrdersRolledbackAmount(Integer ordersRolledbackAmount) {
     this.ordersRolledbackAmount = ordersRolledbackAmount;
+    this.ordersRolledbackAmountIsSet = true;
+  }
+  public boolean isOrdersRolledbackAmountSet() {
+    return ordersRolledbackAmountIsSet;
   }
 
 
@@ -557,6 +647,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setVouchersCreated(Integer vouchersCreated) {
     this.vouchersCreated = vouchersCreated;
+    this.vouchersCreatedIsSet = true;
+  }
+  public boolean isVouchersCreatedSet() {
+    return vouchersCreatedIsSet;
   }
 
 
@@ -578,6 +672,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setVouchersDeleted(Integer vouchersDeleted) {
     this.vouchersDeleted = vouchersDeleted;
+    this.vouchersDeletedIsSet = true;
+  }
+  public boolean isVouchersDeletedSet() {
+    return vouchersDeletedIsSet;
   }
 
 
@@ -599,6 +697,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPublications(Integer publications) {
     this.publications = publications;
+    this.publicationsIsSet = true;
+  }
+  public boolean isPublicationsSet() {
+    return publicationsIsSet;
   }
 
 
@@ -620,6 +722,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPublicationsSucceeded(Integer publicationsSucceeded) {
     this.publicationsSucceeded = publicationsSucceeded;
+    this.publicationsSucceededIsSet = true;
+  }
+  public boolean isPublicationsSucceededSet() {
+    return publicationsSucceededIsSet;
   }
 
 
@@ -641,6 +747,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPublicationsFailed(Integer publicationsFailed) {
     this.publicationsFailed = publicationsFailed;
+    this.publicationsFailedIsSet = true;
+  }
+  public boolean isPublicationsFailedSet() {
+    return publicationsFailedIsSet;
   }
 
 
@@ -662,6 +772,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setDiscountedAmount(Integer discountedAmount) {
     this.discountedAmount = discountedAmount;
+    this.discountedAmountIsSet = true;
+  }
+  public boolean isDiscountedAmountSet() {
+    return discountedAmountIsSet;
   }
 
 
@@ -683,6 +797,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setRolledbackDiscountedAmount(Integer rolledbackDiscountedAmount) {
     this.rolledbackDiscountedAmount = rolledbackDiscountedAmount;
+    this.rolledbackDiscountedAmountIsSet = true;
+  }
+  public boolean isRolledbackDiscountedAmountSet() {
+    return rolledbackDiscountedAmountIsSet;
   }
 
 
@@ -704,6 +822,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setCreatedVouchersAmount(Integer createdVouchersAmount) {
     this.createdVouchersAmount = createdVouchersAmount;
+    this.createdVouchersAmountIsSet = true;
+  }
+  public boolean isCreatedVouchersAmountSet() {
+    return createdVouchersAmountIsSet;
   }
 
 
@@ -725,6 +847,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setAmountAdded(Integer amountAdded) {
     this.amountAdded = amountAdded;
+    this.amountAddedIsSet = true;
+  }
+  public boolean isAmountAddedSet() {
+    return amountAddedIsSet;
   }
 
 
@@ -746,6 +872,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setAmountDeleted(Integer amountDeleted) {
     this.amountDeleted = amountDeleted;
+    this.amountDeletedIsSet = true;
+  }
+  public boolean isAmountDeletedSet() {
+    return amountDeletedIsSet;
   }
 
 
@@ -767,6 +897,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setAmountRedeemed(Integer amountRedeemed) {
     this.amountRedeemed = amountRedeemed;
+    this.amountRedeemedIsSet = true;
+  }
+  public boolean isAmountRedeemedSet() {
+    return amountRedeemedIsSet;
   }
 
 
@@ -788,6 +922,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setAmountRolledback(Integer amountRolledback) {
     this.amountRolledback = amountRolledback;
+    this.amountRolledbackIsSet = true;
+  }
+  public boolean isAmountRolledbackSet() {
+    return amountRolledbackIsSet;
   }
 
 
@@ -809,6 +947,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setAmountSubtracted(Integer amountSubtracted) {
     this.amountSubtracted = amountSubtracted;
+    this.amountSubtractedIsSet = true;
+  }
+  public boolean isAmountSubtractedSet() {
+    return amountSubtractedIsSet;
   }
 
 
@@ -830,6 +972,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setCreatedVouchersPoints(Integer createdVouchersPoints) {
     this.createdVouchersPoints = createdVouchersPoints;
+    this.createdVouchersPointsIsSet = true;
+  }
+  public boolean isCreatedVouchersPointsSet() {
+    return createdVouchersPointsIsSet;
   }
 
 
@@ -851,6 +997,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsDeleted(Integer pointsDeleted) {
     this.pointsDeleted = pointsDeleted;
+    this.pointsDeletedIsSet = true;
+  }
+  public boolean isPointsDeletedSet() {
+    return pointsDeletedIsSet;
   }
 
 
@@ -872,6 +1022,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsSubtracted(Integer pointsSubtracted) {
     this.pointsSubtracted = pointsSubtracted;
+    this.pointsSubtractedIsSet = true;
+  }
+  public boolean isPointsSubtractedSet() {
+    return pointsSubtractedIsSet;
   }
 
 
@@ -893,6 +1047,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsAdded(Integer pointsAdded) {
     this.pointsAdded = pointsAdded;
+    this.pointsAddedIsSet = true;
+  }
+  public boolean isPointsAddedSet() {
+    return pointsAddedIsSet;
   }
 
 
@@ -914,6 +1072,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsRewarded(Integer pointsRewarded) {
     this.pointsRewarded = pointsRewarded;
+    this.pointsRewardedIsSet = true;
+  }
+  public boolean isPointsRewardedSet() {
+    return pointsRewardedIsSet;
   }
 
 
@@ -935,6 +1097,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsRedeemed(Integer pointsRedeemed) {
     this.pointsRedeemed = pointsRedeemed;
+    this.pointsRedeemedIsSet = true;
+  }
+  public boolean isPointsRedeemedSet() {
+    return pointsRedeemedIsSet;
   }
 
 
@@ -956,6 +1122,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsRolledback(Integer pointsRolledback) {
     this.pointsRolledback = pointsRolledback;
+    this.pointsRolledbackIsSet = true;
+  }
+  public boolean isPointsRolledbackSet() {
+    return pointsRolledbackIsSet;
   }
 
 
@@ -977,6 +1147,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsExpired(Integer pointsExpired) {
     this.pointsExpired = pointsExpired;
+    this.pointsExpiredIsSet = true;
+  }
+  public boolean isPointsExpiredSet() {
+    return pointsExpiredIsSet;
   }
 
 
@@ -998,6 +1172,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsTransferredOut(Integer pointsTransferredOut) {
     this.pointsTransferredOut = pointsTransferredOut;
+    this.pointsTransferredOutIsSet = true;
+  }
+  public boolean isPointsTransferredOutSet() {
+    return pointsTransferredOutIsSet;
   }
 
 
@@ -1019,6 +1197,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPointsTransferredIn(Integer pointsTransferredIn) {
     this.pointsTransferredIn = pointsTransferredIn;
+    this.pointsTransferredInIsSet = true;
+  }
+  public boolean isPointsTransferredInSet() {
+    return pointsTransferredInIsSet;
   }
 
 
@@ -1040,6 +1222,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPendingPointsAdded(Integer pendingPointsAdded) {
     this.pendingPointsAdded = pendingPointsAdded;
+    this.pendingPointsAddedIsSet = true;
+  }
+  public boolean isPendingPointsAddedSet() {
+    return pendingPointsAddedIsSet;
   }
 
 
@@ -1061,6 +1247,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPendingPointsSubtracted(Integer pendingPointsSubtracted) {
     this.pendingPointsSubtracted = pendingPointsSubtracted;
+    this.pendingPointsSubtractedIsSet = true;
+  }
+  public boolean isPendingPointsSubtractedSet() {
+    return pendingPointsSubtractedIsSet;
   }
 
 
@@ -1082,6 +1272,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPendingPointsActivated(Integer pendingPointsActivated) {
     this.pendingPointsActivated = pendingPointsActivated;
+    this.pendingPointsActivatedIsSet = true;
+  }
+  public boolean isPendingPointsActivatedSet() {
+    return pendingPointsActivatedIsSet;
   }
 
 
@@ -1103,6 +1297,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setPendingPointsCanceled(Integer pendingPointsCanceled) {
     this.pendingPointsCanceled = pendingPointsCanceled;
+    this.pendingPointsCanceledIsSet = true;
+  }
+  public boolean isPendingPointsCanceledSet() {
+    return pendingPointsCanceledIsSet;
   }
 
 
@@ -1124,6 +1322,10 @@ public class CampaignsSummaryGetResponseBody {
 
   public void setReferredCustomers(Integer referredCustomers) {
     this.referredCustomers = referredCustomers;
+    this.referredCustomersIsSet = true;
+  }
+  public boolean isReferredCustomersSet() {
+    return referredCustomersIsSet;
   }
 
 
@@ -1323,7 +1525,35 @@ public class CampaignsSummaryGetResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<CampaignsSummaryGetResponseBody>() {
            @Override
            public void write(JsonWriter out, CampaignsSummaryGetResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CampaignsSummaryGetResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CampaignsSummaryGetResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

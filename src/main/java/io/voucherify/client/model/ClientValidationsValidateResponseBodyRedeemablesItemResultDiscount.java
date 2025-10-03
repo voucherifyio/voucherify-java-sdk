@@ -36,6 +36,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -117,14 +119,17 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
   public static final String SERIALIZED_NAME_AMOUNT_OFF = "amount_off";
   @SerializedName(SERIALIZED_NAME_AMOUNT_OFF)
   private BigDecimal amountOff;
+    private boolean amountOffIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_OFF_FORMULA = "amount_off_formula";
   @SerializedName(SERIALIZED_NAME_AMOUNT_OFF_FORMULA)
   private String amountOffFormula;
+    private boolean amountOffFormulaIsSet = false;
 
   public static final String SERIALIZED_NAME_AGGREGATED_AMOUNT_LIMIT = "aggregated_amount_limit";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_AMOUNT_LIMIT)
   private Integer aggregatedAmountLimit;
+    private boolean aggregatedAmountLimitIsSet = false;
 
   /**
    * Gets or Sets effect
@@ -192,18 +197,22 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
   public static final String SERIALIZED_NAME_IS_DYNAMIC = "is_dynamic";
   @SerializedName(SERIALIZED_NAME_IS_DYNAMIC)
   private Boolean isDynamic;
+    private boolean isDynamicIsSet = false;
 
   public static final String SERIALIZED_NAME_UNIT_OFF = "unit_off";
   @SerializedName(SERIALIZED_NAME_UNIT_OFF)
   private Integer unitOff;
+    private boolean unitOffIsSet = false;
 
   public static final String SERIALIZED_NAME_UNIT_OFF_FORMULA = "unit_off_formula";
   @SerializedName(SERIALIZED_NAME_UNIT_OFF_FORMULA)
   private String unitOffFormula;
+    private boolean unitOffFormulaIsSet = false;
 
   public static final String SERIALIZED_NAME_UNIT_TYPE = "unit_type";
   @SerializedName(SERIALIZED_NAME_UNIT_TYPE)
   private String unitType;
+    private boolean unitTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_PRODUCT = "product";
   @SerializedName(SERIALIZED_NAME_PRODUCT)
@@ -216,26 +225,32 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
   public static final String SERIALIZED_NAME_UNITS = "units";
   @SerializedName(SERIALIZED_NAME_UNITS)
   private List<DiscountUnitMultipleOneUnit> units;
+    private boolean unitsIsSet = false;
 
   public static final String SERIALIZED_NAME_PERCENT_OFF = "percent_off";
   @SerializedName(SERIALIZED_NAME_PERCENT_OFF)
   private BigDecimal percentOff;
+    private boolean percentOffIsSet = false;
 
   public static final String SERIALIZED_NAME_PERCENT_OFF_FORMULA = "percent_off_formula";
   @SerializedName(SERIALIZED_NAME_PERCENT_OFF_FORMULA)
   private String percentOffFormula;
+    private boolean percentOffFormulaIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_LIMIT = "amount_limit";
   @SerializedName(SERIALIZED_NAME_AMOUNT_LIMIT)
   private BigDecimal amountLimit;
+    private boolean amountLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_FIXED_AMOUNT = "fixed_amount";
   @SerializedName(SERIALIZED_NAME_FIXED_AMOUNT)
   private BigDecimal fixedAmount;
+    private boolean fixedAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_FIXED_AMOUNT_FORMULA = "fixed_amount_formula";
   @SerializedName(SERIALIZED_NAME_FIXED_AMOUNT_FORMULA)
   private String fixedAmountFormula;
+    private boolean fixedAmountFormulaIsSet = false;
 
   public ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount() {
   }
@@ -279,6 +294,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setAmountOff(BigDecimal amountOff) {
     this.amountOff = amountOff;
+    this.amountOffIsSet = true;
+  }
+  public boolean isAmountOffSet() {
+    return amountOffIsSet;
   }
 
 
@@ -300,6 +319,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setAmountOffFormula(String amountOffFormula) {
     this.amountOffFormula = amountOffFormula;
+    this.amountOffFormulaIsSet = true;
+  }
+  public boolean isAmountOffFormulaSet() {
+    return amountOffFormulaIsSet;
   }
 
 
@@ -321,6 +344,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setAggregatedAmountLimit(Integer aggregatedAmountLimit) {
     this.aggregatedAmountLimit = aggregatedAmountLimit;
+    this.aggregatedAmountLimitIsSet = true;
+  }
+  public boolean isAggregatedAmountLimitSet() {
+    return aggregatedAmountLimitIsSet;
   }
 
 
@@ -363,6 +390,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setIsDynamic(Boolean isDynamic) {
     this.isDynamic = isDynamic;
+    this.isDynamicIsSet = true;
+  }
+  public boolean isIsDynamicSet() {
+    return isDynamicIsSet;
   }
 
 
@@ -384,6 +415,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setUnitOff(Integer unitOff) {
     this.unitOff = unitOff;
+    this.unitOffIsSet = true;
+  }
+  public boolean isUnitOffSet() {
+    return unitOffIsSet;
   }
 
 
@@ -405,6 +440,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setUnitOffFormula(String unitOffFormula) {
     this.unitOffFormula = unitOffFormula;
+    this.unitOffFormulaIsSet = true;
+  }
+  public boolean isUnitOffFormulaSet() {
+    return unitOffFormulaIsSet;
   }
 
 
@@ -426,6 +465,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setUnitType(String unitType) {
     this.unitType = unitType;
+    this.unitTypeIsSet = true;
+  }
+  public boolean isUnitTypeSet() {
+    return unitTypeIsSet;
   }
 
 
@@ -497,6 +540,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setUnits(List<DiscountUnitMultipleOneUnit> units) {
     this.units = units;
+    this.unitsIsSet = true;
+  }
+  public boolean isUnitsSet() {
+    return unitsIsSet;
   }
 
 
@@ -518,6 +565,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setPercentOff(BigDecimal percentOff) {
     this.percentOff = percentOff;
+    this.percentOffIsSet = true;
+  }
+  public boolean isPercentOffSet() {
+    return percentOffIsSet;
   }
 
 
@@ -539,6 +590,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setPercentOffFormula(String percentOffFormula) {
     this.percentOffFormula = percentOffFormula;
+    this.percentOffFormulaIsSet = true;
+  }
+  public boolean isPercentOffFormulaSet() {
+    return percentOffFormulaIsSet;
   }
 
 
@@ -560,6 +615,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setAmountLimit(BigDecimal amountLimit) {
     this.amountLimit = amountLimit;
+    this.amountLimitIsSet = true;
+  }
+  public boolean isAmountLimitSet() {
+    return amountLimitIsSet;
   }
 
 
@@ -581,6 +640,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setFixedAmount(BigDecimal fixedAmount) {
     this.fixedAmount = fixedAmount;
+    this.fixedAmountIsSet = true;
+  }
+  public boolean isFixedAmountSet() {
+    return fixedAmountIsSet;
   }
 
 
@@ -602,6 +665,10 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
 
   public void setFixedAmountFormula(String fixedAmountFormula) {
     this.fixedAmountFormula = fixedAmountFormula;
+    this.fixedAmountFormulaIsSet = true;
+  }
+  public boolean isFixedAmountFormulaSet() {
+    return fixedAmountFormulaIsSet;
   }
 
 
@@ -729,7 +796,35 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount 
        return (TypeAdapter<T>) new TypeAdapter<ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount>() {
            @Override
            public void write(JsonWriter out, ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

@@ -47,6 +47,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -56,6 +57,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -73,66 +75,82 @@ public class ParameterFiltersListCampaigns {
   public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS)
   private ParameterFiltersListCampaignsCampaigns campaigns;
+    private boolean campaignsIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGNS_ID = "campaigns_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGNS_ID)
   private ParameterFiltersListCampaignsCampaignsId campaignsId;
+    private boolean campaignsIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_STATUS = "campaign_status";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_STATUS)
   private ParameterFiltersListCampaignsCampaignStatus campaignStatus;
+    private boolean campaignStatusIsSet = false;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private ParameterFiltersListCampaignsStatus status;
+    private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private ParameterFiltersListCampaignsActive active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private ParameterFiltersListCampaignsIsReferralCode isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
   private ParameterFiltersListCampaignsValidityTimeframe validityTimeframe;
+    private boolean validityTimeframeIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER_TYPE = "voucher_type";
   @SerializedName(SERIALIZED_NAME_VOUCHER_TYPE)
   private ParameterFiltersListCampaignsVoucherType voucherType;
+    private boolean voucherTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private ParameterFiltersListCampaignsCategories categories;
+    private boolean categoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_IDS = "category_ids";
   @SerializedName(SERIALIZED_NAME_CATEGORY_IDS)
   private ParameterFiltersListCampaignsCategoryIds categoryIds;
+    private boolean categoryIdsIsSet = false;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private ParameterFiltersListCampaignsType type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "created_date";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
   private ParameterFiltersListCampaignsCreatedDate createdDate;
+    private boolean createdDateIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private ParameterFiltersListCampaignsUpdatedAt updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private ParameterFiltersListCampaignsStartDate startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private ParameterFiltersListCampaignsExpirationDate expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK = "validity_day_of_week";
   @SerializedName(SERIALIZED_NAME_VALIDITY_DAY_OF_WEEK)
   private ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek;
+    private boolean validityDayOfWeekIsSet = false;
 
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
@@ -159,6 +177,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCampaigns(ParameterFiltersListCampaignsCampaigns campaigns) {
     this.campaigns = campaigns;
+    this.campaignsIsSet = true;
+  }
+  public boolean isCampaignsSet() {
+    return campaignsIsSet;
   }
 
 
@@ -180,6 +202,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCampaignsId(ParameterFiltersListCampaignsCampaignsId campaignsId) {
     this.campaignsId = campaignsId;
+    this.campaignsIdIsSet = true;
+  }
+  public boolean isCampaignsIdSet() {
+    return campaignsIdIsSet;
   }
 
 
@@ -201,6 +227,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCampaignStatus(ParameterFiltersListCampaignsCampaignStatus campaignStatus) {
     this.campaignStatus = campaignStatus;
+    this.campaignStatusIsSet = true;
+  }
+  public boolean isCampaignStatusSet() {
+    return campaignStatusIsSet;
   }
 
 
@@ -222,6 +252,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setStatus(ParameterFiltersListCampaignsStatus status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -243,6 +277,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setActive(ParameterFiltersListCampaignsActive active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -264,6 +302,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setIsReferralCode(ParameterFiltersListCampaignsIsReferralCode isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -285,6 +327,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setValidityTimeframe(ParameterFiltersListCampaignsValidityTimeframe validityTimeframe) {
     this.validityTimeframe = validityTimeframe;
+    this.validityTimeframeIsSet = true;
+  }
+  public boolean isValidityTimeframeSet() {
+    return validityTimeframeIsSet;
   }
 
 
@@ -306,6 +352,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setVoucherType(ParameterFiltersListCampaignsVoucherType voucherType) {
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
+  }
+  public boolean isVoucherTypeSet() {
+    return voucherTypeIsSet;
   }
 
 
@@ -327,6 +377,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCategories(ParameterFiltersListCampaignsCategories categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -348,6 +402,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCategoryIds(ParameterFiltersListCampaignsCategoryIds categoryIds) {
     this.categoryIds = categoryIds;
+    this.categoryIdsIsSet = true;
+  }
+  public boolean isCategoryIdsSet() {
+    return categoryIdsIsSet;
   }
 
 
@@ -369,6 +427,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setType(ParameterFiltersListCampaignsType type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -390,6 +452,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setCreatedDate(ParameterFiltersListCampaignsCreatedDate createdDate) {
     this.createdDate = createdDate;
+    this.createdDateIsSet = true;
+  }
+  public boolean isCreatedDateSet() {
+    return createdDateIsSet;
   }
 
 
@@ -411,6 +477,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setUpdatedAt(ParameterFiltersListCampaignsUpdatedAt updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -432,6 +502,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setStartDate(ParameterFiltersListCampaignsStartDate startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -453,6 +527,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setExpirationDate(ParameterFiltersListCampaignsExpirationDate expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -474,6 +552,10 @@ public class ParameterFiltersListCampaigns {
 
   public void setValidityDayOfWeek(ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek) {
     this.validityDayOfWeek = validityDayOfWeek;
+    this.validityDayOfWeekIsSet = true;
+  }
+  public boolean isValidityDayOfWeekSet() {
+    return validityDayOfWeekIsSet;
   }
 
 
@@ -622,7 +704,35 @@ public class ParameterFiltersListCampaigns {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCampaigns>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListCampaigns value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ParameterFiltersListCampaigns.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ParameterFiltersListCampaigns.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

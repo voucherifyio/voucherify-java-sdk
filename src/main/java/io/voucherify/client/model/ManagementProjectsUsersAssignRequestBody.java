@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,14 +58,17 @@ public class ManagementProjectsUsersAssignRequestBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_LOGIN = "login";
   @SerializedName(SERIALIZED_NAME_LOGIN)
   private String login;
+    private boolean loginIsSet = false;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
+    private boolean roleIsSet = false;
 
   public ManagementProjectsUsersAssignRequestBody() {
   }
@@ -86,6 +91,10 @@ public class ManagementProjectsUsersAssignRequestBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -107,6 +116,10 @@ public class ManagementProjectsUsersAssignRequestBody {
 
   public void setLogin(String login) {
     this.login = login;
+    this.loginIsSet = true;
+  }
+  public boolean isLoginSet() {
+    return loginIsSet;
   }
 
 
@@ -128,6 +141,10 @@ public class ManagementProjectsUsersAssignRequestBody {
 
   public void setRole(String role) {
     this.role = role;
+    this.roleIsSet = true;
+  }
+  public boolean isRoleSet() {
+    return roleIsSet;
   }
 
 
@@ -213,7 +230,35 @@ public class ManagementProjectsUsersAssignRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsUsersAssignRequestBody>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsUsersAssignRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsUsersAssignRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsUsersAssignRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

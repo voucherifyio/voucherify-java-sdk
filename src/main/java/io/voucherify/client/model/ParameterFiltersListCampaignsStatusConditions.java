@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,22 +58,27 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public static final String SERIALIZED_NAME_$_ACTIVE = "$active";
   @SerializedName(SERIALIZED_NAME_$_ACTIVE)
   private Object $active;
+    private boolean $activeIsSet = false;
 
   public static final String SERIALIZED_NAME_$_FAILED = "$failed";
   @SerializedName(SERIALIZED_NAME_$_FAILED)
   private Object $failed;
+    private boolean $failedIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IN_PROGRESS = "$in_progress";
   @SerializedName(SERIALIZED_NAME_$_IN_PROGRESS)
   private Object $inProgress;
+    private boolean $inProgressIsSet = false;
 
   public static final String SERIALIZED_NAME_$_EXPIRED = "$expired";
   @SerializedName(SERIALIZED_NAME_$_EXPIRED)
   private Object $expired;
+    private boolean $expiredIsSet = false;
 
   public static final String SERIALIZED_NAME_BEFORE_START = "before_start";
   @SerializedName(SERIALIZED_NAME_BEFORE_START)
   private Object beforeStart;
+    private boolean beforeStartIsSet = false;
 
   public ParameterFiltersListCampaignsStatusConditions() {
   }
@@ -94,6 +101,10 @@ public class ParameterFiltersListCampaignsStatusConditions {
 
   public void set$Active(Object $active) {
     this.$active = $active;
+    this.$activeIsSet = true;
+  }
+  public boolean is$ActiveSet() {
+    return $activeIsSet;
   }
 
 
@@ -115,6 +126,10 @@ public class ParameterFiltersListCampaignsStatusConditions {
 
   public void set$Failed(Object $failed) {
     this.$failed = $failed;
+    this.$failedIsSet = true;
+  }
+  public boolean is$FailedSet() {
+    return $failedIsSet;
   }
 
 
@@ -136,6 +151,10 @@ public class ParameterFiltersListCampaignsStatusConditions {
 
   public void set$InProgress(Object $inProgress) {
     this.$inProgress = $inProgress;
+    this.$inProgressIsSet = true;
+  }
+  public boolean is$InProgressSet() {
+    return $inProgressIsSet;
   }
 
 
@@ -157,6 +176,10 @@ public class ParameterFiltersListCampaignsStatusConditions {
 
   public void set$Expired(Object $expired) {
     this.$expired = $expired;
+    this.$expiredIsSet = true;
+  }
+  public boolean is$ExpiredSet() {
+    return $expiredIsSet;
   }
 
 
@@ -178,6 +201,10 @@ public class ParameterFiltersListCampaignsStatusConditions {
 
   public void setBeforeStart(Object beforeStart) {
     this.beforeStart = beforeStart;
+    this.beforeStartIsSet = true;
+  }
+  public boolean isBeforeStartSet() {
+    return beforeStartIsSet;
   }
 
 
@@ -269,7 +296,35 @@ public class ParameterFiltersListCampaignsStatusConditions {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListCampaignsStatusConditions>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListCampaignsStatusConditions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ParameterFiltersListCampaignsStatusConditions.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ParameterFiltersListCampaignsStatusConditions.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

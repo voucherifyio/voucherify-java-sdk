@@ -39,6 +39,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -48,6 +49,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,30 +67,37 @@ public class MemberActivityDataRedemption {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private String customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_TRACKING_ID = "tracking_id";
   @SerializedName(SERIALIZED_NAME_TRACKING_ID)
   private String trackingId;
+    private boolean trackingIdIsSet = false;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   private OffsetDateTime date;
+    private boolean dateIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Integer amount;
+    private boolean amountIsSet = false;
 
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   private MemberActivityDataRedemptionOrder order;
+    private boolean orderIsSet = false;
 
   public static final String SERIALIZED_NAME_REWARD = "reward";
   @SerializedName(SERIALIZED_NAME_REWARD)
   private MemberActivityDataRedemptionReward reward;
+    private boolean rewardIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -144,6 +153,7 @@ public class MemberActivityDataRedemption {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ResultEnum result;
+    private boolean resultIsSet = false;
 
   /**
    * Gets or Sets status
@@ -197,46 +207,57 @@ public class MemberActivityDataRedemption {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+    private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_VOUCHER = "voucher";
   @SerializedName(SERIALIZED_NAME_VOUCHER)
   private MemberActivityDataRedemptionVoucher voucher;
+    private boolean voucherIsSet = false;
 
   public static final String SERIALIZED_NAME_PROMOTION_TIER = "promotion_tier";
   @SerializedName(SERIALIZED_NAME_PROMOTION_TIER)
   private MemberActivityDataRedemptionPromotionTier promotionTier;
+    private boolean promotionTierIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private String redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private String failureCode;
+    private boolean failureCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
   private String failureMessage;
+    private boolean failureMessageIsSet = false;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+    private boolean reasonIsSet = false;
 
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private MemberActivityDataRedemptionChannel channel;
+    private boolean channelIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "redemption";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   /**
    * The source of the channel for the redemption rollback. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API.
@@ -288,22 +309,27 @@ public class MemberActivityDataRedemption {
   public static final String SERIALIZED_NAME_CHANNEL_TYPE = "channel_type";
   @SerializedName(SERIALIZED_NAME_CHANNEL_TYPE)
   private ChannelTypeEnum channelType;
+    private boolean channelTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_CHANNEL_ID = "channel_id";
   @SerializedName(SERIALIZED_NAME_CHANNEL_ID)
   private String channelId;
+    private boolean channelIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PREVIOUS_ORDER = "previous_order";
   @SerializedName(SERIALIZED_NAME_PREVIOUS_ORDER)
   private MemberActivityDataRedemptionPreviousOrder previousOrder;
+    private boolean previousOrderIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_REDEMPTIONS = "related_redemptions";
   @SerializedName(SERIALIZED_NAME_RELATED_REDEMPTIONS)
   private MemberActivityDataRedemptionRelatedRedemptions relatedRedemptions;
+    private boolean relatedRedemptionsIsSet = false;
 
   public static final String SERIALIZED_NAME_PARENT_REDEMPTION_ID = "parent_redemption_id";
   @SerializedName(SERIALIZED_NAME_PARENT_REDEMPTION_ID)
   private String parentRedemptionId;
+    private boolean parentRedemptionIdIsSet = false;
 
   /**
    * Defines the related object.
@@ -355,18 +381,22 @@ public class MemberActivityDataRedemption {
   public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "related_object_type";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
   private RelatedObjectTypeEnum relatedObjectType;
+    private boolean relatedObjectTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private String relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID = "related_object_parent_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID)
   private String relatedObjectParentId;
+    private boolean relatedObjectParentIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
   private String campaignName;
+    private boolean campaignNameIsSet = false;
 
   public MemberActivityDataRedemption() {
   }
@@ -389,6 +419,10 @@ public class MemberActivityDataRedemption {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -410,6 +444,10 @@ public class MemberActivityDataRedemption {
 
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -431,6 +469,10 @@ public class MemberActivityDataRedemption {
 
   public void setTrackingId(String trackingId) {
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
+  }
+  public boolean isTrackingIdSet() {
+    return trackingIdIsSet;
   }
 
 
@@ -452,6 +494,10 @@ public class MemberActivityDataRedemption {
 
   public void setDate(OffsetDateTime date) {
     this.date = date;
+    this.dateIsSet = true;
+  }
+  public boolean isDateSet() {
+    return dateIsSet;
   }
 
 
@@ -473,6 +519,10 @@ public class MemberActivityDataRedemption {
 
   public void setAmount(Integer amount) {
     this.amount = amount;
+    this.amountIsSet = true;
+  }
+  public boolean isAmountSet() {
+    return amountIsSet;
   }
 
 
@@ -494,6 +544,10 @@ public class MemberActivityDataRedemption {
 
   public void setOrder(MemberActivityDataRedemptionOrder order) {
     this.order = order;
+    this.orderIsSet = true;
+  }
+  public boolean isOrderSet() {
+    return orderIsSet;
   }
 
 
@@ -515,6 +569,10 @@ public class MemberActivityDataRedemption {
 
   public void setReward(MemberActivityDataRedemptionReward reward) {
     this.reward = reward;
+    this.rewardIsSet = true;
+  }
+  public boolean isRewardSet() {
+    return rewardIsSet;
   }
 
 
@@ -557,6 +615,10 @@ public class MemberActivityDataRedemption {
 
   public void setResult(ResultEnum result) {
     this.result = result;
+    this.resultIsSet = true;
+  }
+  public boolean isResultSet() {
+    return resultIsSet;
   }
 
 
@@ -578,6 +640,10 @@ public class MemberActivityDataRedemption {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+    this.statusIsSet = true;
+  }
+  public boolean isStatusSet() {
+    return statusIsSet;
   }
 
 
@@ -599,6 +665,10 @@ public class MemberActivityDataRedemption {
 
   public void setVoucher(MemberActivityDataRedemptionVoucher voucher) {
     this.voucher = voucher;
+    this.voucherIsSet = true;
+  }
+  public boolean isVoucherSet() {
+    return voucherIsSet;
   }
 
 
@@ -620,6 +690,10 @@ public class MemberActivityDataRedemption {
 
   public void setPromotionTier(MemberActivityDataRedemptionPromotionTier promotionTier) {
     this.promotionTier = promotionTier;
+    this.promotionTierIsSet = true;
+  }
+  public boolean isPromotionTierSet() {
+    return promotionTierIsSet;
   }
 
 
@@ -641,6 +715,10 @@ public class MemberActivityDataRedemption {
 
   public void setRedemption(String redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -662,6 +740,10 @@ public class MemberActivityDataRedemption {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -683,6 +765,10 @@ public class MemberActivityDataRedemption {
 
   public void setFailureCode(String failureCode) {
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
+  }
+  public boolean isFailureCodeSet() {
+    return failureCodeIsSet;
   }
 
 
@@ -704,6 +790,10 @@ public class MemberActivityDataRedemption {
 
   public void setFailureMessage(String failureMessage) {
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
+  }
+  public boolean isFailureMessageSet() {
+    return failureMessageIsSet;
   }
 
 
@@ -725,6 +815,10 @@ public class MemberActivityDataRedemption {
 
   public void setReason(String reason) {
     this.reason = reason;
+    this.reasonIsSet = true;
+  }
+  public boolean isReasonSet() {
+    return reasonIsSet;
   }
 
 
@@ -746,6 +840,10 @@ public class MemberActivityDataRedemption {
 
   public void setChannel(MemberActivityDataRedemptionChannel channel) {
     this.channel = channel;
+    this.channelIsSet = true;
+  }
+  public boolean isChannelSet() {
+    return channelIsSet;
   }
 
 
@@ -767,6 +865,10 @@ public class MemberActivityDataRedemption {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -788,6 +890,10 @@ public class MemberActivityDataRedemption {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -809,6 +915,10 @@ public class MemberActivityDataRedemption {
 
   public void setChannelType(ChannelTypeEnum channelType) {
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
+  }
+  public boolean isChannelTypeSet() {
+    return channelTypeIsSet;
   }
 
 
@@ -830,6 +940,10 @@ public class MemberActivityDataRedemption {
 
   public void setChannelId(String channelId) {
     this.channelId = channelId;
+    this.channelIdIsSet = true;
+  }
+  public boolean isChannelIdSet() {
+    return channelIdIsSet;
   }
 
 
@@ -851,6 +965,10 @@ public class MemberActivityDataRedemption {
 
   public void setPreviousOrder(MemberActivityDataRedemptionPreviousOrder previousOrder) {
     this.previousOrder = previousOrder;
+    this.previousOrderIsSet = true;
+  }
+  public boolean isPreviousOrderSet() {
+    return previousOrderIsSet;
   }
 
 
@@ -872,6 +990,10 @@ public class MemberActivityDataRedemption {
 
   public void setRelatedRedemptions(MemberActivityDataRedemptionRelatedRedemptions relatedRedemptions) {
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
+  }
+  public boolean isRelatedRedemptionsSet() {
+    return relatedRedemptionsIsSet;
   }
 
 
@@ -893,6 +1015,10 @@ public class MemberActivityDataRedemption {
 
   public void setParentRedemptionId(String parentRedemptionId) {
     this.parentRedemptionId = parentRedemptionId;
+    this.parentRedemptionIdIsSet = true;
+  }
+  public boolean isParentRedemptionIdSet() {
+    return parentRedemptionIdIsSet;
   }
 
 
@@ -914,6 +1040,10 @@ public class MemberActivityDataRedemption {
 
   public void setRelatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+  }
+  public boolean isRelatedObjectTypeSet() {
+    return relatedObjectTypeIsSet;
   }
 
 
@@ -935,6 +1065,10 @@ public class MemberActivityDataRedemption {
 
   public void setRelatedObjectId(String relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -956,6 +1090,10 @@ public class MemberActivityDataRedemption {
 
   public void setRelatedObjectParentId(String relatedObjectParentId) {
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
+  }
+  public boolean isRelatedObjectParentIdSet() {
+    return relatedObjectParentIdIsSet;
   }
 
 
@@ -977,6 +1115,10 @@ public class MemberActivityDataRedemption {
 
   public void setCampaignName(String campaignName) {
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
+  }
+  public boolean isCampaignNameSet() {
+    return campaignNameIsSet;
   }
 
 
@@ -1140,7 +1282,35 @@ public class MemberActivityDataRedemption {
        return (TypeAdapter<T>) new TypeAdapter<MemberActivityDataRedemption>() {
            @Override
            public void write(JsonWriter out, MemberActivityDataRedemption value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : MemberActivityDataRedemption.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = MemberActivityDataRedemption.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

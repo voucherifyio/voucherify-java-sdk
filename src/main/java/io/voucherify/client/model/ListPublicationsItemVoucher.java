@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,6 +60,7 @@ public class ListPublicationsItemVoucher {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
+    private boolean codeIsSet = false;
 
   /**
    * The type of the object represented by JSON.
@@ -107,10 +110,12 @@ public class ListPublicationsItemVoucher {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.VOUCHER;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   private String campaign;
+    private boolean campaignIsSet = false;
 
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
@@ -119,6 +124,7 @@ public class ListPublicationsItemVoucher {
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private Object loyaltyCard;
+    private boolean loyaltyCardIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
@@ -127,6 +133,7 @@ public class ListPublicationsItemVoucher {
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private Boolean isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public ListPublicationsItemVoucher() {
   }
@@ -149,6 +156,10 @@ public class ListPublicationsItemVoucher {
 
   public void setCode(String code) {
     this.code = code;
+    this.codeIsSet = true;
+  }
+  public boolean isCodeSet() {
+    return codeIsSet;
   }
 
 
@@ -170,6 +181,10 @@ public class ListPublicationsItemVoucher {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -191,6 +206,10 @@ public class ListPublicationsItemVoucher {
 
   public void setCampaign(String campaign) {
     this.campaign = campaign;
+    this.campaignIsSet = true;
+  }
+  public boolean isCampaignSet() {
+    return campaignIsSet;
   }
 
 
@@ -233,6 +252,10 @@ public class ListPublicationsItemVoucher {
 
   public void setLoyaltyCard(Object loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
+  }
+  public boolean isLoyaltyCardSet() {
+    return loyaltyCardIsSet;
   }
 
 
@@ -275,6 +298,10 @@ public class ListPublicationsItemVoucher {
 
   public void setIsReferralCode(Boolean isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -372,7 +399,35 @@ public class ListPublicationsItemVoucher {
        return (TypeAdapter<T>) new TypeAdapter<ListPublicationsItemVoucher>() {
            @Override
            public void write(JsonWriter out, ListPublicationsItemVoucher value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ListPublicationsItemVoucher.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ListPublicationsItemVoucher.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

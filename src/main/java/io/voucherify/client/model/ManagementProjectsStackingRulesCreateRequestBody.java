@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,30 +60,37 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_EXCLUSIVE_CATEGORIES = "exclusive_categories";
   @SerializedName(SERIALIZED_NAME_EXCLUSIVE_CATEGORIES)
   private List<String> exclusiveCategories;
+    private boolean exclusiveCategoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_JOINT_CATEGORIES = "joint_categories";
   @SerializedName(SERIALIZED_NAME_JOINT_CATEGORIES)
   private List<String> jointCategories;
+    private boolean jointCategoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEEMABLES_LIMIT = "redeemables_limit";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_LIMIT)
   private Integer redeemablesLimit;
+    private boolean redeemablesLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_REDEEMABLES_LIMIT = "applicable_redeemables_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_LIMIT)
   private Integer applicableRedeemablesLimit;
+    private boolean applicableRedeemablesLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT = "applicable_redeemables_per_category_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT)
   private Integer applicableRedeemablesPerCategoryLimit;
+    private boolean applicableRedeemablesPerCategoryLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT = "applicable_exclusive_redeemables_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT)
   private Integer applicableExclusiveRedeemablesLimit;
+    private boolean applicableExclusiveRedeemablesLimitIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT = "applicable_exclusive_redeemables_per_category_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT)
   private Integer applicableExclusiveRedeemablesPerCategoryLimit;
+    private boolean applicableExclusiveRedeemablesPerCategoryLimitIsSet = false;
 
   /**
    * Defines if the discounts are applied by taking into account the initial order amount or the discounted order amount.
@@ -133,14 +142,17 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_DISCOUNT_CALCULATION_MODE = "discount_calculation_mode";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_CALCULATION_MODE)
   private DiscountCalculationModeEnum discountCalculationMode;
+    private boolean discountCalculationModeIsSet = false;
 
   public static final String SERIALIZED_NAME_INITIAL_AMOUNT_MODE_CATEGORIES = "initial_amount_mode_categories";
   @SerializedName(SERIALIZED_NAME_INITIAL_AMOUNT_MODE_CATEGORIES)
   private List<String> initialAmountModeCategories;
+    private boolean initialAmountModeCategoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNTED_AMOUNT_MODE_CATEGORIES = "discounted_amount_mode_categories";
   @SerializedName(SERIALIZED_NAME_DISCOUNTED_AMOUNT_MODE_CATEGORIES)
   private List<String> discountedAmountModeCategories;
+    private boolean discountedAmountModeCategoriesIsSet = false;
 
   /**
    * Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped.
@@ -192,6 +204,7 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_REDEEMABLES_APPLICATION_MODE = "redeemables_application_mode";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_APPLICATION_MODE)
   private RedeemablesApplicationModeEnum redeemablesApplicationMode;
+    private boolean redeemablesApplicationModeIsSet = false;
 
   /**
    * Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.
@@ -243,6 +256,7 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_REDEEMABLES_SORTING_RULE = "redeemables_sorting_rule";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_SORTING_RULE)
   private RedeemablesSortingRuleEnum redeemablesSortingRule;
+    private boolean redeemablesSortingRuleIsSet = false;
 
   /**
    * Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.
@@ -294,6 +308,7 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE = "redeemables_products_application_mode";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_PRODUCTS_APPLICATION_MODE)
   private RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode;
+    private boolean redeemablesProductsApplicationModeIsSet = false;
 
   /**
    * Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.
@@ -345,14 +360,17 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE = "redeemables_no_effect_rule";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_NO_EFFECT_RULE)
   private RedeemablesNoEffectRuleEnum redeemablesNoEffectRule;
+    private boolean redeemablesNoEffectRuleIsSet = false;
 
   public static final String SERIALIZED_NAME_NO_EFFECT_SKIP_CATEGORIES = "no_effect_skip_categories";
   @SerializedName(SERIALIZED_NAME_NO_EFFECT_SKIP_CATEGORIES)
   private List<String> noEffectSkipCategories;
+    private boolean noEffectSkipCategoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_NO_EFFECT_REDEEM_ANYWAY_CATEGORIES = "no_effect_redeem_anyway_categories";
   @SerializedName(SERIALIZED_NAME_NO_EFFECT_REDEEM_ANYWAY_CATEGORIES)
   private List<String> noEffectRedeemAnywayCategories;
+    private boolean noEffectRedeemAnywayCategoriesIsSet = false;
 
   /**
    * Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
@@ -404,6 +422,7 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
   public static final String SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE = "redeemables_rollback_order_mode";
   @SerializedName(SERIALIZED_NAME_REDEEMABLES_ROLLBACK_ORDER_MODE)
   private RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode;
+    private boolean redeemablesRollbackOrderModeIsSet = false;
 
   public ManagementProjectsStackingRulesCreateRequestBody() {
   }
@@ -434,6 +453,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setExclusiveCategories(List<String> exclusiveCategories) {
     this.exclusiveCategories = exclusiveCategories;
+    this.exclusiveCategoriesIsSet = true;
+  }
+  public boolean isExclusiveCategoriesSet() {
+    return exclusiveCategoriesIsSet;
   }
 
 
@@ -463,6 +486,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setJointCategories(List<String> jointCategories) {
     this.jointCategories = jointCategories;
+    this.jointCategoriesIsSet = true;
+  }
+  public boolean isJointCategoriesSet() {
+    return jointCategoriesIsSet;
   }
 
 
@@ -486,6 +513,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesLimit(Integer redeemablesLimit) {
     this.redeemablesLimit = redeemablesLimit;
+    this.redeemablesLimitIsSet = true;
+  }
+  public boolean isRedeemablesLimitSet() {
+    return redeemablesLimitIsSet;
   }
 
 
@@ -509,6 +540,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setApplicableRedeemablesLimit(Integer applicableRedeemablesLimit) {
     this.applicableRedeemablesLimit = applicableRedeemablesLimit;
+    this.applicableRedeemablesLimitIsSet = true;
+  }
+  public boolean isApplicableRedeemablesLimitSet() {
+    return applicableRedeemablesLimitIsSet;
   }
 
 
@@ -532,6 +567,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setApplicableRedeemablesPerCategoryLimit(Integer applicableRedeemablesPerCategoryLimit) {
     this.applicableRedeemablesPerCategoryLimit = applicableRedeemablesPerCategoryLimit;
+    this.applicableRedeemablesPerCategoryLimitIsSet = true;
+  }
+  public boolean isApplicableRedeemablesPerCategoryLimitSet() {
+    return applicableRedeemablesPerCategoryLimitIsSet;
   }
 
 
@@ -555,6 +594,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setApplicableExclusiveRedeemablesLimit(Integer applicableExclusiveRedeemablesLimit) {
     this.applicableExclusiveRedeemablesLimit = applicableExclusiveRedeemablesLimit;
+    this.applicableExclusiveRedeemablesLimitIsSet = true;
+  }
+  public boolean isApplicableExclusiveRedeemablesLimitSet() {
+    return applicableExclusiveRedeemablesLimitIsSet;
   }
 
 
@@ -578,6 +621,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setApplicableExclusiveRedeemablesPerCategoryLimit(Integer applicableExclusiveRedeemablesPerCategoryLimit) {
     this.applicableExclusiveRedeemablesPerCategoryLimit = applicableExclusiveRedeemablesPerCategoryLimit;
+    this.applicableExclusiveRedeemablesPerCategoryLimitIsSet = true;
+  }
+  public boolean isApplicableExclusiveRedeemablesPerCategoryLimitSet() {
+    return applicableExclusiveRedeemablesPerCategoryLimitIsSet;
   }
 
 
@@ -599,6 +646,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setDiscountCalculationMode(DiscountCalculationModeEnum discountCalculationMode) {
     this.discountCalculationMode = discountCalculationMode;
+    this.discountCalculationModeIsSet = true;
+  }
+  public boolean isDiscountCalculationModeSet() {
+    return discountCalculationModeIsSet;
   }
 
 
@@ -628,6 +679,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setInitialAmountModeCategories(List<String> initialAmountModeCategories) {
     this.initialAmountModeCategories = initialAmountModeCategories;
+    this.initialAmountModeCategoriesIsSet = true;
+  }
+  public boolean isInitialAmountModeCategoriesSet() {
+    return initialAmountModeCategoriesIsSet;
   }
 
 
@@ -657,6 +712,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setDiscountedAmountModeCategories(List<String> discountedAmountModeCategories) {
     this.discountedAmountModeCategories = discountedAmountModeCategories;
+    this.discountedAmountModeCategoriesIsSet = true;
+  }
+  public boolean isDiscountedAmountModeCategoriesSet() {
+    return discountedAmountModeCategoriesIsSet;
   }
 
 
@@ -678,6 +737,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesApplicationMode(RedeemablesApplicationModeEnum redeemablesApplicationMode) {
     this.redeemablesApplicationMode = redeemablesApplicationMode;
+    this.redeemablesApplicationModeIsSet = true;
+  }
+  public boolean isRedeemablesApplicationModeSet() {
+    return redeemablesApplicationModeIsSet;
   }
 
 
@@ -699,6 +762,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesSortingRule(RedeemablesSortingRuleEnum redeemablesSortingRule) {
     this.redeemablesSortingRule = redeemablesSortingRule;
+    this.redeemablesSortingRuleIsSet = true;
+  }
+  public boolean isRedeemablesSortingRuleSet() {
+    return redeemablesSortingRuleIsSet;
   }
 
 
@@ -720,6 +787,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
     this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+    this.redeemablesProductsApplicationModeIsSet = true;
+  }
+  public boolean isRedeemablesProductsApplicationModeSet() {
+    return redeemablesProductsApplicationModeIsSet;
   }
 
 
@@ -741,6 +812,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
     this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+    this.redeemablesNoEffectRuleIsSet = true;
+  }
+  public boolean isRedeemablesNoEffectRuleSet() {
+    return redeemablesNoEffectRuleIsSet;
   }
 
 
@@ -770,6 +845,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setNoEffectSkipCategories(List<String> noEffectSkipCategories) {
     this.noEffectSkipCategories = noEffectSkipCategories;
+    this.noEffectSkipCategoriesIsSet = true;
+  }
+  public boolean isNoEffectSkipCategoriesSet() {
+    return noEffectSkipCategoriesIsSet;
   }
 
 
@@ -799,6 +878,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setNoEffectRedeemAnywayCategories(List<String> noEffectRedeemAnywayCategories) {
     this.noEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+    this.noEffectRedeemAnywayCategoriesIsSet = true;
+  }
+  public boolean isNoEffectRedeemAnywayCategoriesSet() {
+    return noEffectRedeemAnywayCategoriesIsSet;
   }
 
 
@@ -820,6 +903,10 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
 
   public void setRedeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
     this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    this.redeemablesRollbackOrderModeIsSet = true;
+  }
+  public boolean isRedeemablesRollbackOrderModeSet() {
+    return redeemablesRollbackOrderModeIsSet;
   }
 
 
@@ -947,7 +1034,35 @@ public class ManagementProjectsStackingRulesCreateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsStackingRulesCreateRequestBody>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsStackingRulesCreateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsStackingRulesCreateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsStackingRulesCreateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

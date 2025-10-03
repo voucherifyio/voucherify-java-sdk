@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,14 +58,17 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata {
   public static final String SERIALIZED_NAME_EVERY = "every";
   @SerializedName(SERIALIZED_NAME_EVERY)
   private Integer every;
+    private boolean everyIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
+    private boolean pointsIsSet = false;
 
   public static final String SERIALIZED_NAME_PROPERTY = "property";
   @SerializedName(SERIALIZED_NAME_PROPERTY)
   private String property;
+    private boolean propertyIsSet = false;
 
   public LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata() {
   }
@@ -86,6 +91,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata {
 
   public void setEvery(Integer every) {
     this.every = every;
+    this.everyIsSet = true;
+  }
+  public boolean isEverySet() {
+    return everyIsSet;
   }
 
 
@@ -107,6 +116,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata {
 
   public void setPoints(Integer points) {
     this.points = points;
+    this.pointsIsSet = true;
+  }
+  public boolean isPointsSet() {
+    return pointsIsSet;
   }
 
 
@@ -128,6 +141,10 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata {
 
   public void setProperty(String property) {
     this.property = property;
+    this.propertyIsSet = true;
+  }
+  public boolean isPropertySet() {
+    return propertyIsSet;
   }
 
 
@@ -213,7 +230,35 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata>() {
            @Override
            public void write(JsonWriter out, LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltiesEarningRulesCreateResponseBodyLoyaltyOrderMetadata.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

@@ -38,6 +38,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -47,6 +48,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -109,6 +111,7 @@ public class LoyaltyCampaignVoucher {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type = TypeEnum.LOYALTY_CARD;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
@@ -117,6 +120,7 @@ public class LoyaltyCampaignVoucher {
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private LoyaltyCampaignVoucherRedemption redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
   @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
@@ -125,14 +129,17 @@ public class LoyaltyCampaignVoucher {
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private Boolean isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -224,6 +231,10 @@ public class LoyaltyCampaignVoucher {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -266,6 +277,10 @@ public class LoyaltyCampaignVoucher {
 
   public void setRedemption(LoyaltyCampaignVoucherRedemption redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -308,6 +323,10 @@ public class LoyaltyCampaignVoucher {
 
   public void setIsReferralCode(Boolean isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -329,6 +348,10 @@ public class LoyaltyCampaignVoucher {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -350,6 +373,10 @@ public class LoyaltyCampaignVoucher {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -528,7 +555,35 @@ public class LoyaltyCampaignVoucher {
        return (TypeAdapter<T>) new TypeAdapter<LoyaltyCampaignVoucher>() {
            @Override
            public void write(JsonWriter out, LoyaltyCampaignVoucher value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : LoyaltyCampaignVoucher.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = LoyaltyCampaignVoucher.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

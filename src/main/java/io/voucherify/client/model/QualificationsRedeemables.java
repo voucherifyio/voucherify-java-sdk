@@ -34,6 +34,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +44,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -105,6 +107,7 @@ public class QualificationsRedeemables {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ObjectEnum _object = ObjectEnum.LIST;
+    private boolean _objectIsSet = false;
 
   /**
    * Identifies the name of the attribute that contains the array of qualified redeemables.
@@ -154,22 +157,27 @@ public class QualificationsRedeemables {
   public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
   @SerializedName(SERIALIZED_NAME_DATA_REF)
   private DataRefEnum dataRef = DataRefEnum.DATA;
+    private boolean dataRefIsSet = false;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<QualificationsRedeemable> data;
+    private boolean dataIsSet = false;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   private Integer total;
+    private boolean totalIsSet = false;
 
   public static final String SERIALIZED_NAME_HAS_MORE = "has_more";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
   private Boolean hasMore;
+    private boolean hasMoreIsSet = false;
 
   public static final String SERIALIZED_NAME_MORE_STARTING_AFTER = "more_starting_after";
   @SerializedName(SERIALIZED_NAME_MORE_STARTING_AFTER)
   private OffsetDateTime moreStartingAfter;
+    private boolean moreStartingAfterIsSet = false;
 
   public QualificationsRedeemables() {
   }
@@ -192,6 +200,10 @@ public class QualificationsRedeemables {
 
   public void setObject(ObjectEnum _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -213,6 +225,10 @@ public class QualificationsRedeemables {
 
   public void setDataRef(DataRefEnum dataRef) {
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
+  }
+  public boolean isDataRefSet() {
+    return dataRefIsSet;
   }
 
 
@@ -242,6 +258,10 @@ public class QualificationsRedeemables {
 
   public void setData(List<QualificationsRedeemable> data) {
     this.data = data;
+    this.dataIsSet = true;
+  }
+  public boolean isDataSet() {
+    return dataIsSet;
   }
 
 
@@ -263,6 +283,10 @@ public class QualificationsRedeemables {
 
   public void setTotal(Integer total) {
     this.total = total;
+    this.totalIsSet = true;
+  }
+  public boolean isTotalSet() {
+    return totalIsSet;
   }
 
 
@@ -284,6 +308,10 @@ public class QualificationsRedeemables {
 
   public void setHasMore(Boolean hasMore) {
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
+  }
+  public boolean isHasMoreSet() {
+    return hasMoreIsSet;
   }
 
 
@@ -305,6 +333,10 @@ public class QualificationsRedeemables {
 
   public void setMoreStartingAfter(OffsetDateTime moreStartingAfter) {
     this.moreStartingAfter = moreStartingAfter;
+    this.moreStartingAfterIsSet = true;
+  }
+  public boolean isMoreStartingAfterSet() {
+    return moreStartingAfterIsSet;
   }
 
 
@@ -399,7 +431,35 @@ public class QualificationsRedeemables {
        return (TypeAdapter<T>) new TypeAdapter<QualificationsRedeemables>() {
            @Override
            public void write(JsonWriter out, QualificationsRedeemables value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : QualificationsRedeemables.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = QualificationsRedeemables.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

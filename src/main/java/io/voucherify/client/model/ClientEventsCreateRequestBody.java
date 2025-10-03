@@ -33,6 +33,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,6 +61,7 @@ public class ClientEventsCreateRequestBody {
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
   private String event;
+    private boolean eventIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
@@ -67,14 +70,17 @@ public class ClientEventsCreateRequestBody {
   public static final String SERIALIZED_NAME_REFERRAL = "referral";
   @SerializedName(SERIALIZED_NAME_REFERRAL)
   private ClientEventsCreateRequestBodyReferral referral;
+    private boolean referralIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   private ClientEventsCreateRequestBodyLoyalty loyalty;
+    private boolean loyaltyIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public ClientEventsCreateRequestBody() {
   }
@@ -97,6 +103,10 @@ public class ClientEventsCreateRequestBody {
 
   public void setEvent(String event) {
     this.event = event;
+    this.eventIsSet = true;
+  }
+  public boolean isEventSet() {
+    return eventIsSet;
   }
 
 
@@ -139,6 +149,10 @@ public class ClientEventsCreateRequestBody {
 
   public void setReferral(ClientEventsCreateRequestBodyReferral referral) {
     this.referral = referral;
+    this.referralIsSet = true;
+  }
+  public boolean isReferralSet() {
+    return referralIsSet;
   }
 
 
@@ -160,6 +174,10 @@ public class ClientEventsCreateRequestBody {
 
   public void setLoyalty(ClientEventsCreateRequestBodyLoyalty loyalty) {
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
+  }
+  public boolean isLoyaltySet() {
+    return loyaltyIsSet;
   }
 
 
@@ -181,6 +199,10 @@ public class ClientEventsCreateRequestBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -273,7 +295,35 @@ public class ClientEventsCreateRequestBody {
        return (TypeAdapter<T>) new TypeAdapter<ClientEventsCreateRequestBody>() {
            @Override
            public void write(JsonWriter out, ClientEventsCreateRequestBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ClientEventsCreateRequestBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ClientEventsCreateRequestBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

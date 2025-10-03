@@ -43,6 +43,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -52,6 +53,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -69,26 +71,32 @@ public class VouchersCreateResponseBody {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
+    private boolean codeIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   private String campaign;
+    private boolean campaignIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
   private String campaignId;
+    private boolean campaignIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
+    private boolean categoryIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORY_ID = "category_id";
   @SerializedName(SERIALIZED_NAME_CATEGORY_ID)
   private String categoryId;
+    private boolean categoryIdIsSet = false;
 
   /**
    * Defines the type of the voucher. 
@@ -142,6 +150,7 @@ public class VouchersCreateResponseBody {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_DISCOUNT = "discount";
   @SerializedName(SERIALIZED_NAME_DISCOUNT)
@@ -150,18 +159,22 @@ public class VouchersCreateResponseBody {
   public static final String SERIALIZED_NAME_GIFT = "gift";
   @SerializedName(SERIALIZED_NAME_GIFT)
   private VouchersCreateResponseBodyGift gift;
+    private boolean giftIsSet = false;
 
   public static final String SERIALIZED_NAME_LOYALTY_CARD = "loyalty_card";
   @SerializedName(SERIALIZED_NAME_LOYALTY_CARD)
   private VouchersCreateResponseBodyLoyaltyCard loyaltyCard;
+    private boolean loyaltyCardIsSet = false;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+    private boolean startDateIsSet = false;
 
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration_date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
+    private boolean expirationDateIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDITY_TIMEFRAME = "validity_timeframe";
   @SerializedName(SERIALIZED_NAME_VALIDITY_TIMEFRAME)
@@ -235,14 +248,17 @@ public class VouchersCreateResponseBody {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
+    private boolean activeIsSet = false;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
   private String additionalInfo;
+    private boolean additionalInfoIsSet = false;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata;
+    private boolean metadataIsSet = false;
 
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)
@@ -251,38 +267,47 @@ public class VouchersCreateResponseBody {
   public static final String SERIALIZED_NAME_IS_REFERRAL_CODE = "is_referral_code";
   @SerializedName(SERIALIZED_NAME_IS_REFERRAL_CODE)
   private Boolean isReferralCode;
+    private boolean isReferralCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   public static final String SERIALIZED_NAME_HOLDER_ID = "holder_id";
   @SerializedName(SERIALIZED_NAME_HOLDER_ID)
   private String holderId;
+    private boolean holderIdIsSet = false;
 
   public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
   @SerializedName(SERIALIZED_NAME_REFERRER_ID)
   private String referrerId;
+    private boolean referrerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private String _object = "voucher";
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_PUBLISH = "publish";
   @SerializedName(SERIALIZED_NAME_PUBLISH)
   private VouchersCreateResponseBodyPublish publish;
+    private boolean publishIsSet = false;
 
   public static final String SERIALIZED_NAME_REDEMPTION = "redemption";
   @SerializedName(SERIALIZED_NAME_REDEMPTION)
   private VouchersCreateResponseBodyRedemption redemption;
+    private boolean redemptionIsSet = false;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<Category> categories;
+    private boolean categoriesIsSet = false;
 
   public static final String SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS = "validation_rules_assignments";
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES_ASSIGNMENTS)
@@ -309,6 +334,10 @@ public class VouchersCreateResponseBody {
 
   public void setId(String id) {
     this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
   }
 
 
@@ -330,6 +359,10 @@ public class VouchersCreateResponseBody {
 
   public void setCode(String code) {
     this.code = code;
+    this.codeIsSet = true;
+  }
+  public boolean isCodeSet() {
+    return codeIsSet;
   }
 
 
@@ -351,6 +384,10 @@ public class VouchersCreateResponseBody {
 
   public void setCampaign(String campaign) {
     this.campaign = campaign;
+    this.campaignIsSet = true;
+  }
+  public boolean isCampaignSet() {
+    return campaignIsSet;
   }
 
 
@@ -372,6 +409,10 @@ public class VouchersCreateResponseBody {
 
   public void setCampaignId(String campaignId) {
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
   }
 
 
@@ -393,6 +434,10 @@ public class VouchersCreateResponseBody {
 
   public void setCategory(String category) {
     this.category = category;
+    this.categoryIsSet = true;
+  }
+  public boolean isCategorySet() {
+    return categoryIsSet;
   }
 
 
@@ -414,6 +459,10 @@ public class VouchersCreateResponseBody {
 
   public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
+  }
+  public boolean isCategoryIdSet() {
+    return categoryIdIsSet;
   }
 
 
@@ -435,6 +484,10 @@ public class VouchersCreateResponseBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -477,6 +530,10 @@ public class VouchersCreateResponseBody {
 
   public void setGift(VouchersCreateResponseBodyGift gift) {
     this.gift = gift;
+    this.giftIsSet = true;
+  }
+  public boolean isGiftSet() {
+    return giftIsSet;
   }
 
 
@@ -498,6 +555,10 @@ public class VouchersCreateResponseBody {
 
   public void setLoyaltyCard(VouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
+  }
+  public boolean isLoyaltyCardSet() {
+    return loyaltyCardIsSet;
   }
 
 
@@ -519,6 +580,10 @@ public class VouchersCreateResponseBody {
 
   public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
+    this.startDateIsSet = true;
+  }
+  public boolean isStartDateSet() {
+    return startDateIsSet;
   }
 
 
@@ -540,6 +605,10 @@ public class VouchersCreateResponseBody {
 
   public void setExpirationDate(OffsetDateTime expirationDate) {
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
+  }
+  public boolean isExpirationDateSet() {
+    return expirationDateIsSet;
   }
 
 
@@ -632,6 +701,10 @@ public class VouchersCreateResponseBody {
 
   public void setActive(Boolean active) {
     this.active = active;
+    this.activeIsSet = true;
+  }
+  public boolean isActiveSet() {
+    return activeIsSet;
   }
 
 
@@ -653,6 +726,10 @@ public class VouchersCreateResponseBody {
 
   public void setAdditionalInfo(String additionalInfo) {
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
+  }
+  public boolean isAdditionalInfoSet() {
+    return additionalInfoIsSet;
   }
 
 
@@ -674,6 +751,10 @@ public class VouchersCreateResponseBody {
 
   public void setMetadata(Object metadata) {
     this.metadata = metadata;
+    this.metadataIsSet = true;
+  }
+  public boolean isMetadataSet() {
+    return metadataIsSet;
   }
 
 
@@ -716,6 +797,10 @@ public class VouchersCreateResponseBody {
 
   public void setIsReferralCode(Boolean isReferralCode) {
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
+  }
+  public boolean isIsReferralCodeSet() {
+    return isReferralCodeIsSet;
   }
 
 
@@ -737,6 +822,10 @@ public class VouchersCreateResponseBody {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
+  }
+  public boolean isCreatedAtSet() {
+    return createdAtIsSet;
   }
 
 
@@ -758,6 +847,10 @@ public class VouchersCreateResponseBody {
 
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
   }
 
 
@@ -779,6 +872,10 @@ public class VouchersCreateResponseBody {
 
   public void setHolderId(String holderId) {
     this.holderId = holderId;
+    this.holderIdIsSet = true;
+  }
+  public boolean isHolderIdSet() {
+    return holderIdIsSet;
   }
 
 
@@ -800,6 +897,10 @@ public class VouchersCreateResponseBody {
 
   public void setReferrerId(String referrerId) {
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
+  }
+  public boolean isReferrerIdSet() {
+    return referrerIdIsSet;
   }
 
 
@@ -821,6 +922,10 @@ public class VouchersCreateResponseBody {
 
   public void setObject(String _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -842,6 +947,10 @@ public class VouchersCreateResponseBody {
 
   public void setPublish(VouchersCreateResponseBodyPublish publish) {
     this.publish = publish;
+    this.publishIsSet = true;
+  }
+  public boolean isPublishSet() {
+    return publishIsSet;
   }
 
 
@@ -863,6 +972,10 @@ public class VouchersCreateResponseBody {
 
   public void setRedemption(VouchersCreateResponseBodyRedemption redemption) {
     this.redemption = redemption;
+    this.redemptionIsSet = true;
+  }
+  public boolean isRedemptionSet() {
+    return redemptionIsSet;
   }
 
 
@@ -892,6 +1005,10 @@ public class VouchersCreateResponseBody {
 
   public void setCategories(List<Category> categories) {
     this.categories = categories;
+    this.categoriesIsSet = true;
+  }
+  public boolean isCategoriesSet() {
+    return categoriesIsSet;
   }
 
 
@@ -1076,7 +1193,35 @@ public class VouchersCreateResponseBody {
        return (TypeAdapter<T>) new TypeAdapter<VouchersCreateResponseBody>() {
            @Override
            public void write(JsonWriter out, VouchersCreateResponseBody value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : VouchersCreateResponseBody.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = VouchersCreateResponseBody.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

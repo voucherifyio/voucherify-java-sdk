@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,6 +58,7 @@ public class CustomersGetResponseBodyAssets {
   public static final String SERIALIZED_NAME_COCKPIT_URL = "cockpit_url";
   @SerializedName(SERIALIZED_NAME_COCKPIT_URL)
   private String cockpitUrl;
+    private boolean cockpitUrlIsSet = false;
 
   public CustomersGetResponseBodyAssets() {
   }
@@ -78,6 +81,10 @@ public class CustomersGetResponseBodyAssets {
 
   public void setCockpitUrl(String cockpitUrl) {
     this.cockpitUrl = cockpitUrl;
+    this.cockpitUrlIsSet = true;
+  }
+  public boolean isCockpitUrlSet() {
+    return cockpitUrlIsSet;
   }
 
 
@@ -157,7 +164,35 @@ public class CustomersGetResponseBodyAssets {
        return (TypeAdapter<T>) new TypeAdapter<CustomersGetResponseBodyAssets>() {
            @Override
            public void write(JsonWriter out, CustomersGetResponseBodyAssets value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CustomersGetResponseBodyAssets.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CustomersGetResponseBodyAssets.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

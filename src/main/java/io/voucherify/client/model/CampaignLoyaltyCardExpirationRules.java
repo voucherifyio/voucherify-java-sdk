@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -103,10 +105,12 @@ public class CampaignLoyaltyCardExpirationRules {
   public static final String SERIALIZED_NAME_PERIOD_TYPE = "period_type";
   @SerializedName(SERIALIZED_NAME_PERIOD_TYPE)
   private PeriodTypeEnum periodType;
+    private boolean periodTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_PERIOD_VALUE = "period_value";
   @SerializedName(SERIALIZED_NAME_PERIOD_VALUE)
   private Integer periodValue;
+    private boolean periodValueIsSet = false;
 
   /**
    * Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.
@@ -164,18 +168,22 @@ public class CampaignLoyaltyCardExpirationRules {
   public static final String SERIALIZED_NAME_ROUNDING_TYPE = "rounding_type";
   @SerializedName(SERIALIZED_NAME_ROUNDING_TYPE)
   private RoundingTypeEnum roundingType;
+    private boolean roundingTypeIsSet = false;
 
   public static final String SERIALIZED_NAME_ROUNDING_VALUE = "rounding_value";
   @SerializedName(SERIALIZED_NAME_ROUNDING_VALUE)
   private Integer roundingValue;
+    private boolean roundingValueIsSet = false;
 
   public static final String SERIALIZED_NAME_FIXED_MONTH = "fixed_month";
   @SerializedName(SERIALIZED_NAME_FIXED_MONTH)
   private Integer fixedMonth;
+    private boolean fixedMonthIsSet = false;
 
   public static final String SERIALIZED_NAME_FIXED_DAY = "fixed_day";
   @SerializedName(SERIALIZED_NAME_FIXED_DAY)
   private Integer fixedDay;
+    private boolean fixedDayIsSet = false;
 
   public CampaignLoyaltyCardExpirationRules() {
   }
@@ -198,6 +206,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setPeriodType(PeriodTypeEnum periodType) {
     this.periodType = periodType;
+    this.periodTypeIsSet = true;
+  }
+  public boolean isPeriodTypeSet() {
+    return periodTypeIsSet;
   }
 
 
@@ -219,6 +231,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setPeriodValue(Integer periodValue) {
     this.periodValue = periodValue;
+    this.periodValueIsSet = true;
+  }
+  public boolean isPeriodValueSet() {
+    return periodValueIsSet;
   }
 
 
@@ -240,6 +256,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setRoundingType(RoundingTypeEnum roundingType) {
     this.roundingType = roundingType;
+    this.roundingTypeIsSet = true;
+  }
+  public boolean isRoundingTypeSet() {
+    return roundingTypeIsSet;
   }
 
 
@@ -261,6 +281,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setRoundingValue(Integer roundingValue) {
     this.roundingValue = roundingValue;
+    this.roundingValueIsSet = true;
+  }
+  public boolean isRoundingValueSet() {
+    return roundingValueIsSet;
   }
 
 
@@ -284,6 +308,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setFixedMonth(Integer fixedMonth) {
     this.fixedMonth = fixedMonth;
+    this.fixedMonthIsSet = true;
+  }
+  public boolean isFixedMonthSet() {
+    return fixedMonthIsSet;
   }
 
 
@@ -307,6 +335,10 @@ public class CampaignLoyaltyCardExpirationRules {
 
   public void setFixedDay(Integer fixedDay) {
     this.fixedDay = fixedDay;
+    this.fixedDayIsSet = true;
+  }
+  public boolean isFixedDaySet() {
+    return fixedDayIsSet;
   }
 
 
@@ -401,7 +433,35 @@ public class CampaignLoyaltyCardExpirationRules {
        return (TypeAdapter<T>) new TypeAdapter<CampaignLoyaltyCardExpirationRules>() {
            @Override
            public void write(JsonWriter out, CampaignLoyaltyCardExpirationRules value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CampaignLoyaltyCardExpirationRules.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CampaignLoyaltyCardExpirationRules.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

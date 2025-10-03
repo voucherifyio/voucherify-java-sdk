@@ -41,6 +41,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -50,6 +51,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -67,42 +69,52 @@ public class ParameterFiltersListRedemptions {
   public static final String SERIALIZED_NAME_VOUCHER_CODE = "voucher_code";
   @SerializedName(SERIALIZED_NAME_VOUCHER_CODE)
   private ParameterFiltersListRedemptionsVoucherCode voucherCode;
+    private boolean voucherCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
   private ParameterFiltersListRedemptionsRelatedObjectId relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID = "related_object_parent_id";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_PARENT_ID)
   private ParameterFiltersListRedemptionsRelatedObjectParentId relatedObjectParentId;
+    private boolean relatedObjectParentIdIsSet = false;
 
   public static final String SERIALIZED_NAME_PARENT_REDEMPTION_ID = "parent_redemption_id";
   @SerializedName(SERIALIZED_NAME_PARENT_REDEMPTION_ID)
   private ParameterFiltersListRedemptionsParentRedemptionId parentRedemptionId;
+    private boolean parentRedemptionIdIsSet = false;
 
   public static final String SERIALIZED_NAME_FAILURE_CODE = "failure_code";
   @SerializedName(SERIALIZED_NAME_FAILURE_CODE)
   private ParameterFiltersListRedemptionsFailureCode failureCode;
+    private boolean failureCodeIsSet = false;
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
   private ParameterFiltersListRedemptionsResult result;
+    private boolean resultIsSet = false;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private ParameterFiltersListRedemptionsObject _object;
+    private boolean _objectIsSet = false;
 
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
   private ParameterFiltersListRedemptionsCustomerId customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_NAME = "campaign_name";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_NAME)
   private ParameterFiltersListRedemptionsCampaignName campaignName;
+    private boolean campaignNameIsSet = false;
 
   public static final String SERIALIZED_NAME_USER_LOGIN = "user_login";
   @SerializedName(SERIALIZED_NAME_USER_LOGIN)
   private ParameterFiltersListRedemptionsUserLogin userLogin;
+    private boolean userLoginIsSet = false;
 
   public static final String SERIALIZED_NAME_JUNCTION = "junction";
   @SerializedName(SERIALIZED_NAME_JUNCTION)
@@ -129,6 +141,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setVoucherCode(ParameterFiltersListRedemptionsVoucherCode voucherCode) {
     this.voucherCode = voucherCode;
+    this.voucherCodeIsSet = true;
+  }
+  public boolean isVoucherCodeSet() {
+    return voucherCodeIsSet;
   }
 
 
@@ -150,6 +166,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setRelatedObjectId(ParameterFiltersListRedemptionsRelatedObjectId relatedObjectId) {
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
   }
 
 
@@ -171,6 +191,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setRelatedObjectParentId(ParameterFiltersListRedemptionsRelatedObjectParentId relatedObjectParentId) {
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
+  }
+  public boolean isRelatedObjectParentIdSet() {
+    return relatedObjectParentIdIsSet;
   }
 
 
@@ -192,6 +216,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setParentRedemptionId(ParameterFiltersListRedemptionsParentRedemptionId parentRedemptionId) {
     this.parentRedemptionId = parentRedemptionId;
+    this.parentRedemptionIdIsSet = true;
+  }
+  public boolean isParentRedemptionIdSet() {
+    return parentRedemptionIdIsSet;
   }
 
 
@@ -213,6 +241,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setFailureCode(ParameterFiltersListRedemptionsFailureCode failureCode) {
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
+  }
+  public boolean isFailureCodeSet() {
+    return failureCodeIsSet;
   }
 
 
@@ -234,6 +266,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setResult(ParameterFiltersListRedemptionsResult result) {
     this.result = result;
+    this.resultIsSet = true;
+  }
+  public boolean isResultSet() {
+    return resultIsSet;
   }
 
 
@@ -255,6 +291,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setObject(ParameterFiltersListRedemptionsObject _object) {
     this._object = _object;
+    this._objectIsSet = true;
+  }
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -276,6 +316,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setCustomerId(ParameterFiltersListRedemptionsCustomerId customerId) {
     this.customerId = customerId;
+    this.customerIdIsSet = true;
+  }
+  public boolean isCustomerIdSet() {
+    return customerIdIsSet;
   }
 
 
@@ -297,6 +341,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setCampaignName(ParameterFiltersListRedemptionsCampaignName campaignName) {
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
+  }
+  public boolean isCampaignNameSet() {
+    return campaignNameIsSet;
   }
 
 
@@ -318,6 +366,10 @@ public class ParameterFiltersListRedemptions {
 
   public void setUserLogin(ParameterFiltersListRedemptionsUserLogin userLogin) {
     this.userLogin = userLogin;
+    this.userLoginIsSet = true;
+  }
+  public boolean isUserLoginSet() {
+    return userLoginIsSet;
   }
 
 
@@ -448,7 +500,35 @@ public class ParameterFiltersListRedemptions {
        return (TypeAdapter<T>) new TypeAdapter<ParameterFiltersListRedemptions>() {
            @Override
            public void write(JsonWriter out, ParameterFiltersListRedemptions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ParameterFiltersListRedemptions.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ParameterFiltersListRedemptions.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

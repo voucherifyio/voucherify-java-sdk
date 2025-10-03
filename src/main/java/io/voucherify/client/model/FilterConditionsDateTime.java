@@ -31,6 +31,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -57,26 +59,32 @@ public class FilterConditionsDateTime {
   public static final String SERIALIZED_NAME_$_AFTER = "$after";
   @SerializedName(SERIALIZED_NAME_$_AFTER)
   private OffsetDateTime $after;
+    private boolean $afterIsSet = false;
 
   public static final String SERIALIZED_NAME_$_BEFORE = "$before";
   @SerializedName(SERIALIZED_NAME_$_BEFORE)
   private OffsetDateTime $before;
+    private boolean $beforeIsSet = false;
 
   public static final String SERIALIZED_NAME_$_HAS_VALUE = "$has_value";
   @SerializedName(SERIALIZED_NAME_$_HAS_VALUE)
   private String $hasValue;
+    private boolean $hasValueIsSet = false;
 
   public static final String SERIALIZED_NAME_$_IS_UNKNOWN = "$is_unknown";
   @SerializedName(SERIALIZED_NAME_$_IS_UNKNOWN)
   private String $isUnknown;
+    private boolean $isUnknownIsSet = false;
 
   public static final String SERIALIZED_NAME_$_MORE_THAN = "$more_than";
   @SerializedName(SERIALIZED_NAME_$_MORE_THAN)
   private Integer $moreThan;
+    private boolean $moreThanIsSet = false;
 
   public static final String SERIALIZED_NAME_$_LESS_THAN = "$less_than";
   @SerializedName(SERIALIZED_NAME_$_LESS_THAN)
   private Integer $lessThan;
+    private boolean $lessThanIsSet = false;
 
   public FilterConditionsDateTime() {
   }
@@ -99,6 +107,10 @@ public class FilterConditionsDateTime {
 
   public void set$After(OffsetDateTime $after) {
     this.$after = $after;
+    this.$afterIsSet = true;
+  }
+  public boolean is$AfterSet() {
+    return $afterIsSet;
   }
 
 
@@ -120,6 +132,10 @@ public class FilterConditionsDateTime {
 
   public void set$Before(OffsetDateTime $before) {
     this.$before = $before;
+    this.$beforeIsSet = true;
+  }
+  public boolean is$BeforeSet() {
+    return $beforeIsSet;
   }
 
 
@@ -141,6 +157,10 @@ public class FilterConditionsDateTime {
 
   public void set$HasValue(String $hasValue) {
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
+  }
+  public boolean is$HasValueSet() {
+    return $hasValueIsSet;
   }
 
 
@@ -162,6 +182,10 @@ public class FilterConditionsDateTime {
 
   public void set$IsUnknown(String $isUnknown) {
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
+  }
+  public boolean is$IsUnknownSet() {
+    return $isUnknownIsSet;
   }
 
 
@@ -183,6 +207,10 @@ public class FilterConditionsDateTime {
 
   public void set$MoreThan(Integer $moreThan) {
     this.$moreThan = $moreThan;
+    this.$moreThanIsSet = true;
+  }
+  public boolean is$MoreThanSet() {
+    return $moreThanIsSet;
   }
 
 
@@ -204,6 +232,10 @@ public class FilterConditionsDateTime {
 
   public void set$LessThan(Integer $lessThan) {
     this.$lessThan = $lessThan;
+    this.$lessThanIsSet = true;
+  }
+  public boolean is$LessThanSet() {
+    return $lessThanIsSet;
   }
 
 
@@ -298,7 +330,35 @@ public class FilterConditionsDateTime {
        return (TypeAdapter<T>) new TypeAdapter<FilterConditionsDateTime>() {
            @Override
            public void write(JsonWriter out, FilterConditionsDateTime value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : FilterConditionsDateTime.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = FilterConditionsDateTime.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

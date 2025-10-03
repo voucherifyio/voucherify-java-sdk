@@ -32,6 +32,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -41,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -58,14 +60,17 @@ public class ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistri
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private Boolean email;
+    private boolean emailIsSet = false;
 
   public static final String SERIALIZED_NAME_IN_APP = "in_app";
   @SerializedName(SERIALIZED_NAME_IN_APP)
   private Boolean inApp;
+    private boolean inAppIsSet = false;
 
   public static final String SERIALIZED_NAME_EMAILS = "emails";
   @SerializedName(SERIALIZED_NAME_EMAILS)
   private List<String> emails;
+    private boolean emailsIsSet = false;
 
   public ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistributions() {
   }
@@ -88,6 +93,10 @@ public class ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistri
 
   public void setEmail(Boolean email) {
     this.email = email;
+    this.emailIsSet = true;
+  }
+  public boolean isEmailSet() {
+    return emailIsSet;
   }
 
 
@@ -109,6 +118,10 @@ public class ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistri
 
   public void setInApp(Boolean inApp) {
     this.inApp = inApp;
+    this.inAppIsSet = true;
+  }
+  public boolean isInAppSet() {
+    return inAppIsSet;
   }
 
 
@@ -138,6 +151,10 @@ public class ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistri
 
   public void setEmails(List<String> emails) {
     this.emails = emails;
+    this.emailsIsSet = true;
+  }
+  public boolean isEmailsSet() {
+    return emailsIsSet;
   }
 
 
@@ -223,7 +240,35 @@ public class ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistri
        return (TypeAdapter<T>) new TypeAdapter<ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistributions>() {
            @Override
            public void write(JsonWriter out, ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistributions value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistributions.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = ManagementProjectsGetResponseBodyWebhooksCalloutNotificationsDistributions.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 

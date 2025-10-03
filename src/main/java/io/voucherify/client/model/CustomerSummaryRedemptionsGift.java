@@ -30,6 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
@@ -39,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,10 +58,12 @@ public class CustomerSummaryRedemptionsGift {
   public static final String SERIALIZED_NAME_REDEEMED_AMOUNT = "redeemed_amount";
   @SerializedName(SERIALIZED_NAME_REDEEMED_AMOUNT)
   private Integer redeemedAmount = 0;
+    private boolean redeemedAmountIsSet = false;
 
   public static final String SERIALIZED_NAME_AMOUNT_TO_GO = "amount_to_go";
   @SerializedName(SERIALIZED_NAME_AMOUNT_TO_GO)
   private Integer amountToGo = 0;
+    private boolean amountToGoIsSet = false;
 
   public CustomerSummaryRedemptionsGift() {
   }
@@ -82,6 +86,10 @@ public class CustomerSummaryRedemptionsGift {
 
   public void setRedeemedAmount(Integer redeemedAmount) {
     this.redeemedAmount = redeemedAmount;
+    this.redeemedAmountIsSet = true;
+  }
+  public boolean isRedeemedAmountSet() {
+    return redeemedAmountIsSet;
   }
 
 
@@ -103,6 +111,10 @@ public class CustomerSummaryRedemptionsGift {
 
   public void setAmountToGo(Integer amountToGo) {
     this.amountToGo = amountToGo;
+    this.amountToGoIsSet = true;
+  }
+  public boolean isAmountToGoSet() {
+    return amountToGoIsSet;
   }
 
 
@@ -185,7 +197,35 @@ public class CustomerSummaryRedemptionsGift {
        return (TypeAdapter<T>) new TypeAdapter<CustomerSummaryRedemptionsGift>() {
            @Override
            public void write(JsonWriter out, CustomerSummaryRedemptionsGift value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+
+            // 1. Strip all nulls and internal "isSet" markers
+            obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
+
+            // 2. Add back explicitly set nulls using reflection
+            for (Field field : CustomerSummaryRedemptionsGift.class.getDeclaredFields()) {
+              String fieldName = field.getName();
+              if (fieldName.endsWith("IsSet")) continue;
+              try {
+                Field isSetField = CustomerSummaryRedemptionsGift.class.getDeclaredField(fieldName + "IsSet");
+                isSetField.setAccessible(true);
+                boolean isSet = (boolean) isSetField.get(value);
+
+                field.setAccessible(true);
+                Object fieldValue = field.get(value);
+
+                if (isSet && fieldValue == null) {
+                  // convert camelCase to snake_case (OpenAPI property names are snake_case)
+                  String jsonName = fieldName.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+                  obj.add(jsonName, JsonNull.INSTANCE);
+                }
+              } catch (NoSuchFieldException ignored) {
+                // no isSet marker → skip
+              } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+              }
+            }
+
              elementAdapter.write(out, obj);
            }
 
