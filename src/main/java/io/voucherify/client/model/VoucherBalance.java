@@ -163,6 +163,10 @@ public class VoucherBalance {
   private ObjectEnum _object = ObjectEnum.BALANCE;
     private boolean _objectIsSet = false;
 
+  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  @SerializedName(SERIALIZED_NAME_AMOUNT)
+  private Integer amount;
+
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
@@ -308,6 +312,28 @@ public class VoucherBalance {
   }
 
 
+  public VoucherBalance amount(Integer amount) {
+    
+    this.amount = amount;
+    return this;
+  }
+
+
+  /**
+   * Amount added or subtracted in the transaction of a loyalty card/gift card
+   * @return amount
+  **/
+  @javax.annotation.Nullable
+  public Integer getAmount() {
+    return amount;
+  }
+
+
+  public void setAmount(Integer amount) {
+    this.amount = amount;
+  }  
+
+
   public VoucherBalance points(Integer points) {
     
     this.points = points;
@@ -421,6 +447,7 @@ public class VoucherBalance {
     return Objects.equals(this.type, voucherBalance.type) &&
         Objects.equals(this.total, voucherBalance.total) &&
         Objects.equals(this._object, voucherBalance._object) &&
+        Objects.equals(this.amount, voucherBalance.amount) &&
         Objects.equals(this.points, voucherBalance.points) &&
         Objects.equals(this.balance, voucherBalance.balance) &&
         Objects.equals(this.operationType, voucherBalance.operationType) &&
@@ -433,7 +460,7 @@ public class VoucherBalance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, total, _object, points, balance, operationType, relatedObject);
+    return Objects.hash(type, total, _object, amount, points, balance, operationType, relatedObject);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -450,6 +477,7 @@ public class VoucherBalance {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
