@@ -154,7 +154,7 @@ public class VouchersUpdateRequestBody {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
+  private Map<String, Object> metadata;
 
   /**
    * Defines the type of the voucher. 
@@ -409,7 +409,7 @@ public class VouchersUpdateRequestBody {
   }
 
 
-  public VouchersUpdateRequestBody metadata(Object metadata) {
+  public VouchersUpdateRequestBody metadata(Map<String, Object> metadata) {
     
     this.metadata = metadata;
     return this;
@@ -420,12 +420,12 @@ public class VouchersUpdateRequestBody {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  public Object getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(Object metadata) {
+  public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
