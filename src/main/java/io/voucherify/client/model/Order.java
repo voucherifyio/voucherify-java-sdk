@@ -137,7 +137,7 @@ public class Order {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
+  private Map<String, Object> metadata;
 
   public Order() {
   }
@@ -297,7 +297,7 @@ public class Order {
   }
 
 
-  public Order metadata(Object metadata) {
+  public Order metadata(Map<String, Object> metadata) {
     
     this.metadata = metadata;
     return this;
@@ -308,12 +308,12 @@ public class Order {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  public Object getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(Object metadata) {
+  public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
