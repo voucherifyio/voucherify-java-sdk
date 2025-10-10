@@ -232,7 +232,7 @@ public class ValidationsValidateResponseBodyOrderItemsItem {
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  private Object metadata;
+  private Map<String, Object> metadata;
 
   public static final String SERIALIZED_NAME_APPLICATION_DETAILS = "application_details";
   @SerializedName(SERIALIZED_NAME_APPLICATION_DETAILS)
@@ -661,7 +661,7 @@ public class ValidationsValidateResponseBodyOrderItemsItem {
   }
 
 
-  public ValidationsValidateResponseBodyOrderItemsItem metadata(Object metadata) {
+  public ValidationsValidateResponseBodyOrderItemsItem metadata(Map<String, Object> metadata) {
     
     this.metadata = metadata;
     return this;
@@ -672,12 +672,12 @@ public class ValidationsValidateResponseBodyOrderItemsItem {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  public Object getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
-  public void setMetadata(Object metadata) {
+  public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 
