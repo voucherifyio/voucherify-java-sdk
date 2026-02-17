@@ -41,9 +41,9 @@ To build the API client library, you'll need:
 Get your Voucherify keys for valid authorization and setting the basePath (cluster) to match your server URL:
 1. In Voucherify dashboard, go to **Project settings**.
 2. In **Application information**, find your basePath (cluster) address. For shared clusters:
-   - Europe (default): `https://api.voucherify.io`
-   - United States: `https://us1.api.voucherify.io`
-   - Asia (Singapore): `https://as1.api.voucherify.io`
+- Europe (default): `https://api.voucherify.io`
+- United States: `https://us1.api.voucherify.io`
+- Asia (Singapore): `https://as1.api.voucherify.io`
 3. Scroll down to **Application Keys** to grab your Application ID and Secret key.
 
 ## ⚙️ Install
@@ -54,7 +54,7 @@ To install the API client library to your local Maven repository, run:
 mvn clean install
 ```
 
-To deploy it to a remote Maven repository instead, configure the settings of the repository and run:
+To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
 
 ```shell
 mvn clean deploy
@@ -107,33 +107,33 @@ Next, install manually the following JARs:
 Once installed, run:
 
 ```java
-
 // Import classes:
 import io.voucherify.client.ApiClient;
 import io.voucherify.client.ApiException;
 import io.voucherify.client.Configuration;
 import io.voucherify.client.auth.*;
-import io.voucherify.client.models.*;
-import io.voucherify.client.api.AsyncActionsApi;
+import io.voucherify.client.api.CampaignsApi;
 
 public class Example {
   public static void main(String[] args) {
+    String host = System.getenv("VOUCHERIFY_HOST");
+    String xAppId = System.getenv("X_APP_ID");
+    String xAppToken = System.getenv("X_APP_TOKEN");
+
+    if (xAppId == null || xAppId.isEmpty() || xAppToken == null || xAppToken.isEmpty()) {
+      throw new RuntimeException("X_APP_ID and X_APP_TOKEN must be set in the environment.");
+    }
+
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.voucherify.io");
-    
-    // Configure API key authorization: X-App-Id
-    defaultClient.setAuthentication("X-App-Id", "YOUR X-App-Id");
+    defaultClient.setBasePath((host == null || host.isEmpty()) ? "https://api.voucherify.io" : host);
+    defaultClient.setAuthentication("X-App-Id", xAppId);
+    defaultClient.setAuthentication("X-App-Token", xAppToken);
 
-    // Configure API key authorization: X-App-Token
-    defaultClient.setAuthentication("X-App-Token", "YOUR X-App-Token");
-
-      AsyncActionsApi apiInstance = new AsyncActionsApi(defaultClient);
-      String asyncActionId = "asyncActionId_example"; // String | Unique ID of the asynchronous operation.
+      CampaignsApi apiInstance = new CampaignsApi(defaultClient);
       try {
-        AsyncActionGetResponseBody result = apiInstance.getAsyncAction(asyncActionId
-         System.out.println(result);
+        System.out.println(apiInstance.listCampaigns(null, null, null, null, null, null, null, null, null));
       } catch (ApiException e) {
-        System.err.println("Exception when calling AsyncActionsApi#getAsyncAction");
+        System.err.println("Exception when calling CampaignsApi#listCampaigns");
         System.err.println("Status code: " + e.getCode());
         System.err.println("Reason: " + e.getResponseBody());
         System.err.println("Response headers: " + e.getResponseHeaders());
@@ -141,15 +141,18 @@ public class Example {
       }
     }
 }
-
 ```
 
 > [!NOTE]
-> 
+>
+> This code just lists campaigns, so it won't affect your Voucherify data.
+
+> [!NOTE]
+>
 > It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 > [!TIP]
-> 
+>
 > Check the test implementation in the [Test folder](./src/test).
 
 ## 🐳 Run local tests automatically with docker
