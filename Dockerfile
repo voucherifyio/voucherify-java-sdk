@@ -9,9 +9,7 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-COPY .env .
-COPY pom.xml .
-COPY ./src ./src
+COPY . .
 
 RUN mvn test
 

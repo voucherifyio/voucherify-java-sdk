@@ -1,0 +1,25 @@
+name: Test Workflow
+
+on:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t java .
+
+      - name: Run tests using Docker
+        run: |
+          docker run \
+            -e VOUCHERIFY_HOST=${{ vars.VOUCHERIFY_HOST }} \
+            -e X_APP_ID=${{ secrets.X_APP_ID }} \
+            -e X_APP_TOKEN=${{ secrets.X_APP_TOKEN }} \
+            -e X_MANAGEMENT_ID=${{ secrets.X_MANAGEMENT_ID }} \
+            -e X_MANAGEMENT_TOKEN=${{ secrets.X_MANAGEMENT_TOKEN }} \
+            java
