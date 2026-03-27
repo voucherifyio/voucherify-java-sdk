@@ -65,6 +65,7 @@ public class PromotionTierAction {
   public PromotionTierAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

@@ -76,6 +76,7 @@ public class SimpleProductDiscountUnit {
   public SimpleProductDiscountUnit id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class SimpleProductDiscountUnit {
   public SimpleProductDiscountUnit sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class SimpleProductDiscountUnit {
   public SimpleProductDiscountUnit name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

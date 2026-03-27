@@ -255,6 +255,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -280,6 +281,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -305,6 +307,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -330,6 +333,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -355,6 +359,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -380,6 +385,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody result(Object result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -405,6 +411,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 
@@ -430,6 +437,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -455,6 +463,7 @@ public class ExportsCreateResponseBody {
   public ExportsCreateResponseBody parameters(ExportsCreateResponseBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

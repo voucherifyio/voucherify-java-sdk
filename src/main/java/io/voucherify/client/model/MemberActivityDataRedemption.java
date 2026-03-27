@@ -404,6 +404,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -429,6 +430,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -454,6 +456,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -479,6 +482,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -504,6 +508,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -529,6 +534,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption order(MemberActivityDataRedemptionOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -554,6 +560,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption reward(MemberActivityDataRedemptionReward reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 
@@ -579,6 +586,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -600,6 +608,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -625,6 +634,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -650,6 +660,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption voucher(MemberActivityDataRedemptionVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -675,6 +686,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption promotionTier(MemberActivityDataRedemptionPromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    this.promotionTierIsSet = true;
     return this;
   }
 
@@ -700,6 +712,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -725,6 +738,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -750,6 +764,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -775,6 +790,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -800,6 +816,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -825,6 +842,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption channel(MemberActivityDataRedemptionChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -850,6 +868,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -875,6 +894,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -900,6 +920,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
     return this;
   }
 
@@ -925,6 +946,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption channelId(String channelId) {
     
     this.channelId = channelId;
+    this.channelIdIsSet = true;
     return this;
   }
 
@@ -950,6 +972,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption previousOrder(MemberActivityDataRedemptionPreviousOrder previousOrder) {
     
     this.previousOrder = previousOrder;
+    this.previousOrderIsSet = true;
     return this;
   }
 
@@ -975,6 +998,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption relatedRedemptions(MemberActivityDataRedemptionRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
     return this;
   }
 
@@ -1000,6 +1024,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption parentRedemptionId(String parentRedemptionId) {
     
     this.parentRedemptionId = parentRedemptionId;
+    this.parentRedemptionIdIsSet = true;
     return this;
   }
 
@@ -1025,6 +1050,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -1050,6 +1076,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -1075,6 +1102,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption relatedObjectParentId(String relatedObjectParentId) {
     
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
     return this;
   }
 
@@ -1100,6 +1128,7 @@ public class MemberActivityDataRedemption {
   public MemberActivityDataRedemption campaignName(String campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 

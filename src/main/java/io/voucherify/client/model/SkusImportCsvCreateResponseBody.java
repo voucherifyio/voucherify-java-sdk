@@ -66,6 +66,7 @@ public class SkusImportCsvCreateResponseBody {
   public SkusImportCsvCreateResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

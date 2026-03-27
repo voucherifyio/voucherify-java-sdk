@@ -75,6 +75,7 @@ public class RedemptionEntryRelatedRedemptions {
   public RedemptionEntryRelatedRedemptions rollbacks(List<RedemptionEntryRelatedRedemptionsRollbacksItem> rollbacks) {
     
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class RedemptionEntryRelatedRedemptions {
   public RedemptionEntryRelatedRedemptions redemptions(List<RedemptionEntryRelatedRedemptionsRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 

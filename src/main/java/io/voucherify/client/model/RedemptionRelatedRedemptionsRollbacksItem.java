@@ -120,6 +120,7 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
   public RedemptionRelatedRedemptionsRollbacksItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -141,6 +142,7 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
   public RedemptionRelatedRedemptionsRollbacksItem date(OffsetDateTime date) {
     
     this.date = date;
+    
     return this;
   }
 
@@ -162,6 +164,7 @@ public class RedemptionRelatedRedemptionsRollbacksItem {
   public RedemptionRelatedRedemptionsRollbacksItem rollbackOrderMode(RollbackOrderModeEnum rollbackOrderMode) {
     
     this.rollbackOrderMode = rollbackOrderMode;
+    
     return this;
   }
 

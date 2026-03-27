@@ -65,6 +65,7 @@ public class PromotionTierCreateParamsAction {
   public PromotionTierCreateParamsAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

@@ -66,6 +66,7 @@ public class RedemptionsGetResponseBodyGift {
   public RedemptionsGetResponseBodyGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

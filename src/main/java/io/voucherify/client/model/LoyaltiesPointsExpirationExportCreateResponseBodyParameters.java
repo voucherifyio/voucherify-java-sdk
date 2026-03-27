@@ -180,6 +180,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParameters {
   public LoyaltiesPointsExpirationExportCreateResponseBodyParameters order(OrderEnum order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -205,6 +206,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParameters {
   public LoyaltiesPointsExpirationExportCreateResponseBodyParameters fields(List<FieldsEnum> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -238,6 +240,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParameters {
   public LoyaltiesPointsExpirationExportCreateResponseBodyParameters filters(LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters filters) {
     
     this.filters = filters;
+    
     return this;
   }
 

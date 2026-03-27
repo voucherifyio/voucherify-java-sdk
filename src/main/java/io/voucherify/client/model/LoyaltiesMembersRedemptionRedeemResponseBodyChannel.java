@@ -120,6 +120,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyChannel {
   public LoyaltiesMembersRedemptionRedeemResponseBodyChannel channelId(String channelId) {
     
     this.channelId = channelId;
+    this.channelIdIsSet = true;
     return this;
   }
 
@@ -145,6 +146,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyChannel {
   public LoyaltiesMembersRedemptionRedeemResponseBodyChannel channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
     return this;
   }
 

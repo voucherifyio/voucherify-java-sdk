@@ -71,6 +71,7 @@ public class VoucherTransactionDetailsHolderLoyaltyTier {
   public VoucherTransactionDetailsHolderLoyaltyTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class VoucherTransactionDetailsHolderLoyaltyTier {
   public VoucherTransactionDetailsHolderLoyaltyTier name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

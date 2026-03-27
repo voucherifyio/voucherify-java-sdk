@@ -66,6 +66,7 @@ public class RedemptionsListResponseBodyRedemptionsItemSession {
   public RedemptionsListResponseBodyRedemptionsItemSession key(String key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 

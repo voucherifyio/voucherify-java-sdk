@@ -114,6 +114,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables id(ParameterFiltersListCustomerRedeemablesId id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -139,6 +140,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables createdAt(ParameterFiltersListCustomerRedeemablesCreatedAt createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -164,6 +166,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables redeemableId(ParameterFiltersListCustomerRedeemablesRedeemableId redeemableId) {
     
     this.redeemableId = redeemableId;
+    this.redeemableIdIsSet = true;
     return this;
   }
 
@@ -189,6 +192,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables redeemableObject(ParameterFiltersListCustomerRedeemablesRedeemableObject redeemableObject) {
     
     this.redeemableObject = redeemableObject;
+    this.redeemableObjectIsSet = true;
     return this;
   }
 
@@ -214,6 +218,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables holderRole(ParameterFiltersListCustomerRedeemablesHolderRole holderRole) {
     
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
     return this;
   }
 
@@ -239,6 +244,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables campaignId(ParameterFiltersListCustomerRedeemablesCampaignId campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -264,6 +270,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables campaignType(ParameterFiltersListCustomerRedeemablesCampaignType campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -289,6 +296,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables voucherType(ParameterFiltersListCustomerRedeemablesVoucherType voucherType) {
     
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
     return this;
   }
 
@@ -314,6 +322,7 @@ public class ParameterFiltersListCustomerRedeemables {
   public ParameterFiltersListCustomerRedeemables junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 

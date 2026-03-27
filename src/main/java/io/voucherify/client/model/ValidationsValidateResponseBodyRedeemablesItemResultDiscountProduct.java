@@ -76,6 +76,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

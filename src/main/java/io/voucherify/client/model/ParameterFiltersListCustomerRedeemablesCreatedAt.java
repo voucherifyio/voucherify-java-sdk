@@ -65,6 +65,7 @@ public class ParameterFiltersListCustomerRedeemablesCreatedAt {
   public ParameterFiltersListCustomerRedeemablesCreatedAt conditions(FilterConditionsDateTime conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

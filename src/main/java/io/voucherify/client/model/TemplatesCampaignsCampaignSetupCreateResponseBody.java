@@ -124,6 +124,7 @@ public class TemplatesCampaignsCampaignSetupCreateResponseBody {
   public TemplatesCampaignsCampaignSetupCreateResponseBody createdResources(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem> createdResources) {
     
     this.createdResources = createdResources;
+    this.createdResourcesIsSet = true;
     return this;
   }
 
@@ -157,6 +158,7 @@ public class TemplatesCampaignsCampaignSetupCreateResponseBody {
   public TemplatesCampaignsCampaignSetupCreateResponseBody campaign(Campaign campaign) {
     
     this.campaign = campaign;
+    
     return this;
   }
 
@@ -178,6 +180,7 @@ public class TemplatesCampaignsCampaignSetupCreateResponseBody {
   public TemplatesCampaignsCampaignSetupCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

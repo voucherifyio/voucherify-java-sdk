@@ -119,6 +119,7 @@ public class ProductCollectionsItemProductsItem {
   public ProductCollectionsItemProductsItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -140,6 +141,7 @@ public class ProductCollectionsItemProductsItem {
   public ProductCollectionsItemProductsItem productId(String productId) {
     
     this.productId = productId;
+    
     return this;
   }
 
@@ -161,6 +163,7 @@ public class ProductCollectionsItemProductsItem {
   public ProductCollectionsItemProductsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 

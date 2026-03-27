@@ -121,6 +121,7 @@ public class BundleMissingItem {
   public BundleMissingItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -142,6 +143,7 @@ public class BundleMissingItem {
   public BundleMissingItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -163,6 +165,7 @@ public class BundleMissingItem {
   public BundleMissingItem itemQuantity(Integer itemQuantity) {
     
     this.itemQuantity = itemQuantity;
+    
     return this;
   }
 

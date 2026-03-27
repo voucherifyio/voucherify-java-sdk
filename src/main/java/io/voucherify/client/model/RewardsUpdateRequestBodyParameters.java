@@ -79,6 +79,7 @@ public class RewardsUpdateRequestBodyParameters {
   public RewardsUpdateRequestBodyParameters campaign(RewardsUpdateRequestBodyParametersCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class RewardsUpdateRequestBodyParameters {
   public RewardsUpdateRequestBodyParameters product(RewardsUpdateRequestBodyParametersProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class RewardsUpdateRequestBodyParameters {
   public RewardsUpdateRequestBodyParameters coin(RewardsUpdateRequestBodyParametersCoin coin) {
     
     this.coin = coin;
+    this.coinIsSet = true;
     return this;
   }
 

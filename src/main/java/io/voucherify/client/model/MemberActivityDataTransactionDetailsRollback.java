@@ -66,6 +66,7 @@ public class MemberActivityDataTransactionDetailsRollback {
   public MemberActivityDataTransactionDetailsRollback id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

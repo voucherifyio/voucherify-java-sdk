@@ -70,6 +70,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary redemptions(RedemptionsListResponseBodyRedemptionsItemPromotionTierSummaryRedemptions redemptions) {
     
     this.redemptions = redemptions;
+    
     return this;
   }
 
@@ -91,6 +92,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary orders(RedemptionsListResponseBodyRedemptionsItemPromotionTierSummaryOrders orders) {
     
     this.orders = orders;
+    
     return this;
   }
 

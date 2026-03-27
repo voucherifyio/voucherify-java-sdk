@@ -65,6 +65,7 @@ public class ParameterFiltersListRedemptionsVoucherCode {
   public ParameterFiltersListRedemptionsVoucherCode conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

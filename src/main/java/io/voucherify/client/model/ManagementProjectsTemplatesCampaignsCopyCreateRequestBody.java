@@ -76,6 +76,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateRequestBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateRequestBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateRequestBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateRequestBody destinationProjectId(String destinationProjectId) {
     
     this.destinationProjectId = destinationProjectId;
+    this.destinationProjectIdIsSet = true;
     return this;
   }
 

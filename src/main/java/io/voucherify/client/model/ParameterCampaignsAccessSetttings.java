@@ -67,6 +67,7 @@ public class ParameterCampaignsAccessSetttings {
   public ParameterCampaignsAccessSetttings filter(ParameterCampaignsAccessSetttingsFilter filter) {
     
     this.filter = filter;
+    this.filterIsSet = true;
     return this;
   }
 

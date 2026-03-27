@@ -227,3 +227,4 @@ public class CampaignsCreateRequestBodyVoucherRedemption {
     return JSON.getGson().toJson(this);
   }
 }
+

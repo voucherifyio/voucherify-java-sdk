@@ -174,6 +174,7 @@ public class ManagementProjectsStackingRulesListResponseBody {
   public ManagementProjectsStackingRulesListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +200,7 @@ public class ManagementProjectsStackingRulesListResponseBody {
   public ManagementProjectsStackingRulesListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -224,6 +226,7 @@ public class ManagementProjectsStackingRulesListResponseBody {
   public ManagementProjectsStackingRulesListResponseBody data(List<ManagementProjectsStackingRules> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class ManagementProjectsStackingRulesListResponseBody {
   public ManagementProjectsStackingRulesListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

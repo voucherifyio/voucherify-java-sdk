@@ -88,6 +88,7 @@ public class ProductsUpdateRequestBody {
   public ProductsUpdateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -113,6 +114,7 @@ public class ProductsUpdateRequestBody {
   public ProductsUpdateRequestBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -138,6 +140,7 @@ public class ProductsUpdateRequestBody {
   public ProductsUpdateRequestBody attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -171,6 +174,7 @@ public class ProductsUpdateRequestBody {
   public ProductsUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -196,6 +200,7 @@ public class ProductsUpdateRequestBody {
   public ProductsUpdateRequestBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 

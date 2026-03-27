@@ -92,6 +92,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -142,6 +144,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct override(Boolean override) {
     
     this.override = override;
+    this.overrideIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -192,6 +196,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -217,6 +222,7 @@ public class OrderCalculatedItemProduct {
   public OrderCalculatedItemProduct price(BigDecimal price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 

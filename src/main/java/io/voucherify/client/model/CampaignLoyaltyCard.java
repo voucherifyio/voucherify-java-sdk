@@ -72,6 +72,7 @@ public class CampaignLoyaltyCard {
   public CampaignLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class CampaignLoyaltyCard {
   public CampaignLoyaltyCard expirationRules(CampaignLoyaltyCardExpirationRules expirationRules) {
     
     this.expirationRules = expirationRules;
+    this.expirationRulesIsSet = true;
     return this;
   }
 

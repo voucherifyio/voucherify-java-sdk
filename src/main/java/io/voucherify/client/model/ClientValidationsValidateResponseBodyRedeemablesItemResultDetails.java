@@ -68,6 +68,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
   public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails message(String message) {
     
     this.message = message;
+    
     return this;
   }
 
@@ -89,6 +90,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultDetails {
   public ClientValidationsValidateResponseBodyRedeemablesItemResultDetails key(String key) {
     
     this.key = key;
+    
     return this;
   }
 

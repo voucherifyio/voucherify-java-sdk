@@ -120,6 +120,7 @@ public class RedemptionsGetResponseBodyChannel {
   public RedemptionsGetResponseBodyChannel channelId(String channelId) {
     
     this.channelId = channelId;
+    this.channelIdIsSet = true;
     return this;
   }
 
@@ -145,6 +146,7 @@ public class RedemptionsGetResponseBodyChannel {
   public RedemptionsGetResponseBodyChannel channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
     return this;
   }
 

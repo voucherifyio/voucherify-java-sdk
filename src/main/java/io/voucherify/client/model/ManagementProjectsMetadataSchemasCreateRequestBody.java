@@ -79,6 +79,7 @@ public class ManagementProjectsMetadataSchemasCreateRequestBody {
   public ManagementProjectsMetadataSchemasCreateRequestBody relatedObject(String relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class ManagementProjectsMetadataSchemasCreateRequestBody {
   public ManagementProjectsMetadataSchemasCreateRequestBody allowDefinedOnly(Boolean allowDefinedOnly) {
     
     this.allowDefinedOnly = allowDefinedOnly;
+    this.allowDefinedOnlyIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class ManagementProjectsMetadataSchemasCreateRequestBody {
   public ManagementProjectsMetadataSchemasCreateRequestBody properties(Map<String, ManagementProjectsMetadataSchemaDefinition> properties) {
     
     this.properties = properties;
+    this.propertiesIsSet = true;
     return this;
   }
 

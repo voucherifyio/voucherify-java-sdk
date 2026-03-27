@@ -66,6 +66,7 @@ public class EarningRuleLoyaltyTier {
   public EarningRuleLoyaltyTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

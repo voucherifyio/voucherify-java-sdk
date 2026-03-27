@@ -98,6 +98,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -123,6 +124,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -148,6 +150,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -173,6 +176,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -198,6 +202,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -231,6 +236,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -256,6 +262,7 @@ public class ProductsCreateRequestBody {
   public ProductsCreateRequestBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 

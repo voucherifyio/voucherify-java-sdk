@@ -66,6 +66,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCa
   public ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

@@ -320,6 +320,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -345,6 +346,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -370,6 +372,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -395,6 +398,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -420,6 +424,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -445,6 +450,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -470,6 +476,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -495,6 +502,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -516,6 +524,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher gift(RedemptionsListResponseBodyRedemptionsItemVoucherGift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -537,6 +546,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher loyaltyCard(RedemptionsListResponseBodyRedemptionsItemVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -558,6 +568,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -583,6 +594,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -608,6 +620,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -629,6 +642,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -658,6 +672,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -679,6 +694,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -704,6 +720,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -729,6 +746,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -754,6 +772,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -775,6 +794,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -800,6 +820,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -825,6 +846,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -850,6 +872,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -875,6 +898,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -900,6 +924,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -925,6 +950,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher publish(RedemptionsListResponseBodyRedemptionsItemVoucherPublish publish) {
     
     this.publish = publish;
+    
     return this;
   }
 
@@ -946,6 +972,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher redemption(RedemptionsListResponseBodyRedemptionsItemVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    
     return this;
   }
 
@@ -967,6 +994,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1000,6 +1028,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 
@@ -1021,6 +1050,7 @@ public class RedemptionsListResponseBodyRedemptionsItemVoucher {
   public RedemptionsListResponseBodyRedemptionsItemVoucher holder(SimpleCustomer holder) {
     
     this.holder = holder;
+    
     return this;
   }
 

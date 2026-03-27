@@ -262,6 +262,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -287,6 +288,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -312,6 +314,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -337,6 +340,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody operationStatus(OperationStatusEnum operationStatus) {
     
     this.operationStatus = operationStatus;
+    this.operationStatusIsSet = true;
     return this;
   }
 
@@ -362,6 +366,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -387,6 +392,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -412,6 +418,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody requestId(String requestId) {
     
     this.requestId = requestId;
+    this.requestIdIsSet = true;
     return this;
   }
 
@@ -437,6 +444,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody processingTime(Integer processingTime) {
     
     this.processingTime = processingTime;
+    this.processingTimeIsSet = true;
     return this;
   }
 
@@ -462,6 +470,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody progress(Integer progress) {
     
     this.progress = progress;
+    this.progressIsSet = true;
     return this;
   }
 
@@ -489,6 +498,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -514,6 +524,7 @@ public class AsyncActionGetResponseBody {
   public AsyncActionGetResponseBody result(Object result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 

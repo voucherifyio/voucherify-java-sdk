@@ -191,6 +191,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules periodType(PeriodTypeEnum periodType) {
     
     this.periodType = periodType;
+    this.periodTypeIsSet = true;
     return this;
   }
 
@@ -216,6 +217,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules periodValue(Integer periodValue) {
     
     this.periodValue = periodValue;
+    this.periodValueIsSet = true;
     return this;
   }
 
@@ -241,6 +243,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules roundingType(RoundingTypeEnum roundingType) {
     
     this.roundingType = roundingType;
+    this.roundingTypeIsSet = true;
     return this;
   }
 
@@ -266,6 +269,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules roundingValue(Integer roundingValue) {
     
     this.roundingValue = roundingValue;
+    this.roundingValueIsSet = true;
     return this;
   }
 
@@ -291,6 +295,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules fixedMonth(Integer fixedMonth) {
     
     this.fixedMonth = fixedMonth;
+    this.fixedMonthIsSet = true;
     return this;
   }
 
@@ -318,6 +323,7 @@ public class EarningRuleExpirationRules {
   public EarningRuleExpirationRules fixedDay(Integer fixedDay) {
     
     this.fixedDay = fixedDay;
+    this.fixedDayIsSet = true;
     return this;
   }
 

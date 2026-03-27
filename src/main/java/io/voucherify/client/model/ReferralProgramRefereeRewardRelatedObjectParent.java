@@ -121,6 +121,7 @@ public class ReferralProgramRefereeRewardRelatedObjectParent {
   public ReferralProgramRefereeRewardRelatedObjectParent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -146,6 +147,7 @@ public class ReferralProgramRefereeRewardRelatedObjectParent {
   public ReferralProgramRefereeRewardRelatedObjectParent name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -171,6 +173,7 @@ public class ReferralProgramRefereeRewardRelatedObjectParent {
   public ReferralProgramRefereeRewardRelatedObjectParent _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

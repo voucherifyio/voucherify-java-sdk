@@ -92,6 +92,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -142,6 +144,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct override(Boolean override) {
     
     this.override = override;
+    this.overrideIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -192,6 +196,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -217,6 +222,7 @@ public class MemberActivityDataOrderItemsItemProduct {
   public MemberActivityDataOrderItemsItemProduct price(BigDecimal price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 

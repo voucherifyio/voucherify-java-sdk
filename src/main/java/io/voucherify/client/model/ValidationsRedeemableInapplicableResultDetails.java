@@ -71,6 +71,7 @@ public class ValidationsRedeemableInapplicableResultDetails {
   public ValidationsRedeemableInapplicableResultDetails message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ValidationsRedeemableInapplicableResultDetails {
   public ValidationsRedeemableInapplicableResultDetails key(String key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 

@@ -67,6 +67,7 @@ public class QualificationsOptionFiltersHolderRole {
   public QualificationsOptionFiltersHolderRole conditions(QualificationsOptionFiltersHolderRoleConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

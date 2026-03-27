@@ -72,15 +72,15 @@ public class SegmentsGetResponseBody {
     private boolean createdAtIsSet = false;
 
   /**
-   * Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).
+   * Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     AUTO_UPDATE("auto-update"),
     
-    STATIC("static"),
+    PASSIVE("passive"),
     
-    PASSIVE("passive");
+    STATIC("static");
 
     private String value;
 
@@ -129,6 +129,56 @@ public class SegmentsGetResponseBody {
   @SerializedName(SERIALIZED_NAME_FILTER)
   private Object filter;
     private boolean filterIsSet = false;
+
+  /**
+   * The type of the object represented by JSON. This object stores information about the customer segment.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    SEGMENT("segment");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_OBJECT = "object";
+  @SerializedName(SERIALIZED_NAME_OBJECT)
+  private ObjectEnum _object = ObjectEnum.SEGMENT;
+    private boolean _objectIsSet = false;
 
   /**
    * Gets or Sets initialSyncStatus
@@ -182,62 +232,13 @@ public class SegmentsGetResponseBody {
   private InitialSyncStatusEnum initialSyncStatus;
     private boolean initialSyncStatusIsSet = false;
 
-  /**
-   * The type of the object represented by JSON. This object stores information about the customer segment.
-   */
-  @JsonAdapter(ObjectEnum.Adapter.class)
-  public enum ObjectEnum {
-    SEGMENT("segment");
-
-    private String value;
-
-    ObjectEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ObjectEnum fromValue(String value) {
-      for (ObjectEnum b : ObjectEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-        return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ObjectEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ObjectEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_OBJECT = "object";
-  @SerializedName(SERIALIZED_NAME_OBJECT)
-  private ObjectEnum _object = ObjectEnum.SEGMENT;
-    private boolean _objectIsSet = false;
-
   public SegmentsGetResponseBody() {
   }
 
   public SegmentsGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -263,6 +264,7 @@ public class SegmentsGetResponseBody {
   public SegmentsGetResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -288,6 +290,7 @@ public class SegmentsGetResponseBody {
   public SegmentsGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -313,11 +316,12 @@ public class SegmentsGetResponseBody {
   public SegmentsGetResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).
+   * Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.
    * @return type
   **/
   @javax.annotation.Nullable
@@ -338,11 +342,12 @@ public class SegmentsGetResponseBody {
   public SegmentsGetResponseBody filter(Object filter) {
     
     this.filter = filter;
+    this.filterIsSet = true;
     return this;
   }
 
    /**
-   * Defines a set of criteria for an &#x60;auto-update&#x60; segment type.  
+   * Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
    * @return filter
   **/
   @javax.annotation.Nullable
@@ -360,34 +365,10 @@ public class SegmentsGetResponseBody {
   }
 
 
-  public SegmentsGetResponseBody initialSyncStatus(InitialSyncStatusEnum initialSyncStatus) {
-    
-    this.initialSyncStatus = initialSyncStatus;
-    return this;
-  }
-
-   /**
-   * Get initialSyncStatus
-   * @return initialSyncStatus
-  **/
-  @javax.annotation.Nullable
-  public InitialSyncStatusEnum getInitialSyncStatus() {
-    return initialSyncStatus;
-  }
-
-
-  public void setInitialSyncStatus(InitialSyncStatusEnum initialSyncStatus) {
-    this.initialSyncStatus = initialSyncStatus;
-    this.initialSyncStatusIsSet = true;
-  }
-  public boolean isInitialSyncStatusSet() {
-    return initialSyncStatusIsSet;
-  }
-
-
   public SegmentsGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -410,6 +391,32 @@ public class SegmentsGetResponseBody {
   }
 
 
+  public SegmentsGetResponseBody initialSyncStatus(InitialSyncStatusEnum initialSyncStatus) {
+    
+    this.initialSyncStatus = initialSyncStatus;
+    this.initialSyncStatusIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get initialSyncStatus
+   * @return initialSyncStatus
+  **/
+  @javax.annotation.Nullable
+  public InitialSyncStatusEnum getInitialSyncStatus() {
+    return initialSyncStatus;
+  }
+
+
+  public void setInitialSyncStatus(InitialSyncStatusEnum initialSyncStatus) {
+    this.initialSyncStatus = initialSyncStatus;
+    this.initialSyncStatusIsSet = true;
+  }
+  public boolean isInitialSyncStatusSet() {
+    return initialSyncStatusIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -425,8 +432,8 @@ public class SegmentsGetResponseBody {
         Objects.equals(this.createdAt, segmentsGetResponseBody.createdAt) &&
         Objects.equals(this.type, segmentsGetResponseBody.type) &&
         Objects.equals(this.filter, segmentsGetResponseBody.filter) &&
-        Objects.equals(this.initialSyncStatus, segmentsGetResponseBody.initialSyncStatus) &&
-        Objects.equals(this._object, segmentsGetResponseBody._object);
+        Objects.equals(this._object, segmentsGetResponseBody._object) &&
+        Objects.equals(this.initialSyncStatus, segmentsGetResponseBody.initialSyncStatus);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -435,7 +442,7 @@ public class SegmentsGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, type, filter, initialSyncStatus, _object);
+    return Objects.hash(id, name, createdAt, type, filter, _object, initialSyncStatus);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,8 +461,8 @@ public class SegmentsGetResponseBody {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    initialSyncStatus: ").append(toIndentedString(initialSyncStatus)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    initialSyncStatus: ").append(toIndentedString(initialSyncStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -483,8 +490,8 @@ public class SegmentsGetResponseBody {
     openapiFields.add("created_at");
     openapiFields.add("type");
     openapiFields.add("filter");
-    openapiFields.add("initial_sync_status");
     openapiFields.add("object");
+    openapiFields.add("initial_sync_status");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

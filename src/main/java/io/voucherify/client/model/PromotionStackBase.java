@@ -72,6 +72,7 @@ public class PromotionStackBase {
   public PromotionStackBase name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class PromotionStackBase {
   public PromotionStackBase tiers(PromotionStackBaseTiers tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 

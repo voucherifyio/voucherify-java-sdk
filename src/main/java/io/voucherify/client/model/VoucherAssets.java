@@ -73,6 +73,7 @@ public class VoucherAssets {
   public VoucherAssets qr(VoucherAssetsQr qr) {
     
     this.qr = qr;
+    this.qrIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class VoucherAssets {
   public VoucherAssets barcode(VoucherAssetsBarcode barcode) {
     
     this.barcode = barcode;
+    this.barcodeIsSet = true;
     return this;
   }
 

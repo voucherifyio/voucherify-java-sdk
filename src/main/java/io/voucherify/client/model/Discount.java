@@ -261,6 +261,7 @@ public class Discount {
   public Discount type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -286,6 +287,7 @@ public class Discount {
   public Discount amountOff(BigDecimal amountOff) {
     
     this.amountOff = amountOff;
+    this.amountOffIsSet = true;
     return this;
   }
 
@@ -311,11 +313,12 @@ public class Discount {
   public Discount amountOffFormula(String amountOffFormula) {
     
     this.amountOffFormula = amountOffFormula;
+    this.amountOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get amountOffFormula
+   * Formula used to dynamically calculate the discount.
    * @return amountOffFormula
   **/
   @javax.annotation.Nullable
@@ -336,6 +339,7 @@ public class Discount {
   public Discount aggregatedAmountLimit(Integer aggregatedAmountLimit) {
     
     this.aggregatedAmountLimit = aggregatedAmountLimit;
+    this.aggregatedAmountLimitIsSet = true;
     return this;
   }
 
@@ -361,6 +365,7 @@ public class Discount {
   public Discount effect(EffectEnum effect) {
     
     this.effect = effect;
+    this.effectIsSet = true;
     return this;
   }
 
@@ -386,6 +391,7 @@ public class Discount {
   public Discount isDynamic(Boolean isDynamic) {
     
     this.isDynamic = isDynamic;
+    this.isDynamicIsSet = true;
     return this;
   }
 
@@ -411,6 +417,7 @@ public class Discount {
   public Discount unitOff(Integer unitOff) {
     
     this.unitOff = unitOff;
+    this.unitOffIsSet = true;
     return this;
   }
 
@@ -436,11 +443,12 @@ public class Discount {
   public Discount unitOffFormula(String unitOffFormula) {
     
     this.unitOffFormula = unitOffFormula;
+    this.unitOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Formula used to calculate the number of units.
+   * Formula used to dynamically calculate the number of units.
    * @return unitOffFormula
   **/
   @javax.annotation.Nullable
@@ -461,6 +469,7 @@ public class Discount {
   public Discount unitType(String unitType) {
     
     this.unitType = unitType;
+    this.unitTypeIsSet = true;
     return this;
   }
 
@@ -486,6 +495,7 @@ public class Discount {
   public Discount product(DiscountProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -511,6 +521,7 @@ public class Discount {
   public Discount sku(SimpleSkuDiscountUnit sku) {
     
     this.sku = sku;
+    
     return this;
   }
 
@@ -532,6 +543,7 @@ public class Discount {
   public Discount units(List<DiscountUnitMultipleOneUnit> units) {
     
     this.units = units;
+    this.unitsIsSet = true;
     return this;
   }
 
@@ -565,6 +577,7 @@ public class Discount {
   public Discount percentOff(BigDecimal percentOff) {
     
     this.percentOff = percentOff;
+    this.percentOffIsSet = true;
     return this;
   }
 
@@ -590,11 +603,12 @@ public class Discount {
   public Discount percentOffFormula(String percentOffFormula) {
     
     this.percentOffFormula = percentOffFormula;
+    this.percentOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get percentOffFormula
+   * Formula used to dynamically calculate the discount.
    * @return percentOffFormula
   **/
   @javax.annotation.Nullable
@@ -615,6 +629,7 @@ public class Discount {
   public Discount amountLimit(BigDecimal amountLimit) {
     
     this.amountLimit = amountLimit;
+    this.amountLimitIsSet = true;
     return this;
   }
 
@@ -640,6 +655,7 @@ public class Discount {
   public Discount fixedAmount(BigDecimal fixedAmount) {
     
     this.fixedAmount = fixedAmount;
+    this.fixedAmountIsSet = true;
     return this;
   }
 
@@ -665,11 +681,12 @@ public class Discount {
   public Discount fixedAmountFormula(String fixedAmountFormula) {
     
     this.fixedAmountFormula = fixedAmountFormula;
+    this.fixedAmountFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get fixedAmountFormula
+   * Formula used to dynamically calculate the discount.
    * @return fixedAmountFormula
   **/
   @javax.annotation.Nullable

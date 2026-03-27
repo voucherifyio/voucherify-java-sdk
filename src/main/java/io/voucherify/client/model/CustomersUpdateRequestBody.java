@@ -103,6 +103,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -128,6 +129,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -153,6 +155,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -178,6 +181,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody phone(String phone) {
     
     this.phone = phone;
+    this.phoneIsSet = true;
     return this;
   }
 
@@ -203,6 +207,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody birthday(LocalDate birthday) {
     
     this.birthday = birthday;
+    this.birthdayIsSet = true;
     return this;
   }
 
@@ -228,6 +233,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody birthdate(LocalDate birthdate) {
     
     this.birthdate = birthdate;
+    this.birthdateIsSet = true;
     return this;
   }
 
@@ -253,6 +259,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody address(CustomersUpdateRequestBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -278,6 +285,7 @@ public class CustomersUpdateRequestBody {
   public CustomersUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

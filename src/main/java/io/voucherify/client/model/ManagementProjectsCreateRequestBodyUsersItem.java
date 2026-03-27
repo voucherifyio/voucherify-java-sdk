@@ -72,6 +72,7 @@ public class ManagementProjectsCreateRequestBodyUsersItem {
   public ManagementProjectsCreateRequestBodyUsersItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -93,6 +94,7 @@ public class ManagementProjectsCreateRequestBodyUsersItem {
   public ManagementProjectsCreateRequestBodyUsersItem login(String login) {
     
     this.login = login;
+    
     return this;
   }
 
@@ -114,6 +116,7 @@ public class ManagementProjectsCreateRequestBodyUsersItem {
   public ManagementProjectsCreateRequestBodyUsersItem role(String role) {
     
     this.role = role;
+    
     return this;
   }
 

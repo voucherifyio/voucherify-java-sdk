@@ -91,6 +91,7 @@ public class LoyaltyPendingPointsDetails {
   public LoyaltyPendingPointsDetails loyaltyTier(LoyaltyPendingPointsDetailsLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class LoyaltyPendingPointsDetails {
   public LoyaltyPendingPointsDetails holderLoyaltyTier(LoyaltyPendingPointsDetailsHolderLoyaltyTier holderLoyaltyTier) {
     
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
     return this;
   }
 
@@ -141,6 +143,7 @@ public class LoyaltyPendingPointsDetails {
   public LoyaltyPendingPointsDetails event(LoyaltyPendingPointsDetailsEvent event) {
     
     this.event = event;
+    this.eventIsSet = true;
     return this;
   }
 
@@ -166,6 +169,7 @@ public class LoyaltyPendingPointsDetails {
   public LoyaltyPendingPointsDetails earningRule(LoyaltyPendingPointsDetailsEarningRule earningRule) {
     
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
     return this;
   }
 
@@ -191,6 +195,7 @@ public class LoyaltyPendingPointsDetails {
   public LoyaltyPendingPointsDetails order(LoyaltyPendingPointsDetailsOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 

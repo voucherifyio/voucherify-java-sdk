@@ -71,6 +71,7 @@ public class ClientValidationsValidateRequestBodyRedeemablesItemReward {
   public ClientValidationsValidateRequestBodyRedeemablesItemReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ClientValidationsValidateRequestBodyRedeemablesItemReward {
   public ClientValidationsValidateRequestBodyRedeemablesItemReward points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

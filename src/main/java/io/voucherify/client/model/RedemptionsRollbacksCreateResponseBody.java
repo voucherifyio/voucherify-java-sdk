@@ -79,6 +79,7 @@ public class RedemptionsRollbacksCreateResponseBody {
   public RedemptionsRollbacksCreateResponseBody rollbacks(List<RedemptionRollback> rollbacks) {
     
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class RedemptionsRollbacksCreateResponseBody {
   public RedemptionsRollbacksCreateResponseBody parentRollback(RedemptionRollback parentRollback) {
     
     this.parentRollback = parentRollback;
+    
     return this;
   }
 
@@ -133,6 +135,7 @@ public class RedemptionsRollbacksCreateResponseBody {
   public RedemptionsRollbacksCreateResponseBody order(RedemptionsRollbacksCreateResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 

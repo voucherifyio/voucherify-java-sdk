@@ -66,6 +66,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption {
   public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 

@@ -369,6 +369,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -394,6 +395,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -419,6 +421,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -444,6 +447,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -469,6 +473,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -494,6 +499,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -519,6 +525,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -544,6 +551,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -569,6 +577,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -594,6 +603,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -619,6 +629,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -644,6 +655,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -669,6 +681,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -694,6 +707,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody order(RedemptionsRollbackCreateResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -719,6 +733,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody channel(RedemptionsRollbackCreateResponseBodyChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -744,6 +759,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -765,6 +781,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -790,6 +807,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -815,6 +833,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody voucher(Voucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -836,6 +855,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody promotionTier(PromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    
     return this;
   }
 
@@ -857,6 +877,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody reward(RedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -878,6 +899,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody gift(RedemptionsRollbackCreateResponseBodyGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -903,6 +925,7 @@ public class RedemptionsRollbackCreateResponseBody {
   public RedemptionsRollbackCreateResponseBody loyaltyCard(RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 

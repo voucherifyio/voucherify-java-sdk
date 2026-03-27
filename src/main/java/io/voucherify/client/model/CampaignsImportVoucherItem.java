@@ -240,6 +240,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -265,6 +266,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem redemption(CampaignsImportVoucherItemRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -290,6 +292,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -315,6 +318,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -340,11 +344,12 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
    /**
-   * Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
+   * Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -365,6 +370,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -390,6 +396,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -415,6 +422,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -436,6 +444,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -465,6 +474,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -490,6 +500,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -515,6 +526,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -536,6 +548,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -557,6 +570,7 @@ public class CampaignsImportVoucherItem {
   public CampaignsImportVoucherItem discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

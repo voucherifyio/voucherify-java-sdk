@@ -90,6 +90,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   public ParameterFiltersListReferralsRedeemableHolders id(ParameterFiltersListReferralsRedeemableHoldersId id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -115,6 +116,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   public ParameterFiltersListReferralsRedeemableHolders createdAt(ParameterFiltersListReferralsRedeemableHoldersCreatedAt createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -140,6 +142,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   public ParameterFiltersListReferralsRedeemableHolders holderRole(ParameterFiltersListReferralsRedeemableHoldersHolderRole holderRole) {
     
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
     return this;
   }
 
@@ -165,6 +168,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   public ParameterFiltersListReferralsRedeemableHolders customerId(ParameterFiltersListReferralsRedeemableHoldersCustomerId customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -190,6 +194,7 @@ public class ParameterFiltersListReferralsRedeemableHolders {
   public ParameterFiltersListReferralsRedeemableHolders junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 

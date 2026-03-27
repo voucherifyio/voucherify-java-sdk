@@ -71,6 +71,7 @@ public class ValidationsValidateRequestBodyRedeemablesItemReward {
   public ValidationsValidateRequestBodyRedeemablesItemReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ValidationsValidateRequestBodyRedeemablesItemReward {
   public ValidationsValidateRequestBodyRedeemablesItemReward points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

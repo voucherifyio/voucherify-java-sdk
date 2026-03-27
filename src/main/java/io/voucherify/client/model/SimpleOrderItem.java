@@ -233,6 +233,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -258,6 +259,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -283,6 +285,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -308,6 +311,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -333,6 +337,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -358,6 +363,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -383,6 +389,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -408,6 +415,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -433,6 +441,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -458,6 +467,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -483,6 +493,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -508,6 +519,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -533,6 +545,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -558,6 +571,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -583,6 +597,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -608,6 +623,7 @@ public class SimpleOrderItem {
   public SimpleOrderItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 

@@ -154,6 +154,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -179,6 +180,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket voucherId(String voucherId) {
     
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
     return this;
   }
 
@@ -204,6 +206,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -229,6 +232,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket bucket(LoyaltyPointsBucketBucket bucket) {
     
     this.bucket = bucket;
+    this.bucketIsSet = true;
     return this;
   }
 
@@ -254,11 +258,12 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket status(String status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
    /**
-   * Loyalty point point bucket status.
+   * Loyalty point bucket status.
    * @return status
   **/
   @javax.annotation.Nullable
@@ -279,6 +284,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket expiresAt(LocalDate expiresAt) {
     
     this.expiresAt = expiresAt;
+    this.expiresAtIsSet = true;
     return this;
   }
 
@@ -304,6 +310,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -329,6 +336,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -354,6 +362,7 @@ public class LoyaltyPointsBucket {
   public LoyaltyPointsBucket _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

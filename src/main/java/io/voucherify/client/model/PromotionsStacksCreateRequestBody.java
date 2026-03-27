@@ -77,6 +77,7 @@ public class PromotionsStacksCreateRequestBody {
   public PromotionsStacksCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -102,6 +103,7 @@ public class PromotionsStacksCreateRequestBody {
   public PromotionsStacksCreateRequestBody tiers(PromotionsStacksCreateRequestBodyTiers tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 
@@ -127,6 +129,7 @@ public class PromotionsStacksCreateRequestBody {
   public PromotionsStacksCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 

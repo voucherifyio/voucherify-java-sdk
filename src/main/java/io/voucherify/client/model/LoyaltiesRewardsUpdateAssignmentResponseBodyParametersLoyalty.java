@@ -71,6 +71,7 @@ public class LoyaltiesRewardsUpdateAssignmentResponseBodyParametersLoyalty {
   public LoyaltiesRewardsUpdateAssignmentResponseBodyParametersLoyalty points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltiesRewardsUpdateAssignmentResponseBodyParametersLoyalty {
   public LoyaltiesRewardsUpdateAssignmentResponseBodyParametersLoyalty autoRedeem(Boolean autoRedeem) {
     
     this.autoRedeem = autoRedeem;
+    this.autoRedeemIsSet = true;
     return this;
   }
 

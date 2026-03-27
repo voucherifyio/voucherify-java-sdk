@@ -89,6 +89,7 @@ public class PromotionsTiersListResponseBody {
   public PromotionsTiersListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -114,6 +115,7 @@ public class PromotionsTiersListResponseBody {
   public PromotionsTiersListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -139,6 +141,7 @@ public class PromotionsTiersListResponseBody {
   public PromotionsTiersListResponseBody tiers(List<PromotionTier> tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 
@@ -172,6 +175,7 @@ public class PromotionsTiersListResponseBody {
   public PromotionsTiersListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -197,6 +201,7 @@ public class PromotionsTiersListResponseBody {
   public PromotionsTiersListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 

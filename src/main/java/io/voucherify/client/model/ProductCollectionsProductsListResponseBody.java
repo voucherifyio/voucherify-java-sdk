@@ -84,6 +84,7 @@ public class ProductCollectionsProductsListResponseBody {
   public ProductCollectionsProductsListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class ProductCollectionsProductsListResponseBody {
   public ProductCollectionsProductsListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class ProductCollectionsProductsListResponseBody {
   public ProductCollectionsProductsListResponseBody data(List<ProductCollectionsProductsListResponseBodyDataItem> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class ProductCollectionsProductsListResponseBody {
   public ProductCollectionsProductsListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

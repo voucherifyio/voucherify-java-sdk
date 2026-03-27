@@ -71,6 +71,7 @@ public class ClientEventsCreateRequestBodyReferral {
   public ClientEventsCreateRequestBodyReferral code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ClientEventsCreateRequestBodyReferral {
   public ClientEventsCreateRequestBodyReferral referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 

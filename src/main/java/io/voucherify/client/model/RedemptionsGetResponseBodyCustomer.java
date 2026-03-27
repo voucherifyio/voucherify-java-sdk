@@ -136,6 +136,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -161,6 +162,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -186,6 +188,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -211,6 +214,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -236,6 +240,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -261,6 +266,7 @@ public class RedemptionsGetResponseBodyCustomer {
   public RedemptionsGetResponseBodyCustomer _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

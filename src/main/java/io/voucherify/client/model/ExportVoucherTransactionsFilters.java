@@ -78,6 +78,7 @@ public class ExportVoucherTransactionsFilters {
   public ExportVoucherTransactionsFilters junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -99,6 +100,7 @@ public class ExportVoucherTransactionsFilters {
   public ExportVoucherTransactionsFilters createdAt(FieldConditions createdAt) {
     
     this.createdAt = createdAt;
+    
     return this;
   }
 
@@ -120,6 +122,7 @@ public class ExportVoucherTransactionsFilters {
   public ExportVoucherTransactionsFilters voucherId(FieldConditions voucherId) {
     
     this.voucherId = voucherId;
+    
     return this;
   }
 
@@ -141,6 +144,7 @@ public class ExportVoucherTransactionsFilters {
   public ExportVoucherTransactionsFilters campaignId(FieldConditions campaignId) {
     
     this.campaignId = campaignId;
+    
     return this;
   }
 

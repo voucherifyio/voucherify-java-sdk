@@ -71,6 +71,7 @@ public class LocationShapeDistance {
   public LocationShapeDistance center(String center) {
     
     this.center = center;
+    this.centerIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LocationShapeDistance {
   public LocationShapeDistance radius(String radius) {
     
     this.radius = radius;
+    this.radiusIsSet = true;
     return this;
   }
 

@@ -259,7 +259,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules
-     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ValidationRulesCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -271,7 +271,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules
-     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @return ApiResponse&lt;ValidationRulesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -284,7 +284,7 @@ public class ValidationRulesApi {
 
     /**
      * Create Validation Rules (asynchronously)
-     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+     * Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRulesCreateRequestBody Specify the validation rules parameters. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -949,7 +949,7 @@ public class ValidationRulesApi {
 
     /**
      * List Validation Rules&#39; Assignment(s)
-     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
      * @param relatedObjectId The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param rule Validation rule ID. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -965,7 +965,7 @@ public class ValidationRulesApi {
 
     /**
      * List Validation Rules&#39; Assignment(s)
-     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
      * @param relatedObjectId The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param rule Validation rule ID. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -982,7 +982,7 @@ public class ValidationRulesApi {
 
     /**
      * List Validation Rules&#39; Assignment(s) (asynchronously)
-     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+     * List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
      * @param relatedObjectId The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param rule Validation rule ID. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -1066,7 +1066,7 @@ public class ValidationRulesApi {
 
     /**
      * Update Validation Rule
-     * Update validation rule parameters.
+     * Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRuleId A unique validation rule ID. (required)
      * @param validationRulesUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ValidationRulesUpdateResponseBody
@@ -1079,7 +1079,7 @@ public class ValidationRulesApi {
 
     /**
      * Update Validation Rule
-     * Update validation rule parameters.
+     * Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRuleId A unique validation rule ID. (required)
      * @param validationRulesUpdateRequestBody Specify the parameters to be updated. (optional)
      * @return ApiResponse&lt;ValidationRulesUpdateResponseBody&gt;
@@ -1093,7 +1093,7 @@ public class ValidationRulesApi {
 
     /**
      * Update Validation Rule (asynchronously)
-     * Update validation rule parameters.
+     * Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
      * @param validationRuleId A unique validation rule ID. (required)
      * @param validationRulesUpdateRequestBody Specify the parameters to be updated. (optional)
      * @param _callback The callback to be executed when the API call finishes

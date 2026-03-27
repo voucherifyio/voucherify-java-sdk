@@ -86,6 +86,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   public RedemptionsRollbacksCreateRequestBody reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   public RedemptionsRollbacksCreateRequestBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   public RedemptionsRollbacksCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -157,6 +160,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   public RedemptionsRollbacksCreateRequestBody order(Order order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -178,6 +182,7 @@ public class RedemptionsRollbacksCreateRequestBody {
   public RedemptionsRollbacksCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

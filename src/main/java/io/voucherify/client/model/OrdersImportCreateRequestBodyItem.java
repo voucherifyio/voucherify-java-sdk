@@ -152,10 +152,6 @@ public class OrdersImportCreateRequestBodyItem {
   private Object metadata;
     private boolean metadataIsSet = false;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
   public static final String SERIALIZED_NAME_REFERRER_ID = "referrer_id";
   @SerializedName(SERIALIZED_NAME_REFERRER_ID)
   private String referrerId;
@@ -169,12 +165,17 @@ public class OrdersImportCreateRequestBodyItem {
   @SerializedName(SERIALIZED_NAME_REFERRER)
   private Referrer referrer;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
   public OrdersImportCreateRequestBodyItem() {
   }
 
   public OrdersImportCreateRequestBodyItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -200,11 +201,12 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
    /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * Unique source ID of an existing order that will be linked to the redemption of this request.  For validation and redemption, if &#x60;source_id&#x60; is used with an existing order, the original order data will be used, like &#x60;items&#x60;, &#x60;amount&#x60;, and so on, not the one sent in the new request.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -225,6 +227,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -250,6 +253,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -275,6 +279,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -300,6 +305,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -325,6 +331,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem items(List<OrderItem> items) {
     
     this.items = items;
+    this.itemsIsSet = true;
     return this;
   }
 
@@ -358,6 +365,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -380,30 +388,10 @@ public class OrdersImportCreateRequestBodyItem {
   }
 
 
-  public OrdersImportCreateRequestBodyItem createdAt(OffsetDateTime createdAt) {
-    
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
   public OrdersImportCreateRequestBodyItem referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -429,6 +417,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -450,6 +439,7 @@ public class OrdersImportCreateRequestBodyItem {
   public OrdersImportCreateRequestBodyItem referrer(Referrer referrer) {
     
     this.referrer = referrer;
+    
     return this;
   }
 
@@ -465,6 +455,28 @@ public class OrdersImportCreateRequestBodyItem {
 
   public void setReferrer(Referrer referrer) {
     this.referrer = referrer;
+  }
+
+
+  public OrdersImportCreateRequestBodyItem createdAt(OffsetDateTime createdAt) {
+    
+    this.createdAt = createdAt;
+    
+    return this;
+  }
+
+   /**
+   * Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -486,10 +498,10 @@ public class OrdersImportCreateRequestBodyItem {
         Objects.equals(this.discountAmount, ordersImportCreateRequestBodyItem.discountAmount) &&
         Objects.equals(this.items, ordersImportCreateRequestBodyItem.items) &&
         Objects.equals(this.metadata, ordersImportCreateRequestBodyItem.metadata) &&
-        Objects.equals(this.createdAt, ordersImportCreateRequestBodyItem.createdAt) &&
         Objects.equals(this.referrerId, ordersImportCreateRequestBodyItem.referrerId) &&
         Objects.equals(this.customer, ordersImportCreateRequestBodyItem.customer) &&
-        Objects.equals(this.referrer, ordersImportCreateRequestBodyItem.referrer);
+        Objects.equals(this.referrer, ordersImportCreateRequestBodyItem.referrer) &&
+        Objects.equals(this.createdAt, ordersImportCreateRequestBodyItem.createdAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -498,7 +510,7 @@ public class OrdersImportCreateRequestBodyItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, createdAt, referrerId, customer, referrer);
+    return Objects.hash(id, sourceId, status, amount, initialAmount, discountAmount, items, metadata, referrerId, customer, referrer, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -520,10 +532,10 @@ public class OrdersImportCreateRequestBodyItem {
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    referrerId: ").append(toIndentedString(referrerId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    referrer: ").append(toIndentedString(referrer)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -554,10 +566,10 @@ public class OrdersImportCreateRequestBodyItem {
     openapiFields.add("discount_amount");
     openapiFields.add("items");
     openapiFields.add("metadata");
-    openapiFields.add("created_at");
     openapiFields.add("referrer_id");
     openapiFields.add("customer");
     openapiFields.add("referrer");
+    openapiFields.add("created_at");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

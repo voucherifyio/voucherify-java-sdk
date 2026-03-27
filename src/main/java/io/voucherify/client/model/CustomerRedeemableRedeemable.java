@@ -131,6 +131,7 @@ public class CustomerRedeemableRedeemable {
   public CustomerRedeemableRedeemable type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -156,6 +157,7 @@ public class CustomerRedeemableRedeemable {
   public CustomerRedeemableRedeemable voucher(RedeemableVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -177,6 +179,7 @@ public class CustomerRedeemableRedeemable {
   public CustomerRedeemableRedeemable status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 

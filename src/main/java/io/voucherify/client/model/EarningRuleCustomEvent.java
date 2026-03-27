@@ -66,6 +66,7 @@ public class EarningRuleCustomEvent {
   public EarningRuleCustomEvent schemaId(String schemaId) {
     
     this.schemaId = schemaId;
+    this.schemaIdIsSet = true;
     return this;
   }
 

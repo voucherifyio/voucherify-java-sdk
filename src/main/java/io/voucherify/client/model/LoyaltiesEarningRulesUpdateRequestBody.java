@@ -183,6 +183,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody validationRuleId(String validationRuleId) {
     
     this.validationRuleId = validationRuleId;
+    this.validationRuleIdIsSet = true;
     return this;
   }
 
@@ -208,6 +209,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody loyalty(LoyaltiesEarningRulesUpdateRequestBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 
@@ -233,6 +235,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody source(LoyaltiesEarningRulesUpdateRequestBodySource source) {
     
     this.source = source;
+    this.sourceIsSet = true;
     return this;
   }
 
@@ -258,6 +261,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -283,6 +287,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -308,6 +313,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -333,6 +339,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody pendingPoints(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
     return this;
   }
 
@@ -358,6 +365,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody expirationRules(EarningRuleExpirationRules expirationRules) {
     
     this.expirationRules = expirationRules;
+    
     return this;
   }
 
@@ -379,6 +387,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -400,6 +409,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -429,6 +439,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -450,6 +461,7 @@ public class LoyaltiesEarningRulesUpdateRequestBody {
   public LoyaltiesEarningRulesUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

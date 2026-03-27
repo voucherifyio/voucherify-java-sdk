@@ -100,6 +100,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -125,6 +126,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody relatedObject(String relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -150,6 +152,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody properties(Map<String, MetadataSchemaDefinitionDeprecated> properties) {
     
     this.properties = properties;
+    this.propertiesIsSet = true;
     return this;
   }
 
@@ -183,6 +186,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody allowDefinedOnly(Boolean allowDefinedOnly) {
     
     this.allowDefinedOnly = allowDefinedOnly;
+    this.allowDefinedOnlyIsSet = true;
     return this;
   }
 
@@ -208,6 +212,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -233,6 +238,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -258,6 +264,7 @@ public class MetadataSchemasGetResponseBody {
   public MetadataSchemasGetResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

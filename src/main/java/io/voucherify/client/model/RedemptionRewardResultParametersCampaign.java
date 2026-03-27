@@ -76,6 +76,7 @@ public class RedemptionRewardResultParametersCampaign {
   public RedemptionRewardResultParametersCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class RedemptionRewardResultParametersCampaign {
   public RedemptionRewardResultParametersCampaign balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class RedemptionRewardResultParametersCampaign {
   public RedemptionRewardResultParametersCampaign type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

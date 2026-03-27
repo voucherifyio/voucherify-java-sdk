@@ -323,6 +323,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -348,6 +349,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -373,6 +375,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -398,6 +401,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -423,6 +427,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -448,6 +453,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -473,6 +479,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -498,6 +505,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -519,6 +527,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher gift(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -544,6 +553,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher loyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -569,6 +579,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -594,6 +605,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -619,6 +631,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -640,6 +653,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -669,6 +683,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -690,6 +705,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -715,6 +731,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -740,6 +757,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -765,6 +783,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -786,6 +805,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -811,6 +831,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -836,6 +857,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -861,6 +883,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -886,6 +909,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -911,6 +935,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -936,6 +961,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher publish(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -961,6 +987,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher redemption(LoyaltiesMembersRedemptionRedeemResponseBodyVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -986,6 +1013,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher categories(List<Object> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1019,6 +1047,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 
@@ -1040,6 +1069,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyVoucher {
   public LoyaltiesMembersRedemptionRedeemResponseBodyVoucher holder(SimpleCustomer holder) {
     
     this.holder = holder;
+    
     return this;
   }
 

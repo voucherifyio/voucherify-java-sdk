@@ -91,6 +91,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody sku(String sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -141,6 +143,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -166,6 +169,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody attributes(Object attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -191,6 +195,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -216,6 +221,7 @@ public class ProductsSkusUpdateRequestBody {
   public ProductsSkusUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

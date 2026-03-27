@@ -189,6 +189,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -214,6 +215,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -265,6 +268,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -290,6 +294,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -315,6 +320,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -340,6 +346,7 @@ public class CategoryWithStackingRulesType {
   public CategoryWithStackingRulesType stackingRulesType(StackingRulesTypeEnum stackingRulesType) {
     
     this.stackingRulesType = stackingRulesType;
+    this.stackingRulesTypeIsSet = true;
     return this;
   }
 

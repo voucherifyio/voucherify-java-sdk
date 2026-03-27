@@ -120,6 +120,7 @@ public class LocationShapeGeojson {
   public LocationShapeGeojson type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -145,6 +146,7 @@ public class LocationShapeGeojson {
   public LocationShapeGeojson coordinates(List<List<Integer>> coordinates) {
     
     this.coordinates = coordinates;
+    this.coordinatesIsSet = true;
     return this;
   }
 

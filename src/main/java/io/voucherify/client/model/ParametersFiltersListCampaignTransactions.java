@@ -74,6 +74,7 @@ public class ParametersFiltersListCampaignTransactions {
   public ParametersFiltersListCampaignTransactions junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -95,6 +96,7 @@ public class ParametersFiltersListCampaignTransactions {
   public ParametersFiltersListCampaignTransactions id(FilterConditionsString id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -116,6 +118,7 @@ public class ParametersFiltersListCampaignTransactions {
   public ParametersFiltersListCampaignTransactions voucherId(FilterConditionsString voucherId) {
     
     this.voucherId = voucherId;
+    
     return this;
   }
 

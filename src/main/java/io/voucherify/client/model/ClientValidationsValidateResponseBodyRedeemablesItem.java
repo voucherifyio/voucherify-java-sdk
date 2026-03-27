@@ -219,6 +219,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem status(StatusEnum status) {
     
     this.status = status;
+    
     return this;
   }
 
@@ -240,6 +241,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -265,6 +267,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -290,6 +293,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem order(ClientValidationsValidateResponseBodyRedeemablesItemOrder order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -311,6 +315,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem applicableTo(ApplicableToResultList applicableTo) {
     
     this.applicableTo = applicableTo;
+    
     return this;
   }
 
@@ -332,6 +337,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem inapplicableTo(InapplicableToResultList inapplicableTo) {
     
     this.inapplicableTo = inapplicableTo;
+    
     return this;
   }
 
@@ -353,6 +359,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem result(ClientValidationsValidateResponseBodyRedeemablesItemResult result) {
     
     this.result = result;
+    
     return this;
   }
 
@@ -374,6 +381,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -399,6 +407,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -432,6 +441,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem campaignName(String campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 
@@ -457,6 +467,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -482,6 +493,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItem {
   public ClientValidationsValidateResponseBodyRedeemablesItem name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

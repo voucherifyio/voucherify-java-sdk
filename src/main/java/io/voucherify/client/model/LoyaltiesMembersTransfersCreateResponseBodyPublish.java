@@ -128,6 +128,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   public LoyaltiesMembersTransfersCreateResponseBodyPublish _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -153,6 +154,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   public LoyaltiesMembersTransfersCreateResponseBodyPublish count(Integer count) {
     
     this.count = count;
+    this.countIsSet = true;
     return this;
   }
 
@@ -178,6 +180,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   public LoyaltiesMembersTransfersCreateResponseBodyPublish entries(List<String> entries) {
     
     this.entries = entries;
+    this.entriesIsSet = true;
     return this;
   }
 
@@ -211,6 +214,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyPublish {
   public LoyaltiesMembersTransfersCreateResponseBodyPublish url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

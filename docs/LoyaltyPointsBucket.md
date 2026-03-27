@@ -12,7 +12,7 @@ Contains the details about expiring loyalty points.
 |**voucherId** | **String** | Unique identifier of the parent loyalty card. |
 |**campaignId** | **String** | Unique identifier of the parent campaign. |
 |**bucket** | [**LoyaltyPointsBucketBucket**](LoyaltyPointsBucketBucket.md) |  |
-|**status** | **String** | Loyalty point point bucket status. |
+|**status** | **String** | Loyalty point bucket status. |
 |**expiresAt** | **LocalDate** | Date when the number of points defined in the bucket object are due to expire. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format. |

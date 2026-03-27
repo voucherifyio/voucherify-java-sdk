@@ -113,6 +113,7 @@ public class LoyaltyTiersExpirationAllStartDate {
   public LoyaltyTiersExpirationAllStartDate type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

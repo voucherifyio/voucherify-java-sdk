@@ -113,6 +113,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -138,6 +139,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints voucherId(String voucherId) {
     
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
     return this;
   }
 
@@ -163,6 +165,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -188,6 +191,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -213,6 +217,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints orderId(String orderId) {
     
     this.orderId = orderId;
+    this.orderIdIsSet = true;
     return this;
   }
 
@@ -238,6 +243,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -263,6 +269,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints activatesAt(LocalDate activatesAt) {
     
     this.activatesAt = activatesAt;
+    this.activatesAtIsSet = true;
     return this;
   }
 
@@ -288,6 +295,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints details(LoyaltyPendingPointsDetails details) {
     
     this.details = details;
+    
     return this;
   }
 
@@ -309,6 +317,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -334,6 +343,7 @@ public class LoyaltyPendingPoints {
   public LoyaltyPendingPoints updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

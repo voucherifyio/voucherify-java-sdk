@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;v1/exports/{exportId}&#x60;.
+ * ExportsGetResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -262,6 +262,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -287,6 +288,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -312,6 +314,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -337,6 +340,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -362,6 +366,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -387,6 +392,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody result(ExportsGetResponseBodyResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -412,6 +418,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 
@@ -437,6 +444,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -462,6 +470,7 @@ public class ExportsGetResponseBody {
   public ExportsGetResponseBody parameters(ExportsGetResponseBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

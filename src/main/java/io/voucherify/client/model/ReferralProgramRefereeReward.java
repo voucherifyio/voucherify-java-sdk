@@ -124,6 +124,7 @@ public class ReferralProgramRefereeReward {
   public ReferralProgramRefereeReward relatedObjectParent(ReferralProgramRefereeRewardRelatedObjectParent relatedObjectParent) {
     
     this.relatedObjectParent = relatedObjectParent;
+    this.relatedObjectParentIsSet = true;
     return this;
   }
 
@@ -149,6 +150,7 @@ public class ReferralProgramRefereeReward {
   public ReferralProgramRefereeReward type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -174,6 +176,7 @@ public class ReferralProgramRefereeReward {
   public ReferralProgramRefereeReward amount(String amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

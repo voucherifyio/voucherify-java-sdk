@@ -73,6 +73,7 @@ public class RedemptionEntryPromotionTierSummary {
   public RedemptionEntryPromotionTierSummary redemptions(RedemptionEntryPromotionTierSummaryRedemptions redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class RedemptionEntryPromotionTierSummary {
   public RedemptionEntryPromotionTierSummary orders(RedemptionEntryPromotionTierSummaryOrders orders) {
     
     this.orders = orders;
+    this.ordersIsSet = true;
     return this;
   }
 

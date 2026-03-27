@@ -66,11 +66,12 @@ public class CampaignsTransactionsExportCreateResponseBodyResult {
   public CampaignsTransactionsExportCreateResponseBodyResult url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 
    /**
-   * URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](ref:download-export) method.
+   * URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](/api-reference/exports/download-export) method.
    * @return url
   **/
   @javax.annotation.Nullable

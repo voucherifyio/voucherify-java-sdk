@@ -129,6 +129,7 @@ public class LoyaltiesListMembersResponseBody {
   public LoyaltiesListMembersResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class LoyaltiesListMembersResponseBody {
   public LoyaltiesListMembersResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class LoyaltiesListMembersResponseBody {
   public LoyaltiesListMembersResponseBody vouchers(List<LoyaltyMember> vouchers) {
     
     this.vouchers = vouchers;
+    this.vouchersIsSet = true;
     return this;
   }
 
@@ -212,6 +215,7 @@ public class LoyaltiesListMembersResponseBody {
   public LoyaltiesListMembersResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

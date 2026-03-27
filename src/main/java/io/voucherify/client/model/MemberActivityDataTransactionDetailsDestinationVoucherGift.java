@@ -129,6 +129,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucherGift {
   public MemberActivityDataTransactionDetailsDestinationVoucherGift amount(BigDecimal amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucherGift {
   public MemberActivityDataTransactionDetailsDestinationVoucherGift subtractedAmount(Integer subtractedAmount) {
     
     this.subtractedAmount = subtractedAmount;
+    this.subtractedAmountIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucherGift {
   public MemberActivityDataTransactionDetailsDestinationVoucherGift balance(BigDecimal balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -204,6 +207,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucherGift {
   public MemberActivityDataTransactionDetailsDestinationVoucherGift effect(EffectEnum effect) {
     
     this.effect = effect;
+    this.effectIsSet = true;
     return this;
   }
 

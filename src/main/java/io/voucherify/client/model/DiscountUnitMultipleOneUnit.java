@@ -139,6 +139,7 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit unitOff(BigDecimal unitOff) {
     
     this.unitOff = unitOff;
+    this.unitOffIsSet = true;
     return this;
   }
 
@@ -164,11 +165,12 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit unitOffFormula(String unitOffFormula) {
     
     this.unitOffFormula = unitOffFormula;
+    this.unitOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Formula used to calculate the number of units.
+   * Formula used to dynamically calculate the number of units.
    * @return unitOffFormula
   **/
   @javax.annotation.Nullable
@@ -189,6 +191,7 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit effect(EffectEnum effect) {
     
     this.effect = effect;
+    this.effectIsSet = true;
     return this;
   }
 
@@ -214,6 +217,7 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit unitType(String unitType) {
     
     this.unitType = unitType;
+    this.unitTypeIsSet = true;
     return this;
   }
 
@@ -239,6 +243,7 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit product(SimpleProductDiscountUnit product) {
     
     this.product = product;
+    
     return this;
   }
 
@@ -260,6 +265,7 @@ public class DiscountUnitMultipleOneUnit {
   public DiscountUnitMultipleOneUnit sku(SimpleSkuDiscountUnit sku) {
     
     this.sku = sku;
+    
     return this;
   }
 

@@ -184,6 +184,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -209,6 +210,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -234,6 +236,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -259,6 +262,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -284,6 +288,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -309,6 +314,7 @@ public class ManagementProjectsTemplatesCampaignsCopyCreateResponseBody {
   public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

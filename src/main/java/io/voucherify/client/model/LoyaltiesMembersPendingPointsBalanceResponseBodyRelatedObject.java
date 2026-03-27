@@ -116,6 +116,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject {
   public LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -141,6 +142,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject {
   public LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

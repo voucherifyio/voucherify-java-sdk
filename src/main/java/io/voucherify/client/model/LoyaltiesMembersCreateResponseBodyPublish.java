@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * This object stores a summary of publish events: an events counter and an endpoint which can be called to return details of each event.  A publication is required for loyalty cards and referral codes. This object gets updated whenever a voucher has been published. Publication means assigning a code to a particular customer. Typically, a publication is made by distributing your codes to your customers, e.g. through Export to MailChimp or &lt;!-- [publish voucher](OpenAPI.json/paths/~1publications/post) --&gt;[publish voucher](ref:create-publication) API method.   &lt;!-- title: My Table Title --&gt;  | Required | Optional | | -------- | :------: | | &#x60;type&#x60;:&#x60;LOYALTY_CARD&#x60; |  &#x60;type&#x60;:&#x60;DISCOUNT_VOUCHER&#x60;   |  | &#x60;is_referral_code&#x60;:&#x60;true&#x60;      |    &#x60;type&#x60;:&#x60;GIFT_VOUCHER&#x60;   | 
+ * This object stores a summary of publish events: an events counter and an endpoint which can be called to return details of each event.  A publication is required for loyalty cards and referral codes. This object gets updated whenever a voucher has been published. Publication means assigning a code to a particular customer. Typically, a publication is made by distributing your codes to your customers, e.g. through Export to MailChimp or   | Required | Optional | | -------- | :------: | | &#x60;type&#x60;:&#x60;LOYALTY_CARD&#x60; |  &#x60;type&#x60;:&#x60;DISCOUNT_VOUCHER&#x60;   |  | &#x60;is_referral_code&#x60;:&#x60;true&#x60;      |    &#x60;type&#x60;:&#x60;GIFT_VOUCHER&#x60;   | 
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -76,6 +76,7 @@ public class LoyaltiesMembersCreateResponseBodyPublish {
   public LoyaltiesMembersCreateResponseBodyPublish _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class LoyaltiesMembersCreateResponseBodyPublish {
   public LoyaltiesMembersCreateResponseBodyPublish count(Integer count) {
     
     this.count = count;
+    this.countIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class LoyaltiesMembersCreateResponseBodyPublish {
   public LoyaltiesMembersCreateResponseBodyPublish url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

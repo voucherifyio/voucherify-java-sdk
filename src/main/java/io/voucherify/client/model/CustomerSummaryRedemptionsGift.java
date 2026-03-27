@@ -71,6 +71,7 @@ public class CustomerSummaryRedemptionsGift {
   public CustomerSummaryRedemptionsGift redeemedAmount(Integer redeemedAmount) {
     
     this.redeemedAmount = redeemedAmount;
+    this.redeemedAmountIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class CustomerSummaryRedemptionsGift {
   public CustomerSummaryRedemptionsGift amountToGo(Integer amountToGo) {
     
     this.amountToGo = amountToGo;
+    this.amountToGoIsSet = true;
     return this;
   }
 

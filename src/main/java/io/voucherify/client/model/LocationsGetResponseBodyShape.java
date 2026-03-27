@@ -177,6 +177,7 @@ public class LocationsGetResponseBodyShape {
   public LocationsGetResponseBodyShape type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -202,6 +203,7 @@ public class LocationsGetResponseBodyShape {
   public LocationsGetResponseBodyShape format(FormatEnum format) {
     
     this.format = format;
+    this.formatIsSet = true;
     return this;
   }
 
@@ -227,6 +229,7 @@ public class LocationsGetResponseBodyShape {
   public LocationsGetResponseBodyShape distance(LocationsGetResponseBodyShapeDistance distance) {
     
     this.distance = distance;
+    this.distanceIsSet = true;
     return this;
   }
 
@@ -252,6 +255,7 @@ public class LocationsGetResponseBodyShape {
   public LocationsGetResponseBodyShape geojson(LocationsGetResponseBodyShapeGeojson geojson) {
     
     this.geojson = geojson;
+    this.geojsonIsSet = true;
     return this;
   }
 

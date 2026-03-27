@@ -230,6 +230,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward customer(MemberActivityDataRedemptionRewardCustomer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 
@@ -255,6 +256,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward assignmentId(String assignmentId) {
     
     this.assignmentId = assignmentId;
+    this.assignmentIdIsSet = true;
     return this;
   }
 
@@ -280,6 +282,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward voucher(MemberActivityDataRedemptionRewardVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -305,6 +308,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward product(MemberActivityDataRedemptionRewardProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -330,6 +334,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward sku(MemberActivityDataRedemptionRewardSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -355,6 +360,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward loyaltyTierId(String loyaltyTierId) {
     
     this.loyaltyTierId = loyaltyTierId;
+    this.loyaltyTierIdIsSet = true;
     return this;
   }
 
@@ -380,6 +386,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -405,6 +412,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -430,6 +438,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -455,6 +464,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward createdAt(String createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -480,6 +490,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward updatedAt(String updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -505,6 +516,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward parameters(MemberActivityDataRedemptionRewardParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 
@@ -530,6 +542,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -555,6 +568,7 @@ public class MemberActivityDataRedemptionReward {
   public MemberActivityDataRedemptionReward type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

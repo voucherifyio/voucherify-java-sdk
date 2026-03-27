@@ -94,7 +94,7 @@ public class Example {
 
 Create Validation Rules
 
-Create a validation rule.  🚧 Managing validation rules  It is recommended to [create validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
 
 ### Example
 ```java
@@ -522,7 +522,7 @@ public class Example {
 
 List Validation Rules&#39; Assignment(s)
 
-List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
 
 ### Example
 ```java
@@ -599,7 +599,7 @@ public class Example {
 
 Update Validation Rule
 
-Update validation rule parameters.
+Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
 
 ### Example
 ```java

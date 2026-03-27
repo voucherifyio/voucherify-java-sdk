@@ -159,6 +159,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -184,6 +185,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -209,6 +211,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -234,6 +237,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -259,6 +263,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -292,6 +297,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -317,6 +323,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -342,6 +349,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -367,6 +375,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -392,6 +401,7 @@ public class ProductWithoutSkus {
   public ProductWithoutSkus _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

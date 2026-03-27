@@ -66,6 +66,7 @@ public class CampaignsVouchersCreateRequestBodyRedemption {
   public CampaignsVouchersCreateRequestBodyRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 

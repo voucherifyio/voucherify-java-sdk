@@ -162,6 +162,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns campaigns(ParameterFiltersListCampaignsCampaigns campaigns) {
     
     this.campaigns = campaigns;
+    this.campaignsIsSet = true;
     return this;
   }
 
@@ -187,6 +188,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns campaignsId(ParameterFiltersListCampaignsCampaignsId campaignsId) {
     
     this.campaignsId = campaignsId;
+    this.campaignsIdIsSet = true;
     return this;
   }
 
@@ -212,6 +214,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns campaignStatus(ParameterFiltersListCampaignsCampaignStatus campaignStatus) {
     
     this.campaignStatus = campaignStatus;
+    this.campaignStatusIsSet = true;
     return this;
   }
 
@@ -237,6 +240,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns status(ParameterFiltersListCampaignsStatus status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -262,6 +266,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns active(ParameterFiltersListCampaignsActive active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -287,6 +292,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns isReferralCode(ParameterFiltersListCampaignsIsReferralCode isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -312,6 +318,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns validityTimeframe(ParameterFiltersListCampaignsValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    this.validityTimeframeIsSet = true;
     return this;
   }
 
@@ -337,6 +344,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns voucherType(ParameterFiltersListCampaignsVoucherType voucherType) {
     
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
     return this;
   }
 
@@ -362,6 +370,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns categories(ParameterFiltersListCampaignsCategories categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -387,6 +396,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns categoryIds(ParameterFiltersListCampaignsCategoryIds categoryIds) {
     
     this.categoryIds = categoryIds;
+    this.categoryIdsIsSet = true;
     return this;
   }
 
@@ -412,6 +422,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns type(ParameterFiltersListCampaignsType type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -437,6 +448,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns createdDate(ParameterFiltersListCampaignsCreatedDate createdDate) {
     
     this.createdDate = createdDate;
+    this.createdDateIsSet = true;
     return this;
   }
 
@@ -462,6 +474,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns updatedAt(ParameterFiltersListCampaignsUpdatedAt updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -487,6 +500,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns startDate(ParameterFiltersListCampaignsStartDate startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -512,6 +526,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns expirationDate(ParameterFiltersListCampaignsExpirationDate expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -537,6 +552,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns validityDayOfWeek(ParameterFiltersListCampaignsValidityDayOfWeek validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    this.validityDayOfWeekIsSet = true;
     return this;
   }
 
@@ -562,6 +578,7 @@ public class ParameterFiltersListCampaigns {
   public ParameterFiltersListCampaigns junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 

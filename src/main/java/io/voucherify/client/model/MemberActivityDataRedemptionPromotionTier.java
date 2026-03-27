@@ -234,6 +234,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -259,6 +260,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -284,6 +286,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -309,6 +312,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier campaign(MemberActivityDataRedemptionPromotionTierCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -334,6 +338,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -359,6 +364,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -384,6 +390,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -409,6 +416,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier action(MemberActivityDataRedemptionPromotionTierAction action) {
     
     this.action = action;
+    this.actionIsSet = true;
     return this;
   }
 
@@ -434,6 +442,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -459,6 +468,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier promotionId(String promotionId) {
     
     this.promotionId = promotionId;
+    this.promotionIdIsSet = true;
     return this;
   }
 
@@ -484,6 +494,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -509,6 +520,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -534,6 +546,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -559,6 +572,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -584,6 +598,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -605,6 +620,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -634,6 +650,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -655,6 +672,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier summary(MemberActivityDataRedemptionPromotionTierSummary summary) {
     
     this.summary = summary;
+    this.summaryIsSet = true;
     return this;
   }
 
@@ -680,6 +698,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -705,6 +724,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
     
     this.validationRuleAssignments = validationRuleAssignments;
+    
     return this;
   }
 
@@ -726,6 +746,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -751,6 +772,7 @@ public class MemberActivityDataRedemptionPromotionTier {
   public MemberActivityDataRedemptionPromotionTier categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

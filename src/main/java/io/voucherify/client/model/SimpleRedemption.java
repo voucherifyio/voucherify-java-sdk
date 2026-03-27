@@ -254,6 +254,7 @@ public class SimpleRedemption {
   public SimpleRedemption id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -279,6 +280,7 @@ public class SimpleRedemption {
   public SimpleRedemption customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -304,6 +306,7 @@ public class SimpleRedemption {
   public SimpleRedemption trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -329,6 +332,7 @@ public class SimpleRedemption {
   public SimpleRedemption date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -354,6 +358,7 @@ public class SimpleRedemption {
   public SimpleRedemption amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -379,6 +384,7 @@ public class SimpleRedemption {
   public SimpleRedemption order(SimpleOrder order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -400,6 +406,7 @@ public class SimpleRedemption {
   public SimpleRedemption reward(SimpleRedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -421,6 +428,7 @@ public class SimpleRedemption {
   public SimpleRedemption customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -442,6 +450,7 @@ public class SimpleRedemption {
   public SimpleRedemption result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -467,6 +476,7 @@ public class SimpleRedemption {
   public SimpleRedemption status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -492,6 +502,7 @@ public class SimpleRedemption {
   public SimpleRedemption voucher(SimpleVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -513,6 +524,7 @@ public class SimpleRedemption {
   public SimpleRedemption promotionTier(SimplePromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    
     return this;
   }
 
@@ -534,6 +546,7 @@ public class SimpleRedemption {
   public SimpleRedemption redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -559,6 +572,7 @@ public class SimpleRedemption {
   public SimpleRedemption metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -584,6 +598,7 @@ public class SimpleRedemption {
   public SimpleRedemption failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -609,6 +624,7 @@ public class SimpleRedemption {
   public SimpleRedemption failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -634,6 +650,7 @@ public class SimpleRedemption {
   public SimpleRedemption reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -659,6 +676,7 @@ public class SimpleRedemption {
   public SimpleRedemption channel(SimpleRedemptionChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -684,6 +702,7 @@ public class SimpleRedemption {
   public SimpleRedemption _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

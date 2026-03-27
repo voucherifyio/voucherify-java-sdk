@@ -1,4 +1,4 @@
-FROM openjdk:18-jdk-slim
+FROM eclipse-temurin:18-jdk
 
 ENV JAVA_HOME /usr/local/openjdk-18
 ENV PATH $JAVA_HOME/bin:/usr/share/maven/bin:$PATH

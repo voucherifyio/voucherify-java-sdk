@@ -324,6 +324,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -349,6 +350,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -374,6 +376,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -399,6 +402,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -424,6 +428,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -449,6 +454,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -474,6 +480,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -499,6 +506,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -520,6 +528,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher gift(RedemptionVoucherGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -545,6 +554,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher loyaltyCard(RedemptionVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -570,6 +580,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -595,6 +606,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -620,6 +632,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -641,6 +654,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -670,6 +684,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -691,6 +706,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -716,6 +732,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -741,6 +758,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -766,6 +784,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -787,6 +806,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -812,6 +832,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -837,6 +858,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -862,6 +884,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -887,6 +910,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -912,6 +936,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -937,6 +962,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher publish(RedemptionVoucherPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -962,6 +988,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher redemption(RedemptionVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -987,6 +1014,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1020,6 +1048,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 
@@ -1041,6 +1070,7 @@ public class RedemptionVoucher {
   public RedemptionVoucher holder(SimpleCustomer holder) {
     
     this.holder = holder;
+    
     return this;
   }
 

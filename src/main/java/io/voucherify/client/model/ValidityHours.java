@@ -69,6 +69,7 @@ public class ValidityHours {
   public ValidityHours daily(List<ValidityHoursDailyItem> daily) {
     
     this.daily = daily;
+    this.dailyIsSet = true;
     return this;
   }
 
@@ -81,7 +82,7 @@ public class ValidityHours {
   }
 
    /**
-   * Defines the reccuring period(s) when the resource is active. The periods should not overlap.
+   * Defines the recurring period(s) when the resource is active. The periods should not overlap.
    * @return daily
   **/
   @javax.annotation.Nullable

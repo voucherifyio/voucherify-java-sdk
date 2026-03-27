@@ -138,6 +138,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -163,6 +164,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -188,6 +190,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema schema(ManagementProjectsCustomEventSchemaSchema schema) {
     
     this.schema = schema;
+    this.schemaIsSet = true;
     return this;
   }
 
@@ -213,6 +216,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -238,6 +242,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -263,6 +268,7 @@ public class ManagementProjectsCustomEventSchema {
   public ManagementProjectsCustomEventSchema _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

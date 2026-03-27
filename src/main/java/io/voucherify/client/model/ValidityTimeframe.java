@@ -71,6 +71,7 @@ public class ValidityTimeframe {
   public ValidityTimeframe duration(String duration) {
     
     this.duration = duration;
+    this.durationIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ValidityTimeframe {
   public ValidityTimeframe interval(String interval) {
     
     this.interval = interval;
+    this.intervalIsSet = true;
     return this;
   }
 

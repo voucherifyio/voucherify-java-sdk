@@ -81,6 +81,7 @@ public class ManagementProjectsUpdateRequestBodyApiUsageNotifications {
   public ManagementProjectsUpdateRequestBodyApiUsageNotifications messages(UsageNotifications messages) {
     
     this.messages = messages;
+    
     return this;
   }
 
@@ -102,6 +103,7 @@ public class ManagementProjectsUpdateRequestBodyApiUsageNotifications {
   public ManagementProjectsUpdateRequestBodyApiUsageNotifications apiCalls(UsageNotifications apiCalls) {
     
     this.apiCalls = apiCalls;
+    
     return this;
   }
 
@@ -123,6 +125,7 @@ public class ManagementProjectsUpdateRequestBodyApiUsageNotifications {
   public ManagementProjectsUpdateRequestBodyApiUsageNotifications bulkApiCalls(UsageNotifications bulkApiCalls) {
     
     this.bulkApiCalls = bulkApiCalls;
+    
     return this;
   }
 
@@ -144,6 +147,7 @@ public class ManagementProjectsUpdateRequestBodyApiUsageNotifications {
   public ManagementProjectsUpdateRequestBodyApiUsageNotifications webhookCalls(UsageNotifications webhookCalls) {
     
     this.webhookCalls = webhookCalls;
+    
     return this;
   }
 
@@ -165,6 +169,7 @@ public class ManagementProjectsUpdateRequestBodyApiUsageNotifications {
   public ManagementProjectsUpdateRequestBodyApiUsageNotifications cycleCalls(UsageNotifications cycleCalls) {
     
     this.cycleCalls = cycleCalls;
+    
     return this;
   }
 

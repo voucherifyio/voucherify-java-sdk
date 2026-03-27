@@ -129,6 +129,7 @@ public class ExportsCreateRequestBody {
   public ExportsCreateRequestBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class ExportsCreateRequestBody {
   public ExportsCreateRequestBody parameters(ExportsCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

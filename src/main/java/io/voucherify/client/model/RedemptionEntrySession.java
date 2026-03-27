@@ -66,6 +66,7 @@ public class RedemptionEntrySession {
   public RedemptionEntrySession key(String key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 

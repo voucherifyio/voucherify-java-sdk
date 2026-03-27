@@ -83,6 +83,7 @@ public class UsageNotifications {
   public UsageNotifications enabled(Boolean enabled) {
     
     this.enabled = enabled;
+    this.enabledIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class UsageNotifications {
   public UsageNotifications value(Integer value) {
     
     this.value = value;
+    this.valueIsSet = true;
     return this;
   }
 
@@ -135,6 +137,7 @@ public class UsageNotifications {
   public UsageNotifications inApp(Boolean inApp) {
     
     this.inApp = inApp;
+    this.inAppIsSet = true;
     return this;
   }
 
@@ -160,6 +163,7 @@ public class UsageNotifications {
   public UsageNotifications emails(List<String> emails) {
     
     this.emails = emails;
+    this.emailsIsSet = true;
     return this;
   }
 

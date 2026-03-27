@@ -126,6 +126,7 @@ public class ValidationRulesAssignmentsCreateRequestBody {
   public ValidationRulesAssignmentsCreateRequestBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -151,6 +152,7 @@ public class ValidationRulesAssignmentsCreateRequestBody {
   public ValidationRulesAssignmentsCreateRequestBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 

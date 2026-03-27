@@ -173,6 +173,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -194,6 +195,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    
     return this;
   }
 
@@ -215,6 +217,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -240,6 +243,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -265,6 +269,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -298,6 +303,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    
     return this;
   }
 
@@ -319,6 +325,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    
     return this;
   }
 
@@ -340,6 +347,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem createdAt(String createdAt) {
     
     this.createdAt = createdAt;
+    
     return this;
   }
 
@@ -361,6 +369,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem updatedAt(String updatedAt) {
     
     this.updatedAt = updatedAt;
+    
     return this;
   }
 
@@ -382,6 +391,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -403,6 +413,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -428,6 +439,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem sku(String sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -453,6 +465,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -478,6 +491,7 @@ public class ProductCollectionsProductsListResponseBodyDataItem {
   public ProductCollectionsProductsListResponseBodyDataItem product(ProductWithoutSkus product) {
     
     this.product = product;
+    
     return this;
   }
 

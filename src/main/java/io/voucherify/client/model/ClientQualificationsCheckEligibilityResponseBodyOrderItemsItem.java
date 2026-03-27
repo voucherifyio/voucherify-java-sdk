@@ -267,6 +267,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -292,6 +293,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -317,6 +319,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -342,6 +345,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -367,6 +371,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -392,6 +397,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -417,6 +423,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -442,6 +449,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -467,6 +475,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -492,6 +501,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -517,6 +527,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -542,6 +553,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -567,6 +579,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -592,6 +605,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -617,6 +631,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -642,6 +657,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -667,6 +683,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 
@@ -692,6 +709,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem product(OrderCalculatedItemProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -717,6 +735,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem sku(OrderCalculatedItemSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -742,6 +761,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -767,6 +787,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -792,6 +813,7 @@ public class ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem {
   public ClientQualificationsCheckEligibilityResponseBodyOrderItemsItem applicationDetails(List<ApplicationDetailsItem> applicationDetails) {
     
     this.applicationDetails = applicationDetails;
+    
     return this;
   }
 

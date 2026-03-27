@@ -86,6 +86,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public ManagementProjectsBrandingUpdateResponseBodyAddress street(String street) {
     
     this.street = street;
+    this.streetIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public ManagementProjectsBrandingUpdateResponseBodyAddress city(String city) {
     
     this.city = city;
+    this.cityIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public ManagementProjectsBrandingUpdateResponseBodyAddress postal(String postal) {
     
     this.postal = postal;
+    this.postalIsSet = true;
     return this;
   }
 
@@ -161,6 +164,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public ManagementProjectsBrandingUpdateResponseBodyAddress state(String state) {
     
     this.state = state;
+    this.stateIsSet = true;
     return this;
   }
 
@@ -186,6 +190,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyAddress {
   public ManagementProjectsBrandingUpdateResponseBodyAddress country(String country) {
     
     this.country = country;
+    this.countryIsSet = true;
     return this;
   }
 

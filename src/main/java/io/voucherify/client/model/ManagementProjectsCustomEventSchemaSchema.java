@@ -69,6 +69,7 @@ public class ManagementProjectsCustomEventSchemaSchema {
   public ManagementProjectsCustomEventSchemaSchema properties(Map<String, ManagementProjectsCustomEventSchemasCreateRequestBodySchemaPropertiesEntry> properties) {
     
     this.properties = properties;
+    this.propertiesIsSet = true;
     return this;
   }
 

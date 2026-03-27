@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsCustomerId {
   public ParameterFiltersListPublicationsCustomerId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

@@ -136,6 +136,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -161,6 +162,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -186,6 +188,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -211,6 +214,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -236,6 +240,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -261,6 +266,7 @@ public class MemberActivityDataRedemptionRewardCustomer {
   public MemberActivityDataRedemptionRewardCustomer _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

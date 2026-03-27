@@ -265,6 +265,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -290,6 +291,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -315,6 +317,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -340,6 +343,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -365,6 +369,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -390,6 +395,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -415,6 +421,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -440,6 +447,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -465,6 +473,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -490,6 +499,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -515,6 +525,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -540,6 +551,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -565,6 +577,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -590,6 +603,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -615,6 +629,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -640,6 +655,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -665,6 +681,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 
@@ -690,6 +707,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem product(RedemptionsGetResponseBodyOrderItemsItemProduct product) {
     
     this.product = product;
+    
     return this;
   }
 
@@ -711,6 +729,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem sku(RedemptionsGetResponseBodyOrderItemsItemSku sku) {
     
     this.sku = sku;
+    
     return this;
   }
 
@@ -732,6 +751,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -757,6 +777,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -782,6 +803,7 @@ public class RedemptionsGetResponseBodyOrderItemsItem {
   public RedemptionsGetResponseBodyOrderItemsItem applicationDetails(List<ApplicationDetailsItem> applicationDetails) {
     
     this.applicationDetails = applicationDetails;
+    
     return this;
   }
 

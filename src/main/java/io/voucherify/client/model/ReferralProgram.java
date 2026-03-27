@@ -125,6 +125,7 @@ public class ReferralProgram {
   public ReferralProgram conversionEventType(ConversionEventTypeEnum conversionEventType) {
     
     this.conversionEventType = conversionEventType;
+    this.conversionEventTypeIsSet = true;
     return this;
   }
 
@@ -150,6 +151,7 @@ public class ReferralProgram {
   public ReferralProgram customEvent(ReferralProgramCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -175,6 +177,7 @@ public class ReferralProgram {
   public ReferralProgram refereeReward(ReferralProgramRefereeReward refereeReward) {
     
     this.refereeReward = refereeReward;
+    this.refereeRewardIsSet = true;
     return this;
   }
 

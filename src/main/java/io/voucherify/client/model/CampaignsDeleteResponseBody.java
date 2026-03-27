@@ -66,6 +66,7 @@ public class CampaignsDeleteResponseBody {
   public CampaignsDeleteResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

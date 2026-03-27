@@ -125,6 +125,7 @@ public class ParameterFiltersListCampaignsValidityDayOfWeekConditions {
   public ParameterFiltersListCampaignsValidityDayOfWeekConditions $is(List<IsEnum> $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 

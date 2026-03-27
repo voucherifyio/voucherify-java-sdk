@@ -474,6 +474,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -499,6 +500,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -524,6 +526,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -549,6 +552,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -574,6 +578,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -599,6 +604,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign voucher(LoyaltyCampaignVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -620,6 +626,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -645,6 +652,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -670,6 +678,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign useVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
     return this;
   }
 
@@ -695,6 +704,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -716,6 +726,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -745,6 +756,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -766,6 +778,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -791,6 +804,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign vouchersCount(Integer vouchersCount) {
     
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
     return this;
   }
 
@@ -816,6 +830,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -841,6 +856,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -866,6 +882,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -891,6 +908,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -916,6 +934,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -941,6 +960,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -966,6 +986,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -991,6 +1012,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign creationStatus(CreationStatusEnum creationStatus) {
     
     this.creationStatus = creationStatus;
+    this.creationStatusIsSet = true;
     return this;
   }
 
@@ -1016,6 +1038,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign vouchersGenerationStatus(VouchersGenerationStatusEnum vouchersGenerationStatus) {
     
     this.vouchersGenerationStatus = vouchersGenerationStatus;
+    this.vouchersGenerationStatusIsSet = true;
     return this;
   }
 
@@ -1041,6 +1064,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign readonly(Boolean readonly) {
     
     this.readonly = readonly;
+    this.readonlyIsSet = true;
     return this;
   }
 
@@ -1066,6 +1090,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign _protected(Boolean _protected) {
     
     this._protected = _protected;
+    this._protectedIsSet = true;
     return this;
   }
 
@@ -1091,6 +1116,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -1116,6 +1142,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1149,6 +1176,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -1174,6 +1202,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
     
     this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+    
     return this;
   }
 
@@ -1195,6 +1224,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 
@@ -1216,6 +1246,7 @@ public class LoyaltyCampaign {
   public LoyaltyCampaign accessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
     
     this.accessSettingsAssignments = accessSettingsAssignments;
+    
     return this;
   }
 

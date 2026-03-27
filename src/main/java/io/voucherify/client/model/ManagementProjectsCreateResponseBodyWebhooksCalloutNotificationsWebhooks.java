@@ -78,6 +78,7 @@ public class ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWeb
   public ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWebhooks email(Boolean email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -103,6 +104,7 @@ public class ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWeb
   public ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWebhooks inApp(Boolean inApp) {
     
     this.inApp = inApp;
+    this.inAppIsSet = true;
     return this;
   }
 
@@ -128,6 +130,7 @@ public class ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWeb
   public ManagementProjectsCreateResponseBodyWebhooksCalloutNotificationsWebhooks emails(List<String> emails) {
     
     this.emails = emails;
+    this.emailsIsSet = true;
     return this;
   }
 

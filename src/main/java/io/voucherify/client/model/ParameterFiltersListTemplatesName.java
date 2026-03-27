@@ -65,6 +65,7 @@ public class ParameterFiltersListTemplatesName {
   public ParameterFiltersListTemplatesName conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

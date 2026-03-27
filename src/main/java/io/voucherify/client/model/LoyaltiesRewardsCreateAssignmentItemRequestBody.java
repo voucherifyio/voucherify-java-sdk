@@ -79,6 +79,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
   public LoyaltiesRewardsCreateAssignmentItemRequestBody reward(String reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
   public LoyaltiesRewardsCreateAssignmentItemRequestBody parameters(LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBody {
   public LoyaltiesRewardsCreateAssignmentItemRequestBody validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
+    this.validationRulesIsSet = true;
     return this;
   }
 

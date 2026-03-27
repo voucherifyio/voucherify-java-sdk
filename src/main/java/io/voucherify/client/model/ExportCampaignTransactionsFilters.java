@@ -75,6 +75,7 @@ public class ExportCampaignTransactionsFilters {
   public ExportCampaignTransactionsFilters junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ExportCampaignTransactionsFilters {
   public ExportCampaignTransactionsFilters createdAt(FilterConditionsDateTime createdAt) {
     
     this.createdAt = createdAt;
+    
     return this;
   }
 
@@ -117,6 +119,7 @@ public class ExportCampaignTransactionsFilters {
   public ExportCampaignTransactionsFilters voucherId(FilterConditionsString voucherId) {
     
     this.voucherId = voucherId;
+    
     return this;
   }
 

@@ -190,6 +190,7 @@ public class LoyaltiesTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesTransactionsExportCreateRequestBodyParameters order(OrderEnum order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -215,6 +216,7 @@ public class LoyaltiesTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesTransactionsExportCreateRequestBodyParameters fields(List<FieldsEnum> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -248,6 +250,7 @@ public class LoyaltiesTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesTransactionsExportCreateRequestBodyParameters filters(ExportCampaignTransactionsFilters filters) {
     
     this.filters = filters;
+    
     return this;
   }
 

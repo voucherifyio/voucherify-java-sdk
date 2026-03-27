@@ -87,6 +87,7 @@ public class LoyaltiesMembersBalanceUpdateRequestBody {
   public LoyaltiesMembersBalanceUpdateRequestBody points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class LoyaltiesMembersBalanceUpdateRequestBody {
   public LoyaltiesMembersBalanceUpdateRequestBody expirationType(PointsExpirationTypes expirationType) {
     
     this.expirationType = expirationType;
+    
     return this;
   }
 
@@ -133,6 +135,7 @@ public class LoyaltiesMembersBalanceUpdateRequestBody {
   public LoyaltiesMembersBalanceUpdateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -158,6 +161,7 @@ public class LoyaltiesMembersBalanceUpdateRequestBody {
   public LoyaltiesMembersBalanceUpdateRequestBody reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -183,6 +187,7 @@ public class LoyaltiesMembersBalanceUpdateRequestBody {
   public LoyaltiesMembersBalanceUpdateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 

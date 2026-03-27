@@ -118,6 +118,7 @@ public class RedemptionRollbackChannel {
   public RedemptionRollbackChannel channelId(String channelId) {
     
     this.channelId = channelId;
+    this.channelIdIsSet = true;
     return this;
   }
 
@@ -143,6 +144,7 @@ public class RedemptionRollbackChannel {
   public RedemptionRollbackChannel channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
     return this;
   }
 

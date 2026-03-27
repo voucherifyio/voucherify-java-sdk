@@ -93,6 +93,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $is(List<String> $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -126,6 +127,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $isNot(List<String> $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -159,6 +161,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $hasValue(Object $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -184,6 +187,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $isUnknown(Object $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -209,6 +213,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $in(List<String> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -242,6 +247,7 @@ public class QualificationsFiltersCondition {
   public QualificationsFiltersCondition $notIn(List<String> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 

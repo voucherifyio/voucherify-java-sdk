@@ -268,6 +268,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -293,6 +294,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -318,6 +320,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -339,6 +342,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -368,6 +372,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -389,6 +394,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -414,6 +420,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -439,6 +446,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -464,6 +472,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody unsetMetadataFields(List<String> unsetMetadataFields) {
     
     this.unsetMetadataFields = unsetMetadataFields;
+    this.unsetMetadataFieldsIsSet = true;
     return this;
   }
 
@@ -497,6 +506,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -522,6 +532,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody accessSettings(AccessSettings accessSettings) {
     
     this.accessSettings = accessSettings;
+    
     return this;
   }
 
@@ -543,6 +554,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -568,6 +580,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -593,6 +606,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -618,6 +632,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -643,6 +658,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -664,6 +680,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody referralProgram(ReferralProgram referralProgram) {
     
     this.referralProgram = referralProgram;
+    
     return this;
   }
 
@@ -685,6 +702,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -706,6 +724,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
     
     this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+    
     return this;
   }
 
@@ -727,6 +746,7 @@ public class CampaignsUpdateRequestBody {
   public CampaignsUpdateRequestBody options(CampaignsUpdateRequestBodyOptions options) {
     
     this.options = options;
+    this.optionsIsSet = true;
     return this;
   }
 

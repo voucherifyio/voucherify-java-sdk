@@ -65,6 +65,7 @@ public class QualificationsFieldConditions {
   public QualificationsFieldConditions conditions(QualificationsFiltersCondition conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

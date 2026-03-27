@@ -264,6 +264,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -289,6 +290,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -314,6 +316,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable redeemableId(String redeemableId) {
     
     this.redeemableId = redeemableId;
+    this.redeemableIdIsSet = true;
     return this;
   }
 
@@ -339,6 +342,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable redeemableObject(String redeemableObject) {
     
     this.redeemableObject = redeemableObject;
+    this.redeemableObjectIsSet = true;
     return this;
   }
 
@@ -364,6 +368,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -389,6 +394,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable holderRole(HolderRoleEnum holderRole) {
     
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
     return this;
   }
 
@@ -414,6 +420,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -439,6 +446,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -464,6 +472,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable voucherType(VoucherTypeEnum voucherType) {
     
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
     return this;
   }
 
@@ -489,6 +498,7 @@ public class CustomerRedeemable {
   public CustomerRedeemable redeemable(CustomerRedeemableRedeemable redeemable) {
     
     this.redeemable = redeemable;
+    this.redeemableIsSet = true;
     return this;
   }
 

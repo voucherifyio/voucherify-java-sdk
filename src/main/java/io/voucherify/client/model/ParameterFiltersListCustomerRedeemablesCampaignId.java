@@ -65,6 +65,7 @@ public class ParameterFiltersListCustomerRedeemablesCampaignId {
   public ParameterFiltersListCustomerRedeemablesCampaignId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

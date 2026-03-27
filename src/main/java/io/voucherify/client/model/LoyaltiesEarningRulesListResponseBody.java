@@ -129,6 +129,7 @@ public class LoyaltiesEarningRulesListResponseBody {
   public LoyaltiesEarningRulesListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class LoyaltiesEarningRulesListResponseBody {
   public LoyaltiesEarningRulesListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class LoyaltiesEarningRulesListResponseBody {
   public LoyaltiesEarningRulesListResponseBody data(List<EarningRule> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -212,6 +215,7 @@ public class LoyaltiesEarningRulesListResponseBody {
   public LoyaltiesEarningRulesListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

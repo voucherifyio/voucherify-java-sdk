@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -65,8 +68,13 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   private Integer points;
     private boolean pointsIsSet = false;
 
+  public static final String SERIALIZED_NAME_POINTS_FORMULA = "points_formula";
+  @SerializedName(SERIALIZED_NAME_POINTS_FORMULA)
+  private String pointsFormula;
+    private boolean pointsFormulaIsSet = false;
+
   /**
-   * Type of object taken under consideration.
+   * Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.
    */
   @JsonAdapter(ObjectEnum.Adapter.class)
   public enum ObjectEnum {
@@ -124,12 +132,18 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   private String id;
     private boolean idIsSet = false;
 
+  public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
+  @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
+  private List<LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem> applicableTo;
+    private boolean applicableToIsSet = false;
+
   public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount() {
   }
 
   public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount every(Integer every) {
     
     this.every = every;
+    this.everyIsSet = true;
     return this;
   }
 
@@ -155,6 +169,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -177,14 +192,41 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   }
 
 
-  public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount _object(ObjectEnum _object) {
+  public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount pointsFormula(String pointsFormula) {
     
-    this._object = _object;
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Type of object taken under consideration.
+   * Formula used to dynamically calculate the rewarded points.
+   * @return pointsFormula
+  **/
+  @javax.annotation.Nullable
+  public String getPointsFormula() {
+    return pointsFormula;
+  }
+
+
+  public void setPointsFormula(String pointsFormula) {
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+  }
+  public boolean isPointsFormulaSet() {
+    return pointsFormulaIsSet;
+  }
+
+
+  public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount _object(ObjectEnum _object) {
+    
+    this._object = _object;
+    this._objectIsSet = true;
+    return this;
+  }
+
+   /**
+   * Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.
    * @return _object
   **/
   @javax.annotation.Nullable
@@ -205,11 +247,12 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
    /**
-   * Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619.
+   * Unique ID of the resource assigned by Voucherify. This is required together with &#x60;object&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used. Values are, for example, &#x60;pc_75U0dHlr7u75BJodrW1AE3t6&#x60; for product collection, &#x60;prod_0bae32322150fd0546&#x60; for a product, or &#x60;sku_0b7d7dfb090be5c619&#x60; for a SKU.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -227,6 +270,40 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
   }
 
 
+  public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount applicableTo(List<LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem> applicableTo) {
+    
+    this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
+    return this;
+  }
+
+  public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount addApplicableToItem(LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem applicableToItem) {
+    if (this.applicableTo == null) {
+      this.applicableTo = new ArrayList<>();
+    }
+    this.applicableTo.add(applicableToItem);
+    return this;
+  }
+
+   /**
+   * Defines products, SKUs, or product collections covered by the earning rule. Can be replaced by &#x60;object&#x60; and &#x60;id&#x60; to define only one object.
+   * @return applicableTo
+  **/
+  @javax.annotation.Nullable
+  public List<LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem> getApplicableTo() {
+    return applicableTo;
+  }
+
+
+  public void setApplicableTo(List<LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmountApplicableToItem> applicableTo) {
+    this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
+  }
+  public boolean isApplicableToSet() {
+    return applicableToIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -239,8 +316,10 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
     LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount = (LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount) o;
     return Objects.equals(this.every, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.every) &&
         Objects.equals(this.points, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.points) &&
+        Objects.equals(this.pointsFormula, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.pointsFormula) &&
         Objects.equals(this._object, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount._object) &&
-        Objects.equals(this.id, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.id);
+        Objects.equals(this.id, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.id) &&
+        Objects.equals(this.applicableTo, loyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount.applicableTo);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -249,7 +328,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(every, points, _object, id);
+    return Objects.hash(every, points, pointsFormula, _object, id, applicableTo);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -265,8 +344,10 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
     sb.append("class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {\n");
     sb.append("    every: ").append(toIndentedString(every)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    pointsFormula: ").append(toIndentedString(pointsFormula)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    applicableTo: ").append(toIndentedString(applicableTo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -291,8 +372,10 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItemsAmount {
     openapiFields = new HashSet<String>();
     openapiFields.add("every");
     openapiFields.add("points");
+    openapiFields.add("points_formula");
     openapiFields.add("object");
     openapiFields.add("id");
+    openapiFields.add("applicable_to");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

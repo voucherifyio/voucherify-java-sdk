@@ -7,7 +7,7 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**amount** | **Integer** |  |
+|**amount** | **Integer** | Credits added or subtracted on a gift card. |
 |**points** | **Integer** | Points added or subtracted in the transaction of a loyalty card. |
 |**type** | [**TypeEnum**](#TypeEnum) | The type of voucher whose balance is being adjusted due to the transaction. |
 |**total** | **Integer** | The number of all points or credits accumulated on the card as affected by add or subtract operations. |

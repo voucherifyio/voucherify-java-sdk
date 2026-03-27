@@ -273,6 +273,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -298,6 +299,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -323,6 +325,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -348,6 +351,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -373,6 +377,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -398,6 +403,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -423,6 +429,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem itemsDiscountAmount(Integer itemsDiscountAmount) {
     
     this.itemsDiscountAmount = itemsDiscountAmount;
+    this.itemsDiscountAmountIsSet = true;
     return this;
   }
 
@@ -448,6 +455,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem totalDiscountAmount(Integer totalDiscountAmount) {
     
     this.totalDiscountAmount = totalDiscountAmount;
+    this.totalDiscountAmountIsSet = true;
     return this;
   }
 
@@ -473,6 +481,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -498,6 +507,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -523,6 +533,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem itemsAppliedDiscountAmount(Integer itemsAppliedDiscountAmount) {
     
     this.itemsAppliedDiscountAmount = itemsAppliedDiscountAmount;
+    this.itemsAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -548,6 +559,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
     
     this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
+    this.totalAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -573,6 +585,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -598,6 +611,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -623,6 +637,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -648,6 +663,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -673,6 +689,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -698,6 +715,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -723,6 +741,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem customer(CustomerId customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -744,6 +763,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem referrer(ReferrerId referrer) {
     
     this.referrer = referrer;
+    
     return this;
   }
 
@@ -765,6 +785,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -798,6 +819,7 @@ public class OrdersListResponseBodyOrdersItem {
   public OrdersListResponseBodyOrdersItem items(List<OrderCalculatedItem> items) {
     
     this.items = items;
+    
     return this;
   }
 

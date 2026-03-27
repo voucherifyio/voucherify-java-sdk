@@ -101,6 +101,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -126,6 +127,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -151,6 +153,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody sku(String sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -176,6 +179,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -201,6 +205,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -226,6 +231,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody attributes(Object attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -251,6 +257,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -276,6 +283,7 @@ public class ProductsSkusCreateRequestBody {
   public ProductsSkusCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

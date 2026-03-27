@@ -71,6 +71,7 @@ public class MemberActivityDataTransactionDetailsSegment {
   public MemberActivityDataTransactionDetailsSegment id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class MemberActivityDataTransactionDetailsSegment {
   public MemberActivityDataTransactionDetailsSegment name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

@@ -97,6 +97,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -122,6 +123,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -147,6 +149,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard nextExpirationDate(LocalDate nextExpirationDate) {
     
     this.nextExpirationDate = nextExpirationDate;
+    this.nextExpirationDateIsSet = true;
     return this;
   }
 
@@ -172,6 +175,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard nextExpirationPoints(Integer nextExpirationPoints) {
     
     this.nextExpirationPoints = nextExpirationPoints;
+    this.nextExpirationPointsIsSet = true;
     return this;
   }
 
@@ -197,6 +201,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard pendingPoints(Integer pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
     return this;
   }
 
@@ -222,6 +227,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard expiredPoints(Integer expiredPoints) {
     
     this.expiredPoints = expiredPoints;
+    this.expiredPointsIsSet = true;
     return this;
   }
 
@@ -247,6 +253,7 @@ public class VouchersUpdateResponseBodyLoyaltyCard {
   public VouchersUpdateResponseBodyLoyaltyCard subtractedPoints(Integer subtractedPoints) {
     
     this.subtractedPoints = subtractedPoints;
+    this.subtractedPointsIsSet = true;
     return this;
   }
 

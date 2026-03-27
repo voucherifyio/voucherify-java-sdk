@@ -66,6 +66,7 @@ public class LoyaltiesMembersPendingPointsBalanceRequestBody {
   public LoyaltiesMembersPendingPointsBalanceRequestBody points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

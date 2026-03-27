@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsRelatedObjectId {
   public ParameterFiltersListPublicationsRelatedObjectId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

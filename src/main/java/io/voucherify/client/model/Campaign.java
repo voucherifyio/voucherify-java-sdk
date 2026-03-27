@@ -141,7 +141,7 @@ public class Campaign {
     private boolean campaignTypeIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -494,6 +494,7 @@ public class Campaign {
   public Campaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -519,6 +520,7 @@ public class Campaign {
   public Campaign name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -544,6 +546,7 @@ public class Campaign {
   public Campaign description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -569,6 +572,7 @@ public class Campaign {
   public Campaign campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -594,11 +598,12 @@ public class Campaign {
   public Campaign type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    * @return type
   **/
   @javax.annotation.Nullable
@@ -619,6 +624,7 @@ public class Campaign {
   public Campaign voucher(CampaignVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -640,6 +646,7 @@ public class Campaign {
   public Campaign autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -665,6 +672,7 @@ public class Campaign {
   public Campaign joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -690,6 +698,7 @@ public class Campaign {
   public Campaign useVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
     return this;
   }
 
@@ -715,6 +724,7 @@ public class Campaign {
   public Campaign validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -736,6 +746,7 @@ public class Campaign {
   public Campaign validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -765,6 +776,7 @@ public class Campaign {
   public Campaign validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -786,6 +798,7 @@ public class Campaign {
   public Campaign activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -811,6 +824,7 @@ public class Campaign {
   public Campaign vouchersCount(Integer vouchersCount) {
     
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
     return this;
   }
 
@@ -836,6 +850,7 @@ public class Campaign {
   public Campaign startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -861,6 +876,7 @@ public class Campaign {
   public Campaign expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -886,6 +902,7 @@ public class Campaign {
   public Campaign active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -911,6 +928,7 @@ public class Campaign {
   public Campaign metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -936,6 +954,7 @@ public class Campaign {
   public Campaign createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -961,6 +980,7 @@ public class Campaign {
   public Campaign updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -986,6 +1006,7 @@ public class Campaign {
   public Campaign category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -1011,6 +1032,7 @@ public class Campaign {
   public Campaign creationStatus(CreationStatusEnum creationStatus) {
     
     this.creationStatus = creationStatus;
+    this.creationStatusIsSet = true;
     return this;
   }
 
@@ -1036,6 +1058,7 @@ public class Campaign {
   public Campaign vouchersGenerationStatus(VouchersGenerationStatusEnum vouchersGenerationStatus) {
     
     this.vouchersGenerationStatus = vouchersGenerationStatus;
+    this.vouchersGenerationStatusIsSet = true;
     return this;
   }
 
@@ -1061,11 +1084,12 @@ public class Campaign {
   public Campaign readonly(Boolean readonly) {
     
     this.readonly = readonly;
+    this.readonlyIsSet = true;
     return this;
   }
 
    /**
-   * Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](ref:campaign-summary) endpoint.
+   * Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint.
    * @return readonly
   **/
   @javax.annotation.Nullable
@@ -1086,6 +1110,7 @@ public class Campaign {
   public Campaign _protected(Boolean _protected) {
     
     this._protected = _protected;
+    this._protectedIsSet = true;
     return this;
   }
 
@@ -1111,6 +1136,7 @@ public class Campaign {
   public Campaign categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -1136,6 +1162,7 @@ public class Campaign {
   public Campaign categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1148,7 +1175,7 @@ public class Campaign {
   }
 
    /**
-   * Contains details about the campaign category. For the GET [List campaigns](ref:list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](ref:get-campaign-summary) endpoint, it is always returned as an empty array.
+   * Contains details about the campaign category. For the GET [List campaigns](/api-reference/campaigns/list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint, it is always returned as an empty array.
    * @return categories
   **/
   @javax.annotation.Nullable
@@ -1169,6 +1196,7 @@ public class Campaign {
   public Campaign _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -1194,6 +1222,7 @@ public class Campaign {
   public Campaign referralProgram(ReferralProgram referralProgram) {
     
     this.referralProgram = referralProgram;
+    
     return this;
   }
 
@@ -1215,6 +1244,7 @@ public class Campaign {
   public Campaign loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
     
     this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+    
     return this;
   }
 
@@ -1236,6 +1266,7 @@ public class Campaign {
   public Campaign accessSettingsAssignments(AccessSettingsCampaignAssignmentsList accessSettingsAssignments) {
     
     this.accessSettingsAssignments = accessSettingsAssignments;
+    
     return this;
   }
 
@@ -1257,6 +1288,7 @@ public class Campaign {
   public Campaign promotion(PromotionTiersList promotion) {
     
     this.promotion = promotion;
+    
     return this;
   }
 
@@ -1278,6 +1310,7 @@ public class Campaign {
   public Campaign validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 

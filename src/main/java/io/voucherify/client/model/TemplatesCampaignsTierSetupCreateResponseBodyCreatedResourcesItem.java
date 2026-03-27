@@ -123,6 +123,7 @@ public class TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem {
   public TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -144,6 +145,7 @@ public class TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem {
   public TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 

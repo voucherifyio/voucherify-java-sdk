@@ -71,6 +71,7 @@ public class RewardsCreateRequestBodyParametersCoin {
   public RewardsCreateRequestBodyParametersCoin exchangeRatio(String exchangeRatio) {
     
     this.exchangeRatio = exchangeRatio;
+    this.exchangeRatioIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RewardsCreateRequestBodyParametersCoin {
   public RewardsCreateRequestBodyParametersCoin pointsRatio(String pointsRatio) {
     
     this.pointsRatio = pointsRatio;
+    this.pointsRatioIsSet = true;
     return this;
   }
 

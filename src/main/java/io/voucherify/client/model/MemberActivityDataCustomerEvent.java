@@ -71,6 +71,7 @@ public class MemberActivityDataCustomerEvent {
   public MemberActivityDataCustomerEvent segment(SimpleSegment segment) {
     
     this.segment = segment;
+    
     return this;
   }
 
@@ -92,6 +93,7 @@ public class MemberActivityDataCustomerEvent {
   public MemberActivityDataCustomerEvent eventType(String eventType) {
     
     this.eventType = eventType;
+    this.eventTypeIsSet = true;
     return this;
   }
 

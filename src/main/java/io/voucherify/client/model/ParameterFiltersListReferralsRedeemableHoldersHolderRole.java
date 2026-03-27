@@ -65,6 +65,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRole {
   public ParameterFiltersListReferralsRedeemableHoldersHolderRole conditions(ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

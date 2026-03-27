@@ -2,7 +2,6 @@
 
 # ExportsGetResponseBody
 
-Response body schema for **GET** `v1/exports/{exportId}`.
 
 ## Properties
 

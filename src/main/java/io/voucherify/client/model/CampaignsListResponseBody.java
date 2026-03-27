@@ -84,6 +84,7 @@ public class CampaignsListResponseBody {
   public CampaignsListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class CampaignsListResponseBody {
   public CampaignsListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class CampaignsListResponseBody {
   public CampaignsListResponseBody campaigns(List<CampaignBase> campaigns) {
     
     this.campaigns = campaigns;
+    this.campaignsIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class CampaignsListResponseBody {
   public CampaignsListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

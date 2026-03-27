@@ -71,6 +71,7 @@ public class EventSourceApiKey {
   public EventSourceApiKey name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class EventSourceApiKey {
   public EventSourceApiKey appId(String appId) {
     
     this.appId = appId;
+    this.appIdIsSet = true;
     return this;
   }
 

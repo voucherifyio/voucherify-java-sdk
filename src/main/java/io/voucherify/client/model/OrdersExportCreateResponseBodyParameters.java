@@ -78,6 +78,7 @@ public class OrdersExportCreateResponseBodyParameters {
   public OrdersExportCreateResponseBodyParameters order(ExportOrderOrder order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -99,6 +100,7 @@ public class OrdersExportCreateResponseBodyParameters {
   public OrdersExportCreateResponseBodyParameters fields(List<ExportOrderFields> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -132,6 +134,7 @@ public class OrdersExportCreateResponseBodyParameters {
   public OrdersExportCreateResponseBodyParameters filters(Object filters) {
     
     this.filters = filters;
+    
     return this;
   }
 

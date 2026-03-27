@@ -73,6 +73,7 @@ public class ProductsMetadataUpdateInBulkRequestBody {
   public ProductsMetadataUpdateInBulkRequestBody sourceIds(List<String> sourceIds) {
     
     this.sourceIds = sourceIds;
+    this.sourceIdsIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class ProductsMetadataUpdateInBulkRequestBody {
   public ProductsMetadataUpdateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

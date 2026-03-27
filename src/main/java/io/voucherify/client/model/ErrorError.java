@@ -66,6 +66,7 @@ public class ErrorError {
   public ErrorError message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 

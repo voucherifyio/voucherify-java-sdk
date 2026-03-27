@@ -79,6 +79,7 @@ public class RedemptionRewardResultParameters {
   public RedemptionRewardResultParameters campaign(RedemptionRewardResultParametersCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class RedemptionRewardResultParameters {
   public RedemptionRewardResultParameters product(RedemptionRewardResultParametersProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class RedemptionRewardResultParameters {
   public RedemptionRewardResultParameters coin(RedemptionRewardResultParametersCoin coin) {
     
     this.coin = coin;
+    this.coinIsSet = true;
     return this;
   }
 

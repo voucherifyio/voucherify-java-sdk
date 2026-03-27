@@ -174,6 +174,7 @@ public class ValidationRulesAssignmentsList {
   public ValidationRulesAssignmentsList _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +200,7 @@ public class ValidationRulesAssignmentsList {
   public ValidationRulesAssignmentsList dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -224,6 +226,7 @@ public class ValidationRulesAssignmentsList {
   public ValidationRulesAssignmentsList data(List<BusValRuleAssignment> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class ValidationRulesAssignmentsList {
   public ValidationRulesAssignmentsList total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

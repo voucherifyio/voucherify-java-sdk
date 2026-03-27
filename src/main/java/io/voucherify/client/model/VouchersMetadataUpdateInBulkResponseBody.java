@@ -66,6 +66,7 @@ public class VouchersMetadataUpdateInBulkResponseBody {
   public VouchersMetadataUpdateInBulkResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

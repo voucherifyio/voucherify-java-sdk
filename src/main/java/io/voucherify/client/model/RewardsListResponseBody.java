@@ -84,6 +84,7 @@ public class RewardsListResponseBody {
   public RewardsListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class RewardsListResponseBody {
   public RewardsListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class RewardsListResponseBody {
   public RewardsListResponseBody data(List<Reward> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class RewardsListResponseBody {
   public RewardsListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

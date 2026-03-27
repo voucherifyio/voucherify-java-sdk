@@ -66,6 +66,7 @@ public class ClientRedemptionsRedeemRequestBodyRedeemablesItemGift {
   public ClientRedemptionsRedeemRequestBodyRedeemablesItemGift credits(Integer credits) {
     
     this.credits = credits;
+    this.creditsIsSet = true;
     return this;
   }
 

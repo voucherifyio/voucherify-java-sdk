@@ -137,6 +137,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -162,6 +163,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment areaId(String areaId) {
     
     this.areaId = areaId;
+    this.areaIdIsSet = true;
     return this;
   }
 
@@ -187,6 +189,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment allStores(Boolean allStores) {
     
     this.allStores = allStores;
+    this.allStoresIsSet = true;
     return this;
   }
 
@@ -212,6 +215,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment areaStoreId(String areaStoreId) {
     
     this.areaStoreId = areaStoreId;
+    this.areaStoreIdIsSet = true;
     return this;
   }
 
@@ -237,6 +241,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -262,6 +267,7 @@ public class AreaStoreCampaignAssignment {
   public AreaStoreCampaignAssignment _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

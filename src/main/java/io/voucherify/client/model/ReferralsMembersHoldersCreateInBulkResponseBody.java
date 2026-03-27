@@ -69,6 +69,7 @@ public class ReferralsMembersHoldersCreateInBulkResponseBody {
   public ReferralsMembersHoldersCreateInBulkResponseBody holders(List<RedeemableHolder> holders) {
     
     this.holders = holders;
+    this.holdersIsSet = true;
     return this;
   }
 

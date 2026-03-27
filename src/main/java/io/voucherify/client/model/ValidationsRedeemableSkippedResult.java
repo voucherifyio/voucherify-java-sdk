@@ -67,6 +67,7 @@ public class ValidationsRedeemableSkippedResult {
   public ValidationsRedeemableSkippedResult details(ValidationsRedeemableSkippedResultDetails details) {
     
     this.details = details;
+    this.detailsIsSet = true;
     return this;
   }
 

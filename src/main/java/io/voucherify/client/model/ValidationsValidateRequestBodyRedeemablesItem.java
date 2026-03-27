@@ -130,6 +130,7 @@ public class ValidationsValidateRequestBodyRedeemablesItem {
   public ValidationsValidateRequestBodyRedeemablesItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -151,6 +152,7 @@ public class ValidationsValidateRequestBodyRedeemablesItem {
   public ValidationsValidateRequestBodyRedeemablesItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -172,6 +174,7 @@ public class ValidationsValidateRequestBodyRedeemablesItem {
   public ValidationsValidateRequestBodyRedeemablesItem gift(ValidationsValidateRequestBodyRedeemablesItemGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -197,6 +200,7 @@ public class ValidationsValidateRequestBodyRedeemablesItem {
   public ValidationsValidateRequestBodyRedeemablesItem reward(ValidationsValidateRequestBodyRedeemablesItemReward reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 

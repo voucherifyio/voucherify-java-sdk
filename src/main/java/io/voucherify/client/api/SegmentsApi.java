@@ -134,7 +134,7 @@ public class SegmentsApi {
 
     /**
      * Create Segment
-     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
      * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
      * @return SegmentsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -146,7 +146,7 @@ public class SegmentsApi {
 
     /**
      * Create Segment
-     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
      * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
      * @return ApiResponse&lt;SegmentsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -159,7 +159,7 @@ public class SegmentsApi {
 
     /**
      * Create Segment (asynchronously)
-     * Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+     * Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
      * @param segmentsCreateRequestBody Specify the boundary conditions for the customer segment. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -335,7 +335,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment
-     * Retrieves the segment with given segment ID.
+     * Retrieves the segment with a given segment ID.
      * @param segmentId A unique customer segment ID. (required)
      * @return SegmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -347,7 +347,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment
-     * Retrieves the segment with given segment ID.
+     * Retrieves the segment with a given segment ID.
      * @param segmentId A unique customer segment ID. (required)
      * @return ApiResponse&lt;SegmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -360,7 +360,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment (asynchronously)
-     * Retrieves the segment with given segment ID.
+     * Retrieves the segment with a given segment ID.
      * @param segmentId A unique customer segment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -67,6 +67,7 @@ public class VoucherTransactionsExportFilterConditions {
   public VoucherTransactionsExportFilterConditions voucherId(VoucherTransactionsExportFilterConditionsVoucherId voucherId) {
     
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class ManagementProjectsCreateResponseBodyClientSideKey {
   public ManagementProjectsCreateResponseBodyClientSideKey appId(String appId) {
     
     this.appId = appId;
+    this.appIdIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ManagementProjectsCreateResponseBodyClientSideKey {
   public ManagementProjectsCreateResponseBodyClientSideKey appToken(String appToken) {
     
     this.appToken = appToken;
+    this.appTokenIsSet = true;
     return this;
   }
 

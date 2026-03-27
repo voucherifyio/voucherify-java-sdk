@@ -160,6 +160,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits campaignsOverviewEnabled(Boolean campaignsOverviewEnabled) {
     
     this.campaignsOverviewEnabled = campaignsOverviewEnabled;
+    this.campaignsOverviewEnabledIsSet = true;
     return this;
   }
 
@@ -185,6 +186,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits loyaltyEnabled(Boolean loyaltyEnabled) {
     
     this.loyaltyEnabled = loyaltyEnabled;
+    this.loyaltyEnabledIsSet = true;
     return this;
   }
 
@@ -210,6 +212,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits giftCardsEnabled(Boolean giftCardsEnabled) {
     
     this.giftCardsEnabled = giftCardsEnabled;
+    this.giftCardsEnabledIsSet = true;
     return this;
   }
 
@@ -235,6 +238,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits couponsEnabled(Boolean couponsEnabled) {
     
     this.couponsEnabled = couponsEnabled;
+    this.couponsEnabledIsSet = true;
     return this;
   }
 
@@ -260,6 +264,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits referralsEnabled(Boolean referralsEnabled) {
     
     this.referralsEnabled = referralsEnabled;
+    this.referralsEnabledIsSet = true;
     return this;
   }
 
@@ -285,6 +290,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits theme(ThemeEnum theme) {
     
     this.theme = theme;
+    this.themeIsSet = true;
     return this;
   }
 
@@ -310,6 +316,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits useCustomDoubleOptInRedirectUrl(Boolean useCustomDoubleOptInRedirectUrl) {
     
     this.useCustomDoubleOptInRedirectUrl = useCustomDoubleOptInRedirectUrl;
+    this.useCustomDoubleOptInRedirectUrlIsSet = true;
     return this;
   }
 
@@ -335,6 +342,7 @@ public class ManagementProjectsBrandingGetResponseBodyCockpits {
   public ManagementProjectsBrandingGetResponseBodyCockpits customDoubleOptInRedirectUrl(String customDoubleOptInRedirectUrl) {
     
     this.customDoubleOptInRedirectUrl = customDoubleOptInRedirectUrl;
+    this.customDoubleOptInRedirectUrlIsSet = true;
     return this;
   }
 

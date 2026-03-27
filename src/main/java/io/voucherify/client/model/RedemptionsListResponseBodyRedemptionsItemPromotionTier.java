@@ -231,6 +231,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -256,6 +257,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -281,6 +283,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -306,6 +309,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -331,6 +335,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -356,6 +361,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier action(RedemptionsListResponseBodyRedemptionsItemPromotionTierAction action) {
     
     this.action = action;
+    
     return this;
   }
 
@@ -377,6 +383,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -402,6 +409,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -427,6 +435,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier promotionId(String promotionId) {
     
     this.promotionId = promotionId;
+    this.promotionIdIsSet = true;
     return this;
   }
 
@@ -452,6 +461,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier campaign(RedemptionsListResponseBodyRedemptionsItemPromotionTierCampaign campaign) {
     
     this.campaign = campaign;
+    
     return this;
   }
 
@@ -473,6 +483,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -498,6 +509,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -523,6 +535,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -548,6 +561,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -573,6 +587,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -594,6 +609,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -623,6 +639,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -644,6 +661,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier summary(RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary summary) {
     
     this.summary = summary;
+    
     return this;
   }
 
@@ -665,6 +683,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -690,6 +709,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
     
     this.validationRuleAssignments = validationRuleAssignments;
+    
     return this;
   }
 
@@ -711,6 +731,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -736,6 +757,7 @@ public class RedemptionsListResponseBodyRedemptionsItemPromotionTier {
   public RedemptionsListResponseBodyRedemptionsItemPromotionTier categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

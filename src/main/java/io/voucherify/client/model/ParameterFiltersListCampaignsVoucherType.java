@@ -65,6 +65,7 @@ public class ParameterFiltersListCampaignsVoucherType {
   public ParameterFiltersListCampaignsVoucherType conditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

@@ -71,6 +71,7 @@ public class LoyaltyCardTransactionDetailsOrder {
   public LoyaltyCardTransactionDetailsOrder id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltyCardTransactionDetailsOrder {
   public LoyaltyCardTransactionDetailsOrder sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 

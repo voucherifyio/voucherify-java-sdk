@@ -74,6 +74,7 @@ public class ApplicableToOrderItemUnitsItem {
   public ApplicableToOrderItemUnitsItem index(Integer index) {
     
     this.index = index;
+    
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ApplicableToOrderItemUnitsItem {
   public ApplicableToOrderItemUnitsItem units(List<Integer> units) {
     
     this.units = units;
+    
     return this;
   }
 
@@ -125,6 +127,7 @@ public class ApplicableToOrderItemUnitsItem {
   public ApplicableToOrderItemUnitsItem unitsLimitExceeded(Boolean unitsLimitExceeded) {
     
     this.unitsLimitExceeded = unitsLimitExceeded;
+    
     return this;
   }
 

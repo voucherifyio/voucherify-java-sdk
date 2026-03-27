@@ -388,6 +388,7 @@ public class RedemptionEntry {
   public RedemptionEntry id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -413,6 +414,7 @@ public class RedemptionEntry {
   public RedemptionEntry _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -438,6 +440,7 @@ public class RedemptionEntry {
   public RedemptionEntry date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -463,6 +466,7 @@ public class RedemptionEntry {
   public RedemptionEntry customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -488,6 +492,7 @@ public class RedemptionEntry {
   public RedemptionEntry trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -513,6 +518,7 @@ public class RedemptionEntry {
   public RedemptionEntry metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -538,6 +544,7 @@ public class RedemptionEntry {
   public RedemptionEntry amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -563,6 +570,7 @@ public class RedemptionEntry {
   public RedemptionEntry redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -588,6 +596,7 @@ public class RedemptionEntry {
   public RedemptionEntry result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -613,6 +622,7 @@ public class RedemptionEntry {
   public RedemptionEntry status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -638,6 +648,7 @@ public class RedemptionEntry {
   public RedemptionEntry session(RedemptionEntrySession session) {
     
     this.session = session;
+    this.sessionIsSet = true;
     return this;
   }
 
@@ -663,6 +674,7 @@ public class RedemptionEntry {
   public RedemptionEntry relatedRedemptions(RedemptionEntryRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
     return this;
   }
 
@@ -688,6 +700,7 @@ public class RedemptionEntry {
   public RedemptionEntry failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -713,6 +726,7 @@ public class RedemptionEntry {
   public RedemptionEntry failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -738,6 +752,7 @@ public class RedemptionEntry {
   public RedemptionEntry order(RedemptionEntryOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -763,6 +778,7 @@ public class RedemptionEntry {
   public RedemptionEntry channel(RedemptionEntryChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -788,6 +804,7 @@ public class RedemptionEntry {
   public RedemptionEntry customer(RedemptionEntryCustomer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 
@@ -813,6 +830,7 @@ public class RedemptionEntry {
   public RedemptionEntry relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -838,6 +856,7 @@ public class RedemptionEntry {
   public RedemptionEntry relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -863,6 +882,7 @@ public class RedemptionEntry {
   public RedemptionEntry promotionTier(RedemptionEntryPromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    this.promotionTierIsSet = true;
     return this;
   }
 
@@ -888,6 +908,7 @@ public class RedemptionEntry {
   public RedemptionEntry reward(RedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -909,6 +930,7 @@ public class RedemptionEntry {
   public RedemptionEntry gift(RedemptionEntryGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -934,6 +956,7 @@ public class RedemptionEntry {
   public RedemptionEntry loyaltyCard(RedemptionEntryLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -959,6 +982,7 @@ public class RedemptionEntry {
   public RedemptionEntry voucher(RedemptionEntryVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -984,6 +1008,7 @@ public class RedemptionEntry {
   public RedemptionEntry reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 

@@ -85,6 +85,7 @@ public class ManagementProjectsBrandingCreateRequestBody {
   public ManagementProjectsBrandingCreateRequestBody brand(ManagementProjectsBrandingCreateRequestBodyBrand brand) {
     
     this.brand = brand;
+    this.brandIsSet = true;
     return this;
   }
 
@@ -110,6 +111,7 @@ public class ManagementProjectsBrandingCreateRequestBody {
   public ManagementProjectsBrandingCreateRequestBody address(ManagementProjectsBrandingCreateRequestBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -135,6 +137,7 @@ public class ManagementProjectsBrandingCreateRequestBody {
   public ManagementProjectsBrandingCreateRequestBody contact(ManagementProjectsBrandingCreateRequestBodyContact contact) {
     
     this.contact = contact;
+    this.contactIsSet = true;
     return this;
   }
 
@@ -160,6 +163,7 @@ public class ManagementProjectsBrandingCreateRequestBody {
   public ManagementProjectsBrandingCreateRequestBody cockpits(ManagementProjectsBrandingCreateRequestBodyCockpits cockpits) {
     
     this.cockpits = cockpits;
+    this.cockpitsIsSet = true;
     return this;
   }
 

@@ -139,6 +139,7 @@ public class SimpleEvent {
   public SimpleEvent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -164,6 +165,7 @@ public class SimpleEvent {
   public SimpleEvent type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -189,6 +191,7 @@ public class SimpleEvent {
   public SimpleEvent category(CategoryEnum category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -214,6 +217,7 @@ public class SimpleEvent {
   public SimpleEvent entityId(String entityId) {
     
     this.entityId = entityId;
+    this.entityIdIsSet = true;
     return this;
   }
 
@@ -239,6 +243,7 @@ public class SimpleEvent {
   public SimpleEvent createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -264,6 +269,7 @@ public class SimpleEvent {
   public SimpleEvent groupId(String groupId) {
     
     this.groupId = groupId;
+    this.groupIdIsSet = true;
     return this;
   }
 

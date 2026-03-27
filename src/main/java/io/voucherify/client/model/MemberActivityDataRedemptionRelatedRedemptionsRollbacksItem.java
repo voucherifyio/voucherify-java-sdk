@@ -69,6 +69,7 @@ public class MemberActivityDataRedemptionRelatedRedemptionsRollbacksItem {
   public MemberActivityDataRedemptionRelatedRedemptionsRollbacksItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -90,6 +91,7 @@ public class MemberActivityDataRedemptionRelatedRedemptionsRollbacksItem {
   public MemberActivityDataRedemptionRelatedRedemptionsRollbacksItem date(OffsetDateTime date) {
     
     this.date = date;
+    
     return this;
   }
 

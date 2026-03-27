@@ -87,6 +87,7 @@ public class CustomerSummaryOrders {
   public CustomerSummaryOrders totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class CustomerSummaryOrders {
   public CustomerSummaryOrders totalCount(Integer totalCount) {
     
     this.totalCount = totalCount;
+    this.totalCountIsSet = true;
     return this;
   }
 
@@ -137,6 +139,7 @@ public class CustomerSummaryOrders {
   public CustomerSummaryOrders averageAmount(Integer averageAmount) {
     
     this.averageAmount = averageAmount;
+    this.averageAmountIsSet = true;
     return this;
   }
 
@@ -162,6 +165,7 @@ public class CustomerSummaryOrders {
   public CustomerSummaryOrders lastOrderAmount(Integer lastOrderAmount) {
     
     this.lastOrderAmount = lastOrderAmount;
+    this.lastOrderAmountIsSet = true;
     return this;
   }
 
@@ -187,6 +191,7 @@ public class CustomerSummaryOrders {
   public CustomerSummaryOrders lastOrderDate(OffsetDateTime lastOrderDate) {
     
     this.lastOrderDate = lastOrderDate;
+    this.lastOrderDateIsSet = true;
     return this;
   }
 

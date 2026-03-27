@@ -243,6 +243,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -268,6 +269,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -293,6 +295,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -318,6 +321,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -343,6 +347,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -368,6 +373,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody result(Object result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -393,6 +399,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 
@@ -418,6 +425,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -443,6 +451,7 @@ public class LoyaltiesMembersTransactionsExportCreateResponseBody {
   public LoyaltiesMembersTransactionsExportCreateResponseBody parameters(LoyaltiesMembersTransactionsExportCreateResponseBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class RewardsUpdateResponseBodyAttributes {
   public RewardsUpdateResponseBodyAttributes imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RewardsUpdateResponseBodyAttributes {
   public RewardsUpdateResponseBodyAttributes description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 

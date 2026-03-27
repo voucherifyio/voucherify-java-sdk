@@ -72,6 +72,7 @@ public class ManagementProjectsCustomEventSchemasCreateRequestBody {
   public ManagementProjectsCustomEventSchemasCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class ManagementProjectsCustomEventSchemasCreateRequestBody {
   public ManagementProjectsCustomEventSchemasCreateRequestBody schema(ManagementProjectsCustomEventSchemasCreateRequestBodySchema schema) {
     
     this.schema = schema;
+    this.schemaIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class VouchersUpdateInBulkItemRequestBody {
   public VouchersUpdateInBulkItemRequestBody code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class VouchersUpdateInBulkItemRequestBody {
   public VouchersUpdateInBulkItemRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

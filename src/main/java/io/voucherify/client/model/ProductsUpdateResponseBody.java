@@ -164,6 +164,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -189,6 +190,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -214,6 +216,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -239,6 +242,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -264,6 +268,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -297,6 +302,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -322,6 +328,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -347,6 +354,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -372,6 +380,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -397,6 +406,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -422,6 +432,7 @@ public class ProductsUpdateResponseBody {
   public ProductsUpdateResponseBody skus(SkusListForProduct skus) {
     
     this.skus = skus;
+    
     return this;
   }
 

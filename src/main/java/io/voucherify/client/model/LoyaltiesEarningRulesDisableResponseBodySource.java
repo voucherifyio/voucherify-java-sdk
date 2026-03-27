@@ -121,6 +121,7 @@ public class LoyaltiesEarningRulesDisableResponseBodySource {
   public LoyaltiesEarningRulesDisableResponseBodySource banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -146,6 +147,7 @@ public class LoyaltiesEarningRulesDisableResponseBodySource {
   public LoyaltiesEarningRulesDisableResponseBodySource objectId(String objectId) {
     
     this.objectId = objectId;
+    this.objectIdIsSet = true;
     return this;
   }
 
@@ -171,6 +173,7 @@ public class LoyaltiesEarningRulesDisableResponseBodySource {
   public LoyaltiesEarningRulesDisableResponseBodySource objectType(ObjectTypeEnum objectType) {
     
     this.objectType = objectType;
+    this.objectTypeIsSet = true;
     return this;
   }
 

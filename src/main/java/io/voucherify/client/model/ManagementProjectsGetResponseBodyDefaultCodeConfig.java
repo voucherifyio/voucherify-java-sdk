@@ -66,6 +66,7 @@ public class ManagementProjectsGetResponseBodyDefaultCodeConfig {
   public ManagementProjectsGetResponseBodyDefaultCodeConfig charset(String charset) {
     
     this.charset = charset;
+    this.charsetIsSet = true;
     return this;
   }
 

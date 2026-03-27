@@ -69,7 +69,9 @@ public class SegmentsCreateRequestBody {
   public enum TypeEnum {
     STATIC("static"),
     
-    AUTO_UPDATE("auto-update");
+    AUTO_UPDATE("auto-update"),
+    
+    PASSIVE("passive");
 
     private String value;
 
@@ -130,6 +132,7 @@ public class SegmentsCreateRequestBody {
   public SegmentsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -155,6 +158,7 @@ public class SegmentsCreateRequestBody {
   public SegmentsCreateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -180,6 +184,7 @@ public class SegmentsCreateRequestBody {
   public SegmentsCreateRequestBody customers(List<String> customers) {
     
     this.customers = customers;
+    this.customersIsSet = true;
     return this;
   }
 
@@ -213,11 +218,12 @@ public class SegmentsCreateRequestBody {
   public SegmentsCreateRequestBody filter(Object filter) {
     
     this.filter = filter;
+    this.filterIsSet = true;
     return this;
   }
 
    /**
-   * Defines a set of criteria for an &#x60;auto-update&#x60; segment type.
+   * Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
    * @return filter
   **/
   @javax.annotation.Nullable

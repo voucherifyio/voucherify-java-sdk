@@ -69,6 +69,7 @@ public class CampaignsCreateRequestBodyPromotion {
   public CampaignsCreateRequestBodyPromotion tiers(List<PromotionTierCreateParams> tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 

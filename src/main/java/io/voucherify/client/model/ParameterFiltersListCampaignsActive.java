@@ -81,6 +81,7 @@ public class ParameterFiltersListCampaignsActive {
   public ParameterFiltersListCampaignsActive $enabled(Object $enabled) {
     
     this.$enabled = $enabled;
+    this.$enabledIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class ParameterFiltersListCampaignsActive {
   public ParameterFiltersListCampaignsActive $disabled(Object $disabled) {
     
     this.$disabled = $disabled;
+    this.$disabledIsSet = true;
     return this;
   }
 
@@ -131,6 +133,7 @@ public class ParameterFiltersListCampaignsActive {
   public ParameterFiltersListCampaignsActive $expired(Object $expired) {
     
     this.$expired = $expired;
+    this.$expiredIsSet = true;
     return this;
   }
 
@@ -156,6 +159,7 @@ public class ParameterFiltersListCampaignsActive {
   public ParameterFiltersListCampaignsActive $active(Object $active) {
     
     this.$active = $active;
+    this.$activeIsSet = true;
     return this;
   }
 

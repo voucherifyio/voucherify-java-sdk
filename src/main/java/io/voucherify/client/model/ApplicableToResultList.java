@@ -174,6 +174,7 @@ public class ApplicableToResultList {
   public ApplicableToResultList data(List<ApplicableTo> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -207,6 +208,7 @@ public class ApplicableToResultList {
   public ApplicableToResultList total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -233,6 +235,7 @@ public class ApplicableToResultList {
   public ApplicableToResultList _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -258,6 +261,7 @@ public class ApplicableToResultList {
   public ApplicableToResultList dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 

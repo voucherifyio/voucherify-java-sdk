@@ -260,6 +260,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -285,6 +286,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -310,6 +312,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -335,6 +338,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -360,6 +364,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -385,6 +390,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -410,6 +416,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -435,6 +442,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -460,6 +468,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -485,6 +494,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -510,6 +520,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -535,6 +546,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -560,6 +572,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -585,6 +598,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -610,6 +624,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -635,6 +650,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -660,6 +676,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 
@@ -685,6 +702,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem product(OrderCalculatedItemProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -710,6 +728,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem sku(OrderCalculatedItemSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -735,6 +754,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -760,6 +780,7 @@ public class OrderCalculatedItem {
   public OrderCalculatedItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

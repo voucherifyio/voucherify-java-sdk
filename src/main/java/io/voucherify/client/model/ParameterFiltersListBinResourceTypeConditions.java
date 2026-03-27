@@ -307,6 +307,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $in(List<InEnum> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -340,6 +341,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $notIn(List<NotInEnum> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -373,6 +375,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $is(IsEnum $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -398,6 +401,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $isNot(IsNotEnum $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -423,6 +427,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -448,6 +453,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -473,6 +479,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $startsWith(String $startsWith) {
     
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
     return this;
   }
 
@@ -498,6 +505,7 @@ public class ParameterFiltersListBinResourceTypeConditions {
   public ParameterFiltersListBinResourceTypeConditions $endsWith(String $endsWith) {
     
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
     return this;
   }
 

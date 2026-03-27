@@ -65,6 +65,7 @@ public class PromotionsTiersGetResponseBodyAction {
   public PromotionsTiersGetResponseBodyAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

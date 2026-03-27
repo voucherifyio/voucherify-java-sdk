@@ -64,6 +64,7 @@ public class RedemptionsListResponseBodyRedemptionsItemLoyaltyCard {
   public RedemptionsListResponseBodyRedemptionsItemLoyaltyCard points(Integer points) {
     
     this.points = points;
+    
     return this;
   }
 

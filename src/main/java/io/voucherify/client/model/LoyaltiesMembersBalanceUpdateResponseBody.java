@@ -236,6 +236,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -261,6 +262,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -286,6 +288,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -312,6 +315,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -337,6 +341,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -362,6 +367,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody relatedObject(LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -387,6 +393,7 @@ public class LoyaltiesMembersBalanceUpdateResponseBody {
   public LoyaltiesMembersBalanceUpdateResponseBody operationType(OperationTypeEnum operationType) {
     
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
     return this;
   }
 

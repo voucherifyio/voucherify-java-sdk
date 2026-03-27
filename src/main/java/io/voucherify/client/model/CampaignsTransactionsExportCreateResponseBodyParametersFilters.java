@@ -82,6 +82,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFilters {
   public CampaignsTransactionsExportCreateResponseBodyParametersFilters junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -103,6 +104,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFilters {
   public CampaignsTransactionsExportCreateResponseBodyParametersFilters createdAt(FilterConditionsDateTime createdAt) {
     
     this.createdAt = createdAt;
+    
     return this;
   }
 
@@ -124,6 +126,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFilters {
   public CampaignsTransactionsExportCreateResponseBodyParametersFilters voucherId(FilterConditionsString voucherId) {
     
     this.voucherId = voucherId;
+    
     return this;
   }
 
@@ -145,6 +148,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFilters {
   public CampaignsTransactionsExportCreateResponseBodyParametersFilters campaignId(CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampaignId campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 

@@ -79,6 +79,7 @@ public class CustomerLoyalty {
   public CustomerLoyalty points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class CustomerLoyalty {
   public CustomerLoyalty referredCustomers(Integer referredCustomers) {
     
     this.referredCustomers = referredCustomers;
+    this.referredCustomersIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class CustomerLoyalty {
   public CustomerLoyalty campaigns(Map<String, CustomerLoyaltyCampaignsEntry> campaigns) {
     
     this.campaigns = campaigns;
+    this.campaignsIsSet = true;
     return this;
   }
 

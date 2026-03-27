@@ -290,6 +290,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -315,6 +316,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -340,6 +342,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -365,6 +368,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -390,6 +394,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -415,6 +420,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -440,6 +446,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -473,6 +480,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -498,6 +506,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody loyaltyCard(LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -523,6 +532,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -548,6 +558,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -573,6 +584,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -594,6 +606,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -623,6 +636,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -644,6 +658,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody publish(LoyaltiesMembersTransfersCreateResponseBodyPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -669,6 +684,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody redemption(LoyaltiesMembersTransfersCreateResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -694,6 +710,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody active(String active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -719,6 +736,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -744,6 +762,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -769,6 +788,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody assets(LoyaltiesMembersTransfersCreateResponseBodyAssets assets) {
     
     this.assets = assets;
+    this.assetsIsSet = true;
     return this;
   }
 
@@ -794,6 +814,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -819,6 +840,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -844,6 +866,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -869,6 +892,7 @@ public class LoyaltiesMembersTransfersCreateResponseBody {
   public LoyaltiesMembersTransfersCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 

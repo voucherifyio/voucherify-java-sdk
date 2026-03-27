@@ -189,6 +189,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -214,6 +215,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -264,6 +267,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -289,6 +293,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -314,6 +319,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -339,6 +345,7 @@ public class TemplatesCampaignsUpdateResponseBody {
   public TemplatesCampaignsUpdateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

@@ -112,6 +112,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -137,6 +138,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody valid(Boolean valid) {
     
     this.valid = valid;
+    this.validIsSet = true;
     return this;
   }
 
@@ -162,6 +164,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody redeemables(List<ValidationsValidateResponseBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
     return this;
   }
 
@@ -195,6 +198,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody skippedRedeemables(List<ValidationsRedeemableSkipped> skippedRedeemables) {
     
     this.skippedRedeemables = skippedRedeemables;
+    this.skippedRedeemablesIsSet = true;
     return this;
   }
 
@@ -228,6 +232,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody inapplicableRedeemables(List<ValidationsRedeemableInapplicable> inapplicableRedeemables) {
     
     this.inapplicableRedeemables = inapplicableRedeemables;
+    this.inapplicableRedeemablesIsSet = true;
     return this;
   }
 
@@ -261,6 +266,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody order(ValidationsValidateResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -286,6 +292,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -311,6 +318,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody session(Session session) {
     
     this.session = session;
+    
     return this;
   }
 
@@ -332,6 +340,7 @@ public class ValidationsValidateResponseBody {
   public ValidationsValidateResponseBody stackingRules(StackingRules stackingRules) {
     
     this.stackingRules = stackingRules;
+    
     return this;
   }
 

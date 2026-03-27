@@ -313,6 +313,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -338,6 +339,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -363,6 +365,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -388,6 +391,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -413,6 +417,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -438,6 +443,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -463,6 +469,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher categories(List<Object> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -496,6 +503,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -521,6 +529,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -542,6 +551,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher gift(RedeemableVoucherGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -567,6 +577,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher loyaltyCard(RedeemableVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -592,6 +603,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -617,6 +629,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -642,6 +655,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -663,6 +677,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -692,6 +707,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -713,6 +729,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -738,6 +755,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -763,6 +781,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -788,6 +807,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -809,6 +829,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -834,6 +855,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -859,6 +881,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -884,6 +907,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -909,6 +933,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -934,6 +959,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -959,6 +985,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher publish(RedeemableVoucherPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -984,6 +1011,7 @@ public class RedeemableVoucher {
   public RedeemableVoucher redemption(RedeemableVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 

@@ -193,6 +193,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -218,6 +219,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody rewardId(String rewardId) {
     
     this.rewardId = rewardId;
+    this.rewardIdIsSet = true;
     return this;
   }
 
@@ -243,6 +245,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -268,6 +271,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -293,6 +297,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -318,6 +323,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -343,6 +349,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -368,6 +375,7 @@ public class RewardsAssignmentsGetResponseBody {
   public RewardsAssignmentsGetResponseBody parameters(RewardsAssignmentsGetResponseBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

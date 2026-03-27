@@ -94,6 +94,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -119,6 +120,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -144,6 +146,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody data(List<RedeemableHolder> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -177,6 +180,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -202,6 +206,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 
@@ -227,6 +232,7 @@ public class ReferralsMembersHoldersListResponseBody {
   public ReferralsMembersHoldersListResponseBody moreStartingAfter(String moreStartingAfter) {
     
     this.moreStartingAfter = moreStartingAfter;
+    this.moreStartingAfterIsSet = true;
     return this;
   }
 

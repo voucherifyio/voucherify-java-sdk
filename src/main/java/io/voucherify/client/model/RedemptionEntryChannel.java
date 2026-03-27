@@ -120,6 +120,7 @@ public class RedemptionEntryChannel {
   public RedemptionEntryChannel channelId(String channelId) {
     
     this.channelId = channelId;
+    this.channelIdIsSet = true;
     return this;
   }
 
@@ -145,6 +146,7 @@ public class RedemptionEntryChannel {
   public RedemptionEntryChannel channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    this.channelTypeIsSet = true;
     return this;
   }
 

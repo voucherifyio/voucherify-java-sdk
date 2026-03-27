@@ -110,7 +110,7 @@ public class LoyaltyTiersExpirationAll {
     private boolean qualificationTypeIsSet = false;
 
   /**
-   * Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:---|:---| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |
+   * Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:---|:---| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |
    */
   @JsonAdapter(QualificationPeriodEnum.Adapter.class)
   public enum QualificationPeriodEnum {
@@ -181,6 +181,7 @@ public class LoyaltyTiersExpirationAll {
   public LoyaltyTiersExpirationAll qualificationType(QualificationTypeEnum qualificationType) {
     
     this.qualificationType = qualificationType;
+    this.qualificationTypeIsSet = true;
     return this;
   }
 
@@ -206,11 +207,12 @@ public class LoyaltyTiersExpirationAll {
   public LoyaltyTiersExpirationAll qualificationPeriod(QualificationPeriodEnum qualificationPeriod) {
     
     this.qualificationPeriod = qualificationPeriod;
+    this.qualificationPeriodIsSet = true;
     return this;
   }
 
    /**
-   * Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:---|:---| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |
+   * Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:---|:---| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |
    * @return qualificationPeriod
   **/
   @javax.annotation.Nullable
@@ -231,6 +233,7 @@ public class LoyaltyTiersExpirationAll {
   public LoyaltyTiersExpirationAll startDate(LoyaltyTiersExpirationAllStartDate startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -256,6 +259,7 @@ public class LoyaltyTiersExpirationAll {
   public LoyaltyTiersExpirationAll expirationDate(LoyaltyTiersExpirationAllExpirationDate expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 

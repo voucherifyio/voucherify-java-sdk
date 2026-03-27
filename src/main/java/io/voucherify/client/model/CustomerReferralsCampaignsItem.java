@@ -81,6 +81,7 @@ public class CustomerReferralsCampaignsItem {
   public CustomerReferralsCampaignsItem campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    
     return this;
   }
 
@@ -102,6 +103,7 @@ public class CustomerReferralsCampaignsItem {
   public CustomerReferralsCampaignsItem referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    
     return this;
   }
 
@@ -123,6 +125,7 @@ public class CustomerReferralsCampaignsItem {
   public CustomerReferralsCampaignsItem relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    
     return this;
   }
 
@@ -144,6 +147,7 @@ public class CustomerReferralsCampaignsItem {
   public CustomerReferralsCampaignsItem relatedObjectType(String relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    
     return this;
   }
 
@@ -165,6 +169,7 @@ public class CustomerReferralsCampaignsItem {
   public CustomerReferralsCampaignsItem date(OffsetDateTime date) {
     
     this.date = date;
+    
     return this;
   }
 

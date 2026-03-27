@@ -267,6 +267,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -292,6 +293,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -317,6 +319,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher gift(MemberActivityDataTransactionDetailsDestinationVoucherGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -342,6 +345,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -363,6 +367,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher loyaltyCard(MemberActivityDataTransactionDetailsDestinationVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -388,6 +393,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -413,6 +419,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -438,6 +445,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -463,6 +471,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -488,6 +497,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -513,6 +523,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -538,6 +549,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -563,6 +575,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -596,6 +609,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -621,6 +635,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -646,6 +661,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -671,6 +687,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher redemption(MemberActivityDataTransactionDetailsDestinationVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -696,6 +713,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -721,6 +739,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -746,6 +765,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -771,6 +791,7 @@ public class MemberActivityDataTransactionDetailsDestinationVoucher {
   public MemberActivityDataTransactionDetailsDestinationVoucher _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

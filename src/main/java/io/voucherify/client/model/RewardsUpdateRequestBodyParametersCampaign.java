@@ -71,6 +71,7 @@ public class RewardsUpdateRequestBodyParametersCampaign {
   public RewardsUpdateRequestBodyParametersCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RewardsUpdateRequestBodyParametersCampaign {
   public RewardsUpdateRequestBodyParametersCampaign balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 

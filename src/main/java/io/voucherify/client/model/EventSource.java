@@ -129,6 +129,7 @@ public class EventSource {
   public EventSource channel(ChannelEnum channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class EventSource {
   public EventSource user(EventSourceUser user) {
     
     this.user = user;
+    this.userIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class EventSource {
   public EventSource apiKey(EventSourceApiKey apiKey) {
     
     this.apiKey = apiKey;
+    this.apiKeyIsSet = true;
     return this;
   }
 

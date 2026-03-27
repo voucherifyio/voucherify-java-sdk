@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Contains information about the customer&#39;s cockpit.
+ * Contains information about the customer&#39;s cockpit.  ⚠️ Warning: Customer cockpits were removed. The customer cockpit URLs redirect to customer preference center.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -60,17 +60,23 @@ public class CustomersGetResponseBodyAssets {
   private String cockpitUrl;
     private boolean cockpitUrlIsSet = false;
 
+  public static final String SERIALIZED_NAME_COCKPIT_PREFERENCE_CENTER_URL = "cockpit_preference_center_url";
+  @SerializedName(SERIALIZED_NAME_COCKPIT_PREFERENCE_CENTER_URL)
+  private String cockpitPreferenceCenterUrl;
+    private boolean cockpitPreferenceCenterUrlIsSet = false;
+
   public CustomersGetResponseBodyAssets() {
   }
 
   public CustomersGetResponseBodyAssets cockpitUrl(String cockpitUrl) {
     
     this.cockpitUrl = cockpitUrl;
+    this.cockpitUrlIsSet = true;
     return this;
   }
 
    /**
-   * Customer&#39;s cockpit URL address.
+   * URL address to customer preference center. Previously, a customer&#39;s cockpit URL address.
    * @return cockpitUrl
   **/
   @javax.annotation.Nullable
@@ -88,6 +94,32 @@ public class CustomersGetResponseBodyAssets {
   }
 
 
+  public CustomersGetResponseBodyAssets cockpitPreferenceCenterUrl(String cockpitPreferenceCenterUrl) {
+    
+    this.cockpitPreferenceCenterUrl = cockpitPreferenceCenterUrl;
+    this.cockpitPreferenceCenterUrlIsSet = true;
+    return this;
+  }
+
+   /**
+   * URL address to customer preference center.
+   * @return cockpitPreferenceCenterUrl
+  **/
+  @javax.annotation.Nullable
+  public String getCockpitPreferenceCenterUrl() {
+    return cockpitPreferenceCenterUrl;
+  }
+
+
+  public void setCockpitPreferenceCenterUrl(String cockpitPreferenceCenterUrl) {
+    this.cockpitPreferenceCenterUrl = cockpitPreferenceCenterUrl;
+    this.cockpitPreferenceCenterUrlIsSet = true;
+  }
+  public boolean isCockpitPreferenceCenterUrlSet() {
+    return cockpitPreferenceCenterUrlIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -98,7 +130,8 @@ public class CustomersGetResponseBodyAssets {
       return false;
     }
     CustomersGetResponseBodyAssets customersGetResponseBodyAssets = (CustomersGetResponseBodyAssets) o;
-    return Objects.equals(this.cockpitUrl, customersGetResponseBodyAssets.cockpitUrl);
+    return Objects.equals(this.cockpitUrl, customersGetResponseBodyAssets.cockpitUrl) &&
+        Objects.equals(this.cockpitPreferenceCenterUrl, customersGetResponseBodyAssets.cockpitPreferenceCenterUrl);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -107,7 +140,7 @@ public class CustomersGetResponseBodyAssets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cockpitUrl);
+    return Objects.hash(cockpitUrl, cockpitPreferenceCenterUrl);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -122,6 +155,7 @@ public class CustomersGetResponseBodyAssets {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomersGetResponseBodyAssets {\n");
     sb.append("    cockpitUrl: ").append(toIndentedString(cockpitUrl)).append("\n");
+    sb.append("    cockpitPreferenceCenterUrl: ").append(toIndentedString(cockpitPreferenceCenterUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,6 +179,7 @@ public class CustomersGetResponseBodyAssets {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("cockpit_url");
+    openapiFields.add("cockpit_preference_center_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -66,6 +66,7 @@ public class LoyaltyPendingPointsDetailsEarningRuleSource {
   public LoyaltyPendingPointsDetailsEarningRuleSource banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 

@@ -117,6 +117,7 @@ public class RedemptionsListResponseBodyRedemptionsItemChannel {
   public RedemptionsListResponseBodyRedemptionsItemChannel channelId(String channelId) {
     
     this.channelId = channelId;
+    
     return this;
   }
 
@@ -138,6 +139,7 @@ public class RedemptionsListResponseBodyRedemptionsItemChannel {
   public RedemptionsListResponseBodyRedemptionsItemChannel channelType(ChannelTypeEnum channelType) {
     
     this.channelType = channelType;
+    
     return this;
   }
 

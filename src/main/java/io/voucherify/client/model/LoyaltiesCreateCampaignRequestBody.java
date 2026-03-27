@@ -73,7 +73,7 @@ public class LoyaltiesCreateCampaignRequestBody {
     private boolean descriptionIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -307,6 +307,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -332,6 +333,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -357,11 +359,12 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    * @return type
   **/
   @javax.annotation.Nullable
@@ -382,6 +385,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -407,6 +411,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -432,6 +437,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody useVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
     return this;
   }
 
@@ -457,6 +463,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody vouchersCount(Integer vouchersCount) {
     
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
     return this;
   }
 
@@ -482,6 +489,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -507,6 +515,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -532,6 +541,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -553,6 +563,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -582,6 +593,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -603,6 +615,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -628,6 +641,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -653,6 +667,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -678,6 +693,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -703,6 +719,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody accessSettings(AccessSettings accessSettings) {
     
     this.accessSettings = accessSettings;
+    
     return this;
   }
 
@@ -724,6 +741,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -749,6 +767,7 @@ public class LoyaltiesCreateCampaignRequestBody {
   public LoyaltiesCreateCampaignRequestBody voucher(CampaignLoyaltyVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 

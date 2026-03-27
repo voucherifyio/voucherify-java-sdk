@@ -146,6 +146,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails balance(VoucherBalance balance) {
     
     this.balance = balance;
+    
     return this;
   }
 
@@ -167,6 +168,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails order(LoyaltyCardTransactionDetailsOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -192,6 +194,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails event(LoyaltyCardTransactionDetailsEvent event) {
     
     this.event = event;
+    this.eventIsSet = true;
     return this;
   }
 
@@ -217,6 +220,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails earningRule(LoyaltyCardTransactionDetailsEarningRule earningRule) {
     
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
     return this;
   }
 
@@ -242,6 +246,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails segment(LoyaltyCardTransactionDetailsSegment segment) {
     
     this.segment = segment;
+    this.segmentIsSet = true;
     return this;
   }
 
@@ -267,6 +272,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails loyaltyTier(LoyaltyCardTransactionDetailsLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
     return this;
   }
 
@@ -292,6 +298,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails redemption(LoyaltyCardTransactionDetailsRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -317,6 +324,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails rollback(LoyaltyCardTransactionDetailsRollback rollback) {
     
     this.rollback = rollback;
+    this.rollbackIsSet = true;
     return this;
   }
 
@@ -342,6 +350,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails customEvent(LoyaltyCardTransactionDetailsCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -367,6 +376,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails eventSchema(LoyaltyCardTransactionDetailsEventSchema eventSchema) {
     
     this.eventSchema = eventSchema;
+    this.eventSchemaIsSet = true;
     return this;
   }
 
@@ -392,6 +402,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails holderLoyaltyTier(LoyaltyCardTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
     
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
     return this;
   }
 
@@ -417,6 +428,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails pendingPoints(LoyaltyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    
     return this;
   }
 
@@ -438,6 +450,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails reward(LoyaltyCardTransactionDetailsReward reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 
@@ -463,6 +476,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails sourceVoucher(SimpleVoucher sourceVoucher) {
     
     this.sourceVoucher = sourceVoucher;
+    
     return this;
   }
 
@@ -484,6 +498,7 @@ public class LoyaltyCardTransactionDetails {
   public LoyaltyCardTransactionDetails destinationVoucher(SimpleVoucher destinationVoucher) {
     
     this.destinationVoucher = destinationVoucher;
+    
     return this;
   }
 

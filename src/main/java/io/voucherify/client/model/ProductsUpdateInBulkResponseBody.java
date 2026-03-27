@@ -66,6 +66,7 @@ public class ProductsUpdateInBulkResponseBody {
   public ProductsUpdateInBulkResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

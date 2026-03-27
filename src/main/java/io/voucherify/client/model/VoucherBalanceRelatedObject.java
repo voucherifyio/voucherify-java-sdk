@@ -116,6 +116,7 @@ public class VoucherBalanceRelatedObject {
   public VoucherBalanceRelatedObject id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -141,6 +142,7 @@ public class VoucherBalanceRelatedObject {
   public VoucherBalanceRelatedObject type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class ValidationRulesUpdateResponseBodyError {
   public ValidationRulesUpdateResponseBodyError message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 

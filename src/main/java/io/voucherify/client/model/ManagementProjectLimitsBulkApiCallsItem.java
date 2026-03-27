@@ -68,6 +68,7 @@ public class ManagementProjectLimitsBulkApiCallsItem {
   public ManagementProjectLimitsBulkApiCallsItem value(Integer value) {
     
     this.value = value;
+    
     return this;
   }
 
@@ -89,6 +90,7 @@ public class ManagementProjectLimitsBulkApiCallsItem {
   public ManagementProjectLimitsBulkApiCallsItem duration(String duration) {
     
     this.duration = duration;
+    
     return this;
   }
 

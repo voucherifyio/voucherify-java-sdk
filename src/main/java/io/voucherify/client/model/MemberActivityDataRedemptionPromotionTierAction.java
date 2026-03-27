@@ -65,6 +65,7 @@ public class MemberActivityDataRedemptionPromotionTierAction {
   public MemberActivityDataRedemptionPromotionTierAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

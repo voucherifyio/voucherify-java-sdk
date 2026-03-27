@@ -65,6 +65,7 @@ public class ParameterFiltersListCampaignsExpirationDate {
   public ParameterFiltersListCampaignsExpirationDate conditions(FilterConditionsDateTime conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

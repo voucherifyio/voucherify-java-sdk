@@ -73,7 +73,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
     private boolean descriptionIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -258,6 +258,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -283,6 +284,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -308,11 +310,12 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    * @return type
   **/
   @javax.annotation.Nullable
@@ -333,6 +336,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -358,6 +362,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -383,6 +388,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody useVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
     return this;
   }
 
@@ -408,6 +414,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody vouchersCount(Integer vouchersCount) {
     
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
     return this;
   }
 
@@ -433,6 +440,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -458,6 +466,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -483,6 +492,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -504,6 +514,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -533,6 +544,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -554,6 +566,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -579,6 +592,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -604,6 +618,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -629,6 +644,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -654,6 +670,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody accessSettings(AccessSettings accessSettings) {
     
     this.accessSettings = accessSettings;
+    
     return this;
   }
 
@@ -675,6 +692,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   public TemplatesCampaignsCampaignSetupCreateRequestBody voucher(TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 

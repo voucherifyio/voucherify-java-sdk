@@ -191,6 +191,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -216,6 +217,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -241,6 +243,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams action(PromotionTierCreateParamsAction action) {
     
     this.action = action;
+    this.actionIsSet = true;
     return this;
   }
 
@@ -266,6 +269,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -291,6 +295,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
+    this.validationRulesIsSet = true;
     return this;
   }
 
@@ -324,6 +329,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -349,6 +355,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -374,6 +381,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -399,6 +407,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -424,6 +433,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -445,6 +455,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -474,6 +485,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -495,6 +507,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -520,6 +533,7 @@ public class PromotionTierCreateParams {
   public PromotionTierCreateParams categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 

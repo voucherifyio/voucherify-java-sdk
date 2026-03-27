@@ -126,6 +126,7 @@ public class ValidationsRedeemableSkippedResultDetails {
   public ValidationsRedeemableSkippedResultDetails key(KeyEnum key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 
@@ -151,6 +152,7 @@ public class ValidationsRedeemableSkippedResultDetails {
   public ValidationsRedeemableSkippedResultDetails message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 

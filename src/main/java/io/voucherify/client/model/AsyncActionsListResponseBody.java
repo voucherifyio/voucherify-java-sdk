@@ -174,6 +174,7 @@ public class AsyncActionsListResponseBody {
   public AsyncActionsListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +200,7 @@ public class AsyncActionsListResponseBody {
   public AsyncActionsListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -224,6 +226,7 @@ public class AsyncActionsListResponseBody {
   public AsyncActionsListResponseBody asyncActions(List<AsyncActionBase> asyncActions) {
     
     this.asyncActions = asyncActions;
+    this.asyncActionsIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class AsyncActionsListResponseBody {
   public AsyncActionsListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 

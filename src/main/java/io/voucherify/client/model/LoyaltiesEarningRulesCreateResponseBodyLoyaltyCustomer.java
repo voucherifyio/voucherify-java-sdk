@@ -67,6 +67,7 @@ public class LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomer {
   public LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomer metadata(LoyaltiesEarningRulesCreateResponseBodyLoyaltyCustomerMetadata metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

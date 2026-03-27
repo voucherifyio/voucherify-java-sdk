@@ -66,6 +66,7 @@ public class VouchersUpdateInBulkResponseBody {
   public VouchersUpdateInBulkResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

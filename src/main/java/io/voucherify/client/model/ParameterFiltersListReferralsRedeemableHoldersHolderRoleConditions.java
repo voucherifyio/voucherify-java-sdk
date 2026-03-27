@@ -291,6 +291,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $in(List<InEnum> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -324,6 +325,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $notIn(List<NotInEnum> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -357,6 +359,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $is(IsEnum $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -382,6 +385,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $isNot(IsNotEnum $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -407,6 +411,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -432,6 +437,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -457,6 +463,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $startsWith(String $startsWith) {
     
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
     return this;
   }
 
@@ -482,6 +489,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions 
   public ParameterFiltersListReferralsRedeemableHoldersHolderRoleConditions $endsWith(String $endsWith) {
     
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
     return this;
   }
 

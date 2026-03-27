@@ -198,11 +198,12 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
    /**
-   * Id of the redeemable.
+   * ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -223,6 +224,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -248,6 +250,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -273,6 +276,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable result(RedeemableResult result) {
     
     this.result = result;
+    
     return this;
   }
 
@@ -294,6 +298,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable order(QualificationsRedeemableOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -319,6 +324,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable validationRuleId(String validationRuleId) {
     
     this.validationRuleId = validationRuleId;
+    this.validationRuleIdIsSet = true;
     return this;
   }
 
@@ -344,6 +350,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable applicableTo(ApplicableToResultList applicableTo) {
     
     this.applicableTo = applicableTo;
+    
     return this;
   }
 
@@ -365,6 +372,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable inapplicableTo(InapplicableToResultList inapplicableTo) {
     
     this.inapplicableTo = inapplicableTo;
+    
     return this;
   }
 
@@ -386,6 +394,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -411,6 +420,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -444,6 +454,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -469,6 +480,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -494,6 +506,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable campaignName(String campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 
@@ -519,6 +532,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -544,6 +558,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 
@@ -565,6 +580,7 @@ public class QualificationsRedeemable {
   public QualificationsRedeemable redeemables(List<QualificationsRedeemableBase> redeemables) {
     
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
     return this;
   }
 

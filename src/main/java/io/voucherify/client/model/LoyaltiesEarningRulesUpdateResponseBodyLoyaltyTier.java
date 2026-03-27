@@ -66,6 +66,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyaltyTier {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyaltyTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class RewardsCreateRequestBodyParametersCampaign {
   public RewardsCreateRequestBodyParametersCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,11 +97,12 @@ public class RewardsCreateRequestBodyParametersCampaign {
   public RewardsCreateRequestBodyParametersCampaign balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
    /**
-   * The incremental points to be added to the current balance on the loyalty card. and The incremental amout to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+   * The incremental points to be added to the current balance on the loyalty card. and The incremental amount to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
    * @return balance
   **/
   @javax.annotation.Nullable

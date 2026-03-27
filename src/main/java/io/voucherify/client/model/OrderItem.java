@@ -180,6 +180,7 @@ public class OrderItem {
   public OrderItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -205,6 +206,7 @@ public class OrderItem {
   public OrderItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -230,6 +232,7 @@ public class OrderItem {
   public OrderItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -255,6 +258,7 @@ public class OrderItem {
   public OrderItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -280,6 +284,7 @@ public class OrderItem {
   public OrderItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -305,6 +310,7 @@ public class OrderItem {
   public OrderItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -330,6 +336,7 @@ public class OrderItem {
   public OrderItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -355,6 +362,7 @@ public class OrderItem {
   public OrderItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -380,6 +388,7 @@ public class OrderItem {
   public OrderItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -405,6 +414,7 @@ public class OrderItem {
   public OrderItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -430,6 +440,7 @@ public class OrderItem {
   public OrderItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -455,6 +466,7 @@ public class OrderItem {
   public OrderItem product(OrderItemProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -480,6 +492,7 @@ public class OrderItem {
   public OrderItem sku(OrderItemSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -505,6 +518,7 @@ public class OrderItem {
   public OrderItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

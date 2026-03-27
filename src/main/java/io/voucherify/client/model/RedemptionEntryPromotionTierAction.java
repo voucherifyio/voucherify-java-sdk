@@ -65,6 +65,7 @@ public class RedemptionEntryPromotionTierAction {
   public RedemptionEntryPromotionTierAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

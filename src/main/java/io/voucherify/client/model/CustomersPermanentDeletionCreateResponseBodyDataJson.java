@@ -96,6 +96,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson events(Integer events) {
     
     this.events = events;
+    this.eventsIsSet = true;
     return this;
   }
 
@@ -121,6 +122,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson customerEvents(Integer customerEvents) {
     
     this.customerEvents = customerEvents;
+    this.customerEventsIsSet = true;
     return this;
   }
 
@@ -146,6 +148,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson dailyEvents(Integer dailyEvents) {
     
     this.dailyEvents = dailyEvents;
+    this.dailyEventsIsSet = true;
     return this;
   }
 
@@ -171,6 +174,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson segments(Integer segments) {
     
     this.segments = segments;
+    this.segmentsIsSet = true;
     return this;
   }
 
@@ -196,6 +200,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson orders(Integer orders) {
     
     this.orders = orders;
+    this.ordersIsSet = true;
     return this;
   }
 
@@ -221,6 +226,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson orderEvents(Integer orderEvents) {
     
     this.orderEvents = orderEvents;
+    this.orderEventsIsSet = true;
     return this;
   }
 
@@ -246,6 +252,7 @@ public class CustomersPermanentDeletionCreateResponseBodyDataJson {
   public CustomersPermanentDeletionCreateResponseBodyDataJson customer(Integer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 

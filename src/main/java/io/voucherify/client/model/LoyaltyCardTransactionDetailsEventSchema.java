@@ -71,6 +71,7 @@ public class LoyaltyCardTransactionDetailsEventSchema {
   public LoyaltyCardTransactionDetailsEventSchema id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltyCardTransactionDetailsEventSchema {
   public LoyaltyCardTransactionDetailsEventSchema name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

@@ -73,6 +73,7 @@ public class PromotionsTiersGetResponseBodySummary {
   public PromotionsTiersGetResponseBodySummary redemptions(PromotionsTiersGetResponseBodySummaryRedemptions redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class PromotionsTiersGetResponseBodySummary {
   public PromotionsTiersGetResponseBodySummary orders(PromotionsTiersGetResponseBodySummaryOrders orders) {
     
     this.orders = orders;
+    this.ordersIsSet = true;
     return this;
   }
 

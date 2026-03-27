@@ -103,6 +103,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -128,6 +129,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 
@@ -149,6 +151,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -174,6 +177,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -199,6 +203,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody redemption(CampaignsVouchersCreateInBulkRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -224,6 +229,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -249,6 +255,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -274,6 +281,7 @@ public class CampaignsVouchersCreateInBulkRequestBody {
   public CampaignsVouchersCreateInBulkRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 

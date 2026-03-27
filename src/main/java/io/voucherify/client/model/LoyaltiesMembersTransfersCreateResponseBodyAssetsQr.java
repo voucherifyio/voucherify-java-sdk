@@ -71,6 +71,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyAssetsQr {
   public LoyaltiesMembersTransfersCreateResponseBodyAssetsQr id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyAssetsQr {
   public LoyaltiesMembersTransfersCreateResponseBodyAssetsQr url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

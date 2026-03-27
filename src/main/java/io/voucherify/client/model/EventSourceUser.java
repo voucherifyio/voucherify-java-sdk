@@ -66,6 +66,7 @@ public class EventSourceUser {
   public EventSourceUser id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

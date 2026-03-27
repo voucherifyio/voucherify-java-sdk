@@ -183,6 +183,7 @@ public class MemberActivity {
   public MemberActivity id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -208,6 +209,7 @@ public class MemberActivity {
   public MemberActivity type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -233,6 +235,7 @@ public class MemberActivity {
   public MemberActivity data(MemberActivityData1 data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -258,6 +261,7 @@ public class MemberActivity {
   public MemberActivity createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -283,6 +287,7 @@ public class MemberActivity {
   public MemberActivity groupId(String groupId) {
     
     this.groupId = groupId;
+    this.groupIdIsSet = true;
     return this;
   }
 

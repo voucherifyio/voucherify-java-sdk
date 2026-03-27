@@ -72,6 +72,7 @@ public class ParameterUpdatedBeforeAfter {
   public ParameterUpdatedBeforeAfter before(OffsetDateTime before) {
     
     this.before = before;
+    this.beforeIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class ParameterUpdatedBeforeAfter {
   public ParameterUpdatedBeforeAfter after(OffsetDateTime after) {
     
     this.after = after;
+    this.afterIsSet = true;
     return this;
   }
 

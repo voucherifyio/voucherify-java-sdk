@@ -100,6 +100,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody options(ClientRedemptionsRedeemRequestBodyOptions options) {
     
     this.options = options;
+    this.optionsIsSet = true;
     return this;
   }
 
@@ -125,6 +126,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody redeemables(List<ClientRedemptionsRedeemRequestBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
     return this;
   }
 
@@ -158,6 +160,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody order(Order order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -179,6 +182,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -200,6 +204,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody session(Session session) {
     
     this.session = session;
+    
     return this;
   }
 
@@ -221,6 +226,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -246,6 +252,7 @@ public class ClientRedemptionsRedeemRequestBody {
   public ClientRedemptionsRedeemRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

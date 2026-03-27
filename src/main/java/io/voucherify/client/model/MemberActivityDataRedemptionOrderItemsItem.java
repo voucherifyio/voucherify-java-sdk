@@ -253,6 +253,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -278,6 +279,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -299,6 +301,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -324,6 +327,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    
     return this;
   }
 
@@ -345,6 +349,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -370,6 +375,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -395,6 +401,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    
     return this;
   }
 
@@ -416,6 +423,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -441,6 +449,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -466,6 +475,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    
     return this;
   }
 
@@ -487,6 +497,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -512,6 +523,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem amount(Integer amount) {
     
     this.amount = amount;
+    
     return this;
   }
 
@@ -533,6 +545,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -558,6 +571,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    
     return this;
   }
 
@@ -579,6 +593,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -604,6 +619,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    
     return this;
   }
 
@@ -625,6 +641,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -650,6 +667,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -675,6 +693,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem product(MemberActivityDataRedemptionOrderItemsItemProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -700,6 +719,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem sku(MemberActivityDataRedemptionOrderItemsItemSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -725,6 +745,7 @@ public class MemberActivityDataRedemptionOrderItemsItem {
   public MemberActivityDataRedemptionOrderItemsItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

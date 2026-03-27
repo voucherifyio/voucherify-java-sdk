@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -71,6 +73,11 @@ public class StackingRules {
   @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT)
   private Integer applicableRedeemablesPerCategoryLimit = 1;
     private boolean applicableRedeemablesPerCategoryLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_APPLICABLE_REDEEMABLES_CATEGORY_LIMITS = "applicable_redeemables_category_limits";
+  @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_CATEGORY_LIMITS)
+  private Map<String, Integer> applicableRedeemablesCategoryLimits;
+    private boolean applicableRedeemablesCategoryLimitsIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT = "applicable_exclusive_redeemables_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT)
@@ -368,6 +375,7 @@ public class StackingRules {
   public StackingRules redeemablesLimit(Integer redeemablesLimit) {
     
     this.redeemablesLimit = redeemablesLimit;
+    this.redeemablesLimitIsSet = true;
     return this;
   }
 
@@ -395,6 +403,7 @@ public class StackingRules {
   public StackingRules applicableRedeemablesLimit(Integer applicableRedeemablesLimit) {
     
     this.applicableRedeemablesLimit = applicableRedeemablesLimit;
+    this.applicableRedeemablesLimitIsSet = true;
     return this;
   }
 
@@ -422,6 +431,7 @@ public class StackingRules {
   public StackingRules applicableRedeemablesPerCategoryLimit(Integer applicableRedeemablesPerCategoryLimit) {
     
     this.applicableRedeemablesPerCategoryLimit = applicableRedeemablesPerCategoryLimit;
+    this.applicableRedeemablesPerCategoryLimitIsSet = true;
     return this;
   }
 
@@ -446,9 +456,44 @@ public class StackingRules {
   }
 
 
+  public StackingRules applicableRedeemablesCategoryLimits(Map<String, Integer> applicableRedeemablesCategoryLimits) {
+    
+    this.applicableRedeemablesCategoryLimits = applicableRedeemablesCategoryLimits;
+    this.applicableRedeemablesCategoryLimitsIsSet = true;
+    return this;
+  }
+
+  public StackingRules putApplicableRedeemablesCategoryLimitsItem(String key, Integer applicableRedeemablesCategoryLimitsItem) {
+    if (this.applicableRedeemablesCategoryLimits == null) {
+      this.applicableRedeemablesCategoryLimits = new HashMap<>();
+    }
+    this.applicableRedeemablesCategoryLimits.put(key, applicableRedeemablesCategoryLimitsItem);
+    return this;
+  }
+
+   /**
+   * Lists categories by category IDs (keys) and defines their limits (values) of applicable redeemables that belong to campaigns with that category.
+   * @return applicableRedeemablesCategoryLimits
+  **/
+  @javax.annotation.Nullable
+  public Map<String, Integer> getApplicableRedeemablesCategoryLimits() {
+    return applicableRedeemablesCategoryLimits;
+  }
+
+
+  public void setApplicableRedeemablesCategoryLimits(Map<String, Integer> applicableRedeemablesCategoryLimits) {
+    this.applicableRedeemablesCategoryLimits = applicableRedeemablesCategoryLimits;
+    this.applicableRedeemablesCategoryLimitsIsSet = true;
+  }
+  public boolean isApplicableRedeemablesCategoryLimitsSet() {
+    return applicableRedeemablesCategoryLimitsIsSet;
+  }
+
+
   public StackingRules applicableExclusiveRedeemablesLimit(Integer applicableExclusiveRedeemablesLimit) {
     
     this.applicableExclusiveRedeemablesLimit = applicableExclusiveRedeemablesLimit;
+    this.applicableExclusiveRedeemablesLimitIsSet = true;
     return this;
   }
 
@@ -476,6 +521,7 @@ public class StackingRules {
   public StackingRules applicableExclusiveRedeemablesPerCategoryLimit(Integer applicableExclusiveRedeemablesPerCategoryLimit) {
     
     this.applicableExclusiveRedeemablesPerCategoryLimit = applicableExclusiveRedeemablesPerCategoryLimit;
+    this.applicableExclusiveRedeemablesPerCategoryLimitIsSet = true;
     return this;
   }
 
@@ -503,6 +549,7 @@ public class StackingRules {
   public StackingRules exclusiveCategories(List<String> exclusiveCategories) {
     
     this.exclusiveCategories = exclusiveCategories;
+    this.exclusiveCategoriesIsSet = true;
     return this;
   }
 
@@ -536,6 +583,7 @@ public class StackingRules {
   public StackingRules jointCategories(List<String> jointCategories) {
     
     this.jointCategories = jointCategories;
+    this.jointCategoriesIsSet = true;
     return this;
   }
 
@@ -569,6 +617,7 @@ public class StackingRules {
   public StackingRules redeemablesApplicationMode(RedeemablesApplicationModeEnum redeemablesApplicationMode) {
     
     this.redeemablesApplicationMode = redeemablesApplicationMode;
+    this.redeemablesApplicationModeIsSet = true;
     return this;
   }
 
@@ -594,6 +643,7 @@ public class StackingRules {
   public StackingRules redeemablesSortingRule(RedeemablesSortingRuleEnum redeemablesSortingRule) {
     
     this.redeemablesSortingRule = redeemablesSortingRule;
+    this.redeemablesSortingRuleIsSet = true;
     return this;
   }
 
@@ -619,6 +669,7 @@ public class StackingRules {
   public StackingRules redeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
     
     this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+    this.redeemablesProductsApplicationModeIsSet = true;
     return this;
   }
 
@@ -644,6 +695,7 @@ public class StackingRules {
   public StackingRules redeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
     
     this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+    this.redeemablesNoEffectRuleIsSet = true;
     return this;
   }
 
@@ -669,6 +721,7 @@ public class StackingRules {
   public StackingRules noEffectSkipCategories(List<String> noEffectSkipCategories) {
     
     this.noEffectSkipCategories = noEffectSkipCategories;
+    this.noEffectSkipCategoriesIsSet = true;
     return this;
   }
 
@@ -702,6 +755,7 @@ public class StackingRules {
   public StackingRules noEffectRedeemAnywayCategories(List<String> noEffectRedeemAnywayCategories) {
     
     this.noEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+    this.noEffectRedeemAnywayCategoriesIsSet = true;
     return this;
   }
 
@@ -735,6 +789,7 @@ public class StackingRules {
   public StackingRules redeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
     
     this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    this.redeemablesRollbackOrderModeIsSet = true;
     return this;
   }
 
@@ -770,6 +825,7 @@ public class StackingRules {
     return Objects.equals(this.redeemablesLimit, stackingRules.redeemablesLimit) &&
         Objects.equals(this.applicableRedeemablesLimit, stackingRules.applicableRedeemablesLimit) &&
         Objects.equals(this.applicableRedeemablesPerCategoryLimit, stackingRules.applicableRedeemablesPerCategoryLimit) &&
+        Objects.equals(this.applicableRedeemablesCategoryLimits, stackingRules.applicableRedeemablesCategoryLimits) &&
         Objects.equals(this.applicableExclusiveRedeemablesLimit, stackingRules.applicableExclusiveRedeemablesLimit) &&
         Objects.equals(this.applicableExclusiveRedeemablesPerCategoryLimit, stackingRules.applicableExclusiveRedeemablesPerCategoryLimit) &&
         Objects.equals(this.exclusiveCategories, stackingRules.exclusiveCategories) &&
@@ -789,7 +845,7 @@ public class StackingRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, noEffectSkipCategories, noEffectRedeemAnywayCategories, redeemablesRollbackOrderMode);
+    return Objects.hash(redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableRedeemablesCategoryLimits, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, exclusiveCategories, jointCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, noEffectSkipCategories, noEffectRedeemAnywayCategories, redeemablesRollbackOrderMode);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -806,6 +862,7 @@ public class StackingRules {
     sb.append("    redeemablesLimit: ").append(toIndentedString(redeemablesLimit)).append("\n");
     sb.append("    applicableRedeemablesLimit: ").append(toIndentedString(applicableRedeemablesLimit)).append("\n");
     sb.append("    applicableRedeemablesPerCategoryLimit: ").append(toIndentedString(applicableRedeemablesPerCategoryLimit)).append("\n");
+    sb.append("    applicableRedeemablesCategoryLimits: ").append(toIndentedString(applicableRedeemablesCategoryLimits)).append("\n");
     sb.append("    applicableExclusiveRedeemablesLimit: ").append(toIndentedString(applicableExclusiveRedeemablesLimit)).append("\n");
     sb.append("    applicableExclusiveRedeemablesPerCategoryLimit: ").append(toIndentedString(applicableExclusiveRedeemablesPerCategoryLimit)).append("\n");
     sb.append("    exclusiveCategories: ").append(toIndentedString(exclusiveCategories)).append("\n");
@@ -842,6 +899,7 @@ public class StackingRules {
     openapiFields.add("redeemables_limit");
     openapiFields.add("applicable_redeemables_limit");
     openapiFields.add("applicable_redeemables_per_category_limit");
+    openapiFields.add("applicable_redeemables_category_limits");
     openapiFields.add("applicable_exclusive_redeemables_limit");
     openapiFields.add("applicable_exclusive_redeemables_per_category_limit");
     openapiFields.add("exclusive_categories");

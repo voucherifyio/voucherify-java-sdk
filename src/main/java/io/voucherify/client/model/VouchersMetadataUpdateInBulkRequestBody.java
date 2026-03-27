@@ -73,6 +73,7 @@ public class VouchersMetadataUpdateInBulkRequestBody {
   public VouchersMetadataUpdateInBulkRequestBody codes(List<String> codes) {
     
     this.codes = codes;
+    this.codesIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class VouchersMetadataUpdateInBulkRequestBody {
   public VouchersMetadataUpdateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

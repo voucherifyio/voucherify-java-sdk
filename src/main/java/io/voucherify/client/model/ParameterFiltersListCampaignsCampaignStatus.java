@@ -67,6 +67,7 @@ public class ParameterFiltersListCampaignsCampaignStatus {
   public ParameterFiltersListCampaignsCampaignStatus conditions(ParameterFiltersListCampaignsCampaignStatusConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

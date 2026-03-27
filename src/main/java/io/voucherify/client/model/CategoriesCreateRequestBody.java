@@ -71,6 +71,7 @@ public class CategoriesCreateRequestBody {
   public CategoriesCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class CategoriesCreateRequestBody {
   public CategoriesCreateRequestBody hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 

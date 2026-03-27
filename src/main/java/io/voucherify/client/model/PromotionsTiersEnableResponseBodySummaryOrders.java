@@ -71,6 +71,7 @@ public class PromotionsTiersEnableResponseBodySummaryOrders {
   public PromotionsTiersEnableResponseBodySummaryOrders totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class PromotionsTiersEnableResponseBodySummaryOrders {
   public PromotionsTiersEnableResponseBodySummaryOrders totalDiscountAmount(Integer totalDiscountAmount) {
     
     this.totalDiscountAmount = totalDiscountAmount;
+    this.totalDiscountAmountIsSet = true;
     return this;
   }
 

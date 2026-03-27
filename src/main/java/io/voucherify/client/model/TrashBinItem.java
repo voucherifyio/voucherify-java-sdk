@@ -204,6 +204,7 @@ public class TrashBinItem {
   public TrashBinItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -229,6 +230,7 @@ public class TrashBinItem {
   public TrashBinItem createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -254,6 +256,7 @@ public class TrashBinItem {
   public TrashBinItem deletedByUserId(String deletedByUserId) {
     
     this.deletedByUserId = deletedByUserId;
+    this.deletedByUserIdIsSet = true;
     return this;
   }
 
@@ -279,6 +282,7 @@ public class TrashBinItem {
   public TrashBinItem resourceId(String resourceId) {
     
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
     return this;
   }
 
@@ -304,6 +308,7 @@ public class TrashBinItem {
   public TrashBinItem resourceType(ResourceTypeEnum resourceType) {
     
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
     return this;
   }
 
@@ -329,6 +334,7 @@ public class TrashBinItem {
   public TrashBinItem resourceName(String resourceName) {
     
     this.resourceName = resourceName;
+    this.resourceNameIsSet = true;
     return this;
   }
 
@@ -354,11 +360,12 @@ public class TrashBinItem {
   public TrashBinItem resourceParentId(String resourceParentId) {
     
     this.resourceParentId = resourceParentId;
+    this.resourceParentIdIsSet = true;
     return this;
   }
 
    /**
-   * Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) voucherss. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
+   * Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
    * @return resourceParentId
   **/
   @javax.annotation.Nullable
@@ -379,6 +386,7 @@ public class TrashBinItem {
   public TrashBinItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

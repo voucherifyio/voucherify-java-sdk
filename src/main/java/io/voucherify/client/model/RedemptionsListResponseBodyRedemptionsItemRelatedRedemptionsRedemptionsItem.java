@@ -69,6 +69,7 @@ public class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedempt
   public RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptionsItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -90,6 +91,7 @@ public class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedempt
   public RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptionsItem date(OffsetDateTime date) {
     
     this.date = date;
+    
     return this;
   }
 

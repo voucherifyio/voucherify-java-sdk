@@ -90,6 +90,7 @@ public class ParameterFiltersListBin {
   public ParameterFiltersListBin junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -111,6 +112,7 @@ public class ParameterFiltersListBin {
   public ParameterFiltersListBin id(ParameterFiltersListBinId id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class ParameterFiltersListBin {
   public ParameterFiltersListBin resourceType(ParameterFiltersListBinResourceType resourceType) {
     
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
     return this;
   }
 
@@ -161,6 +164,7 @@ public class ParameterFiltersListBin {
   public ParameterFiltersListBin resourceName(ParameterFiltersListBinResourceName resourceName) {
     
     this.resourceName = resourceName;
+    this.resourceNameIsSet = true;
     return this;
   }
 
@@ -186,6 +190,7 @@ public class ParameterFiltersListBin {
   public ParameterFiltersListBin resourceId(ParameterFiltersListBinResourceId resourceId) {
     
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
     return this;
   }
 

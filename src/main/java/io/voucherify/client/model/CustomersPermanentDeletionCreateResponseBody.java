@@ -98,6 +98,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -123,6 +124,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -148,6 +150,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -173,6 +176,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody relatedObject(String relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -198,6 +202,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody status(String status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -223,6 +228,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody dataJson(CustomersPermanentDeletionCreateResponseBodyDataJson dataJson) {
     
     this.dataJson = dataJson;
+    this.dataJsonIsSet = true;
     return this;
   }
 
@@ -248,6 +254,7 @@ public class CustomersPermanentDeletionCreateResponseBody {
   public CustomersPermanentDeletionCreateResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

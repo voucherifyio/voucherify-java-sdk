@@ -66,6 +66,7 @@ public class RedemptionRollbackLoyaltyCard {
   public RedemptionRollbackLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

@@ -231,6 +231,7 @@
 | /v1/product-collections                                | get    | List Product Collections    | <font color='green'>supported</font> |               |
 | /v1/product-collections                                | post   | Create Product Collection   | <font color='green'>supported</font> |               |
 | /v1/product-collections/{productCollectionId}          | get    | Get Product Collection      | <font color='green'>supported</font> |               |
+| /v1/product-collections/{productCollectionId}          | put    | Update Product Collection   |                                      |               |
 | /v1/product-collections/{productCollectionId}          | delete | Delete Product Collection   | <font color='green'>supported</font> |               |
 | /v1/product-collections/{productCollectionId}/products | get    | List Products in Collection | <font color='green'>supported</font> |               |
 ## Validation Rules

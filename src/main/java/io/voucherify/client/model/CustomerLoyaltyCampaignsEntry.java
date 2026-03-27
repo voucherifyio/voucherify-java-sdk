@@ -72,6 +72,7 @@ public class CustomerLoyaltyCampaignsEntry {
   public CustomerLoyaltyCampaignsEntry points(Integer points) {
     
     this.points = points;
+    
     return this;
   }
 
@@ -93,6 +94,7 @@ public class CustomerLoyaltyCampaignsEntry {
   public CustomerLoyaltyCampaignsEntry loyaltyTier(String loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    
     return this;
   }
 
@@ -114,6 +116,7 @@ public class CustomerLoyaltyCampaignsEntry {
   public CustomerLoyaltyCampaignsEntry referredCustomers(Integer referredCustomers) {
     
     this.referredCustomers = referredCustomers;
+    
     return this;
   }
 

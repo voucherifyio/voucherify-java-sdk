@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsFailureCode {
   public ParameterFiltersListPublicationsFailureCode conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

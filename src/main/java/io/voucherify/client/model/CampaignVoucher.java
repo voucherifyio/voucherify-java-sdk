@@ -181,6 +181,7 @@ public class CampaignVoucher {
   public CampaignVoucher type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -206,6 +207,7 @@ public class CampaignVoucher {
   public CampaignVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -227,6 +229,7 @@ public class CampaignVoucher {
   public CampaignVoucher gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -248,6 +251,7 @@ public class CampaignVoucher {
   public CampaignVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -269,6 +273,7 @@ public class CampaignVoucher {
   public CampaignVoucher redemption(CampaignVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -294,6 +299,7 @@ public class CampaignVoucher {
   public CampaignVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 
@@ -315,6 +321,7 @@ public class CampaignVoucher {
   public CampaignVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -340,6 +347,7 @@ public class CampaignVoucher {
   public CampaignVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -365,6 +373,7 @@ public class CampaignVoucher {
   public CampaignVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -390,6 +399,7 @@ public class CampaignVoucher {
   public CampaignVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -411,6 +421,7 @@ public class CampaignVoucher {
   public CampaignVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -440,6 +451,7 @@ public class CampaignVoucher {
   public CampaignVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 

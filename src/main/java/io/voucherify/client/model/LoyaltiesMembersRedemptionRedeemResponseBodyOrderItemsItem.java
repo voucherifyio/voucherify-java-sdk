@@ -267,6 +267,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -292,6 +293,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 
@@ -317,6 +319,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -342,6 +345,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem relatedObject(RelatedObjectEnum relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -367,6 +371,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -392,6 +397,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -417,6 +423,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem discountQuantity(Integer discountQuantity) {
     
     this.discountQuantity = discountQuantity;
+    this.discountQuantityIsSet = true;
     return this;
   }
 
@@ -442,6 +449,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem initialQuantity(Integer initialQuantity) {
     
     this.initialQuantity = initialQuantity;
+    this.initialQuantityIsSet = true;
     return this;
   }
 
@@ -467,6 +475,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -492,6 +501,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -517,6 +527,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -542,6 +553,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem appliedDiscountQuantity(Integer appliedDiscountQuantity) {
     
     this.appliedDiscountQuantity = appliedDiscountQuantity;
+    this.appliedDiscountQuantityIsSet = true;
     return this;
   }
 
@@ -567,6 +579,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem appliedQuantity(Integer appliedQuantity) {
     
     this.appliedQuantity = appliedQuantity;
+    this.appliedQuantityIsSet = true;
     return this;
   }
 
@@ -592,6 +605,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem appliedQuantityAmount(Integer appliedQuantityAmount) {
     
     this.appliedQuantityAmount = appliedQuantityAmount;
+    this.appliedQuantityAmountIsSet = true;
     return this;
   }
 
@@ -617,6 +631,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -642,6 +657,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -667,6 +683,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem subtotalAmount(Integer subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 
@@ -692,6 +709,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem product(OrderCalculatedItemProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 
@@ -717,6 +735,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem sku(OrderCalculatedItemSku sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -742,6 +761,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -767,6 +787,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -792,6 +813,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem {
   public LoyaltiesMembersRedemptionRedeemResponseBodyOrderItemsItem applicationDetails(List<ApplicationDetailsItem> applicationDetails) {
     
     this.applicationDetails = applicationDetails;
+    
     return this;
   }
 

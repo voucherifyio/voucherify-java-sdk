@@ -81,6 +81,7 @@ public class SimpleReferralTier {
   public SimpleReferralTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class SimpleReferralTier {
   public SimpleReferralTier campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -131,6 +133,7 @@ public class SimpleReferralTier {
   public SimpleReferralTier banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -156,6 +159,7 @@ public class SimpleReferralTier {
   public SimpleReferralTier parameters(Object parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

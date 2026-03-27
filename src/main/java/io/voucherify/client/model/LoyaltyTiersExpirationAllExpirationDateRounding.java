@@ -226,6 +226,7 @@ public class LoyaltyTiersExpirationAllExpirationDateRounding {
   public LoyaltyTiersExpirationAllExpirationDateRounding type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -251,6 +252,7 @@ public class LoyaltyTiersExpirationAllExpirationDateRounding {
   public LoyaltyTiersExpirationAllExpirationDateRounding strategy(StrategyEnum strategy) {
     
     this.strategy = strategy;
+    this.strategyIsSet = true;
     return this;
   }
 
@@ -276,6 +278,7 @@ public class LoyaltyTiersExpirationAllExpirationDateRounding {
   public LoyaltyTiersExpirationAllExpirationDateRounding unit(UnitEnum unit) {
     
     this.unit = unit;
+    this.unitIsSet = true;
     return this;
   }
 
@@ -301,6 +304,7 @@ public class LoyaltyTiersExpirationAllExpirationDateRounding {
   public LoyaltyTiersExpirationAllExpirationDateRounding value(Integer value) {
     
     this.value = value;
+    this.valueIsSet = true;
     return this;
   }
 
