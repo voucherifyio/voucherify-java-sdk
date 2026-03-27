@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.1</version>
+  <version>17.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.1"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.2"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.0.1.jar`
+* `target/voucherify-java-sdk-17.0.2.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -178,7 +178,7 @@ This SDK is auto-generated (except for tests), so changes made here will be over
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.1).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.2).
 
 ## 🔐 Authorization
 
@@ -243,6 +243,14 @@ Authorization schemes defined for the API.
 - **Location**: HTTP header
 
 ## 📅 Changelog
+
+- **2026-03-27** - `17.0.2`
+FIXED:
+- Campaign voucher redemption serialization for nullable fluent setters:
+  - `new CampaignsCreateRequestBodyVoucherRedemption().quantity(null)` now serializes as `"quantity": null`
+  - this preserves unlimited redemption setup when creating campaigns
+- Java generator template (`okhttp-gson`):
+  - fluent methods for nullable fields now mark `*IsSet` as true, matching setter behavior
 
 - **2025-10-02** - `17.0.1`
 UPDATED:
