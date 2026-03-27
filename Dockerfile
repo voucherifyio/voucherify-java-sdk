@@ -1,17 +1,9 @@
-FROM eclipse-temurin:18-jdk
-
-ENV JAVA_HOME /usr/local/openjdk-18
-ENV PATH $JAVA_HOME/bin:/usr/share/maven/bin:$PATH
-
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
-
+FROM maven:3.9.6-eclipse-temurin-21
 WORKDIR /app
 
-COPY .env .
 COPY pom.xml .
-COPY ./src ./src
+RUN mvn dependency:go-offline
 
-RUN mvn test
+COPY src ./src
 
+CMD ["mvn", "test"]

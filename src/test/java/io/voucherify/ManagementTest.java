@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.io.InputStream;
 import java.util.Properties;
 import java.io.FileInputStream;
@@ -45,7 +44,6 @@ public class ManagementTest {
                 properties.load(input);
             } catch (IOException ex) {
                 System.out.println("[INFO] No .env file found, using environment variables");
-                ex.printStackTrace();
             } finally {
                 if (input != null) {
                     try {
