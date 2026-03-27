@@ -249,6 +249,7 @@ FIXED:
   - this preserves unlimited redemption setup when creating campaigns
 - Java generator template (`okhttp-gson`):
   - fluent methods for nullable fields now mark `*IsSet` as true, matching setter behavior
+  - after regeneration, many model files can include new `this.<field>IsSet = true;` lines in fluent methods; this is expected
 
 - **2025-10-02** - `17.0.1`
 UPDATED:
