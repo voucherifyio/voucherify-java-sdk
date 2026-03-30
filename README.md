@@ -250,6 +250,32 @@ FIXED:
 - Java generator template (`okhttp-gson`):
   - fluent methods for nullable fields now mark `*IsSet` as true, matching setter behavior
   - after regeneration, many model files can include new `this.<field>IsSet = true;` lines in fluent methods; this is expected
+- Compatibility note (bug fix):
+  - passing `null` via nullable fluent setters now serializes an explicit JSON `null`
+  - if you want to omit a nullable field from payload, do not call the setter/fluent method for that field
+  - practical examples:
+
+```java
+// 1) Send explicit JSON null
+CampaignsCreateRequestBodyVoucherRedemption redemption =
+    new CampaignsCreateRequestBodyVoucherRedemption().quantity(null);
+```
+
+```java
+// 2) Omit the field from payload when value is null
+Integer quantity = maybeNullQuantity;
+CampaignsCreateRequestBodyVoucherRedemption redemption =
+    new CampaignsCreateRequestBodyVoucherRedemption();
+if (quantity != null) {
+  redemption.quantity(quantity);
+}
+```
+
+```java
+// 3) If you previously set fluent null and want to omit it, recreate the object
+CampaignsCreateRequestBodyVoucherRedemption redemption =
+    new CampaignsCreateRequestBodyVoucherRedemption();
+```
 
 - **2025-10-02** - `17.0.1`
 UPDATED:
@@ -2273,4 +2299,3 @@ Class | Method | HTTP request | Description
 - [VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
 - [VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
 - [VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
-
