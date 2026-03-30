@@ -7,7 +7,7 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**id** | **String** | Id of the redeemable. |
+|**id** | **String** | ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value. |
 |**_object** | [**ObjectEnum**](#ObjectEnum) | Object type of the redeemable. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. |
 |**result** | [**RedeemableResult**](RedeemableResult.md) |  |

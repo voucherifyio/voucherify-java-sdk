@@ -67,6 +67,7 @@ public class ParameterFiltersListCampaignsIsReferralCode {
   public ParameterFiltersListCampaignsIsReferralCode conditions(ParameterFiltersListCampaignsIsReferralCodeConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

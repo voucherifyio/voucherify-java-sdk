@@ -90,6 +90,7 @@ public class ManagementProjectsBrandingGetResponseBody {
   public ManagementProjectsBrandingGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -115,6 +116,7 @@ public class ManagementProjectsBrandingGetResponseBody {
   public ManagementProjectsBrandingGetResponseBody brand(ManagementProjectsBrandingGetResponseBodyBrand brand) {
     
     this.brand = brand;
+    this.brandIsSet = true;
     return this;
   }
 
@@ -140,6 +142,7 @@ public class ManagementProjectsBrandingGetResponseBody {
   public ManagementProjectsBrandingGetResponseBody address(ManagementProjectsBrandingGetResponseBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -165,6 +168,7 @@ public class ManagementProjectsBrandingGetResponseBody {
   public ManagementProjectsBrandingGetResponseBody contact(ManagementProjectsBrandingGetResponseBodyContact contact) {
     
     this.contact = contact;
+    this.contactIsSet = true;
     return this;
   }
 
@@ -190,6 +194,7 @@ public class ManagementProjectsBrandingGetResponseBody {
   public ManagementProjectsBrandingGetResponseBody cockpits(ManagementProjectsBrandingGetResponseBodyCockpits cockpits) {
     
     this.cockpits = cockpits;
+    this.cockpitsIsSet = true;
     return this;
   }
 

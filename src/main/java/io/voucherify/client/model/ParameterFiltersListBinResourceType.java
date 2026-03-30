@@ -65,6 +65,7 @@ public class ParameterFiltersListBinResourceType {
   public ParameterFiltersListBinResourceType conditions(ParameterFiltersListBinResourceTypeConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

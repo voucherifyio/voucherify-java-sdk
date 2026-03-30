@@ -71,6 +71,7 @@ public class LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes {
   public LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes {
   public LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 

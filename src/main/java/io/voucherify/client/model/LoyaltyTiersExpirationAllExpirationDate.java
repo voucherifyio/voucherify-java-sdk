@@ -127,6 +127,7 @@ public class LoyaltyTiersExpirationAllExpirationDate {
   public LoyaltyTiersExpirationAllExpirationDate type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -152,6 +153,7 @@ public class LoyaltyTiersExpirationAllExpirationDate {
   public LoyaltyTiersExpirationAllExpirationDate extend(String extend) {
     
     this.extend = extend;
+    this.extendIsSet = true;
     return this;
   }
 
@@ -177,6 +179,7 @@ public class LoyaltyTiersExpirationAllExpirationDate {
   public LoyaltyTiersExpirationAllExpirationDate rounding(LoyaltyTiersExpirationAllExpirationDateRounding rounding) {
     
     this.rounding = rounding;
+    
     return this;
   }
 

@@ -97,6 +97,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -122,6 +123,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -147,6 +149,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration tierId(String tierId) {
     
     this.tierId = tierId;
+    this.tierIdIsSet = true;
     return this;
   }
 
@@ -172,6 +175,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration startDate(String startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -197,6 +201,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration expirationDate(String expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -222,6 +227,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -247,6 +253,7 @@ public class LoyaltyTierExpiration {
   public LoyaltyTierExpiration updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

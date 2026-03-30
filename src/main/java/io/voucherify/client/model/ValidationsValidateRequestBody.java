@@ -57,7 +57,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;v1/validations&#x60;.
+ * Request body schema for **POST** &#x60;v1/validations&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -100,6 +100,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody options(ValidationsValidateRequestBodyOptions options) {
     
     this.options = options;
+    this.optionsIsSet = true;
     return this;
   }
 
@@ -125,6 +126,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody redeemables(List<ValidationsValidateRequestBodyRedeemablesItem> redeemables) {
     
     this.redeemables = redeemables;
+    this.redeemablesIsSet = true;
     return this;
   }
 
@@ -158,6 +160,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody order(Order order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -179,6 +182,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -200,6 +204,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody session(Session session) {
     
     this.session = session;
+    
     return this;
   }
 
@@ -221,6 +226,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -246,6 +252,7 @@ public class ValidationsValidateRequestBody {
   public ValidationsValidateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

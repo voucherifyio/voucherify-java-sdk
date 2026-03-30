@@ -68,6 +68,7 @@ public class VoucherTransactionsExportFilterConditionsVoucherIdConditions {
   public VoucherTransactionsExportFilterConditionsVoucherIdConditions $in(List<String> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 

@@ -75,6 +75,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions {
   public LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions rollbacks(List<LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptionsRollbacksItem> rollbacks) {
     
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions {
   public LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions redemptions(List<LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptionsRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class MemberActivityDataRedemptionRewardParametersProduct {
   public MemberActivityDataRedemptionRewardParametersProduct id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class MemberActivityDataRedemptionRewardParametersProduct {
   public MemberActivityDataRedemptionRewardParametersProduct skuId(String skuId) {
     
     this.skuId = skuId;
+    this.skuIdIsSet = true;
     return this;
   }
 

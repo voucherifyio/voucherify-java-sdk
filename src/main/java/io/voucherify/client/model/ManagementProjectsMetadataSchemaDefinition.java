@@ -193,6 +193,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -218,6 +219,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition optional(Boolean optional) {
     
     this.optional = optional;
+    this.optionalIsSet = true;
     return this;
   }
 
@@ -243,6 +245,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition array(Boolean array) {
     
     this.array = array;
+    this.arrayIsSet = true;
     return this;
   }
 
@@ -268,6 +271,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition deleted(Boolean deleted) {
     
     this.deleted = deleted;
+    this.deletedIsSet = true;
     return this;
   }
 
@@ -293,6 +297,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition objectType(String objectType) {
     
     this.objectType = objectType;
+    this.objectTypeIsSet = true;
     return this;
   }
 
@@ -318,6 +323,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition minLength(Integer minLength) {
     
     this.minLength = minLength;
+    this.minLengthIsSet = true;
     return this;
   }
 
@@ -343,6 +349,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition maxLength(Integer maxLength) {
     
     this.maxLength = maxLength;
+    this.maxLengthIsSet = true;
     return this;
   }
 
@@ -368,6 +375,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition exactLength(Integer exactLength) {
     
     this.exactLength = exactLength;
+    this.exactLengthIsSet = true;
     return this;
   }
 
@@ -393,6 +401,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition eq(List<Object> eq) {
     
     this.eq = eq;
+    this.eqIsSet = true;
     return this;
   }
 
@@ -426,6 +435,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition ne(List<BigDecimal> ne) {
     
     this.ne = ne;
+    this.neIsSet = true;
     return this;
   }
 
@@ -459,6 +469,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition lt(BigDecimal lt) {
     
     this.lt = lt;
+    this.ltIsSet = true;
     return this;
   }
 
@@ -484,6 +495,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition lte(BigDecimal lte) {
     
     this.lte = lte;
+    this.lteIsSet = true;
     return this;
   }
 
@@ -509,6 +521,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition gt(BigDecimal gt) {
     
     this.gt = gt;
+    this.gtIsSet = true;
     return this;
   }
 
@@ -534,6 +547,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   public ManagementProjectsMetadataSchemaDefinition gte(BigDecimal gte) {
     
     this.gte = gte;
+    this.gteIsSet = true;
     return this;
   }
 

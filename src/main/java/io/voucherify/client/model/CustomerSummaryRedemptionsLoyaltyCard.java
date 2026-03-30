@@ -71,6 +71,7 @@ public class CustomerSummaryRedemptionsLoyaltyCard {
   public CustomerSummaryRedemptionsLoyaltyCard redeemedPoints(Integer redeemedPoints) {
     
     this.redeemedPoints = redeemedPoints;
+    this.redeemedPointsIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class CustomerSummaryRedemptionsLoyaltyCard {
   public CustomerSummaryRedemptionsLoyaltyCard pointsToGo(Integer pointsToGo) {
     
     this.pointsToGo = pointsToGo;
+    this.pointsToGoIsSet = true;
     return this;
   }
 

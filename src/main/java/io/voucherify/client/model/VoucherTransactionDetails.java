@@ -146,6 +146,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails balance(VoucherBalance balance) {
     
     this.balance = balance;
+    
     return this;
   }
 
@@ -167,6 +168,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails order(VoucherTransactionDetailsOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -192,6 +194,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails event(VoucherTransactionDetailsEvent event) {
     
     this.event = event;
+    this.eventIsSet = true;
     return this;
   }
 
@@ -217,6 +220,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails earningRule(VoucherTransactionDetailsEarningRule earningRule) {
     
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
     return this;
   }
 
@@ -242,6 +246,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails segment(VoucherTransactionDetailsSegment segment) {
     
     this.segment = segment;
+    this.segmentIsSet = true;
     return this;
   }
 
@@ -267,6 +272,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails loyaltyTier(VoucherTransactionDetailsLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
     return this;
   }
 
@@ -292,6 +298,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails redemption(VoucherTransactionDetailsRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -317,6 +324,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails rollback(VoucherTransactionDetailsRollback rollback) {
     
     this.rollback = rollback;
+    this.rollbackIsSet = true;
     return this;
   }
 
@@ -342,6 +350,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails customEvent(VoucherTransactionDetailsCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -367,6 +376,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails eventSchema(VoucherTransactionDetailsEventSchema eventSchema) {
     
     this.eventSchema = eventSchema;
+    this.eventSchemaIsSet = true;
     return this;
   }
 
@@ -392,6 +402,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails holderLoyaltyTier(VoucherTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
     
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
     return this;
   }
 
@@ -417,6 +428,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails pendingPoints(LoyaltyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    
     return this;
   }
 
@@ -438,6 +450,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails reward(VoucherTransactionDetailsReward reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 
@@ -463,6 +476,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails sourceVoucher(SimpleVoucher sourceVoucher) {
     
     this.sourceVoucher = sourceVoucher;
+    
     return this;
   }
 
@@ -484,6 +498,7 @@ public class VoucherTransactionDetails {
   public VoucherTransactionDetails destinationVoucher(SimpleVoucher destinationVoucher) {
     
     this.destinationVoucher = destinationVoucher;
+    
     return this;
   }
 

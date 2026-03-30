@@ -191,6 +191,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -216,6 +217,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -241,6 +243,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody timezone(String timezone) {
     
     this.timezone = timezone;
+    this.timezoneIsSet = true;
     return this;
   }
 
@@ -266,6 +269,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -291,6 +295,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody dialCode(String dialCode) {
     
     this.dialCode = dialCode;
+    this.dialCodeIsSet = true;
     return this;
   }
 
@@ -316,6 +321,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody webhookVersion(WebhookVersionEnum webhookVersion) {
     
     this.webhookVersion = webhookVersion;
+    this.webhookVersionIsSet = true;
     return this;
   }
 
@@ -341,6 +347,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientTrustedDomains(List<String> clientTrustedDomains) {
     
     this.clientTrustedDomains = clientTrustedDomains;
+    this.clientTrustedDomainsIsSet = true;
     return this;
   }
 
@@ -374,6 +381,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientRedeemEnabled(Boolean clientRedeemEnabled) {
     
     this.clientRedeemEnabled = clientRedeemEnabled;
+    this.clientRedeemEnabledIsSet = true;
     return this;
   }
 
@@ -399,6 +407,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientPublishEnabled(Boolean clientPublishEnabled) {
     
     this.clientPublishEnabled = clientPublishEnabled;
+    this.clientPublishEnabledIsSet = true;
     return this;
   }
 
@@ -424,6 +433,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientListVouchersEnabled(Boolean clientListVouchersEnabled) {
     
     this.clientListVouchersEnabled = clientListVouchersEnabled;
+    this.clientListVouchersEnabledIsSet = true;
     return this;
   }
 
@@ -449,6 +459,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientCreateCustomerEnabled(Boolean clientCreateCustomerEnabled) {
     
     this.clientCreateCustomerEnabled = clientCreateCustomerEnabled;
+    this.clientCreateCustomerEnabledIsSet = true;
     return this;
   }
 
@@ -474,6 +485,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientLoyaltyEventsEnabled(Boolean clientLoyaltyEventsEnabled) {
     
     this.clientLoyaltyEventsEnabled = clientLoyaltyEventsEnabled;
+    this.clientLoyaltyEventsEnabledIsSet = true;
     return this;
   }
 
@@ -499,6 +511,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody clientSetVoucherExpirationDateEnabled(Boolean clientSetVoucherExpirationDateEnabled) {
     
     this.clientSetVoucherExpirationDateEnabled = clientSetVoucherExpirationDateEnabled;
+    this.clientSetVoucherExpirationDateEnabledIsSet = true;
     return this;
   }
 
@@ -524,6 +537,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody webhooksCalloutNotifications(ManagementProjectsUpdateRequestBodyWebhooksCalloutNotifications webhooksCalloutNotifications) {
     
     this.webhooksCalloutNotifications = webhooksCalloutNotifications;
+    this.webhooksCalloutNotificationsIsSet = true;
     return this;
   }
 
@@ -549,6 +563,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody apiUsageNotifications(ManagementProjectsUpdateRequestBodyApiUsageNotifications apiUsageNotifications) {
     
     this.apiUsageNotifications = apiUsageNotifications;
+    this.apiUsageNotificationsIsSet = true;
     return this;
   }
 
@@ -574,6 +589,7 @@ public class ManagementProjectsUpdateRequestBody {
   public ManagementProjectsUpdateRequestBody defaultCodeConfig(ManagementProjectsUpdateRequestBodyDefaultCodeConfig defaultCodeConfig) {
     
     this.defaultCodeConfig = defaultCodeConfig;
+    this.defaultCodeConfigIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBodyGift {
   public LoyaltiesMembersRedemptionRedeemResponseBodyGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

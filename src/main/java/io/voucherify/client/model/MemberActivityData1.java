@@ -70,6 +70,7 @@ public class MemberActivityData1 {
   public MemberActivityData1 data(MemberActivityData data) {
     
     this.data = data;
+    
     return this;
   }
 
@@ -91,6 +92,7 @@ public class MemberActivityData1 {
   public MemberActivityData1 eventSource(EventSource eventSource) {
     
     this.eventSource = eventSource;
+    
     return this;
   }
 

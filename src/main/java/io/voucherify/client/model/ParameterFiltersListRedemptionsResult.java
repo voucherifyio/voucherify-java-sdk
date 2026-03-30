@@ -65,6 +65,7 @@ public class ParameterFiltersListRedemptionsResult {
   public ParameterFiltersListRedemptionsResult conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

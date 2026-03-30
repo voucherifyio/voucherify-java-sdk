@@ -66,6 +66,7 @@ public class LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty {
   public LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

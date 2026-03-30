@@ -149,6 +149,7 @@ public class CustomEvent {
   public CustomEvent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -174,6 +175,7 @@ public class CustomEvent {
   public CustomEvent _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +201,7 @@ public class CustomEvent {
   public CustomEvent type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -224,6 +227,7 @@ public class CustomEvent {
   public CustomEvent customer(SimpleCustomerRequiredObjectType customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -245,6 +249,7 @@ public class CustomEvent {
   public CustomEvent referral(CustomEventReferral referral) {
     
     this.referral = referral;
+    this.referralIsSet = true;
     return this;
   }
 
@@ -270,6 +275,7 @@ public class CustomEvent {
   public CustomEvent loyalty(CustomEventLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 
@@ -295,6 +301,7 @@ public class CustomEvent {
   public CustomEvent metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -320,6 +327,7 @@ public class CustomEvent {
   public CustomEvent createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 

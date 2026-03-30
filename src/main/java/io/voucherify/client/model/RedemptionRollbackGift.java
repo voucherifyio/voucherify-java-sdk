@@ -66,6 +66,7 @@ public class RedemptionRollbackGift {
   public RedemptionRollbackGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

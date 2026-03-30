@@ -138,6 +138,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -163,6 +164,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -188,6 +190,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody schema(ManagementProjectsCustomEventSchemasCreateResponseBodySchema schema) {
     
     this.schema = schema;
+    this.schemaIsSet = true;
     return this;
   }
 
@@ -213,6 +216,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -238,6 +242,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -263,6 +268,7 @@ public class ManagementProjectsCustomEventSchemasCreateResponseBody {
   public ManagementProjectsCustomEventSchemasCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

@@ -220,6 +220,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -245,6 +246,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -270,6 +272,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -295,6 +298,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -320,6 +324,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -345,6 +350,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher metadata(ListPublicationsItemValidSingleVoucherMetadata metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -370,6 +376,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -395,6 +402,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -420,6 +428,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher customer(CustomerWithSummaryLoyaltyReferrals customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -441,6 +450,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher vouchers(List<String> vouchers) {
     
     this.vouchers = vouchers;
+    this.vouchersIsSet = true;
     return this;
   }
 
@@ -474,6 +484,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher vouchersId(List<String> vouchersId) {
     
     this.vouchersId = vouchersId;
+    this.vouchersIdIsSet = true;
     return this;
   }
 
@@ -507,6 +518,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -532,6 +544,7 @@ public class ListPublicationsItemValidSingleVoucher {
   public ListPublicationsItemValidSingleVoucher voucher(ListPublicationsItemVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 

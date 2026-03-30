@@ -182,6 +182,7 @@ public class VoucherTransaction {
   public VoucherTransaction id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -207,6 +208,7 @@ public class VoucherTransaction {
   public VoucherTransaction sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -232,6 +234,7 @@ public class VoucherTransaction {
   public VoucherTransaction voucherId(String voucherId) {
     
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class VoucherTransaction {
   public VoucherTransaction campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -282,11 +286,12 @@ public class VoucherTransaction {
   public VoucherTransaction source(String source) {
     
     this.source = source;
+    this.sourceIsSet = true;
     return this;
   }
 
    /**
-   * The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null.
+   * The channel through which the transaction took place, whether through the API or the Dashboard. In case of a redemption, this value is null.
    * @return source
   **/
   @javax.annotation.Nullable
@@ -307,6 +312,7 @@ public class VoucherTransaction {
   public VoucherTransaction reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -332,6 +338,7 @@ public class VoucherTransaction {
   public VoucherTransaction relatedTransactionId(String relatedTransactionId) {
     
     this.relatedTransactionId = relatedTransactionId;
+    this.relatedTransactionIdIsSet = true;
     return this;
   }
 
@@ -357,6 +364,7 @@ public class VoucherTransaction {
   public VoucherTransaction createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -382,6 +390,7 @@ public class VoucherTransaction {
   public VoucherTransaction details(VoucherTransactionDetails details) {
     
     this.details = details;
+    this.detailsIsSet = true;
     return this;
   }
 
@@ -407,6 +416,7 @@ public class VoucherTransaction {
   public VoucherTransaction type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

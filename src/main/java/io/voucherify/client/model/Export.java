@@ -262,6 +262,7 @@ public class Export {
   public Export id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -287,6 +288,7 @@ public class Export {
   public Export _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -312,6 +314,7 @@ public class Export {
   public Export createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -337,6 +340,7 @@ public class Export {
   public Export status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -362,6 +366,7 @@ public class Export {
   public Export channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -387,6 +392,7 @@ public class Export {
   public Export result(ExportResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -412,6 +418,7 @@ public class Export {
   public Export userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 
@@ -437,6 +444,7 @@ public class Export {
   public Export exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -462,6 +470,7 @@ public class Export {
   public Export parameters(ExportParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

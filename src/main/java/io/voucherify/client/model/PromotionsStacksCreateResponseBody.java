@@ -151,6 +151,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -176,6 +177,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody tiers(PromotionsStacksCreateResponseBodyTiers tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 
@@ -201,6 +203,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -226,6 +229,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -251,6 +255,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -276,6 +281,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -301,6 +307,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -326,6 +333,7 @@ public class PromotionsStacksCreateResponseBody {
   public PromotionsStacksCreateResponseBody categories(List<PromotionStackBase> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

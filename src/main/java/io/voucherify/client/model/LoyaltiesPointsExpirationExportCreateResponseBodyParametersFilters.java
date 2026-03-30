@@ -78,6 +78,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters 
   public LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -99,6 +100,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters 
   public LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters voucherId(LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId voucherId) {
     
     this.voucherId = voucherId;
+    this.voucherIdIsSet = true;
     return this;
   }
 
@@ -124,6 +126,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters 
   public LoyaltiesPointsExpirationExportCreateResponseBodyParametersFilters campaignId(LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 

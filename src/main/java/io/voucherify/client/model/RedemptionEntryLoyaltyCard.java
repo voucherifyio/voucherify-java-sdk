@@ -66,6 +66,7 @@ public class RedemptionEntryLoyaltyCard {
   public RedemptionEntryLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

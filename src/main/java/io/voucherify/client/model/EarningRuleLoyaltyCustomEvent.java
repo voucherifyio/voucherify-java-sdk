@@ -67,6 +67,7 @@ public class EarningRuleLoyaltyCustomEvent {
   public EarningRuleLoyaltyCustomEvent metadata(EarningRuleLoyaltyCustomEventMetadata metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

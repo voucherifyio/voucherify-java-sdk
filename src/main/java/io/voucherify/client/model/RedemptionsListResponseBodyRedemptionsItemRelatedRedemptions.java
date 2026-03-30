@@ -75,6 +75,7 @@ public class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions {
   public RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions rollbacks(List<RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRollbacksItem> rollbacks) {
     
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions {
   public RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions redemptions(List<RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 

@@ -79,6 +79,7 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
   public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems quantity(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsQuantity quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
   public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems amount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsAmount amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems {
   public LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItems subtotalAmount(LoyaltiesEarningRulesUpdateRequestBodyLoyaltyOrderItemsSubtotalAmount subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 

@@ -276,6 +276,7 @@ public class RedemptionOrder {
   public RedemptionOrder id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -301,6 +302,7 @@ public class RedemptionOrder {
   public RedemptionOrder sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -326,6 +328,7 @@ public class RedemptionOrder {
   public RedemptionOrder status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -351,6 +354,7 @@ public class RedemptionOrder {
   public RedemptionOrder amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -376,6 +380,7 @@ public class RedemptionOrder {
   public RedemptionOrder initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -401,6 +406,7 @@ public class RedemptionOrder {
   public RedemptionOrder discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -426,6 +432,7 @@ public class RedemptionOrder {
   public RedemptionOrder itemsDiscountAmount(Integer itemsDiscountAmount) {
     
     this.itemsDiscountAmount = itemsDiscountAmount;
+    this.itemsDiscountAmountIsSet = true;
     return this;
   }
 
@@ -451,6 +458,7 @@ public class RedemptionOrder {
   public RedemptionOrder totalDiscountAmount(Integer totalDiscountAmount) {
     
     this.totalDiscountAmount = totalDiscountAmount;
+    this.totalDiscountAmountIsSet = true;
     return this;
   }
 
@@ -476,6 +484,7 @@ public class RedemptionOrder {
   public RedemptionOrder totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -501,6 +510,7 @@ public class RedemptionOrder {
   public RedemptionOrder appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -526,6 +536,7 @@ public class RedemptionOrder {
   public RedemptionOrder itemsAppliedDiscountAmount(Integer itemsAppliedDiscountAmount) {
     
     this.itemsAppliedDiscountAmount = itemsAppliedDiscountAmount;
+    this.itemsAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -551,6 +562,7 @@ public class RedemptionOrder {
   public RedemptionOrder totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
     
     this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
+    this.totalAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -576,6 +588,7 @@ public class RedemptionOrder {
   public RedemptionOrder metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -601,6 +614,7 @@ public class RedemptionOrder {
   public RedemptionOrder _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -626,6 +640,7 @@ public class RedemptionOrder {
   public RedemptionOrder createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -651,6 +666,7 @@ public class RedemptionOrder {
   public RedemptionOrder updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -676,6 +692,7 @@ public class RedemptionOrder {
   public RedemptionOrder customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -701,6 +718,7 @@ public class RedemptionOrder {
   public RedemptionOrder referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -726,6 +744,7 @@ public class RedemptionOrder {
   public RedemptionOrder customer(RedemptionOrderCustomer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 
@@ -751,6 +770,7 @@ public class RedemptionOrder {
   public RedemptionOrder referrer(RedemptionOrderReferrer referrer) {
     
     this.referrer = referrer;
+    this.referrerIsSet = true;
     return this;
   }
 
@@ -776,6 +796,7 @@ public class RedemptionOrder {
   public RedemptionOrder redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -809,6 +830,7 @@ public class RedemptionOrder {
   public RedemptionOrder items(List<RedemptionOrderItemsItem> items) {
     
     this.items = items;
+    this.itemsIsSet = true;
     return this;
   }
 

@@ -67,6 +67,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVo
   public LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherId conditions(LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class RedemptionsGetResponseBodyLoyaltyCard {
   public RedemptionsGetResponseBodyLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

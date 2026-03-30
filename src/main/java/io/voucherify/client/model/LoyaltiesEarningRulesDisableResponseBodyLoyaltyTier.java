@@ -66,6 +66,7 @@ public class LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier {
   public LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

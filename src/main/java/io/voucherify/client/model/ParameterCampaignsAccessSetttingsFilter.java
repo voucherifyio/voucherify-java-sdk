@@ -78,6 +78,7 @@ public class ParameterCampaignsAccessSetttingsFilter {
   public ParameterCampaignsAccessSetttingsFilter areasIds(List<String> areasIds) {
     
     this.areasIds = areasIds;
+    this.areasIdsIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class ParameterCampaignsAccessSetttingsFilter {
   public ParameterCampaignsAccessSetttingsFilter areaAllStoresIds(List<String> areaAllStoresIds) {
     
     this.areaAllStoresIds = areaAllStoresIds;
+    this.areaAllStoresIdsIsSet = true;
     return this;
   }
 
@@ -144,6 +146,7 @@ public class ParameterCampaignsAccessSetttingsFilter {
   public ParameterCampaignsAccessSetttingsFilter areaStoresIds(List<String> areaStoresIds) {
     
     this.areaStoresIds = areaStoresIds;
+    this.areaStoresIdsIsSet = true;
     return this;
   }
 

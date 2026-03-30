@@ -77,7 +77,7 @@ public class SimpleCampaign {
     private boolean campaignTypeIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -259,6 +259,7 @@ public class SimpleCampaign {
   public SimpleCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -284,6 +285,7 @@ public class SimpleCampaign {
   public SimpleCampaign name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -309,6 +311,7 @@ public class SimpleCampaign {
   public SimpleCampaign campaignType(String campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -334,11 +337,12 @@ public class SimpleCampaign {
   public SimpleCampaign type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
    * @return type
   **/
   @javax.annotation.Nullable
@@ -359,6 +363,7 @@ public class SimpleCampaign {
   public SimpleCampaign isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -384,6 +389,7 @@ public class SimpleCampaign {
   public SimpleCampaign voucher(SimpleCampaignVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -405,6 +411,7 @@ public class SimpleCampaign {
   public SimpleCampaign referralProgram(ReferralProgram referralProgram) {
     
     this.referralProgram = referralProgram;
+    
     return this;
   }
 
@@ -426,6 +433,7 @@ public class SimpleCampaign {
   public SimpleCampaign autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -451,6 +459,7 @@ public class SimpleCampaign {
   public SimpleCampaign joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -476,6 +485,7 @@ public class SimpleCampaign {
   public SimpleCampaign active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -501,6 +511,7 @@ public class SimpleCampaign {
   public SimpleCampaign categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -526,6 +537,7 @@ public class SimpleCampaign {
   public SimpleCampaign category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -551,6 +563,7 @@ public class SimpleCampaign {
   public SimpleCampaign categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -584,6 +597,7 @@ public class SimpleCampaign {
   public SimpleCampaign metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -609,6 +623,7 @@ public class SimpleCampaign {
   public SimpleCampaign startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -634,6 +649,7 @@ public class SimpleCampaign {
   public SimpleCampaign expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -659,6 +675,7 @@ public class SimpleCampaign {
   public SimpleCampaign description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -684,6 +701,7 @@ public class SimpleCampaign {
   public SimpleCampaign createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -709,6 +727,7 @@ public class SimpleCampaign {
   public SimpleCampaign updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -734,6 +753,7 @@ public class SimpleCampaign {
   public SimpleCampaign _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

@@ -246,6 +246,7 @@ public class InapplicableTo {
   public InapplicableTo _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -271,6 +272,7 @@ public class InapplicableTo {
   public InapplicableTo id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -296,6 +298,7 @@ public class InapplicableTo {
   public InapplicableTo sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -321,6 +324,7 @@ public class InapplicableTo {
   public InapplicableTo productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -346,6 +350,7 @@ public class InapplicableTo {
   public InapplicableTo productSourceId(String productSourceId) {
     
     this.productSourceId = productSourceId;
+    this.productSourceIdIsSet = true;
     return this;
   }
 
@@ -371,6 +376,7 @@ public class InapplicableTo {
   public InapplicableTo price(BigDecimal price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -396,11 +402,12 @@ public class InapplicableTo {
   public InapplicableTo priceFormula(BigDecimal priceFormula) {
     
     this.priceFormula = priceFormula;
+    this.priceFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Formula used to calculate the discounted price of an item.
+   * Formula used to dynamically calculate the discounted price of an item.
    * @return priceFormula
   **/
   @javax.annotation.Nullable
@@ -421,6 +428,7 @@ public class InapplicableTo {
   public InapplicableTo effect(ApplicableToEffect effect) {
     
     this.effect = effect;
+    
     return this;
   }
 
@@ -442,6 +450,7 @@ public class InapplicableTo {
   public InapplicableTo quantityLimit(Integer quantityLimit) {
     
     this.quantityLimit = quantityLimit;
+    this.quantityLimitIsSet = true;
     return this;
   }
 
@@ -467,6 +476,7 @@ public class InapplicableTo {
   public InapplicableTo aggregatedQuantityLimit(Integer aggregatedQuantityLimit) {
     
     this.aggregatedQuantityLimit = aggregatedQuantityLimit;
+    this.aggregatedQuantityLimitIsSet = true;
     return this;
   }
 
@@ -492,6 +502,7 @@ public class InapplicableTo {
   public InapplicableTo amountLimit(Integer amountLimit) {
     
     this.amountLimit = amountLimit;
+    this.amountLimitIsSet = true;
     return this;
   }
 
@@ -517,6 +528,7 @@ public class InapplicableTo {
   public InapplicableTo aggregatedAmountLimit(Integer aggregatedAmountLimit) {
     
     this.aggregatedAmountLimit = aggregatedAmountLimit;
+    this.aggregatedAmountLimitIsSet = true;
     return this;
   }
 
@@ -542,6 +554,7 @@ public class InapplicableTo {
   public InapplicableTo orderItemIndices(List<Integer> orderItemIndices) {
     
     this.orderItemIndices = orderItemIndices;
+    this.orderItemIndicesIsSet = true;
     return this;
   }
 
@@ -575,6 +588,7 @@ public class InapplicableTo {
   public InapplicableTo orderItemUnits(List<InapplicableToOrderItemUnitsItem> orderItemUnits) {
     
     this.orderItemUnits = orderItemUnits;
+    this.orderItemUnitsIsSet = true;
     return this;
   }
 
@@ -608,6 +622,7 @@ public class InapplicableTo {
   public InapplicableTo repeat(Integer repeat) {
     
     this.repeat = repeat;
+    this.repeatIsSet = true;
     return this;
   }
 
@@ -633,6 +648,7 @@ public class InapplicableTo {
   public InapplicableTo skipInitially(Integer skipInitially) {
     
     this.skipInitially = skipInitially;
+    this.skipInitiallyIsSet = true;
     return this;
   }
 
@@ -658,6 +674,7 @@ public class InapplicableTo {
   public InapplicableTo target(TargetEnum target) {
     
     this.target = target;
+    this.targetIsSet = true;
     return this;
   }
 

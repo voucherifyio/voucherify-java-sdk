@@ -69,6 +69,7 @@ public class RedemptionEntryRelatedRedemptionsRedemptionsItem {
   public RedemptionEntryRelatedRedemptionsRedemptionsItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -90,6 +91,7 @@ public class RedemptionEntryRelatedRedemptionsRedemptionsItem {
   public RedemptionEntryRelatedRedemptionsRedemptionsItem date(OffsetDateTime date) {
     
     this.date = date;
+    
     return this;
   }
 

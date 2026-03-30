@@ -137,6 +137,7 @@ public class Category {
   public Category id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -162,6 +163,7 @@ public class Category {
   public Category name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -187,6 +189,7 @@ public class Category {
   public Category hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -213,6 +216,7 @@ public class Category {
   public Category _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -238,6 +242,7 @@ public class Category {
   public Category createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -263,6 +268,7 @@ public class Category {
   public Category updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

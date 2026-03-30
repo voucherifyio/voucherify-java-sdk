@@ -67,6 +67,7 @@ public class CampaignsTransactionsExportCreateRequestBody {
   public CampaignsTransactionsExportCreateRequestBody parameters(CampaignsTransactionsExportCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

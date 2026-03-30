@@ -71,6 +71,7 @@ public class ManagementProjectsBrandingContact {
   public ManagementProjectsBrandingContact email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ManagementProjectsBrandingContact {
   public ManagementProjectsBrandingContact phone(String phone) {
     
     this.phone = phone;
+    this.phoneIsSet = true;
     return this;
   }
 

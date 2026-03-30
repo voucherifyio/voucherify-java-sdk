@@ -88,6 +88,7 @@ public class SimplePromotionStack {
   public SimplePromotionStack id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -113,6 +114,7 @@ public class SimplePromotionStack {
   public SimplePromotionStack name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -138,6 +140,7 @@ public class SimplePromotionStack {
   public SimplePromotionStack categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -163,6 +166,7 @@ public class SimplePromotionStack {
   public SimplePromotionStack campaign(SimplePromotionStackCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -188,6 +192,7 @@ public class SimplePromotionStack {
   public SimplePromotionStack tiers(SimplePromotionStackTiers tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 

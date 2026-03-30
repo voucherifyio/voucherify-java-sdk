@@ -81,6 +81,7 @@ public class TemplatesCampaignsCreateRequestBody {
   public TemplatesCampaignsCreateRequestBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class TemplatesCampaignsCreateRequestBody {
   public TemplatesCampaignsCreateRequestBody promotionTierId(String promotionTierId) {
     
     this.promotionTierId = promotionTierId;
+    this.promotionTierIdIsSet = true;
     return this;
   }
 
@@ -131,6 +133,7 @@ public class TemplatesCampaignsCreateRequestBody {
   public TemplatesCampaignsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -156,6 +159,7 @@ public class TemplatesCampaignsCreateRequestBody {
   public TemplatesCampaignsCreateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 

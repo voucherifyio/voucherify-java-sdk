@@ -104,6 +104,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -129,6 +130,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry rollbackId(String rollbackId) {
     
     this.rollbackId = rollbackId;
+    this.rollbackIdIsSet = true;
     return this;
   }
 
@@ -154,6 +156,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry rollbackDate(OffsetDateTime rollbackDate) {
     
     this.rollbackDate = rollbackDate;
+    this.rollbackDateIsSet = true;
     return this;
   }
 
@@ -179,6 +182,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry relatedObjectType(String relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -204,6 +208,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -229,6 +234,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry relatedObjectParentId(String relatedObjectParentId) {
     
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
     return this;
   }
 
@@ -254,6 +260,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry stacked(List<String> stacked) {
     
     this.stacked = stacked;
+    this.stackedIsSet = true;
     return this;
   }
 
@@ -287,6 +294,7 @@ public class OrderRedemptionsEntry {
   public OrderRedemptionsEntry rollbackStacked(List<String> rollbackStacked) {
     
     this.rollbackStacked = rollbackStacked;
+    this.rollbackStackedIsSet = true;
     return this;
   }
 

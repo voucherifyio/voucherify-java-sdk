@@ -289,6 +289,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -314,6 +315,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -339,6 +341,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -364,6 +367,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -389,6 +393,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody channel(ChannelEnum channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -414,6 +419,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -439,6 +445,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody parameters(CampaignsTransactionsExportCreateResponseBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 
@@ -464,6 +471,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody result(CampaignsTransactionsExportCreateResponseBodyResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -489,6 +497,7 @@ public class CampaignsTransactionsExportCreateResponseBody {
   public CampaignsTransactionsExportCreateResponseBody userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 

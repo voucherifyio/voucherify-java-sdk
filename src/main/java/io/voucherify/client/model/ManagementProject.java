@@ -272,6 +272,7 @@ public class ManagementProject {
   public ManagementProject id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -297,6 +298,7 @@ public class ManagementProject {
   public ManagementProject name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -322,6 +324,7 @@ public class ManagementProject {
   public ManagementProject description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -347,6 +350,7 @@ public class ManagementProject {
   public ManagementProject timezone(String timezone) {
     
     this.timezone = timezone;
+    this.timezoneIsSet = true;
     return this;
   }
 
@@ -372,6 +376,7 @@ public class ManagementProject {
   public ManagementProject currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -397,6 +402,7 @@ public class ManagementProject {
   public ManagementProject dialCode(String dialCode) {
     
     this.dialCode = dialCode;
+    this.dialCodeIsSet = true;
     return this;
   }
 
@@ -422,6 +428,7 @@ public class ManagementProject {
   public ManagementProject webhookVersion(WebhookVersionEnum webhookVersion) {
     
     this.webhookVersion = webhookVersion;
+    this.webhookVersionIsSet = true;
     return this;
   }
 
@@ -447,6 +454,7 @@ public class ManagementProject {
   public ManagementProject clientTrustedDomains(List<String> clientTrustedDomains) {
     
     this.clientTrustedDomains = clientTrustedDomains;
+    this.clientTrustedDomainsIsSet = true;
     return this;
   }
 
@@ -480,6 +488,7 @@ public class ManagementProject {
   public ManagementProject clientRedeemEnabled(Boolean clientRedeemEnabled) {
     
     this.clientRedeemEnabled = clientRedeemEnabled;
+    this.clientRedeemEnabledIsSet = true;
     return this;
   }
 
@@ -505,6 +514,7 @@ public class ManagementProject {
   public ManagementProject clientPublishEnabled(Boolean clientPublishEnabled) {
     
     this.clientPublishEnabled = clientPublishEnabled;
+    this.clientPublishEnabledIsSet = true;
     return this;
   }
 
@@ -530,6 +540,7 @@ public class ManagementProject {
   public ManagementProject clientListVouchersEnabled(Boolean clientListVouchersEnabled) {
     
     this.clientListVouchersEnabled = clientListVouchersEnabled;
+    this.clientListVouchersEnabledIsSet = true;
     return this;
   }
 
@@ -555,6 +566,7 @@ public class ManagementProject {
   public ManagementProject clientCreateCustomerEnabled(Boolean clientCreateCustomerEnabled) {
     
     this.clientCreateCustomerEnabled = clientCreateCustomerEnabled;
+    this.clientCreateCustomerEnabledIsSet = true;
     return this;
   }
 
@@ -580,6 +592,7 @@ public class ManagementProject {
   public ManagementProject clientLoyaltyEventsEnabled(Boolean clientLoyaltyEventsEnabled) {
     
     this.clientLoyaltyEventsEnabled = clientLoyaltyEventsEnabled;
+    this.clientLoyaltyEventsEnabledIsSet = true;
     return this;
   }
 
@@ -605,6 +618,7 @@ public class ManagementProject {
   public ManagementProject clientSetVoucherExpirationDateEnabled(Boolean clientSetVoucherExpirationDateEnabled) {
     
     this.clientSetVoucherExpirationDateEnabled = clientSetVoucherExpirationDateEnabled;
+    this.clientSetVoucherExpirationDateEnabledIsSet = true;
     return this;
   }
 
@@ -630,6 +644,7 @@ public class ManagementProject {
   public ManagementProject webhooksCalloutNotifications(ManagementProjectWebhooksCalloutNotifications webhooksCalloutNotifications) {
     
     this.webhooksCalloutNotifications = webhooksCalloutNotifications;
+    this.webhooksCalloutNotificationsIsSet = true;
     return this;
   }
 
@@ -655,6 +670,7 @@ public class ManagementProject {
   public ManagementProject apiUsageNotifications(ManagementProjectApiUsageNotifications apiUsageNotifications) {
     
     this.apiUsageNotifications = apiUsageNotifications;
+    this.apiUsageNotificationsIsSet = true;
     return this;
   }
 
@@ -680,6 +696,7 @@ public class ManagementProject {
   public ManagementProject clusterId(String clusterId) {
     
     this.clusterId = clusterId;
+    this.clusterIdIsSet = true;
     return this;
   }
 
@@ -705,6 +722,7 @@ public class ManagementProject {
   public ManagementProject caseSensitiveCodes(Boolean caseSensitiveCodes) {
     
     this.caseSensitiveCodes = caseSensitiveCodes;
+    this.caseSensitiveCodesIsSet = true;
     return this;
   }
 
@@ -730,6 +748,7 @@ public class ManagementProject {
   public ManagementProject apiVersion(ApiVersionEnum apiVersion) {
     
     this.apiVersion = apiVersion;
+    this.apiVersionIsSet = true;
     return this;
   }
 
@@ -755,6 +774,7 @@ public class ManagementProject {
   public ManagementProject isSandbox(Boolean isSandbox) {
     
     this.isSandbox = isSandbox;
+    this.isSandboxIsSet = true;
     return this;
   }
 
@@ -780,6 +800,7 @@ public class ManagementProject {
   public ManagementProject webhookToken(String webhookToken) {
     
     this.webhookToken = webhookToken;
+    this.webhookTokenIsSet = true;
     return this;
   }
 
@@ -805,6 +826,7 @@ public class ManagementProject {
   public ManagementProject defaultCodeConfig(ManagementProjectDefaultCodeConfig defaultCodeConfig) {
     
     this.defaultCodeConfig = defaultCodeConfig;
+    this.defaultCodeConfigIsSet = true;
     return this;
   }
 
@@ -830,6 +852,7 @@ public class ManagementProject {
   public ManagementProject limits(ManagementProjectLimits limits) {
     
     this.limits = limits;
+    this.limitsIsSet = true;
     return this;
   }
 

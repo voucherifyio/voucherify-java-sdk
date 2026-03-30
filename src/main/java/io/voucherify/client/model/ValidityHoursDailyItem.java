@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Defines the reccuring period(s) when the resource will be active.
+ * Defines the recurring period(s) when the resource will be active.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -131,6 +131,7 @@ public class ValidityHoursDailyItem {
   public ValidityHoursDailyItem startTime(String startTime) {
     
     this.startTime = startTime;
+    
     return this;
   }
 
@@ -152,6 +153,7 @@ public class ValidityHoursDailyItem {
   public ValidityHoursDailyItem daysOfWeek(List<DaysOfWeekEnum> daysOfWeek) {
     
     this.daysOfWeek = daysOfWeek;
+    
     return this;
   }
 
@@ -181,6 +183,7 @@ public class ValidityHoursDailyItem {
   public ValidityHoursDailyItem expirationTime(String expirationTime) {
     
     this.expirationTime = expirationTime;
+    
     return this;
   }
 

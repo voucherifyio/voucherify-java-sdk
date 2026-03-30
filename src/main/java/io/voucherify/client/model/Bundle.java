@@ -85,6 +85,7 @@ public class Bundle {
   public Bundle quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class Bundle {
   public Bundle limit(Integer limit) {
     
     this.limit = limit;
+    this.limitIsSet = true;
     return this;
   }
 
@@ -139,6 +141,7 @@ public class Bundle {
   public Bundle identified(List<BundleIdentifiedItem> identified) {
     
     this.identified = identified;
+    this.identifiedIsSet = true;
     return this;
   }
 
@@ -172,6 +175,7 @@ public class Bundle {
   public Bundle missing(List<BundleMissingItem> missing) {
     
     this.missing = missing;
+    this.missingIsSet = true;
     return this;
   }
 

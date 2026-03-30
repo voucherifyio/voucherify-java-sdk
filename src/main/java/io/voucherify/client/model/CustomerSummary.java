@@ -70,6 +70,7 @@ public class CustomerSummary {
   public CustomerSummary redemptions(CustomerSummaryRedemptions redemptions) {
     
     this.redemptions = redemptions;
+    
     return this;
   }
 
@@ -91,6 +92,7 @@ public class CustomerSummary {
   public CustomerSummary orders(CustomerSummaryOrders orders) {
     
     this.orders = orders;
+    
     return this;
   }
 

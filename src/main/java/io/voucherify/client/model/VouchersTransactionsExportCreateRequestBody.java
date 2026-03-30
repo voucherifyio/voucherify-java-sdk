@@ -65,6 +65,7 @@ public class VouchersTransactionsExportCreateRequestBody {
   public VouchersTransactionsExportCreateRequestBody parameters(VoucherTransactionsExportParameters parameters) {
     
     this.parameters = parameters;
+    
     return this;
   }
 

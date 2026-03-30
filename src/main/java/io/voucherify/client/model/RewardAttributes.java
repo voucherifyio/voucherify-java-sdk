@@ -71,6 +71,7 @@ public class RewardAttributes {
   public RewardAttributes imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RewardAttributes {
   public RewardAttributes description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 

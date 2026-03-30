@@ -23,7 +23,9 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -87,6 +89,11 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT)
   private Integer applicableRedeemablesPerCategoryLimit;
     private boolean applicableRedeemablesPerCategoryLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_APPLICABLE_REDEEMABLES_CATEGORY_LIMITS = "applicable_redeemables_category_limits";
+  @SerializedName(SERIALIZED_NAME_APPLICABLE_REDEEMABLES_CATEGORY_LIMITS)
+  private Map<String, Integer> applicableRedeemablesCategoryLimits;
+    private boolean applicableRedeemablesCategoryLimitsIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT = "applicable_exclusive_redeemables_limit";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT)
@@ -446,6 +453,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -471,6 +479,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody exclusiveCategories(List<String> exclusiveCategories) {
     
     this.exclusiveCategories = exclusiveCategories;
+    this.exclusiveCategoriesIsSet = true;
     return this;
   }
 
@@ -504,6 +513,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody jointCategories(List<String> jointCategories) {
     
     this.jointCategories = jointCategories;
+    this.jointCategoriesIsSet = true;
     return this;
   }
 
@@ -537,6 +547,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesLimit(Integer redeemablesLimit) {
     
     this.redeemablesLimit = redeemablesLimit;
+    this.redeemablesLimitIsSet = true;
     return this;
   }
 
@@ -564,6 +575,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody applicableRedeemablesLimit(Integer applicableRedeemablesLimit) {
     
     this.applicableRedeemablesLimit = applicableRedeemablesLimit;
+    this.applicableRedeemablesLimitIsSet = true;
     return this;
   }
 
@@ -591,6 +603,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody applicableRedeemablesPerCategoryLimit(Integer applicableRedeemablesPerCategoryLimit) {
     
     this.applicableRedeemablesPerCategoryLimit = applicableRedeemablesPerCategoryLimit;
+    this.applicableRedeemablesPerCategoryLimitIsSet = true;
     return this;
   }
 
@@ -615,9 +628,44 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   }
 
 
+  public ManagementProjectsStackingRulesGetResponseBody applicableRedeemablesCategoryLimits(Map<String, Integer> applicableRedeemablesCategoryLimits) {
+    
+    this.applicableRedeemablesCategoryLimits = applicableRedeemablesCategoryLimits;
+    this.applicableRedeemablesCategoryLimitsIsSet = true;
+    return this;
+  }
+
+  public ManagementProjectsStackingRulesGetResponseBody putApplicableRedeemablesCategoryLimitsItem(String key, Integer applicableRedeemablesCategoryLimitsItem) {
+    if (this.applicableRedeemablesCategoryLimits == null) {
+      this.applicableRedeemablesCategoryLimits = new HashMap<>();
+    }
+    this.applicableRedeemablesCategoryLimits.put(key, applicableRedeemablesCategoryLimitsItem);
+    return this;
+  }
+
+   /**
+   * Lists categories by category IDs (keys) and defines their limits (values) of applicable redeemables that belong to campaigns with that category.
+   * @return applicableRedeemablesCategoryLimits
+  **/
+  @javax.annotation.Nullable
+  public Map<String, Integer> getApplicableRedeemablesCategoryLimits() {
+    return applicableRedeemablesCategoryLimits;
+  }
+
+
+  public void setApplicableRedeemablesCategoryLimits(Map<String, Integer> applicableRedeemablesCategoryLimits) {
+    this.applicableRedeemablesCategoryLimits = applicableRedeemablesCategoryLimits;
+    this.applicableRedeemablesCategoryLimitsIsSet = true;
+  }
+  public boolean isApplicableRedeemablesCategoryLimitsSet() {
+    return applicableRedeemablesCategoryLimitsIsSet;
+  }
+
+
   public ManagementProjectsStackingRulesGetResponseBody applicableExclusiveRedeemablesLimit(Integer applicableExclusiveRedeemablesLimit) {
     
     this.applicableExclusiveRedeemablesLimit = applicableExclusiveRedeemablesLimit;
+    this.applicableExclusiveRedeemablesLimitIsSet = true;
     return this;
   }
 
@@ -645,6 +693,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody applicableExclusiveRedeemablesPerCategoryLimit(Integer applicableExclusiveRedeemablesPerCategoryLimit) {
     
     this.applicableExclusiveRedeemablesPerCategoryLimit = applicableExclusiveRedeemablesPerCategoryLimit;
+    this.applicableExclusiveRedeemablesPerCategoryLimitIsSet = true;
     return this;
   }
 
@@ -672,6 +721,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody discountCalculationMode(DiscountCalculationModeEnum discountCalculationMode) {
     
     this.discountCalculationMode = discountCalculationMode;
+    this.discountCalculationModeIsSet = true;
     return this;
   }
 
@@ -697,6 +747,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody initialAmountModeCategories(List<String> initialAmountModeCategories) {
     
     this.initialAmountModeCategories = initialAmountModeCategories;
+    this.initialAmountModeCategoriesIsSet = true;
     return this;
   }
 
@@ -730,6 +781,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody discountedAmountModeCategories(List<String> discountedAmountModeCategories) {
     
     this.discountedAmountModeCategories = discountedAmountModeCategories;
+    this.discountedAmountModeCategoriesIsSet = true;
     return this;
   }
 
@@ -763,6 +815,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesApplicationMode(RedeemablesApplicationModeEnum redeemablesApplicationMode) {
     
     this.redeemablesApplicationMode = redeemablesApplicationMode;
+    this.redeemablesApplicationModeIsSet = true;
     return this;
   }
 
@@ -788,6 +841,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesSortingRule(RedeemablesSortingRuleEnum redeemablesSortingRule) {
     
     this.redeemablesSortingRule = redeemablesSortingRule;
+    this.redeemablesSortingRuleIsSet = true;
     return this;
   }
 
@@ -813,6 +867,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesProductsApplicationMode(RedeemablesProductsApplicationModeEnum redeemablesProductsApplicationMode) {
     
     this.redeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+    this.redeemablesProductsApplicationModeIsSet = true;
     return this;
   }
 
@@ -838,6 +893,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesNoEffectRule(RedeemablesNoEffectRuleEnum redeemablesNoEffectRule) {
     
     this.redeemablesNoEffectRule = redeemablesNoEffectRule;
+    this.redeemablesNoEffectRuleIsSet = true;
     return this;
   }
 
@@ -863,6 +919,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody noEffectSkipCategories(List<String> noEffectSkipCategories) {
     
     this.noEffectSkipCategories = noEffectSkipCategories;
+    this.noEffectSkipCategoriesIsSet = true;
     return this;
   }
 
@@ -896,6 +953,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody noEffectRedeemAnywayCategories(List<String> noEffectRedeemAnywayCategories) {
     
     this.noEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+    this.noEffectRedeemAnywayCategoriesIsSet = true;
     return this;
   }
 
@@ -929,6 +987,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody redeemablesRollbackOrderMode(RedeemablesRollbackOrderModeEnum redeemablesRollbackOrderMode) {
     
     this.redeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
+    this.redeemablesRollbackOrderModeIsSet = true;
     return this;
   }
 
@@ -954,6 +1013,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -979,6 +1039,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
   public ManagementProjectsStackingRulesGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -1017,6 +1078,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
         Objects.equals(this.redeemablesLimit, managementProjectsStackingRulesGetResponseBody.redeemablesLimit) &&
         Objects.equals(this.applicableRedeemablesLimit, managementProjectsStackingRulesGetResponseBody.applicableRedeemablesLimit) &&
         Objects.equals(this.applicableRedeemablesPerCategoryLimit, managementProjectsStackingRulesGetResponseBody.applicableRedeemablesPerCategoryLimit) &&
+        Objects.equals(this.applicableRedeemablesCategoryLimits, managementProjectsStackingRulesGetResponseBody.applicableRedeemablesCategoryLimits) &&
         Objects.equals(this.applicableExclusiveRedeemablesLimit, managementProjectsStackingRulesGetResponseBody.applicableExclusiveRedeemablesLimit) &&
         Objects.equals(this.applicableExclusiveRedeemablesPerCategoryLimit, managementProjectsStackingRulesGetResponseBody.applicableExclusiveRedeemablesPerCategoryLimit) &&
         Objects.equals(this.discountCalculationMode, managementProjectsStackingRulesGetResponseBody.discountCalculationMode) &&
@@ -1039,7 +1101,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, noEffectSkipCategories, noEffectRedeemAnywayCategories, redeemablesRollbackOrderMode, createdAt, updatedAt);
+    return Objects.hash(id, exclusiveCategories, jointCategories, redeemablesLimit, applicableRedeemablesLimit, applicableRedeemablesPerCategoryLimit, applicableRedeemablesCategoryLimits, applicableExclusiveRedeemablesLimit, applicableExclusiveRedeemablesPerCategoryLimit, discountCalculationMode, initialAmountModeCategories, discountedAmountModeCategories, redeemablesApplicationMode, redeemablesSortingRule, redeemablesProductsApplicationMode, redeemablesNoEffectRule, noEffectSkipCategories, noEffectRedeemAnywayCategories, redeemablesRollbackOrderMode, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1059,6 +1121,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
     sb.append("    redeemablesLimit: ").append(toIndentedString(redeemablesLimit)).append("\n");
     sb.append("    applicableRedeemablesLimit: ").append(toIndentedString(applicableRedeemablesLimit)).append("\n");
     sb.append("    applicableRedeemablesPerCategoryLimit: ").append(toIndentedString(applicableRedeemablesPerCategoryLimit)).append("\n");
+    sb.append("    applicableRedeemablesCategoryLimits: ").append(toIndentedString(applicableRedeemablesCategoryLimits)).append("\n");
     sb.append("    applicableExclusiveRedeemablesLimit: ").append(toIndentedString(applicableExclusiveRedeemablesLimit)).append("\n");
     sb.append("    applicableExclusiveRedeemablesPerCategoryLimit: ").append(toIndentedString(applicableExclusiveRedeemablesPerCategoryLimit)).append("\n");
     sb.append("    discountCalculationMode: ").append(toIndentedString(discountCalculationMode)).append("\n");
@@ -1101,6 +1164,7 @@ public class ManagementProjectsStackingRulesGetResponseBody {
     openapiFields.add("redeemables_limit");
     openapiFields.add("applicable_redeemables_limit");
     openapiFields.add("applicable_redeemables_per_category_limit");
+    openapiFields.add("applicable_redeemables_category_limits");
     openapiFields.add("applicable_exclusive_redeemables_limit");
     openapiFields.add("applicable_exclusive_redeemables_per_category_limit");
     openapiFields.add("discount_calculation_mode");

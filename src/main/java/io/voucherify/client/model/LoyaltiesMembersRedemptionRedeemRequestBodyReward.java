@@ -71,6 +71,7 @@ public class LoyaltiesMembersRedemptionRedeemRequestBodyReward {
   public LoyaltiesMembersRedemptionRedeemRequestBodyReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltiesMembersRedemptionRedeemRequestBodyReward {
   public LoyaltiesMembersRedemptionRedeemRequestBodyReward points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

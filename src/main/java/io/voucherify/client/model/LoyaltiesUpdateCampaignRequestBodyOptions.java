@@ -66,6 +66,7 @@ public class LoyaltiesUpdateCampaignRequestBodyOptions {
   public LoyaltiesUpdateCampaignRequestBodyOptions recalculateTiers(Boolean recalculateTiers) {
     
     this.recalculateTiers = recalculateTiers;
+    this.recalculateTiersIsSet = true;
     return this;
   }
 

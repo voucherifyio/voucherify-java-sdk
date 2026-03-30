@@ -66,6 +66,7 @@ public class ValidationRulesCreateRequestBodyError {
   public ValidationRulesCreateRequestBodyError message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 

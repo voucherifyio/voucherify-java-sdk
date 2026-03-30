@@ -76,6 +76,7 @@ public class SimpleSku {
   public SimpleSku id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class SimpleSku {
   public SimpleSku sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class SimpleSku {
   public SimpleSku sku(String sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 

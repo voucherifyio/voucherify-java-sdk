@@ -67,6 +67,7 @@ public class LoyaltiesRewardsUpdateAssignmentRequestBodyParameters {
   public LoyaltiesRewardsUpdateAssignmentRequestBodyParameters loyalty(LoyaltiesRewardsUpdateAssignmentRequestBodyParametersLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 

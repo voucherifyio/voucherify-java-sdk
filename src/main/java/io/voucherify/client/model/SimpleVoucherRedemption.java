@@ -76,6 +76,7 @@ public class SimpleVoucherRedemption {
   public SimpleVoucherRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class SimpleVoucherRedemption {
   public SimpleVoucherRedemption redeemedQuantity(Integer redeemedQuantity) {
     
     this.redeemedQuantity = redeemedQuantity;
+    this.redeemedQuantityIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class SimpleVoucherRedemption {
   public SimpleVoucherRedemption redeemedPoints(Integer redeemedPoints) {
     
     this.redeemedPoints = redeemedPoints;
+    this.redeemedPointsIsSet = true;
     return this;
   }
 

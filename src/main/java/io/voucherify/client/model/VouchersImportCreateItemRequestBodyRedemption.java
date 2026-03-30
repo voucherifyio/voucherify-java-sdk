@@ -66,6 +66,7 @@ public class VouchersImportCreateItemRequestBodyRedemption {
   public VouchersImportCreateItemRequestBodyRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 

@@ -124,6 +124,7 @@ public class MappingPoints {
   public MappingPoints type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -149,6 +150,7 @@ public class MappingPoints {
   public MappingPoints multiplier(BigDecimal multiplier) {
     
     this.multiplier = multiplier;
+    this.multiplierIsSet = true;
     return this;
   }
 
@@ -174,6 +176,7 @@ public class MappingPoints {
   public MappingPoints points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

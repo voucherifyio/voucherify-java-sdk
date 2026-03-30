@@ -71,6 +71,7 @@ public class LoyaltyTierConfigPoints {
   public LoyaltyTierConfigPoints from(Integer from) {
     
     this.from = from;
+    this.fromIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltyTierConfigPoints {
   public LoyaltyTierConfigPoints to(Integer to) {
     
     this.to = to;
+    this.toIsSet = true;
     return this;
   }
 

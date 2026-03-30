@@ -129,6 +129,7 @@ public class LoyaltiesRewardsListAssignmentsResponseBody {
   public LoyaltiesRewardsListAssignmentsResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -154,6 +155,7 @@ public class LoyaltiesRewardsListAssignmentsResponseBody {
   public LoyaltiesRewardsListAssignmentsResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class LoyaltiesRewardsListAssignmentsResponseBody {
   public LoyaltiesRewardsListAssignmentsResponseBody data(List<RewardAssignment> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -212,6 +215,7 @@ public class LoyaltiesRewardsListAssignmentsResponseBody {
   public LoyaltiesRewardsListAssignmentsResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

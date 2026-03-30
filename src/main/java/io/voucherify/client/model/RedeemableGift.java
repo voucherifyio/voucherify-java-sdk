@@ -77,6 +77,7 @@ public class RedeemableGift {
   public RedeemableGift balance(BigDecimal balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -102,6 +103,7 @@ public class RedeemableGift {
   public RedeemableGift credits(BigDecimal credits) {
     
     this.credits = credits;
+    this.creditsIsSet = true;
     return this;
   }
 
@@ -127,6 +129,7 @@ public class RedeemableGift {
   public RedeemableGift lockedCredits(BigDecimal lockedCredits) {
     
     this.lockedCredits = lockedCredits;
+    this.lockedCreditsIsSet = true;
     return this;
   }
 

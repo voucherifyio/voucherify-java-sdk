@@ -66,6 +66,7 @@ public class LoyaltyCampaignVoucherRedemption {
   public LoyaltyCampaignVoucherRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 

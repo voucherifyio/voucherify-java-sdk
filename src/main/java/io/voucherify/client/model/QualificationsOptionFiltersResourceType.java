@@ -67,6 +67,7 @@ public class QualificationsOptionFiltersResourceType {
   public QualificationsOptionFiltersResourceType conditions(QualificationsOptionFiltersResourceTypeConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

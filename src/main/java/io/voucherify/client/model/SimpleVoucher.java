@@ -265,6 +265,7 @@ public class SimpleVoucher {
   public SimpleVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -290,6 +291,7 @@ public class SimpleVoucher {
   public SimpleVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -315,6 +317,7 @@ public class SimpleVoucher {
   public SimpleVoucher gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -336,6 +339,7 @@ public class SimpleVoucher {
   public SimpleVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -357,6 +361,7 @@ public class SimpleVoucher {
   public SimpleVoucher loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -378,6 +383,7 @@ public class SimpleVoucher {
   public SimpleVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -403,6 +409,7 @@ public class SimpleVoucher {
   public SimpleVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -428,6 +435,7 @@ public class SimpleVoucher {
   public SimpleVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -453,6 +461,7 @@ public class SimpleVoucher {
   public SimpleVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -478,6 +487,7 @@ public class SimpleVoucher {
   public SimpleVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -503,6 +513,7 @@ public class SimpleVoucher {
   public SimpleVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -528,6 +539,7 @@ public class SimpleVoucher {
   public SimpleVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -553,6 +565,7 @@ public class SimpleVoucher {
   public SimpleVoucher categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -586,6 +599,7 @@ public class SimpleVoucher {
   public SimpleVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -611,6 +625,7 @@ public class SimpleVoucher {
   public SimpleVoucher createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -636,6 +651,7 @@ public class SimpleVoucher {
   public SimpleVoucher updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -661,6 +677,7 @@ public class SimpleVoucher {
   public SimpleVoucher redemption(SimpleVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -686,6 +703,7 @@ public class SimpleVoucher {
   public SimpleVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -711,6 +729,7 @@ public class SimpleVoucher {
   public SimpleVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -736,6 +755,7 @@ public class SimpleVoucher {
   public SimpleVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -761,6 +781,7 @@ public class SimpleVoucher {
   public SimpleVoucher _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

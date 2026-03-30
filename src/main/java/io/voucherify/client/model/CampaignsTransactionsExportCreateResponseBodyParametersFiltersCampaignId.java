@@ -67,6 +67,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampa
   public CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampaignId conditions(CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampaignIdConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

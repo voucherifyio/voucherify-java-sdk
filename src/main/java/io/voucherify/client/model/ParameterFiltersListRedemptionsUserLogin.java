@@ -65,6 +65,7 @@ public class ParameterFiltersListRedemptionsUserLogin {
   public ParameterFiltersListRedemptionsUserLogin conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

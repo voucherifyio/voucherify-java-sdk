@@ -84,6 +84,7 @@ public class QualificationsOptionFiltersResourceTypeConditions {
   public QualificationsOptionFiltersResourceTypeConditions $is(List<ResourceTypes> $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class QualificationsOptionFiltersResourceTypeConditions {
   public QualificationsOptionFiltersResourceTypeConditions $isNot(List<ResourceTypes> $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -150,6 +152,7 @@ public class QualificationsOptionFiltersResourceTypeConditions {
   public QualificationsOptionFiltersResourceTypeConditions $in(List<ResourceTypes> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -183,6 +186,7 @@ public class QualificationsOptionFiltersResourceTypeConditions {
   public QualificationsOptionFiltersResourceTypeConditions $notIn(List<ResourceTypes> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 

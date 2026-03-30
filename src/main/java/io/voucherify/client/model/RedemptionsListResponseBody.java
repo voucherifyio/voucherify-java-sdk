@@ -84,6 +84,7 @@ public class RedemptionsListResponseBody {
   public RedemptionsListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class RedemptionsListResponseBody {
   public RedemptionsListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class RedemptionsListResponseBody {
   public RedemptionsListResponseBody redemptions(List<RedemptionsListResponseBodyRedemptionsItem> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class RedemptionsListResponseBody {
   public RedemptionsListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

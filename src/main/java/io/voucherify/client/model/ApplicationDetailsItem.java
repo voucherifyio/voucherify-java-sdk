@@ -88,6 +88,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem sourceIndex(Integer sourceIndex) {
     
     this.sourceIndex = sourceIndex;
+    
     return this;
   }
 
@@ -110,6 +111,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem sourceAppliedQuantity(Integer sourceAppliedQuantity) {
     
     this.sourceAppliedQuantity = sourceAppliedQuantity;
+    
     return this;
   }
 
@@ -132,6 +134,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem sourceAppliedQuantityAmount(Integer sourceAppliedQuantityAmount) {
     
     this.sourceAppliedQuantityAmount = sourceAppliedQuantityAmount;
+    
     return this;
   }
 
@@ -154,6 +157,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem targetIndex(Integer targetIndex) {
     
     this.targetIndex = targetIndex;
+    
     return this;
   }
 
@@ -175,6 +179,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem targetAppliedQuantity(Integer targetAppliedQuantity) {
     
     this.targetAppliedQuantity = targetAppliedQuantity;
+    
     return this;
   }
 
@@ -196,6 +201,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem targetAppliedQuantityAmount(Integer targetAppliedQuantityAmount) {
     
     this.targetAppliedQuantityAmount = targetAppliedQuantityAmount;
+    
     return this;
   }
 
@@ -217,6 +223,7 @@ public class ApplicationDetailsItem {
   public ApplicationDetailsItem targetAppliedDiscountAmount(Integer targetAppliedDiscountAmount) {
     
     this.targetAppliedDiscountAmount = targetAppliedDiscountAmount;
+    
     return this;
   }
 

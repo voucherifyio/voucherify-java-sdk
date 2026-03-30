@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsVoucherType {
   public ParameterFiltersListPublicationsVoucherType conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

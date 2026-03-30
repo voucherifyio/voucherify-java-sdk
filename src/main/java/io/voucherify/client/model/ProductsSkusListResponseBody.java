@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;v1/products/{productId}/skus&#x60;.
+ * Response body schema for **GET** &#x60;v1/products/{productId}/SKUs&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -84,6 +84,7 @@ public class ProductsSkusListResponseBody {
   public ProductsSkusListResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class ProductsSkusListResponseBody {
   public ProductsSkusListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class ProductsSkusListResponseBody {
   public ProductsSkusListResponseBody skus(List<Sku> skus) {
     
     this.skus = skus;
+    this.skusIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class ProductsSkusListResponseBody {
   public ProductsSkusListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

@@ -186,6 +186,7 @@ public class FiltersCondition {
   public FiltersCondition $in(Object $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -211,6 +212,7 @@ public class FiltersCondition {
   public FiltersCondition $notIn(Object $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -236,6 +238,7 @@ public class FiltersCondition {
   public FiltersCondition $is(Object $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -261,6 +264,7 @@ public class FiltersCondition {
   public FiltersCondition $isDaysAgo(Object $isDaysAgo) {
     
     this.$isDaysAgo = $isDaysAgo;
+    this.$isDaysAgoIsSet = true;
     return this;
   }
 
@@ -286,6 +290,7 @@ public class FiltersCondition {
   public FiltersCondition $isDaysInFuture(Object $isDaysInFuture) {
     
     this.$isDaysInFuture = $isDaysInFuture;
+    this.$isDaysInFutureIsSet = true;
     return this;
   }
 
@@ -311,6 +316,7 @@ public class FiltersCondition {
   public FiltersCondition $isNot(Object $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -336,6 +342,7 @@ public class FiltersCondition {
   public FiltersCondition $hasValue(Object $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -361,6 +368,7 @@ public class FiltersCondition {
   public FiltersCondition $isUnknown(Object $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -386,6 +394,7 @@ public class FiltersCondition {
   public FiltersCondition $contains(Object $contains) {
     
     this.$contains = $contains;
+    this.$containsIsSet = true;
     return this;
   }
 
@@ -411,6 +420,7 @@ public class FiltersCondition {
   public FiltersCondition $notContain(Object $notContain) {
     
     this.$notContain = $notContain;
+    this.$notContainIsSet = true;
     return this;
   }
 
@@ -436,6 +446,7 @@ public class FiltersCondition {
   public FiltersCondition $startsWith(Object $startsWith) {
     
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
     return this;
   }
 
@@ -461,6 +472,7 @@ public class FiltersCondition {
   public FiltersCondition $endsWith(Object $endsWith) {
     
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
     return this;
   }
 
@@ -486,6 +498,7 @@ public class FiltersCondition {
   public FiltersCondition $moreThan(Object $moreThan) {
     
     this.$moreThan = $moreThan;
+    this.$moreThanIsSet = true;
     return this;
   }
 
@@ -511,6 +524,7 @@ public class FiltersCondition {
   public FiltersCondition $lessThan(Object $lessThan) {
     
     this.$lessThan = $lessThan;
+    this.$lessThanIsSet = true;
     return this;
   }
 
@@ -536,6 +550,7 @@ public class FiltersCondition {
   public FiltersCondition $moreThanAgo(Object $moreThanAgo) {
     
     this.$moreThanAgo = $moreThanAgo;
+    this.$moreThanAgoIsSet = true;
     return this;
   }
 
@@ -561,6 +576,7 @@ public class FiltersCondition {
   public FiltersCondition $lessThanAgo(Object $lessThanAgo) {
     
     this.$lessThanAgo = $lessThanAgo;
+    this.$lessThanAgoIsSet = true;
     return this;
   }
 
@@ -586,6 +602,7 @@ public class FiltersCondition {
   public FiltersCondition $moreThanFuture(Object $moreThanFuture) {
     
     this.$moreThanFuture = $moreThanFuture;
+    this.$moreThanFutureIsSet = true;
     return this;
   }
 
@@ -611,6 +628,7 @@ public class FiltersCondition {
   public FiltersCondition $lessThanFuture(Object $lessThanFuture) {
     
     this.$lessThanFuture = $lessThanFuture;
+    this.$lessThanFutureIsSet = true;
     return this;
   }
 
@@ -636,6 +654,7 @@ public class FiltersCondition {
   public FiltersCondition $moreThanEqual(Object $moreThanEqual) {
     
     this.$moreThanEqual = $moreThanEqual;
+    this.$moreThanEqualIsSet = true;
     return this;
   }
 
@@ -661,6 +680,7 @@ public class FiltersCondition {
   public FiltersCondition $lessThanEqual(Object $lessThanEqual) {
     
     this.$lessThanEqual = $lessThanEqual;
+    this.$lessThanEqualIsSet = true;
     return this;
   }
 
@@ -686,6 +706,7 @@ public class FiltersCondition {
   public FiltersCondition $after(Object $after) {
     
     this.$after = $after;
+    this.$afterIsSet = true;
     return this;
   }
 
@@ -711,6 +732,7 @@ public class FiltersCondition {
   public FiltersCondition $before(Object $before) {
     
     this.$before = $before;
+    this.$beforeIsSet = true;
     return this;
   }
 
@@ -736,6 +758,7 @@ public class FiltersCondition {
   public FiltersCondition $count(Object $count) {
     
     this.$count = $count;
+    this.$countIsSet = true;
     return this;
   }
 
@@ -761,6 +784,7 @@ public class FiltersCondition {
   public FiltersCondition $countLess(Object $countLess) {
     
     this.$countLess = $countLess;
+    this.$countLessIsSet = true;
     return this;
   }
 
@@ -786,6 +810,7 @@ public class FiltersCondition {
   public FiltersCondition $countMore(Object $countMore) {
     
     this.$countMore = $countMore;
+    this.$countMoreIsSet = true;
     return this;
   }
 

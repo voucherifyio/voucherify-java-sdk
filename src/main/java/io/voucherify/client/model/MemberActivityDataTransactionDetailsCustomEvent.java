@@ -71,6 +71,7 @@ public class MemberActivityDataTransactionDetailsCustomEvent {
   public MemberActivityDataTransactionDetailsCustomEvent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class MemberActivityDataTransactionDetailsCustomEvent {
   public MemberActivityDataTransactionDetailsCustomEvent type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

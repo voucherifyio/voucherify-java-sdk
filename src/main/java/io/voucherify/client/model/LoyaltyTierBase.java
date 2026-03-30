@@ -85,6 +85,7 @@ public class LoyaltyTierBase {
   public LoyaltyTierBase name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -110,6 +111,7 @@ public class LoyaltyTierBase {
   public LoyaltyTierBase earningRules(Map<String, MappingPoints> earningRules) {
     
     this.earningRules = earningRules;
+    this.earningRulesIsSet = true;
     return this;
   }
 
@@ -143,6 +145,7 @@ public class LoyaltyTierBase {
   public LoyaltyTierBase rewards(Map<String, MappingPoints> rewards) {
     
     this.rewards = rewards;
+    this.rewardsIsSet = true;
     return this;
   }
 
@@ -176,6 +179,7 @@ public class LoyaltyTierBase {
   public LoyaltyTierBase points(LoyaltyTierBasePoints points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

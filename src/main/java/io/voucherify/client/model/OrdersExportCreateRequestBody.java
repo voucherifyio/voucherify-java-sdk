@@ -67,6 +67,7 @@ public class OrdersExportCreateRequestBody {
   public OrdersExportCreateRequestBody parameters(OrdersExportCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

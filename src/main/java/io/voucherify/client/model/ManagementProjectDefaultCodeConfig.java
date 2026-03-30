@@ -66,6 +66,7 @@ public class ManagementProjectDefaultCodeConfig {
   public ManagementProjectDefaultCodeConfig charset(String charset) {
     
     this.charset = charset;
+    this.charsetIsSet = true;
     return this;
   }
 

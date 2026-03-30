@@ -211,6 +211,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -236,6 +237,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -261,11 +263,12 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody stock(Integer stock) {
     
     this.stock = stock;
+    this.stockIsSet = true;
     return this;
   }
 
    /**
-   * Configurable for **material rewards**. The number of units of the product that you want to share as reward.
+   * Configurable for **material rewards**. The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic.
    * @return stock
   **/
   @javax.annotation.Nullable
@@ -286,6 +289,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody redeemed(Integer redeemed) {
     
     this.redeemed = redeemed;
+    this.redeemedIsSet = true;
     return this;
   }
 
@@ -311,6 +315,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody attributes(RewardsCreateResponseBodyAttributes attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -336,6 +341,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -361,6 +367,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -386,6 +393,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody parameters(RewardType parameters) {
     
     this.parameters = parameters;
+    
     return this;
   }
 
@@ -407,6 +415,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -432,6 +441,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -457,6 +467,7 @@ public class RewardsCreateResponseBody {
   public RewardsCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 

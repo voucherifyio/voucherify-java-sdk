@@ -326,6 +326,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -351,6 +352,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody rules(Object rules) {
     
     this.rules = rules;
+    
     return this;
   }
 
@@ -372,6 +374,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody bundleRules(Object bundleRules) {
     
     this.bundleRules = bundleRules;
+    
     return this;
   }
 
@@ -393,6 +396,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody error(ValidationRulesGetResponseBodyError error) {
     
     this.error = error;
+    this.errorIsSet = true;
     return this;
   }
 
@@ -418,6 +422,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody applicableTo(ValidationRulesGetResponseBodyApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
     return this;
   }
 
@@ -443,6 +448,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -468,6 +474,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody contextType(ContextTypeEnum contextType) {
     
     this.contextType = contextType;
+    this.contextTypeIsSet = true;
     return this;
   }
 
@@ -493,6 +500,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -518,6 +526,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -543,6 +552,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -568,6 +578,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody assignmentsCount(Integer assignmentsCount) {
     
     this.assignmentsCount = assignmentsCount;
+    this.assignmentsCountIsSet = true;
     return this;
   }
 
@@ -593,6 +604,7 @@ public class ValidationRulesGetResponseBody {
   public ValidationRulesGetResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

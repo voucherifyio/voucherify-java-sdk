@@ -65,6 +65,7 @@ public class ParameterFiltersListCampaignsUpdatedAt {
   public ParameterFiltersListCampaignsUpdatedAt conditions(FilterConditionsDateTime conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

@@ -85,6 +85,7 @@ public class RedeemableResult {
   public RedeemableResult discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -106,6 +107,7 @@ public class RedeemableResult {
   public RedeemableResult bundle(Bundle bundle) {
     
     this.bundle = bundle;
+    
     return this;
   }
 
@@ -127,6 +129,7 @@ public class RedeemableResult {
   public RedeemableResult gift(RedeemableGift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -148,6 +151,7 @@ public class RedeemableResult {
   public RedeemableResult loyaltyCard(RedeemableLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -169,6 +173,7 @@ public class RedeemableResult {
   public RedeemableResult error(Error error) {
     
     this.error = error;
+    
     return this;
   }
 

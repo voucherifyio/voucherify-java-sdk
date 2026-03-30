@@ -67,6 +67,7 @@ public class LoyaltyTierConfig {
   public LoyaltyTierConfig points(LoyaltyTierConfigPoints points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

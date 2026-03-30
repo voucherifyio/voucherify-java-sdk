@@ -188,6 +188,7 @@ public class QualificationsOption {
   public QualificationsOption limit(Integer limit) {
     
     this.limit = limit;
+    this.limitIsSet = true;
     return this;
   }
 
@@ -214,6 +215,7 @@ public class QualificationsOption {
   public QualificationsOption startingAfter(OffsetDateTime startingAfter) {
     
     this.startingAfter = startingAfter;
+    this.startingAfterIsSet = true;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class QualificationsOption {
   public QualificationsOption filters(QualificationsOptionFilters filters) {
     
     this.filters = filters;
+    this.filtersIsSet = true;
     return this;
   }
 
@@ -264,6 +267,7 @@ public class QualificationsOption {
   public QualificationsOption expand(List<ExpandEnum> expand) {
     
     this.expand = expand;
+    this.expandIsSet = true;
     return this;
   }
 
@@ -276,7 +280,7 @@ public class QualificationsOption {
   }
 
    /**
-   * The expand array lets you configure the parameters included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:---|:---| | [&#x60;\&quot;redeemable\&quot;&#x60;] | Returns the redeemables&#39;:&lt;br&gt;- metadata&lt;br&gt;- redeemable name,&lt;br&gt;- campaign name,&lt;br&gt;- campaign ID| | [&#x60;\&quot;category\&quot;&#x60;] | - Returns an expanded &#x60;categories&#x60; object, showing details about the category. | | [&#x60;\&quot;validation_rules\&quot;&#x60;] | - Returns an expanded &#x60;validation_rules&#x60; object, showing details about the validation rules. |
+   * The expand array lets you configure the parameters included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:---|:---| | [&#x60;\&quot;redeemable\&quot;&#x60;] | Returns the redeemables&#39;:&lt;br /&gt;- metadata&lt;br /&gt;- redeemable name,&lt;br /&gt;- campaign name,&lt;br /&gt;- campaign ID| | [&#x60;\&quot;category\&quot;&#x60;] | - Returns an expanded &#x60;categories&#x60; object, showing details about the category. | | [&#x60;\&quot;validation_rules\&quot;&#x60;] | - Returns an expanded &#x60;validation_rules&#x60; object, showing details about the validation rules. |
    * @return expand
   **/
   @javax.annotation.Nullable
@@ -297,6 +301,7 @@ public class QualificationsOption {
   public QualificationsOption sortingRule(SortingRuleEnum sortingRule) {
     
     this.sortingRule = sortingRule;
+    this.sortingRuleIsSet = true;
     return this;
   }
 

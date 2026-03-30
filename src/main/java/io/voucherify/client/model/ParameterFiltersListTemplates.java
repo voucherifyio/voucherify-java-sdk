@@ -84,6 +84,7 @@ public class ParameterFiltersListTemplates {
   public ParameterFiltersListTemplates junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -105,6 +106,7 @@ public class ParameterFiltersListTemplates {
   public ParameterFiltersListTemplates id(ParameterFiltersListTemplatesId id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -130,6 +132,7 @@ public class ParameterFiltersListTemplates {
   public ParameterFiltersListTemplates name(ParameterFiltersListTemplatesName name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -155,6 +158,7 @@ public class ParameterFiltersListTemplates {
   public ParameterFiltersListTemplates campaignType(ParameterFiltersListTemplatesCampaignType campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 

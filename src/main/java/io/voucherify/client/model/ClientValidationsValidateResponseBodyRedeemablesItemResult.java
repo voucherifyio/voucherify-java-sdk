@@ -93,6 +93,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult discount(ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -114,6 +115,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult bundle(Bundle bundle) {
     
     this.bundle = bundle;
+    
     return this;
   }
 
@@ -135,6 +137,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult gift(ClientValidationsValidateResponseBodyRedeemablesItemResultGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -160,6 +163,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult loyaltyCard(ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -185,6 +189,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult error(Error error) {
     
     this.error = error;
+    
     return this;
   }
 
@@ -206,6 +211,7 @@ public class ClientValidationsValidateResponseBodyRedeemablesItemResult {
   public ClientValidationsValidateResponseBodyRedeemablesItemResult details(ClientValidationsValidateResponseBodyRedeemablesItemResultDetails details) {
     
     this.details = details;
+    
     return this;
   }
 

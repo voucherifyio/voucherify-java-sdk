@@ -202,6 +202,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -227,6 +228,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -252,6 +254,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -277,6 +280,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable result(ValidationsRedeemableInapplicableResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -302,6 +306,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -327,6 +332,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable categories(List<CategoryWithStackingRulesType> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -360,6 +366,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable campaignName(String campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 
@@ -385,6 +392,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -410,6 +418,7 @@ public class ValidationsRedeemableInapplicable {
   public ValidationsRedeemableInapplicable name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

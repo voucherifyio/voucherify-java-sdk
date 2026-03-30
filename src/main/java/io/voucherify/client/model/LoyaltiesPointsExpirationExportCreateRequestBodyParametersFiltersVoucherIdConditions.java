@@ -83,6 +83,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVo
   public LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions $in(List<String> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVo
   public LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions $notIn(List<String> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -149,6 +151,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVo
   public LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions $is(String $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -174,6 +177,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVo
   public LoyaltiesPointsExpirationExportCreateRequestBodyParametersFiltersVoucherIdConditions $isNot(String $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 

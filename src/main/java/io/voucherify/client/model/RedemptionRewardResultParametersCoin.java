@@ -71,6 +71,7 @@ public class RedemptionRewardResultParametersCoin {
   public RedemptionRewardResultParametersCoin exchangeRatio(Integer exchangeRatio) {
     
     this.exchangeRatio = exchangeRatio;
+    this.exchangeRatioIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RedemptionRewardResultParametersCoin {
   public RedemptionRewardResultParametersCoin pointsRatio(Integer pointsRatio) {
     
     this.pointsRatio = pointsRatio;
+    this.pointsRatioIsSet = true;
     return this;
   }
 

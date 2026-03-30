@@ -113,6 +113,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -138,6 +139,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -163,6 +165,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -188,6 +191,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -213,6 +217,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -238,6 +243,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody phone(String phone) {
     
     this.phone = phone;
+    this.phoneIsSet = true;
     return this;
   }
 
@@ -263,6 +269,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody birthday(LocalDate birthday) {
     
     this.birthday = birthday;
+    this.birthdayIsSet = true;
     return this;
   }
 
@@ -288,6 +295,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody birthdate(LocalDate birthdate) {
     
     this.birthdate = birthdate;
+    this.birthdateIsSet = true;
     return this;
   }
 
@@ -313,6 +321,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody address(CustomersCreateRequestBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -338,6 +347,7 @@ public class CustomersCreateRequestBody {
   public CustomersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

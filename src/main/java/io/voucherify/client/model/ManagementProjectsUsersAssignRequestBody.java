@@ -76,6 +76,7 @@ public class ManagementProjectsUsersAssignRequestBody {
   public ManagementProjectsUsersAssignRequestBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class ManagementProjectsUsersAssignRequestBody {
   public ManagementProjectsUsersAssignRequestBody login(String login) {
     
     this.login = login;
+    this.loginIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class ManagementProjectsUsersAssignRequestBody {
   public ManagementProjectsUsersAssignRequestBody role(String role) {
     
     this.role = role;
+    this.roleIsSet = true;
     return this;
   }
 

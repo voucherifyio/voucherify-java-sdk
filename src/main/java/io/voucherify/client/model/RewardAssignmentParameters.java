@@ -67,6 +67,7 @@ public class RewardAssignmentParameters {
   public RewardAssignmentParameters loyalty(RewardAssignmentParametersLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 

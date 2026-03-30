@@ -5,7 +5,7 @@ All URIs are relative to *https://api.voucherify.io*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**getMetadataSchema**](MetadataSchemasApi.md#getMetadataSchema) | **GET** /v1/metadata-schemas/{resource} | Get Metadata Schema |
-| [**listMetadataSchemas**](MetadataSchemasApi.md#listMetadataSchemas) | **GET** /v1/metadata-schemas | List Metadata Schemas |
+| [**listMetadataSchemas**](MetadataSchemasApi.md#listMetadataSchemas) | **GET** /v1/metadata-schemas | List Metadata Schema Definitions |
 
 
 <a id="getMetadataSchema"></a>
@@ -14,7 +14,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Get Metadata Schema
 
-Retrieves a metadata schema per resource type. # Resource types ## Standard You can retrieve metadata schemas for the standard metadata schema definitions listed below. Add one of these types as the resource path parameter. - campaign - customer - earning_rule - loyalty_tier - order - order_item - product - promotion_tier - publication - redemption - reward - voucher ## Custom If you have defined a [custom metadata schema](https://support.voucherify.io/article/99-schema-validation-metadata#add-metadata), provide its name in the resource field to retrieve its details. 📘 Management API If you have Management API enabled, you can also use the Get Metadata Schemas endpoint to retrieve a metadata schema using its ID.
+Retrieves a metadata schema per resource type. # Resource types ## Standard You can retrieve metadata schemas for the standard metadata schema definitions listed below. Add one of these types as the resource path parameter. - campaign - customer - earning_rule - loyalty_tier - order - order_item - product - promotion_tier - publication - redemption - reward - voucher ## Custom If you have defined a [custom metadata schema](/prepare/metadata#add-metadata), provide its name in the resource field to retrieve its details. 📘 Management API If you have Management API enabled, you can also use the [Get Metadata Schemas](/api-reference/management/get-metadata-schema) endpoint to retrieve a metadata schema using its ID.
 
 ### Example
 ```java
@@ -81,9 +81,9 @@ public class Example {
 # **listMetadataSchemas**
 > MetadataSchemasListResponseBody listMetadataSchemas()
 
-List Metadata Schemas
+List Metadata Schema Definitions
 
-Retrieve metadata schema definitions. 📘 Management API If you have Management API enabled, you can also use the List Metadata Schemas endpoint to list all metadata schemas.
+Retrieve metadata schema definitions. 📘 Management API If you have Management API enabled, you can also use the [List Metadata Schemas](/api-reference/management/list-metadata-schemas) endpoint to list all metadata schemas.
 
 ### Example
 ```java

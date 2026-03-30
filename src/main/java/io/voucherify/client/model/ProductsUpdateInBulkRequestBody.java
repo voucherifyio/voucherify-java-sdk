@@ -93,6 +93,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -118,6 +119,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -143,6 +145,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -168,6 +171,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -201,6 +205,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -226,6 +231,7 @@ public class ProductsUpdateInBulkRequestBody {
   public ProductsUpdateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

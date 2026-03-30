@@ -65,6 +65,7 @@ public class RedemptionsGetResponseBodyPromotionTierAction {
   public RedemptionsGetResponseBodyPromotionTierAction discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

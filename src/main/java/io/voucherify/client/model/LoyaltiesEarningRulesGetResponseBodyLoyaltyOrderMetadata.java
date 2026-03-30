@@ -65,6 +65,11 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
   private Integer points;
     private boolean pointsIsSet = false;
 
+  public static final String SERIALIZED_NAME_POINTS_FORMULA = "points_formula";
+  @SerializedName(SERIALIZED_NAME_POINTS_FORMULA)
+  private String pointsFormula;
+    private boolean pointsFormulaIsSet = false;
+
   public static final String SERIALIZED_NAME_PROPERTY = "property";
   @SerializedName(SERIALIZED_NAME_PROPERTY)
   private String property;
@@ -76,6 +81,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
   public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata every(Integer every) {
     
     this.every = every;
+    this.everyIsSet = true;
     return this;
   }
 
@@ -101,6 +107,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
   public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -123,9 +130,36 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
   }
 
 
+  public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata pointsFormula(String pointsFormula) {
+    
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the rewarded points.
+   * @return pointsFormula
+  **/
+  @javax.annotation.Nullable
+  public String getPointsFormula() {
+    return pointsFormula;
+  }
+
+
+  public void setPointsFormula(String pointsFormula) {
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+  }
+  public boolean isPointsFormulaSet() {
+    return pointsFormulaIsSet;
+  }
+
+
   public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata property(String property) {
     
     this.property = property;
+    this.propertyIsSet = true;
     return this;
   }
 
@@ -160,6 +194,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
     LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata loyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata = (LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata) o;
     return Objects.equals(this.every, loyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata.every) &&
         Objects.equals(this.points, loyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata.points) &&
+        Objects.equals(this.pointsFormula, loyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata.pointsFormula) &&
         Objects.equals(this.property, loyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata.property);
   }
 
@@ -169,7 +204,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(every, points, property);
+    return Objects.hash(every, points, pointsFormula, property);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -185,6 +220,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
     sb.append("class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {\n");
     sb.append("    every: ").append(toIndentedString(every)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    pointsFormula: ").append(toIndentedString(pointsFormula)).append("\n");
     sb.append("    property: ").append(toIndentedString(property)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -210,6 +246,7 @@ public class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderMetadata {
     openapiFields = new HashSet<String>();
     openapiFields.add("every");
     openapiFields.add("points");
+    openapiFields.add("points_formula");
     openapiFields.add("property");
 
     // a set of required properties/fields (JSON key names)

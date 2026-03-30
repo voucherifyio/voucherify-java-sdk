@@ -66,6 +66,7 @@ public class RedemptionEntryGift {
   public RedemptionEntryGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

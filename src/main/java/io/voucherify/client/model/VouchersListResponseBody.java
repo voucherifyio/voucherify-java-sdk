@@ -174,6 +174,7 @@ public class VouchersListResponseBody {
   public VouchersListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +200,7 @@ public class VouchersListResponseBody {
   public VouchersListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -224,6 +226,7 @@ public class VouchersListResponseBody {
   public VouchersListResponseBody vouchers(List<VoucherWithCategories> vouchers) {
     
     this.vouchers = vouchers;
+    this.vouchersIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class VouchersListResponseBody {
   public VouchersListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

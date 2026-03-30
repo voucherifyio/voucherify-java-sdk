@@ -88,6 +88,7 @@ public class EventsCreateRequestBody {
   public EventsCreateRequestBody event(String event) {
     
     this.event = event;
+    this.eventIsSet = true;
     return this;
   }
 
@@ -113,6 +114,7 @@ public class EventsCreateRequestBody {
   public EventsCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -134,6 +136,7 @@ public class EventsCreateRequestBody {
   public EventsCreateRequestBody referral(EventsCreateRequestBodyReferral referral) {
     
     this.referral = referral;
+    this.referralIsSet = true;
     return this;
   }
 
@@ -159,6 +162,7 @@ public class EventsCreateRequestBody {
   public EventsCreateRequestBody loyalty(EventsCreateRequestBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 
@@ -184,6 +188,7 @@ public class EventsCreateRequestBody {
   public EventsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

@@ -300,6 +300,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -325,6 +326,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody rules(Object rules) {
     
     this.rules = rules;
+    
     return this;
   }
 
@@ -346,6 +348,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody bundleRules(Object bundleRules) {
     
     this.bundleRules = bundleRules;
+    
     return this;
   }
 
@@ -367,6 +370,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody error(ValidationRulesUpdateRequestBodyError error) {
     
     this.error = error;
+    this.errorIsSet = true;
     return this;
   }
 
@@ -392,6 +396,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody applicableTo(ValidationRulesUpdateRequestBodyApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
     return this;
   }
 
@@ -417,6 +422,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -442,6 +448,7 @@ public class ValidationRulesUpdateRequestBody {
   public ValidationRulesUpdateRequestBody contextType(ContextTypeEnum contextType) {
     
     this.contextType = contextType;
+    this.contextTypeIsSet = true;
     return this;
   }
 

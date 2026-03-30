@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Lists all assignments of the campaign to areas and stores. For [GET List Campaigns](ref:list-campaigns), this is returned if the &#x60;expand&#x3D;access_settings_assignments&#x60; query parameter is passed in the request. This object is not returned for the [GET Campaign summary endpoint](ref:get-campaign-summary).  **NOTE**: This object is returned only if the Areas and Stores enterprise feature is enabled. Contact [Voucherify Sales](https://www.voucherify.io/contact-sales) to learn more.
+ * Lists all assignments of the campaign to areas and stores. For [GET List Campaigns](/api-reference/campaigns/list-campaigns), this is returned if the &#x60;expand&#x3D;access_settings_assignments&#x60; query parameter is passed in the request. This object is not returned for the [GET Campaign summary endpoint](/api-reference/campaigns/get-campaign-summary).  **NOTE**: This object is returned only if the Areas and Stores enterprise feature is enabled. Contact [Voucherify Sales](https://www.voucherify.io/contact-sales) to learn more.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -174,6 +174,7 @@ public class AccessSettingsCampaignAssignmentsList {
   public AccessSettingsCampaignAssignmentsList _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -199,6 +200,7 @@ public class AccessSettingsCampaignAssignmentsList {
   public AccessSettingsCampaignAssignmentsList dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -224,6 +226,7 @@ public class AccessSettingsCampaignAssignmentsList {
   public AccessSettingsCampaignAssignmentsList data(List<AreaStoreCampaignAssignment> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -257,6 +260,7 @@ public class AccessSettingsCampaignAssignmentsList {
   public AccessSettingsCampaignAssignmentsList total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

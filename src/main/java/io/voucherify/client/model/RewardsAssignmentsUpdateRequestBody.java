@@ -67,6 +67,7 @@ public class RewardsAssignmentsUpdateRequestBody {
   public RewardsAssignmentsUpdateRequestBody parameters(RewardsAssignmentsUpdateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

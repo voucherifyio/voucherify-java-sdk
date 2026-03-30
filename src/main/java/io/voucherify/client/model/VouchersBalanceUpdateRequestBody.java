@@ -76,6 +76,7 @@ public class VouchersBalanceUpdateRequestBody {
   public VouchersBalanceUpdateRequestBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class VouchersBalanceUpdateRequestBody {
   public VouchersBalanceUpdateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class VouchersBalanceUpdateRequestBody {
   public VouchersBalanceUpdateRequestBody reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 

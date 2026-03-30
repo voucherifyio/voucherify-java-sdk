@@ -72,6 +72,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher {
   public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 
@@ -93,6 +94,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher {
   public TemplatesCampaignsCampaignSetupCreateRequestBodyVoucher redemption(TemplatesCampaignsCampaignSetupCreateRequestBodyVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 

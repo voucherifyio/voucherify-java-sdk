@@ -165,6 +165,7 @@ public class ParameterFiltersListCampaignsIsReferralCodeConditions {
   public ParameterFiltersListCampaignsIsReferralCodeConditions $is(IsEnum $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -190,6 +191,7 @@ public class ParameterFiltersListCampaignsIsReferralCodeConditions {
   public ParameterFiltersListCampaignsIsReferralCodeConditions $isNot(IsNotEnum $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 

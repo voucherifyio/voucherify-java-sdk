@@ -72,6 +72,7 @@ public class MemberActivityDataRedemptionRewardParametersCoin {
   public MemberActivityDataRedemptionRewardParametersCoin exchangeRatio(BigDecimal exchangeRatio) {
     
     this.exchangeRatio = exchangeRatio;
+    this.exchangeRatioIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class MemberActivityDataRedemptionRewardParametersCoin {
   public MemberActivityDataRedemptionRewardParametersCoin pointsRatio(Integer pointsRatio) {
     
     this.pointsRatio = pointsRatio;
+    this.pointsRatioIsSet = true;
     return this;
   }
 

@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsIsReferralCode {
   public ParameterFiltersListPublicationsIsReferralCode conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

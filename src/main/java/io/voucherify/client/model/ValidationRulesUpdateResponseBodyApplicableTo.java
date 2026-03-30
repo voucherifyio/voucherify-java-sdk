@@ -79,6 +79,7 @@ public class ValidationRulesUpdateResponseBodyApplicableTo {
   public ValidationRulesUpdateResponseBodyApplicableTo excluded(List<ApplicableTo> excluded) {
     
     this.excluded = excluded;
+    this.excludedIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class ValidationRulesUpdateResponseBodyApplicableTo {
   public ValidationRulesUpdateResponseBodyApplicableTo included(List<ApplicableTo> included) {
     
     this.included = included;
+    this.includedIsSet = true;
     return this;
   }
 
@@ -145,6 +147,7 @@ public class ValidationRulesUpdateResponseBodyApplicableTo {
   public ValidationRulesUpdateResponseBodyApplicableTo includedAll(Boolean includedAll) {
     
     this.includedAll = includedAll;
+    this.includedAllIsSet = true;
     return this;
   }
 

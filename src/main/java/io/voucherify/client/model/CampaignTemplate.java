@@ -189,6 +189,7 @@ public class CampaignTemplate {
   public CampaignTemplate id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -214,6 +215,7 @@ public class CampaignTemplate {
   public CampaignTemplate name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class CampaignTemplate {
   public CampaignTemplate description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -264,6 +267,7 @@ public class CampaignTemplate {
   public CampaignTemplate campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -289,6 +293,7 @@ public class CampaignTemplate {
   public CampaignTemplate createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -314,6 +319,7 @@ public class CampaignTemplate {
   public CampaignTemplate _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -339,6 +345,7 @@ public class CampaignTemplate {
   public CampaignTemplate updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

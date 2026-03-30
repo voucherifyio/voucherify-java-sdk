@@ -92,6 +92,7 @@ public class CodeConfig {
   public CodeConfig length(BigDecimal length) {
     
     this.length = length;
+    this.lengthIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class CodeConfig {
   public CodeConfig charset(String charset) {
     
     this.charset = charset;
+    this.charsetIsSet = true;
     return this;
   }
 
@@ -142,6 +144,7 @@ public class CodeConfig {
   public CodeConfig prefix(String prefix) {
     
     this.prefix = prefix;
+    this.prefixIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class CodeConfig {
   public CodeConfig postfix(String postfix) {
     
     this.postfix = postfix;
+    this.postfixIsSet = true;
     return this;
   }
 
@@ -192,6 +196,7 @@ public class CodeConfig {
   public CodeConfig pattern(String pattern) {
     
     this.pattern = pattern;
+    this.patternIsSet = true;
     return this;
   }
 
@@ -217,6 +222,7 @@ public class CodeConfig {
   public CodeConfig initialCount(Integer initialCount) {
     
     this.initialCount = initialCount;
+    this.initialCountIsSet = true;
     return this;
   }
 

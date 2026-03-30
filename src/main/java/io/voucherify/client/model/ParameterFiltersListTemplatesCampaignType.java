@@ -67,6 +67,7 @@ public class ParameterFiltersListTemplatesCampaignType {
   public ParameterFiltersListTemplatesCampaignType conditions(ParameterFiltersListTemplatesCampaignTypeConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

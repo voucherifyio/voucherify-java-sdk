@@ -2,7 +2,7 @@
 
 # ValidityHoursDailyItem
 
-Defines the reccuring period(s) when the resource will be active.
+Defines the recurring period(s) when the resource will be active.
 
 ## Properties
 

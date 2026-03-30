@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Validate Stackable Discounts
 
-Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
 
 ### Example
 ```java

@@ -76,6 +76,7 @@ public class ListPublicationsItemValidSingleVoucherMetadata {
   public ListPublicationsItemValidSingleVoucherMetadata sourceType(String sourceType) {
     
     this.sourceType = sourceType;
+    this.sourceTypeIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class ListPublicationsItemValidSingleVoucherMetadata {
   public ListPublicationsItemValidSingleVoucherMetadata sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class ListPublicationsItemValidSingleVoucherMetadata {
   public ListPublicationsItemValidSingleVoucherMetadata distributionId(String distributionId) {
     
     this.distributionId = distributionId;
+    this.distributionIdIsSet = true;
     return this;
   }
 

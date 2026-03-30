@@ -65,6 +65,7 @@ public class ParameterFiltersListCampaignsCampaigns {
   public ParameterFiltersListCampaignsCampaigns conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

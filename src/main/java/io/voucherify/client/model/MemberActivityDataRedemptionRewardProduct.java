@@ -164,6 +164,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -189,6 +190,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -214,6 +216,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -239,6 +242,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -264,6 +268,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct attributes(List<String> attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -297,6 +302,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -322,6 +328,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -347,6 +354,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -372,6 +380,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -397,6 +406,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -422,6 +432,7 @@ public class MemberActivityDataRedemptionRewardProduct {
   public MemberActivityDataRedemptionRewardProduct skus(SkusListForProduct skus) {
     
     this.skus = skus;
+    
     return this;
   }
 

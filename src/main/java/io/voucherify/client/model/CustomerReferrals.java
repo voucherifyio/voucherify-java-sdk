@@ -74,6 +74,7 @@ public class CustomerReferrals {
   public CustomerReferrals total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -99,6 +100,7 @@ public class CustomerReferrals {
   public CustomerReferrals campaigns(List<CustomerReferralsCampaignsItem> campaigns) {
     
     this.campaigns = campaigns;
+    this.campaignsIsSet = true;
     return this;
   }
 

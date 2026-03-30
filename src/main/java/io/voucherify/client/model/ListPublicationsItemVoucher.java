@@ -141,6 +141,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -166,6 +167,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -191,6 +193,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -216,6 +219,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -237,6 +241,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher loyaltyCard(Object loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -262,6 +267,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -283,6 +289,7 @@ public class ListPublicationsItemVoucher {
   public ListPublicationsItemVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 

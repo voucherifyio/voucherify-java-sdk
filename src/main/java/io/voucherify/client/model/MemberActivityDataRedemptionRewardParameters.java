@@ -79,6 +79,7 @@ public class MemberActivityDataRedemptionRewardParameters {
   public MemberActivityDataRedemptionRewardParameters campaign(MemberActivityDataRedemptionRewardParametersCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class MemberActivityDataRedemptionRewardParameters {
   public MemberActivityDataRedemptionRewardParameters coin(MemberActivityDataRedemptionRewardParametersCoin coin) {
     
     this.coin = coin;
+    this.coinIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class MemberActivityDataRedemptionRewardParameters {
   public MemberActivityDataRedemptionRewardParameters product(MemberActivityDataRedemptionRewardParametersProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 

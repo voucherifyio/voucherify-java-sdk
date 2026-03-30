@@ -93,6 +93,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -118,6 +119,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -143,6 +145,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody redemption(CampaignsVouchersCreateRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -168,6 +171,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -193,6 +197,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -218,6 +223,7 @@ public class CampaignsVouchersCreateRequestBody {
   public CampaignsVouchersCreateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class CreatePublicationCampaign {
   public CreatePublicationCampaign name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class CreatePublicationCampaign {
   public CreatePublicationCampaign count(Integer count) {
     
     this.count = count;
+    this.countIsSet = true;
     return this;
   }
 

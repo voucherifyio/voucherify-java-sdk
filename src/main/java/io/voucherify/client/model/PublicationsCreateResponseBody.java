@@ -264,6 +264,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -289,6 +290,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -314,6 +316,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -339,6 +342,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -364,6 +368,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -389,6 +394,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -414,6 +420,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody channel(ChannelEnum channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -439,6 +446,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -464,6 +472,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -489,6 +498,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody customer(CustomerWithSummaryLoyaltyReferrals customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -510,6 +520,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody vouchersId(List<String> vouchersId) {
     
     this.vouchersId = vouchersId;
+    this.vouchersIdIsSet = true;
     return this;
   }
 
@@ -543,6 +554,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody voucher(Voucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -564,6 +576,7 @@ public class PublicationsCreateResponseBody {
   public PublicationsCreateResponseBody vouchers(List<String> vouchers) {
     
     this.vouchers = vouchers;
+    this.vouchersIsSet = true;
     return this;
   }
 

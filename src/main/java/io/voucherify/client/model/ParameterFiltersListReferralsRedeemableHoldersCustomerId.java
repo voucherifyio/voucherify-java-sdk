@@ -65,6 +65,7 @@ public class ParameterFiltersListReferralsRedeemableHoldersCustomerId {
   public ParameterFiltersListReferralsRedeemableHoldersCustomerId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

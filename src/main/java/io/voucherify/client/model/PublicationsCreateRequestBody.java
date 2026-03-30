@@ -91,6 +91,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody voucher(String voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -141,6 +143,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -162,6 +165,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -187,6 +191,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -212,6 +217,7 @@ public class PublicationsCreateRequestBody {
   public PublicationsCreateRequestBody campaign(CreatePublicationCampaign campaign) {
     
     this.campaign = campaign;
+    
     return this;
   }
 

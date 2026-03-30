@@ -191,6 +191,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParameters {
   public CampaignsTransactionsExportCreateResponseBodyParameters order(OrderEnum order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -216,6 +217,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParameters {
   public CampaignsTransactionsExportCreateResponseBodyParameters fields(List<FieldsEnum> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -249,6 +251,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParameters {
   public CampaignsTransactionsExportCreateResponseBodyParameters filters(CampaignsTransactionsExportCreateResponseBodyParametersFilters filters) {
     
     this.filters = filters;
+    this.filtersIsSet = true;
     return this;
   }
 

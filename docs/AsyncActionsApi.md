@@ -146,5 +146,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of all scheduled asynchronous actions and detailed information for each scheduled action. Note that a status &#x60;DONE&#x60;doesn&#39;t include the result of the completed action. If you need more information about the result, use the ID of the respective async action to call the &lt;!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) --&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **200** | Returns a list of all scheduled asynchronous actions and detailed information for each scheduled action. Note that a status &#x60;DONE&#x60;doesn&#39;t include the result of the completed action. If you need more information about the result, use the ID of the respective async action to call the [Get Async Action](/api-reference/async-actions/get-async-action) endpoint. |  -  |
 

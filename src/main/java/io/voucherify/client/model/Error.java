@@ -102,6 +102,7 @@ public class Error {
   public Error code(Integer code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -127,6 +128,7 @@ public class Error {
   public Error key(String key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 
@@ -152,6 +154,7 @@ public class Error {
   public Error message(String message) {
     
     this.message = message;
+    this.messageIsSet = true;
     return this;
   }
 
@@ -177,6 +180,7 @@ public class Error {
   public Error details(String details) {
     
     this.details = details;
+    this.detailsIsSet = true;
     return this;
   }
 
@@ -202,6 +206,7 @@ public class Error {
   public Error requestId(String requestId) {
     
     this.requestId = requestId;
+    this.requestIdIsSet = true;
     return this;
   }
 
@@ -227,6 +232,7 @@ public class Error {
   public Error resourceId(String resourceId) {
     
     this.resourceId = resourceId;
+    this.resourceIdIsSet = true;
     return this;
   }
 
@@ -252,6 +258,7 @@ public class Error {
   public Error resourceType(String resourceType) {
     
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
     return this;
   }
 
@@ -277,6 +284,7 @@ public class Error {
   public Error error(ErrorError error) {
     
     this.error = error;
+    this.errorIsSet = true;
     return this;
   }
 

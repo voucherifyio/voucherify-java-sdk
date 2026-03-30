@@ -89,6 +89,7 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public LoyaltiesTiersCreateInBulkRequestBodyItem name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -114,6 +115,7 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public LoyaltiesTiersCreateInBulkRequestBodyItem earningRules(Map<String, MappingPoints> earningRules) {
     
     this.earningRules = earningRules;
+    this.earningRulesIsSet = true;
     return this;
   }
 
@@ -147,6 +149,7 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public LoyaltiesTiersCreateInBulkRequestBodyItem rewards(Map<String, MappingPoints> rewards) {
     
     this.rewards = rewards;
+    this.rewardsIsSet = true;
     return this;
   }
 
@@ -180,6 +183,7 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public LoyaltiesTiersCreateInBulkRequestBodyItem points(LoyaltyTierBasePoints points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -205,6 +209,7 @@ public class LoyaltiesTiersCreateInBulkRequestBodyItem {
   public LoyaltiesTiersCreateInBulkRequestBodyItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    
     return this;
   }
 

@@ -84,6 +84,7 @@ public class QualificationsOptionFiltersCampaignTypeConditions {
   public QualificationsOptionFiltersCampaignTypeConditions $is(List<ParameterCampaignType> $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class QualificationsOptionFiltersCampaignTypeConditions {
   public QualificationsOptionFiltersCampaignTypeConditions $isNot(List<ParameterCampaignType> $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -150,6 +152,7 @@ public class QualificationsOptionFiltersCampaignTypeConditions {
   public QualificationsOptionFiltersCampaignTypeConditions $in(List<ParameterCampaignType> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -183,6 +186,7 @@ public class QualificationsOptionFiltersCampaignTypeConditions {
   public QualificationsOptionFiltersCampaignTypeConditions $notIn(List<ParameterCampaignType> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 

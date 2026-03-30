@@ -189,6 +189,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -214,6 +215,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent groupId(String groupId) {
     
     this.groupId = groupId;
+    this.groupIdIsSet = true;
     return this;
   }
 
@@ -264,6 +267,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent entityId(String entityId) {
     
     this.entityId = entityId;
+    this.entityIdIsSet = true;
     return this;
   }
 
@@ -289,6 +293,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -314,6 +319,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent category(CategoryEnum category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -339,6 +345,7 @@ public class LoyaltyPendingPointsDetailsEvent {
   public LoyaltyPendingPointsDetailsEvent eventSource(EventSource eventSource) {
     
     this.eventSource = eventSource;
+    
     return this;
   }
 

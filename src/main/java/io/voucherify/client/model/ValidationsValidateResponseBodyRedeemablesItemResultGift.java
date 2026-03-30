@@ -71,6 +71,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultGift {
   public ValidationsValidateResponseBodyRedeemablesItemResultGift balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultGift {
   public ValidationsValidateResponseBodyRedeemablesItemResultGift credits(Integer credits) {
     
     this.credits = credits;
+    this.creditsIsSet = true;
     return this;
   }
 

@@ -67,6 +67,7 @@ public class ManagementProjectsCustomEventSchemasUpdateRequestBody {
   public ManagementProjectsCustomEventSchemasUpdateRequestBody schema(ManagementProjectsCustomEventSchemasUpdateRequestBodySchema schema) {
     
     this.schema = schema;
+    this.schemaIsSet = true;
     return this;
   }
 

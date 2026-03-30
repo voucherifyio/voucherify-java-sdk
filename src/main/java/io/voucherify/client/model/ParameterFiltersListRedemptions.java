@@ -126,6 +126,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions voucherCode(ParameterFiltersListRedemptionsVoucherCode voucherCode) {
     
     this.voucherCode = voucherCode;
+    this.voucherCodeIsSet = true;
     return this;
   }
 
@@ -151,6 +152,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions relatedObjectId(ParameterFiltersListRedemptionsRelatedObjectId relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -176,6 +178,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions relatedObjectParentId(ParameterFiltersListRedemptionsRelatedObjectParentId relatedObjectParentId) {
     
     this.relatedObjectParentId = relatedObjectParentId;
+    this.relatedObjectParentIdIsSet = true;
     return this;
   }
 
@@ -201,6 +204,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions parentRedemptionId(ParameterFiltersListRedemptionsParentRedemptionId parentRedemptionId) {
     
     this.parentRedemptionId = parentRedemptionId;
+    this.parentRedemptionIdIsSet = true;
     return this;
   }
 
@@ -226,6 +230,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions failureCode(ParameterFiltersListRedemptionsFailureCode failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -251,6 +256,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions result(ParameterFiltersListRedemptionsResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -276,6 +282,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions _object(ParameterFiltersListRedemptionsObject _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -301,6 +308,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions customerId(ParameterFiltersListRedemptionsCustomerId customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -326,6 +334,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions campaignName(ParameterFiltersListRedemptionsCampaignName campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 
@@ -351,6 +360,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions userLogin(ParameterFiltersListRedemptionsUserLogin userLogin) {
     
     this.userLogin = userLogin;
+    this.userLoginIsSet = true;
     return this;
   }
 
@@ -376,6 +386,7 @@ public class ParameterFiltersListRedemptions {
   public ParameterFiltersListRedemptions junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 

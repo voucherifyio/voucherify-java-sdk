@@ -65,6 +65,7 @@ public class ParameterFiltersListPublicationsResult {
   public ParameterFiltersListPublicationsResult conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

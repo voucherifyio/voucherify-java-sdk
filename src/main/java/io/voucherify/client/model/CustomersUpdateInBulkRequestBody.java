@@ -108,6 +108,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -133,6 +134,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -158,6 +160,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -183,6 +186,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -208,6 +212,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody phone(String phone) {
     
     this.phone = phone;
+    this.phoneIsSet = true;
     return this;
   }
 
@@ -233,6 +238,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody birthday(LocalDate birthday) {
     
     this.birthday = birthday;
+    this.birthdayIsSet = true;
     return this;
   }
 
@@ -258,6 +264,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody birthdate(LocalDate birthdate) {
     
     this.birthdate = birthdate;
+    this.birthdateIsSet = true;
     return this;
   }
 
@@ -283,6 +290,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody address(CustomersUpdateInBulkRequestBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -308,6 +316,7 @@ public class CustomersUpdateInBulkRequestBody {
   public CustomersUpdateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

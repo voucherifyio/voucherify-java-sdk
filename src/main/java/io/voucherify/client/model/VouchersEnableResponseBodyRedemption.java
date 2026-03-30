@@ -86,6 +86,7 @@ public class VouchersEnableResponseBodyRedemption {
   public VouchersEnableResponseBodyRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class VouchersEnableResponseBodyRedemption {
   public VouchersEnableResponseBodyRedemption redeemedQuantity(Integer redeemedQuantity) {
     
     this.redeemedQuantity = redeemedQuantity;
+    this.redeemedQuantityIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class VouchersEnableResponseBodyRedemption {
   public VouchersEnableResponseBodyRedemption redeemedPoints(Integer redeemedPoints) {
     
     this.redeemedPoints = redeemedPoints;
+    this.redeemedPointsIsSet = true;
     return this;
   }
 
@@ -161,6 +164,7 @@ public class VouchersEnableResponseBodyRedemption {
   public VouchersEnableResponseBodyRedemption _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -186,6 +190,7 @@ public class VouchersEnableResponseBodyRedemption {
   public VouchersEnableResponseBodyRedemption url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

@@ -136,6 +136,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -161,6 +162,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -186,6 +188,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody customer(SimpleCustomerRequiredObjectType customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -207,6 +210,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody referral(Object referral) {
     
     this.referral = referral;
+    this.referralIsSet = true;
     return this;
   }
 
@@ -232,6 +236,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody loyalty(Object loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 
@@ -257,6 +262,7 @@ public class EventsCreateResponseBody {
   public EventsCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

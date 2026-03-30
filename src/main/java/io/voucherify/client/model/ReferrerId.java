@@ -116,6 +116,7 @@ public class ReferrerId {
   public ReferrerId id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -141,6 +142,7 @@ public class ReferrerId {
   public ReferrerId _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

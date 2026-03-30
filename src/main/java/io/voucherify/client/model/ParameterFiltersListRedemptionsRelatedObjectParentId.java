@@ -65,6 +65,7 @@ public class ParameterFiltersListRedemptionsRelatedObjectParentId {
   public ParameterFiltersListRedemptionsRelatedObjectParentId conditions(FilterConditionsString conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

@@ -279,6 +279,7 @@ public class QualificationsOptionFiltersHolderRoleConditions {
   public QualificationsOptionFiltersHolderRoleConditions $is(List<IsEnum> $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -312,6 +313,7 @@ public class QualificationsOptionFiltersHolderRoleConditions {
   public QualificationsOptionFiltersHolderRoleConditions $isNot(List<IsNotEnum> $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -345,6 +347,7 @@ public class QualificationsOptionFiltersHolderRoleConditions {
   public QualificationsOptionFiltersHolderRoleConditions $in(List<InEnum> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -378,6 +381,7 @@ public class QualificationsOptionFiltersHolderRoleConditions {
   public QualificationsOptionFiltersHolderRoleConditions $notIn(List<NotInEnum> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 

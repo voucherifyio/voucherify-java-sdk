@@ -120,6 +120,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -141,6 +142,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications failureCode(ParameterFiltersListPublicationsFailureCode failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -166,6 +168,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications result(ParameterFiltersListPublicationsResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -191,6 +194,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications customerId(ParameterFiltersListPublicationsCustomerId customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -216,6 +220,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications campaignName(ParameterFiltersListPublicationsCampaignName campaignName) {
     
     this.campaignName = campaignName;
+    this.campaignNameIsSet = true;
     return this;
   }
 
@@ -241,6 +246,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications voucherType(ParameterFiltersListPublicationsVoucherType voucherType) {
     
     this.voucherType = voucherType;
+    this.voucherTypeIsSet = true;
     return this;
   }
 
@@ -266,6 +272,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications isReferralCode(ParameterFiltersListPublicationsIsReferralCode isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -291,6 +298,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications parentObjectId(ParameterFiltersListPublicationsParentObjectId parentObjectId) {
     
     this.parentObjectId = parentObjectId;
+    this.parentObjectIdIsSet = true;
     return this;
   }
 
@@ -316,6 +324,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications relatedObjectId(ParameterFiltersListPublicationsRelatedObjectId relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -341,6 +350,7 @@ public class ParameterFiltersListPublications {
   public ParameterFiltersListPublications sourceId(ParameterFiltersListPublicationsSourceId sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 

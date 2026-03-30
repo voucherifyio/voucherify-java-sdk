@@ -536,7 +536,7 @@ public class CategoriesApi {
 
     /**
      * Update Category
-     * Update category using the category ID.
+     * Update a category using the category ID.
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @param categoriesUpdateRequestBody Specify the details of the category that you would like to update. (optional)
      * @return CategoriesUpdateResponseBody
@@ -549,7 +549,7 @@ public class CategoriesApi {
 
     /**
      * Update Category
-     * Update category using the category ID.
+     * Update a category using the category ID.
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @param categoriesUpdateRequestBody Specify the details of the category that you would like to update. (optional)
      * @return ApiResponse&lt;CategoriesUpdateResponseBody&gt;
@@ -563,7 +563,7 @@ public class CategoriesApi {
 
     /**
      * Update Category (asynchronously)
-     * Update category using the category ID.
+     * Update a category using the category ID.
      * @param categoryId Unique category ID assigned by Voucherify. (required)
      * @param categoriesUpdateRequestBody Specify the details of the category that you would like to update. (optional)
      * @param _callback The callback to be executed when the API call finishes

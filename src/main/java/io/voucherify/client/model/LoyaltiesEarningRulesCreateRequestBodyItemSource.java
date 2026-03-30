@@ -66,6 +66,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemSource {
   public LoyaltiesEarningRulesCreateRequestBodyItemSource banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 

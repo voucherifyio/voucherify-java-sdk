@@ -71,6 +71,7 @@ public class TemplatesCampaignsUpdateRequestBody {
   public TemplatesCampaignsUpdateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class TemplatesCampaignsUpdateRequestBody {
   public TemplatesCampaignsUpdateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 

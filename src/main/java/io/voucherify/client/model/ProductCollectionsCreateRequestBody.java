@@ -59,11 +59,13 @@ import io.voucherify.client.JSON;
 
 public class ProductCollectionsCreateRequestBody {
   /**
-   * Show that the product collection is static (manually selected products).
+   * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    STATIC("STATIC");
+    STATIC("STATIC"),
+    
+    AUTO_UPDATE("AUTO_UPDATE");
 
     private String value;
 
@@ -105,7 +107,8 @@ public class ProductCollectionsCreateRequestBody {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type = TypeEnum.STATIC;
+  private TypeEnum type;
+    private boolean typeIsSet = false;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -128,11 +131,12 @@ public class ProductCollectionsCreateRequestBody {
   public ProductCollectionsCreateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Show that the product collection is static (manually selected products).
+   * Get type
    * @return type
   **/
   @javax.annotation.Nullable
@@ -143,12 +147,17 @@ public class ProductCollectionsCreateRequestBody {
 
   public void setType(TypeEnum type) {
     this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
   public ProductCollectionsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -174,6 +183,7 @@ public class ProductCollectionsCreateRequestBody {
   public ProductCollectionsCreateRequestBody products(List<ProductCollectionsCreateRequestBodyProductsItem> products) {
     
     this.products = products;
+    this.productsIsSet = true;
     return this;
   }
 
@@ -207,6 +217,7 @@ public class ProductCollectionsCreateRequestBody {
   public ProductCollectionsCreateRequestBody filter(Object filter) {
     
     this.filter = filter;
+    this.filterIsSet = true;
     return this;
   }
 

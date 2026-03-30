@@ -184,6 +184,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -209,6 +210,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -234,6 +236,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody data(List<TrashBinItem> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -267,6 +270,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -292,6 +296,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 
@@ -317,6 +322,7 @@ public class TrashBinListResponseBody {
   public TrashBinListResponseBody moreStartingAfter(String moreStartingAfter) {
     
     this.moreStartingAfter = moreStartingAfter;
+    this.moreStartingAfterIsSet = true;
     return this;
   }
 

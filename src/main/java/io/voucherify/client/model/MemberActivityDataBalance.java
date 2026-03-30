@@ -241,11 +241,12 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
    /**
-   * Get amount
+   * Credits added or subtracted on a gift card.
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -266,6 +267,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -291,6 +293,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -316,6 +319,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -341,6 +345,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -366,6 +371,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -391,6 +397,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance operationType(OperationTypeEnum operationType) {
     
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
     return this;
   }
 
@@ -416,6 +423,7 @@ public class MemberActivityDataBalance {
   public MemberActivityDataBalance relatedObject(MemberActivityDataBalanceRelatedObject relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 

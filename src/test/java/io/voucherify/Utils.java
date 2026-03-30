@@ -29,31 +29,39 @@ public class Utils {
 
     public static ApiClient getClient() {
         Properties properties = new Properties();
-        InputStream input = null;
-
-        try {
-            String dir = System.getProperty("user.dir");
-            input = new FileInputStream(dir + "/.env");
+        String dir = System.getProperty("user.dir");
+        try (InputStream input = new FileInputStream(dir + "/.env")) {
             properties.load(input);
         } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            System.out.println("[INFO] No .env file found, using environment variables");
         }
 
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath(properties.getProperty("VOUCHERIFY_HOST"));
-        defaultClient.setAuthentication("X-App-Id", properties.getProperty("X_APP_ID"));
-        defaultClient.setAuthentication("X-App-Token", properties.getProperty("X_APP_TOKEN"));
-        defaultClient.setAuthentication("X-Management-Id", properties.getProperty("X_MANAGEMENT_ID"));
-        defaultClient.setAuthentication("X-Management-Token", properties.getProperty("X_MANAGEMENT_TOKEN"));
+        String basePath = normalizeBasePath(getConfigValue("VOUCHERIFY_HOST", properties));
+        if (basePath != null && !basePath.isEmpty()) {
+            defaultClient.setBasePath(basePath);
+        }
+        defaultClient.setAuthentication("X-App-Id", getConfigValue("X_APP_ID", properties));
+        defaultClient.setAuthentication("X-App-Token", getConfigValue("X_APP_TOKEN", properties));
+        defaultClient.setAuthentication("X-Management-Id", getConfigValue("X_MANAGEMENT_ID", properties));
+        defaultClient.setAuthentication("X-Management-Token", getConfigValue("X_MANAGEMENT_TOKEN", properties));
 
         return defaultClient;
+    }
+
+    private static String normalizeBasePath(String basePath) {
+        if (basePath == null) {
+            return null;
+        }
+        return basePath.replaceAll("/+$", "");
+    }
+
+    private static String getConfigValue(String key, Properties properties) {
+        String envValue = System.getenv(key);
+        if (envValue != null && !envValue.isEmpty()) {
+            return envValue;
+        }
+
+        return properties.getProperty(key);
     }
 }

@@ -379,6 +379,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -404,6 +405,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -429,6 +431,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -454,6 +457,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -479,6 +483,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -504,6 +509,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -529,6 +535,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -554,6 +561,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -579,6 +587,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -604,6 +613,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -629,6 +639,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody session(LoyaltiesMembersRedemptionRedeemResponseBodySession session) {
     
     this.session = session;
+    this.sessionIsSet = true;
     return this;
   }
 
@@ -654,6 +665,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody relatedRedemptions(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
     return this;
   }
 
@@ -679,6 +691,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -704,6 +717,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -729,6 +743,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody order(LoyaltiesMembersRedemptionRedeemResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -754,6 +769,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody channel(LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -779,6 +795,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -800,6 +817,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -825,6 +843,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -850,6 +869,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody promotionTier(PromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    
     return this;
   }
 
@@ -871,6 +891,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody reward(RedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -892,6 +913,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody gift(LoyaltiesMembersRedemptionRedeemResponseBodyGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -917,6 +939,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody loyaltyCard(LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -942,6 +965,7 @@ public class LoyaltiesMembersRedemptionRedeemResponseBody {
   public LoyaltiesMembersRedemptionRedeemResponseBody voucher(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 

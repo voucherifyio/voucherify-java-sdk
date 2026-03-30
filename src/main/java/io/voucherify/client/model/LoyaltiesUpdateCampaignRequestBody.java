@@ -253,6 +253,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -278,6 +279,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -303,6 +305,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -324,6 +327,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -353,6 +357,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -374,6 +379,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -399,6 +405,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -424,6 +431,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -449,6 +457,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody unsetMetadataFields(List<String> unsetMetadataFields) {
     
     this.unsetMetadataFields = unsetMetadataFields;
+    this.unsetMetadataFieldsIsSet = true;
     return this;
   }
 
@@ -482,6 +491,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -507,6 +517,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody accessSettings(AccessSettings accessSettings) {
     
     this.accessSettings = accessSettings;
+    
     return this;
   }
 
@@ -528,6 +539,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -553,6 +565,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -578,6 +591,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -603,6 +617,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -628,6 +643,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody loyaltyTiersExpiration(LoyaltyTiersExpirationAll loyaltyTiersExpiration) {
     
     this.loyaltyTiersExpiration = loyaltyTiersExpiration;
+    
     return this;
   }
 
@@ -649,6 +665,7 @@ public class LoyaltiesUpdateCampaignRequestBody {
   public LoyaltiesUpdateCampaignRequestBody options(LoyaltiesUpdateCampaignRequestBodyOptions options) {
     
     this.options = options;
+    this.optionsIsSet = true;
     return this;
   }
 

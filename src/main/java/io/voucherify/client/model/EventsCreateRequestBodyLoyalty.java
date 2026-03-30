@@ -66,6 +66,7 @@ public class EventsCreateRequestBodyLoyalty {
   public EventsCreateRequestBodyLoyalty code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 

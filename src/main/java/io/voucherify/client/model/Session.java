@@ -184,6 +184,7 @@ public class Session {
   public Session key(String key) {
     
     this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 
@@ -209,6 +210,7 @@ public class Session {
   public Session type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -234,6 +236,7 @@ public class Session {
   public Session ttl(BigDecimal ttl) {
     
     this.ttl = ttl;
+    this.ttlIsSet = true;
     return this;
   }
 
@@ -259,6 +262,7 @@ public class Session {
   public Session ttlUnit(TtlUnitEnum ttlUnit) {
     
     this.ttlUnit = ttlUnit;
+    this.ttlUnitIsSet = true;
     return this;
   }
 

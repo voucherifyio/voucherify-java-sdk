@@ -225,6 +225,7 @@ public class MemberActivityData {
   public MemberActivityData customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -246,6 +247,7 @@ public class MemberActivityData {
   public MemberActivityData campaign(SimpleCampaign campaign) {
     
     this.campaign = campaign;
+    
     return this;
   }
 
@@ -267,6 +269,7 @@ public class MemberActivityData {
   public MemberActivityData loyaltyTierFrom(LoyaltyTier loyaltyTierFrom) {
     
     this.loyaltyTierFrom = loyaltyTierFrom;
+    
     return this;
   }
 
@@ -288,6 +291,7 @@ public class MemberActivityData {
   public MemberActivityData loyaltyTierTo(LoyaltyTier loyaltyTierTo) {
     
     this.loyaltyTierTo = loyaltyTierTo;
+    
     return this;
   }
 
@@ -309,6 +313,7 @@ public class MemberActivityData {
   public MemberActivityData createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -334,6 +339,7 @@ public class MemberActivityData {
   public MemberActivityData loyaltyTier(LoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    
     return this;
   }
 
@@ -355,6 +361,7 @@ public class MemberActivityData {
   public MemberActivityData expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -380,6 +387,7 @@ public class MemberActivityData {
   public MemberActivityData publication(ListPublicationsItemValidSingleVoucher publication) {
     
     this.publication = publication;
+    
     return this;
   }
 
@@ -401,6 +409,7 @@ public class MemberActivityData {
   public MemberActivityData order(MemberActivityDataOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -426,6 +435,7 @@ public class MemberActivityData {
   public MemberActivityData voucher(SimpleVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -447,6 +457,7 @@ public class MemberActivityData {
   public MemberActivityData holder(SimpleCustomer holder) {
     
     this.holder = holder;
+    
     return this;
   }
 
@@ -468,6 +479,7 @@ public class MemberActivityData {
   public MemberActivityData promotionTier(SimplePromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    
     return this;
   }
 
@@ -489,6 +501,7 @@ public class MemberActivityData {
   public MemberActivityData promotionStack(SimplePromotionStack promotionStack) {
     
     this.promotionStack = promotionStack;
+    
     return this;
   }
 
@@ -510,6 +523,7 @@ public class MemberActivityData {
   public MemberActivityData redemption(MemberActivityDataRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -535,6 +549,7 @@ public class MemberActivityData {
   public MemberActivityData redemptionRollback(SimpleRedemption redemptionRollback) {
     
     this.redemptionRollback = redemptionRollback;
+    
     return this;
   }
 
@@ -556,6 +571,7 @@ public class MemberActivityData {
   public MemberActivityData reward(SimpleRedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -577,6 +593,7 @@ public class MemberActivityData {
   public MemberActivityData referralTier(SimpleReferralTier referralTier) {
     
     this.referralTier = referralTier;
+    
     return this;
   }
 
@@ -598,6 +615,7 @@ public class MemberActivityData {
   public MemberActivityData balance(MemberActivityDataBalance balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -623,6 +641,7 @@ public class MemberActivityData {
   public MemberActivityData customEvent(CustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    
     return this;
   }
 
@@ -644,6 +663,7 @@ public class MemberActivityData {
   public MemberActivityData customerEvent(MemberActivityDataCustomerEvent customerEvent) {
     
     this.customerEvent = customerEvent;
+    this.customerEventIsSet = true;
     return this;
   }
 
@@ -669,6 +689,7 @@ public class MemberActivityData {
   public MemberActivityData earningRule(EarningRule earningRule) {
     
     this.earningRule = earningRule;
+    
     return this;
   }
 
@@ -690,6 +711,7 @@ public class MemberActivityData {
   public MemberActivityData event(SimpleEvent event) {
     
     this.event = event;
+    
     return this;
   }
 
@@ -711,6 +733,7 @@ public class MemberActivityData {
   public MemberActivityData rewardRedemption(Object rewardRedemption) {
     
     this.rewardRedemption = rewardRedemption;
+    this.rewardRedemptionIsSet = true;
     return this;
   }
 
@@ -736,6 +759,7 @@ public class MemberActivityData {
   public MemberActivityData rewardAssignment(RewardAssignment rewardAssignment) {
     
     this.rewardAssignment = rewardAssignment;
+    
     return this;
   }
 
@@ -757,6 +781,7 @@ public class MemberActivityData {
   public MemberActivityData source(String source) {
     
     this.source = source;
+    this.sourceIsSet = true;
     return this;
   }
 
@@ -782,6 +807,7 @@ public class MemberActivityData {
   public MemberActivityData transaction(MemberActivityDataTransaction transaction) {
     
     this.transaction = transaction;
+    this.transactionIsSet = true;
     return this;
   }
 
@@ -807,6 +833,7 @@ public class MemberActivityData {
   public MemberActivityData pendingPoints(LoyaltyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    
     return this;
   }
 
@@ -828,6 +855,7 @@ public class MemberActivityData {
   public MemberActivityData voucherPendingPointsBalance(VoucherBalance voucherPendingPointsBalance) {
     
     this.voucherPendingPointsBalance = voucherPendingPointsBalance;
+    
     return this;
   }
 
@@ -849,6 +877,7 @@ public class MemberActivityData {
   public MemberActivityData sourceVoucher(SimpleVoucher sourceVoucher) {
     
     this.sourceVoucher = sourceVoucher;
+    
     return this;
   }
 
@@ -870,6 +899,7 @@ public class MemberActivityData {
   public MemberActivityData destinationVoucher(SimpleVoucher destinationVoucher) {
     
     this.destinationVoucher = destinationVoucher;
+    
     return this;
   }
 
@@ -891,6 +921,7 @@ public class MemberActivityData {
   public MemberActivityData points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -916,6 +947,7 @@ public class MemberActivityData {
   public MemberActivityData buckets(List<LoyaltyPointsBucket> buckets) {
     
     this.buckets = buckets;
+    this.bucketsIsSet = true;
     return this;
   }
 

@@ -177,6 +177,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public LoyaltiesMembersPendingPointsBalanceResponseBody points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -202,6 +203,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public LoyaltiesMembersPendingPointsBalanceResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -227,6 +229,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public LoyaltiesMembersPendingPointsBalanceResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -252,6 +255,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public LoyaltiesMembersPendingPointsBalanceResponseBody relatedObject(LoyaltiesMembersPendingPointsBalanceResponseBodyRelatedObject relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -277,6 +281,7 @@ public class LoyaltiesMembersPendingPointsBalanceResponseBody {
   public LoyaltiesMembersPendingPointsBalanceResponseBody operationType(OperationTypeEnum operationType) {
     
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
     return this;
   }
 

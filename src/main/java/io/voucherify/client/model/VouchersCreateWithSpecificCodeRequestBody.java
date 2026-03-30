@@ -260,6 +260,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -285,6 +286,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -310,11 +312,12 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
    /**
-   * The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+   * The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -335,11 +338,12 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
    /**
-   * Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+   * Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
    * @return categoryId
   **/
   @javax.annotation.Nullable
@@ -360,6 +364,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -385,6 +390,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -410,6 +416,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -431,6 +438,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -460,6 +468,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -481,6 +490,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -506,6 +516,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -531,6 +542,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -556,6 +568,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
+    this.validationRulesIsSet = true;
     return this;
   }
 
@@ -589,6 +602,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody redemption(VouchersCreateWithSpecificCodeRequestBodyRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -614,6 +628,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -639,6 +654,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody loyaltyCard(SimpleLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -660,6 +676,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -681,6 +698,7 @@ public class VouchersCreateWithSpecificCodeRequestBody {
   public VouchersCreateWithSpecificCodeRequestBody discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

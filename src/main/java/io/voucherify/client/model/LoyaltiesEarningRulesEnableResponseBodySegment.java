@@ -66,6 +66,7 @@ public class LoyaltiesEarningRulesEnableResponseBodySegment {
   public LoyaltiesEarningRulesEnableResponseBodySegment id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

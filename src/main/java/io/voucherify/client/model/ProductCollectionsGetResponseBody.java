@@ -192,6 +192,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -217,6 +218,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -242,6 +244,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -267,6 +270,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody filter(Object filter) {
     
     this.filter = filter;
+    this.filterIsSet = true;
     return this;
   }
 
@@ -292,6 +296,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody products(List<ProductCollectionsGetResponseBodyProductsItem> products) {
     
     this.products = products;
+    this.productsIsSet = true;
     return this;
   }
 
@@ -325,6 +330,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -350,6 +356,7 @@ public class ProductCollectionsGetResponseBody {
   public ProductCollectionsGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

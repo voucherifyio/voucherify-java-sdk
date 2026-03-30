@@ -319,6 +319,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -344,6 +345,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -369,6 +371,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -394,6 +397,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -419,6 +423,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -444,6 +449,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -469,6 +475,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -494,6 +501,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -515,6 +523,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody gift(VouchersCreateResponseBodyGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -540,6 +549,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody loyaltyCard(VouchersCreateResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -565,6 +575,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -590,6 +601,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -615,6 +627,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -636,6 +649,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -665,6 +679,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -686,6 +701,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -711,6 +727,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -736,6 +753,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -761,6 +779,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -782,6 +801,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -807,6 +827,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -832,6 +853,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -857,6 +879,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -882,6 +905,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -907,6 +931,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -932,6 +957,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody publish(VouchersCreateResponseBodyPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -957,6 +983,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody redemption(VouchersCreateResponseBodyRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -982,6 +1009,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -1015,6 +1043,7 @@ public class VouchersCreateResponseBody {
   public VouchersCreateResponseBody validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 

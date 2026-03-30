@@ -128,6 +128,7 @@ public class VouchersCreateResponseBodyGift {
   public VouchersCreateResponseBodyGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -153,6 +154,7 @@ public class VouchersCreateResponseBodyGift {
   public VouchersCreateResponseBodyGift subtractedAmount(Integer subtractedAmount) {
     
     this.subtractedAmount = subtractedAmount;
+    this.subtractedAmountIsSet = true;
     return this;
   }
 
@@ -178,6 +180,7 @@ public class VouchersCreateResponseBodyGift {
   public VouchersCreateResponseBodyGift balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -203,6 +206,7 @@ public class VouchersCreateResponseBodyGift {
   public VouchersCreateResponseBodyGift effect(EffectEnum effect) {
     
     this.effect = effect;
+    this.effectIsSet = true;
     return this;
   }
 

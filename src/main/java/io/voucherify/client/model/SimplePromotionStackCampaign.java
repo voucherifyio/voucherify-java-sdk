@@ -66,6 +66,7 @@ public class SimplePromotionStackCampaign {
   public SimplePromotionStackCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

@@ -81,6 +81,7 @@ public class LoyaltiesTransferPoints {
   public LoyaltiesTransferPoints code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -106,6 +107,7 @@ public class LoyaltiesTransferPoints {
   public LoyaltiesTransferPoints points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -131,6 +133,7 @@ public class LoyaltiesTransferPoints {
   public LoyaltiesTransferPoints reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 
@@ -156,6 +159,7 @@ public class LoyaltiesTransferPoints {
   public LoyaltiesTransferPoints sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 

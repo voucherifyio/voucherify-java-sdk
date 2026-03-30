@@ -119,6 +119,7 @@ public class ProductCollectionsCreateRequestBodyProductsItem {
   public ProductCollectionsCreateRequestBodyProductsItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -140,6 +141,7 @@ public class ProductCollectionsCreateRequestBodyProductsItem {
   public ProductCollectionsCreateRequestBodyProductsItem productId(String productId) {
     
     this.productId = productId;
+    
     return this;
   }
 
@@ -161,6 +163,7 @@ public class ProductCollectionsCreateRequestBodyProductsItem {
   public ProductCollectionsCreateRequestBodyProductsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 

@@ -65,6 +65,7 @@ public class ParameterFiltersListCustomerRedeemablesHolderRole {
   public ParameterFiltersListCustomerRedeemablesHolderRole conditions(ParameterFiltersListCustomerRedeemablesHolderRoleConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

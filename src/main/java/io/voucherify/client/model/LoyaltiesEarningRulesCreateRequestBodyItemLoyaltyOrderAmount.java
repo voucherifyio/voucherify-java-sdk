@@ -65,12 +65,18 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
   private Integer points;
     private boolean pointsIsSet = false;
 
+  public static final String SERIALIZED_NAME_POINTS_FORMULA = "points_formula";
+  @SerializedName(SERIALIZED_NAME_POINTS_FORMULA)
+  private String pointsFormula;
+    private boolean pointsFormulaIsSet = false;
+
   public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount() {
   }
 
   public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount every(Integer every) {
     
     this.every = every;
+    this.everyIsSet = true;
     return this;
   }
 
@@ -96,6 +102,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
   public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -118,6 +125,32 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
   }
 
 
+  public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount pointsFormula(String pointsFormula) {
+    
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the rewarded points.
+   * @return pointsFormula
+  **/
+  @javax.annotation.Nullable
+  public String getPointsFormula() {
+    return pointsFormula;
+  }
+
+
+  public void setPointsFormula(String pointsFormula) {
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+  }
+  public boolean isPointsFormulaSet() {
+    return pointsFormulaIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -129,7 +162,8 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
     }
     LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount loyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount = (LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount) o;
     return Objects.equals(this.every, loyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount.every) &&
-        Objects.equals(this.points, loyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount.points);
+        Objects.equals(this.points, loyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount.points) &&
+        Objects.equals(this.pointsFormula, loyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount.pointsFormula);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -138,7 +172,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(every, points);
+    return Objects.hash(every, points, pointsFormula);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -154,6 +188,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
     sb.append("class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {\n");
     sb.append("    every: ").append(toIndentedString(every)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    pointsFormula: ").append(toIndentedString(pointsFormula)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,6 +213,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderAmount {
     openapiFields = new HashSet<String>();
     openapiFields.add("every");
     openapiFields.add("points");
+    openapiFields.add("points_formula");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -185,6 +185,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -210,6 +211,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -235,6 +237,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -260,6 +263,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -285,6 +289,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -310,6 +315,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -335,6 +341,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -360,6 +367,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -385,6 +393,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -406,6 +415,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -435,6 +445,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -456,6 +467,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -481,6 +493,7 @@ public class TemplatesCampaignsTierSetupCreateRequestBody {
   public TemplatesCampaignsTierSetupCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 

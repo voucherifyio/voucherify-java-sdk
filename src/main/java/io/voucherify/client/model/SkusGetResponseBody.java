@@ -167,6 +167,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -192,6 +193,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -217,6 +219,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody productId(String productId) {
     
     this.productId = productId;
+    this.productIdIsSet = true;
     return this;
   }
 
@@ -242,6 +245,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody sku(String sku) {
     
     this.sku = sku;
+    this.skuIsSet = true;
     return this;
   }
 
@@ -267,6 +271,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody price(Integer price) {
     
     this.price = price;
+    this.priceIsSet = true;
     return this;
   }
 
@@ -292,6 +297,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody currency(String currency) {
     
     this.currency = currency;
+    this.currencyIsSet = true;
     return this;
   }
 
@@ -317,6 +323,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody attributes(Object attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
@@ -342,6 +349,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody imageUrl(String imageUrl) {
     
     this.imageUrl = imageUrl;
+    this.imageUrlIsSet = true;
     return this;
   }
 
@@ -367,6 +375,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -392,6 +401,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -417,6 +427,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -442,6 +453,7 @@ public class SkusGetResponseBody {
   public SkusGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

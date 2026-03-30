@@ -258,6 +258,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount type(TypeEnum type) {
     
     this.type = type;
+    
     return this;
   }
 
@@ -279,6 +280,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount amountOff(BigDecimal amountOff) {
     
     this.amountOff = amountOff;
+    this.amountOffIsSet = true;
     return this;
   }
 
@@ -304,11 +306,12 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount amountOffFormula(String amountOffFormula) {
     
     this.amountOffFormula = amountOffFormula;
+    this.amountOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get amountOffFormula
+   * Formula used to dynamically calculate the discount.
    * @return amountOffFormula
   **/
   @javax.annotation.Nullable
@@ -329,6 +332,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount aggregatedAmountLimit(Integer aggregatedAmountLimit) {
     
     this.aggregatedAmountLimit = aggregatedAmountLimit;
+    this.aggregatedAmountLimitIsSet = true;
     return this;
   }
 
@@ -354,6 +358,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount effect(EffectEnum effect) {
     
     this.effect = effect;
+    
     return this;
   }
 
@@ -375,6 +380,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount isDynamic(Boolean isDynamic) {
     
     this.isDynamic = isDynamic;
+    this.isDynamicIsSet = true;
     return this;
   }
 
@@ -400,6 +406,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount unitOff(Integer unitOff) {
     
     this.unitOff = unitOff;
+    this.unitOffIsSet = true;
     return this;
   }
 
@@ -425,11 +432,12 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount unitOffFormula(String unitOffFormula) {
     
     this.unitOffFormula = unitOffFormula;
+    this.unitOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Formula used to calculate the number of units.
+   * Formula used to dynamically calculate the number of units.
    * @return unitOffFormula
   **/
   @javax.annotation.Nullable
@@ -450,6 +458,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount unitType(String unitType) {
     
     this.unitType = unitType;
+    this.unitTypeIsSet = true;
     return this;
   }
 
@@ -475,6 +484,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount product(ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct product) {
     
     this.product = product;
+    
     return this;
   }
 
@@ -496,6 +506,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount sku(SimpleSkuDiscountUnit sku) {
     
     this.sku = sku;
+    
     return this;
   }
 
@@ -517,6 +528,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount units(List<DiscountUnitMultipleOneUnit> units) {
     
     this.units = units;
+    this.unitsIsSet = true;
     return this;
   }
 
@@ -550,6 +562,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount percentOff(BigDecimal percentOff) {
     
     this.percentOff = percentOff;
+    this.percentOffIsSet = true;
     return this;
   }
 
@@ -575,11 +588,12 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount percentOffFormula(String percentOffFormula) {
     
     this.percentOffFormula = percentOffFormula;
+    this.percentOffFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get percentOffFormula
+   * Formula used to dynamically calculate the discount.
    * @return percentOffFormula
   **/
   @javax.annotation.Nullable
@@ -600,6 +614,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount amountLimit(BigDecimal amountLimit) {
     
     this.amountLimit = amountLimit;
+    this.amountLimitIsSet = true;
     return this;
   }
 
@@ -625,6 +640,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount fixedAmount(BigDecimal fixedAmount) {
     
     this.fixedAmount = fixedAmount;
+    this.fixedAmountIsSet = true;
     return this;
   }
 
@@ -650,11 +666,12 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDiscount {
   public ValidationsValidateResponseBodyRedeemablesItemResultDiscount fixedAmountFormula(String fixedAmountFormula) {
     
     this.fixedAmountFormula = fixedAmountFormula;
+    this.fixedAmountFormulaIsSet = true;
     return this;
   }
 
    /**
-   * Get fixedAmountFormula
+   * Formula used to dynamically calculate the discount.
    * @return fixedAmountFormula
   **/
   @javax.annotation.Nullable

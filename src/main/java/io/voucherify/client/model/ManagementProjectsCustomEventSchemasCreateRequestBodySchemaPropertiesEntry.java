@@ -125,6 +125,7 @@ public class ManagementProjectsCustomEventSchemasCreateRequestBodySchemaProperti
   public ManagementProjectsCustomEventSchemasCreateRequestBodySchemaPropertiesEntry type(TypeEnum type) {
     
     this.type = type;
+    
     return this;
   }
 
@@ -146,6 +147,7 @@ public class ManagementProjectsCustomEventSchemasCreateRequestBodySchemaProperti
   public ManagementProjectsCustomEventSchemasCreateRequestBodySchemaPropertiesEntry optional(Boolean optional) {
     
     this.optional = optional;
+    
     return this;
   }
 
@@ -167,6 +169,7 @@ public class ManagementProjectsCustomEventSchemasCreateRequestBodySchemaProperti
   public ManagementProjectsCustomEventSchemasCreateRequestBodySchemaPropertiesEntry deleted(Boolean deleted) {
     
     this.deleted = deleted;
+    
     return this;
   }
 

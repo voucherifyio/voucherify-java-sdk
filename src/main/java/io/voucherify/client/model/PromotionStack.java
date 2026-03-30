@@ -156,6 +156,7 @@ public class PromotionStack {
   public PromotionStack name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -181,6 +182,7 @@ public class PromotionStack {
   public PromotionStack tiers(PromotionStackTiers tiers) {
     
     this.tiers = tiers;
+    this.tiersIsSet = true;
     return this;
   }
 
@@ -206,6 +208,7 @@ public class PromotionStack {
   public PromotionStack id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -231,6 +234,7 @@ public class PromotionStack {
   public PromotionStack createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -256,6 +260,7 @@ public class PromotionStack {
   public PromotionStack updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -281,6 +286,7 @@ public class PromotionStack {
   public PromotionStack campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -306,6 +312,7 @@ public class PromotionStack {
   public PromotionStack _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -331,6 +338,7 @@ public class PromotionStack {
   public PromotionStack categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -356,6 +364,7 @@ public class PromotionStack {
   public PromotionStack categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

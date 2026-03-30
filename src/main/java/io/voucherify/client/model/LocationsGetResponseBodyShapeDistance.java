@@ -71,6 +71,7 @@ public class LocationsGetResponseBodyShapeDistance {
   public LocationsGetResponseBodyShapeDistance center(String center) {
     
     this.center = center;
+    this.centerIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LocationsGetResponseBodyShapeDistance {
   public LocationsGetResponseBodyShapeDistance radius(String radius) {
     
     this.radius = radius;
+    this.radiusIsSet = true;
     return this;
   }
 

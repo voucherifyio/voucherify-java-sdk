@@ -234,6 +234,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -259,6 +260,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -284,6 +286,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -309,6 +312,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -334,6 +338,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody operationType(OperationTypeEnum operationType) {
     
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
     return this;
   }
 
@@ -359,6 +364,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -384,6 +390,7 @@ public class VouchersBalanceUpdateResponseBody {
   public VouchersBalanceUpdateResponseBody relatedObject(VouchersBalanceUpdateResponseBodyRelatedObject relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 

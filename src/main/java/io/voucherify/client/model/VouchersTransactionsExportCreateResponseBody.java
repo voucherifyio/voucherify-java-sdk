@@ -243,6 +243,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -268,6 +269,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -293,6 +295,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -318,6 +321,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -343,6 +347,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -368,6 +373,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody exportedObject(ExportedObjectEnum exportedObject) {
     
     this.exportedObject = exportedObject;
+    this.exportedObjectIsSet = true;
     return this;
   }
 
@@ -393,6 +399,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody parameters(VoucherTransactionsFilters parameters) {
     
     this.parameters = parameters;
+    
     return this;
   }
 
@@ -414,6 +421,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody result(VouchersTransactionsExportCreateResponseBodyResult result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -439,6 +447,7 @@ public class VouchersTransactionsExportCreateResponseBody {
   public VouchersTransactionsExportCreateResponseBody userId(String userId) {
     
     this.userId = userId;
+    this.userIdIsSet = true;
     return this;
   }
 

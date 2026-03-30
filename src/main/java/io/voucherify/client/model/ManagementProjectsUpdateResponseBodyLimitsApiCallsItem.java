@@ -68,6 +68,7 @@ public class ManagementProjectsUpdateResponseBodyLimitsApiCallsItem {
   public ManagementProjectsUpdateResponseBodyLimitsApiCallsItem value(Integer value) {
     
     this.value = value;
+    
     return this;
   }
 
@@ -89,6 +90,7 @@ public class ManagementProjectsUpdateResponseBodyLimitsApiCallsItem {
   public ManagementProjectsUpdateResponseBodyLimitsApiCallsItem duration(String duration) {
     
     this.duration = duration;
+    
     return this;
   }
 

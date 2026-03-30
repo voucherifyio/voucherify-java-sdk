@@ -71,6 +71,7 @@ public class RedemptionsRedeemRequestBodyRedeemablesItemReward {
   public RedemptionsRedeemRequestBodyRedeemablesItemReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class RedemptionsRedeemRequestBodyRedeemablesItemReward {
   public RedemptionsRedeemRequestBodyRedeemablesItemReward points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

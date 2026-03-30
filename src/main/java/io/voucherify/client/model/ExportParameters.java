@@ -388,12 +388,18 @@ public class ExportParameters {
   private Object filters;
     private boolean filtersIsSet = false;
 
+  public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaign_id";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  private String campaignId;
+    private boolean campaignIdIsSet = false;
+
   public ExportParameters() {
   }
 
   public ExportParameters order(OrderEnum order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -419,6 +425,7 @@ public class ExportParameters {
   public ExportParameters fields(List<FieldsEnum> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -452,6 +459,7 @@ public class ExportParameters {
   public ExportParameters filters(Object filters) {
     
     this.filters = filters;
+    this.filtersIsSet = true;
     return this;
   }
 
@@ -474,6 +482,32 @@ public class ExportParameters {
   }
 
 
+  public ExportParameters campaignId(String campaignId) {
+    
+    this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+    return this;
+  }
+
+   /**
+   * Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered.
+   * @return campaignId
+  **/
+  @javax.annotation.Nullable
+  public String getCampaignId() {
+    return campaignId;
+  }
+
+
+  public void setCampaignId(String campaignId) {
+    this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
+  }
+  public boolean isCampaignIdSet() {
+    return campaignIdIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -486,7 +520,8 @@ public class ExportParameters {
     ExportParameters exportParameters = (ExportParameters) o;
     return Objects.equals(this.order, exportParameters.order) &&
         Objects.equals(this.fields, exportParameters.fields) &&
-        Objects.equals(this.filters, exportParameters.filters);
+        Objects.equals(this.filters, exportParameters.filters) &&
+        Objects.equals(this.campaignId, exportParameters.campaignId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -495,7 +530,7 @@ public class ExportParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, fields, filters);
+    return Objects.hash(order, fields, filters, campaignId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -512,6 +547,7 @@ public class ExportParameters {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -537,6 +573,7 @@ public class ExportParameters {
     openapiFields.add("order");
     openapiFields.add("fields");
     openapiFields.add("filters");
+    openapiFields.add("campaign_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

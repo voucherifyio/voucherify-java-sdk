@@ -66,6 +66,7 @@ public class MemberActivityDataTransactionDetailsEarningRuleSource {
   public MemberActivityDataTransactionDetailsEarningRuleSource banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 

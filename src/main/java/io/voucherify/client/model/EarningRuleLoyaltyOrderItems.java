@@ -79,6 +79,7 @@ public class EarningRuleLoyaltyOrderItems {
   public EarningRuleLoyaltyOrderItems quantity(EarningRuleLoyaltyOrderItemsQuantity quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class EarningRuleLoyaltyOrderItems {
   public EarningRuleLoyaltyOrderItems amount(EarningRuleLoyaltyOrderItemsAmount amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class EarningRuleLoyaltyOrderItems {
   public EarningRuleLoyaltyOrderItems subtotalAmount(EarningRuleLoyaltyOrderItemsSubtotalAmount subtotalAmount) {
     
     this.subtotalAmount = subtotalAmount;
+    this.subtotalAmountIsSet = true;
     return this;
   }
 

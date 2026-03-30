@@ -66,6 +66,7 @@ public class PromotionsTiersGetResponseBodySummaryRedemptions {
   public PromotionsTiersGetResponseBodySummaryRedemptions totalRedeemed(Integer totalRedeemed) {
     
     this.totalRedeemed = totalRedeemed;
+    this.totalRedeemedIsSet = true;
     return this;
   }
 

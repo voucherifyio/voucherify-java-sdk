@@ -68,6 +68,7 @@ public class CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampa
   public CampaignsTransactionsExportCreateResponseBodyParametersFiltersCampaignIdConditions $in(List<String> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 

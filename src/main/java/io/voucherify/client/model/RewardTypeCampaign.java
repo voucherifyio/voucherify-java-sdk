@@ -125,6 +125,7 @@ public class RewardTypeCampaign {
   public RewardTypeCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -150,6 +151,7 @@ public class RewardTypeCampaign {
   public RewardTypeCampaign balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -175,6 +177,7 @@ public class RewardTypeCampaign {
   public RewardTypeCampaign type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

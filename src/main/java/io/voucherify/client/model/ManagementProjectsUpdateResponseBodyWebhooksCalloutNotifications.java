@@ -73,6 +73,7 @@ public class ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications {
   public ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications distributions(ManagementProjectsUpdateResponseBodyWebhooksCalloutNotificationsDistributions distributions) {
     
     this.distributions = distributions;
+    this.distributionsIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications {
   public ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications webhooks(ManagementProjectsUpdateResponseBodyWebhooksCalloutNotificationsWebhooks webhooks) {
     
     this.webhooks = webhooks;
+    this.webhooksIsSet = true;
     return this;
   }
 

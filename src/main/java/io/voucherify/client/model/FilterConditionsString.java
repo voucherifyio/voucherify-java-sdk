@@ -113,6 +113,7 @@ public class FilterConditionsString {
   public FilterConditionsString $in(List<String> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -146,6 +147,7 @@ public class FilterConditionsString {
   public FilterConditionsString $notIn(List<String> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -179,6 +181,7 @@ public class FilterConditionsString {
   public FilterConditionsString $is(String $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -204,6 +207,7 @@ public class FilterConditionsString {
   public FilterConditionsString $isNot(String $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -229,6 +233,7 @@ public class FilterConditionsString {
   public FilterConditionsString $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -254,6 +259,7 @@ public class FilterConditionsString {
   public FilterConditionsString $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -279,6 +285,7 @@ public class FilterConditionsString {
   public FilterConditionsString $startsWith(String $startsWith) {
     
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
     return this;
   }
 
@@ -304,6 +311,7 @@ public class FilterConditionsString {
   public FilterConditionsString $endsWith(String $endsWith) {
     
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
     return this;
   }
 
@@ -329,6 +337,7 @@ public class FilterConditionsString {
   public FilterConditionsString $contains(String $contains) {
     
     this.$contains = $contains;
+    this.$containsIsSet = true;
     return this;
   }
 
@@ -354,6 +363,7 @@ public class FilterConditionsString {
   public FilterConditionsString $notContain(String $notContain) {
     
     this.$notContain = $notContain;
+    this.$notContainIsSet = true;
     return this;
   }
 

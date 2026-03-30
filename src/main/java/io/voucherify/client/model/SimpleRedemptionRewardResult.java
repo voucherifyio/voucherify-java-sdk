@@ -226,6 +226,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult customer(SimpleCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -247,6 +248,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult assignmentId(String assignmentId) {
     
     this.assignmentId = assignmentId;
+    this.assignmentIdIsSet = true;
     return this;
   }
 
@@ -272,6 +274,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult voucher(SimpleVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -293,6 +296,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult product(SimpleProduct product) {
     
     this.product = product;
+    
     return this;
   }
 
@@ -314,6 +318,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult sku(SimpleSku sku) {
     
     this.sku = sku;
+    
     return this;
   }
 
@@ -335,6 +340,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult loyaltyTierId(String loyaltyTierId) {
     
     this.loyaltyTierId = loyaltyTierId;
+    this.loyaltyTierIdIsSet = true;
     return this;
   }
 
@@ -360,6 +366,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -385,6 +392,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -410,6 +418,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -435,6 +444,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -460,6 +470,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -485,6 +496,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult parameters(RewardType parameters) {
     
     this.parameters = parameters;
+    
     return this;
   }
 
@@ -506,6 +518,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -531,6 +544,7 @@ public class SimpleRedemptionRewardResult {
   public SimpleRedemptionRewardResult type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

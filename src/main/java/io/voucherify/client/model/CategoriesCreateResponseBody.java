@@ -132,6 +132,7 @@ public class CategoriesCreateResponseBody {
   public CategoriesCreateResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -157,6 +158,7 @@ public class CategoriesCreateResponseBody {
   public CategoriesCreateResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -182,6 +184,7 @@ public class CategoriesCreateResponseBody {
   public CategoriesCreateResponseBody hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -208,6 +211,7 @@ public class CategoriesCreateResponseBody {
   public CategoriesCreateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -233,6 +237,7 @@ public class CategoriesCreateResponseBody {
   public CategoriesCreateResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 

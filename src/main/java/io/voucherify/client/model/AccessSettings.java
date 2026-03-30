@@ -73,6 +73,7 @@ public class AccessSettings {
   public AccessSettings assign(AccessSettingsAssign assign) {
     
     this.assign = assign;
+    this.assignIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class AccessSettings {
   public AccessSettings unassign(AccessSettingsUnassign unassign) {
     
     this.unassign = unassign;
+    this.unassignIsSet = true;
     return this;
   }
 

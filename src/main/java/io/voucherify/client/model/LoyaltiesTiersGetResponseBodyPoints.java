@@ -71,6 +71,7 @@ public class LoyaltiesTiersGetResponseBodyPoints {
   public LoyaltiesTiersGetResponseBodyPoints from(Integer from) {
     
     this.from = from;
+    this.fromIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltiesTiersGetResponseBodyPoints {
   public LoyaltiesTiersGetResponseBodyPoints to(Integer to) {
     
     this.to = to;
+    this.toIsSet = true;
     return this;
   }
 

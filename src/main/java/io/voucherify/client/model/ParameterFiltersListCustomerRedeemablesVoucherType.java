@@ -65,6 +65,7 @@ public class ParameterFiltersListCustomerRedeemablesVoucherType {
   public ParameterFiltersListCustomerRedeemablesVoucherType conditions(ParameterFiltersListCampaignsVoucherTypeConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

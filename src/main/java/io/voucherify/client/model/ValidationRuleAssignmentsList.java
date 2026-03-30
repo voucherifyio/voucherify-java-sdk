@@ -84,6 +84,7 @@ public class ValidationRuleAssignmentsList {
   public ValidationRuleAssignmentsList _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -109,6 +110,7 @@ public class ValidationRuleAssignmentsList {
   public ValidationRuleAssignmentsList dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -134,6 +136,7 @@ public class ValidationRuleAssignmentsList {
   public ValidationRuleAssignmentsList data(List<ValidationRuleAssignment> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class ValidationRuleAssignmentsList {
   public ValidationRuleAssignmentsList total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 

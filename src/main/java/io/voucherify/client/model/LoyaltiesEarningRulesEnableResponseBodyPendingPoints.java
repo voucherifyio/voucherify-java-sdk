@@ -116,6 +116,7 @@ public class LoyaltiesEarningRulesEnableResponseBodyPendingPoints {
   public LoyaltiesEarningRulesEnableResponseBodyPendingPoints periodType(PeriodTypeEnum periodType) {
     
     this.periodType = periodType;
+    this.periodTypeIsSet = true;
     return this;
   }
 
@@ -141,6 +142,7 @@ public class LoyaltiesEarningRulesEnableResponseBodyPendingPoints {
   public LoyaltiesEarningRulesEnableResponseBodyPendingPoints periodValue(Integer periodValue) {
     
     this.periodValue = periodValue;
+    this.periodValueIsSet = true;
     return this;
   }
 

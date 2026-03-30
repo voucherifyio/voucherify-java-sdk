@@ -91,6 +91,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -141,6 +143,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -166,6 +169,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -191,6 +195,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -216,6 +221,7 @@ public class SimpleCustomerRequiredObjectType {
   public SimpleCustomerRequiredObjectType _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

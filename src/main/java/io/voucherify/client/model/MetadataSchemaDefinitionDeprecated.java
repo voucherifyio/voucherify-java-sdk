@@ -192,6 +192,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -217,6 +218,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated array(Boolean array) {
     
     this.array = array;
+    this.arrayIsSet = true;
     return this;
   }
 
@@ -242,6 +244,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated optional(Boolean optional) {
     
     this.optional = optional;
+    this.optionalIsSet = true;
     return this;
   }
 
@@ -267,6 +270,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated objectType(String objectType) {
     
     this.objectType = objectType;
+    this.objectTypeIsSet = true;
     return this;
   }
 
@@ -292,6 +296,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated eq(List<Object> eq) {
     
     this.eq = eq;
+    this.eqIsSet = true;
     return this;
   }
 
@@ -325,6 +330,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated ne(List<Object> ne) {
     
     this.ne = ne;
+    this.neIsSet = true;
     return this;
   }
 
@@ -358,6 +364,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated lt(Integer lt) {
     
     this.lt = lt;
+    this.ltIsSet = true;
     return this;
   }
 
@@ -383,6 +390,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated lte(Integer lte) {
     
     this.lte = lte;
+    this.lteIsSet = true;
     return this;
   }
 
@@ -408,6 +416,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated gt(Integer gt) {
     
     this.gt = gt;
+    this.gtIsSet = true;
     return this;
   }
 
@@ -433,6 +442,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated gte(Integer gte) {
     
     this.gte = gte;
+    this.gteIsSet = true;
     return this;
   }
 
@@ -458,6 +468,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated deleted(Boolean deleted) {
     
     this.deleted = deleted;
+    this.deletedIsSet = true;
     return this;
   }
 
@@ -483,6 +494,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated maxLength(Integer maxLength) {
     
     this.maxLength = maxLength;
+    this.maxLengthIsSet = true;
     return this;
   }
 
@@ -508,6 +520,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated minLength(Integer minLength) {
     
     this.minLength = minLength;
+    this.minLengthIsSet = true;
     return this;
   }
 
@@ -533,6 +546,7 @@ public class MetadataSchemaDefinitionDeprecated {
   public MetadataSchemaDefinitionDeprecated exactLength(Integer exactLength) {
     
     this.exactLength = exactLength;
+    this.exactLengthIsSet = true;
     return this;
   }
 

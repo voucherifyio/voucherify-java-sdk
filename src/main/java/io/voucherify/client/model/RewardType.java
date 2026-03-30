@@ -79,6 +79,7 @@ public class RewardType {
   public RewardType campaign(RewardTypeCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class RewardType {
   public RewardType coin(RewardTypeCoin coin) {
     
     this.coin = coin;
+    this.coinIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class RewardType {
   public RewardType product(RewardTypeProduct product) {
     
     this.product = product;
+    this.productIsSet = true;
     return this;
   }
 

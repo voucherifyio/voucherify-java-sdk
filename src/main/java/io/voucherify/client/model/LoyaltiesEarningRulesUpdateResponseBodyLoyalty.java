@@ -116,6 +116,11 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   private Integer points;
     private boolean pointsIsSet = false;
 
+  public static final String SERIALIZED_NAME_POINTS_FORMULA = "points_formula";
+  @SerializedName(SERIALIZED_NAME_POINTS_FORMULA)
+  private String pointsFormula;
+    private boolean pointsFormulaIsSet = false;
+
   /**
    * Gets or Sets calculationType
    */
@@ -206,6 +211,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -231,6 +237,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -253,9 +260,36 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   }
 
 
+  public LoyaltiesEarningRulesUpdateResponseBodyLoyalty pointsFormula(String pointsFormula) {
+    
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the rewarded points.
+   * @return pointsFormula
+  **/
+  @javax.annotation.Nullable
+  public String getPointsFormula() {
+    return pointsFormula;
+  }
+
+
+  public void setPointsFormula(String pointsFormula) {
+    this.pointsFormula = pointsFormula;
+    this.pointsFormulaIsSet = true;
+  }
+  public boolean isPointsFormulaSet() {
+    return pointsFormulaIsSet;
+  }
+
+
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty calculationType(CalculationTypeEnum calculationType) {
     
     this.calculationType = calculationType;
+    this.calculationTypeIsSet = true;
     return this;
   }
 
@@ -281,6 +315,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty order(LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -306,6 +341,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty orderItems(LoyaltiesEarningRulesUpdateResponseBodyLoyaltyOrderItems orderItems) {
     
     this.orderItems = orderItems;
+    this.orderItemsIsSet = true;
     return this;
   }
 
@@ -331,6 +367,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty customer(LoyaltiesEarningRulesUpdateResponseBodyLoyaltyCustomer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 
@@ -356,6 +393,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
   public LoyaltiesEarningRulesUpdateResponseBodyLoyalty customEvent(LoyaltiesEarningRulesUpdateResponseBodyLoyaltyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -390,6 +428,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
     LoyaltiesEarningRulesUpdateResponseBodyLoyalty loyaltiesEarningRulesUpdateResponseBodyLoyalty = (LoyaltiesEarningRulesUpdateResponseBodyLoyalty) o;
     return Objects.equals(this.type, loyaltiesEarningRulesUpdateResponseBodyLoyalty.type) &&
         Objects.equals(this.points, loyaltiesEarningRulesUpdateResponseBodyLoyalty.points) &&
+        Objects.equals(this.pointsFormula, loyaltiesEarningRulesUpdateResponseBodyLoyalty.pointsFormula) &&
         Objects.equals(this.calculationType, loyaltiesEarningRulesUpdateResponseBodyLoyalty.calculationType) &&
         Objects.equals(this.order, loyaltiesEarningRulesUpdateResponseBodyLoyalty.order) &&
         Objects.equals(this.orderItems, loyaltiesEarningRulesUpdateResponseBodyLoyalty.orderItems) &&
@@ -403,7 +442,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, points, calculationType, order, orderItems, customer, customEvent);
+    return Objects.hash(type, points, pointsFormula, calculationType, order, orderItems, customer, customEvent);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -419,6 +458,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
     sb.append("class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    pointsFormula: ").append(toIndentedString(pointsFormula)).append("\n");
     sb.append("    calculationType: ").append(toIndentedString(calculationType)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    orderItems: ").append(toIndentedString(orderItems)).append("\n");
@@ -448,6 +488,7 @@ public class LoyaltiesEarningRulesUpdateResponseBodyLoyalty {
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
     openapiFields.add("points");
+    openapiFields.add("points_formula");
     openapiFields.add("calculation_type");
     openapiFields.add("order");
     openapiFields.add("order_items");

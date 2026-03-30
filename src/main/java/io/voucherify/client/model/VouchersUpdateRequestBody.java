@@ -225,11 +225,12 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
    /**
-   * The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+   * The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
    * @return category
   **/
   @javax.annotation.Nullable
@@ -250,11 +251,12 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
    /**
-   * Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+   * Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
    * @return categoryId
   **/
   @javax.annotation.Nullable
@@ -275,6 +277,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -300,6 +303,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -325,6 +329,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -346,6 +351,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -375,6 +381,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -396,6 +403,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -421,6 +429,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -446,6 +455,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -471,6 +481,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -496,6 +507,7 @@ public class VouchersUpdateRequestBody {
   public VouchersUpdateRequestBody discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 

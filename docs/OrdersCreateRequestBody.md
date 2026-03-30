@@ -9,7 +9,7 @@ Request body schema for **POST** `v1/orders`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**id** | **String** | Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request. |
-|**sourceId** | **String** | Unique source ID of an existing order that will be linked to the redemption of this request. |
+|**sourceId** | **String** | Unique source ID of an existing order that will be linked to the redemption of this request.  For validation and redemption, if &#x60;source_id&#x60; is used with an existing order, the original order data will be used, like &#x60;items&#x60;, &#x60;amount&#x60;, and so on, not the one sent in the new request. |
 |**status** | [**StatusEnum**](#StatusEnum) | The order status. |
 |**amount** | **Integer** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. |
 |**initialAmount** | **Integer** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. |

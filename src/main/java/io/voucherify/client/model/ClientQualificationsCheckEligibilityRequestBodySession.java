@@ -111,6 +111,7 @@ public class ClientQualificationsCheckEligibilityRequestBodySession {
   public ClientQualificationsCheckEligibilityRequestBodySession type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

@@ -105,6 +105,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters junction(Junction junction) {
     
     this.junction = junction;
+    
     return this;
   }
 
@@ -126,6 +127,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters categoryId(QualificationsFieldConditions categoryId) {
     
     this.categoryId = categoryId;
+    
     return this;
   }
 
@@ -147,6 +149,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters campaignId(QualificationsFieldConditions campaignId) {
     
     this.campaignId = campaignId;
+    
     return this;
   }
 
@@ -168,6 +171,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters campaignType(QualificationsOptionFiltersCampaignType campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -193,6 +197,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters resourceId(QualificationsFieldConditions resourceId) {
     
     this.resourceId = resourceId;
+    
     return this;
   }
 
@@ -214,6 +219,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters resourceType(QualificationsOptionFiltersResourceType resourceType) {
     
     this.resourceType = resourceType;
+    this.resourceTypeIsSet = true;
     return this;
   }
 
@@ -239,6 +245,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters voucherType(QualificationsFieldConditions voucherType) {
     
     this.voucherType = voucherType;
+    
     return this;
   }
 
@@ -260,6 +267,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters code(QualificationsFieldConditions code) {
     
     this.code = code;
+    
     return this;
   }
 
@@ -281,6 +289,7 @@ public class QualificationsOptionFilters {
   public QualificationsOptionFilters holderRole(QualificationsOptionFiltersHolderRole holderRole) {
     
     this.holderRole = holderRole;
+    this.holderRoleIsSet = true;
     return this;
   }
 

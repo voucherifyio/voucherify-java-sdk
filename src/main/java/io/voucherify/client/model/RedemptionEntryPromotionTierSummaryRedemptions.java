@@ -66,6 +66,7 @@ public class RedemptionEntryPromotionTierSummaryRedemptions {
   public RedemptionEntryPromotionTierSummaryRedemptions totalRedeemed(Integer totalRedeemed) {
     
     this.totalRedeemed = totalRedeemed;
+    this.totalRedeemedIsSet = true;
     return this;
   }
 

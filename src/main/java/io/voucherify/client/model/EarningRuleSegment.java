@@ -66,6 +66,7 @@ public class EarningRuleSegment {
   public EarningRuleSegment id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

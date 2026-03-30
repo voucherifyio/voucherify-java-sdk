@@ -319,6 +319,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -344,6 +345,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -369,6 +371,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher gift(MemberActivityDataRedemptionRewardVoucherGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -394,6 +397,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -415,6 +419,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher loyaltyCard(MemberActivityDataRedemptionRewardVoucherLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -440,6 +445,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -465,6 +471,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -490,6 +497,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -515,6 +523,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -540,6 +549,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -565,6 +575,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -590,6 +601,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -615,6 +627,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 
@@ -648,6 +661,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -673,6 +687,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher createdAt(String createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -698,6 +713,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher updatedAt(String updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -723,6 +739,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher redemption(MemberActivityDataRedemptionRewardVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -748,6 +765,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher startDate(String startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -773,6 +791,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -798,6 +817,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -823,6 +843,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -848,6 +869,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -873,6 +895,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -894,6 +917,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -923,6 +947,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -944,6 +969,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -969,6 +995,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -990,6 +1017,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher publish(MemberActivityDataRedemptionRewardVoucherPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -1015,6 +1043,7 @@ public class MemberActivityDataRedemptionRewardVoucher {
   public MemberActivityDataRedemptionRewardVoucher validationRulesAssignments(ValidationRulesAssignmentsList validationRulesAssignments) {
     
     this.validationRulesAssignments = validationRulesAssignments;
+    
     return this;
   }
 

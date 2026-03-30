@@ -200,6 +200,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -225,6 +226,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -250,6 +252,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody summary(CustomerSummary summary) {
     
     this.summary = summary;
+    
     return this;
   }
 
@@ -271,6 +274,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody loyalty(CustomerLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    
     return this;
   }
 
@@ -292,6 +296,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody referrals(CustomerReferrals referrals) {
     
     this.referrals = referrals;
+    
     return this;
   }
 
@@ -313,6 +318,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody systemMetadata(Object systemMetadata) {
     
     this.systemMetadata = systemMetadata;
+    this.systemMetadataIsSet = true;
     return this;
   }
 
@@ -338,6 +344,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -363,6 +370,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -388,6 +396,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody assets(CustomersGetResponseBodyAssets assets) {
     
     this.assets = assets;
+    this.assetsIsSet = true;
     return this;
   }
 
@@ -413,6 +422,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -438,6 +448,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -463,6 +474,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -488,6 +500,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -513,6 +526,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody phone(String phone) {
     
     this.phone = phone;
+    this.phoneIsSet = true;
     return this;
   }
 
@@ -538,6 +552,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody birthday(LocalDate birthday) {
     
     this.birthday = birthday;
+    this.birthdayIsSet = true;
     return this;
   }
 
@@ -563,6 +578,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody birthdate(LocalDate birthdate) {
     
     this.birthdate = birthdate;
+    this.birthdateIsSet = true;
     return this;
   }
 
@@ -588,6 +604,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody address(CustomersGetResponseBodyAddress address) {
     
     this.address = address;
+    this.addressIsSet = true;
     return this;
   }
 
@@ -613,6 +630,7 @@ public class CustomersGetResponseBody {
   public CustomersGetResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

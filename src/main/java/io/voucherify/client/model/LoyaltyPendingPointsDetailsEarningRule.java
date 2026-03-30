@@ -72,6 +72,7 @@ public class LoyaltyPendingPointsDetailsEarningRule {
   public LoyaltyPendingPointsDetailsEarningRule id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -97,6 +98,7 @@ public class LoyaltyPendingPointsDetailsEarningRule {
   public LoyaltyPendingPointsDetailsEarningRule source(LoyaltyPendingPointsDetailsEarningRuleSource source) {
     
     this.source = source;
+    this.sourceIsSet = true;
     return this;
   }
 

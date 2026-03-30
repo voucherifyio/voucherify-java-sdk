@@ -234,6 +234,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -259,6 +260,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -284,6 +286,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -309,6 +312,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -334,6 +338,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -359,6 +364,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody action(PromotionsTiersDisableResponseBodyAction action) {
     
     this.action = action;
+    this.actionIsSet = true;
     return this;
   }
 
@@ -384,6 +390,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -409,6 +416,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -434,6 +442,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody promotionId(String promotionId) {
     
     this.promotionId = promotionId;
+    this.promotionIdIsSet = true;
     return this;
   }
 
@@ -459,6 +468,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody campaign(PromotionsTiersDisableResponseBodyCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -484,6 +494,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -509,6 +520,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -534,6 +546,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -559,6 +572,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -584,6 +598,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -605,6 +620,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -634,6 +650,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -655,6 +672,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody summary(PromotionsTiersDisableResponseBodySummary summary) {
     
     this.summary = summary;
+    this.summaryIsSet = true;
     return this;
   }
 
@@ -680,6 +698,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -705,6 +724,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
     
     this.validationRuleAssignments = validationRuleAssignments;
+    
     return this;
   }
 
@@ -726,6 +746,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -751,6 +772,7 @@ public class PromotionsTiersDisableResponseBody {
   public PromotionsTiersDisableResponseBody categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

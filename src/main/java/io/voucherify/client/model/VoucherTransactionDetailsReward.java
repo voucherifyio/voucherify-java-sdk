@@ -71,6 +71,7 @@ public class VoucherTransactionDetailsReward {
   public VoucherTransactionDetailsReward id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class VoucherTransactionDetailsReward {
   public VoucherTransactionDetailsReward name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 

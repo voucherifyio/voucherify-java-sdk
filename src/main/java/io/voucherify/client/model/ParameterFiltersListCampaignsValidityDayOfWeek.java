@@ -67,6 +67,7 @@ public class ParameterFiltersListCampaignsValidityDayOfWeek {
   public ParameterFiltersListCampaignsValidityDayOfWeek conditions(ParameterFiltersListCampaignsValidityDayOfWeekConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

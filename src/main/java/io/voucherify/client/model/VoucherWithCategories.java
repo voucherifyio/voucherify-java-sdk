@@ -314,6 +314,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -339,6 +340,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -364,6 +366,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -389,6 +392,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -414,6 +418,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -439,6 +444,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -464,6 +470,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -489,6 +496,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -510,6 +518,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories gift(VoucherWithCategoriesGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -535,6 +544,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories loyaltyCard(VoucherWithCategoriesLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -560,6 +570,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -585,6 +596,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -610,6 +622,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -631,6 +644,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -660,6 +674,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -681,6 +696,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -706,6 +722,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -731,6 +748,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -756,6 +774,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -777,6 +796,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -802,6 +822,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -827,6 +848,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -852,6 +874,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -877,6 +900,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -902,6 +926,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -927,6 +952,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories publish(VoucherWithCategoriesPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -952,6 +978,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories redemption(VoucherWithCategoriesRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -977,6 +1004,7 @@ public class VoucherWithCategories {
   public VoucherWithCategories categories(List<Category> categories) {
     
     this.categories = categories;
+    this.categoriesIsSet = true;
     return this;
   }
 

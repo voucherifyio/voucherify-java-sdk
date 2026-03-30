@@ -79,6 +79,7 @@ public class ParameterFiltersListLocations {
   public ParameterFiltersListLocations name(ParameterFiltersListLocationsName name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class ParameterFiltersListLocations {
   public ParameterFiltersListLocations createdAt(ParameterFiltersListLocationsCreatedAt createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class ParameterFiltersListLocations {
   public ParameterFiltersListLocations updatedAt(ParameterFiltersListLocationsUpdatedAt updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 

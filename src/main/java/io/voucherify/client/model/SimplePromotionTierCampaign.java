@@ -66,6 +66,7 @@ public class SimplePromotionTierCampaign {
   public SimplePromotionTierCampaign id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class ExportResult {
   public ExportResult url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

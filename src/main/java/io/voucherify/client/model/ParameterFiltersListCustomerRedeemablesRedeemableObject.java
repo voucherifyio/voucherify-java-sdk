@@ -65,6 +65,7 @@ public class ParameterFiltersListCustomerRedeemablesRedeemableObject {
   public ParameterFiltersListCustomerRedeemablesRedeemableObject conditions(ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

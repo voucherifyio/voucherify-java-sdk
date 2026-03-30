@@ -64,6 +64,7 @@ public class RedemptionsListResponseBodyRedemptionsItemGift {
   public RedemptionsListResponseBodyRedemptionsItemGift amount(Integer amount) {
     
     this.amount = amount;
+    
     return this;
   }
 

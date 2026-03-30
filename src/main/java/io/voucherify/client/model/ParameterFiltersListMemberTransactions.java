@@ -70,6 +70,7 @@ public class ParameterFiltersListMemberTransactions {
   public ParameterFiltersListMemberTransactions createdAt(FilterConditionsDateTime createdAt) {
     
     this.createdAt = createdAt;
+    
     return this;
   }
 
@@ -91,6 +92,7 @@ public class ParameterFiltersListMemberTransactions {
   public ParameterFiltersListMemberTransactions id(FilterConditionsString id) {
     
     this.id = id;
+    
     return this;
   }
 

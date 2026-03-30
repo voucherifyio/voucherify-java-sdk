@@ -90,6 +90,7 @@ public class RedeemableLoyaltyCard {
   public RedeemableLoyaltyCard points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -115,6 +116,7 @@ public class RedeemableLoyaltyCard {
   public RedeemableLoyaltyCard balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -140,6 +142,7 @@ public class RedeemableLoyaltyCard {
   public RedeemableLoyaltyCard exchangeRatio(BigDecimal exchangeRatio) {
     
     this.exchangeRatio = exchangeRatio;
+    this.exchangeRatioIsSet = true;
     return this;
   }
 
@@ -165,6 +168,7 @@ public class RedeemableLoyaltyCard {
   public RedeemableLoyaltyCard pointsRatio(Integer pointsRatio) {
     
     this.pointsRatio = pointsRatio;
+    this.pointsRatioIsSet = true;
     return this;
   }
 
@@ -190,6 +194,7 @@ public class RedeemableLoyaltyCard {
   public RedeemableLoyaltyCard transfers(List<LoyaltiesTransferPoints> transfers) {
     
     this.transfers = transfers;
+    this.transfersIsSet = true;
     return this;
   }
 

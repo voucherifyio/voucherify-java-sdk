@@ -376,6 +376,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -397,6 +398,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -418,6 +420,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -443,6 +446,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -468,6 +472,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -493,6 +498,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -518,6 +524,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem amount(Integer amount) {
     
     this.amount = amount;
+    
     return this;
   }
 
@@ -539,6 +546,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -564,6 +572,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -589,6 +598,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem status(StatusEnum status) {
     
     this.status = status;
+    
     return this;
   }
 
@@ -610,6 +620,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem session(RedemptionsListResponseBodyRedemptionsItemSession session) {
     
     this.session = session;
+    this.sessionIsSet = true;
     return this;
   }
 
@@ -635,6 +646,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem relatedRedemptions(RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
     return this;
   }
 
@@ -660,6 +672,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -685,6 +698,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -710,6 +724,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem order(RedemptionsListResponseBodyRedemptionsItemOrder order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -731,6 +746,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem channel(RedemptionsListResponseBodyRedemptionsItemChannel channel) {
     
     this.channel = channel;
+    
     return this;
   }
 
@@ -752,6 +768,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem customer(RedemptionsListResponseBodyRedemptionsItemCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -773,6 +790,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -798,6 +816,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    
     return this;
   }
 
@@ -819,6 +838,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem promotionTier(RedemptionsListResponseBodyRedemptionsItemPromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    
     return this;
   }
 
@@ -840,6 +860,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem reward(RedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -861,6 +882,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem gift(RedemptionsListResponseBodyRedemptionsItemGift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -882,6 +904,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem loyaltyCard(RedemptionsListResponseBodyRedemptionsItemLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -903,6 +926,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem voucher(RedemptionsListResponseBodyRedemptionsItemVoucher voucher) {
     
     this.voucher = voucher;
+    
     return this;
   }
 
@@ -924,6 +948,7 @@ public class RedemptionsListResponseBodyRedemptionsItem {
   public RedemptionsListResponseBodyRedemptionsItem reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 

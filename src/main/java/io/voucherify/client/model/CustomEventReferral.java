@@ -76,6 +76,7 @@ public class CustomEventReferral {
   public CustomEventReferral referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class CustomEventReferral {
   public CustomEventReferral code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class CustomEventReferral {
   public CustomEventReferral id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

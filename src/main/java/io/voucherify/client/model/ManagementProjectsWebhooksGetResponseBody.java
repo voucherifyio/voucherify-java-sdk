@@ -302,6 +302,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -327,6 +328,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -352,6 +354,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -377,6 +380,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody targetUrl(String targetUrl) {
     
     this.targetUrl = targetUrl;
+    this.targetUrlIsSet = true;
     return this;
   }
 
@@ -402,6 +406,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody events(List<EventsEnum> events) {
     
     this.events = events;
+    this.eventsIsSet = true;
     return this;
   }
 
@@ -435,6 +440,7 @@ public class ManagementProjectsWebhooksGetResponseBody {
   public ManagementProjectsWebhooksGetResponseBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 

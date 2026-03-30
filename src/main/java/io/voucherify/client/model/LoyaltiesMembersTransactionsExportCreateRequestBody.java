@@ -67,6 +67,7 @@ public class LoyaltiesMembersTransactionsExportCreateRequestBody {
   public LoyaltiesMembersTransactionsExportCreateRequestBody parameters(LoyaltiesMembersTransactionsExportCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 

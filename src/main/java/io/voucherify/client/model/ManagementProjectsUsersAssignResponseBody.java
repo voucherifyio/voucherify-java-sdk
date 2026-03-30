@@ -98,6 +98,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -123,6 +124,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody login(String login) {
     
     this.login = login;
+    this.loginIsSet = true;
     return this;
   }
 
@@ -148,6 +150,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody email(String email) {
     
     this.email = email;
+    this.emailIsSet = true;
     return this;
   }
 
@@ -173,6 +176,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody firstName(String firstName) {
     
     this.firstName = firstName;
+    this.firstNameIsSet = true;
     return this;
   }
 
@@ -198,6 +202,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody lastName(String lastName) {
     
     this.lastName = lastName;
+    this.lastNameIsSet = true;
     return this;
   }
 
@@ -223,6 +228,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody projects(Map<String, String> projects) {
     
     this.projects = projects;
+    this.projectsIsSet = true;
     return this;
   }
 
@@ -256,6 +262,7 @@ public class ManagementProjectsUsersAssignResponseBody {
   public ManagementProjectsUsersAssignResponseBody isOwner(Boolean isOwner) {
     
     this.isOwner = isOwner;
+    this.isOwnerIsSet = true;
     return this;
   }
 

@@ -92,6 +92,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $after(OffsetDateTime $after) {
     
     this.$after = $after;
+    this.$afterIsSet = true;
     return this;
   }
 
@@ -117,6 +118,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $before(OffsetDateTime $before) {
     
     this.$before = $before;
+    this.$beforeIsSet = true;
     return this;
   }
 
@@ -142,6 +144,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -167,6 +170,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -192,6 +196,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $moreThan(Integer $moreThan) {
     
     this.$moreThan = $moreThan;
+    this.$moreThanIsSet = true;
     return this;
   }
 
@@ -217,6 +222,7 @@ public class FilterConditionsDateTime {
   public FilterConditionsDateTime $lessThan(Integer $lessThan) {
     
     this.$lessThan = $lessThan;
+    this.$lessThanIsSet = true;
     return this;
   }
 

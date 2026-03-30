@@ -176,6 +176,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -201,11 +202,12 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
    /**
-   * Unique source ID of an existing order that will be linked to the redemption of this request.
+   * Unique source ID of an existing order that will be linked to the redemption of this request.  For validation and redemption, if &#x60;source_id&#x60; is used with an existing order, the original order data will be used, like &#x60;items&#x60;, &#x60;amount&#x60;, and so on, not the one sent in the new request.
    * @return sourceId
   **/
   @javax.annotation.Nullable
@@ -226,6 +228,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -251,6 +254,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -276,6 +280,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -301,6 +306,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -326,6 +332,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody items(List<OrderItem> items) {
     
     this.items = items;
+    this.itemsIsSet = true;
     return this;
   }
 
@@ -359,6 +366,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -384,6 +392,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -409,6 +418,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -434,6 +444,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -455,6 +466,7 @@ public class OrdersCreateRequestBody {
   public OrdersCreateRequestBody referrer(Referrer referrer) {
     
     this.referrer = referrer;
+    
     return this;
   }
 

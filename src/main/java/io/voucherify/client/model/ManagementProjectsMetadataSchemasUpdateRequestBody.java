@@ -74,6 +74,7 @@ public class ManagementProjectsMetadataSchemasUpdateRequestBody {
   public ManagementProjectsMetadataSchemasUpdateRequestBody allowDefinedOnly(Boolean allowDefinedOnly) {
     
     this.allowDefinedOnly = allowDefinedOnly;
+    this.allowDefinedOnlyIsSet = true;
     return this;
   }
 
@@ -99,6 +100,7 @@ public class ManagementProjectsMetadataSchemasUpdateRequestBody {
   public ManagementProjectsMetadataSchemasUpdateRequestBody properties(Map<String, ManagementProjectsMetadataSchemaDefinition> properties) {
     
     this.properties = properties;
+    this.propertiesIsSet = true;
     return this;
   }
 

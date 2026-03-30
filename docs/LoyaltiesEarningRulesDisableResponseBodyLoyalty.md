@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- |
 |**type** | [**TypeEnum**](#TypeEnum) |  |
 |**points** | **Integer** | Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points. |
+|**pointsFormula** | **String** | Formula used to dynamically calculate the rewarded points. |
 |**calculationType** | [**CalculationTypeEnum**](#CalculationTypeEnum) |  |
 |**order** | [**LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrder**](LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrder.md) |  |
 |**orderItems** | [**LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderItems**](LoyaltiesEarningRulesDisableResponseBodyLoyaltyOrderItems.md) |  |

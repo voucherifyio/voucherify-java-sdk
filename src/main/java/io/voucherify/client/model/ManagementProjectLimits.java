@@ -75,6 +75,7 @@ public class ManagementProjectLimits {
   public ManagementProjectLimits apiCalls(List<ManagementProjectLimitsApiCallsItem> apiCalls) {
     
     this.apiCalls = apiCalls;
+    this.apiCallsIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class ManagementProjectLimits {
   public ManagementProjectLimits bulkApiCalls(List<ManagementProjectLimitsBulkApiCallsItem> bulkApiCalls) {
     
     this.bulkApiCalls = bulkApiCalls;
+    this.bulkApiCallsIsSet = true;
     return this;
   }
 

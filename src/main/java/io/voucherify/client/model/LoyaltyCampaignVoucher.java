@@ -216,6 +216,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -241,6 +242,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -262,6 +264,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher redemption(LoyaltyCampaignVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -287,6 +290,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 
@@ -308,6 +312,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -333,6 +338,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -358,6 +364,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -383,6 +390,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -404,6 +412,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -433,6 +442,7 @@ public class LoyaltyCampaignVoucher {
   public LoyaltyCampaignVoucher validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 

@@ -75,6 +75,7 @@ public class ManagementProjectsGetResponseBodyLimits {
   public ManagementProjectsGetResponseBodyLimits apiCalls(List<ManagementProjectsGetResponseBodyLimitsApiCallsItem> apiCalls) {
     
     this.apiCalls = apiCalls;
+    this.apiCallsIsSet = true;
     return this;
   }
 
@@ -108,6 +109,7 @@ public class ManagementProjectsGetResponseBodyLimits {
   public ManagementProjectsGetResponseBodyLimits bulkApiCalls(List<ManagementProjectsGetResponseBodyLimitsBulkApiCallsItem> bulkApiCalls) {
     
     this.bulkApiCalls = bulkApiCalls;
+    this.bulkApiCallsIsSet = true;
     return this;
   }
 

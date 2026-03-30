@@ -133,7 +133,7 @@ public class ValidationsApi {
 
     /**
      * Validate Stackable Discounts
-     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
      * @param validationsValidateRequestBody  (optional)
      * @return ValidationsValidateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -145,7 +145,7 @@ public class ValidationsApi {
 
     /**
      * Validate Stackable Discounts
-     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
      * @param validationsValidateRequestBody  (optional)
      * @return ApiResponse&lt;ValidationsValidateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,7 +158,7 @@ public class ValidationsApi {
 
     /**
      * Validate Stackable Discounts (asynchronously)
-     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+     * Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
      * @param validationsValidateRequestBody  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

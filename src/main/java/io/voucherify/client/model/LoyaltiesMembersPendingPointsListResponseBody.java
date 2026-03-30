@@ -179,6 +179,7 @@ public class LoyaltiesMembersPendingPointsListResponseBody {
   public LoyaltiesMembersPendingPointsListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -204,6 +205,7 @@ public class LoyaltiesMembersPendingPointsListResponseBody {
   public LoyaltiesMembersPendingPointsListResponseBody dataRef(DataRefEnum dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -229,6 +231,7 @@ public class LoyaltiesMembersPendingPointsListResponseBody {
   public LoyaltiesMembersPendingPointsListResponseBody data(List<LoyaltyPendingPoints> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -262,6 +265,7 @@ public class LoyaltiesMembersPendingPointsListResponseBody {
   public LoyaltiesMembersPendingPointsListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 
@@ -287,6 +291,7 @@ public class LoyaltiesMembersPendingPointsListResponseBody {
   public LoyaltiesMembersPendingPointsListResponseBody moreStartingAfter(String moreStartingAfter) {
     
     this.moreStartingAfter = moreStartingAfter;
+    this.moreStartingAfterIsSet = true;
     return this;
   }
 

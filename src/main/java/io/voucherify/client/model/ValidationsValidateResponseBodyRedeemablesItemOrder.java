@@ -274,6 +274,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -299,6 +300,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -324,6 +326,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -349,6 +352,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -374,6 +378,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder initialAmount(Integer initialAmount) {
     
     this.initialAmount = initialAmount;
+    this.initialAmountIsSet = true;
     return this;
   }
 
@@ -399,6 +404,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder discountAmount(Integer discountAmount) {
     
     this.discountAmount = discountAmount;
+    this.discountAmountIsSet = true;
     return this;
   }
 
@@ -424,6 +430,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder itemsDiscountAmount(Integer itemsDiscountAmount) {
     
     this.itemsDiscountAmount = itemsDiscountAmount;
+    this.itemsDiscountAmountIsSet = true;
     return this;
   }
 
@@ -449,6 +456,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder totalDiscountAmount(Integer totalDiscountAmount) {
     
     this.totalDiscountAmount = totalDiscountAmount;
+    this.totalDiscountAmountIsSet = true;
     return this;
   }
 
@@ -474,6 +482,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder totalAmount(Integer totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -499,6 +508,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder appliedDiscountAmount(Integer appliedDiscountAmount) {
     
     this.appliedDiscountAmount = appliedDiscountAmount;
+    this.appliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -524,6 +534,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder itemsAppliedDiscountAmount(Integer itemsAppliedDiscountAmount) {
     
     this.itemsAppliedDiscountAmount = itemsAppliedDiscountAmount;
+    this.itemsAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -549,6 +560,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder totalAppliedDiscountAmount(Integer totalAppliedDiscountAmount) {
     
     this.totalAppliedDiscountAmount = totalAppliedDiscountAmount;
+    this.totalAppliedDiscountAmountIsSet = true;
     return this;
   }
 
@@ -574,6 +586,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -599,6 +612,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -624,6 +638,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -649,6 +664,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -674,6 +690,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -699,6 +716,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder referrerId(String referrerId) {
     
     this.referrerId = referrerId;
+    this.referrerIdIsSet = true;
     return this;
   }
 
@@ -724,6 +742,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder customer(ValidationsValidateResponseBodyRedeemablesItemOrderCustomer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -745,6 +764,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder referrer(ValidationsValidateResponseBodyRedeemablesItemOrderReferrer referrer) {
     
     this.referrer = referrer;
+    
     return this;
   }
 
@@ -766,6 +786,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder redemptions(Map<String, OrderRedemptionsEntry> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -799,6 +820,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemOrder {
   public ValidationsValidateResponseBodyRedeemablesItemOrder items(List<OrderCalculatedItem> items) {
     
     this.items = items;
+    this.itemsIsSet = true;
     return this;
   }
 

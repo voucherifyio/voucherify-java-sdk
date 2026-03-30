@@ -123,6 +123,7 @@ public class BundleIdentifiedItem {
   public BundleIdentifiedItem id(String id) {
     
     this.id = id;
+    
     return this;
   }
 
@@ -144,6 +145,7 @@ public class BundleIdentifiedItem {
   public BundleIdentifiedItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 
@@ -165,6 +167,7 @@ public class BundleIdentifiedItem {
   public BundleIdentifiedItem itemIndex(Integer itemIndex) {
     
     this.itemIndex = itemIndex;
+    
     return this;
   }
 
@@ -187,6 +190,7 @@ public class BundleIdentifiedItem {
   public BundleIdentifiedItem itemQuantity(Integer itemQuantity) {
     
     this.itemQuantity = itemQuantity;
+    
     return this;
   }
 

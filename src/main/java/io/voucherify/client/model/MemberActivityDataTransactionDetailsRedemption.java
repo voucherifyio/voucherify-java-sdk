@@ -66,6 +66,7 @@ public class MemberActivityDataTransactionDetailsRedemption {
   public MemberActivityDataTransactionDetailsRedemption id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 

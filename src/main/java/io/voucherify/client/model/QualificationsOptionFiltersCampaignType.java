@@ -67,6 +67,7 @@ public class QualificationsOptionFiltersCampaignType {
   public QualificationsOptionFiltersCampaignType conditions(QualificationsOptionFiltersCampaignTypeConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

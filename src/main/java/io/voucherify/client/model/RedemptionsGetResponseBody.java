@@ -388,6 +388,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -413,6 +414,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -438,6 +440,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody date(OffsetDateTime date) {
     
     this.date = date;
+    this.dateIsSet = true;
     return this;
   }
 
@@ -463,6 +466,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody customerId(String customerId) {
     
     this.customerId = customerId;
+    this.customerIdIsSet = true;
     return this;
   }
 
@@ -488,6 +492,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -513,6 +518,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -538,6 +544,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -563,6 +570,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody redemption(String redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -588,6 +596,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody result(ResultEnum result) {
     
     this.result = result;
+    this.resultIsSet = true;
     return this;
   }
 
@@ -613,6 +622,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody status(StatusEnum status) {
     
     this.status = status;
+    this.statusIsSet = true;
     return this;
   }
 
@@ -638,6 +648,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody session(RedemptionsGetResponseBodySession session) {
     
     this.session = session;
+    this.sessionIsSet = true;
     return this;
   }
 
@@ -663,6 +674,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody relatedRedemptions(RedemptionsGetResponseBodyRelatedRedemptions relatedRedemptions) {
     
     this.relatedRedemptions = relatedRedemptions;
+    this.relatedRedemptionsIsSet = true;
     return this;
   }
 
@@ -688,6 +700,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody failureCode(String failureCode) {
     
     this.failureCode = failureCode;
+    this.failureCodeIsSet = true;
     return this;
   }
 
@@ -713,6 +726,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody failureMessage(String failureMessage) {
     
     this.failureMessage = failureMessage;
+    this.failureMessageIsSet = true;
     return this;
   }
 
@@ -738,6 +752,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody order(RedemptionsGetResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -763,6 +778,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody channel(RedemptionsGetResponseBodyChannel channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 
@@ -788,6 +804,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody customer(RedemptionsGetResponseBodyCustomer customer) {
     
     this.customer = customer;
+    this.customerIsSet = true;
     return this;
   }
 
@@ -813,6 +830,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -838,6 +856,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -863,6 +882,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody promotionTier(RedemptionsGetResponseBodyPromotionTier promotionTier) {
     
     this.promotionTier = promotionTier;
+    this.promotionTierIsSet = true;
     return this;
   }
 
@@ -888,6 +908,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody reward(RedemptionRewardResult reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -909,6 +930,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody gift(RedemptionsGetResponseBodyGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -934,6 +956,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody loyaltyCard(RedemptionsGetResponseBodyLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -959,6 +982,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody voucher(RedemptionsGetResponseBodyVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -984,6 +1008,7 @@ public class RedemptionsGetResponseBody {
   public RedemptionsGetResponseBody reason(String reason) {
     
     this.reason = reason;
+    this.reasonIsSet = true;
     return this;
   }
 

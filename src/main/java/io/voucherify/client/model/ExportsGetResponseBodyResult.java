@@ -66,6 +66,7 @@ public class ExportsGetResponseBodyResult {
   public ExportsGetResponseBodyResult url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

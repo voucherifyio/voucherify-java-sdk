@@ -172,6 +172,7 @@ public class LoyaltyTier {
   public LoyaltyTier name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -197,6 +198,7 @@ public class LoyaltyTier {
   public LoyaltyTier earningRules(Map<String, MappingPoints> earningRules) {
     
     this.earningRules = earningRules;
+    this.earningRulesIsSet = true;
     return this;
   }
 
@@ -230,6 +232,7 @@ public class LoyaltyTier {
   public LoyaltyTier rewards(Map<String, MappingPoints> rewards) {
     
     this.rewards = rewards;
+    this.rewardsIsSet = true;
     return this;
   }
 
@@ -263,6 +266,7 @@ public class LoyaltyTier {
   public LoyaltyTier points(LoyaltyTierPoints points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -288,6 +292,7 @@ public class LoyaltyTier {
   public LoyaltyTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -313,6 +318,7 @@ public class LoyaltyTier {
   public LoyaltyTier campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -338,6 +344,7 @@ public class LoyaltyTier {
   public LoyaltyTier metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -363,6 +370,7 @@ public class LoyaltyTier {
   public LoyaltyTier createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -388,6 +396,7 @@ public class LoyaltyTier {
   public LoyaltyTier updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -413,6 +422,7 @@ public class LoyaltyTier {
   public LoyaltyTier config(LoyaltyTierConfig config) {
     
     this.config = config;
+    this.configIsSet = true;
     return this;
   }
 
@@ -438,6 +448,7 @@ public class LoyaltyTier {
   public LoyaltyTier expiration(LoyaltyTierExpiration expiration) {
     
     this.expiration = expiration;
+    
     return this;
   }
 
@@ -459,6 +470,7 @@ public class LoyaltyTier {
   public LoyaltyTier _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

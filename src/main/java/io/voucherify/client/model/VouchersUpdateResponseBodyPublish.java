@@ -76,6 +76,7 @@ public class VouchersUpdateResponseBodyPublish {
   public VouchersUpdateResponseBodyPublish _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class VouchersUpdateResponseBodyPublish {
   public VouchersUpdateResponseBodyPublish count(Integer count) {
     
     this.count = count;
+    this.countIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class VouchersUpdateResponseBodyPublish {
   public VouchersUpdateResponseBodyPublish url(String url) {
     
     this.url = url;
+    this.urlIsSet = true;
     return this;
   }
 

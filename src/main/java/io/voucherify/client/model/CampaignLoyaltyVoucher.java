@@ -127,6 +127,7 @@ public class CampaignLoyaltyVoucher {
   public CampaignLoyaltyVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -152,6 +153,7 @@ public class CampaignLoyaltyVoucher {
   public CampaignLoyaltyVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 
@@ -173,6 +175,7 @@ public class CampaignLoyaltyVoucher {
   public CampaignLoyaltyVoucher redemption(CampaignLoyaltyVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -198,6 +201,7 @@ public class CampaignLoyaltyVoucher {
   public CampaignLoyaltyVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 

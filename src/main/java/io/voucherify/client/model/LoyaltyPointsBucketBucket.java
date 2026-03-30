@@ -66,6 +66,7 @@ public class LoyaltyPointsBucketBucket {
   public LoyaltyPointsBucketBucket totalPoints(Integer totalPoints) {
     
     this.totalPoints = totalPoints;
+    this.totalPointsIsSet = true;
     return this;
   }
 

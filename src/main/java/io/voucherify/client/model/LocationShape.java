@@ -177,6 +177,7 @@ public class LocationShape {
   public LocationShape type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -202,6 +203,7 @@ public class LocationShape {
   public LocationShape format(FormatEnum format) {
     
     this.format = format;
+    this.formatIsSet = true;
     return this;
   }
 
@@ -227,6 +229,7 @@ public class LocationShape {
   public LocationShape distance(LocationShapeDistance distance) {
     
     this.distance = distance;
+    this.distanceIsSet = true;
     return this;
   }
 
@@ -252,6 +255,7 @@ public class LocationShape {
   public LocationShape geojson(LocationShapeGeojson geojson) {
     
     this.geojson = geojson;
+    this.geojsonIsSet = true;
     return this;
   }
 

@@ -86,6 +86,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyBrand {
   public ManagementProjectsBrandingUpdateResponseBodyBrand name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyBrand {
   public ManagementProjectsBrandingUpdateResponseBodyBrand privacyPolicyUrl(String privacyPolicyUrl) {
     
     this.privacyPolicyUrl = privacyPolicyUrl;
+    this.privacyPolicyUrlIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyBrand {
   public ManagementProjectsBrandingUpdateResponseBodyBrand termsOfUseUrl(String termsOfUseUrl) {
     
     this.termsOfUseUrl = termsOfUseUrl;
+    this.termsOfUseUrlIsSet = true;
     return this;
   }
 
@@ -161,6 +164,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyBrand {
   public ManagementProjectsBrandingUpdateResponseBodyBrand permissionReminder(String permissionReminder) {
     
     this.permissionReminder = permissionReminder;
+    this.permissionReminderIsSet = true;
     return this;
   }
 
@@ -186,6 +190,7 @@ public class ManagementProjectsBrandingUpdateResponseBodyBrand {
   public ManagementProjectsBrandingUpdateResponseBodyBrand websiteUrl(String websiteUrl) {
     
     this.websiteUrl = websiteUrl;
+    this.websiteUrlIsSet = true;
     return this;
   }
 

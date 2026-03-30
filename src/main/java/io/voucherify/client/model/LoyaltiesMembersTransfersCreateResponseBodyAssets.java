@@ -73,6 +73,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyAssets {
   public LoyaltiesMembersTransfersCreateResponseBodyAssets qr(LoyaltiesMembersTransfersCreateResponseBodyAssetsQr qr) {
     
     this.qr = qr;
+    this.qrIsSet = true;
     return this;
   }
 
@@ -98,6 +99,7 @@ public class LoyaltiesMembersTransfersCreateResponseBodyAssets {
   public LoyaltiesMembersTransfersCreateResponseBodyAssets barcode(LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode barcode) {
     
     this.barcode = barcode;
+    this.barcodeIsSet = true;
     return this;
   }
 

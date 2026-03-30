@@ -298,6 +298,7 @@ public class LoyaltyMember {
   public LoyaltyMember id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -323,6 +324,7 @@ public class LoyaltyMember {
   public LoyaltyMember code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 
@@ -348,6 +350,7 @@ public class LoyaltyMember {
   public LoyaltyMember campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -373,6 +376,7 @@ public class LoyaltyMember {
   public LoyaltyMember campaignId(String campaignId) {
     
     this.campaignId = campaignId;
+    this.campaignIdIsSet = true;
     return this;
   }
 
@@ -398,6 +402,7 @@ public class LoyaltyMember {
   public LoyaltyMember category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -423,6 +428,7 @@ public class LoyaltyMember {
   public LoyaltyMember categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -448,6 +454,7 @@ public class LoyaltyMember {
   public LoyaltyMember type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -473,6 +480,7 @@ public class LoyaltyMember {
   public LoyaltyMember discount(Object discount) {
     
     this.discount = discount;
+    this.discountIsSet = true;
     return this;
   }
 
@@ -498,6 +506,7 @@ public class LoyaltyMember {
   public LoyaltyMember gift(Object gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -523,6 +532,7 @@ public class LoyaltyMember {
   public LoyaltyMember loyaltyCard(LoyaltyMemberLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 
@@ -548,6 +558,7 @@ public class LoyaltyMember {
   public LoyaltyMember startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -573,6 +584,7 @@ public class LoyaltyMember {
   public LoyaltyMember expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -598,6 +610,7 @@ public class LoyaltyMember {
   public LoyaltyMember validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -619,6 +632,7 @@ public class LoyaltyMember {
   public LoyaltyMember validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -648,6 +662,7 @@ public class LoyaltyMember {
   public LoyaltyMember validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -669,6 +684,7 @@ public class LoyaltyMember {
   public LoyaltyMember active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -694,6 +710,7 @@ public class LoyaltyMember {
   public LoyaltyMember additionalInfo(String additionalInfo) {
     
     this.additionalInfo = additionalInfo;
+    this.additionalInfoIsSet = true;
     return this;
   }
 
@@ -719,6 +736,7 @@ public class LoyaltyMember {
   public LoyaltyMember metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -744,6 +762,7 @@ public class LoyaltyMember {
   public LoyaltyMember assets(VoucherAssets assets) {
     
     this.assets = assets;
+    
     return this;
   }
 
@@ -765,6 +784,7 @@ public class LoyaltyMember {
   public LoyaltyMember isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -790,6 +810,7 @@ public class LoyaltyMember {
   public LoyaltyMember createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -815,6 +836,7 @@ public class LoyaltyMember {
   public LoyaltyMember updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -840,6 +862,7 @@ public class LoyaltyMember {
   public LoyaltyMember holderId(String holderId) {
     
     this.holderId = holderId;
+    this.holderIdIsSet = true;
     return this;
   }
 
@@ -865,6 +888,7 @@ public class LoyaltyMember {
   public LoyaltyMember _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -890,6 +914,7 @@ public class LoyaltyMember {
   public LoyaltyMember publish(LoyaltyMemberPublish publish) {
     
     this.publish = publish;
+    this.publishIsSet = true;
     return this;
   }
 
@@ -915,6 +940,7 @@ public class LoyaltyMember {
   public LoyaltyMember redemption(LoyaltyMemberRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 

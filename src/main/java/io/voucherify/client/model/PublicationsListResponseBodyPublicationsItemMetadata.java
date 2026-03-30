@@ -76,6 +76,7 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
   public PublicationsListResponseBodyPublicationsItemMetadata sourceType(String sourceType) {
     
     this.sourceType = sourceType;
+    this.sourceTypeIsSet = true;
     return this;
   }
 
@@ -101,6 +102,7 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
   public PublicationsListResponseBodyPublicationsItemMetadata sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -126,6 +128,7 @@ public class PublicationsListResponseBodyPublicationsItemMetadata {
   public PublicationsListResponseBodyPublicationsItemMetadata distributionId(String distributionId) {
     
     this.distributionId = distributionId;
+    this.distributionIdIsSet = true;
     return this;
   }
 

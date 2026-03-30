@@ -118,6 +118,7 @@ public class PromotionsStacksCreateResponseBodyTiers {
   public PromotionsStacksCreateResponseBodyTiers ids(List<String> ids) {
     
     this.ids = ids;
+    this.idsIsSet = true;
     return this;
   }
 
@@ -151,6 +152,7 @@ public class PromotionsStacksCreateResponseBodyTiers {
   public PromotionsStacksCreateResponseBodyTiers hierarchyMode(HierarchyModeEnum hierarchyMode) {
     
     this.hierarchyMode = hierarchyMode;
+    this.hierarchyModeIsSet = true;
     return this;
   }
 

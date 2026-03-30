@@ -79,6 +79,7 @@ public class RewardsAssignmentsCreateRequestBody {
   public RewardsAssignmentsCreateRequestBody campaign(String campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class RewardsAssignmentsCreateRequestBody {
   public RewardsAssignmentsCreateRequestBody parameters(RewardsAssignmentsCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class RewardsAssignmentsCreateRequestBody {
   public RewardsAssignmentsCreateRequestBody validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
+    this.validationRulesIsSet = true;
     return this;
   }
 

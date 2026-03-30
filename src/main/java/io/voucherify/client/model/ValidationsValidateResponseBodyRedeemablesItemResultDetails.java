@@ -68,6 +68,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDetails {
   public ValidationsValidateResponseBodyRedeemablesItemResultDetails message(String message) {
     
     this.message = message;
+    
     return this;
   }
 
@@ -89,6 +90,7 @@ public class ValidationsValidateResponseBodyRedeemablesItemResultDetails {
   public ValidationsValidateResponseBodyRedeemablesItemResultDetails key(String key) {
     
     this.key = key;
+    
     return this;
   }
 

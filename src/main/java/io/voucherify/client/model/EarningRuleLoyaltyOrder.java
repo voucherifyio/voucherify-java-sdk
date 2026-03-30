@@ -79,6 +79,7 @@ public class EarningRuleLoyaltyOrder {
   public EarningRuleLoyaltyOrder amount(EarningRuleLoyaltyOrderAmount amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 
@@ -104,6 +105,7 @@ public class EarningRuleLoyaltyOrder {
   public EarningRuleLoyaltyOrder totalAmount(EarningRuleLoyaltyOrderTotalAmount totalAmount) {
     
     this.totalAmount = totalAmount;
+    this.totalAmountIsSet = true;
     return this;
   }
 
@@ -129,6 +131,7 @@ public class EarningRuleLoyaltyOrder {
   public EarningRuleLoyaltyOrder metadata(EarningRuleLoyaltyOrderMetadata metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

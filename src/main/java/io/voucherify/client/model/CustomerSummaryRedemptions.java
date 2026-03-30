@@ -103,6 +103,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalRedeemed(Integer totalRedeemed) {
     
     this.totalRedeemed = totalRedeemed;
+    this.totalRedeemedIsSet = true;
     return this;
   }
 
@@ -128,6 +129,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalFailed(Integer totalFailed) {
     
     this.totalFailed = totalFailed;
+    this.totalFailedIsSet = true;
     return this;
   }
 
@@ -153,6 +155,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalSucceeded(Integer totalSucceeded) {
     
     this.totalSucceeded = totalSucceeded;
+    this.totalSucceededIsSet = true;
     return this;
   }
 
@@ -178,6 +181,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalRolledBack(Integer totalRolledBack) {
     
     this.totalRolledBack = totalRolledBack;
+    this.totalRolledBackIsSet = true;
     return this;
   }
 
@@ -203,6 +207,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalRollbackFailed(Integer totalRollbackFailed) {
     
     this.totalRollbackFailed = totalRollbackFailed;
+    this.totalRollbackFailedIsSet = true;
     return this;
   }
 
@@ -228,6 +233,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions totalRollbackSucceeded(Integer totalRollbackSucceeded) {
     
     this.totalRollbackSucceeded = totalRollbackSucceeded;
+    this.totalRollbackSucceededIsSet = true;
     return this;
   }
 
@@ -253,6 +259,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions gift(CustomerSummaryRedemptionsGift gift) {
     
     this.gift = gift;
+    this.giftIsSet = true;
     return this;
   }
 
@@ -278,6 +285,7 @@ public class CustomerSummaryRedemptions {
   public CustomerSummaryRedemptions loyaltyCard(CustomerSummaryRedemptionsLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    this.loyaltyCardIsSet = true;
     return this;
   }
 

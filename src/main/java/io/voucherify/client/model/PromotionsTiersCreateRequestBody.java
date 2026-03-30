@@ -191,6 +191,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -216,6 +217,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -241,6 +243,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -266,6 +269,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody hierarchy(Integer hierarchy) {
     
     this.hierarchy = hierarchy;
+    this.hierarchyIsSet = true;
     return this;
   }
 
@@ -291,6 +295,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 
@@ -316,6 +321,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -341,6 +347,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -366,6 +373,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -387,6 +395,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -416,6 +425,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -437,6 +447,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -462,6 +473,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -487,6 +499,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody action(PromotionsTiersCreateRequestBodyAction action) {
     
     this.action = action;
+    this.actionIsSet = true;
     return this;
   }
 
@@ -512,6 +525,7 @@ public class PromotionsTiersCreateRequestBody {
   public PromotionsTiersCreateRequestBody validationRuleAssignments(ValidationRuleAssignmentsList validationRuleAssignments) {
     
     this.validationRuleAssignments = validationRuleAssignments;
+    
     return this;
   }
 

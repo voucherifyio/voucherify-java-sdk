@@ -87,6 +87,7 @@ public class SimplePromotionTier {
   public SimplePromotionTier id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -112,6 +113,7 @@ public class SimplePromotionTier {
   public SimplePromotionTier name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -137,6 +139,7 @@ public class SimplePromotionTier {
   public SimplePromotionTier banner(String banner) {
     
     this.banner = banner;
+    this.bannerIsSet = true;
     return this;
   }
 
@@ -162,6 +165,7 @@ public class SimplePromotionTier {
   public SimplePromotionTier campaign(SimplePromotionTierCampaign campaign) {
     
     this.campaign = campaign;
+    this.campaignIsSet = true;
     return this;
   }
 
@@ -187,6 +191,7 @@ public class SimplePromotionTier {
   public SimplePromotionTier metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

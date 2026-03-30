@@ -326,6 +326,7 @@ public class ValidationRule {
   public ValidationRule name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -351,6 +352,7 @@ public class ValidationRule {
   public ValidationRule rules(Object rules) {
     
     this.rules = rules;
+    
     return this;
   }
 
@@ -372,6 +374,7 @@ public class ValidationRule {
   public ValidationRule bundleRules(Object bundleRules) {
     
     this.bundleRules = bundleRules;
+    
     return this;
   }
 
@@ -393,6 +396,7 @@ public class ValidationRule {
   public ValidationRule error(ValidationRuleError error) {
     
     this.error = error;
+    this.errorIsSet = true;
     return this;
   }
 
@@ -418,6 +422,7 @@ public class ValidationRule {
   public ValidationRule applicableTo(ValidationRuleApplicableTo applicableTo) {
     
     this.applicableTo = applicableTo;
+    this.applicableToIsSet = true;
     return this;
   }
 
@@ -443,6 +448,7 @@ public class ValidationRule {
   public ValidationRule type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -468,6 +474,7 @@ public class ValidationRule {
   public ValidationRule contextType(ContextTypeEnum contextType) {
     
     this.contextType = contextType;
+    this.contextTypeIsSet = true;
     return this;
   }
 
@@ -493,6 +500,7 @@ public class ValidationRule {
   public ValidationRule id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -518,6 +526,7 @@ public class ValidationRule {
   public ValidationRule createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -543,6 +552,7 @@ public class ValidationRule {
   public ValidationRule updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -568,6 +578,7 @@ public class ValidationRule {
   public ValidationRule assignmentsCount(Integer assignmentsCount) {
     
     this.assignmentsCount = assignmentsCount;
+    this.assignmentsCountIsSet = true;
     return this;
   }
 
@@ -593,6 +604,7 @@ public class ValidationRule {
   public ValidationRule _object(String _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 

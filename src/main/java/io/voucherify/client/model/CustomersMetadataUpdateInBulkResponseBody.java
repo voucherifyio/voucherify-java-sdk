@@ -66,6 +66,7 @@ public class CustomersMetadataUpdateInBulkResponseBody {
   public CustomersMetadataUpdateInBulkResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

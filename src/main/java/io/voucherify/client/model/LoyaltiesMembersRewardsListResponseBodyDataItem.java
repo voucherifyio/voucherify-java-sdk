@@ -119,6 +119,7 @@ public class LoyaltiesMembersRewardsListResponseBodyDataItem {
   public LoyaltiesMembersRewardsListResponseBodyDataItem reward(Reward reward) {
     
     this.reward = reward;
+    
     return this;
   }
 
@@ -140,6 +141,7 @@ public class LoyaltiesMembersRewardsListResponseBodyDataItem {
   public LoyaltiesMembersRewardsListResponseBodyDataItem assignment(RewardAssignment assignment) {
     
     this.assignment = assignment;
+    
     return this;
   }
 
@@ -161,6 +163,7 @@ public class LoyaltiesMembersRewardsListResponseBodyDataItem {
   public LoyaltiesMembersRewardsListResponseBodyDataItem _object(ObjectEnum _object) {
     
     this._object = _object;
+    
     return this;
   }
 

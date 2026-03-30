@@ -86,6 +86,7 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public ParameterFiltersListCampaignsStatusConditions $active(Object $active) {
     
     this.$active = $active;
+    this.$activeIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public ParameterFiltersListCampaignsStatusConditions $failed(Object $failed) {
     
     this.$failed = $failed;
+    this.$failedIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public ParameterFiltersListCampaignsStatusConditions $inProgress(Object $inProgress) {
     
     this.$inProgress = $inProgress;
+    this.$inProgressIsSet = true;
     return this;
   }
 
@@ -161,6 +164,7 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public ParameterFiltersListCampaignsStatusConditions $expired(Object $expired) {
     
     this.$expired = $expired;
+    this.$expiredIsSet = true;
     return this;
   }
 
@@ -186,6 +190,7 @@ public class ParameterFiltersListCampaignsStatusConditions {
   public ParameterFiltersListCampaignsStatusConditions beforeStart(Object beforeStart) {
     
     this.beforeStart = beforeStart;
+    this.beforeStartIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class RedemptionsRollbackCreateResponseBodyGift {
   public RedemptionsRollbackCreateResponseBodyGift amount(Integer amount) {
     
     this.amount = amount;
+    this.amountIsSet = true;
     return this;
   }
 

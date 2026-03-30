@@ -74,6 +74,7 @@ public class ReferralsMembersHoldersCreateInBulkRequestBody {
   public ReferralsMembersHoldersCreateInBulkRequestBody holders(List<Customer> holders) {
     
     this.holders = holders;
+    this.holdersIsSet = true;
     return this;
   }
 
@@ -107,6 +108,7 @@ public class ReferralsMembersHoldersCreateInBulkRequestBody {
   public ReferralsMembersHoldersCreateInBulkRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

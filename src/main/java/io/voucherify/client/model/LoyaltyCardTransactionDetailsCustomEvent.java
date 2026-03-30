@@ -71,6 +71,7 @@ public class LoyaltyCardTransactionDetailsCustomEvent {
   public LoyaltyCardTransactionDetailsCustomEvent id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltyCardTransactionDetailsCustomEvent {
   public LoyaltyCardTransactionDetailsCustomEvent type(String type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 

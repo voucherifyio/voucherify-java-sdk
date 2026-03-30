@@ -86,6 +86,7 @@ public class LoyaltiesMembersCreateRequestBody {
   public LoyaltiesMembersCreateRequestBody voucher(String voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -111,6 +112,7 @@ public class LoyaltiesMembersCreateRequestBody {
   public LoyaltiesMembersCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 
@@ -136,6 +138,7 @@ public class LoyaltiesMembersCreateRequestBody {
   public LoyaltiesMembersCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
+    
     return this;
   }
 
@@ -157,6 +160,7 @@ public class LoyaltiesMembersCreateRequestBody {
   public LoyaltiesMembersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -182,6 +186,7 @@ public class LoyaltiesMembersCreateRequestBody {
   public LoyaltiesMembersCreateRequestBody channel(String channel) {
     
     this.channel = channel;
+    this.channelIsSet = true;
     return this;
   }
 

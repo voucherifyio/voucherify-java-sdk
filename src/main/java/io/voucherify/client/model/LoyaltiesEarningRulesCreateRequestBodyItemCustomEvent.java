@@ -66,6 +66,7 @@ public class LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent {
   public LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent schemaId(String schemaId) {
     
     this.schemaId = schemaId;
+    this.schemaIdIsSet = true;
     return this;
   }
 

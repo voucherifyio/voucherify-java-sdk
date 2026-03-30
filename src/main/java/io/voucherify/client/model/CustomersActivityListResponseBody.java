@@ -134,6 +134,7 @@ public class CustomersActivityListResponseBody {
   public CustomersActivityListResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -159,6 +160,7 @@ public class CustomersActivityListResponseBody {
   public CustomersActivityListResponseBody dataRef(String dataRef) {
     
     this.dataRef = dataRef;
+    this.dataRefIsSet = true;
     return this;
   }
 
@@ -184,6 +186,7 @@ public class CustomersActivityListResponseBody {
   public CustomersActivityListResponseBody data(List<CustomerActivity> data) {
     
     this.data = data;
+    this.dataIsSet = true;
     return this;
   }
 
@@ -217,6 +220,7 @@ public class CustomersActivityListResponseBody {
   public CustomersActivityListResponseBody hasMore(Boolean hasMore) {
     
     this.hasMore = hasMore;
+    this.hasMoreIsSet = true;
     return this;
   }
 
@@ -242,6 +246,7 @@ public class CustomersActivityListResponseBody {
   public CustomersActivityListResponseBody moreStartingAfter(String moreStartingAfter) {
     
     this.moreStartingAfter = moreStartingAfter;
+    this.moreStartingAfterIsSet = true;
     return this;
   }
 

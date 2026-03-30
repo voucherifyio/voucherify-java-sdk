@@ -203,6 +203,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -228,6 +229,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment ruleId(String ruleId) {
     
     this.ruleId = ruleId;
+    this.ruleIdIsSet = true;
     return this;
   }
 
@@ -253,6 +255,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment relatedObjectId(String relatedObjectId) {
     
     this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
     return this;
   }
 
@@ -278,6 +281,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment relatedObjectType(String relatedObjectType) {
     
     this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
     return this;
   }
 
@@ -303,6 +307,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -328,6 +333,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -353,6 +359,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -378,6 +385,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment validationStatus(ValidationStatusEnum validationStatus) {
     
     this.validationStatus = validationStatus;
+    this.validationStatusIsSet = true;
     return this;
   }
 
@@ -403,6 +411,7 @@ public class BusValRuleAssignment {
   public BusValRuleAssignment validationOmittedRules(List<String> validationOmittedRules) {
     
     this.validationOmittedRules = validationOmittedRules;
+    this.validationOmittedRulesIsSet = true;
     return this;
   }
 

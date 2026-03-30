@@ -67,6 +67,7 @@ public class LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersC
   public LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignId conditions(LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions conditions) {
     
     this.conditions = conditions;
+    this.conditionsIsSet = true;
     return this;
   }
 

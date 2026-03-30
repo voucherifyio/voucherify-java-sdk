@@ -65,6 +65,7 @@ public class ParameterFiltersListCampaignsValidityTimeframe {
   public ParameterFiltersListCampaignsValidityTimeframe conditions(FilterConditionsDateTime conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

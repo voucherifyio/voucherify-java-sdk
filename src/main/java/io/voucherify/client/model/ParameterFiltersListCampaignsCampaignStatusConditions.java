@@ -315,6 +315,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $in(List<InEnum> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -348,6 +349,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $notIn(List<NotInEnum> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 
@@ -381,6 +383,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $is(IsEnum $is) {
     
     this.$is = $is;
+    this.$isIsSet = true;
     return this;
   }
 
@@ -406,6 +409,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $isNot(IsNotEnum $isNot) {
     
     this.$isNot = $isNot;
+    this.$isNotIsSet = true;
     return this;
   }
 
@@ -431,6 +435,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $hasValue(String $hasValue) {
     
     this.$hasValue = $hasValue;
+    this.$hasValueIsSet = true;
     return this;
   }
 
@@ -456,6 +461,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $isUnknown(String $isUnknown) {
     
     this.$isUnknown = $isUnknown;
+    this.$isUnknownIsSet = true;
     return this;
   }
 
@@ -481,6 +487,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $startsWith(String $startsWith) {
     
     this.$startsWith = $startsWith;
+    this.$startsWithIsSet = true;
     return this;
   }
 
@@ -506,6 +513,7 @@ public class ParameterFiltersListCampaignsCampaignStatusConditions {
   public ParameterFiltersListCampaignsCampaignStatusConditions $endsWith(String $endsWith) {
     
     this.$endsWith = $endsWith;
+    this.$endsWithIsSet = true;
     return this;
   }
 

@@ -79,6 +79,7 @@ public class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesMembersTransactionsExportCreateRequestBodyParameters order(ExportVoucherTransactionsOrder order) {
     
     this.order = order;
+    
     return this;
   }
 
@@ -100,6 +101,7 @@ public class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesMembersTransactionsExportCreateRequestBodyParameters fields(List<ExportVoucherTransactionsFields> fields) {
     
     this.fields = fields;
+    this.fieldsIsSet = true;
     return this;
   }
 
@@ -133,6 +135,7 @@ public class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters {
   public LoyaltiesMembersTransactionsExportCreateRequestBodyParameters filters(ExportVoucherTransactionsFilters filters) {
     
     this.filters = filters;
+    
     return this;
   }
 

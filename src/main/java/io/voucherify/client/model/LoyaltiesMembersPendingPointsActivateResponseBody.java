@@ -232,6 +232,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody points(Integer points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 
@@ -257,6 +258,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody total(Integer total) {
     
     this.total = total;
+    this.totalIsSet = true;
     return this;
   }
 
@@ -282,6 +284,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody balance(Integer balance) {
     
     this.balance = balance;
+    this.balanceIsSet = true;
     return this;
   }
 
@@ -307,6 +310,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -332,6 +336,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -357,6 +362,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody relatedObject(LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject relatedObject) {
     
     this.relatedObject = relatedObject;
+    this.relatedObjectIsSet = true;
     return this;
   }
 
@@ -382,6 +388,7 @@ public class LoyaltiesMembersPendingPointsActivateResponseBody {
   public LoyaltiesMembersPendingPointsActivateResponseBody operationType(OperationTypeEnum operationType) {
     
     this.operationType = operationType;
+    this.operationTypeIsSet = true;
     return this;
   }
 

@@ -65,6 +65,7 @@ public class FieldConditions {
   public FieldConditions conditions(FiltersCondition conditions) {
     
     this.conditions = conditions;
+    
     return this;
   }
 

@@ -311,6 +311,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -336,6 +337,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody campaign(CampaignBase campaign) {
     
     this.campaign = campaign;
+    
     return this;
   }
 
@@ -357,6 +359,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody redemptions(Integer redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -382,6 +385,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody redemptionsSucceeded(Integer redemptionsSucceeded) {
     
     this.redemptionsSucceeded = redemptionsSucceeded;
+    this.redemptionsSucceededIsSet = true;
     return this;
   }
 
@@ -407,6 +411,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody redemptionsFailed(Integer redemptionsFailed) {
     
     this.redemptionsFailed = redemptionsFailed;
+    this.redemptionsFailedIsSet = true;
     return this;
   }
 
@@ -432,6 +437,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody rollbacks(Integer rollbacks) {
     
     this.rollbacks = rollbacks;
+    this.rollbacksIsSet = true;
     return this;
   }
 
@@ -457,6 +463,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody rollbacksSucceeded(Integer rollbacksSucceeded) {
     
     this.rollbacksSucceeded = rollbacksSucceeded;
+    this.rollbacksSucceededIsSet = true;
     return this;
   }
 
@@ -482,6 +489,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody rollbacksFailed(Integer rollbacksFailed) {
     
     this.rollbacksFailed = rollbacksFailed;
+    this.rollbacksFailedIsSet = true;
     return this;
   }
 
@@ -507,6 +515,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody validations(Integer validations) {
     
     this.validations = validations;
+    this.validationsIsSet = true;
     return this;
   }
 
@@ -532,6 +541,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody validationsSucceeded(Integer validationsSucceeded) {
     
     this.validationsSucceeded = validationsSucceeded;
+    this.validationsSucceededIsSet = true;
     return this;
   }
 
@@ -557,6 +567,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody validationsFailed(Integer validationsFailed) {
     
     this.validationsFailed = validationsFailed;
+    this.validationsFailedIsSet = true;
     return this;
   }
 
@@ -582,6 +593,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody ordersAmount(Integer ordersAmount) {
     
     this.ordersAmount = ordersAmount;
+    this.ordersAmountIsSet = true;
     return this;
   }
 
@@ -607,6 +619,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody ordersRolledbackAmount(Integer ordersRolledbackAmount) {
     
     this.ordersRolledbackAmount = ordersRolledbackAmount;
+    this.ordersRolledbackAmountIsSet = true;
     return this;
   }
 
@@ -632,6 +645,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody vouchersCreated(Integer vouchersCreated) {
     
     this.vouchersCreated = vouchersCreated;
+    this.vouchersCreatedIsSet = true;
     return this;
   }
 
@@ -657,6 +671,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody vouchersDeleted(Integer vouchersDeleted) {
     
     this.vouchersDeleted = vouchersDeleted;
+    this.vouchersDeletedIsSet = true;
     return this;
   }
 
@@ -682,6 +697,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody publications(Integer publications) {
     
     this.publications = publications;
+    this.publicationsIsSet = true;
     return this;
   }
 
@@ -707,6 +723,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody publicationsSucceeded(Integer publicationsSucceeded) {
     
     this.publicationsSucceeded = publicationsSucceeded;
+    this.publicationsSucceededIsSet = true;
     return this;
   }
 
@@ -732,6 +749,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody publicationsFailed(Integer publicationsFailed) {
     
     this.publicationsFailed = publicationsFailed;
+    this.publicationsFailedIsSet = true;
     return this;
   }
 
@@ -757,6 +775,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody discountedAmount(Integer discountedAmount) {
     
     this.discountedAmount = discountedAmount;
+    this.discountedAmountIsSet = true;
     return this;
   }
 
@@ -782,6 +801,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody rolledbackDiscountedAmount(Integer rolledbackDiscountedAmount) {
     
     this.rolledbackDiscountedAmount = rolledbackDiscountedAmount;
+    this.rolledbackDiscountedAmountIsSet = true;
     return this;
   }
 
@@ -807,6 +827,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody createdVouchersAmount(Integer createdVouchersAmount) {
     
     this.createdVouchersAmount = createdVouchersAmount;
+    this.createdVouchersAmountIsSet = true;
     return this;
   }
 
@@ -832,6 +853,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody amountAdded(Integer amountAdded) {
     
     this.amountAdded = amountAdded;
+    this.amountAddedIsSet = true;
     return this;
   }
 
@@ -857,6 +879,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody amountDeleted(Integer amountDeleted) {
     
     this.amountDeleted = amountDeleted;
+    this.amountDeletedIsSet = true;
     return this;
   }
 
@@ -882,6 +905,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody amountRedeemed(Integer amountRedeemed) {
     
     this.amountRedeemed = amountRedeemed;
+    this.amountRedeemedIsSet = true;
     return this;
   }
 
@@ -907,6 +931,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody amountRolledback(Integer amountRolledback) {
     
     this.amountRolledback = amountRolledback;
+    this.amountRolledbackIsSet = true;
     return this;
   }
 
@@ -932,6 +957,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody amountSubtracted(Integer amountSubtracted) {
     
     this.amountSubtracted = amountSubtracted;
+    this.amountSubtractedIsSet = true;
     return this;
   }
 
@@ -957,6 +983,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody createdVouchersPoints(Integer createdVouchersPoints) {
     
     this.createdVouchersPoints = createdVouchersPoints;
+    this.createdVouchersPointsIsSet = true;
     return this;
   }
 
@@ -982,6 +1009,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsDeleted(Integer pointsDeleted) {
     
     this.pointsDeleted = pointsDeleted;
+    this.pointsDeletedIsSet = true;
     return this;
   }
 
@@ -1007,6 +1035,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsSubtracted(Integer pointsSubtracted) {
     
     this.pointsSubtracted = pointsSubtracted;
+    this.pointsSubtractedIsSet = true;
     return this;
   }
 
@@ -1032,6 +1061,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsAdded(Integer pointsAdded) {
     
     this.pointsAdded = pointsAdded;
+    this.pointsAddedIsSet = true;
     return this;
   }
 
@@ -1057,6 +1087,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsRewarded(Integer pointsRewarded) {
     
     this.pointsRewarded = pointsRewarded;
+    this.pointsRewardedIsSet = true;
     return this;
   }
 
@@ -1082,6 +1113,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsRedeemed(Integer pointsRedeemed) {
     
     this.pointsRedeemed = pointsRedeemed;
+    this.pointsRedeemedIsSet = true;
     return this;
   }
 
@@ -1107,6 +1139,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsRolledback(Integer pointsRolledback) {
     
     this.pointsRolledback = pointsRolledback;
+    this.pointsRolledbackIsSet = true;
     return this;
   }
 
@@ -1132,6 +1165,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsExpired(Integer pointsExpired) {
     
     this.pointsExpired = pointsExpired;
+    this.pointsExpiredIsSet = true;
     return this;
   }
 
@@ -1157,6 +1191,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsTransferredOut(Integer pointsTransferredOut) {
     
     this.pointsTransferredOut = pointsTransferredOut;
+    this.pointsTransferredOutIsSet = true;
     return this;
   }
 
@@ -1182,6 +1217,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pointsTransferredIn(Integer pointsTransferredIn) {
     
     this.pointsTransferredIn = pointsTransferredIn;
+    this.pointsTransferredInIsSet = true;
     return this;
   }
 
@@ -1207,6 +1243,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pendingPointsAdded(Integer pendingPointsAdded) {
     
     this.pendingPointsAdded = pendingPointsAdded;
+    this.pendingPointsAddedIsSet = true;
     return this;
   }
 
@@ -1232,6 +1269,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pendingPointsSubtracted(Integer pendingPointsSubtracted) {
     
     this.pendingPointsSubtracted = pendingPointsSubtracted;
+    this.pendingPointsSubtractedIsSet = true;
     return this;
   }
 
@@ -1257,6 +1295,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pendingPointsActivated(Integer pendingPointsActivated) {
     
     this.pendingPointsActivated = pendingPointsActivated;
+    this.pendingPointsActivatedIsSet = true;
     return this;
   }
 
@@ -1282,6 +1321,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody pendingPointsCanceled(Integer pendingPointsCanceled) {
     
     this.pendingPointsCanceled = pendingPointsCanceled;
+    this.pendingPointsCanceledIsSet = true;
     return this;
   }
 
@@ -1307,6 +1347,7 @@ public class CampaignsSummaryGetResponseBody {
   public CampaignsSummaryGetResponseBody referredCustomers(Integer referredCustomers) {
     
     this.referredCustomers = referredCustomers;
+    this.referredCustomersIsSet = true;
     return this;
   }
 

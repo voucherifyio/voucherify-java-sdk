@@ -82,6 +82,7 @@ public class QualificationsCheckEligibilityResponseBody {
   public QualificationsCheckEligibilityResponseBody redeemables(QualificationsRedeemables redeemables) {
     
     this.redeemables = redeemables;
+    
     return this;
   }
 
@@ -103,6 +104,7 @@ public class QualificationsCheckEligibilityResponseBody {
   public QualificationsCheckEligibilityResponseBody trackingId(String trackingId) {
     
     this.trackingId = trackingId;
+    this.trackingIdIsSet = true;
     return this;
   }
 
@@ -128,6 +130,7 @@ public class QualificationsCheckEligibilityResponseBody {
   public QualificationsCheckEligibilityResponseBody order(QualificationsCheckEligibilityResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -153,6 +156,7 @@ public class QualificationsCheckEligibilityResponseBody {
   public QualificationsCheckEligibilityResponseBody stackingRules(StackingRules stackingRules) {
     
     this.stackingRules = stackingRules;
+    
     return this;
   }
 

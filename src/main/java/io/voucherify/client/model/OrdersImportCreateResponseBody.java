@@ -66,6 +66,7 @@ public class OrdersImportCreateResponseBody {
   public OrdersImportCreateResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

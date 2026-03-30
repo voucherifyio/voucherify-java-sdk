@@ -65,6 +65,7 @@ public class LoyaltiesPointsExpirationExportCreateRequestBody {
   public LoyaltiesPointsExpirationExportCreateRequestBody parameters(LoyaltiesPointsExpirationExportCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    
     return this;
   }
 

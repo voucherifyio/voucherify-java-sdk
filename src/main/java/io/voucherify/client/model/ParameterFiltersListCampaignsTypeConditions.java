@@ -175,6 +175,7 @@ public class ParameterFiltersListCampaignsTypeConditions {
   public ParameterFiltersListCampaignsTypeConditions $in(List<InEnum> $in) {
     
     this.$in = $in;
+    this.$inIsSet = true;
     return this;
   }
 
@@ -208,6 +209,7 @@ public class ParameterFiltersListCampaignsTypeConditions {
   public ParameterFiltersListCampaignsTypeConditions $notIn(List<NotInEnum> $notIn) {
     
     this.$notIn = $notIn;
+    this.$notInIsSet = true;
     return this;
   }
 

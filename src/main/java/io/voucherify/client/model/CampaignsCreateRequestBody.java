@@ -75,7 +75,7 @@ public class CampaignsCreateRequestBody {
     private boolean descriptionIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -332,6 +332,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -357,6 +358,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody description(String description) {
     
     this.description = description;
+    this.descriptionIsSet = true;
     return this;
   }
 
@@ -382,11 +384,12 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) voucherss.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
    * @return type
   **/
   @javax.annotation.Nullable
@@ -407,6 +410,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody joinOnce(Boolean joinOnce) {
     
     this.joinOnce = joinOnce;
+    this.joinOnceIsSet = true;
     return this;
   }
 
@@ -432,6 +436,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody autoJoin(Boolean autoJoin) {
     
     this.autoJoin = autoJoin;
+    this.autoJoinIsSet = true;
     return this;
   }
 
@@ -457,6 +462,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody useVoucherMetadataSchema(Boolean useVoucherMetadataSchema) {
     
     this.useVoucherMetadataSchema = useVoucherMetadataSchema;
+    this.useVoucherMetadataSchemaIsSet = true;
     return this;
   }
 
@@ -482,6 +488,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody vouchersCount(Integer vouchersCount) {
     
     this.vouchersCount = vouchersCount;
+    this.vouchersCountIsSet = true;
     return this;
   }
 
@@ -507,6 +514,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody startDate(OffsetDateTime startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -532,6 +540,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody expirationDate(OffsetDateTime expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -557,6 +566,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -578,6 +588,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -607,6 +618,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -628,6 +640,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody activityDurationAfterPublishing(String activityDurationAfterPublishing) {
     
     this.activityDurationAfterPublishing = activityDurationAfterPublishing;
+    this.activityDurationAfterPublishingIsSet = true;
     return this;
   }
 
@@ -653,6 +666,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody categoryId(String categoryId) {
     
     this.categoryId = categoryId;
+    this.categoryIdIsSet = true;
     return this;
   }
 
@@ -678,6 +692,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody category(String category) {
     
     this.category = category;
+    this.categoryIsSet = true;
     return this;
   }
 
@@ -703,6 +718,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -728,6 +744,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody accessSettings(AccessSettings accessSettings) {
     
     this.accessSettings = accessSettings;
+    
     return this;
   }
 
@@ -749,6 +766,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody validationRules(List<String> validationRules) {
     
     this.validationRules = validationRules;
+    this.validationRulesIsSet = true;
     return this;
   }
 
@@ -782,6 +800,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody campaignType(CampaignTypeEnum campaignType) {
     
     this.campaignType = campaignType;
+    this.campaignTypeIsSet = true;
     return this;
   }
 
@@ -807,6 +826,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody voucher(CampaignsCreateRequestBodyVoucher voucher) {
     
     this.voucher = voucher;
+    this.voucherIsSet = true;
     return this;
   }
 
@@ -832,6 +852,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody referralProgram(ReferralProgram referralProgram) {
     
     this.referralProgram = referralProgram;
+    
     return this;
   }
 
@@ -853,6 +874,7 @@ public class CampaignsCreateRequestBody {
   public CampaignsCreateRequestBody promotion(CampaignsCreateRequestBodyPromotion promotion) {
     
     this.promotion = promotion;
+    this.promotionIsSet = true;
     return this;
   }
 

@@ -71,6 +71,7 @@ public class LoyaltyPendingPointsDetailsOrder {
   public LoyaltyPendingPointsDetailsOrder id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class LoyaltyPendingPointsDetailsOrder {
   public LoyaltyPendingPointsDetailsOrder sourceId(String sourceId) {
     
     this.sourceId = sourceId;
+    this.sourceIdIsSet = true;
     return this;
   }
 

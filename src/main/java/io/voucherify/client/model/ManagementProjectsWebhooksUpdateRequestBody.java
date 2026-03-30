@@ -241,6 +241,7 @@ public class ManagementProjectsWebhooksUpdateRequestBody {
   public ManagementProjectsWebhooksUpdateRequestBody targetUrl(String targetUrl) {
     
     this.targetUrl = targetUrl;
+    this.targetUrlIsSet = true;
     return this;
   }
 
@@ -266,6 +267,7 @@ public class ManagementProjectsWebhooksUpdateRequestBody {
   public ManagementProjectsWebhooksUpdateRequestBody events(List<EventsEnum> events) {
     
     this.events = events;
+    this.eventsIsSet = true;
     return this;
   }
 
@@ -299,6 +301,7 @@ public class ManagementProjectsWebhooksUpdateRequestBody {
   public ManagementProjectsWebhooksUpdateRequestBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 

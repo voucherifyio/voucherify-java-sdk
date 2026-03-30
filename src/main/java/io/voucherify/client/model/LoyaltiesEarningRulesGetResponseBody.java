@@ -275,6 +275,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody id(String id) {
     
     this.id = id;
+    this.idIsSet = true;
     return this;
   }
 
@@ -300,6 +301,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
+    this.createdAtIsSet = true;
     return this;
   }
 
@@ -325,6 +327,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody loyalty(LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty) {
     
     this.loyalty = loyalty;
+    this.loyaltyIsSet = true;
     return this;
   }
 
@@ -350,6 +353,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody event(String event) {
     
     this.event = event;
+    
     return this;
   }
 
@@ -371,6 +375,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody customEvent(LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -396,6 +401,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody segment(LoyaltiesEarningRulesGetResponseBodySegment segment) {
     
     this.segment = segment;
+    this.segmentIsSet = true;
     return this;
   }
 
@@ -421,6 +427,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody loyaltyTier(LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
     return this;
   }
 
@@ -446,6 +453,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody pendingPoints(LoyaltiesEarningRulesGetResponseBodyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    this.pendingPointsIsSet = true;
     return this;
   }
 
@@ -471,6 +479,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody source(LoyaltiesEarningRulesGetResponseBodySource source) {
     
     this.source = source;
+    this.sourceIsSet = true;
     return this;
   }
 
@@ -496,6 +505,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody _object(ObjectEnum _object) {
     
     this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
@@ -521,6 +531,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody automationId(String automationId) {
     
     this.automationId = automationId;
+    this.automationIdIsSet = true;
     return this;
   }
 
@@ -546,6 +557,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody startDate(String startDate) {
     
     this.startDate = startDate;
+    this.startDateIsSet = true;
     return this;
   }
 
@@ -571,6 +583,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody expirationDate(String expirationDate) {
     
     this.expirationDate = expirationDate;
+    this.expirationDateIsSet = true;
     return this;
   }
 
@@ -596,6 +609,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody validityTimeframe(ValidityTimeframe validityTimeframe) {
     
     this.validityTimeframe = validityTimeframe;
+    
     return this;
   }
 
@@ -617,6 +631,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody validityDayOfWeek(List<ValidityDayOfWeekEnum> validityDayOfWeek) {
     
     this.validityDayOfWeek = validityDayOfWeek;
+    
     return this;
   }
 
@@ -646,6 +661,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody validityHours(ValidityHours validityHours) {
     
     this.validityHours = validityHours;
+    
     return this;
   }
 
@@ -667,6 +683,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -692,6 +709,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody expirationRules(EarningRuleExpirationRules expirationRules) {
     
     this.expirationRules = expirationRules;
+    
     return this;
   }
 
@@ -713,6 +731,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody validationRuleId(String validationRuleId) {
     
     this.validationRuleId = validationRuleId;
+    this.validationRuleIdIsSet = true;
     return this;
   }
 
@@ -738,6 +757,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
     return this;
   }
 
@@ -763,6 +783,7 @@ public class LoyaltiesEarningRulesGetResponseBody {
   public LoyaltiesEarningRulesGetResponseBody active(Boolean active) {
     
     this.active = active;
+    this.activeIsSet = true;
     return this;
   }
 

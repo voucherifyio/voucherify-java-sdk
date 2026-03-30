@@ -146,6 +146,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher type(TypeEnum type) {
     
     this.type = type;
+    this.typeIsSet = true;
     return this;
   }
 
@@ -171,6 +172,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher discount(Discount discount) {
     
     this.discount = discount;
+    
     return this;
   }
 
@@ -192,6 +194,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher codeConfig(CodeConfig codeConfig) {
     
     this.codeConfig = codeConfig;
+    
     return this;
   }
 
@@ -213,6 +216,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher redemption(CampaignsCreateRequestBodyVoucherRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -238,6 +242,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher isReferralCode(Boolean isReferralCode) {
     
     this.isReferralCode = isReferralCode;
+    this.isReferralCodeIsSet = true;
     return this;
   }
 
@@ -263,6 +268,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher gift(Gift gift) {
     
     this.gift = gift;
+    
     return this;
   }
 
@@ -284,6 +290,7 @@ public class CampaignsCreateRequestBodyVoucher {
   public CampaignsCreateRequestBodyVoucher loyaltyCard(CampaignLoyaltyCard loyaltyCard) {
     
     this.loyaltyCard = loyaltyCard;
+    
     return this;
   }
 

@@ -67,6 +67,7 @@ public class LoyaltiesTiersGetResponseBodyConfig {
   public LoyaltiesTiersGetResponseBodyConfig points(LoyaltiesTiersGetResponseBodyConfigPoints points) {
     
     this.points = points;
+    this.pointsIsSet = true;
     return this;
   }
 

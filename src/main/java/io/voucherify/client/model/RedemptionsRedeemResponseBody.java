@@ -91,6 +91,7 @@ public class RedemptionsRedeemResponseBody {
   public RedemptionsRedeemResponseBody redemptions(List<Redemption> redemptions) {
     
     this.redemptions = redemptions;
+    this.redemptionsIsSet = true;
     return this;
   }
 
@@ -124,6 +125,7 @@ public class RedemptionsRedeemResponseBody {
   public RedemptionsRedeemResponseBody parentRedemption(Redemption parentRedemption) {
     
     this.parentRedemption = parentRedemption;
+    
     return this;
   }
 
@@ -145,6 +147,7 @@ public class RedemptionsRedeemResponseBody {
   public RedemptionsRedeemResponseBody order(RedemptionsRedeemResponseBodyOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -170,6 +173,7 @@ public class RedemptionsRedeemResponseBody {
   public RedemptionsRedeemResponseBody inapplicableRedeemables(List<ValidationsRedeemableInapplicable> inapplicableRedeemables) {
     
     this.inapplicableRedeemables = inapplicableRedeemables;
+    this.inapplicableRedeemablesIsSet = true;
     return this;
   }
 
@@ -203,6 +207,7 @@ public class RedemptionsRedeemResponseBody {
   public RedemptionsRedeemResponseBody skippedRedeemables(List<ValidationsRedeemableSkipped> skippedRedeemables) {
     
     this.skippedRedeemables = skippedRedeemables;
+    this.skippedRedeemablesIsSet = true;
     return this;
   }
 

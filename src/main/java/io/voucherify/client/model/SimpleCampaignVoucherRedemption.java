@@ -71,6 +71,7 @@ public class SimpleCampaignVoucherRedemption {
   public SimpleCampaignVoucherRedemption quantity(Integer quantity) {
     
     this.quantity = quantity;
+    this.quantityIsSet = true;
     return this;
   }
 
@@ -96,6 +97,7 @@ public class SimpleCampaignVoucherRedemption {
   public SimpleCampaignVoucherRedemption redeemedQuantity(Integer redeemedQuantity) {
     
     this.redeemedQuantity = redeemedQuantity;
+    this.redeemedQuantityIsSet = true;
     return this;
   }
 

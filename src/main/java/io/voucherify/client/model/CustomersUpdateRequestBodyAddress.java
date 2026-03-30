@@ -91,6 +91,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress city(String city) {
     
     this.city = city;
+    this.cityIsSet = true;
     return this;
   }
 
@@ -116,6 +117,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress state(String state) {
     
     this.state = state;
+    this.stateIsSet = true;
     return this;
   }
 
@@ -141,6 +143,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress line1(String line1) {
     
     this.line1 = line1;
+    this.line1IsSet = true;
     return this;
   }
 
@@ -166,6 +169,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress line2(String line2) {
     
     this.line2 = line2;
+    this.line2IsSet = true;
     return this;
   }
 
@@ -191,6 +195,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress country(String country) {
     
     this.country = country;
+    this.countryIsSet = true;
     return this;
   }
 
@@ -216,6 +221,7 @@ public class CustomersUpdateRequestBodyAddress {
   public CustomersUpdateRequestBodyAddress postalCode(String postalCode) {
     
     this.postalCode = postalCode;
+    this.postalCodeIsSet = true;
     return this;
   }
 

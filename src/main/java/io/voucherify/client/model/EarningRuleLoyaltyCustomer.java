@@ -67,6 +67,7 @@ public class EarningRuleLoyaltyCustomer {
   public EarningRuleLoyaltyCustomer metadata(EarningRuleLoyaltyCustomerMetadata metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 

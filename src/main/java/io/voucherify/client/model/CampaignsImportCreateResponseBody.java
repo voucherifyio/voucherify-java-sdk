@@ -66,6 +66,7 @@ public class CampaignsImportCreateResponseBody {
   public CampaignsImportCreateResponseBody asyncActionId(String asyncActionId) {
     
     this.asyncActionId = asyncActionId;
+    this.asyncActionIdIsSet = true;
     return this;
   }
 

@@ -66,6 +66,7 @@ public class CustomEventLoyalty {
   public CustomEventLoyalty code(String code) {
     
     this.code = code;
+    this.codeIsSet = true;
     return this;
   }
 

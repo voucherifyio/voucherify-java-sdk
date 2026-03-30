@@ -77,6 +77,7 @@ public class ValidationsRedeemableInapplicableResult {
   public ValidationsRedeemableInapplicableResult error(Error error) {
     
     this.error = error;
+    
     return this;
   }
 
@@ -98,6 +99,7 @@ public class ValidationsRedeemableInapplicableResult {
   public ValidationsRedeemableInapplicableResult details(ValidationsRedeemableInapplicableResultDetails details) {
     
     this.details = details;
+    this.detailsIsSet = true;
     return this;
   }
 
@@ -123,6 +125,7 @@ public class ValidationsRedeemableInapplicableResult {
   public ValidationsRedeemableInapplicableResult bundle(Bundle bundle) {
     
     this.bundle = bundle;
+    
     return this;
   }
 

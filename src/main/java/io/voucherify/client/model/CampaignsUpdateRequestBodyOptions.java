@@ -66,6 +66,7 @@ public class CampaignsUpdateRequestBodyOptions {
   public CampaignsUpdateRequestBodyOptions recalculateTiers(Boolean recalculateTiers) {
     
     this.recalculateTiers = recalculateTiers;
+    this.recalculateTiersIsSet = true;
     return this;
   }
 

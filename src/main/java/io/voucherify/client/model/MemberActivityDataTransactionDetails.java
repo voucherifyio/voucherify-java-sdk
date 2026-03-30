@@ -149,6 +149,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails balance(VoucherBalance balance) {
     
     this.balance = balance;
+    
     return this;
   }
 
@@ -170,6 +171,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails order(MemberActivityDataTransactionDetailsOrder order) {
     
     this.order = order;
+    this.orderIsSet = true;
     return this;
   }
 
@@ -195,6 +197,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails event(MemberActivityDataTransactionDetailsEvent event) {
     
     this.event = event;
+    this.eventIsSet = true;
     return this;
   }
 
@@ -220,6 +223,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails earningRule(MemberActivityDataTransactionDetailsEarningRule earningRule) {
     
     this.earningRule = earningRule;
+    this.earningRuleIsSet = true;
     return this;
   }
 
@@ -245,6 +249,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails segment(MemberActivityDataTransactionDetailsSegment segment) {
     
     this.segment = segment;
+    this.segmentIsSet = true;
     return this;
   }
 
@@ -270,6 +275,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails loyaltyTier(MemberActivityDataTransactionDetailsLoyaltyTier loyaltyTier) {
     
     this.loyaltyTier = loyaltyTier;
+    this.loyaltyTierIsSet = true;
     return this;
   }
 
@@ -295,6 +301,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails redemption(MemberActivityDataTransactionDetailsRedemption redemption) {
     
     this.redemption = redemption;
+    this.redemptionIsSet = true;
     return this;
   }
 
@@ -320,6 +327,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails rollback(MemberActivityDataTransactionDetailsRollback rollback) {
     
     this.rollback = rollback;
+    this.rollbackIsSet = true;
     return this;
   }
 
@@ -345,6 +353,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails customEvent(MemberActivityDataTransactionDetailsCustomEvent customEvent) {
     
     this.customEvent = customEvent;
+    this.customEventIsSet = true;
     return this;
   }
 
@@ -370,6 +379,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails eventSchema(MemberActivityDataTransactionDetailsEventSchema eventSchema) {
     
     this.eventSchema = eventSchema;
+    this.eventSchemaIsSet = true;
     return this;
   }
 
@@ -395,6 +405,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails holderLoyaltyTier(MemberActivityDataTransactionDetailsHolderLoyaltyTier holderLoyaltyTier) {
     
     this.holderLoyaltyTier = holderLoyaltyTier;
+    this.holderLoyaltyTierIsSet = true;
     return this;
   }
 
@@ -420,6 +431,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails pendingPoints(LoyaltyPendingPoints pendingPoints) {
     
     this.pendingPoints = pendingPoints;
+    
     return this;
   }
 
@@ -441,6 +453,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails reward(MemberActivityDataTransactionDetailsReward reward) {
     
     this.reward = reward;
+    this.rewardIsSet = true;
     return this;
   }
 
@@ -466,6 +479,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails sourceVoucher(MemberActivityDataTransactionDetailsSourceVoucher sourceVoucher) {
     
     this.sourceVoucher = sourceVoucher;
+    this.sourceVoucherIsSet = true;
     return this;
   }
 
@@ -491,6 +505,7 @@ public class MemberActivityDataTransactionDetails {
   public MemberActivityDataTransactionDetails destinationVoucher(MemberActivityDataTransactionDetailsDestinationVoucher destinationVoucher) {
     
     this.destinationVoucher = destinationVoucher;
+    this.destinationVoucherIsSet = true;
     return this;
   }
 

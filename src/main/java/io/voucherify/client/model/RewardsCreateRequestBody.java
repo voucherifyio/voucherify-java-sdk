@@ -88,6 +88,7 @@ public class RewardsCreateRequestBody {
   public RewardsCreateRequestBody name(String name) {
     
     this.name = name;
+    this.nameIsSet = true;
     return this;
   }
 
@@ -113,6 +114,7 @@ public class RewardsCreateRequestBody {
   public RewardsCreateRequestBody parameters(RewardsCreateRequestBodyParameters parameters) {
     
     this.parameters = parameters;
+    this.parametersIsSet = true;
     return this;
   }
 
@@ -138,6 +140,7 @@ public class RewardsCreateRequestBody {
   public RewardsCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
+    this.metadataIsSet = true;
     return this;
   }
 
@@ -163,11 +166,12 @@ public class RewardsCreateRequestBody {
   public RewardsCreateRequestBody stock(Integer stock) {
     
     this.stock = stock;
+    this.stockIsSet = true;
     return this;
   }
 
    /**
-   * The number of units of the product that you want to share as a reward.
+   * The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic.
    * @return stock
   **/
   @javax.annotation.Nullable
@@ -188,6 +192,7 @@ public class RewardsCreateRequestBody {
   public RewardsCreateRequestBody attributes(RewardsCreateRequestBodyAttributes attributes) {
     
     this.attributes = attributes;
+    this.attributesIsSet = true;
     return this;
   }
 
