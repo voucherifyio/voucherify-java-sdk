@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.2</version>
+  <version>17.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.2"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.3"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.0.2.jar`
+* `target/voucherify-java-sdk-17.0.3.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -177,7 +177,7 @@ Read more about how to contribute to this SDK in the [Contributing guide](https:
 This SDK is auto-generated (except for tests), so changes made here will be overwritten by the generator.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.2)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.3)
 
 ## 🔐 Authorization
 
@@ -242,6 +242,26 @@ Authorization schemes defined for the API.
 - **Location**: HTTP header
 
 ## 📅 Changelog
+- **2026-04-03** - `17.0.3`
+ADDED:
+- ApplicableTo/InapplicableTo model:
+    - `product_campaign_quantity_limit`
+    - `product_campaign_quantity_limit_formula`
+    - `product_customer_campaign_quantity_limit`
+    - `product_customer_campaign_quantity_limit_formula`
+    - `product_in_collection_campaign_quantity_limit`
+    - `product_in_collection_campaign_quantity_limit_formula`
+    - `product_in_collection_customer_campaign_quantity_limit`
+    - `product_in_collection_customer_campaign_quantity_limit_formula`
+    - `product_promotion_tier_quantity_limit`
+    - `product_promotion_tier_quantity_limit_formula`
+    - `product_customer_promotion_tier_quantity_limit`
+    - `product_customer_promotion_tier_quantity_limit_formula`
+    - `product_in_collection_promotion_tier_quantity_limit`
+    - `product_in_collection_promotion_tier_quantity_limit_formula`
+    - `product_in_collection_customer_promotion_tier_quantity_limit`
+    - `product_in_collection_customer_promotion_tier_quantity_limit_formula`
+
 - **2026-03-27** - `17.0.2`
 FIXED:
 - Campaign voucher redemption serialization for nullable fluent setters:
@@ -2299,3 +2319,4 @@ Class | Method | HTTP request | Description
 - [VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
 - [VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
 - [VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
+

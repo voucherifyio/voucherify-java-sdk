@@ -30,4 +30,3 @@ build
 /.env
 /.idea
 gradle.properties
-.gradle-home
