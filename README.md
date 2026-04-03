@@ -244,23 +244,23 @@ Authorization schemes defined for the API.
 ## 📅 Changelog
 - **2026-04-03** - `17.0.3`
 ADDED:
-- ApplicableTo/InapplicableTo model:
-    - `product_campaign_quantity_limit`
-    - `product_campaign_quantity_limit_formula`
-    - `product_customer_campaign_quantity_limit`
-    - `product_customer_campaign_quantity_limit_formula`
-    - `product_in_collection_campaign_quantity_limit`
-    - `product_in_collection_campaign_quantity_limit_formula`
-    - `product_in_collection_customer_campaign_quantity_limit`
-    - `product_in_collection_customer_campaign_quantity_limit_formula`
-    - `product_promotion_tier_quantity_limit`
-    - `product_promotion_tier_quantity_limit_formula`
-    - `product_customer_promotion_tier_quantity_limit`
-    - `product_customer_promotion_tier_quantity_limit_formula`
-    - `product_in_collection_promotion_tier_quantity_limit`
-    - `product_in_collection_promotion_tier_quantity_limit_formula`
-    - `product_in_collection_customer_promotion_tier_quantity_limit`
-    - `product_in_collection_customer_promotion_tier_quantity_limit_formula`
+- We have added product limit fields to the ApplicableTo and InapplicableTo models. These limits are available on demand as part of campaign budget limits. Please contact Voucherify Support or your Account Manager to learn more. New Fields:
+  - `product_campaign_quantity_limit`
+  - `product_campaign_quantity_limit_formula`
+  - `product_customer_campaign_quantity_limit`
+  - `product_customer_campaign_quantity_limit_formula`
+  - `product_in_collection_campaign_quantity_limit`
+  - `product_in_collection_campaign_quantity_limit_formula`
+  - `product_in_collection_customer_campaign_quantity_limit`
+  - `product_in_collection_customer_campaign_quantity_limit_formula`
+  - `product_promotion_tier_quantity_limit`
+  - `product_promotion_tier_quantity_limit_formula`
+  - `product_customer_promotion_tier_quantity_limit`
+  - `product_customer_promotion_tier_quantity_limit_formula`
+  - `product_in_collection_promotion_tier_quantity_limit`
+  - `product_in_collection_promotion_tier_quantity_limit_formula`
+  - `product_in_collection_customer_promotion_tier_quantity_limit`
+  - `product_in_collection_customer_promotion_tier_quantity_limit_formula`
 
 - **2026-03-27** - `17.0.2`
 FIXED:
