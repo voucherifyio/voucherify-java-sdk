@@ -168,6 +168,86 @@ public class InapplicableTo {
   private Integer aggregatedAmountLimit;
     private boolean aggregatedAmountLimitIsSet = false;
 
+  public static final String SERIALIZED_NAME_PRODUCT_CAMPAIGN_QUANTITY_LIMIT = "product_campaign_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CAMPAIGN_QUANTITY_LIMIT)
+  private Integer productCampaignQuantityLimit;
+    private boolean productCampaignQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_CAMPAIGN_QUANTITY_LIMIT_FORMULA = "product_campaign_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CAMPAIGN_QUANTITY_LIMIT_FORMULA)
+  private String productCampaignQuantityLimitFormula;
+    private boolean productCampaignQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT = "product_customer_campaign_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT)
+  private Integer productCustomerCampaignQuantityLimit;
+    private boolean productCustomerCampaignQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT_FORMULA = "product_customer_campaign_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT_FORMULA)
+  private String productCustomerCampaignQuantityLimitFormula;
+    private boolean productCustomerCampaignQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CAMPAIGN_QUANTITY_LIMIT = "product_in_collection_campaign_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CAMPAIGN_QUANTITY_LIMIT)
+  private Integer productInCollectionCampaignQuantityLimit;
+    private boolean productInCollectionCampaignQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CAMPAIGN_QUANTITY_LIMIT_FORMULA = "product_in_collection_campaign_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CAMPAIGN_QUANTITY_LIMIT_FORMULA)
+  private String productInCollectionCampaignQuantityLimitFormula;
+    private boolean productInCollectionCampaignQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT = "product_in_collection_customer_campaign_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT)
+  private Integer productInCollectionCustomerCampaignQuantityLimit;
+    private boolean productInCollectionCustomerCampaignQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT_FORMULA = "product_in_collection_customer_campaign_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_CAMPAIGN_QUANTITY_LIMIT_FORMULA)
+  private String productInCollectionCustomerCampaignQuantityLimitFormula;
+    private boolean productInCollectionCustomerCampaignQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_PROMOTION_TIER_QUANTITY_LIMIT = "product_promotion_tier_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_PROMOTION_TIER_QUANTITY_LIMIT)
+  private Integer productPromotionTierQuantityLimit;
+    private boolean productPromotionTierQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA = "product_promotion_tier_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA)
+  private String productPromotionTierQuantityLimitFormula;
+    private boolean productPromotionTierQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT = "product_customer_promotion_tier_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT)
+  private Integer productCustomerPromotionTierQuantityLimit;
+    private boolean productCustomerPromotionTierQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA = "product_customer_promotion_tier_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA)
+  private String productCustomerPromotionTierQuantityLimitFormula;
+    private boolean productCustomerPromotionTierQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_PROMOTION_TIER_QUANTITY_LIMIT = "product_in_collection_promotion_tier_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_PROMOTION_TIER_QUANTITY_LIMIT)
+  private Integer productInCollectionPromotionTierQuantityLimit;
+    private boolean productInCollectionPromotionTierQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA = "product_in_collection_promotion_tier_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA)
+  private String productInCollectionPromotionTierQuantityLimitFormula;
+    private boolean productInCollectionPromotionTierQuantityLimitFormulaIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT = "product_in_collection_customer_promotion_tier_quantity_limit";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT)
+  private Integer productInCollectionCustomerPromotionTierQuantityLimit;
+    private boolean productInCollectionCustomerPromotionTierQuantityLimitIsSet = false;
+
+  public static final String SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA = "product_in_collection_customer_promotion_tier_quantity_limit_formula";
+  @SerializedName(SERIALIZED_NAME_PRODUCT_IN_COLLECTION_CUSTOMER_PROMOTION_TIER_QUANTITY_LIMIT_FORMULA)
+  private String productInCollectionCustomerPromotionTierQuantityLimitFormula;
+    private boolean productInCollectionCustomerPromotionTierQuantityLimitFormulaIsSet = false;
+
   public static final String SERIALIZED_NAME_ORDER_ITEM_INDICES = "order_item_indices";
   @SerializedName(SERIALIZED_NAME_ORDER_ITEM_INDICES)
   private List<Integer> orderItemIndices;
@@ -551,6 +631,422 @@ public class InapplicableTo {
   }
 
 
+  public InapplicableTo productCampaignQuantityLimit(Integer productCampaignQuantityLimit) {
+    
+    this.productCampaignQuantityLimit = productCampaignQuantityLimit;
+    this.productCampaignQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCampaignQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductCampaignQuantityLimit() {
+    return productCampaignQuantityLimit;
+  }
+
+
+  public void setProductCampaignQuantityLimit(Integer productCampaignQuantityLimit) {
+    this.productCampaignQuantityLimit = productCampaignQuantityLimit;
+    this.productCampaignQuantityLimitIsSet = true;
+  }
+  public boolean isProductCampaignQuantityLimitSet() {
+    return productCampaignQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productCampaignQuantityLimitFormula(String productCampaignQuantityLimitFormula) {
+    
+    this.productCampaignQuantityLimitFormula = productCampaignQuantityLimitFormula;
+    this.productCampaignQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCampaignQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductCampaignQuantityLimitFormula() {
+    return productCampaignQuantityLimitFormula;
+  }
+
+
+  public void setProductCampaignQuantityLimitFormula(String productCampaignQuantityLimitFormula) {
+    this.productCampaignQuantityLimitFormula = productCampaignQuantityLimitFormula;
+    this.productCampaignQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductCampaignQuantityLimitFormulaSet() {
+    return productCampaignQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productCustomerCampaignQuantityLimit(Integer productCustomerCampaignQuantityLimit) {
+    
+    this.productCustomerCampaignQuantityLimit = productCustomerCampaignQuantityLimit;
+    this.productCustomerCampaignQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units (product, SKU, collection) that one customer can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCustomerCampaignQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductCustomerCampaignQuantityLimit() {
+    return productCustomerCampaignQuantityLimit;
+  }
+
+
+  public void setProductCustomerCampaignQuantityLimit(Integer productCustomerCampaignQuantityLimit) {
+    this.productCustomerCampaignQuantityLimit = productCustomerCampaignQuantityLimit;
+    this.productCustomerCampaignQuantityLimitIsSet = true;
+  }
+  public boolean isProductCustomerCampaignQuantityLimitSet() {
+    return productCustomerCampaignQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productCustomerCampaignQuantityLimitFormula(String productCustomerCampaignQuantityLimitFormula) {
+    
+    this.productCustomerCampaignQuantityLimitFormula = productCustomerCampaignQuantityLimitFormula;
+    this.productCustomerCampaignQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per customer in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCustomerCampaignQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductCustomerCampaignQuantityLimitFormula() {
+    return productCustomerCampaignQuantityLimitFormula;
+  }
+
+
+  public void setProductCustomerCampaignQuantityLimitFormula(String productCustomerCampaignQuantityLimitFormula) {
+    this.productCustomerCampaignQuantityLimitFormula = productCustomerCampaignQuantityLimitFormula;
+    this.productCustomerCampaignQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductCustomerCampaignQuantityLimitFormulaSet() {
+    return productCustomerCampaignQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCampaignQuantityLimit(Integer productInCollectionCampaignQuantityLimit) {
+    
+    this.productInCollectionCampaignQuantityLimit = productInCollectionCampaignQuantityLimit;
+    this.productInCollectionCampaignQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units of a given product in a collection that all customers can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCampaignQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductInCollectionCampaignQuantityLimit() {
+    return productInCollectionCampaignQuantityLimit;
+  }
+
+
+  public void setProductInCollectionCampaignQuantityLimit(Integer productInCollectionCampaignQuantityLimit) {
+    this.productInCollectionCampaignQuantityLimit = productInCollectionCampaignQuantityLimit;
+    this.productInCollectionCampaignQuantityLimitIsSet = true;
+  }
+  public boolean isProductInCollectionCampaignQuantityLimitSet() {
+    return productInCollectionCampaignQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCampaignQuantityLimitFormula(String productInCollectionCampaignQuantityLimitFormula) {
+    
+    this.productInCollectionCampaignQuantityLimitFormula = productInCollectionCampaignQuantityLimitFormula;
+    this.productInCollectionCampaignQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per campaign for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCampaignQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductInCollectionCampaignQuantityLimitFormula() {
+    return productInCollectionCampaignQuantityLimitFormula;
+  }
+
+
+  public void setProductInCollectionCampaignQuantityLimitFormula(String productInCollectionCampaignQuantityLimitFormula) {
+    this.productInCollectionCampaignQuantityLimitFormula = productInCollectionCampaignQuantityLimitFormula;
+    this.productInCollectionCampaignQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductInCollectionCampaignQuantityLimitFormulaSet() {
+    return productInCollectionCampaignQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCustomerCampaignQuantityLimit(Integer productInCollectionCustomerCampaignQuantityLimit) {
+    
+    this.productInCollectionCustomerCampaignQuantityLimit = productInCollectionCustomerCampaignQuantityLimit;
+    this.productInCollectionCustomerCampaignQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units of a given product in a collection that one customer can receive in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCustomerCampaignQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductInCollectionCustomerCampaignQuantityLimit() {
+    return productInCollectionCustomerCampaignQuantityLimit;
+  }
+
+
+  public void setProductInCollectionCustomerCampaignQuantityLimit(Integer productInCollectionCustomerCampaignQuantityLimit) {
+    this.productInCollectionCustomerCampaignQuantityLimit = productInCollectionCustomerCampaignQuantityLimit;
+    this.productInCollectionCustomerCampaignQuantityLimitIsSet = true;
+  }
+  public boolean isProductInCollectionCustomerCampaignQuantityLimitSet() {
+    return productInCollectionCustomerCampaignQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCustomerCampaignQuantityLimitFormula(String productInCollectionCustomerCampaignQuantityLimitFormula) {
+    
+    this.productInCollectionCustomerCampaignQuantityLimitFormula = productInCollectionCustomerCampaignQuantityLimitFormula;
+    this.productInCollectionCustomerCampaignQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per customer for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCustomerCampaignQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductInCollectionCustomerCampaignQuantityLimitFormula() {
+    return productInCollectionCustomerCampaignQuantityLimitFormula;
+  }
+
+
+  public void setProductInCollectionCustomerCampaignQuantityLimitFormula(String productInCollectionCustomerCampaignQuantityLimitFormula) {
+    this.productInCollectionCustomerCampaignQuantityLimitFormula = productInCollectionCustomerCampaignQuantityLimitFormula;
+    this.productInCollectionCustomerCampaignQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductInCollectionCustomerCampaignQuantityLimitFormulaSet() {
+    return productInCollectionCustomerCampaignQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productPromotionTierQuantityLimit(Integer productPromotionTierQuantityLimit) {
+    
+    this.productPromotionTierQuantityLimit = productPromotionTierQuantityLimit;
+    this.productPromotionTierQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units that all customers can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productPromotionTierQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductPromotionTierQuantityLimit() {
+    return productPromotionTierQuantityLimit;
+  }
+
+
+  public void setProductPromotionTierQuantityLimit(Integer productPromotionTierQuantityLimit) {
+    this.productPromotionTierQuantityLimit = productPromotionTierQuantityLimit;
+    this.productPromotionTierQuantityLimitIsSet = true;
+  }
+  public boolean isProductPromotionTierQuantityLimitSet() {
+    return productPromotionTierQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productPromotionTierQuantityLimitFormula(String productPromotionTierQuantityLimitFormula) {
+    
+    this.productPromotionTierQuantityLimitFormula = productPromotionTierQuantityLimitFormula;
+    this.productPromotionTierQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productPromotionTierQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductPromotionTierQuantityLimitFormula() {
+    return productPromotionTierQuantityLimitFormula;
+  }
+
+
+  public void setProductPromotionTierQuantityLimitFormula(String productPromotionTierQuantityLimitFormula) {
+    this.productPromotionTierQuantityLimitFormula = productPromotionTierQuantityLimitFormula;
+    this.productPromotionTierQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductPromotionTierQuantityLimitFormulaSet() {
+    return productPromotionTierQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productCustomerPromotionTierQuantityLimit(Integer productCustomerPromotionTierQuantityLimit) {
+    
+    this.productCustomerPromotionTierQuantityLimit = productCustomerPromotionTierQuantityLimit;
+    this.productCustomerPromotionTierQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units that one customer can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCustomerPromotionTierQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductCustomerPromotionTierQuantityLimit() {
+    return productCustomerPromotionTierQuantityLimit;
+  }
+
+
+  public void setProductCustomerPromotionTierQuantityLimit(Integer productCustomerPromotionTierQuantityLimit) {
+    this.productCustomerPromotionTierQuantityLimit = productCustomerPromotionTierQuantityLimit;
+    this.productCustomerPromotionTierQuantityLimitIsSet = true;
+  }
+  public boolean isProductCustomerPromotionTierQuantityLimitSet() {
+    return productCustomerPromotionTierQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productCustomerPromotionTierQuantityLimitFormula(String productCustomerPromotionTierQuantityLimitFormula) {
+    
+    this.productCustomerPromotionTierQuantityLimitFormula = productCustomerPromotionTierQuantityLimitFormula;
+    this.productCustomerPromotionTierQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per customer in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productCustomerPromotionTierQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductCustomerPromotionTierQuantityLimitFormula() {
+    return productCustomerPromotionTierQuantityLimitFormula;
+  }
+
+
+  public void setProductCustomerPromotionTierQuantityLimitFormula(String productCustomerPromotionTierQuantityLimitFormula) {
+    this.productCustomerPromotionTierQuantityLimitFormula = productCustomerPromotionTierQuantityLimitFormula;
+    this.productCustomerPromotionTierQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductCustomerPromotionTierQuantityLimitFormulaSet() {
+    return productCustomerPromotionTierQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionPromotionTierQuantityLimit(Integer productInCollectionPromotionTierQuantityLimit) {
+    
+    this.productInCollectionPromotionTierQuantityLimit = productInCollectionPromotionTierQuantityLimit;
+    this.productInCollectionPromotionTierQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units of a given product in a collection that all customers can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionPromotionTierQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductInCollectionPromotionTierQuantityLimit() {
+    return productInCollectionPromotionTierQuantityLimit;
+  }
+
+
+  public void setProductInCollectionPromotionTierQuantityLimit(Integer productInCollectionPromotionTierQuantityLimit) {
+    this.productInCollectionPromotionTierQuantityLimit = productInCollectionPromotionTierQuantityLimit;
+    this.productInCollectionPromotionTierQuantityLimitIsSet = true;
+  }
+  public boolean isProductInCollectionPromotionTierQuantityLimitSet() {
+    return productInCollectionPromotionTierQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionPromotionTierQuantityLimitFormula(String productInCollectionPromotionTierQuantityLimitFormula) {
+    
+    this.productInCollectionPromotionTierQuantityLimitFormula = productInCollectionPromotionTierQuantityLimitFormula;
+    this.productInCollectionPromotionTierQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionPromotionTierQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductInCollectionPromotionTierQuantityLimitFormula() {
+    return productInCollectionPromotionTierQuantityLimitFormula;
+  }
+
+
+  public void setProductInCollectionPromotionTierQuantityLimitFormula(String productInCollectionPromotionTierQuantityLimitFormula) {
+    this.productInCollectionPromotionTierQuantityLimitFormula = productInCollectionPromotionTierQuantityLimitFormula;
+    this.productInCollectionPromotionTierQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductInCollectionPromotionTierQuantityLimitFormulaSet() {
+    return productInCollectionPromotionTierQuantityLimitFormulaIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCustomerPromotionTierQuantityLimit(Integer productInCollectionCustomerPromotionTierQuantityLimit) {
+    
+    this.productInCollectionCustomerPromotionTierQuantityLimit = productInCollectionCustomerPromotionTierQuantityLimit;
+    this.productInCollectionCustomerPromotionTierQuantityLimitIsSet = true;
+    return this;
+  }
+
+   /**
+   * Limits the number of discounted item units of a given product in a collection that one customer can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCustomerPromotionTierQuantityLimit
+  **/
+  @javax.annotation.Nullable
+  public Integer getProductInCollectionCustomerPromotionTierQuantityLimit() {
+    return productInCollectionCustomerPromotionTierQuantityLimit;
+  }
+
+
+  public void setProductInCollectionCustomerPromotionTierQuantityLimit(Integer productInCollectionCustomerPromotionTierQuantityLimit) {
+    this.productInCollectionCustomerPromotionTierQuantityLimit = productInCollectionCustomerPromotionTierQuantityLimit;
+    this.productInCollectionCustomerPromotionTierQuantityLimitIsSet = true;
+  }
+  public boolean isProductInCollectionCustomerPromotionTierQuantityLimitSet() {
+    return productInCollectionCustomerPromotionTierQuantityLimitIsSet;
+  }
+
+
+  public InapplicableTo productInCollectionCustomerPromotionTierQuantityLimitFormula(String productInCollectionCustomerPromotionTierQuantityLimitFormula) {
+    
+    this.productInCollectionCustomerPromotionTierQuantityLimitFormula = productInCollectionCustomerPromotionTierQuantityLimitFormula;
+    this.productInCollectionCustomerPromotionTierQuantityLimitFormulaIsSet = true;
+    return this;
+  }
+
+   /**
+   * Formula used to dynamically calculate the maximum units per customer in a promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+   * @return productInCollectionCustomerPromotionTierQuantityLimitFormula
+  **/
+  @javax.annotation.Nullable
+  public String getProductInCollectionCustomerPromotionTierQuantityLimitFormula() {
+    return productInCollectionCustomerPromotionTierQuantityLimitFormula;
+  }
+
+
+  public void setProductInCollectionCustomerPromotionTierQuantityLimitFormula(String productInCollectionCustomerPromotionTierQuantityLimitFormula) {
+    this.productInCollectionCustomerPromotionTierQuantityLimitFormula = productInCollectionCustomerPromotionTierQuantityLimitFormula;
+    this.productInCollectionCustomerPromotionTierQuantityLimitFormulaIsSet = true;
+  }
+  public boolean isProductInCollectionCustomerPromotionTierQuantityLimitFormulaSet() {
+    return productInCollectionCustomerPromotionTierQuantityLimitFormulaIsSet;
+  }
+
+
   public InapplicableTo orderItemIndices(List<Integer> orderItemIndices) {
     
     this.orderItemIndices = orderItemIndices;
@@ -719,6 +1215,22 @@ public class InapplicableTo {
         Objects.equals(this.aggregatedQuantityLimit, inapplicableTo.aggregatedQuantityLimit) &&
         Objects.equals(this.amountLimit, inapplicableTo.amountLimit) &&
         Objects.equals(this.aggregatedAmountLimit, inapplicableTo.aggregatedAmountLimit) &&
+        Objects.equals(this.productCampaignQuantityLimit, inapplicableTo.productCampaignQuantityLimit) &&
+        Objects.equals(this.productCampaignQuantityLimitFormula, inapplicableTo.productCampaignQuantityLimitFormula) &&
+        Objects.equals(this.productCustomerCampaignQuantityLimit, inapplicableTo.productCustomerCampaignQuantityLimit) &&
+        Objects.equals(this.productCustomerCampaignQuantityLimitFormula, inapplicableTo.productCustomerCampaignQuantityLimitFormula) &&
+        Objects.equals(this.productInCollectionCampaignQuantityLimit, inapplicableTo.productInCollectionCampaignQuantityLimit) &&
+        Objects.equals(this.productInCollectionCampaignQuantityLimitFormula, inapplicableTo.productInCollectionCampaignQuantityLimitFormula) &&
+        Objects.equals(this.productInCollectionCustomerCampaignQuantityLimit, inapplicableTo.productInCollectionCustomerCampaignQuantityLimit) &&
+        Objects.equals(this.productInCollectionCustomerCampaignQuantityLimitFormula, inapplicableTo.productInCollectionCustomerCampaignQuantityLimitFormula) &&
+        Objects.equals(this.productPromotionTierQuantityLimit, inapplicableTo.productPromotionTierQuantityLimit) &&
+        Objects.equals(this.productPromotionTierQuantityLimitFormula, inapplicableTo.productPromotionTierQuantityLimitFormula) &&
+        Objects.equals(this.productCustomerPromotionTierQuantityLimit, inapplicableTo.productCustomerPromotionTierQuantityLimit) &&
+        Objects.equals(this.productCustomerPromotionTierQuantityLimitFormula, inapplicableTo.productCustomerPromotionTierQuantityLimitFormula) &&
+        Objects.equals(this.productInCollectionPromotionTierQuantityLimit, inapplicableTo.productInCollectionPromotionTierQuantityLimit) &&
+        Objects.equals(this.productInCollectionPromotionTierQuantityLimitFormula, inapplicableTo.productInCollectionPromotionTierQuantityLimitFormula) &&
+        Objects.equals(this.productInCollectionCustomerPromotionTierQuantityLimit, inapplicableTo.productInCollectionCustomerPromotionTierQuantityLimit) &&
+        Objects.equals(this.productInCollectionCustomerPromotionTierQuantityLimitFormula, inapplicableTo.productInCollectionCustomerPromotionTierQuantityLimitFormula) &&
         Objects.equals(this.orderItemIndices, inapplicableTo.orderItemIndices) &&
         Objects.equals(this.orderItemUnits, inapplicableTo.orderItemUnits) &&
         Objects.equals(this.repeat, inapplicableTo.repeat) &&
@@ -732,7 +1244,7 @@ public class InapplicableTo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
+    return Objects.hash(_object, id, sourceId, productId, productSourceId, price, priceFormula, effect, quantityLimit, aggregatedQuantityLimit, amountLimit, aggregatedAmountLimit, productCampaignQuantityLimit, productCampaignQuantityLimitFormula, productCustomerCampaignQuantityLimit, productCustomerCampaignQuantityLimitFormula, productInCollectionCampaignQuantityLimit, productInCollectionCampaignQuantityLimitFormula, productInCollectionCustomerCampaignQuantityLimit, productInCollectionCustomerCampaignQuantityLimitFormula, productPromotionTierQuantityLimit, productPromotionTierQuantityLimitFormula, productCustomerPromotionTierQuantityLimit, productCustomerPromotionTierQuantityLimitFormula, productInCollectionPromotionTierQuantityLimit, productInCollectionPromotionTierQuantityLimitFormula, productInCollectionCustomerPromotionTierQuantityLimit, productInCollectionCustomerPromotionTierQuantityLimitFormula, orderItemIndices, orderItemUnits, repeat, skipInitially, target);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -758,6 +1270,22 @@ public class InapplicableTo {
     sb.append("    aggregatedQuantityLimit: ").append(toIndentedString(aggregatedQuantityLimit)).append("\n");
     sb.append("    amountLimit: ").append(toIndentedString(amountLimit)).append("\n");
     sb.append("    aggregatedAmountLimit: ").append(toIndentedString(aggregatedAmountLimit)).append("\n");
+    sb.append("    productCampaignQuantityLimit: ").append(toIndentedString(productCampaignQuantityLimit)).append("\n");
+    sb.append("    productCampaignQuantityLimitFormula: ").append(toIndentedString(productCampaignQuantityLimitFormula)).append("\n");
+    sb.append("    productCustomerCampaignQuantityLimit: ").append(toIndentedString(productCustomerCampaignQuantityLimit)).append("\n");
+    sb.append("    productCustomerCampaignQuantityLimitFormula: ").append(toIndentedString(productCustomerCampaignQuantityLimitFormula)).append("\n");
+    sb.append("    productInCollectionCampaignQuantityLimit: ").append(toIndentedString(productInCollectionCampaignQuantityLimit)).append("\n");
+    sb.append("    productInCollectionCampaignQuantityLimitFormula: ").append(toIndentedString(productInCollectionCampaignQuantityLimitFormula)).append("\n");
+    sb.append("    productInCollectionCustomerCampaignQuantityLimit: ").append(toIndentedString(productInCollectionCustomerCampaignQuantityLimit)).append("\n");
+    sb.append("    productInCollectionCustomerCampaignQuantityLimitFormula: ").append(toIndentedString(productInCollectionCustomerCampaignQuantityLimitFormula)).append("\n");
+    sb.append("    productPromotionTierQuantityLimit: ").append(toIndentedString(productPromotionTierQuantityLimit)).append("\n");
+    sb.append("    productPromotionTierQuantityLimitFormula: ").append(toIndentedString(productPromotionTierQuantityLimitFormula)).append("\n");
+    sb.append("    productCustomerPromotionTierQuantityLimit: ").append(toIndentedString(productCustomerPromotionTierQuantityLimit)).append("\n");
+    sb.append("    productCustomerPromotionTierQuantityLimitFormula: ").append(toIndentedString(productCustomerPromotionTierQuantityLimitFormula)).append("\n");
+    sb.append("    productInCollectionPromotionTierQuantityLimit: ").append(toIndentedString(productInCollectionPromotionTierQuantityLimit)).append("\n");
+    sb.append("    productInCollectionPromotionTierQuantityLimitFormula: ").append(toIndentedString(productInCollectionPromotionTierQuantityLimitFormula)).append("\n");
+    sb.append("    productInCollectionCustomerPromotionTierQuantityLimit: ").append(toIndentedString(productInCollectionCustomerPromotionTierQuantityLimit)).append("\n");
+    sb.append("    productInCollectionCustomerPromotionTierQuantityLimitFormula: ").append(toIndentedString(productInCollectionCustomerPromotionTierQuantityLimitFormula)).append("\n");
     sb.append("    orderItemIndices: ").append(toIndentedString(orderItemIndices)).append("\n");
     sb.append("    orderItemUnits: ").append(toIndentedString(orderItemUnits)).append("\n");
     sb.append("    repeat: ").append(toIndentedString(repeat)).append("\n");
@@ -797,6 +1325,22 @@ public class InapplicableTo {
     openapiFields.add("aggregated_quantity_limit");
     openapiFields.add("amount_limit");
     openapiFields.add("aggregated_amount_limit");
+    openapiFields.add("product_campaign_quantity_limit");
+    openapiFields.add("product_campaign_quantity_limit_formula");
+    openapiFields.add("product_customer_campaign_quantity_limit");
+    openapiFields.add("product_customer_campaign_quantity_limit_formula");
+    openapiFields.add("product_in_collection_campaign_quantity_limit");
+    openapiFields.add("product_in_collection_campaign_quantity_limit_formula");
+    openapiFields.add("product_in_collection_customer_campaign_quantity_limit");
+    openapiFields.add("product_in_collection_customer_campaign_quantity_limit_formula");
+    openapiFields.add("product_promotion_tier_quantity_limit");
+    openapiFields.add("product_promotion_tier_quantity_limit_formula");
+    openapiFields.add("product_customer_promotion_tier_quantity_limit");
+    openapiFields.add("product_customer_promotion_tier_quantity_limit_formula");
+    openapiFields.add("product_in_collection_promotion_tier_quantity_limit");
+    openapiFields.add("product_in_collection_promotion_tier_quantity_limit_formula");
+    openapiFields.add("product_in_collection_customer_promotion_tier_quantity_limit");
+    openapiFields.add("product_in_collection_customer_promotion_tier_quantity_limit_formula");
     openapiFields.add("order_item_indices");
     openapiFields.add("order_item_units");
     openapiFields.add("repeat");
