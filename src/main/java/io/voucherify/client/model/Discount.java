@@ -151,7 +151,9 @@ public class Discount {
     
     ADD_NEW_ITEMS("ADD_NEW_ITEMS"),
     
-    ADD_MANY_ITEMS("ADD_MANY_ITEMS");
+    ADD_MANY_ITEMS("ADD_MANY_ITEMS"),
+    
+    ADD_SAME_ITEMS("ADD_SAME_ITEMS");
 
     private String value;
 

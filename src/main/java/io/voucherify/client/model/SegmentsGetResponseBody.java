@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **GET** &#x60;v1/v1/segments/{segmentId}&#x60;.
+ * Response body schema for **GET** &#x60;v1/segments/{segmentId}&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -70,6 +70,11 @@ public class SegmentsGetResponseBody {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
     private boolean createdAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
 
   /**
    * Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.
@@ -313,6 +318,32 @@ public class SegmentsGetResponseBody {
   }
 
 
+  public SegmentsGetResponseBody updatedAt(OffsetDateTime updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+    return this;
+  }
+
+   /**
+   * Timestamp in ISO 8601 format indicating when the segment was updated.
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    this.updatedAtIsSet = true;
+  }
+  public boolean isUpdatedAtSet() {
+    return updatedAtIsSet;
+  }
+
+
   public SegmentsGetResponseBody type(TypeEnum type) {
     
     this.type = type;
@@ -430,6 +461,7 @@ public class SegmentsGetResponseBody {
     return Objects.equals(this.id, segmentsGetResponseBody.id) &&
         Objects.equals(this.name, segmentsGetResponseBody.name) &&
         Objects.equals(this.createdAt, segmentsGetResponseBody.createdAt) &&
+        Objects.equals(this.updatedAt, segmentsGetResponseBody.updatedAt) &&
         Objects.equals(this.type, segmentsGetResponseBody.type) &&
         Objects.equals(this.filter, segmentsGetResponseBody.filter) &&
         Objects.equals(this._object, segmentsGetResponseBody._object) &&
@@ -442,7 +474,7 @@ public class SegmentsGetResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, type, filter, _object, initialSyncStatus);
+    return Objects.hash(id, name, createdAt, updatedAt, type, filter, _object, initialSyncStatus);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -459,6 +491,7 @@ public class SegmentsGetResponseBody {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
@@ -488,6 +521,7 @@ public class SegmentsGetResponseBody {
     openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("created_at");
+    openapiFields.add("updated_at");
     openapiFields.add("type");
     openapiFields.add("filter");
     openapiFields.add("object");

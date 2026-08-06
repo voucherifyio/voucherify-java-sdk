@@ -1019,7 +1019,7 @@ public class CustomersApi {
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
-     * @param segmentId Filter customers by the segment id. (optional)
+     * @param segmentId Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results. (optional)
      * @param createdAtBefore Filter customers by date customer was created. (optional)
      * @param createdAtAfter Filter customers by date customer was created. (optional)
      * @param updatedAtBefore Filter customers by date customer was updated last time. (optional)
@@ -1136,7 +1136,7 @@ public class CustomersApi {
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
-     * @param segmentId Filter customers by the segment id. (optional)
+     * @param segmentId Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results. (optional)
      * @param createdAtBefore Filter customers by date customer was created. (optional)
      * @param createdAtAfter Filter customers by date customer was created. (optional)
      * @param updatedAtBefore Filter customers by date customer was updated last time. (optional)
@@ -1159,7 +1159,7 @@ public class CustomersApi {
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
-     * @param segmentId Filter customers by the segment id. (optional)
+     * @param segmentId Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results. (optional)
      * @param createdAtBefore Filter customers by date customer was created. (optional)
      * @param createdAtAfter Filter customers by date customer was created. (optional)
      * @param updatedAtBefore Filter customers by date customer was updated last time. (optional)
@@ -1183,7 +1183,7 @@ public class CustomersApi {
      * @param email Limit the customers to the ones that have this specific email address. (optional)
      * @param city Limit the customers to the ones that are located in the specified city. (optional)
      * @param name Filter customers by the name property. (optional)
-     * @param segmentId Filter customers by the segment id. (optional)
+     * @param segmentId Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results. (optional)
      * @param createdAtBefore Filter customers by date customer was created. (optional)
      * @param createdAtAfter Filter customers by date customer was created. (optional)
      * @param updatedAtBefore Filter customers by date customer was updated last time. (optional)
@@ -1467,7 +1467,7 @@ public class CustomersApi {
 
     /**
      * Update Customers&#39; Metadata in Bulk
-     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
      * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @return CustomersMetadataUpdateInBulkResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1479,7 +1479,7 @@ public class CustomersApi {
 
     /**
      * Update Customers&#39; Metadata in Bulk
-     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
      * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @return ApiResponse&lt;CustomersMetadataUpdateInBulkResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1492,7 +1492,7 @@ public class CustomersApi {
 
     /**
      * Update Customers&#39; Metadata in Bulk (asynchronously)
-     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+     * Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
      * @param customersMetadataUpdateInBulkRequestBody List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

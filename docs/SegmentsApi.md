@@ -152,7 +152,7 @@ null (empty response body)
 
 Get Segment
 
-Retrieves the segment with a given segment ID.
+Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
 
 ### Example
 ```java

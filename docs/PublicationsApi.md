@@ -110,7 +110,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     PublicationsApi apiInstance = new PublicationsApi(defaultClient);
-    Customer customer = new Customer(); // Customer | Contains information about the customer to whom the publication was directed.
+    Customer customer = new Customer(); // Customer | Contains information about the customer to whom the publication was directed. Use customer.id, customer.source_id, or both to identify the customer; at least one of them is required.
     Boolean joinOnce = true; // Boolean | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer.
     String voucher = "voucher_example"; // String | Code of voucher being published.
     CreatePublicationCampaign campaign = new CreatePublicationCampaign(); // CreatePublicationCampaign | Create publication with campaign.
@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **customer** | [**Customer**](.md)| Contains information about the customer to whom the publication was directed. |
+| **customer** | [**Customer**](.md)| Contains information about the customer to whom the publication was directed. Use customer.id, customer.source_id, or both to identify the customer; at least one of them is required. |
 | **joinOnce** | **Boolean**| Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. |
 | **voucher** | **String**| Code of voucher being published. |
 | **campaign** | [**CreatePublicationCampaign**](.md)| Create publication with campaign. |

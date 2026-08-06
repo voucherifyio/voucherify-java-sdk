@@ -630,7 +630,7 @@ public class Example {
     String email = "email_example"; // String | Limit the customers to the ones that have this specific email address.
     String city = "city_example"; // String | Limit the customers to the ones that are located in the specified city.
     String name = "name_example"; // String | Filter customers by the name property.
-    String segmentId = "segmentId_example"; // String | Filter customers by the segment id.
+    String segmentId = "segmentId_example"; // String | Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results.
     OffsetDateTime createdAtBefore = OffsetDateTime.now(); // OffsetDateTime | Filter customers by date customer was created.
     OffsetDateTime createdAtAfter = OffsetDateTime.now(); // OffsetDateTime | Filter customers by date customer was created.
     OffsetDateTime updatedAtBefore = OffsetDateTime.now(); // OffsetDateTime | Filter customers by date customer was updated last time.
@@ -660,7 +660,7 @@ public class Example {
 | **email** | **String**| Limit the customers to the ones that have this specific email address. |
 | **city** | **String**| Limit the customers to the ones that are located in the specified city. |
 | **name** | **String**| Filter customers by the name property. |
-| **segmentId** | **String**| Filter customers by the segment id. |
+| **segmentId** | **String**| Filter customers by the segment ID. Warning: Passing additional query parameter filters that are in conflict with the segment filters may return unexpected results. |
 | **createdAtBefore** | **OffsetDateTime**| Filter customers by date customer was created. |
 | **createdAtAfter** | **OffsetDateTime**| Filter customers by date customer was created. |
 | **updatedAtBefore** | **OffsetDateTime**| Filter customers by date customer was updated last time. |
@@ -832,7 +832,7 @@ public class Example {
 
 Update Customers&#39; Metadata in Bulk
 
-Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
 
 ### Example
 ```java

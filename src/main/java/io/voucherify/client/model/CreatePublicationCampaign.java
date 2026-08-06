@@ -104,7 +104,7 @@ public class CreatePublicationCampaign {
    /**
    * Number of vouchers to be published to customer.
    * minimum: 1
-   * maximum: 20
+   * maximum: 50
    * @return count
   **/
   @javax.annotation.Nullable

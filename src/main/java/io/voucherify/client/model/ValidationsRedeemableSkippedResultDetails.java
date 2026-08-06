@@ -70,7 +70,9 @@ public class ValidationsRedeemableSkippedResultDetails {
     
     EXCLUSION_RULES_NOT_MET("exclusion_rules_not_met"),
     
-    PRECEDING_VALIDATION_FAILED("preceding_validation_failed");
+    PRECEDING_VALIDATION_FAILED("preceding_validation_failed"),
+    
+    NO_EFFECT("no_effect");
 
     private String value;
 
