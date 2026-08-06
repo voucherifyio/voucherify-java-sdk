@@ -335,7 +335,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment
-     * Retrieves the segment with a given segment ID.
+     * Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
      * @param segmentId A unique customer segment ID. (required)
      * @return SegmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -347,7 +347,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment
-     * Retrieves the segment with a given segment ID.
+     * Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
      * @param segmentId A unique customer segment ID. (required)
      * @return ApiResponse&lt;SegmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -360,7 +360,7 @@ public class SegmentsApi {
 
     /**
      * Get Segment (asynchronously)
-     * Retrieves the segment with a given segment ID.
+     * Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
      * @param segmentId A unique customer segment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

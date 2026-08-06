@@ -22,6 +22,7 @@
 | APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED | &quot;applicable_exclusive_redeemables_per_category_limit_exceeded&quot; |
 | EXCLUSION_RULES_NOT_MET | &quot;exclusion_rules_not_met&quot; |
 | PRECEDING_VALIDATION_FAILED | &quot;preceding_validation_failed&quot; |
+| NO_EFFECT | &quot;no_effect&quot; |
 
 
 

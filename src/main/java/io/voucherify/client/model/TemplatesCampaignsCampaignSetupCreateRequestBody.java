@@ -73,13 +73,15 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
     private boolean descriptionIsSet = false;
 
   /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     AUTO_UPDATE("AUTO_UPDATE"),
     
-    STATIC("STATIC");
+    STATIC("STATIC"),
+    
+    STANDALONE("STANDALONE");
 
     private String value;
 
@@ -315,7 +317,7 @@ public class TemplatesCampaignsCampaignSetupCreateRequestBody {
   }
 
    /**
-   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+   * Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)
    * @return type
   **/
   @javax.annotation.Nullable

@@ -716,7 +716,7 @@ public class ManagementApi {
 
     /**
      * Create Stacking Rules
-     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param managementProjectsStackingRulesCreateRequestBody Defines the stacking rule parameters. (optional)
      * @return ManagementProjectsStackingRulesCreateResponseBody
@@ -729,7 +729,7 @@ public class ManagementApi {
 
     /**
      * Create Stacking Rules
-     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param managementProjectsStackingRulesCreateRequestBody Defines the stacking rule parameters. (optional)
      * @return ApiResponse&lt;ManagementProjectsStackingRulesCreateResponseBody&gt;
@@ -743,7 +743,7 @@ public class ManagementApi {
 
     /**
      * Create Stacking Rules (asynchronously)
-     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param managementProjectsStackingRulesCreateRequestBody Defines the stacking rule parameters. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1358,7 +1358,7 @@ public class ManagementApi {
 
     /**
      * Delete Stacking Rules
-     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1369,7 +1369,7 @@ public class ManagementApi {
 
     /**
      * Delete Stacking Rules
-     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1382,7 +1382,7 @@ public class ManagementApi {
 
     /**
      * Delete Stacking Rules (asynchronously)
-     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2017,7 +2017,7 @@ public class ManagementApi {
 
     /**
      * Get Stacking Rules
-     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @return ManagementProjectsStackingRulesGetResponseBody
@@ -2030,7 +2030,7 @@ public class ManagementApi {
 
     /**
      * Get Stacking Rules
-     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @return ApiResponse&lt;ManagementProjectsStackingRulesGetResponseBody&gt;
@@ -2044,7 +2044,7 @@ public class ManagementApi {
 
     /**
      * Get Stacking Rules (asynchronously)
-     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2844,7 +2844,7 @@ public class ManagementApi {
 
     /**
      * List Stacking Rules
-     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @return ManagementProjectsStackingRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2856,7 +2856,7 @@ public class ManagementApi {
 
     /**
      * List Stacking Rules
-     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @return ApiResponse&lt;ManagementProjectsStackingRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2869,7 +2869,7 @@ public class ManagementApi {
 
     /**
      * List Stacking Rules (asynchronously)
-     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3993,7 +3993,7 @@ public class ManagementApi {
 
     /**
      * Update Stacking Rules
-     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @param managementProjectsStackingRulesUpdateRequestBody Defines the stacking rules to be updated. (optional)
@@ -4007,7 +4007,7 @@ public class ManagementApi {
 
     /**
      * Update Stacking Rules
-     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @param managementProjectsStackingRulesUpdateRequestBody Defines the stacking rules to be updated. (optional)
@@ -4022,7 +4022,7 @@ public class ManagementApi {
 
     /**
      * Update Stacking Rules (asynchronously)
-     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+     * Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
      * @param projectId Provide the unique identifier of the project. (required)
      * @param stackingRulesId Provide the unique identifier of the stacking rules. (required)
      * @param managementProjectsStackingRulesUpdateRequestBody Defines the stacking rules to be updated. (optional)

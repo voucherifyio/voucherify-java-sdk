@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.3</version>
+  <version>17.0.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.3"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.4"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.0.3.jar`
+* `target/voucherify-java-sdk-17.0.4.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -173,7 +173,7 @@ To run tests locally with commands:
 This SDK is generated automatically from our [OpenAPI specification](https://github.com/voucherifyio/voucherify-openapi). To contribute, submit an issue rather than creating a pull request. Voucherify developers will review your issue and reply as soon as possible.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.3)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.4)
 
 ## 🔐 Authorization
 
@@ -238,6 +238,29 @@ Authorization schemes defined for the API.
 - **Location**: HTTP header
 
 ## 📅 Changelog
+- **2026-08-06** - `17.0.4`
+FIXED:
+- `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing the `no_effect` value, so `getKey()` returned `null` whenever the API skipped a redeemable because it produced no discount effect. The `message` field was populated, but the key was silently lost.
+- This affects responses from `POST /v1/validations` and stackable `POST /v1/redemptions` in projects where the `redeemables_no_effect_rule` stacking rule is set to `SKIP`, either globally or through `no_effect_skip_categories`.
+- New enum value:
+  - `NO_EFFECT` (`no_effect`) - `Redeemable cannot be applied due to no effect`
+
+ADDED:
+- `updated_at` field in the segment response models, indicating when the segment was last updated:
+  - `SegmentsGetResponseBody`
+  - `SegmentsCreateResponseBody`
+- `STANDALONE` value in the campaign `TypeEnum`, describing a generic campaign with a single voucher for public use (discount and gift card campaigns only). Affected models:
+  - `CampaignsCreateRequestBody`
+  - `LoyaltiesCreateCampaignRequestBody`
+  - `TemplatesCampaignsCampaignSetupCreateRequestBody`
+- `ADD_SAME_ITEMS` value in the discount `EffectEnum`. Affected models:
+  - `Discount`
+  - `ValidationsValidateResponseBodyRedeemablesItemResultDiscount`
+  - `ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount`
+
+CHANGED:
+- `CreatePublicationCampaign.count` maximum raised from `20` to `50`.
+
 - **2026-04-03** - `17.0.3`
 ADDED:
 - We have added product limit fields to the ApplicableTo and InapplicableTo models. These limits are available on demand as part of campaign budget limits. Please contact Voucherify Support or your Account Manager to learn more. New Fields:
@@ -2315,3 +2338,4 @@ Class | Method | HTTP request | Description
 - [VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
 - [VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
 - [VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
+
