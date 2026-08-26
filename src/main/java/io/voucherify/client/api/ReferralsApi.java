@@ -143,7 +143,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.  📘 Alternative endpoint This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @return ReferralsMembersHoldersCreateInBulkResponseBody
@@ -156,7 +156,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.  📘 Alternative endpoint This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @return ApiResponse&lt;ReferralsMembersHoldersCreateInBulkResponseBody&gt;
@@ -170,7 +170,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders (asynchronously)
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.  📘 Alternative endpoint This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -258,7 +258,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders with Campaign ID
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt;
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
@@ -272,7 +272,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders with Campaign ID
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt;
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
@@ -287,7 +287,7 @@ public class ReferralsApi {
 
     /**
      * Add Referral Code Holders with Campaign ID (asynchronously)
-     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
+     * Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Tip&gt; To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint. &lt;/Tip&gt;
      * @param campaignId Unique identifier of a referral program campaign. (required)
      * @param memberId Unique referral code or its identifier. (required)
      * @param referralsMembersHoldersCreateInBulkRequestBody Specify the customer data to be upserted as redeemable holders. (optional)
@@ -532,7 +532,7 @@ public class ReferralsApi {
 
     /**
      * List Referral Code Holders
-     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)  📘 Alternative endpoint This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -548,7 +548,7 @@ public class ReferralsApi {
 
     /**
      * List Referral Code Holders
-     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)  📘 Alternative endpoint This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -565,7 +565,7 @@ public class ReferralsApi {
 
     /**
      * List Referral Code Holders (asynchronously)
-     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)  📘 Alternative endpoint This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -653,7 +653,7 @@ public class ReferralsApi {
 
     /**
      * Remove Referral Card Holder
-     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param holderId Unique identifier of a redeemable holder. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -664,7 +664,7 @@ public class ReferralsApi {
 
     /**
      * Remove Referral Card Holder
-     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param holderId Unique identifier of a redeemable holder. (required)
      * @return ApiResponse&lt;Void&gt;
@@ -677,7 +677,7 @@ public class ReferralsApi {
 
     /**
      * Remove Referral Card Holder (asynchronously)
-     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+     * Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish) &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter. &lt;/Note&gt;
      * @param memberId Unique referral code or its identifier. (required)
      * @param holderId Unique identifier of a redeemable holder. (required)
      * @param _callback The callback to be executed when the API call finishes

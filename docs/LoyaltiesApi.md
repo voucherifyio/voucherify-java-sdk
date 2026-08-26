@@ -64,7 +64,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Activate Member Pending Points
 
-Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -135,7 +135,7 @@ public class Example {
 
 Add Member
 
-This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -206,7 +206,7 @@ public class Example {
 
 Adjust Member Pending Points
 
-Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -279,7 +279,7 @@ public class Example {
 
 Cancel Member Pending Points
 
-Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -349,7 +349,7 @@ null (empty response body)
 
 Create Earning Rule
 
-Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
 
 ### Example
 ```java
@@ -420,7 +420,7 @@ public class Example {
 
 Create loyalty tiers
 
-Creates loyalty tiers for desired campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
 
 ### Example
 ```java
@@ -491,7 +491,7 @@ public class Example {
 
 Create Loyalty Campaign
 
-Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
 
 ### Example
 ```java
@@ -560,7 +560,7 @@ public class Example {
 
 Export Loyalty Campaign Point Expiration
 
-Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
 
 ### Example
 ```java
@@ -631,7 +631,7 @@ public class Example {
 
 Create Loyalty Campaign Reward Assignment
 
-Add rewards to a loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
 
 ### Example
 ```java
@@ -702,7 +702,7 @@ public class Example {
 
 Delete Earning Rule
 
-This method deletes an earning rule for a specific loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
 
 ### Example
 ```java
@@ -772,7 +772,7 @@ null (empty response body)
 
 Delete Loyalty Campaign
 
-Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
 
 ### Example
 ```java
@@ -843,7 +843,7 @@ public class Example {
 
 Delete Campaign Reward Assignment
 
-This method deletes a reward assignment for a particular loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
 
 ### Example
 ```java
@@ -913,7 +913,7 @@ null (empty response body)
 
 Disable Earning Rule
 
-Disable an earning rule.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
 
 ### Example
 ```java
@@ -984,7 +984,7 @@ public class Example {
 
 Enable Earning Rule
 
-Enable an earning rule.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
 
 ### Example
 ```java
@@ -1055,7 +1055,7 @@ public class Example {
 
 Export Loyalty Campaign Transactions
 
-Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -1126,7 +1126,7 @@ public class Example {
 
 Export Loyalty Card Transactions
 
-Export transactions that are associated with point movements on a loyalty card.   
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
 
 ### Example
 ```java
@@ -1197,7 +1197,7 @@ public class Example {
 
 Export Loyalty Card Transactions with campaign ID
 
-Export transactions that are associated with point movements on a loyalty card.   
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
 
 ### Example
 ```java
@@ -1270,7 +1270,7 @@ public class Example {
 
 Get Earning Rule
 
-Retrieves an earning rule assigned to a campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
 
 ### Example
 ```java
@@ -1341,7 +1341,7 @@ public class Example {
 
 Get Loyalty Campaign
 
-Retrieve a specific loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
 
 ### Example
 ```java
@@ -1410,7 +1410,7 @@ public class Example {
 
 Get Loyalty Tier
 
-Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
 
 ### Example
 ```java
@@ -1481,7 +1481,7 @@ public class Example {
 
 Get Member
 
-Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1550,7 +1550,7 @@ public class Example {
 
 Get Member with campaign ID
 
-Retrieves the loyalty card with the given member ID (i.e. voucher code).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
 
 ### Example
 ```java
@@ -1621,7 +1621,7 @@ public class Example {
 
 Get Campaign Reward Assignments
 
-Retrieve specific reward assignment.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
 
 ### Example
 ```java
@@ -1692,7 +1692,7 @@ public class Example {
 
 Get Campaign Reward Assignment
 
-Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1763,7 +1763,7 @@ public class Example {
 
 Get Reward Details
 
-Get reward details in the context of a loyalty campaign and reward assignment ID.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
 
 ### Example
 ```java
@@ -1834,7 +1834,7 @@ public class Example {
 
 List Campaign Pending Points
 
-Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -1909,7 +1909,7 @@ public class Example {
 
 List Earning Rules
 
-Returns a list of all earning rules within a given campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
 
 ### Example
 ```java
@@ -1984,7 +1984,7 @@ public class Example {
 
 List Loyalty Campaign Transactions
 
-Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
 
 ### Example
 ```java
@@ -2061,7 +2061,7 @@ public class Example {
 
 List Loyalty Card Transactions
 
-Retrieve transaction data related to point movements for a specific loyalty card.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
 
 ### Example
 ```java
@@ -2138,7 +2138,7 @@ public class Example {
 
 List Loyalty Card Transactions with campaign ID
 
-Retrieve transaction data related to point movements for a specific loyalty card.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
 
 ### Example
 ```java
@@ -2217,7 +2217,7 @@ public class Example {
 
 List Loyalty Campaigns
 
-Returns a list of your loyalty campaigns.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
 
 ### Example
 ```java
@@ -2292,7 +2292,7 @@ public class Example {
 
 List Loyalty Tier Earning Rules
 
-Retrieve available earning rules for a given tier and the calculation method for earning points.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
 
 ### Example
 ```java
@@ -2367,7 +2367,7 @@ public class Example {
 
 List Loyalty Tier Rewards
 
-Get available rewards for a given tier.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
 
 ### Example
 ```java
@@ -2438,7 +2438,7 @@ public class Example {
 
 List Loyalty Tiers
 
-Retrieve a list of loyalty tiers which were added to the loyalty program.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
 
 ### Example
 ```java
@@ -2511,7 +2511,7 @@ public class Example {
 
 List Member Activity
 
-  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
 
 ### Example
 ```java
@@ -2586,7 +2586,7 @@ public class Example {
 
 List Member Activity with campaign ID
 
-Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
 
 ### Example
 ```java
@@ -2663,7 +2663,7 @@ public class Example {
 
 List Member&#39;s Loyalty Tiers
 
-Retrieve member tiers using the loyalty card ID.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
 
 ### Example
 ```java
@@ -2732,7 +2732,7 @@ public class Example {
 
 List Member Pending Points
 
-  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -2807,7 +2807,7 @@ public class Example {
 
 List Member Pending Points with campaign ID
 
-Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
 
 ### Example
 ```java
@@ -2884,7 +2884,7 @@ public class Example {
 
 List Member Rewards
 
-Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
 
 ### Example
 ```java
@@ -2955,7 +2955,7 @@ public class Example {
 
 List Members
 
-Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
 
 ### Example
 ```java
@@ -3040,7 +3040,7 @@ public class Example {
 
 List Loyalty Card Point Expiration
 
-Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
 
 ### Example
 ```java
@@ -3115,7 +3115,7 @@ public class Example {
 
 List Reward Assignments with campaign ID
 
-Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -3190,7 +3190,7 @@ public class Example {
 
 List Campaign Rewards
 
-Returns active rewards from a given loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
 
 ### Example
 ```java
@@ -3265,7 +3265,7 @@ public class Example {
 
 Redeem Reward
 
-  📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -3336,7 +3336,7 @@ public class Example {
 
 Redeem Reward with campaign ID
 
-Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
 
 ### Example
 ```java
@@ -3409,7 +3409,7 @@ public class Example {
 
 Transfer Loyalty Points
 
-Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
 
 ### Example
 ```java
@@ -3482,7 +3482,7 @@ public class Example {
 
 Update Earning Rule
 
-Update an earning rule definition.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
 
 ### Example
 ```java
@@ -3555,7 +3555,7 @@ public class Example {
 
 Adjust Loyalty Card Balance
 
-This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -3626,7 +3626,7 @@ public class Example {
 
 Adjust Loyalty Card Balance with campaign ID
 
-This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
 
 ### Example
 ```java
@@ -3699,7 +3699,7 @@ public class Example {
 
 Update Loyalty Campaign
 
-Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
 
 ### Example
 ```java
@@ -3770,7 +3770,7 @@ public class Example {
 
 Update Campaign Reward Assignment
 
-Updates rewards parameters, i.e. the points cost for the specific reward.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
 
 ### Example
 ```java
