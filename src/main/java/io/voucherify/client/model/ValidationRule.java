@@ -74,7 +74,6 @@ public class ValidationRule {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private ValidationRuleError error;
-    private boolean errorIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
@@ -396,7 +395,7 @@ public class ValidationRule {
   public ValidationRule error(ValidationRuleError error) {
     
     this.error = error;
-    this.errorIsSet = true;
+    
     return this;
   }
 
@@ -412,10 +411,6 @@ public class ValidationRule {
 
   public void setError(ValidationRuleError error) {
     this.error = error;
-    this.errorIsSet = true;
-  }
-  public boolean isErrorSet() {
-    return errorIsSet;
   }
 
 

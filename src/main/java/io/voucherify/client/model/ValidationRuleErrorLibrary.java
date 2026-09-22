@@ -50,42 +50,42 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
+ * References an Error Message Library entry. Required when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ValidationRulesUpdateResponseBodyError {
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-    private boolean messageIsSet = false;
+public class ValidationRuleErrorLibrary {
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
+    private boolean keyIsSet = false;
 
-  public ValidationRulesUpdateResponseBodyError() {
+  public ValidationRuleErrorLibrary() {
   }
 
-  public ValidationRulesUpdateResponseBodyError message(String message) {
+  public ValidationRuleErrorLibrary key(String key) {
     
-    this.message = message;
-    this.messageIsSet = true;
+    this.key = key;
+    this.keyIsSet = true;
     return this;
   }
 
    /**
-   * The error message returned from API when validation / redemption fails to meet requirements of defined rules.
-   * @return message
+   * Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;.
+   * @return key
   **/
   @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setMessage(String message) {
-    this.message = message;
-    this.messageIsSet = true;
+  public void setKey(String key) {
+    this.key = key;
+    this.keyIsSet = true;
   }
-  public boolean isMessageSet() {
-    return messageIsSet;
+  public boolean isKeySet() {
+    return keyIsSet;
   }
 
 
@@ -98,8 +98,8 @@ public class ValidationRulesUpdateResponseBodyError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationRulesUpdateResponseBodyError validationRulesUpdateResponseBodyError = (ValidationRulesUpdateResponseBodyError) o;
-    return Objects.equals(this.message, validationRulesUpdateResponseBodyError.message);
+    ValidationRuleErrorLibrary validationRuleErrorLibrary = (ValidationRuleErrorLibrary) o;
+    return Objects.equals(this.key, validationRuleErrorLibrary.key);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -108,7 +108,7 @@ public class ValidationRulesUpdateResponseBodyError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(key);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -121,8 +121,8 @@ public class ValidationRulesUpdateResponseBodyError {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationRulesUpdateResponseBodyError {\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class ValidationRuleErrorLibrary {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,7 +145,7 @@ public class ValidationRulesUpdateResponseBodyError {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("message");
+    openapiFields.add("key");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -155,27 +155,27 @@ public class ValidationRulesUpdateResponseBodyError {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ValidationRulesUpdateResponseBodyError.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ValidationRulesUpdateResponseBodyError' and its subtypes
+       if (!ValidationRuleErrorLibrary.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ValidationRuleErrorLibrary' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ValidationRulesUpdateResponseBodyError> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationRulesUpdateResponseBodyError.class));
+       final TypeAdapter<ValidationRuleErrorLibrary> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationRuleErrorLibrary.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ValidationRulesUpdateResponseBodyError>() {
+       return (TypeAdapter<T>) new TypeAdapter<ValidationRuleErrorLibrary>() {
            @Override
-           public void write(JsonWriter out, ValidationRulesUpdateResponseBodyError value) throws IOException {
+           public void write(JsonWriter out, ValidationRuleErrorLibrary value) throws IOException {
             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
 
             // 1. Strip all nulls and internal "isSet" markers
             obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
 
             // 2. Add back explicitly set nulls using reflection
-            for (Field field : ValidationRulesUpdateResponseBodyError.class.getDeclaredFields()) {
+            for (Field field : ValidationRuleErrorLibrary.class.getDeclaredFields()) {
               String fieldName = field.getName();
               if (fieldName.endsWith("IsSet")) continue;
               try {
-                Field isSetField = ValidationRulesUpdateResponseBodyError.class.getDeclaredField(fieldName + "IsSet");
+                Field isSetField = ValidationRuleErrorLibrary.class.getDeclaredField(fieldName + "IsSet");
                 isSetField.setAccessible(true);
                 boolean isSet = (boolean) isSetField.get(value);
 
@@ -198,7 +198,7 @@ public class ValidationRulesUpdateResponseBodyError {
            }
 
            @Override
-           public ValidationRulesUpdateResponseBodyError read(JsonReader in) throws IOException {
+           public ValidationRuleErrorLibrary read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -208,18 +208,18 @@ public class ValidationRulesUpdateResponseBodyError {
   }
 
  /**
-  * Create an instance of ValidationRulesUpdateResponseBodyError given an JSON string
+  * Create an instance of ValidationRuleErrorLibrary given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ValidationRulesUpdateResponseBodyError
-  * @throws IOException if the JSON string is invalid with respect to ValidationRulesUpdateResponseBodyError
+  * @return An instance of ValidationRuleErrorLibrary
+  * @throws IOException if the JSON string is invalid with respect to ValidationRuleErrorLibrary
   */
-  public static ValidationRulesUpdateResponseBodyError fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ValidationRulesUpdateResponseBodyError.class);
+  public static ValidationRuleErrorLibrary fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ValidationRuleErrorLibrary.class);
   }
 
  /**
-  * Convert an instance of ValidationRulesUpdateResponseBodyError to an JSON string
+  * Convert an instance of ValidationRuleErrorLibrary to an JSON string
   *
   * @return JSON string
   */

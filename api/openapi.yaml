@@ -20214,7 +20214,13 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}:
     delete:
-      description: This method deletes a customer.
+      description: |-
+        This method deletes a customer.
+        The customer is permanently deleted. This means that a new customer with the same source_id can be created.
+        <Note>
+        <Badge color blue>GDPR compliance</Badge>
+        This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings).
+        </Note>
       operationId: delete-customer
       parameters:
       - description: A Voucherify customers id or source_id.
@@ -20425,9 +20431,10 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}/permanent-deletion:
     post:
-      description: The organization user can remove consumer data permanently from
+      description: The organization user can remove customer data permanently from
         the Voucherify system by using this API method. It deletes all customer data
-        and connected resources. It makes the customer profile forgotten by Voucherify.
+        and connected resources. It makes the customer profile forgotten by Voucherify
+        as per the GDPR.
       operationId: customer-permanently-deletion
       parameters:
       - description: A Voucherify customers id or source_id.
@@ -23454,7 +23461,9 @@ paths:
       x-accepts: application/json
   /v1/product-collections/{productCollectionId}:
     delete:
-      description: This method deletes a product collection.
+      description: |-
+        Deletes a product collection.
+        <Warning>This endpoint performs database-heavy operations. It is not designed for highly frequent use.</Warning>
       operationId: delete-product-collection
       parameters:
       - description: A unique product collection ID.
@@ -25392,18 +25401,60 @@ paths:
                       result:
                         url: "{{internalVoucherifyURL}}"
                       user_id: null
-                    total: 3
+                    - id: exp_0bae4f8d2c1a9e3b41
+                      object: export
+                      created_at: 2025-03-17T11:07:41.000Z
+                      status: DONE
+                      channel: API
+                      exported_object: product
+                      parameters:
+                        order: -created_at
+                        fields:
+                        - id
+                        - name
+                        - price
+                        - image_url
+                        - source_id
+                        - attributes
+                        - created_at
+                        filters:
+                          junction: and
+                      result:
+                        url: "{{internalVoucherifyURL}}"
+                      user_id: null
+                    - id: exp_0bae4f8d2c1a9e3b42
+                      object: export
+                      created_at: 2025-05-28T06:29:42.000Z
+                      status: DONE
+                      channel: API
+                      exported_object: sku
+                      parameters:
+                        order: -created_at
+                        fields:
+                        - id
+                        - sku
+                        - product_id
+                        - currency
+                        - price
+                        - source_id
+                        - created_at
+                        filters:
+                          junction: and
+                      result:
+                        url: "{{internalVoucherifyURL}}"
+                      user_id: null
+                    total: 5
               schema:
                 $ref: '#/components/schemas/ExportsListResponseBody'
           description: "A dictionary with an exports property that contains an array\
             \ of exports. Each entry in the array is a separate export object. The\
             \ list will return the following types of exported objects: `voucher`,\
             \ `redemption`, `publication`, `customer`, `order`, `points_expiration`,\
-            \ or `voucher_transactions`. \n\nThe `channel` parameter in the response\
-            \ body returns the channel that was used to generate the particular export.\
-            \ The `user_id` identifies the specific user who initiated the export\
-            \ through the Voucherify Dashboard; this `user_id` is returned when the\
-            \ channel value is `WEBSITE`."
+            \ `voucher_transactions`, `product`, or `sku`. \n\nThe `channel` parameter\
+            \ in the response body returns the channel that was used to generate the\
+            \ particular export. The `user_id` identifies the specific user who initiated\
+            \ the export through the Voucherify Dashboard; this `user_id` is returned\
+            \ when the channel value is `WEBSITE`."
       security:
       - X-App-Id: []
         X-App-Token: []
@@ -25425,12 +25476,54 @@ paths:
         \ in the CSV file. The array can be a combination of any of the following\
         \ available fields:\n# Orders  \n\n\n# Vouchers  \n\n\n\n\n\n# Publications\n\
         \n\n# Redemptions\n\n\n\n# Customers\n\n\n\n\n\n\n# Points Expirations\n\n\
-        \n # Gift Card Transactions\n\n\n # Loyalty Card Transactions\n\n\n"
+        \n # Gift Card Transactions\n\n\n # Loyalty Card Transactions\n\n\n\n# Products\n\
+        \n\n# SKUs\n\n\n"
       operationId: create-export
       parameters: []
       requestBody:
         content:
           application/json:
+            examples:
+              Export Products:
+                value:
+                  exported_object: product
+                  parameters:
+                    order: -created_at
+                    fields:
+                    - id
+                    - name
+                    - price
+                    - image_url
+                    - source_id
+                    - attributes
+                    - created_at
+                    filters:
+                      junction: and
+                      created_at:
+                        conditions:
+                          $after:
+                          - 2024-01-01T00:00:00.000Z
+              Export SKUs:
+                value:
+                  exported_object: sku
+                  parameters:
+                    order: -created_at
+                    fields:
+                    - id
+                    - sku
+                    - product_id
+                    - currency
+                    - price
+                    - image_url
+                    - source_id
+                    - attributes
+                    - created_at
+                    filters:
+                      junction: and
+                      product_id:
+                        conditions:
+                          $is:
+                          - prod_0bae32322150fd0546
             schema:
               $ref: '#/components/schemas/ExportsCreateRequestBody'
         description: Specify the details of the export that you would like to create.
@@ -25438,6 +25531,61 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Export Products:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b41
+                    object: export
+                    created_at: 2025-03-17T11:07:41.000Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: product
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - name
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                        created_at:
+                          conditions:
+                            $after:
+                            - 2024-01-01T00:00:00.000Z
+                    result: null
+                    user_id: null
+                Export SKUs:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b42
+                    object: export
+                    created_at: 2025-05-28T06:29:42.000Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: sku
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - sku
+                      - product_id
+                      - currency
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                        product_id:
+                          conditions:
+                            $is:
+                            - prod_0bae32322150fd0546
+                    result: null
+                    user_id: null
               schema:
                 $ref: '#/components/schemas/ExportsCreateResponseBody'
           description: Returns export object and URL of CSV file.
@@ -25456,7 +25604,7 @@ paths:
       parameters:
       - description: "Unique export object ID of previously created export. This object\
           \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
-          \ or voucher_transactions."
+          \ voucher_transactions, product, or sku."
         explode: false
         in: path
         name: exportId
@@ -25481,7 +25629,7 @@ paths:
       parameters:
       - description: "Unique export object ID of previously created export. This object\
           \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
-          \ or voucher_transactions."
+          \ voucher_transactions, product, or sku."
         explode: false
         in: path
         name: exportId
@@ -25513,6 +25661,52 @@ paths:
                       filters:
                         junction: and
                       response_format: CSV
+                    result:
+                      url: "{{internalVoucherifyURL}}"
+                    user_id: null
+                Get Product Export:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b41
+                    object: export
+                    created_at: 2025-03-17T11:07:41.000Z
+                    status: DONE
+                    channel: API
+                    exported_object: product
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - name
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                    result:
+                      url: "{{internalVoucherifyURL}}"
+                    user_id: null
+                Get SKU Export:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b42
+                    object: export
+                    created_at: 2025-05-28T06:29:42.000Z
+                    status: DONE
+                    channel: API
+                    exported_object: sku
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - sku
+                      - product_id
+                      - currency
+                      - price
+                      - source_id
+                      - created_at
+                      filters:
+                        junction: and
                     result:
                       url: "{{internalVoucherifyURL}}"
                     user_id: null
@@ -44903,6 +45097,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -44977,6 +45173,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -45051,6 +45249,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -74609,6 +74809,7 @@ components:
           expand:
           - order
           - order
+          language: pl
         tracking_id: tracking_id
         order:
           amount: 0
@@ -82576,6 +82777,11 @@ components:
         context_type: global
         rules: "{}"
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -82783,7 +82989,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRulesCreateRequestBodyError'
+          $ref: '#/components/schemas/ValidationRuleError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesCreateRequestBodyApplicableTo'
         type:
@@ -82895,6 +83101,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -83103,7 +83314,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRulesCreateResponseBodyError'
+          $ref: '#/components/schemas/ValidationRuleError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesCreateResponseBodyApplicableTo'
         type:
@@ -83245,6 +83456,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -83453,7 +83669,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRulesGetResponseBodyError'
+          $ref: '#/components/schemas/ValidationRuleError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesGetResponseBodyApplicableTo'
         type:
@@ -83597,6 +83813,11 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
+            mode: MESSAGES
+            library:
+              key: order.amount
+            messages:
+              key: messages
             message: message
           type: expression
           applicable_to:
@@ -83793,6 +84014,11 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
+            mode: MESSAGES
+            library:
+              key: order.amount
+            messages:
+              key: messages
             message: message
           type: expression
           applicable_to:
@@ -84016,6 +84242,11 @@ components:
         context_type: global
         rules: "{}"
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -84223,7 +84454,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRulesUpdateRequestBodyError'
+          $ref: '#/components/schemas/ValidationRuleError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesUpdateRequestBodyApplicableTo'
         type:
@@ -84335,6 +84566,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -84543,7 +84779,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRulesUpdateResponseBodyError'
+          $ref: '#/components/schemas/ValidationRuleError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesUpdateResponseBodyApplicableTo'
         type:
@@ -84701,6 +84937,7 @@ components:
           expand:
           - order
           - order
+          language: pl
         tracking_id: tracking_id
         order:
           amount: 0
@@ -94346,6 +94583,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -108056,6 +108295,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -108497,6 +108741,52 @@ components:
 
         While updating with the PUT method, you can pass `"bundle_rules": null` to delete the configuration; in the response, an empty object is then returned.
       title: ValidationRuleBundleRules
+      type: object
+    ValidationRuleError:
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
+      example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
+        message: message
+      properties:
+        message:
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
+          nullable: true
+          type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRuleErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
+      title: ValidationRuleError
       type: object
     ValidationRuleRules:
       description: Contains all the rule definitions for the validation rule. It is
@@ -115131,6 +115421,21 @@ components:
           type: string
       title: SimpleVoucher
       type: object
+    ValidationRuleErrorLibrary:
+      description: References an Error Message Library entry. Required when `mode`
+        is `LIBRARY`. Must be omitted or `null` when `mode` is `MESSAGES`.
+      example:
+        key: order.amount
+      properties:
+        key:
+          description: "Identifies the library message. Use a validation-rule name\
+            \ such as `order.amount`, or a custom attribute key such as `order.metadata.location`."
+          example: order.amount
+          maxLength: 100
+          nullable: true
+          type: string
+      title: ValidationRuleErrorLibrary
+      type: object
     VoucherBalance:
       description: Contains information on how the balance was affected by the transaction.
       example:
@@ -120787,11 +121092,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -120883,6 +121195,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsCreateRequestBodyParametersFieldsItem
             type: string
           nullable: true
@@ -120893,7 +121211,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsCreateRequestBodyParametersFilters
           type: object
@@ -120944,11 +121263,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -121040,6 +121366,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsCreateResponseBodyParametersFieldsItem
             type: string
           nullable: true
@@ -121050,7 +121382,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsCreateResponseBodyParametersFilters
           type: object
@@ -121113,11 +121446,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -121209,6 +121549,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsGetResponseBodyParametersFieldsItem
             type: string
           nullable: true
@@ -121219,7 +121565,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsGetResponseBodyParametersFilters
           type: object
@@ -137423,11 +137770,13 @@ components:
       title: RedemptionsListResponseBodyRedemptionsItem
       type: object
     RedemptionsRedeemRequestBodyOptions:
-      description: Configure parameters returned in the response.
+      description: Configure response expansion and the language of custom validation-rule
+        error messages.
       example:
         expand:
         - order
         - order
+        language: pl
       nullable: true
       properties:
         expand:
@@ -137456,6 +137805,17 @@ components:
           nullable: true
           title: RedemptionsRedeemRequestBodyOptionsExpand
           type: array
+        language:
+          description: Selects the language for the custom validation-rule error message.
+            Returns the message in this language when a validation rule fails. Falls
+            back to the Error Message Library default language when omitted or when
+            the requested language has no message. Omits the custom error when no
+            message can be resolved.
+          example: pl
+          maxLength: 100
+          nullable: true
+          pattern: "^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?$"
+          type: string
       title: RedemptionsRedeemRequestBodyOptions
       type: object
     RedemptionsRedeemRequestBodyRedeemablesItemGift:
@@ -138728,20 +139088,6 @@ components:
           type: string
       title: TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem
       type: object
-    ValidationRulesCreateRequestBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRulesCreateRequestBodyError
-      type: object
     ValidationRulesCreateRequestBodyApplicableTo:
       example:
         excluded:
@@ -138948,20 +139294,6 @@ components:
           nullable: true
           type: boolean
       title: ValidationRulesCreateRequestBodyApplicableTo
-      type: object
-    ValidationRulesCreateResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRulesCreateResponseBodyError
       type: object
     ValidationRulesCreateResponseBodyApplicableTo:
       example:
@@ -139170,20 +139502,6 @@ components:
           type: boolean
       title: ValidationRulesCreateResponseBodyApplicableTo
       type: object
-    ValidationRulesGetResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRulesGetResponseBodyError
-      type: object
     ValidationRulesGetResponseBodyApplicableTo:
       example:
         excluded:
@@ -139391,20 +139709,6 @@ components:
           type: boolean
       title: ValidationRulesGetResponseBodyApplicableTo
       type: object
-    ValidationRulesUpdateRequestBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRulesUpdateRequestBodyError
-      type: object
     ValidationRulesUpdateRequestBodyApplicableTo:
       example:
         excluded:
@@ -139611,20 +139915,6 @@ components:
           nullable: true
           type: boolean
       title: ValidationRulesUpdateRequestBodyApplicableTo
-      type: object
-    ValidationRulesUpdateResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRulesUpdateResponseBodyError
       type: object
     ValidationRulesUpdateResponseBodyApplicableTo:
       example:
@@ -139834,11 +140124,13 @@ components:
       title: ValidationRulesUpdateResponseBodyApplicableTo
       type: object
     ValidationsValidateRequestBodyOptions:
-      description: Configure parameters returned in the response.
+      description: Configure response expansion and the language of custom validation-rule
+        error messages.
       example:
         expand:
         - order
         - order
+        language: pl
       nullable: true
       properties:
         expand:
@@ -139865,6 +140157,17 @@ components:
           nullable: true
           title: ValidationsValidateRequestBodyOptionsExpand
           type: array
+        language:
+          description: Selects the language for the custom validation-rule error message.
+            Returns the message in this language when a validation rule fails. Falls
+            back to the Error Message Library default language when omitted or when
+            the requested language has no message. Omits the custom error when no
+            message can be resolved.
+          example: pl
+          maxLength: 100
+          nullable: true
+          pattern: "^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?$"
+          type: string
       title: ValidationsValidateRequestBodyOptions
       type: object
     ValidationsValidateRequestBodyRedeemablesItemGift:
@@ -143346,13 +143649,16 @@ components:
       title: EarningRuleSource
       type: object
     ErrorError:
-      description: Includes additional information about the error.
+      description: Includes the resolved custom validation-rule error message when
+        one is configured.
       example:
         message: message
       nullable: true
       properties:
         message:
-          description: The message configured by the user in a validation rule.
+          description: "Resolved custom validation-rule error message for `options.language`,\
+            \ falling back to the Error Message Library default language. Present\
+            \ only when a custom message can be resolved."
           nullable: true
           type: string
       title: ErrorError
@@ -143407,11 +143713,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -143503,6 +143816,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportParametersFieldsItem
             type: string
           nullable: true
@@ -143513,7 +143832,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportParametersFilters
           type: object
@@ -151421,20 +151741,6 @@ components:
           nullable: true
           type: string
       title: RewardTypeProduct
-      type: object
-    ValidationRuleError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
-      example:
-        message: message
-      nullable: true
-      properties:
-        message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
-          nullable: true
-          type: string
-      title: ValidationRuleError
       type: object
     ValidationRuleApplicableTo:
       example:
