@@ -1,6 +1,6 @@
 
 
-# ValidationRuleError
+# ValidationRulesGetResponseBodyError
 
 Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
 

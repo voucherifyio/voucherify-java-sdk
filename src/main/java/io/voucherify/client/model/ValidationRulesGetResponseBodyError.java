@@ -54,16 +54,16 @@ import io.voucherify.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class ValidationRuleError {
+public class ValidationRulesGetResponseBodyError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
     private boolean messageIsSet = false;
 
-  public ValidationRuleError() {
+  public ValidationRulesGetResponseBodyError() {
   }
 
-  public ValidationRuleError message(String message) {
+  public ValidationRulesGetResponseBodyError message(String message) {
     
     this.message = message;
     this.messageIsSet = true;
@@ -98,8 +98,8 @@ public class ValidationRuleError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationRuleError validationRuleError = (ValidationRuleError) o;
-    return Objects.equals(this.message, validationRuleError.message);
+    ValidationRulesGetResponseBodyError validationRulesGetResponseBodyError = (ValidationRulesGetResponseBodyError) o;
+    return Objects.equals(this.message, validationRulesGetResponseBodyError.message);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -121,7 +121,7 @@ public class ValidationRuleError {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationRuleError {\n");
+    sb.append("class ValidationRulesGetResponseBodyError {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -155,27 +155,27 @@ public class ValidationRuleError {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ValidationRuleError.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ValidationRuleError' and its subtypes
+       if (!ValidationRulesGetResponseBodyError.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ValidationRulesGetResponseBodyError' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ValidationRuleError> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationRuleError.class));
+       final TypeAdapter<ValidationRulesGetResponseBodyError> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ValidationRulesGetResponseBodyError.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ValidationRuleError>() {
+       return (TypeAdapter<T>) new TypeAdapter<ValidationRulesGetResponseBodyError>() {
            @Override
-           public void write(JsonWriter out, ValidationRuleError value) throws IOException {
+           public void write(JsonWriter out, ValidationRulesGetResponseBodyError value) throws IOException {
             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
 
             // 1. Strip all nulls and internal "isSet" markers
             obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
 
             // 2. Add back explicitly set nulls using reflection
-            for (Field field : ValidationRuleError.class.getDeclaredFields()) {
+            for (Field field : ValidationRulesGetResponseBodyError.class.getDeclaredFields()) {
               String fieldName = field.getName();
               if (fieldName.endsWith("IsSet")) continue;
               try {
-                Field isSetField = ValidationRuleError.class.getDeclaredField(fieldName + "IsSet");
+                Field isSetField = ValidationRulesGetResponseBodyError.class.getDeclaredField(fieldName + "IsSet");
                 isSetField.setAccessible(true);
                 boolean isSet = (boolean) isSetField.get(value);
 
@@ -198,7 +198,7 @@ public class ValidationRuleError {
            }
 
            @Override
-           public ValidationRuleError read(JsonReader in) throws IOException {
+           public ValidationRulesGetResponseBodyError read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -208,18 +208,18 @@ public class ValidationRuleError {
   }
 
  /**
-  * Create an instance of ValidationRuleError given an JSON string
+  * Create an instance of ValidationRulesGetResponseBodyError given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ValidationRuleError
-  * @throws IOException if the JSON string is invalid with respect to ValidationRuleError
+  * @return An instance of ValidationRulesGetResponseBodyError
+  * @throws IOException if the JSON string is invalid with respect to ValidationRulesGetResponseBodyError
   */
-  public static ValidationRuleError fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ValidationRuleError.class);
+  public static ValidationRulesGetResponseBodyError fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ValidationRulesGetResponseBodyError.class);
   }
 
  /**
-  * Convert an instance of ValidationRuleError to an JSON string
+  * Convert an instance of ValidationRulesGetResponseBodyError to an JSON string
   *
   * @return JSON string
   */

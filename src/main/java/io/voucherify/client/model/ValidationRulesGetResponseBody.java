@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.ValidationRuleError;
 import io.voucherify.client.model.ValidationRulesGetResponseBodyApplicableTo;
+import io.voucherify.client.model.ValidationRulesGetResponseBodyError;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -73,7 +73,8 @@ public class ValidationRulesGetResponseBody {
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
-  private ValidationRuleError error;
+  private ValidationRulesGetResponseBodyError error;
+    private boolean errorIsSet = false;
 
   public static final String SERIALIZED_NAME_APPLICABLE_TO = "applicable_to";
   @SerializedName(SERIALIZED_NAME_APPLICABLE_TO)
@@ -392,10 +393,10 @@ public class ValidationRulesGetResponseBody {
   }
 
 
-  public ValidationRulesGetResponseBody error(ValidationRuleError error) {
+  public ValidationRulesGetResponseBody error(ValidationRulesGetResponseBodyError error) {
     
     this.error = error;
-    
+    this.errorIsSet = true;
     return this;
   }
 
@@ -404,13 +405,17 @@ public class ValidationRulesGetResponseBody {
    * @return error
   **/
   @javax.annotation.Nullable
-  public ValidationRuleError getError() {
+  public ValidationRulesGetResponseBodyError getError() {
     return error;
   }
 
 
-  public void setError(ValidationRuleError error) {
+  public void setError(ValidationRulesGetResponseBodyError error) {
     this.error = error;
+    this.errorIsSet = true;
+  }
+  public boolean isErrorSet() {
+    return errorIsSet;
   }
 
 
