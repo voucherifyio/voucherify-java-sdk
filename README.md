@@ -242,6 +242,20 @@ Authorization schemes defined for the API.
 FIXED:
 - `exchange_ratio` in COIN reward schemas typed as `Double`/`BigDecimal` (was `integer`/`string` in OpenAPI). The API returns fractional values (e.g. `0.01` for pay-with-points). Fixes deserialization errors on `list_redemptions` and related endpoints.
 
+ADDED:
+- `product` and `sku` as export object types (`ExportedObjectEnum`) on:
+  - `ExportsCreateRequestBody`
+  - `ExportsCreateResponseBody`
+  - `ExportsGetResponseBody`
+- Matching export order and field options, including `product_id` and `sku`, on:
+  - `ExportsCreateRequestBodyParameters`
+  - `ExportsCreateResponseBodyParameters`
+  - `ExportsGetResponseBodyParameters`
+
+CHANGED:
+- Regenerated the SDK from the latest OpenAPI after error message library updates. Validation-rule `error` stays on `ValidationRuleError` (nullable, no breaking model rename).
+- `ErrorError.message` is documented as the resolved custom validation-rule error for `options.language`, falling back to the Error Message Library default language.
+
 - **2026-08-06** - `17.0.4`
 FIXED:
 - `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing the `no_effect` value, so `getKey()` returned `null` whenever the API skipped a redeemable because it produced no discount effect. The `message` field was populated, but the key was silently lost.
