@@ -52,7 +52,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Configure parameters returned in the response.
+ * Configure response expansion and the language of custom validation-rule error messages.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -113,6 +113,11 @@ public class ValidationsValidateRequestBodyOptions {
   private List<ExpandEnum> expand;
     private boolean expandIsSet = false;
 
+  public static final String SERIALIZED_NAME_LANGUAGE = "language";
+  @SerializedName(SERIALIZED_NAME_LANGUAGE)
+  private String language;
+    private boolean languageIsSet = false;
+
   public ValidationsValidateRequestBodyOptions() {
   }
 
@@ -150,6 +155,32 @@ public class ValidationsValidateRequestBodyOptions {
   }
 
 
+  public ValidationsValidateRequestBodyOptions language(String language) {
+    
+    this.language = language;
+    this.languageIsSet = true;
+    return this;
+  }
+
+   /**
+   * Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.
+   * @return language
+  **/
+  @javax.annotation.Nullable
+  public String getLanguage() {
+    return language;
+  }
+
+
+  public void setLanguage(String language) {
+    this.language = language;
+    this.languageIsSet = true;
+  }
+  public boolean isLanguageSet() {
+    return languageIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -160,7 +191,8 @@ public class ValidationsValidateRequestBodyOptions {
       return false;
     }
     ValidationsValidateRequestBodyOptions validationsValidateRequestBodyOptions = (ValidationsValidateRequestBodyOptions) o;
-    return Objects.equals(this.expand, validationsValidateRequestBodyOptions.expand);
+    return Objects.equals(this.expand, validationsValidateRequestBodyOptions.expand) &&
+        Objects.equals(this.language, validationsValidateRequestBodyOptions.language);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -169,7 +201,7 @@ public class ValidationsValidateRequestBodyOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expand);
+    return Objects.hash(expand, language);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -184,6 +216,7 @@ public class ValidationsValidateRequestBodyOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidationsValidateRequestBodyOptions {\n");
     sb.append("    expand: ").append(toIndentedString(expand)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -207,6 +240,7 @@ public class ValidationsValidateRequestBodyOptions {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("expand");
+    openapiFields.add("language");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

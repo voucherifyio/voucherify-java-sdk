@@ -240,7 +240,7 @@ public class ProductCollectionsApi {
 
     /**
      * Delete Product Collection
-     * This method deletes a product collection.
+     * Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
      * @param productCollectionId A unique product collection ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -250,7 +250,7 @@ public class ProductCollectionsApi {
 
     /**
      * Delete Product Collection
-     * This method deletes a product collection.
+     * Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
      * @param productCollectionId A unique product collection ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -262,7 +262,7 @@ public class ProductCollectionsApi {
 
     /**
      * Delete Product Collection (asynchronously)
-     * This method deletes a product collection.
+     * Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
      * @param productCollectionId A unique product collection ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

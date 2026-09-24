@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Includes additional information about the error.
+ * Includes the resolved custom validation-rule error message when one is configured.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -71,7 +71,7 @@ public class ErrorError {
   }
 
    /**
-   * The message configured by the user in a validation rule.
+   * Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved.
    * @return message
   **/
   @javax.annotation.Nullable

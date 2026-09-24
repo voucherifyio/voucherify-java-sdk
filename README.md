@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.4</version>
+  <version>17.0.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.4"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.0.5"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.0.4.jar`
+* `target/voucherify-java-sdk-17.0.5.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -173,7 +173,7 @@ To run tests locally with commands:
 This SDK is generated automatically from our [OpenAPI specification](https://github.com/voucherifyio/voucherify-openapi). To contribute, submit an issue rather than creating a pull request. Voucherify developers will review your issue and reply as soon as possible.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.4)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.5)
 
 ## 🔐 Authorization
 
@@ -238,6 +238,24 @@ Authorization schemes defined for the API.
 - **Location**: HTTP header
 
 ## 📅 Changelog
+- **2026-08-26** - `17.0.5`
+FIXED:
+- `exchange_ratio` in COIN reward schemas typed as `Double`/`BigDecimal` (was `integer`/`string` in OpenAPI). The API returns fractional values (e.g. `0.01` for pay-with-points). Fixes deserialization errors on `list_redemptions` and related endpoints.
+
+ADDED:
+- `product` and `sku` as export object types (`ExportedObjectEnum`) on:
+  - `ExportsCreateRequestBody`
+  - `ExportsCreateResponseBody`
+  - `ExportsGetResponseBody`
+- Matching export order and field options, including `product_id` and `sku`, on:
+  - `ExportsCreateRequestBodyParameters`
+  - `ExportsCreateResponseBodyParameters`
+  - `ExportsGetResponseBodyParameters`
+
+CHANGED:
+- Regenerated the SDK from the latest OpenAPI after error message library updates. Validation-rule `error` stays on `ValidationRuleError` (nullable, no breaking model rename).
+- `ErrorError.message` is documented as the resolved custom validation-rule error for `options.language`, falling back to the Error Message Library default language.
+
 - **2026-08-06** - `17.0.4`
 FIXED:
 - `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing the `no_effect` value, so `getKey()` returned `null` whenever the API skipped a redeemable because it produced no discount effect. The `message` field was populated, but the key was silently lost.

@@ -86,7 +86,7 @@ public class Example {
 
 Delete Product Collection
 
-This method deletes a product collection.
+Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
 
 ### Example
 ```java

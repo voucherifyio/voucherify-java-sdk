@@ -112,7 +112,15 @@ public class ExportsCreateResponseBodyParameters {
     
     _EXPIRES_AT("-expires_at"),
     
-    EXPIRES_AT("expires_at");
+    EXPIRES_AT("expires_at"),
+    
+    _PRODUCT_ID("-product_id"),
+    
+    PRODUCT_ID("product_id"),
+    
+    _SKU("-sku"),
+    
+    SKU("sku");
 
     private String value;
 
@@ -338,7 +346,19 @@ public class ExportsCreateResponseBodyParameters {
     
     RELATED_TRANSACTION_ID("related_transaction_id"),
     
-    DETAILS("details");
+    DETAILS("details"),
+    
+    PRICE("price"),
+    
+    IMAGE_URL("image_url"),
+    
+    ATTRIBUTES("attributes"),
+    
+    SKU("sku"),
+    
+    PRODUCT_ID("product_id"),
+    
+    CURRENCY("currency");
 
     private String value;
 
@@ -438,7 +458,7 @@ public class ExportsCreateResponseBodyParameters {
   }
 
    /**
-   * Array of strings containing the data in the export. These fields define the headers in the CSV file.
+   * Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
    * @return fields
   **/
   @javax.annotation.Nullable
@@ -464,7 +484,7 @@ public class ExportsCreateResponseBodyParameters {
   }
 
    /**
-   * Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+   * Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
    * @return filters
   **/
   @javax.annotation.Nullable

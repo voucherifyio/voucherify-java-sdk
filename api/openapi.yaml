@@ -85,23 +85,25 @@ paths:
     get:
       description: "This method selects vouchers that are suitable for publication,\
         \ adds a publish entry and returns the publication.\nA voucher is suitable\
-        \ for publication when its active and hasnt been published yet.\n ❗️ Limited\
-        \ access\n Access to this endpoint is limited. This endpoint is designed for\
-        \ specific integrations and the API keys need to be configured to access this\
-        \ endpoint. Navigate to the **Dashboard** &rarr; **Project Settings** &rarr;\
-        \ **General** &rarr; **Integration Keys** to set up a pair of API keys and\
-        \ use them to send the request.  \n 🚧 Clearly define the source of the voucher\n\
-        \ You must clearly define which source you want to publish the voucher code\
+        \ for publication when its active and hasnt been published yet.\n<Danger>\n\
+        <Badge color red>Limited access</Badge>\nAccess to this endpoint is limited.\
+        \ This endpoint is designed for specific integrations and the API keys need\
+        \ to be configured to access this endpoint. Navigate to the **Dashboard**\
+        \ &rarr; **Project Settings** &rarr; **General** &rarr; **Integration Keys**\
+        \ to set up a pair of API keys and use them to send the request.\n</Danger>\n\
+        <Warning>\n<Badge color yellow>Clearly define the source of the voucher</Badge>\n\
+        You must clearly define which source you want to publish the voucher code\
         \ from. It can either be a code from a campaign or a specific voucher identified\
-        \ by a code.  \n 🚧 Publish multiple vouchers\n This endpoint does not support\
-        \ the publishing of multiple vouchers from a single campaign. In case you\
-        \ want to publish multiple vouchers within a single publication, you need\
-        \ to use a [dedicated endpoint](/api-reference/publications/create-publication).\
-        \  \n 📘 Auto-update campaign\n In case you want to ensure the number of publishable\
-        \ codes increases automatically with the number of customers, you should use\
-        \ an **auto-update** campaign.  \n# Example Request \n  \n ❗️ Required  \n\
-        \ Query param voucher OR campaign MUST be filled out. If you provide both,\
-        \ campaign param will be skipped."
+        \ by a code.\n</Warning>\n<Warning>\n<Badge color yellow>Publish multiple\
+        \ vouchers</Badge>\nThis endpoint does not support the publishing of multiple\
+        \ vouchers from a single campaign. In case you want to publish multiple vouchers\
+        \ within a single publication, you need to use a [dedicated endpoint](/api-reference/publications/create-publication).\n\
+        </Warning>\n<Note>\n<Badge color blue>Auto-update campaign</Badge>\nIn case\
+        \ you want to ensure the number of publishable codes increases automatically\
+        \ with the number of customers, you should use an **auto-update** campaign.\n\
+        </Note>\n# Example Request \n  \n<Danger>\n<Badge color red>Required</Badge>\n\
+        Query param voucher OR campaign MUST be filled out. If you provide both, campaign\
+        \ param will be skipped.\n</Danger>"
       operationId: create-publication-1
       parameters:
       - description: "Through this flag, you can control if a particular person gets\
@@ -245,36 +247,35 @@ paths:
       x-accepts: application/json
   /v1/qualifications:
     post:
-      description: "\n 🚧 The Qualifications endpoint ignores the rules checking:\n\
-        \ \n - Limit of total redeemed discount amount per campaign\n - Limit of total\
-        \ redemptions count per campaign\n - Redemptions per customer\n - Redemptions\
-        \ per customer in a campaign\n- Total amount before discount \nGenerate a\
-        \ list of redeemables that are applicable in the context of the customer and\
-        \ order.\nThe new qualifications method is an improved version of [Campaign\
-        \ Qualifications](/api-reference/campaigns/examine-campaign-qualification),\
+      description: "\n<Warning>\nThe Qualifications endpoint ignores the rules checking:\n\
+        - Limit of total redeemed discount amount per campaign\n- Limit of total redemptions\
+        \ count per campaign\n- Redemptions per customer\n- Redemptions per customer\
+        \ in a campaign\n- Total amount before discount\n</Warning>\nGenerate a list\
+        \ of redeemables that are applicable in the context of the customer and order.\n\
+        The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification),\
         \ [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification)\
         \ API requests. The new qualification method introduces the following improvements:\n\
         - Qualification results are returned faster\n- No limit on the number of returned\
         \ redeemables\n- Introduces new qualification scenarios, not available in\
-        \ the previous version\n 👍 Scenario Guide\n Read [the dedicated guide](/guides/checking-eligibility)\
-        \ to learn about some use cases this endpoint can cover.\n# Paging \nThe Voucherify\
-        \ Qualifications API request will return to you all of the redeemables available\
-        \ for the customer in batches of up to 50 redeemables per page. To get the\
-        \ next batch of redeemables, you need to use the starting_after cursor.\n\
-        To process of paging the redeemables works in the following manner:\n- You\
-        \ send the first API request for Qualifications without the starting_after\
-        \ parameter.\n- The response will contain a parameter named has_more. If the\
-        \ parameters value is set to true, then more redeemables are available.\n\
-        - Get the value of the created_at parameter of the last returned redeemable.\
-        \ The value of this parameter will be used as a cursor to retrieve the next\
-        \ page of redeemables.\n- Send another API request for Qualification with\
-        \ the starting_after parameter set to the value taken from the created_at\
-        \ parameter from the last returned redeemable.\n- Voucherify will return the\
-        \ next page of redeemables.\n- If the has_more parameter is set to true, apply\
-        \ steps 3-5 to get the next page of redeemables.\n# Caching\nQualification\
-        \ has a 5-minute cache for the returned results. If you change your campaign\
-        \ settings or validation rules, the changes will apply to qualification results\
-        \ after the cache refreshes."
+        \ the previous version\n<Tip>\n<Badge color green>Scenario Guide</Badge>\n\
+        Read [the dedicated guide](/guides/checking-eligibility) to learn about some\
+        \ use cases this endpoint can cover.\n</Tip>\n# Paging \nThe Voucherify Qualifications\
+        \ API request will return to you all of the redeemables available for the\
+        \ customer in batches of up to 50 redeemables per page. To get the next batch\
+        \ of redeemables, you need to use the starting_after cursor.\nTo process of\
+        \ paging the redeemables works in the following manner:\n- You send the first\
+        \ API request for Qualifications without the starting_after parameter.\n-\
+        \ The response will contain a parameter named has_more. If the parameters\
+        \ value is set to true, then more redeemables are available.\n- Get the value\
+        \ of the created_at parameter of the last returned redeemable. The value of\
+        \ this parameter will be used as a cursor to retrieve the next page of redeemables.\n\
+        - Send another API request for Qualification with the starting_after parameter\
+        \ set to the value taken from the created_at parameter from the last returned\
+        \ redeemable.\n- Voucherify will return the next page of redeemables.\n- If\
+        \ the has_more parameter is set to true, apply steps 3-5 to get the next page\
+        \ of redeemables.\n# Caching\nQualification has a 5-minute cache for the returned\
+        \ results. If you change your campaign settings or validation rules, the changes\
+        \ will apply to qualification results after the cache refreshes."
       operationId: check-eligibility
       parameters: []
       requestBody:
@@ -1502,15 +1503,19 @@ paths:
       - Redemptions
       x-accepts: application/json
     post:
-      description: "In the table below, you can see the logic the API follows to calculate\
-        \ discounts and amounts:\n\n\nAPI keys with a Merchant role cant use this\
-        \ endpoint.\n 📘 Rollbacks\n You cant roll back a child redemption. When you\
-        \ call rollback on a stacked redemption, all child redemptions will be rolled\
-        \ back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).\
-        \    \n 📘 Also available on client-side\n This method is also accessible\
-        \ through public keys which you can use in client-side​ apps: mobile and web\
-        \ browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side)\
-        \ to learn more."
+      description: |-
+        In the table below, you can see the logic the API follows to calculate discounts and amounts:
+
+
+        API keys with a Merchant role cant use this endpoint.
+        <Note>
+        <Badge color blue>Rollbacks</Badge>
+        You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).
+        </Note>
+        <Note>
+        <Badge color blue>Also available on client-side</Badge>
+        This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
+        </Note>
       operationId: redeem-stacked-discounts
       parameters: []
       requestBody:
@@ -1826,13 +1831,14 @@ paths:
         \ to design rules for Voucherify API to create a random code. If neither of\
         \ the two parameters are passed, then a random code is generated by the Voucherify\
         \ API.\nThis method will return an error when trying to create a voucher that\
-        \ already exists.\n🚧 Standalone Vouchers and Campaigns\nGeneric (standalone)\
-        \ vouchers created through the Voucherify dashboard always create a campaign\
-        \ for that voucher. The vouchers created with POST Create voucher and POST\
-        \ Generate random code endpoints do not have a campaign attached, so the values\
-        \ for campaign and campaign_id are null.\nTo create a generic (standalone)\
-        \ voucher with a type: STANDALONE, use the [POST Create campaign](/api-reference/campaigns/create-campaign)\
-        \ endpoint."
+        \ already exists.\n<Warning>\n<Badge color yellow>Standalone Vouchers and\
+        \ Campaigns</Badge>\nGeneric (standalone) vouchers created through the Voucherify\
+        \ dashboard always create a campaign for that voucher. The vouchers created\
+        \ with POST Create voucher and POST Generate random code endpoints do not\
+        \ have a campaign attached, so the values for campaign and campaign_id are\
+        \ null.\nTo create a generic (standalone) voucher with a type: STANDALONE,\
+        \ use the [POST Create campaign](/api-reference/campaigns/create-campaign)\
+        \ endpoint.\n</Warning>"
       operationId: generate-random-code
       parameters: []
       requestBody:
@@ -2722,9 +2728,11 @@ paths:
         Create a generic (standalone) voucher or a voucher in a campaign. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.
         When you create a new voucher, you can specify a type to create it.
         If no campaign name or campaign_id is provided, the new voucher will be a generic (standalone) one. However, if an ID or name of a campaign with the type set to STANDALONE is provided, the voucher will be added to this campaign. For a loyalty card, a campaign name or ID is required.
-        🚧 Standalone Vouchers and Campaigns
+        <Warning>
+        <Badge color yellow>Standalone Vouchers and Campaigns</Badge>
         Generic (standalone) vouchers created through the Voucherify dashboard always create a campaign for that voucher. However, vouchers created through The vouchers created with POST Create voucher and POST Generate random code endpoints do not have a campaign attached, so the values for campaign and campaign_id are null.
         To create a generic (standalone) voucher with a type: STANDALONE, use the [POST Create campaign](/api-reference/campaigns/create-campaign) endpoint.
+        </Warning>
       operationId: create-voucher
       parameters:
       - description: A unique **code** that identifies the voucher.
@@ -3571,11 +3579,9 @@ paths:
       x-accepts: application/json
   /v1/vouchers/{code}/enable:
     post:
-      description: "There are various times when youll want to manage a vouchers accessibility.\
-        \ This can be done by two API methods for managing the voucher state - *enable*\
-        \ and *disable*.  \n___\nThe method sets the voucher state to **active**.\
-        \ The voucher can be redeemed - only if the redemption occurs after the start\
-        \ date and the voucher is not expired."
+      description: The method sets the voucher state to **active**. The voucher can
+        be redeemed - only if the redemption occurs after the start date and the voucher
+        is not expired.
       operationId: enable-voucher
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
@@ -3657,10 +3663,8 @@ paths:
       x-accepts: application/json
   /v1/vouchers/{code}/disable:
     post:
-      description: "There are various times when youll want to manage a vouchers accessibility.\
-        \ This can be done by two API methods for managing the voucher state - *enable*\
-        \ and *disable*.  \n___\nThis method sets the voucher state to **inactive**.\
-        \ The voucher cannot be redeemed."
+      description: This method sets the voucher state to **inactive**. The voucher
+        cannot be redeemed.
       operationId: disable-voucher
       parameters:
       - description: "A **code** that identifies the voucher or a unique voucher ID\
@@ -4133,36 +4137,37 @@ paths:
       description: "Import generic (standalone) vouchers and gift cards into the repository.\n\
         You can upload up to 100,000 codes to a campaign, as a campaign can have up\
         \ to 100,000 codes by default. \n Also, the request can include up to **10\
-        \ MB** of data.\n 📘 Important notes\n - **Start and expiration dates** need\
-        \ to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.\n\
-        \ - Custom code attributes (not supported by-default) need to be added as\
-        \ code **metadata**.\n - You **cannot import the same codes** to a single\
-        \ Voucherify Project.\nAny parameters not provided in the payload will be\
-        \ left blank or null.\nFor both **standalone discount vouchers and gift cards**,\
-        \ you can import the following fields:  \n- code\n- category\n- active\n-\
-        \ type\n- start_date\n- expiration_date\n- redemption.quantity\n- additional_info\n\
-        - metadata\nFor **gift cards**, you can also import the following field:\n\
-        - gift.amount\nFor **discount vouchers**, you can import the discount object.\
-        \ The object will slightly vary depending on the type of discount. Each discount\
-        \ type **requires** the type to be defined in the import.\n\n\nFields other\
-        \ than the ones listed above wont be imported. Even if provided, they will\
-        \ be silently skipped.\nThis API request starts a process that affects Voucherify\
-        \ data in bulk. \nIn case of small jobs (like bulk update) the request is\
-        \ put into a queue and processed once every other bulk request placed in the\
-        \ queue prior to this request is finished. However, when the job takes a longer\
+        \ MB** of data.\n<Note>\n<Badge color blue>Important notes</Badge>\n- **Start\
+        \ and expiration dates** need to be provided in compliance with the ISO 8601\
+        \ standard. For example, 2020-03-11T09:00:00.000Z.\n- Custom code attributes\
+        \ (not supported by-default) need to be added as code **metadata**.\n- You\
+        \ **cannot import the same codes** to a single Voucherify Project.\n</Note>\n\
+        Any parameters not provided in the payload will be left blank or null.\nFor\
+        \ both **standalone discount vouchers and gift cards**, you can import the\
+        \ following fields:  \n- code\n- category\n- active\n- type\n- start_date\n\
+        - expiration_date\n- redemption.quantity\n- additional_info\n- metadata\n\
+        For **gift cards**, you can also import the following field:\n- gift.amount\n\
+        For **discount vouchers**, you can import the discount object. The object\
+        \ will slightly vary depending on the type of discount. Each discount type\
+        \ **requires** the type to be defined in the import.\n\n\nFields other than\
+        \ the ones listed above wont be imported. Even if provided, they will be silently\
+        \ skipped.\nThis API request starts a process that affects Voucherify data\
+        \ in bulk. \nIn case of small jobs (like bulk update) the request is put into\
+        \ a queue and processed once every other bulk request placed in the queue\
+        \ prior to this request is finished. However, when the job takes a longer\
         \ time (like vouchers generation) then it is processed in small portions in\
         \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
         \ then they will all have the IN_PROGRESS status shortly. This way, small\
         \ jobs added just after scheduling big jobs of the same type will be processed\
         \ in a short time window. \nThe result will return the async ID. You can verify\
         \ the status of your request via this [API request](/api-reference/async-actions/get-async-action).\n\
-        🚧 Standalone Vouchers and Campaigns\nGeneric (standalone) vouchers created\
-        \ through the Voucherify dashboard always create a campaign for that voucher.\
-        \ However, vouchers imported through the dashboard in the Vouchers section\
-        \ or through the API do not have a campaign attached, so the values for campaign\
-        \ and campaign_id are null.\nTo create a generic (standalone) voucher with\
-        \ a type: STANDALONE, use the [POST Create campaign](/api-reference/campaigns/create-campaign)\
-        \ endpoint."
+        <Warning>\n<Badge color yellow>Standalone Vouchers and Campaigns</Badge>\n\
+        Generic (standalone) vouchers created through the Voucherify dashboard always\
+        \ create a campaign for that voucher. However, vouchers imported through the\
+        \ dashboard in the Vouchers section or through the API do not have a campaign\
+        \ attached, so the values for campaign and campaign_id are null.\nTo create\
+        \ a generic (standalone) voucher with a type: STANDALONE, use the [POST Create\
+        \ campaign](/api-reference/campaigns/create-campaign) endpoint.\n</Warning>"
       operationId: import-vouchers
       parameters: []
       requestBody:
@@ -4368,25 +4373,26 @@ paths:
         \ to 100,000 codes to a campaign, as a campaign can have up to 100,000 codes\
         \ by default. \n Also, the request can include a max. **10 MB** CSV file.\n\
         You can find an example CSV file [here](/build/discount-code-import).\n___\n\
-        \ 📘 Standard voucher fields mapping\n - Go to the [import vouchers](/api-reference/vouchers/import-vouchers)\
-        \ endpoint to see all standard CSV fields description (body params section).\n\
-        \ - Supported CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start\
-        \ Date,Expiration Date,Redemption Limit,Redeemed Quantity, Redeemed Amount,Active,Additional\
+        <Note>\n<Badge color blue>Standard voucher fields mapping</Badge>\n- Go to\
+        \ the [import vouchers](/api-reference/vouchers/import-vouchers) endpoint\
+        \ to see all standard CSV fields description (body params section).\n- Supported\
+        \ CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start Date,Expiration\
+        \ Date,Redemption Limit,Redeemed Quantity, Redeemed Amount,Active,Additional\
         \ Info,Custom Metadata Property Name\n- **Start and expiration dates** need\
-        \ to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.\
-        \  \n    - YYYY-MM-DD\n    - YYYY-MM-DDTHH\n    - YYYY-MM-DDTHH:mm\n    -\
-        \ YYYY-MM-DDTHH:mm:ss\n    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ssZ\n\
-        \    - YYYY-MM-DDTHH:mm:ss.SSSZ\n - Custom code attributes (not supported\
-        \ by-default) need to be added as code **metadata**.\n - You **cannot import\
-        \ the same codes** to a single Voucherify project.\n - You can, however, upload\
-        \ the same codes to update them.\n 📘 Categories\n In the structure representing\
+        \ to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.\n\
+        \   - YYYY-MM-DD\n   - YYYY-MM-DDTHH\n   - YYYY-MM-DDTHH:mm\n   - YYYY-MM-DDTHH:mm:ss\n\
+        \   - YYYY-MM-DDTHH:mm:ssZ\n   - YYYY-MM-DDTHH:mm:ssZ\n   - YYYY-MM-DDTHH:mm:ss.SSSZ\n\
+        - Custom code attributes (not supported by-default) need to be added as code\
+        \ **metadata**.\n- You **cannot import the same codes** to a single Voucherify\
+        \ project.\n- You can, however, upload the same codes to update them.\n</Note>\n\
+        <Note>\n<Badge color blue>Categories</Badge>\nIn the structure representing\
         \ your data, you can define a category that the voucher belongs to. You can\
         \ later use the category of a voucher to group and search by specific criteria\
         \ in the Dashboard and using the [List Vouchers](/api-reference/vouchers/list-vouchers)\
-        \ endpoint.\nThis API request starts a process that affects Voucherify data\
-        \ in bulk. \nIn case of small jobs (like bulk update) the request is put into\
-        \ a queue and processed once every other bulk request placed in the queue\
-        \ prior to this request is finished. However, when the job takes a longer\
+        \ endpoint.\n</Note>\nThis API request starts a process that affects Voucherify\
+        \ data in bulk. \nIn case of small jobs (like bulk update) the request is\
+        \ put into a queue and processed once every other bulk request placed in the\
+        \ queue prior to this request is finished. However, when the job takes a longer\
         \ time (like vouchers generation) then it is processed in small portions in\
         \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
         \ then they will all have the IN_PROGRESS status shortly. This way, small\
@@ -4396,12 +4402,12 @@ paths:
         You can pass the webhooks_enable true parameter to trigger a webhook sendout\
         \ for created or updated vouchers. Configure the [respective webhooks](/api-reference/introduction-to-webhooks)\
         \ in Project settings. For updated webhooks, a webhook is sent even if the\
-        \ voucher hasnt been changed in the CSV file.\n🚧 Generic (standalone) vouchers\
-        \ and campaigns\nGeneric (standalone) vouchers created through the Voucherify\
-        \ dashboard always create a campaign for that voucher. However, vouchers imported\
-        \ through the dashboard in the Vouchers section or through the API do not\
-        \ have a campaign attached, so the values for campaign and campaign_id are\
-        \ null."
+        \ voucher hasnt been changed in the CSV file.\n<Warning>\n<Badge color yellow>Generic\
+        \ (standalone) vouchers and campaigns</Badge>\nGeneric (standalone) vouchers\
+        \ created through the Voucherify dashboard always create a campaign for that\
+        \ voucher. However, vouchers imported through the dashboard in the Vouchers\
+        \ section or through the API do not have a campaign attached, so the values\
+        \ for campaign and campaign_id are null.\n</Warning>"
       operationId: import-vouchers-using-csv
       parameters: []
       requestBody:
@@ -4439,7 +4445,9 @@ paths:
         Updates specific metadata parameters for each code, respectively, in one asynchronous operation.
         The request can include up to **10 MB** of data.
         Upserts are not supported.
-         🚧 Currently, only **metadata** updates are supported.
+        <Warning>
+        Currently, only **metadata** updates are supported.
+        </Warning>
         The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.:
         - The status of your request (in queue, in progress, done, or failed)
         - Resources that failed to be updated
@@ -4551,9 +4559,10 @@ paths:
     delete:
       description: "Manually release a validation session that has been set up for\
         \ the voucher. This method undoes the actions that are explained in the [Locking\
-        \ validation session](/guides/locking-validation-session) guide. \n 📘 Release\
-        \ session in the Dashboard\n You can also use the [Validations Manager](/optimize/validations-and-redemptions#sessions)\
-        \ in the Dashboard to unlock sessions."
+        \ validation session](/guides/locking-validation-session) guide. \n<Note>\n\
+        <Badge color blue>Release session in the Dashboard</Badge>\nYou can also use\
+        \ the [Validations Manager](/optimize/validations-and-redemptions#sessions)\
+        \ in the Dashboard to unlock sessions.\n</Note>"
       operationId: release-validation-session
       parameters:
       - description: A **code** that identifies the voucher or a unique voucher ID
@@ -4908,12 +4917,13 @@ paths:
     post:
       description: "Method to create a batch of vouchers aggregated in one campaign.\
         \ You can choose a variety of voucher types and define a unique pattern for\
-        \ generating codes.  \n 📘 Global uniqueness\n All campaign codes are unique\
-        \ across the whole project. Voucherify will not allow you to generate 2 campaigns\
-        \ with the same coupon code.  \n 🚧 Code generation status\n This is an asynchronous\
-        \ action; you cant read or modify a newly created campaign until the code\
-        \ generation is completed. See the creation_status field in the [campaign\
-        \ object](/api-reference/campaigns/campaign-object) description."
+        \ generating codes.  \n<Note>\n<Badge color blue>Global uniqueness</Badge>\n\
+        All campaign codes are unique across the whole project. Voucherify will not\
+        \ allow you to generate 2 campaigns with the same coupon code.\n</Note>\n\
+        <Warning>\n<Badge color yellow>Code generation status</Badge>\nThis is an\
+        \ asynchronous action; you cant read or modify a newly created campaign until\
+        \ the code generation is completed. See the creation_status field in the [campaign\
+        \ object](/api-reference/campaigns/campaign-object) description.\n</Warning>"
       operationId: create-campaign
       parameters: []
       requestBody:
@@ -5650,9 +5660,9 @@ paths:
         \ passed in the request body. Any parameters not provided in the payload will\
         \ be left unchanged. \nFields other than the ones listed in the request body\
         \ wont be modified. Even if provided, they will be silently skipped.   \n\
-        \ 🚧 Vouchers will be affected\n This method will update vouchers aggregated\
-        \ in the campaign. It will affect all vouchers that are not published or redeemed\
-        \ yet."
+        <Warning>\n<Badge color yellow>Vouchers will be affected</Badge>\nThis method\
+        \ will update vouchers aggregated in the campaign. It will affect all vouchers\
+        \ that are not published or redeemed yet.\n</Warning>"
       operationId: update-campaign
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -6119,12 +6129,9 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/enable:
     post:
-      description: "There are various times when youll want to manage a campaigns\
-        \ accessibility. This can be done by two API methods for managing the campaign\
-        \ state - *enable* and *disable*.  \nSets campaign state to **active**. The\
-        \ vouchers in this campaign can be redeemed - only if the redemption occurs\
-        \ after the start date of the campaign and voucher and the voucher and campaign\
-        \ are not expired."
+      description: Sets campaign state to **active**. The vouchers in this campaign
+        can be redeemed - only if the redemption occurs after the start date of the
+        campaign and voucher and the voucher and campaign are not expired.
       operationId: enable-campaign
       parameters:
       - description: "The campaign ID or name of the campaign being enabled. You can\
@@ -6156,10 +6163,8 @@ paths:
       x-accepts: application/json
   /v1/campaigns/{campaignId}/disable:
     post:
-      description: "There are various times when youll want to manage a campaigns\
-        \ accessibility. This can be done by two API methods for managing the campaign\
-        \ state - *enable* and *disable*.  \nSets campaign state to **inactive**.\
-        \ The vouchers in this campaign can no longer be redeemed."
+      description: Sets campaign state to **inactive**. The vouchers in this campaign
+        can no longer be redeemed.
       operationId: disable-campaign
       parameters:
       - description: "The campaign ID or name of the campaign being disabled. You\
@@ -6193,8 +6198,9 @@ paths:
     get:
       description: |-
         Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.
-         🚧
-         The endpoint works only for gift card and loyalty campaigns.
+        <Warning>
+        The endpoint works only for gift card and loyalty campaigns.
+        </Warning>
       operationId: list-campaign-transactions
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -6332,8 +6338,10 @@ paths:
         An example export file can look as follows:
 
 
-         👍 Export Loyalty Campaign Transactions
-         For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        <Tip>
+        <Badge color green>Export Loyalty Campaign Transactions</Badge>
+        For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        </Tip>
       operationId: export-campaign-transactions
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -6429,8 +6437,10 @@ paths:
       description: |-
         Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type.
         Use start_date and end_date to narrow down the data to specific periods.
-        🚧 Campaigns created before 17 June 2025
+        <Warning>
+        <Badge color yellow>Campaigns created before 17 June 2025</Badge>
         This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        </Warning>
       operationId: get-campaign-summary
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -8315,8 +8325,10 @@ paths:
       description: |+
         Retrieve a list of publications. To return a **particular** publication, you can use the source_id query parameter and provide the source_id of the publication you are looking for specifically.
         # Pagination
-         🚧 Important!
-         If you want to scroll through a huge set of records, it is recommended to use the [Exports API](/api-reference/exports/create-export). This API will return an error page_over_limit if you reach a page above 1000.
+        <Warning>
+        <Badge color yellow>Important!</Badge>
+        If you want to scroll through a huge set of records, it is recommended to use the [Exports API](/api-reference/exports/create-export). This API will return an error page_over_limit if you reach a page above 1000.
+        </Warning>
         # Filter Query
         The filters query parameter allows for joining multiple parameters with logical operators. The syntax looks as follows:
 
@@ -8533,15 +8545,17 @@ paths:
     post:
       description: "This method selects vouchers that are suitable for publication,\
         \ adds a publish entry and returns the publication.\nA voucher is suitable\
-        \ for publication when its active and hasnt been published yet.  \n 🚧 Clearly\
-        \ define the source of the voucher\n You must clearly define which source\
-        \ you want to publish the voucher code from. It can either be a code from\
-        \ a campaign or a specific voucher identified by a code.  \n 🚧 Publish multiple\
-        \ vouchers\n In case you want to publish multiple vouchers within a single\
-        \ publication, you need to specify the campaign name and number of vouchers\
-        \ you want to publish.  \n 📘 Auto-update campaign\n In case you want to ensure\
-        \ the number of publishable codes increases automatically with the number\
-        \ of customers, you should use an **auto-update** campaign."
+        \ for publication when its active and hasnt been published yet.  \n<Warning>\n\
+        <Badge color yellow>Clearly define the source of the voucher</Badge>\nYou\
+        \ must clearly define which source you want to publish the voucher code from.\
+        \ It can either be a code from a campaign or a specific voucher identified\
+        \ by a code.\n</Warning>\n<Warning>\n<Badge color yellow>Publish multiple\
+        \ vouchers</Badge>\nIn case you want to publish multiple vouchers within a\
+        \ single publication, you need to specify the campaign name and number of\
+        \ vouchers you want to publish.\n</Warning>\n<Note>\n<Badge color blue>Auto-update\
+        \ campaign</Badge>\nIn case you want to ensure the number of publishable codes\
+        \ increases automatically with the number of customers, you should use an\
+        \ **auto-update** campaign.\n</Note>"
       operationId: create-publication
       parameters:
       - description: "Through this flag, you can control if a particular person gets\
@@ -10312,13 +10326,13 @@ paths:
         \ stacked. Stacked redemptions belong to a parent redemption. To roll back\
         \ a parent redemption, including all of its individual redemptions, use the\
         \ [POST Rollback Stackable Redemptions](/api-reference/redemptions/rollback-stackable-redemptions)\
-        \ \n🚧 \nYou can roll back a redemption up to 3 months back. \n # Effect \n\
-        The operation \n- creates a rollback entry in vouchers redemption history\
-        \ (redemption.redemption_entries) and \n- gives 1 redemption back to the pool\
-        \ (decreases redeemed_quantity by 1). \n# Returned funds \nIn case of *gift\
-        \ card vouchers*, this method returns funds back according to the source redemption.\
-        \ In case of *loyalty card vouchers*, this method returns points back according\
-        \ to the source redemption."
+        \ \n<Warning>\nYou can roll back a redemption up to 3 months back.\n</Warning>\n\
+        \ # Effect \nThe operation \n- creates a rollback entry in vouchers redemption\
+        \ history (redemption.redemption_entries) and \n- gives 1 redemption back\
+        \ to the pool (decreases redeemed_quantity by 1). \n# Returned funds \nIn\
+        \ case of *gift card vouchers*, this method returns funds back according to\
+        \ the source redemption. In case of *loyalty card vouchers*, this method returns\
+        \ points back according to the source redemption."
       operationId: rollback-redemption
       parameters:
       - description: The original redemption ID to be rolled back (undone).
@@ -10878,12 +10892,11 @@ paths:
       x-accepts: application/json
   /v1/redemptions/{parentRedemptionId}/rollbacks:
     post:
-      description: "Rollback a stackable redemption. When you roll back a stacked\
-        \ redemption, all child redemptions will be rolled back. Provide the parent\
-        \ redemption ID as the path parameter. However, you can use this endpoint\
-        \ to roll back a single redemption that does not have a parent, similarly\
-        \ to [POST Rollback redemption](/api-reference/redemptions/rollback-redemption).\n\
-        🚧 \n You can roll back a redemption up to 3 months back."
+      description: |-
+        Rollback a stackable redemption. When you roll back a stacked redemption, all child redemptions will be rolled back. Provide the parent redemption ID as the path parameter. However, you can use this endpoint to roll back a single redemption that does not have a parent, similarly to [POST Rollback redemption](/api-reference/redemptions/rollback-redemption).
+        <Warning>
+        You can roll back a redemption up to 3 months back.
+        </Warning>
       operationId: rollback-stacked-redemptions
       parameters:
       - description: "Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm."
@@ -10960,7 +10973,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties:
     get:
-      description: Returns a list of your loyalty campaigns.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Returns a list of your loyalty campaigns.
       operationId: list-loyalty-programs
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -11151,14 +11173,21 @@ paths:
       - Loyalties
       x-accepts: application/json
     post:
-      description: "Creates a batch of [loyalty cards](/api-reference/loyalties/get-member)\
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nCreates a batch of [loyalty cards](/api-reference/loyalties/get-member)\
         \ aggregated in a single loyalty campaign. It also allows you to define a\
-        \ custom codes pattern.  \n 📘 Global uniqueness\n All codes are unique across\
-        \ the whole project. Voucherify wont allow to generate the same codes in any\
-        \ of your campaigns.\n 🚧 Asynchronous action!\n This is an asynchronous action,\
-        \ you cant read or modify a newly created campaign until the code generation\
-        \ is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object)\
-        \ description."
+        \ custom codes pattern.  \n<Note>\n<Badge color blue>Global uniqueness</Badge>\n\
+        All codes are unique across the whole project. Voucherify wont allow to generate\
+        \ the same codes in any of your campaigns.\n</Note>\n<Warning>\n<Badge color\
+        \ yellow>Asynchronous action!</Badge>\nThis is an asynchronous action, you\
+        \ cant read or modify a newly created campaign until the code generation is\
+        \ completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object)\
+        \ description.\n</Warning>"
       operationId: create-loyalty-program
       parameters: []
       requestBody:
@@ -11309,7 +11338,15 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}:
     delete:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.
         If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
       operationId: delete-loyalty-program
@@ -11360,7 +11397,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     get:
-      description: Retrieve a specific loyalty campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve a specific loyalty campaign.
       operationId: get-loyalty-program
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -11453,11 +11499,18 @@ paths:
       - Loyalties
       x-accepts: application/json
     put:
-      description: "Updates a loyalty program. \nFields other than those specified\
-        \ in the allowed request body payload wont be modified (even if provided they\
-        \ are silently skipped). Any parameters not provided will be left unchanged.\
-        \ \nThis method will update the [loyalty cards](/api-reference/loyalties/get-member)\
-        \ which have not been published or redeemed yet."
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nUpdates a loyalty program. \n\
+        Fields other than those specified in the allowed request body payload wont\
+        \ be modified (even if provided they are silently skipped). Any parameters\
+        \ not provided will be left unchanged. \nThis method will update the [loyalty\
+        \ cards](/api-reference/loyalties/get-member) which have not been published\
+        \ or redeemed yet."
       operationId: update-loyalty-program
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -11615,8 +11668,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members:
     get:
-      description: "Returns a list of your loyalty cards. The loyalty cards are sorted\
-        \ by creation date, with the most recent loyalty cards appearing first."
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
       operationId: list-members
       parameters:
       - description: Unique campaign ID of the loyalty program.
@@ -11807,13 +11868,20 @@ paths:
       - Loyalties
       x-accepts: application/json
     post:
-      description: "This method assigns a loyalty card to a customer. It selects a\
-        \ [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication,\
-        \ adds a publish entry, and returns the published voucher.  \nA voucher is\
-        \ suitable for publication when its active and hasnt been published yet. \
-        \ \n 📘 Auto-update campaign\n In case you want to ensure the number of publishable\
-        \ codes increases automatically with the number of customers, you should use\
-        \ **auto-update** campaign."
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nThis method assigns a loyalty\
+        \ card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher)\
+        \ suitable for publication, adds a publish entry, and returns the published\
+        \ voucher.  \nA voucher is suitable for publication when its active and hasnt\
+        \ been published yet.  \n<Note>\n<Badge color blue>Auto-update campaign</Badge>\n\
+        In case you want to ensure the number of publishable codes increases automatically\
+        \ with the number of customers, you should use **auto-update** campaign.\n\
+        </Note>"
       operationId: add-member
       parameters:
       - description: Unique campaign ID of the loyalty program.
@@ -11940,8 +12008,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}:
     get:
-      description: Retrieves the loyalty card with the given member ID (i.e. voucher
-        code).
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieves the loyalty card with the given member ID (i.e. voucher code).
       operationId: get-member-1
       parameters:
       - description: Unique campaign ID.
@@ -12023,11 +12099,17 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}:
     get:
-      description: "Retrieve loyalty card with the given member ID (i.e. voucher code).\
-        \    \n 📘 Alternative endpoint\n This endpoint is an alternative to this\
-        \ [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL\
-        \ was re-designed to allow you to retrieve loyalty card details without having\
-        \ to provide the campaignId as a path parameter."
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nRetrieve loyalty card with the\
+        \ given member ID (i.e. voucher code).    \n<Note>\n<Badge color blue>Alternative\
+        \ endpoint</Badge>\nThis endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id).\
+        \ The URL was re-designed to allow you to retrieve loyalty card details without\
+        \ having to provide the campaignId as a path parameter.\n</Note>"
       operationId: get-member
       parameters:
       - description: Unique loyalty card code assigned to a particular customer.
@@ -12101,10 +12183,20 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/pending-points:
     get:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: list-campaign-pending-points
       parameters:
       - description: Unique campaign ID.
@@ -12260,10 +12352,20 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/pending-points:
     get:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: list-member-pending-points-1
       parameters:
       - description: Unique campaign ID.
@@ -12426,13 +12528,24 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/pending-points:
     get:
-      description: |2-
-
-         📘 Alternative endpoint
-         This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
+        This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter.
+        </Note>
         Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: list-member-pending-points
       parameters:
       - description: Unique loyalty card code assigned to a particular customer.
@@ -12587,12 +12700,22 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate:
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID.
         Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points).
         This **POST** method does not require a request body.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: activate-member-pending-points
       parameters:
       - description: Unique loyalty card code assigned to a particular customer.
@@ -12640,10 +12763,20 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/balance:
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Adjusts the pending points with a given ID. You can add or subtract the number of points.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: adjust-member-pending-points
       parameters:
       - description: Unique loyalty card code assigned to a particular customer.
@@ -12703,12 +12836,22 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel:
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID.
         Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points).
         This **POST** method does not require a request body and it returns an empty, 204, response.
-        👍 Configuring pending points
+        <Tip>
+        <Badge color green>Configuring pending points</Badge>
         Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        </Tip>
       operationId: cancel-member-pending-points
       parameters:
       - description: Unique loyalty card code assigned to a particular customer.
@@ -12739,8 +12882,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/activity:
     get:
-      description: Retrieves the list of activities for the given member ID related
-        to a voucher and customer who is the holder of the voucher.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
       operationId: list-member-activity-1
       parameters:
       - description: Unique campaign ID.
@@ -12803,10 +12954,19 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/activity:
     get:
-      description: |2-
-
-         📘 Alternative endpoint
-         This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
+        This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter.
+        </Note>
         Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
       operationId: list-member-activity
       parameters:
@@ -12862,12 +13022,19 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/balance:
     post:
-      description: "This method adds or removes balance to an existing loyalty card\
-        \ that is assigned to a holder. The removal of points will consume the points\
-        \ that expire the soonest. \n >🚧 Async Action\n \n This is an async action.\
-        \ If you want to perform several add or remove loyalty card balance actions\
-        \ in a short time and their order matters, set up sufficient time-out between\
-        \ the calls."
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nThis method adds or removes balance\
+        \ to an existing loyalty card that is assigned to a holder. The removal of\
+        \ points will consume the points that expire the soonest. \n <Warning>\n<Badge\
+        \ color yellow>Async Action</Badge>\nThis is an async action. If you want\
+        \ to perform several add or remove loyalty card balance actions in a short\
+        \ time and their order matters, set up sufficient time-out between the calls.\n\
+        </Warning>"
       operationId: update-loyalty-card-balance-1
       parameters:
       - description: Unique campaign ID.
@@ -12939,15 +13106,22 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/balance:
     post:
-      description: "This method gives adds or removes balance to an existing loyalty\
-        \ card that is assigned to a holder. The removal of points will consume the\
-        \ points that expire the soonest. \n >🚧 Async Action\n \n This is an async\
-        \ action. If you want to perform several add or remove loyalty card balance\
-        \ actions in a short time and their order matters, set up sufficient time-out\
-        \ between the calls.\n 📘 Alternative endpoint\n This endpoint is an alternative\
-        \ to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id).\
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nThis method gives adds or removes\
+        \ balance to an existing loyalty card that is assigned to a holder. The removal\
+        \ of points will consume the points that expire the soonest. \n <Warning>\n\
+        <Badge color yellow>Async Action</Badge>\nThis is an async action. If you\
+        \ want to perform several add or remove loyalty card balance actions in a\
+        \ short time and their order matters, set up sufficient time-out between the\
+        \ calls.\n</Warning>\n<Note>\n<Badge color blue>Alternative endpoint</Badge>\n\
+        This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id).\
         \ The URL was re-designed to allow you to add or remove loyalty card balance\
-        \ without having to provide the campaignId as a path parameter."
+        \ without having to provide the campaignId as a path parameter.\n</Note>"
       operationId: update-loyalty-card-balance
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -13001,7 +13175,15 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/transfers:
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Transfer points between different loyalty cards which have holders.
         Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.
         Transfer works only for loyalty cards that have holders, meaning the cards were published to customers.
@@ -13105,8 +13287,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/transactions:
     get:
-      description: Retrieves all transactions for the campaign with the given campaign
-        ID or campaign name.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieves all transactions for the campaign with the given campaign ID or campaign name.
       operationId: list-loyalty-campaign-transactions
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -13234,7 +13424,15 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/transactions/export:
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign.
         To export transactions:
         1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered.
@@ -13245,8 +13443,10 @@ paths:
         An example export file can look as follows:
 
 
-         👍 Export Campaign Transactions
-         This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        <Tip>
+        <Badge color green>Export Campaign Transactions</Badge>
+        This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        </Tip>
       operationId: export-loyalty-campaign-transactions
       parameters:
       - description: "You can either pass the campaign ID, which was assigned by Voucherify,\
@@ -13339,8 +13539,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/transactions:
     get:
-      description: Retrieve transaction data related to point movements for a specific
-        loyalty card.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve transaction data related to point movements for a specific loyalty card.
       operationId: list-loyalty-card-transactions-1
       parameters:
       - description: A unique identifier of the loyalty campaign containing the voucher
@@ -13644,8 +13852,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/transactions:
     get:
-      description: Retrieve transaction data related to point movements for a specific
-        loyalty card.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve transaction data related to point movements for a specific loyalty card.
       operationId: list-loyalty-card-transactions
       parameters:
       - description: A unique code identifying the loyalty card that you are looking
@@ -13940,7 +14156,15 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/transactions/export:
     post:
+      deprecated: true
       description: |+
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Export transactions that are associated with point movements on a loyalty card.
 
 
@@ -14041,7 +14265,15 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/transactions/export:
     post:
+      deprecated: true
       description: |+
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Export transactions that are associated with point movements on a loyalty card.
 
 
@@ -14151,10 +14383,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/points-expiration:
     get:
-      description: "Retrieve loyalty point expiration buckets for a given loyalty\
-        \ card. Expired point buckets are not returned in this endpoint. You can use\
-        \ the [Exports API](/api-reference/exports/create-export) to retrieve a list\
-        \ of both ACTIVE and EXPIRED point buckets."
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
       operationId: list-points-expiration
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -14254,9 +14492,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/points-expiration/export:
     post:
-      description: "Schedule the generation of a point expiration CSV file for a particular\
-        \ campaign. It can list point buckets, which can have an ACTIVE or EXPIRED\
-        \ status."
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
       operationId: create-points-expiration-export
       parameters:
       - description: Unique campaign ID or name.
@@ -14380,7 +14625,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules:
     get:
-      description: Returns a list of all earning rules within a given campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Returns a list of all earning rules within a given campaign.
       operationId: list-earning-rules
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -14833,10 +15087,20 @@ paths:
       - Loyalties
       x-accepts: application/json
     post:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Create earning rules for a loyalty campaign.
-         🚧 Maximum number of earning rules
-         You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        <Warning>
+        <Badge color yellow>Maximum number of earning rules</Badge>
+        You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        </Warning>
       operationId: create-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -15759,7 +16023,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}:
     delete:
-      description: This method deletes an earning rule for a specific loyalty campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        This method deletes an earning rule for a specific loyalty campaign.
       operationId: delete-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -15791,7 +16064,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     get:
-      description: Retrieves an earning rule assigned to a campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieves an earning rule assigned to a campaign.
       operationId: get-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16024,7 +16306,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     put:
-      description: Update an earning rule definition.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Update an earning rule definition.
       operationId: update-earning-rule
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16125,7 +16416,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable:
     post:
-      description: Enable an earning rule.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Enable an earning rule.
       operationId: enable-earning-rule
       parameters:
       - description: Unique campaign ID or name.
@@ -16188,7 +16488,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable:
     post:
-      description: Disable an earning rule.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Disable an earning rule.
       operationId: disable-earning-rule
       parameters:
       - description: Unique campaign ID or name.
@@ -16245,14 +16554,20 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/rewards:
     get:
-      description: "Retrieves the list of rewards that the given customer (identified\
-        \ by member_id, which is a loyalty card assigned to a particular customer)\
-        \ **can get in exchange for loyalty points**.  \nYou can use the affordable_only\
-        \ parameter to limit the results to rewards that the customer can actually\
-        \ afford (only rewards whose price in points is not higher than the loyalty\
-        \ points balance on a loyalty card).  \nPlease note that rewards that are\
-        \ disabled (i.e. set to Not Available in the Dashboard) for a given loyalty\
-        \ tier reward mapping will not be returned in this endpoint."
+      deprecated: true
+      description: "<Warning>\n<Badge color yellow>Legacy loyalty API</Badge>\nThis\
+        \ endpoint belongs to the legacy loyalty API (/v1/loyalties).\nVoucherify\
+        \ will not develop new features for this API. However, critical issues may\
+        \ still receive fixes.\nFor new integrations, use [Loyalty v2](/build/loyalty-overview).\n\
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support\
+        \ Contact Voucherify support).\n</Warning>\nRetrieves the list of rewards\
+        \ that the given customer (identified by member_id, which is a loyalty card\
+        \ assigned to a particular customer) **can get in exchange for loyalty points**.\
+        \  \nYou can use the affordable_only parameter to limit the results to rewards\
+        \ that the customer can actually afford (only rewards whose price in points\
+        \ is not higher than the loyalty points balance on a loyalty card).  \nPlease\
+        \ note that rewards that are disabled (i.e. set to Not Available in the Dashboard)\
+        \ for a given loyalty tier reward mapping will not be returned in this endpoint."
       operationId: list-member-rewards
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -16435,8 +16750,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward:
     get:
-      description: Get reward details in the context of a loyalty campaign and reward
-        assignment ID.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Get reward details in the context of a loyalty campaign and reward assignment ID.
       operationId: get-reward-details
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16524,10 +16847,20 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/reward-assignments:
     get:
+      deprecated: true
       description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
         Returns reward assignments from a given loyalty campaign.
-         📘 Alternative endpoint
-         This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
+        This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        </Note>
       operationId: list-reward-assignments-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16682,7 +17015,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/rewards:
     get:
-      description: Returns active rewards from a given loyalty campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Returns active rewards from a given loyalty campaign.
       operationId: list-reward-assignments-2
       parameters:
       - description: "Unique campaign ID or name of the loyalty campaign. You can\
@@ -16769,7 +17111,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     post:
-      description: Add rewards to a loyalty campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Add rewards to a loyalty campaign.
       operationId: create-reward-assignment-1
       parameters:
       - description: "Unique campaign ID or name of the loyalty campaign. You can\
@@ -16839,7 +17190,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}:
     get:
-      description: Retrieve specific reward assignment.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve specific reward assignment.
       operationId: get-reward-assignment-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16889,8 +17249,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/rewards/{assignmentId}:
     delete:
-      description: This method deletes a reward assignment for a particular loyalty
-        campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        This method deletes a reward assignment for a particular loyalty campaign.
       operationId: delete-reward-assignment-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16922,8 +17290,20 @@ paths:
       - Loyalties
       x-accepts: application/json
     get:
-      description: "Retrieve specific reward assignment.\n 📘 Alternative endpoint\n\
-        \ This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). "
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve specific reward assignment.
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
+        This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments).
+        </Note>
       operationId: get-reward-assignment-2
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -16972,8 +17352,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     put:
-      description: "Updates rewards parameters, i.e. the points cost for the specific\
-        \ reward."
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Updates rewards parameters, i.e. the points cost for the specific reward.
       operationId: update-reward-assignment-1
       parameters:
       - description: "The campaign ID or name of the loyalty campaign. You can either\
@@ -17036,11 +17424,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/redemption:
     post:
-      description: "Exchange points from a loyalty card for a specified reward. This\
-        \ API method returns an assigned award in the response. It means that if a\
-        \ requesting customer gets a coupon code with a discount for the next order,\
-        \ that discount code will be visible in response as part of the reward object\
-        \ definition."
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
       operationId: redeem-reward-1
       parameters:
       - description: Unique campaign ID.
@@ -18249,10 +18642,19 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/redemption:
     post:
-      description: |2-
-
-         📘 Alternative endpoint
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
         This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        </Note>
       operationId: redeem-reward
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -18473,8 +18875,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/tiers:
     get:
-      description: Retrieve a list of loyalty tiers which were added to the loyalty
-        program.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve a list of loyalty tiers which were added to the loyalty program.
       operationId: list-loyalty-tiers
       parameters:
       - description: Unique loyalty campaign ID or name.
@@ -18601,7 +19011,16 @@ paths:
       - Loyalties
       x-accepts: application/json
     post:
-      description: Creates loyalty tiers for desired campaign.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Creates loyalty tiers for desired campaign.
       operationId: create-in-bulk-loyalty-tiers
       parameters:
       - description: Unique loyalty campaign ID or name.
@@ -18636,8 +19055,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}:
     get:
-      description: Retrieve a loyalty tier from a loyalty campaign by the loyalty
-        tier ID.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
       operationId: get-loyalty-tier
       parameters:
       - description: Unique loyalty campaign ID or name.
@@ -18707,7 +19134,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/members/{memberId}/tiers:
     get:
-      description: Retrieve member tiers using the loyalty card ID.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve member tiers using the loyalty card ID.
       operationId: list-member-loyalty-tier
       parameters:
       - description: Unique loyalty card assigned to a particular customer.
@@ -18781,8 +19217,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules:
     get:
-      description: Retrieve available earning rules for a given tier and the calculation
-        method for earning points.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Retrieve available earning rules for a given tier and the calculation method for earning points.
       operationId: list-loyalty-tier-earning-rules
       parameters:
       - description: Unique campaign ID or name.
@@ -19261,7 +19705,16 @@ paths:
       x-accepts: application/json
   /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards:
     get:
-      description: Get available rewards for a given tier.
+      deprecated: true
+      description: |-
+        <Warning>
+        <Badge color yellow>Legacy loyalty API</Badge>
+        This endpoint belongs to the legacy loyalty API (/v1/loyalties).
+        Voucherify will not develop new features for this API. However, critical issues may still receive fixes.
+        For new integrations, use [Loyalty v2](/build/loyalty-overview).
+        If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support).
+        </Warning>
+        Get available rewards for a given tier.
       operationId: list-loyalty-tier-rewards
       parameters:
       - description: Unique campaign ID or name.
@@ -19664,8 +20117,10 @@ paths:
     post:
       description: |-
         Creates a customer object.
-         📘 Upsert Mode
-         If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+        <Note>
+        <Badge color blue>Upsert Mode</Badge>
+        If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+        </Note>
       operationId: create-customer
       parameters: []
       requestBody:
@@ -19759,7 +20214,13 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}:
     delete:
-      description: This method deletes a customer.
+      description: |-
+        This method deletes a customer.
+        The customer is permanently deleted. This means that a new customer with the same source_id can be created.
+        <Note>
+        <Badge color blue>GDPR compliance</Badge>
+        This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings).
+        </Note>
       operationId: delete-customer
       parameters:
       - description: A Voucherify customers id or source_id.
@@ -19970,9 +20431,10 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}/permanent-deletion:
     post:
-      description: The organization user can remove consumer data permanently from
+      description: The organization user can remove customer data permanently from
         the Voucherify system by using this API method. It deletes all customer data
-        and connected resources. It makes the customer profile forgotten by Voucherify.
+        and connected resources. It makes the customer profile forgotten by Voucherify
+        as per the GDPR.
       operationId: customer-permanently-deletion
       parameters:
       - description: A Voucherify customers id or source_id.
@@ -20020,23 +20482,24 @@ paths:
         \ a proper and valid response, please send a CSV file with data separated\
         \ by commas.  \n# Request Example\n# CSV File Format\nThe CSV file has to\
         \ include headers in the first line. All properties which cannot be mapped\
-        \ to standard customer fields will be added to the metadata object.\n 📘 Standard\
-        \ customer fields mapping\n **No spaces allowed in field names**  \n Id, Name,\
-        \ Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code,\
-        \ Address_City, Address_State, Address_Country, Description, Metadata_name_1,\
-        \ Metadata_name_2\n# Update Customers using CSV\nIf you would like to update\
-        \ customers data, you can do it using the CSV file with new data. However,\
-        \ remember to include a source_id in your CSV file to manage the update successfully.\n\
-        This API request starts a process that affects Voucherify data in bulk. \n\
-        In case of small jobs (like bulk update) the request is put into a queue and\
-        \ processed once every other bulk request placed in the queue prior to this\
-        \ request is finished. However, when the job takes a longer time (like vouchers\
-        \ generation) then it is processed in small portions in a round-robin fashion.\
-        \ When there is a list of vouchers generation scheduled, then they will all\
-        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
-        \ scheduling big jobs of the same type will be processed in a short time window.\
-        \ \nThe result will return the async ID. You can verify the status of your\
-        \ request via this [API request](/api-reference/async-actions/get-async-action)."
+        \ to standard customer fields will be added to the metadata object.\n<Note>\n\
+        <Badge color blue>Standard customer fields mapping</Badge>\n**No spaces allowed\
+        \ in field names** Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1,\
+        \ Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country,\
+        \ Description, Metadata_name_1, Metadata_name_2\n</Note>\n# Update Customers\
+        \ using CSV\nIf you would like to update customers data, you can do it using\
+        \ the CSV file with new data. However, remember to include a source_id in\
+        \ your CSV file to manage the update successfully.\nThis API request starts\
+        \ a process that affects Voucherify data in bulk. \nIn case of small jobs\
+        \ (like bulk update) the request is put into a queue and processed once every\
+        \ other bulk request placed in the queue prior to this request is finished.\
+        \ However, when the job takes a longer time (like vouchers generation) then\
+        \ it is processed in small portions in a round-robin fashion. When there is\
+        \ a list of vouchers generation scheduled, then they will all have the IN_PROGRESS\
+        \ status shortly. This way, small jobs added just after scheduling big jobs\
+        \ of the same type will be processed in a short time window. \nThe result\
+        \ will return the async ID. You can verify the status of your request via\
+        \ this [API request](/api-reference/async-actions/get-async-action)."
       operationId: import-customers-using-csv
       parameters: []
       requestBody:
@@ -21121,8 +21584,10 @@ paths:
     post:
       description: |-
         Creates an order object and triggers an order creation event.
-         📘 Upsert Mode
-         If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
+        <Note>
+        <Badge color blue>Upsert Mode</Badge>
+        If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
+        </Note>
       operationId: create-order
       parameters: []
       requestBody:
@@ -21444,39 +21909,39 @@ paths:
       x-accepts: application/json
   /v1/orders/import:
     post:
-      description: "\n 🚧 Historical orders\n This endpoint should only be used to\
-        \ import historical orders into Voucherify. For on-going synchronization,\
-        \ the [update order](/api-reference/orders/update-order) endpoint should be\
-        \ used. This is critical because this endpoint does not store events or launch\
-        \ distributions.\nThe orders will also have a created_at date thats assigned\
-        \ when theyve been imported to Voucherify. To keep track of the actual order\
-        \ creation date, add an order metadata in ISO 8601 date or date time format\
-        \ to each imported order.\n# Limitations\n## Import volume\nThere can be only\
-        \ a single on-going order import per tenant per project at a given time. The\
-        \ user can schedule more imports but those extra imports will be scheduled\
-        \ to run in sequence one by one.  \n## Maximum count of orders in single import\n\
-        There is a 2000 limit of orders per one request.\n# Notifications\nThere are\
-        \ no notifications on the Dashboard because this import is launched via the\
-        \ API.\n# Triggered actions\n  \nIf you import orders with customers, then\
-        \ a logic will be scheduled responsible for placing these customers into segments\
-        \ and refreshing the segments summary. Consequently, this update will trigger\
-        \ \n- Customers entering into segments\n- Distributions based on any rules\
-        \ tied to customer entering segment(s)\n- Earning rules based on the customer\
-        \ entering segment(s)\n# What is not triggered\n1. No webhooks are triggered\
-        \ during the import of orders - for both orders and upserted products / SKUs.\
-        \  \n2. Distributions based on Order Update, Order Paid, Order Created and\
-        \ Order Cancelled. In other words if you have a distribution based on Order\
-        \ Paid and you import an order with a PAID status, the distribution is not\
-        \ going to be triggered.    \n3. No events are created during the import of\
-        \ orders - for both orders and upserted products / SKUs. In other words you\
-        \ wont see any events in the Activity tab in the Dashboard such as Order created\
-        \ or Order paid. If you are additionally upserting products / SKUs, then you\
-        \ wont see the Product created events listed, etc.   \n4. Earning rules based\
-        \ on Order Paid wont be triggered.\nThis API request starts a process that\
-        \ affects Voucherify data in bulk. \nIn case of small jobs (like bulk update)\
-        \ the request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
+      description: "\n<Warning>\n<Badge color yellow>Historical orders</Badge>\nThis\
+        \ endpoint should only be used to import historical orders into Voucherify.\
+        \ For on-going synchronization, the [update order](/api-reference/orders/update-order)\
+        \ endpoint should be used. This is critical because this endpoint does not\
+        \ store events or launch distributions.\n</Warning>\nThe orders will also\
+        \ have a created_at date thats assigned when theyve been imported to Voucherify.\
+        \ To keep track of the actual order creation date, add an order metadata in\
+        \ ISO 8601 date or date time format to each imported order.\n# Limitations\n\
+        ## Import volume\nThere can be only a single on-going order import per tenant\
+        \ per project at a given time. The user can schedule more imports but those\
+        \ extra imports will be scheduled to run in sequence one by one.  \n## Maximum\
+        \ count of orders in single import\nThere is a 2000 limit of orders per one\
+        \ request.\n# Notifications\nThere are no notifications on the Dashboard because\
+        \ this import is launched via the API.\n# Triggered actions\n  \nIf you import\
+        \ orders with customers, then a logic will be scheduled responsible for placing\
+        \ these customers into segments and refreshing the segments summary. Consequently,\
+        \ this update will trigger \n- Customers entering into segments\n- Distributions\
+        \ based on any rules tied to customer entering segment(s)\n- Earning rules\
+        \ based on the customer entering segment(s)\n# What is not triggered\n1. No\
+        \ webhooks are triggered during the import of orders - for both orders and\
+        \ upserted products / SKUs.  \n2. Distributions based on Order Update, Order\
+        \ Paid, Order Created and Order Cancelled. In other words if you have a distribution\
+        \ based on Order Paid and you import an order with a PAID status, the distribution\
+        \ is not going to be triggered.    \n3. No events are created during the import\
+        \ of orders - for both orders and upserted products / SKUs. In other words\
+        \ you wont see any events in the Activity tab in the Dashboard such as Order\
+        \ created or Order paid. If you are additionally upserting products / SKUs,\
+        \ then you wont see the Product created events listed, etc.   \n4. Earning\
+        \ rules based on Order Paid wont be triggered.\nThis API request starts a\
+        \ process that affects Voucherify data in bulk. \nIn case of small jobs (like\
+        \ bulk update) the request is put into a queue and processed once every other\
+        \ bulk request placed in the queue prior to this request is finished. However,\
+        \ when the job takes a longer time (like vouchers generation) then it is processed\
         \ in small portions in a round-robin fashion. When there is a list of vouchers\
         \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
         \ This way, small jobs added just after scheduling big jobs of the same type\
@@ -21946,8 +22411,10 @@ paths:
     post:
       description: |-
         Creates a product object.
-         📘 Upsert Mode
-         If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
+        <Note>
+        <Badge color blue>Upsert Mode</Badge>
+        If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
+        </Note>
       operationId: create-product
       parameters: []
       requestBody:
@@ -22482,9 +22949,9 @@ paths:
       x-accepts: application/json
     post:
       description: "This method adds product variants to a [created product](/api-reference/products/create-product).\
-        \ \n 📘 Upsert Mode\n If you pass an id or a source_id that already exists\
-        \ in the sku database, Voucherify will return a related sku object with updated\
-        \ fields."
+        \ \n<Note>\n<Badge color blue>Upsert Mode</Badge>\nIf you pass an id or a\
+        \ source_id that already exists in the sku database, Voucherify will return\
+        \ a related sku object with updated fields.\n</Note>"
       operationId: create-sku
       parameters:
       - description: "A Voucherify [product](/api-reference/products/get-product)\
@@ -22668,40 +23135,41 @@ paths:
   /v1/products/importCSV:
     post:
       description: "Import products into the repository using a CSV file.\nThe CSV\
-        \ file has to include headers in the first line.\n 📘 Standard product fields\
-        \ mapping\n - Create a **comma separated value (CSV) file** or download our\
-        \ CSV import template. You can find an example template [here](https://s3.amazonaws.com/helpscout.net/docs/assets/5902f1c12c7d3a057f88a36d/attachments/627b82ed68d51e779443f550/Import_products_template.csv).\n\
-        \ - Supported CSV file headers: name,source_id,price,attributes,image_url,Metadata_property_name\n\
-        \ - **Name** is a **required** field. The remaining fields in the CSV template\
-        \ are optional.\n - Override/Update products **names** in Voucherify using\
+        \ file has to include headers in the first line.\n<Note>\n<Badge color blue>Standard\
+        \ product fields mapping</Badge>\n- Create a **comma separated value (CSV)\
+        \ file** or download our CSV import template. You can find an example template\
+        \ [here](https://s3.amazonaws.com/helpscout.net/docs/assets/5902f1c12c7d3a057f88a36d/attachments/627b82ed68d51e779443f550/Import_products_template.csv).\n\
+        - Supported CSV file headers: name,source_id,price,attributes,image_url,Metadata_property_name\n\
+        - **Name** is a **required** field. The remaining fields in the CSV template\
+        \ are optional.\n- Override/Update products **names** in Voucherify using\
         \ this method. Data will be updated for each product included in the CSV file\
         \ whose **source_id** matches a source ID in Voucherify. No other data can\
-        \ be updated other than the product name.\n - Note that dates and date-time\
+        \ be updated other than the product name.\n- Note that dates and date-time\
         \ attributes need to be provided in compliance with the **ISO 8601 standard**.\
-        \ For example, 2022-03-11T09:00:00.000Z or 2022-03-11\n    - YYYY-MM-DD\n\
-        \    - YYYY-MM-DDTHH\n    - YYYY-MM-DDTHH:mm\n    - YYYY-MM-DDTHH:mm:ss\n\
-        \    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ss.SSSZ\n\
-        \ - Columns that cannot be mapped to standard fields, will be mapped to **Custom\
+        \ For example, 2022-03-11T09:00:00.000Z or 2022-03-11\n   - YYYY-MM-DD\n \
+        \  - YYYY-MM-DDTHH\n   - YYYY-MM-DDTHH:mm\n   - YYYY-MM-DDTHH:mm:ss\n   -\
+        \ YYYY-MM-DDTHH:mm:ssZ\n   - YYYY-MM-DDTHH:mm:ssZ\n   - YYYY-MM-DDTHH:mm:ss.SSSZ\n\
+        - Columns that cannot be mapped to standard fields, will be mapped to **Custom\
         \ attributes** and added as **products metadata**. There is no limit on the\
-        \ number of custom attributes that you can import as metadata. \n - To provide\
+        \ number of custom attributes that you can import as metadata.\n- To provide\
         \ the proper data type, you need to add all custom attributes to the metadata\
         \ schema **before importing the file**. Read more [here](/prepare/metadata#add-metadata).\n\
-        \ - **Product attributes** (not custom attributes) need to be separated by\
-        \ a comma and enclosed in double quotes, i.e attribute1,attribute2.\n - Headers\
-        \ with metadata names **cant contain white-space characters**.\n - If you\
-        \ import metadata defined in the schema as **arrays (multiple)**, you need\
-        \ to separate each value using a comma, for example:  \n    - array of strings:\
-        \ subscribed,premium  \n    - array of numbers: 123,234. \n    - array of\
-        \ dates: 2000-01-01,2000-01-02\nThis API request starts a process that affects\
-        \ Voucherify data in bulk. \nIn case of small jobs (like bulk update) the\
-        \ request is put into a queue and processed once every other bulk request\
-        \ placed in the queue prior to this request is finished. However, when the\
-        \ job takes a longer time (like vouchers generation) then it is processed\
-        \ in small portions in a round-robin fashion. When there is a list of vouchers\
-        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
-        \ This way, small jobs added just after scheduling big jobs of the same type\
-        \ will be processed in a short time window. \nThe result will return the async\
-        \ ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action)."
+        - **Product attributes** (not custom attributes) need to be separated by a\
+        \ comma and enclosed in double quotes, i.e attribute1,attribute2.\n- Headers\
+        \ with metadata names **cant contain white-space characters**.\n- If you import\
+        \ metadata defined in the schema as **arrays (multiple)**, you need to separate\
+        \ each value using a comma, for example:\n   - array of strings: subscribed,premium\n\
+        \   - array of numbers: 123,234.\n   - array of dates: 2000-01-01,2000-01-02\n\
+        </Note>\nThis API request starts a process that affects Voucherify data in\
+        \ bulk. \nIn case of small jobs (like bulk update) the request is put into\
+        \ a queue and processed once every other bulk request placed in the queue\
+        \ prior to this request is finished. However, when the job takes a longer\
+        \ time (like vouchers generation) then it is processed in small portions in\
+        \ a round-robin fashion. When there is a list of vouchers generation scheduled,\
+        \ then they will all have the IN_PROGRESS status shortly. This way, small\
+        \ jobs added just after scheduling big jobs of the same type will be processed\
+        \ in a short time window. \nThe result will return the async ID. You can verify\
+        \ the status of your request via this [API request](/api-reference/async-actions/get-async-action)."
       operationId: import-products-using-csv
       parameters: []
       requestBody:
@@ -22739,28 +23207,29 @@ paths:
         \ has to include headers in the first line. All properties which cannot be\
         \ mapped to standard SKU fields will be added to the metadata object. You\
         \ can find an example template [here](https://s3.amazonaws.com/helpscout.net/docs/assets/5902f1c12c7d3a057f88a36d/attachments/627b98d08c9b585083488a4c/Import_SKUS_template.csv).\
-        \ \n 🚧 Import sequence\n First import products using the [dedicated endpoint](/api-reference/products/import-products-using-csv),\
+        \ \n<Warning>\n<Badge color yellow>Import sequence</Badge>\nFirst import products\
+        \ using the [dedicated endpoint](/api-reference/products/import-products-using-csv),\
         \ then import SKUs using this endpoint to properly match SKUs to products.\n\
-        \ 📘 Standard SKU fields mapping\n - **Required** fields are source_id and\
-        \ product_id.\n - Supported CSV file headers: product_id,sku,source_id,price,image_url,attributes\n\
-        \ - SKU **source_id** must be unique in the entire product catalog, no duplicates\
-        \ are allowed.\n - SKU attributes need to be in the form of a stringy-fied\
-        \ json, i.e.{color:blue}. These attributes must be defined in the **product**\
-        \ beforehand so you can import them to the SKU.\n - You can use this method\
-        \ to update the following parameters in bulk: **sku** and the sku **price**.\n\
-        \ - Columns that cannot be mapped to standard fields will be mapped to Custom\
-        \ attributes and added as product metadata. There is no limit on the number\
-        \ of custom attributes that you can import as metadata.\nThis API request\
-        \ starts a process that affects Voucherify data in bulk. \nIn case of small\
-        \ jobs (like bulk update) the request is put into a queue and processed once\
-        \ every other bulk request placed in the queue prior to this request is finished.\
-        \ However, when the job takes a longer time (like vouchers generation) then\
-        \ it is processed in small portions in a round-robin fashion. When there is\
-        \ a list of vouchers generation scheduled, then they will all have the IN_PROGRESS\
-        \ status shortly. This way, small jobs added just after scheduling big jobs\
-        \ of the same type will be processed in a short time window. \nThe result\
-        \ will return the async ID. You can verify the status of your request via\
-        \ this [API request](/api-reference/async-actions/get-async-action)."
+        </Warning>\n<Note>\n<Badge color blue>Standard SKU fields mapping</Badge>\n\
+        - **Required** fields are source_id and product_id.\n- Supported CSV file\
+        \ headers: product_id,sku,source_id,price,image_url,attributes\n- SKU **source_id**\
+        \ must be unique in the entire product catalog, no duplicates are allowed.\n\
+        - SKU attributes need to be in the form of a stringy-fied json, i.e.{color:blue}.\
+        \ These attributes must be defined in the **product** beforehand so you can\
+        \ import them to the SKU.\n- You can use this method to update the following\
+        \ parameters in bulk: **sku** and the sku **price**.\n- Columns that cannot\
+        \ be mapped to standard fields will be mapped to Custom attributes and added\
+        \ as product metadata. There is no limit on the number of custom attributes\
+        \ that you can import as metadata.\n</Note>\nThis API request starts a process\
+        \ that affects Voucherify data in bulk. \nIn case of small jobs (like bulk\
+        \ update) the request is put into a queue and processed once every other bulk\
+        \ request placed in the queue prior to this request is finished. However,\
+        \ when the job takes a longer time (like vouchers generation) then it is processed\
+        \ in small portions in a round-robin fashion. When there is a list of vouchers\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
+        \ This way, small jobs added just after scheduling big jobs of the same type\
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action)."
       operationId: import-skus-using-csv
       parameters: []
       requestBody:
@@ -22992,7 +23461,9 @@ paths:
       x-accepts: application/json
   /v1/product-collections/{productCollectionId}:
     delete:
-      description: This method deletes a product collection.
+      description: |-
+        Deletes a product collection.
+        <Warning>This endpoint performs database-heavy operations. It is not designed for highly frequent use.</Warning>
       operationId: delete-product-collection
       parameters:
       - description: A unique product collection ID.
@@ -23428,8 +23899,10 @@ paths:
     post:
       description: |-
         Create a validation rule.
-         🚧 Managing validation rules
-         It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        <Warning>
+        <Badge color yellow>Managing validation rules</Badge>
+        It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        </Warning>
       operationId: create-validation-rules
       parameters: []
       requestBody:
@@ -23629,8 +24102,10 @@ paths:
     put:
       description: |-
         Update validation rule parameters.
-         🚧 Managing validation rules
-         It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        <Warning>
+        <Badge color yellow>Managing validation rules</Badge>
+        It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        </Warning>
       operationId: update-validation-rule
       parameters:
       - description: A unique validation rule ID.
@@ -24161,10 +24636,14 @@ paths:
     post:
       description: |-
         Create a customer segment.
-         🚧 Limit on static segments
-         There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.
-         🚧 Limit on Active and Passive segments
-         You can create a maximum of 100 passive and active segments.
+        <Warning>
+        <Badge color yellow>Limit on static segments</Badge>
+        There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.
+        </Warning>
+        <Warning>
+        <Badge color yellow>Limit on Active and Passive segments</Badge>
+        You can create a maximum of 100 passive and active segments.
+        </Warning>
       operationId: create-segment
       parameters: []
       requestBody:
@@ -24922,18 +25401,60 @@ paths:
                       result:
                         url: "{{internalVoucherifyURL}}"
                       user_id: null
-                    total: 3
+                    - id: exp_0bae4f8d2c1a9e3b41
+                      object: export
+                      created_at: 2025-03-17T11:07:41.000Z
+                      status: DONE
+                      channel: API
+                      exported_object: product
+                      parameters:
+                        order: -created_at
+                        fields:
+                        - id
+                        - name
+                        - price
+                        - image_url
+                        - source_id
+                        - attributes
+                        - created_at
+                        filters:
+                          junction: and
+                      result:
+                        url: "{{internalVoucherifyURL}}"
+                      user_id: null
+                    - id: exp_0bae4f8d2c1a9e3b42
+                      object: export
+                      created_at: 2025-05-28T06:29:42.000Z
+                      status: DONE
+                      channel: API
+                      exported_object: sku
+                      parameters:
+                        order: -created_at
+                        fields:
+                        - id
+                        - sku
+                        - product_id
+                        - currency
+                        - price
+                        - source_id
+                        - created_at
+                        filters:
+                          junction: and
+                      result:
+                        url: "{{internalVoucherifyURL}}"
+                      user_id: null
+                    total: 5
               schema:
                 $ref: '#/components/schemas/ExportsListResponseBody'
           description: "A dictionary with an exports property that contains an array\
             \ of exports. Each entry in the array is a separate export object. The\
             \ list will return the following types of exported objects: `voucher`,\
             \ `redemption`, `publication`, `customer`, `order`, `points_expiration`,\
-            \ or `voucher_transactions`. \n\nThe `channel` parameter in the response\
-            \ body returns the channel that was used to generate the particular export.\
-            \ The `user_id` identifies the specific user who initiated the export\
-            \ through the Voucherify Dashboard; this `user_id` is returned when the\
-            \ channel value is `WEBSITE`."
+            \ `voucher_transactions`, `product`, or `sku`. \n\nThe `channel` parameter\
+            \ in the response body returns the channel that was used to generate the\
+            \ particular export. The `user_id` identifies the specific user who initiated\
+            \ the export through the Voucherify Dashboard; this `user_id` is returned\
+            \ when the channel value is `WEBSITE`."
       security:
       - X-App-Id: []
         X-App-Token: []
@@ -24946,21 +25467,63 @@ paths:
         \ voucher, redemption, publication, customer, order, points_expiration, voucher_transactions,\
         \ product, or sku.  \n# Defaults\nIf you only specify the object type in the\
         \ request body without specifying the fields, the API will return the following\
-        \ fields per export object:\n\n\n 📘 Date and time in the export API\n The\
-        \ exported date and times are always provided in the UTC time zone.\n# Fetching\
-        \ particular data sets\nUsing the parameters body parameter, you can narrow\
-        \ down which fields to export and how to filter the results. The fields are\
-        \ an array of strings containing the data that you would like to export. These\
-        \ fields define the headers in the CSV file. The array can be a combination\
-        \ of any of the following available fields:\n# Orders  \n\n\n# Vouchers  \n\
-        \n\n\n\n\n# Publications\n\n\n# Redemptions\n\n\n\n# Customers\n\n\n\n\n\n\
-        \n# Points Expirations\n\n\n # Gift Card Transactions\n\n\n # Loyalty Card\
-        \ Transactions\n\n\n"
+        \ fields per export object:\n\n\n<Note>\n<Badge color blue>Date and time in\
+        \ the export API</Badge>\nThe exported date and times are always provided\
+        \ in the UTC time zone.\n</Note>\n# Fetching particular data sets\nUsing the\
+        \ parameters body parameter, you can narrow down which fields to export and\
+        \ how to filter the results. The fields are an array of strings containing\
+        \ the data that you would like to export. These fields define the headers\
+        \ in the CSV file. The array can be a combination of any of the following\
+        \ available fields:\n# Orders  \n\n\n# Vouchers  \n\n\n\n\n\n# Publications\n\
+        \n\n# Redemptions\n\n\n\n# Customers\n\n\n\n\n\n\n# Points Expirations\n\n\
+        \n # Gift Card Transactions\n\n\n # Loyalty Card Transactions\n\n\n\n# Products\n\
+        \n\n# SKUs\n\n\n"
       operationId: create-export
       parameters: []
       requestBody:
         content:
           application/json:
+            examples:
+              Export Products:
+                value:
+                  exported_object: product
+                  parameters:
+                    order: -created_at
+                    fields:
+                    - id
+                    - name
+                    - price
+                    - image_url
+                    - source_id
+                    - attributes
+                    - created_at
+                    filters:
+                      junction: and
+                      created_at:
+                        conditions:
+                          $after:
+                          - 2024-01-01T00:00:00.000Z
+              Export SKUs:
+                value:
+                  exported_object: sku
+                  parameters:
+                    order: -created_at
+                    fields:
+                    - id
+                    - sku
+                    - product_id
+                    - currency
+                    - price
+                    - image_url
+                    - source_id
+                    - attributes
+                    - created_at
+                    filters:
+                      junction: and
+                      product_id:
+                        conditions:
+                          $is:
+                          - prod_0bae32322150fd0546
             schema:
               $ref: '#/components/schemas/ExportsCreateRequestBody'
         description: Specify the details of the export that you would like to create.
@@ -24968,6 +25531,61 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                Export Products:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b41
+                    object: export
+                    created_at: 2025-03-17T11:07:41.000Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: product
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - name
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                        created_at:
+                          conditions:
+                            $after:
+                            - 2024-01-01T00:00:00.000Z
+                    result: null
+                    user_id: null
+                Export SKUs:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b42
+                    object: export
+                    created_at: 2025-05-28T06:29:42.000Z
+                    status: SCHEDULED
+                    channel: API
+                    exported_object: sku
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - sku
+                      - product_id
+                      - currency
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                        product_id:
+                          conditions:
+                            $is:
+                            - prod_0bae32322150fd0546
+                    result: null
+                    user_id: null
               schema:
                 $ref: '#/components/schemas/ExportsCreateResponseBody'
           description: Returns export object and URL of CSV file.
@@ -24986,7 +25604,7 @@ paths:
       parameters:
       - description: "Unique export object ID of previously created export. This object\
           \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
-          \ or voucher_transactions."
+          \ voucher_transactions, product, or sku."
         explode: false
         in: path
         name: exportId
@@ -25011,7 +25629,7 @@ paths:
       parameters:
       - description: "Unique export object ID of previously created export. This object\
           \ can be a: voucher, redemption, publication, customer, order, points_expiration,\
-          \ or voucher_transactions."
+          \ voucher_transactions, product, or sku."
         explode: false
         in: path
         name: exportId
@@ -25046,6 +25664,52 @@ paths:
                     result:
                       url: "{{internalVoucherifyURL}}"
                     user_id: null
+                Get Product Export:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b41
+                    object: export
+                    created_at: 2025-03-17T11:07:41.000Z
+                    status: DONE
+                    channel: API
+                    exported_object: product
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - name
+                      - price
+                      - image_url
+                      - source_id
+                      - attributes
+                      - created_at
+                      filters:
+                        junction: and
+                    result:
+                      url: "{{internalVoucherifyURL}}"
+                    user_id: null
+                Get SKU Export:
+                  value:
+                    id: exp_0bae4f8d2c1a9e3b42
+                    object: export
+                    created_at: 2025-05-28T06:29:42.000Z
+                    status: DONE
+                    channel: API
+                    exported_object: sku
+                    parameters:
+                      order: -created_at
+                      fields:
+                      - id
+                      - sku
+                      - product_id
+                      - currency
+                      - price
+                      - source_id
+                      - created_at
+                      filters:
+                        junction: and
+                    result:
+                      url: "{{internalVoucherifyURL}}"
+                    user_id: null
               schema:
                 $ref: '#/components/schemas/ExportsGetResponseBody'
           description: Returns the export object if a valid identifier was provided
@@ -25059,11 +25723,11 @@ paths:
       x-accepts: application/json
   /v1/exports/{export_Id}:
     get:
-      description: "Download the contents of the exported CSV file. \n 📘 Important\
-        \ notes\n **Base URL:** \n - https://download.voucherify.io (Europe) \n -\
-        \ https://us1.download.voucherify.io (US) \n - https://as1.download.voucherify.io\
-        \ (Asia) \n **Token:** Can be found within the result parameter of the [Get\
-        \ Export](/api-reference/exports/get-export) method response."
+      description: "Download the contents of the exported CSV file. \n<Note>\n<Badge\
+        \ color blue>Important notes</Badge>\n**Base URL:**\n- https://download.voucherify.io\
+        \ (Europe)\n- https://us1.download.voucherify.io (US)\n- https://as1.download.voucherify.io\
+        \ (Asia)\n**Token:** Can be found within the result parameter of the [Get\
+        \ Export](/api-reference/exports/get-export) method response.\n</Note>"
       operationId: download-export
       parameters:
       - description: Unique export object ID.
@@ -25306,8 +25970,10 @@ paths:
     get:
       description: |-
         Retrieve metadata schema definitions.
-        📘 Management API
+        <Note>
+        <Badge color blue>Management API</Badge>
         If you have Management API enabled, you can also use the [List Metadata Schemas](/api-reference/management/list-metadata-schemas) endpoint to list all metadata schemas.
+        </Note>
       operationId: list-metadata-schemas
       parameters: []
       responses:
@@ -25718,8 +26384,10 @@ paths:
         - voucher
         ## Custom
         If you have defined a [custom metadata schema](/prepare/metadata#add-metadata), provide its name in the resource field to retrieve its details.
-        📘 Management API
+        <Note>
+        <Badge color blue>Management API</Badge>
         If you have Management API enabled, you can also use the [Get Metadata Schemas](/api-reference/management/get-metadata-schema) endpoint to retrieve a metadata schema using its ID.
+        </Note>
       operationId: get-metadata-schema
       parameters:
       - description: There is an infinite number of possibilities for retrieving metadata
@@ -26406,8 +27074,9 @@ paths:
         To use this endpoint, you must have the following permissions:
         - Create and modify Customers and Segments (customers.modify)
         - Publish Voucher (vouchers.publish)
-         👍
+        <Tip>
         To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
+        </Tip>
       operationId: referrals-add-holders-1
       parameters:
       - description: Unique identifier of a referral program campaign.
@@ -26538,8 +27207,10 @@ paths:
         Retrieves the holders of the referral code from a referral campaign.
         To use this endpoint, you must have the following permissions:
         - Read Customers (customers.details.read)
-         📘 Alternative endpoint
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
         This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+        </Note>
       operationId: referrals-code-holders-1
       parameters:
       - description: Unique referral code or its identifier.
@@ -26635,10 +27306,13 @@ paths:
         To use this endpoint, you must have the following permissions:
         - Create and modify Customers and Segments (customers.modify)
         - Publish Voucher (vouchers.publish)
-         👍
+        <Tip>
         To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
-         📘 Alternative endpoint
+        </Tip>
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
         This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+        </Note>
       operationId: referrals-add-holders
       parameters:
       - description: Unique referral code or its identifier.
@@ -26719,8 +27393,10 @@ paths:
         To use this endpoint, you must have the following permissions:
         - Create and modify Customers and Segments (customers.modify)
         - Publish Voucher (vouchers.publish)
-         📘 Alternative endpoint
+        <Note>
+        <Badge color blue>Alternative endpoint</Badge>
         This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+        </Note>
       operationId: referrals-remove-holder
       parameters:
       - description: Unique referral code or its identifier.
@@ -26874,8 +27550,10 @@ paths:
     get:
       description: |-
         Lists all campaign templates available in the project.
-         📘 Campaign Templates – Documentation
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: list-campaign-templates
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -26971,12 +27649,16 @@ paths:
         - Redeeming users
         - Customer loyalty tier
         - Static segments
-         👍 Promotion Tiers and Campaign Templates
+        <Tip>
+        <Badge color green>Promotion Tiers and Campaign Templates</Badge>
         You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template),
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).
-         📘 Campaign Templates – Documentation
+        </Tip>
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: create-campaign-template
       parameters: []
       requestBody:
@@ -27013,8 +27695,10 @@ paths:
     delete:
       description: |-
         Deletes the campaign template permanently.
-         📘 Campaign Templates – Documentation
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: delete-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27038,8 +27722,10 @@ paths:
     get:
       description: |-
         Retrieves a campaign template available in the project.
-         📘 Campaign Templates – Documentation
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: get-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27077,8 +27763,10 @@ paths:
     put:
       description: |-
         Updates the name or description of the campaign template.
-         📘 Campaign Templates – Documentation
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: update-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27130,12 +27818,16 @@ paths:
         - [Update the validation rule](/api-reference/validation-rules/update-validation-rule),
         - [Unassign the validation rule](/api-reference/validation-rules/delete-validation-rule-assignment),
         - [Assign an existing validation rule](/api-reference/validation-rules/create-validation-rules-assignments).
-         👍 Promotion Tiers and Campaign Templates
+        <Tip>
+        <Badge color green>Promotion Tiers and Campaign Templates</Badge>
         You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template)
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template)
-         📘 Campaign Templates – Documentation
+        </Tip>
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: create-campaign-from-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27267,12 +27959,16 @@ paths:
         - [Update the validation rule](/api-reference/validation-rules/update-validation-rule),
         - [Unassign the validation rule](/api-reference/validation-rules/delete-validation-rule-assignment),
         - [Assign an existing validation rule](/api-reference/validation-rules/create-validation-rule-assignment).
-         👍 Promotion Tiers and Campaign Templates
+        <Tip>
+        <Badge color green>Promotion Tiers and Campaign Templates</Badge>
         You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template)
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template)
-         📘 Campaign Templates – Documentation
+        </Tip>
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: add-tier-from-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27682,8 +28378,10 @@ paths:
       description: |-
         Deletes an existing project.
         The users currently using the deleted project will be automatically logged out.
-         🚧 Sandbox Project
+        <Warning>
+        <Badge color yellow>Sandbox Project</Badge>
         The sandbox project cannot be deleted.
+        </Warning>
       operationId: delete-project
       parameters:
       - description: Provide the unique identifier of the project.
@@ -27958,8 +28656,10 @@ paths:
     post:
       description: |-
         Assigns a user to a given project. The user must be an existing user in Voucherify.
-         🚧 Correct Use of Data
+        <Warning>
+        <Badge color yellow>Correct Use of Data</Badge>
         To avoid errors, use the role key with either id or login keys.
+        </Warning>
       operationId: assign-user
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28173,10 +28873,14 @@ paths:
     get:
       description: |-
         Lists all campaign templates available in the project.
-         👍 List Campaign Templates
-         This endpoint works in the same way as the [List Campaign Templates endpoint](/api-reference/templates/list-campaign-templates).
-         📘 Campaign Templates – Documentation
+        <Tip>
+        <Badge color green>List Campaign Templates</Badge>
+        This endpoint works in the same way as the [List Campaign Templates endpoint](/api-reference/templates/list-campaign-templates).
+        </Tip>
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: management-list-campaign-templates
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28273,8 +28977,10 @@ paths:
       description: |-
         Copies a campaign template to another project.
         The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.
-         📘 Campaign Templates – Documentation
+        <Note>
+        <Badge color blue>Campaign Templates – Documentation</Badge>
         Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+        </Note>
       operationId: management-copy-campaign-template
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28330,8 +29036,10 @@ paths:
         Lists all stacking rules.
         Returns always a list with one item.
         This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.
-         📘 Stacking Rules Documentation
-         Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+        <Note>
+        <Badge color blue>Stacking Rules Documentation</Badge>
+        Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work.
+        </Note>
       operationId: list-stacking-rules
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28399,8 +29107,10 @@ paths:
       description: |-
         Overwrites the default stacking rules.
         If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.
-         📘 Stacking rules documentation
-         Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
+        <Note>
+        <Badge color blue>Stacking rules documentation</Badge>
+        Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work.
+        </Note>
       operationId: create-stacking-rules
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28470,8 +29180,10 @@ paths:
       description: |-
         Deletes permanently the current settings for the stacking rules.
         The stacking rules are restored to default values.
-         📘 Stacking Rules Documentation
-         Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+        <Note>
+        <Badge color blue>Stacking Rules Documentation</Badge>
+        Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work.
+        </Note>
       operationId: delete-stacking-rules
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28504,8 +29216,10 @@ paths:
     get:
       description: |-
         Retrieves the stacking rules for the project.
-         📘 Stacking Rules Documentation
-         Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+        <Note>
+        <Badge color blue>Stacking Rules Documentation</Badge>
+        Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work.
+        </Note>
       operationId: get-stacking-rules
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28575,8 +29289,10 @@ paths:
       description: |-
         Updates the stacking rules.
         Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.
-         📘 Stacking Rules Documentation
-         Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+        <Note>
+        <Badge color blue>Stacking Rules Documentation</Badge>
+        Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work.
+        </Note>
       operationId: update-stacking-rules
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28653,8 +29369,10 @@ paths:
     get:
       description: |-
         Lists all metadata schemas available in the project.
-         📘 Metadata Documentation
-         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        <Note>
+        <Badge color blue>Metadata Documentation</Badge>
+        Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Note>
       operationId: list-metadata-schemas-1
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28903,9 +29621,9 @@ paths:
         \ use this endpoint to define a metadata schema for related_object: campaign\
         \ for the first time. If you want define a new metadata property for campaign,\
         \ use the [PUT Update metadata schema](/api-reference/management/update-metadata-schema)\
-        \ endpoint.\n 📘 Metadata Documentation\n Read [the Getting Started with Metadata](/prepare/metadata)\
-        \ and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata\
-        \ work in Voucherify."
+        \ endpoint.\n<Note>\n<Badge color blue>Metadata Documentation</Badge>\nRead\
+        \ [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping)\
+        \ articles to learn how metadata work in Voucherify.\n</Note>"
       operationId: create-metadata-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28976,7 +29694,8 @@ paths:
         - Reward
         If you want to delete only one definition, use the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint. In the request, provide the deleted: true pair in the definition object. This definition will be moved to Removed definitions.
         If you want to create a new standard metadata schema, use the [Create Metadata Schema](/api-reference/management/create-metadata-schema) endpoint.
-         🚧 Metadata Purging
+        <Warning>
+        <Badge color yellow>Metadata Purging</Badge>
         This endpoint deletes permanently the metadata schemas only. However, it does not purge the metadata from associated entities, so the metadata added to those entities will remain.
         If you want to purge metadata from the entities:
         1. Remove all the definitions you want to purge. You can do this either in Voucherify Project Settings > Metadata Schema tab or with the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint.
@@ -28986,8 +29705,11 @@ paths:
         - This is an asynchronous action. You will be notified when it has been completed.
         - You cannot purge metadata for the Redemption and Publication schemas.
         4. Use the Delete Metadata Schema request to delete the metadata schema from Voucherify.
-         📘 Metadata Documentation
-         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Warning>
+        <Note>
+        <Badge color blue>Metadata Documentation</Badge>
+        Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Note>
       operationId: delete-metadata-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29020,8 +29742,10 @@ paths:
     get:
       description: |-
         Retrieves a metadata schema.
-         📘 Metadata Documentation
-         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        <Note>
+        <Badge color blue>Metadata Documentation</Badge>
+        Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Note>
       operationId: get-metadata-schema-1
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29110,11 +29834,15 @@ paths:
         - Update an existing attribute definition by overwriting its current values.
         In the request, you can provide only those definitions you want to add or update. Definitions omitted in the request remain unchanged.
         However, if you want to update a definition, you will have to add all its current key-value pairs as well. Only the pairs sent in the request are saved for this definition. This means that the key-value pairs that are not sent in a request are restored to default values. For example, if your definition has an array with values and it is not sent in an update request, the array values will be deleted.
-         👍 Additional Notes
+        <Tip>
+        <Badge color green>Additional Notes</Badge>
         - You cannot change the type of an existing schema, e.g. from string to number.
         - You can remove a definition with this endpoint by providing deleted: true in the request. It will be moved to the Removed definitions section in the user interface. However, you cannot permanently remove a definition with this endpoint.
-         📘 Metadata Documentation
-         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Tip>
+        <Note>
+        <Badge color blue>Metadata Documentation</Badge>
+        Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+        </Note>
       operationId: update-metadata-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29178,9 +29906,11 @@ paths:
     get:
       description: |-
         Lists all custom event schemas available in the project.
-         📘 Custom Event Documentation
-         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
+        <Note>
+        <Badge color blue>Custom Event Documentation</Badge>
+        Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+        </Note>
       operationId: list-custom-event-schemas
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29236,9 +29966,11 @@ paths:
       description: |-
         Creates a custom event schema.
         The properties object is required, but it can be empty, however. This object is for optional custom properties (metadata).
-         📘 Custom Event Documentation
-         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
+        <Note>
+        <Badge color blue>Custom Event Documentation</Badge>
+        Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+        </Note>
       operationId: create-custom-event-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29286,9 +30018,11 @@ paths:
     delete:
       description: |-
         Deletes permanently the custom event schema with its custom properties (metadata).
-         📘 Custom Event Documentation
-         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
+        <Note>
+        <Badge color blue>Custom Event Documentation</Badge>
+        Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+        </Note>
       operationId: delete-custom-event-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29321,9 +30055,11 @@ paths:
     get:
       description: |-
         Retrieves a custom event schema.
-         📘 Custom Event Documentation
-         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
+        <Note>
+        <Badge color blue>Custom Event Documentation</Badge>
+        Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+        </Note>
       operationId: get-custom-event-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29374,12 +30110,16 @@ paths:
         - Add a nonexistent property to a custom event schema.
         - Update an existing property.
         In the request, you can provide only those properties you want to add or update. Definitions omitted in the request remain unchanged.
-         👍 Additional Notes
+        <Tip>
+        <Badge color green>Additional Notes</Badge>
         - You can change the type of an existing property, e.g. from string to number.
         - You can remove a custom property with this endpoint by providing deleted: true in the request. However, you cannot permanently remove an event definition or its property with this endpoint.
-         📘 Custom Event Documentation
-         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
+        </Tip>
+        <Note>
+        <Badge color blue>Custom Event Documentation</Badge>
+        Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+        </Note>
       operationId: update-custom-event-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29444,8 +30184,10 @@ paths:
     get:
       description: |-
         Lists all webhook configurations for the project.
-         📘 Webhook Documentation
-         Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        <Note>
+        <Badge color blue>Webhook Documentation</Badge>
+        Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        </Note>
       operationId: list-webhooks
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29531,8 +30273,10 @@ paths:
     post:
       description: |-
         Creates a new webhook configuration.
-         📘 Webhook Documentation
-         Read [Webhooks v2024-01-01](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        <Note>
+        <Badge color blue>Webhook Documentation</Badge>
+        Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        </Note>
       operationId: create-webhook
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29578,8 +30322,10 @@ paths:
     delete:
       description: |-
         Deletes a webhook configuration.
-         📘 Webhook Documentation
-         Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        <Note>
+        <Badge color blue>Webhook Documentation</Badge>
+        Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        </Note>
       operationId: delete-webhook
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29612,8 +30358,10 @@ paths:
     get:
       description: |-
         Retrieves a webhook configuration.
-         📘 Webhook Documentation
-         Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        <Note>
+        <Badge color blue>Webhook Documentation</Badge>
+        Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        </Note>
       operationId: get-webhook
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29660,8 +30408,10 @@ paths:
       description: |-
         Updates a webhook configuration.
         The events listed in the request are overwritten. If you want to add more events, provide also the events that are already in the webhook configuration.
-         📘 Webhook Documentation
-         Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        <Note>
+        <Badge color blue>Webhook Documentation</Badge>
+        Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+        </Note>
       operationId: update-webhook
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29769,8 +30519,10 @@ paths:
       description: |-
         Creates a new brand configuration.
         You can have only one brand configured for a project.
-         📘 White Labelling
-         The white labelling settings which can be found in Project Settings > Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+        <Note>
+        <Badge color blue>White Labelling</Badge>
+        The white labelling settings which can be found in Project Settings > Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+        </Note>
       operationId: create-brand
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29931,8 +30683,10 @@ paths:
       description: |-
         Updates a brand configuration.
         Only the fields sent in the request will be updated. The fields omitted in the request will remain unchanged.
-         📘 White Labelling
-         The white labelling settings which can be found in Project Settings > Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+        <Note>
+        <Badge color blue>White Labelling</Badge>
+        The white labelling settings which can be found in Project Settings > Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+        </Note>
       operationId: update-brand
       parameters:
       - description: Provide the unique identifier of the project.
@@ -30001,13 +30755,14 @@ paths:
         \ API requests. The new qualification method introduces the following improvements:\n\
         - Qualification results are returned faster\n- No limit on the number of returned\
         \ redeemables\n- Introduces new qualification scenarios, not available in\
-        \ the previous version\n 👍 Scenario Guide\n Read our dedicated guide to learn\
-        \ about some use cases this endpoint can cover [here](/guides/checking-eligibility).\n\
-        # Paging \nThe Voucherify Qualifications API request will return to you all\
-        \ of the redeemables available for the customer in batches of up to 50 redeemables\
-        \ per page. To get the next batch of redeemables, you need to use the starting_after\
-        \ cursor.\nTo process of paging the redeemables works in the following manner:\n\
-        - You send the first API request for Qualifications without the starting_after\
+        \ the previous version\n<Tip>\n<Badge color green>Scenario Guide</Badge>\n\
+        Read our dedicated guide to learn about some use cases this endpoint can cover\
+        \ [here](/guides/checking-eligibility).\n</Tip>\n# Paging \nThe Voucherify\
+        \ Qualifications API request will return to you all of the redeemables available\
+        \ for the customer in batches of up to 50 redeemables per page. To get the\
+        \ next batch of redeemables, you need to use the starting_after cursor.\n\
+        To process of paging the redeemables works in the following manner:\n- You\
+        \ send the first API request for Qualifications without the starting_after\
         \ parameter.\n- The response will contain a parameter named has_more. If the\
         \ parameters value is set to true, then more redeemables are available.\n\
         - Get the value of the created_at parameter of the last returned redeemable.\
@@ -30249,8 +31004,10 @@ paths:
         In the table below, you can see the logic the API follows to calculate discounts and amounts:
 
 
-         📘 Rollbacks
-         You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).
+        <Note>
+        <Badge color blue>Rollbacks</Badge>
+        You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).
+        </Note>
       operationId: redeem-stacked-discounts-client-side
       parameters:
       - description: "Indicates the origin (scheme, hostname, and port)."
@@ -39779,7 +40536,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -40397,7 +41154,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -41016,7 +41773,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -44340,6 +45097,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -44414,6 +45173,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -44488,6 +45249,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -54003,7 +54766,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -72434,7 +73197,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -73257,7 +74020,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -73968,7 +74731,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -74046,6 +74809,7 @@ components:
           expand:
           - order
           - order
+          language: pl
         tracking_id: tracking_id
         order:
           amount: 0
@@ -74492,7 +75256,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -75110,7 +75874,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -75729,7 +76493,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -76578,7 +77342,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -77454,7 +78218,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -78114,7 +78878,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -78773,7 +79537,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -79880,7 +80644,7 @@ components:
         attributes:
           image_url: image_url
           description: description
-        stock: 6
+        stock: 1
         parameters:
           product:
             sku_id: sku_0b7d7dfb090be5c619
@@ -79890,7 +80654,7 @@ components:
             id: id
           coin:
             points_ratio: points_ratio
-            exchange_ratio: exchange_ratio
+            exchange_ratio: 6.027456183070403
       properties:
         name:
           description: Reward name.
@@ -80095,7 +80859,7 @@ components:
         attributes:
           image_url: image_url
           description: description
-        stock: 6
+        stock: 1
         parameters:
           product:
             sku_id: sku_0b7d7dfb090be5c619
@@ -80105,7 +80869,7 @@ components:
             id: id
           coin:
             points_ratio: points_ratio
-            exchange_ratio: exchange_ratio
+            exchange_ratio: 6.027456183070403
       properties:
         name:
           description: Reward name.
@@ -84138,6 +84902,7 @@ components:
           expand:
           - order
           - order
+          language: pl
         tracking_id: tracking_id
         order:
           amount: 0
@@ -88203,7 +88968,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -88914,7 +89679,7 @@ components:
                 type: type
               coin:
                 points_ratio: 7
-                exchange_ratio: 8
+                exchange_ratio: 8.969578798196912
             customer:
               metadata: "{}"
               name: name
@@ -93783,6 +94548,8 @@ components:
           - order
           - points_expiration
           - voucher_transactions
+          - product
+          - sku
           nullable: true
           type: string
         parameters:
@@ -104174,7 +104941,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -105366,7 +106133,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -105720,7 +106487,7 @@ components:
             type: type
           coin:
             points_ratio: 7
-            exchange_ratio: 8
+            exchange_ratio: 8.969578798196912
         customer:
           metadata: "{}"
           name: name
@@ -106024,7 +106791,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -120224,11 +120991,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -120320,6 +121094,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsCreateRequestBodyParametersFieldsItem
             type: string
           nullable: true
@@ -120330,7 +121110,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsCreateRequestBodyParametersFilters
           type: object
@@ -120381,11 +121162,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -120477,6 +121265,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsCreateResponseBodyParametersFieldsItem
             type: string
           nullable: true
@@ -120487,7 +121281,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsCreateResponseBodyParametersFilters
           type: object
@@ -120550,11 +121345,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -120646,6 +121448,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportsGetResponseBodyParametersFieldsItem
             type: string
           nullable: true
@@ -120656,7 +121464,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportsGetResponseBodyParametersFilters
           type: object
@@ -136734,7 +137543,7 @@ components:
               type: type
             coin:
               points_ratio: 7
-              exchange_ratio: 8
+              exchange_ratio: 8.969578798196912
           customer:
             metadata: "{}"
             name: name
@@ -136860,11 +137669,13 @@ components:
       title: RedemptionsListResponseBodyRedemptionsItem
       type: object
     RedemptionsRedeemRequestBodyOptions:
-      description: Configure parameters returned in the response.
+      description: Configure response expansion and the language of custom validation-rule
+        error messages.
       example:
         expand:
         - order
         - order
+        language: pl
       nullable: true
       properties:
         expand:
@@ -136893,6 +137704,17 @@ components:
           nullable: true
           title: RedemptionsRedeemRequestBodyOptionsExpand
           type: array
+        language:
+          description: Selects the language for the custom validation-rule error message.
+            Returns the message in this language when a validation rule fails. Falls
+            back to the Error Message Library default language when omitted or when
+            the requested language has no message. Omits the custom error when no
+            message can be resolved.
+          example: pl
+          maxLength: 100
+          nullable: true
+          pattern: "^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?$"
+          type: string
       title: RedemptionsRedeemRequestBodyOptions
       type: object
     RedemptionsRedeemRequestBodyRedeemablesItemGift:
@@ -137907,14 +138729,14 @@ components:
         to a predefined cash amount in `exchange_ratio`.
       example:
         points_ratio: points_ratio
-        exchange_ratio: exchange_ratio
+        exchange_ratio: 6.027456183070403
       nullable: true
       properties:
         exchange_ratio:
           description: The cash equivalent of the points defined in the `points_ratio`
             property.
           nullable: true
-          type: string
+          type: number
         points_ratio:
           description: The number of loyalty points that will map to the predefined
             cash amount defined by the `exchange_ratio` property.
@@ -137932,7 +138754,7 @@ components:
           id: id
         coin:
           points_ratio: points_ratio
-          exchange_ratio: exchange_ratio
+          exchange_ratio: 6.027456183070403
       nullable: true
       properties:
         campaign:
@@ -138020,14 +138842,14 @@ components:
         to a predefined cash amount in `exchange_ratio`.
       example:
         points_ratio: points_ratio
-        exchange_ratio: exchange_ratio
+        exchange_ratio: 6.027456183070403
       nullable: true
       properties:
         exchange_ratio:
           description: The cash equivalent of the points defined in the `points_ratio`
             property.
           nullable: true
-          type: string
+          type: number
         points_ratio:
           description: The number of loyalty points that will map to the predefined
             cash amount defined by the `exchange_ratio` property.
@@ -138045,7 +138867,7 @@ components:
           id: id
         coin:
           points_ratio: points_ratio
-          exchange_ratio: exchange_ratio
+          exchange_ratio: 6.027456183070403
       nullable: true
       properties:
         campaign:
@@ -139271,11 +140093,13 @@ components:
       title: ValidationRulesUpdateResponseBodyApplicableTo
       type: object
     ValidationsValidateRequestBodyOptions:
-      description: Configure parameters returned in the response.
+      description: Configure response expansion and the language of custom validation-rule
+        error messages.
       example:
         expand:
         - order
         - order
+        language: pl
       nullable: true
       properties:
         expand:
@@ -139302,6 +140126,17 @@ components:
           nullable: true
           title: ValidationsValidateRequestBodyOptionsExpand
           type: array
+        language:
+          description: Selects the language for the custom validation-rule error message.
+            Returns the message in this language when a validation rule fails. Falls
+            back to the Error Message Library default language when omitted or when
+            the requested language has no message. Omits the custom error when no
+            message can be resolved.
+          example: pl
+          maxLength: 100
+          nullable: true
+          pattern: "^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?$"
+          type: string
       title: ValidationsValidateRequestBodyOptions
       type: object
     ValidationsValidateRequestBodyRedeemablesItemGift:
@@ -142783,13 +143618,16 @@ components:
       title: EarningRuleSource
       type: object
     ErrorError:
-      description: Includes additional information about the error.
+      description: Includes the resolved custom validation-rule error message when
+        one is configured.
       example:
         message: message
       nullable: true
       properties:
         message:
-          description: The message configured by the user in a validation rule.
+          description: "Resolved custom validation-rule error message for `options.language`,\
+            \ falling back to the Error Message Library default language. Present\
+            \ only when a custom message can be resolved."
           nullable: true
           type: string
       title: ErrorError
@@ -142844,11 +143682,18 @@ components:
           - status
           - -expires_at
           - expires_at
+          - -product_id
+          - product_id
+          - -sku
+          - sku
           nullable: true
           type: string
         fields:
           description: Array of strings containing the data in the export. These fields
-            define the headers in the CSV file.
+            define the headers in the CSV file. and Array of strings containing the
+            data in the export. These fields define the headers in the CSV file. The
+            `metadata` field expands into one CSV column per metadata property. You
+            can also pass specific properties as `metadata.<property_name>`.
           items:
             enum:
             - code
@@ -142940,6 +143785,12 @@ components:
             - balance
             - related_transaction_id
             - details
+            - price
+            - image_url
+            - attributes
+            - sku
+            - product_id
+            - currency
             title: ExportParametersFieldsItem
             type: string
           nullable: true
@@ -142950,7 +143801,8 @@ components:
             "redemption." and Allowed additional properties must start with "metadata."
             and Allowed additional properties must start with "metadata." or "address."
             or "summary." or "loyalty." or "loyalty_tier." or "loyalty_points." or
-            "system_metadata."
+            "system_metadata." and Allowed additional properties must start with "metadata."
+            or "attributes."
           nullable: true
           title: ExportParametersFilters
           type: object
@@ -150313,14 +151165,14 @@ components:
         to a predefined cash amount in `exchange_ratio`.
       example:
         points_ratio: 7
-        exchange_ratio: 8
+        exchange_ratio: 8.969578798196912
       nullable: true
       properties:
         exchange_ratio:
           description: The cash equivalent of the points defined in the `points_ratio`
             property.
           nullable: true
-          type: integer
+          type: number
         points_ratio:
           description: The number of loyalty points that will map to the predefined
             cash amount defined by the `exchange_ratio` property.
@@ -150340,7 +151192,7 @@ components:
           type: type
         coin:
           points_ratio: 7
-          exchange_ratio: 8
+          exchange_ratio: 8.969578798196912
       nullable: true
       properties:
         campaign:
@@ -154333,6 +155185,7 @@ components:
       properties:
         exchange_ratio:
           description: The cash equivalent of the points defined in the points_ratio
+            property. and The cash equivalent of the points defined in the `points_ratio`
             property.
           nullable: true
           type: number

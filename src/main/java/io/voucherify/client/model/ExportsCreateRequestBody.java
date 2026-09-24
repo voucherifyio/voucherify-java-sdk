@@ -73,7 +73,11 @@ public class ExportsCreateRequestBody {
     
     POINTS_EXPIRATION("points_expiration"),
     
-    VOUCHER_TRANSACTIONS("voucher_transactions");
+    VOUCHER_TRANSACTIONS("voucher_transactions"),
+    
+    PRODUCT("product"),
+    
+    SKU("sku");
 
     private String value;
 
