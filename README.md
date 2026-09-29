@@ -240,9 +240,10 @@ Authorization schemes defined for the API.
 ## 📅 Changelog
 - **2026-08-26** - `17.0.5`
 FIXED:
-- `exchange_ratio` in COIN reward schemas typed as `Double`/`BigDecimal` (was `integer`/`string` in OpenAPI). The API returns fractional values (e.g. `0.01` for pay-with-points). Fixes deserialization errors on `list_redemptions` and related endpoints.
+- `exchange_ratio` on COIN reward models is `BigDecimal` (create/update request models were `String`, redemption result was `Integer`). `getExchangeRatio()` and `setExchangeRatio()` changed with that type, so update call sites. The API returns fractional values such as `0.01`.
 
 ADDED:
+- `language` on `RedemptionsRedeemRequestBodyOptions` and `ValidationsValidateRequestBodyOptions`.
 - `product` and `sku` as export object types (`ExportedObjectEnum`) on:
   - `ExportsCreateRequestBody`
   - `ExportsCreateResponseBody`
