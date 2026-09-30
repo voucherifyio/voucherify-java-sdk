@@ -50,7 +50,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Assign User
 
-Assigns a user to a given project. The user must be an existing user in Voucherify.  🚧 Correct Use of Data To avoid errors, use the role key with either id or login keys.
+Assigns a user to a given project. The user must be an existing user in Voucherify. &lt;Warning&gt; &lt;Badge color yellow&gt;Correct Use of Data&lt;/Badge&gt; To avoid errors, use the role key with either id or login keys. &lt;/Warning&gt;
 
 ### Example
 ```java
@@ -121,7 +121,7 @@ public class Example {
 
 Create Brand
 
-Creates a new brand configuration. You can have only one brand configured for a project.  📘 White Labelling  The white labelling settings which can be found in Project Settings &gt; Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+Creates a new brand configuration. You can have only one brand configured for a project. &lt;Note&gt; &lt;Badge color blue&gt;White Labelling&lt;/Badge&gt; The white labelling settings which can be found in Project Settings &gt; Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -192,7 +192,7 @@ public class Example {
 
 Create Custom Event Schema
 
-Creates a custom event schema. The properties object is required, but it can be empty, however. This object is for optional custom properties (metadata).  📘 Custom Event Documentation  Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+Creates a custom event schema. The properties object is required, but it can be empty, however. This object is for optional custom properties (metadata). &lt;Note&gt; &lt;Badge color blue&gt;Custom Event Documentation&lt;/Badge&gt; Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -263,7 +263,7 @@ public class Example {
 
 Create Metadata Schema
 
-Creates a new metadata (custom attribute) schema for a given resource. The schema consists of a set of key-value pairs to customize Voucherify resources.  You can nest your object within a standard metadata schema, e.g. within a campaign or customer schema. However, your nested object cant include another nested object. The standard metadata schemas are: - Campaign - Voucher - Publication - Redemption - Product - Customer - Order - Order line item - Loyalty Tier - Promotion Tier - Earning rule - Reward Use this endpoint to define a metadata schema of a given resource for the first time. Once you configure a metadata schema for a given related_object, use the PUT [Update metadata schema](/api-reference/management/update-metadata-schema) endpoint to either update or add new metadata key-value pairs. For example, use this endpoint to define a metadata schema for related_object: campaign for the first time. If you want define a new metadata property for campaign, use the [PUT Update metadata schema](/api-reference/management/update-metadata-schema) endpoint.  📘 Metadata Documentation  Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+Creates a new metadata (custom attribute) schema for a given resource. The schema consists of a set of key-value pairs to customize Voucherify resources.  You can nest your object within a standard metadata schema, e.g. within a campaign or customer schema. However, your nested object cant include another nested object. The standard metadata schemas are: - Campaign - Voucher - Publication - Redemption - Product - Customer - Order - Order line item - Loyalty Tier - Promotion Tier - Earning rule - Reward Use this endpoint to define a metadata schema of a given resource for the first time. Once you configure a metadata schema for a given related_object, use the PUT [Update metadata schema](/api-reference/management/update-metadata-schema) endpoint to either update or add new metadata key-value pairs. For example, use this endpoint to define a metadata schema for related_object: campaign for the first time. If you want define a new metadata property for campaign, use the [PUT Update metadata schema](/api-reference/management/update-metadata-schema) endpoint. &lt;Note&gt; &lt;Badge color blue&gt;Metadata Documentation&lt;/Badge&gt; Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -403,7 +403,7 @@ public class Example {
 
 Create Stacking Rules
 
-Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
+Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules. &lt;Note&gt; &lt;Badge color blue&gt;Stacking rules documentation&lt;/Badge&gt; Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -474,7 +474,7 @@ public class Example {
 
 Create Webhook
 
-Creates a new webhook configuration.  📘 Webhook Documentation  Read [Webhooks v2024-01-01](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+Creates a new webhook configuration. &lt;Note&gt; &lt;Badge color blue&gt;Webhook Documentation&lt;/Badge&gt; Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -615,7 +615,7 @@ null (empty response body)
 
 Delete Custom Event Schema
 
-Deletes permanently the custom event schema with its custom properties (metadata).  📘 Custom Event Documentation  Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+Deletes permanently the custom event schema with its custom properties (metadata). &lt;Note&gt; &lt;Badge color blue&gt;Custom Event Documentation&lt;/Badge&gt; Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -685,7 +685,7 @@ null (empty response body)
 
 Delete Metadata Schema
 
-Deletes permanently the metadata schema. In standard metadata schemas, this endpoint removes permanently all definitions. The standard metadata schemas are: - Campaign - Voucher - Publication - Redemption - Product - Customer - Order - Order line item - Loyalty Tier - Promotion Tier - Earning rule - Reward If you want to delete only one definition, use the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint. In the request, provide the deleted: true pair in the definition object. This definition will be moved to Removed definitions. If you want to create a new standard metadata schema, use the [Create Metadata Schema](/api-reference/management/create-metadata-schema) endpoint.  🚧 Metadata Purging This endpoint deletes permanently the metadata schemas only. However, it does not purge the metadata from associated entities, so the metadata added to those entities will remain. If you want to purge metadata from the entities: 1. Remove all the definitions you want to purge. You can do this either in Voucherify Project Settings &gt; Metadata Schema tab or with the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint. 2. In Voucherify Project Settings &gt; Metadata Schema tab, go to the relevant metadata schema. 3. In Removed definitions, click the bin button next to the definitions whose metadata you want to purge from entities. Note: - This is an asynchronous action. You will be notified when it has been completed. - You cannot purge metadata for the Redemption and Publication schemas. 4. Use the Delete Metadata Schema request to delete the metadata schema from Voucherify.  📘 Metadata Documentation  Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+Deletes permanently the metadata schema. In standard metadata schemas, this endpoint removes permanently all definitions. The standard metadata schemas are: - Campaign - Voucher - Publication - Redemption - Product - Customer - Order - Order line item - Loyalty Tier - Promotion Tier - Earning rule - Reward If you want to delete only one definition, use the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint. In the request, provide the deleted: true pair in the definition object. This definition will be moved to Removed definitions. If you want to create a new standard metadata schema, use the [Create Metadata Schema](/api-reference/management/create-metadata-schema) endpoint. &lt;Warning&gt; &lt;Badge color yellow&gt;Metadata Purging&lt;/Badge&gt; This endpoint deletes permanently the metadata schemas only. However, it does not purge the metadata from associated entities, so the metadata added to those entities will remain. If you want to purge metadata from the entities: 1. Remove all the definitions you want to purge. You can do this either in Voucherify Project Settings &gt; Metadata Schema tab or with the [Update Metadata Schema](/api-reference/management/update-metadata-schema) endpoint. 2. In Voucherify Project Settings &gt; Metadata Schema tab, go to the relevant metadata schema. 3. In Removed definitions, click the bin button next to the definitions whose metadata you want to purge from entities. Note: - This is an asynchronous action. You will be notified when it has been completed. - You cannot purge metadata for the Redemption and Publication schemas. 4. Use the Delete Metadata Schema request to delete the metadata schema from Voucherify. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Metadata Documentation&lt;/Badge&gt; Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -755,7 +755,7 @@ null (empty response body)
 
 Delete Project
 
-Deletes an existing project. The users currently using the deleted project will be automatically logged out.  🚧 Sandbox Project The sandbox project cannot be deleted.
+Deletes an existing project. The users currently using the deleted project will be automatically logged out. &lt;Warning&gt; &lt;Badge color yellow&gt;Sandbox Project&lt;/Badge&gt; The sandbox project cannot be deleted. &lt;/Warning&gt;
 
 ### Example
 ```java
@@ -823,7 +823,7 @@ null (empty response body)
 
 Delete Stacking Rules
 
-Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values. &lt;Note&gt; &lt;Badge color blue&gt;Stacking Rules Documentation&lt;/Badge&gt; Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -893,7 +893,7 @@ null (empty response body)
 
 Delete Webhook
 
-Deletes a webhook configuration.  📘 Webhook Documentation  Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+Deletes a webhook configuration. &lt;Note&gt; &lt;Badge color blue&gt;Webhook Documentation&lt;/Badge&gt; Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1034,7 +1034,7 @@ public class Example {
 
 Get Custom Event Schema
 
-Retrieves a custom event schema.  📘 Custom Event Documentation  Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+Retrieves a custom event schema. &lt;Note&gt; &lt;Badge color blue&gt;Custom Event Documentation&lt;/Badge&gt; Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1105,7 +1105,7 @@ public class Example {
 
 Get Metadata Schema
 
-Retrieves a metadata schema.  📘 Metadata Documentation  Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+Retrieves a metadata schema. &lt;Note&gt; &lt;Badge color blue&gt;Metadata Documentation&lt;/Badge&gt; Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1245,7 +1245,7 @@ public class Example {
 
 Get Stacking Rules
 
-Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+Retrieves the stacking rules for the project. &lt;Note&gt; &lt;Badge color blue&gt;Stacking Rules Documentation&lt;/Badge&gt; Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1387,7 +1387,7 @@ public class Example {
 
 Get Webhook
 
-Retrieves a webhook configuration.  📘 Webhook Documentation  Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+Retrieves a webhook configuration. &lt;Note&gt; &lt;Badge color blue&gt;Webhook Documentation&lt;/Badge&gt; Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1595,7 +1595,7 @@ public class Example {
 
 List Custom Event Schemas
 
-Lists all custom event schemas available in the project.  📘 Custom Event Documentation  Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+Lists all custom event schemas available in the project. &lt;Note&gt; &lt;Badge color blue&gt;Custom Event Documentation&lt;/Badge&gt; Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1664,7 +1664,7 @@ public class Example {
 
 List Metadata Schemas
 
-Lists all metadata schemas available in the project.  📘 Metadata Documentation  Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+Lists all metadata schemas available in the project. &lt;Note&gt; &lt;Badge color blue&gt;Metadata Documentation&lt;/Badge&gt; Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1798,7 +1798,7 @@ This endpoint does not need any parameter.
 
 List Stacking Rules
 
-Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints. &lt;Note&gt; &lt;Badge color blue&gt;Stacking Rules Documentation&lt;/Badge&gt; Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -1936,7 +1936,7 @@ public class Example {
 
 List Webhooks
 
-Lists all webhook configurations for the project.  📘 Webhook Documentation  Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+Lists all webhook configurations for the project. &lt;Note&gt; &lt;Badge color blue&gt;Webhook Documentation&lt;/Badge&gt; Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2005,7 +2005,7 @@ public class Example {
 
 Copy Campaign Template to a Project
 
-Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+Copies a campaign template to another project. The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project. &lt;Note&gt; &lt;Badge color blue&gt;Campaign Templates – Documentation&lt;/Badge&gt; Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2078,7 +2078,7 @@ public class Example {
 
 List Campaign Templates
 
-Lists all campaign templates available in the project.  👍 List Campaign Templates  This endpoint works in the same way as the [List Campaign Templates endpoint](/api-reference/templates/list-campaign-templates).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
+Lists all campaign templates available in the project. &lt;Tip&gt; &lt;Badge color green&gt;List Campaign Templates&lt;/Badge&gt; This endpoint works in the same way as the [List Campaign Templates endpoint](/api-reference/templates/list-campaign-templates). &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Campaign Templates – Documentation&lt;/Badge&gt; Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2227,7 +2227,7 @@ null (empty response body)
 
 Update Brand
 
-Updates a brand configuration. Only the fields sent in the request will be updated. The fields omitted in the request will remain unchanged.  📘 White Labelling  The white labelling settings which can be found in Project Settings &gt; Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface.
+Updates a brand configuration. Only the fields sent in the request will be updated. The fields omitted in the request will remain unchanged. &lt;Note&gt; &lt;Badge color blue&gt;White Labelling&lt;/Badge&gt; The white labelling settings which can be found in Project Settings &gt; Brand Details and which are available only for Enterprise clients as a separate service can be configured only in the user interface. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2300,7 +2300,7 @@ public class Example {
 
 Update Custom Event Schema
 
-Updates a custom event schema. With this request, you can: - Add a nonexistent property to a custom event schema. - Update an existing property. In the request, you can provide only those properties you want to add or update. Definitions omitted in the request remain unchanged.  👍 Additional Notes - You can change the type of an existing property, e.g. from string to number. - You can remove a custom property with this endpoint by providing deleted: true in the request. However, you cannot permanently remove an event definition or its property with this endpoint.  📘 Custom Event Documentation  Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
+Updates a custom event schema. With this request, you can: - Add a nonexistent property to a custom event schema. - Update an existing property. In the request, you can provide only those properties you want to add or update. Definitions omitted in the request remain unchanged. &lt;Tip&gt; &lt;Badge color green&gt;Additional Notes&lt;/Badge&gt; - You can change the type of an existing property, e.g. from string to number. - You can remove a custom property with this endpoint by providing deleted: true in the request. However, you cannot permanently remove an event definition or its property with this endpoint. &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Custom Event Documentation&lt;/Badge&gt; Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify. Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2373,7 +2373,7 @@ public class Example {
 
 Update Metadata Schema
 
-Updates a metadata schema. With this request, you can: - Add a nonexistent attribute definition to the metadata schema. - Update an existing attribute definition by overwriting its current values. In the request, you can provide only those definitions you want to add or update. Definitions omitted in the request remain unchanged. However, if you want to update a definition, you will have to add all its current key-value pairs as well. Only the pairs sent in the request are saved for this definition. This means that the key-value pairs that are not sent in a request are restored to default values. For example, if your definition has an array with values and it is not sent in an update request, the array values will be deleted.  👍 Additional Notes - You cannot change the type of an existing schema, e.g. from string to number. - You can remove a definition with this endpoint by providing deleted: true in the request. It will be moved to the Removed definitions section in the user interface. However, you cannot permanently remove a definition with this endpoint.  📘 Metadata Documentation  Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+Updates a metadata schema. With this request, you can: - Add a nonexistent attribute definition to the metadata schema. - Update an existing attribute definition by overwriting its current values. In the request, you can provide only those definitions you want to add or update. Definitions omitted in the request remain unchanged. However, if you want to update a definition, you will have to add all its current key-value pairs as well. Only the pairs sent in the request are saved for this definition. This means that the key-value pairs that are not sent in a request are restored to default values. For example, if your definition has an array with values and it is not sent in an update request, the array values will be deleted. &lt;Tip&gt; &lt;Badge color green&gt;Additional Notes&lt;/Badge&gt; - You cannot change the type of an existing schema, e.g. from string to number. - You can remove a definition with this endpoint by providing deleted: true in the request. It will be moved to the Removed definitions section in the user interface. However, you cannot permanently remove a definition with this endpoint. &lt;/Tip&gt; &lt;Note&gt; &lt;Badge color blue&gt;Metadata Documentation&lt;/Badge&gt; Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2517,7 +2517,7 @@ public class Example {
 
 Update Stacking Rules
 
-Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
+Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request. &lt;Note&gt; &lt;Badge color blue&gt;Stacking Rules Documentation&lt;/Badge&gt; Read [the Stacking rules article](/orchestrate/stacking-rules) to learn how they work. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -2663,7 +2663,7 @@ public class Example {
 
 Update Webhook
 
-Updates a webhook configuration. The events listed in the request are overwritten. If you want to add more events, provide also the events that are already in the webhook configuration.  📘 Webhook Documentation  Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify.
+Updates a webhook configuration. The events listed in the request are overwritten. If you want to add more events, provide also the events that are already in the webhook configuration. &lt;Note&gt; &lt;Badge color blue&gt;Webhook Documentation&lt;/Badge&gt; Read [Introduction to webhooks](/api-reference/introduction-to-webhooks) article to learn how webhooks work in Voucherify. &lt;/Note&gt;
 
 ### Example
 ```java

@@ -155,7 +155,7 @@ public class CustomersApi {
 
     /**
      * Create Customer
-     * Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+     * Creates a customer object. &lt;Note&gt; &lt;Badge color blue&gt;Upsert Mode&lt;/Badge&gt; If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields. &lt;/Note&gt;
      * @param customersCreateRequestBody Create a customer with specified parameters. (optional)
      * @return CustomersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -167,7 +167,7 @@ public class CustomersApi {
 
     /**
      * Create Customer
-     * Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+     * Creates a customer object. &lt;Note&gt; &lt;Badge color blue&gt;Upsert Mode&lt;/Badge&gt; If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields. &lt;/Note&gt;
      * @param customersCreateRequestBody Create a customer with specified parameters. (optional)
      * @return ApiResponse&lt;CustomersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -180,7 +180,7 @@ public class CustomersApi {
 
     /**
      * Create Customer (asynchronously)
-     * Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+     * Creates a customer object. &lt;Note&gt; &lt;Badge color blue&gt;Upsert Mode&lt;/Badge&gt; If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields. &lt;/Note&gt;
      * @param customersCreateRequestBody Create a customer with specified parameters. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -258,7 +258,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer Permanently
-     * The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+     * The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return CustomersPermanentDeletionCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -270,7 +270,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer Permanently
-     * The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+     * The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return ApiResponse&lt;CustomersPermanentDeletionCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -283,7 +283,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer Permanently (asynchronously)
-     * The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+     * The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
      * @param customerId A Voucherify customers id or source_id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -360,7 +360,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer
-     * This method deletes a customer.
+     * This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
      * @param customerId A Voucherify customers id or source_id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -370,7 +370,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer
-     * This method deletes a customer.
+     * This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
      * @param customerId A Voucherify customers id or source_id. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -382,7 +382,7 @@ public class CustomersApi {
 
     /**
      * Delete Customer (asynchronously)
-     * This method deletes a customer.
+     * This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
      * @param customerId A Voucherify customers id or source_id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -561,7 +561,7 @@ public class CustomersApi {
 
     /**
      * Import and Update Customers using CSV
-     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object.  📘 Standard customer fields mapping  **No spaces allowed in field names**    Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
+     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object. &lt;Note&gt; &lt;Badge color blue&gt;Standard customer fields mapping&lt;/Badge&gt; **No spaces allowed in field names** Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 &lt;/Note&gt; # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
      * @param _file File path. (optional)
      * @return CustomersImportCsvCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -573,7 +573,7 @@ public class CustomersApi {
 
     /**
      * Import and Update Customers using CSV
-     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object.  📘 Standard customer fields mapping  **No spaces allowed in field names**    Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
+     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object. &lt;Note&gt; &lt;Badge color blue&gt;Standard customer fields mapping&lt;/Badge&gt; **No spaces allowed in field names** Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 &lt;/Note&gt; # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
      * @param _file File path. (optional)
      * @return ApiResponse&lt;CustomersImportCsvCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -586,7 +586,7 @@ public class CustomersApi {
 
     /**
      * Import and Update Customers using CSV (asynchronously)
-     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object.  📘 Standard customer fields mapping  **No spaces allowed in field names**    Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
+     * This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object. &lt;Note&gt; &lt;Badge color blue&gt;Standard customer fields mapping&lt;/Badge&gt; **No spaces allowed in field names** Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 &lt;/Note&gt; # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action).
      * @param _file File path. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

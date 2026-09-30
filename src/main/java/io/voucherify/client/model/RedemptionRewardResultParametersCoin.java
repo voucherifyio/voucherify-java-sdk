@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -57,7 +58,7 @@ import io.voucherify.client.JSON;
 public class RedemptionRewardResultParametersCoin {
   public static final String SERIALIZED_NAME_EXCHANGE_RATIO = "exchange_ratio";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_RATIO)
-  private Integer exchangeRatio;
+  private BigDecimal exchangeRatio;
     private boolean exchangeRatioIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS_RATIO = "points_ratio";
@@ -68,7 +69,7 @@ public class RedemptionRewardResultParametersCoin {
   public RedemptionRewardResultParametersCoin() {
   }
 
-  public RedemptionRewardResultParametersCoin exchangeRatio(Integer exchangeRatio) {
+  public RedemptionRewardResultParametersCoin exchangeRatio(BigDecimal exchangeRatio) {
     
     this.exchangeRatio = exchangeRatio;
     this.exchangeRatioIsSet = true;
@@ -80,12 +81,12 @@ public class RedemptionRewardResultParametersCoin {
    * @return exchangeRatio
   **/
   @javax.annotation.Nullable
-  public Integer getExchangeRatio() {
+  public BigDecimal getExchangeRatio() {
     return exchangeRatio;
   }
 
 
-  public void setExchangeRatio(Integer exchangeRatio) {
+  public void setExchangeRatio(BigDecimal exchangeRatio) {
     this.exchangeRatio = exchangeRatio;
     this.exchangeRatioIsSet = true;
   }

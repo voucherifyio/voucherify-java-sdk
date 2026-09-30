@@ -147,7 +147,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call activateMemberPendingPointsCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -194,6 +196,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call activateMemberPendingPointsValidateBeforeCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -212,12 +215,14 @@ public class LoyaltiesApi {
 
     /**
      * Activate Member Pending Points
-     * Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @return LoyaltiesMembersPendingPointsActivateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersPendingPointsActivateResponseBody activateMemberPendingPoints(String memberId, String pendingPointsId) throws ApiException {
         ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> localVarResp = activateMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
         return localVarResp.getData();
@@ -225,12 +230,14 @@ public class LoyaltiesApi {
 
     /**
      * Activate Member Pending Points
-     * Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @return ApiResponse&lt;LoyaltiesMembersPendingPointsActivateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> activateMemberPendingPointsWithHttpInfo(String memberId, String pendingPointsId) throws ApiException {
         okhttp3.Call localVarCall = activateMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsActivateResponseBody>(){}.getType();
@@ -239,13 +246,15 @@ public class LoyaltiesApi {
 
     /**
      * Activate Member Pending Points (asynchronously)
-     * Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call activateMemberPendingPointsAsync(String memberId, String pendingPointsId, final ApiCallback<LoyaltiesMembersPendingPointsActivateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = activateMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, _callback);
@@ -260,7 +269,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call addMemberCall(String campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -307,6 +318,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addMemberValidateBeforeCall(String campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -320,12 +332,14 @@ public class LoyaltiesApi {
 
     /**
      * Add Member
-     * This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param loyaltiesMembersCreateRequestBody Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)
      * @return LoyaltiesMembersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersCreateResponseBody addMember(String campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersCreateResponseBody> localVarResp = addMemberWithHttpInfo(campaignId, loyaltiesMembersCreateRequestBody);
         return localVarResp.getData();
@@ -333,12 +347,14 @@ public class LoyaltiesApi {
 
     /**
      * Add Member
-     * This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param loyaltiesMembersCreateRequestBody Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersCreateResponseBody> addMemberWithHttpInfo(String campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(campaignId, loyaltiesMembersCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersCreateResponseBody>(){}.getType();
@@ -347,13 +363,15 @@ public class LoyaltiesApi {
 
     /**
      * Add Member (asynchronously)
-     * This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param loyaltiesMembersCreateRequestBody Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call addMemberAsync(String campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, final ApiCallback<LoyaltiesMembersCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(campaignId, loyaltiesMembersCreateRequestBody, _callback);
@@ -369,7 +387,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call adjustMemberPendingPointsCall(String memberId, String pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -417,6 +437,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call adjustMemberPendingPointsValidateBeforeCall(String memberId, String pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -435,13 +456,15 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Member Pending Points
-     * Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @param loyaltiesMembersPendingPointsBalanceRequestBody Define the number of pending points to be added or subtracted. (optional)
      * @return LoyaltiesMembersPendingPointsBalanceResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersPendingPointsBalanceResponseBody adjustMemberPendingPoints(String memberId, String pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> localVarResp = adjustMemberPendingPointsWithHttpInfo(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
         return localVarResp.getData();
@@ -449,13 +472,15 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Member Pending Points
-     * Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @param loyaltiesMembersPendingPointsBalanceRequestBody Define the number of pending points to be added or subtracted. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPendingPointsBalanceResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> adjustMemberPendingPointsWithHttpInfo(String memberId, String pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody) throws ApiException {
         okhttp3.Call localVarCall = adjustMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsBalanceResponseBody>(){}.getType();
@@ -464,14 +489,16 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Member Pending Points (asynchronously)
-     * Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @param loyaltiesMembersPendingPointsBalanceRequestBody Define the number of pending points to be added or subtracted. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call adjustMemberPendingPointsAsync(String memberId, String pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, final ApiCallback<LoyaltiesMembersPendingPointsBalanceResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = adjustMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody, _callback);
@@ -486,7 +513,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelMemberPendingPointsCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -532,6 +561,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call cancelMemberPendingPointsValidateBeforeCall(String memberId, String pendingPointsId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -550,23 +580,27 @@ public class LoyaltiesApi {
 
     /**
      * Cancel Member Pending Points
-     * Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public void cancelMemberPendingPoints(String memberId, String pendingPointsId) throws ApiException {
         cancelMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
     }
 
     /**
      * Cancel Member Pending Points
-     * Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> cancelMemberPendingPointsWithHttpInfo(String memberId, String pendingPointsId) throws ApiException {
         okhttp3.Call localVarCall = cancelMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, null);
         return localVarApiClient.execute(localVarCall);
@@ -574,13 +608,15 @@ public class LoyaltiesApi {
 
     /**
      * Cancel Member Pending Points (asynchronously)
-     * Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param pendingPointsId Unique pending point identifier, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelMemberPendingPointsAsync(String memberId, String pendingPointsId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cancelMemberPendingPointsValidateBeforeCall(memberId, pendingPointsId, _callback);
@@ -594,7 +630,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createEarningRuleCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -641,6 +679,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createEarningRuleValidateBeforeCall(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -654,12 +693,14 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule
-     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public List<LoyaltiesEarningRulesCreateResponseBody> createEarningRule(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem) throws ApiException {
         ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResp = createEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyItem);
         return localVarResp.getData();
@@ -667,12 +708,14 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule
-     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @return ApiResponse&lt;List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> createEarningRuleWithHttpInfo(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem) throws ApiException {
         okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, null);
         Type localVarReturnType = new TypeToken<List<LoyaltiesEarningRulesCreateResponseBody>>(){}.getType();
@@ -681,13 +724,15 @@ public class LoyaltiesApi {
 
     /**
      * Create Earning Rule (asynchronously)
-     * Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesEarningRulesCreateRequestBodyItem Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createEarningRuleAsync(String campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, final ApiCallback<List<LoyaltiesEarningRulesCreateResponseBody>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createEarningRuleValidateBeforeCall(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, _callback);
@@ -702,7 +747,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createInBulkLoyaltyTiersCall(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -749,6 +796,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createInBulkLoyaltyTiersValidateBeforeCall(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -762,12 +810,14 @@ public class LoyaltiesApi {
 
     /**
      * Create loyalty tiers
-     * Creates loyalty tiers for desired campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltiesTiersCreateInBulkRequestBodyItem Provide tier definitions you want to add to existing loyalty campaign. (optional)
      * @return List&lt;LoyaltyTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public List<LoyaltyTier> createInBulkLoyaltyTiers(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem) throws ApiException {
         ApiResponse<List<LoyaltyTier>> localVarResp = createInBulkLoyaltyTiersWithHttpInfo(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem);
         return localVarResp.getData();
@@ -775,12 +825,14 @@ public class LoyaltiesApi {
 
     /**
      * Create loyalty tiers
-     * Creates loyalty tiers for desired campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltiesTiersCreateInBulkRequestBodyItem Provide tier definitions you want to add to existing loyalty campaign. (optional)
      * @return ApiResponse&lt;List&lt;LoyaltyTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<LoyaltyTier>> createInBulkLoyaltyTiersWithHttpInfo(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem) throws ApiException {
         okhttp3.Call localVarCall = createInBulkLoyaltyTiersValidateBeforeCall(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, null);
         Type localVarReturnType = new TypeToken<List<LoyaltyTier>>(){}.getType();
@@ -789,13 +841,15 @@ public class LoyaltiesApi {
 
     /**
      * Create loyalty tiers (asynchronously)
-     * Creates loyalty tiers for desired campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltiesTiersCreateInBulkRequestBodyItem Provide tier definitions you want to add to existing loyalty campaign. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createInBulkLoyaltyTiersAsync(String campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, final ApiCallback<List<LoyaltyTier>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createInBulkLoyaltyTiersValidateBeforeCall(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, _callback);
@@ -809,7 +863,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createLoyaltyProgramCall(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -855,6 +911,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createLoyaltyProgramValidateBeforeCall(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
         return createLoyaltyProgramCall(loyaltiesCreateCampaignRequestBody, _callback);
@@ -863,11 +920,13 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign
-     * Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @return LoyaltiesCreateCampaignResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesCreateCampaignResponseBody createLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody) throws ApiException {
         ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResp = createLoyaltyProgramWithHttpInfo(loyaltiesCreateCampaignRequestBody);
         return localVarResp.getData();
@@ -875,11 +934,13 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign
-     * Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @return ApiResponse&lt;LoyaltiesCreateCampaignResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesCreateCampaignResponseBody> createLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createLoyaltyProgramValidateBeforeCall(loyaltiesCreateCampaignRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesCreateCampaignResponseBody>(){}.getType();
@@ -888,12 +949,14 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign (asynchronously)
-     * Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
      * @param loyaltiesCreateCampaignRequestBody Specify the loyalty campaign details. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, final ApiCallback<LoyaltiesCreateCampaignResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createLoyaltyProgramValidateBeforeCall(loyaltiesCreateCampaignRequestBody, _callback);
@@ -908,7 +971,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createPointsExpirationExportCall(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -955,6 +1020,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPointsExpirationExportValidateBeforeCall(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -968,12 +1034,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Point Expiration
-     * Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
      * @return LoyaltiesPointsExpirationExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesPointsExpirationExportCreateResponseBody createPointsExpirationExport(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResp = createPointsExpirationExportWithHttpInfo(campaignId, loyaltiesPointsExpirationExportCreateRequestBody);
         return localVarResp.getData();
@@ -981,12 +1049,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Point Expiration
-     * Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
      * @return ApiResponse&lt;LoyaltiesPointsExpirationExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> createPointsExpirationExportWithHttpInfo(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createPointsExpirationExportValidateBeforeCall(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesPointsExpirationExportCreateResponseBody>(){}.getType();
@@ -995,13 +1065,15 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Point Expiration (asynchronously)
-     * Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltiesPointsExpirationExportCreateRequestBody Specify the data filters, types of data to return and order in which the results should be returned. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createPointsExpirationExportAsync(String campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, final ApiCallback<LoyaltiesPointsExpirationExportCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createPointsExpirationExportValidateBeforeCall(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, _callback);
@@ -1016,7 +1088,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createRewardAssignment1Call(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1063,6 +1137,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createRewardAssignment1ValidateBeforeCall(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1076,12 +1151,14 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign Reward Assignment
-     * Add rewards to a loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
      * @return LoyaltiesRewardsCreateAssignmentResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardsCreateAssignmentResponseBody createRewardAssignment1(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody) throws ApiException {
         ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResp = createRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
         return localVarResp.getData();
@@ -1089,12 +1166,14 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign Reward Assignment
-     * Add rewards to a loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
      * @return ApiResponse&lt;LoyaltiesRewardsCreateAssignmentResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> createRewardAssignment1WithHttpInfo(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardsCreateAssignmentResponseBody>(){}.getType();
@@ -1103,13 +1182,15 @@ public class LoyaltiesApi {
 
     /**
      * Create Loyalty Campaign Reward Assignment (asynchronously)
-     * Add rewards to a loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createRewardAssignment1Async(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback<LoyaltiesRewardsCreateAssignmentResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, _callback);
@@ -1124,7 +1205,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1170,6 +1253,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1188,23 +1272,27 @@ public class LoyaltiesApi {
 
     /**
      * Delete Earning Rule
-     * This method deletes an earning rule for a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public void deleteEarningRule(String campaignId, String earningRuleId) throws ApiException {
         deleteEarningRuleWithHttpInfo(campaignId, earningRuleId);
     }
 
     /**
      * Delete Earning Rule
-     * This method deletes an earning rule for a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> deleteEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = deleteEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
         return localVarApiClient.execute(localVarCall);
@@ -1212,13 +1300,15 @@ public class LoyaltiesApi {
 
     /**
      * Delete Earning Rule (asynchronously)
-     * This method deletes an earning rule for a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteEarningRuleValidateBeforeCall(campaignId, earningRuleId, _callback);
@@ -1232,7 +1322,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteLoyaltyProgramCall(String campaignId, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1282,6 +1374,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteLoyaltyProgramValidateBeforeCall(String campaignId, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1295,12 +1388,14 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return LoyaltiesDeleteResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesDeleteResponseBody deleteLoyaltyProgram(String campaignId, Boolean force) throws ApiException {
         ApiResponse<LoyaltiesDeleteResponseBody> localVarResp = deleteLoyaltyProgramWithHttpInfo(campaignId, force);
         return localVarResp.getData();
@@ -1308,12 +1403,14 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @return ApiResponse&lt;LoyaltiesDeleteResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesDeleteResponseBody> deleteLoyaltyProgramWithHttpInfo(String campaignId, Boolean force) throws ApiException {
         okhttp3.Call localVarCall = deleteLoyaltyProgramValidateBeforeCall(campaignId, force, null);
         Type localVarReturnType = new TypeToken<LoyaltiesDeleteResponseBody>(){}.getType();
@@ -1322,13 +1419,15 @@ public class LoyaltiesApi {
 
     /**
      * Delete Loyalty Campaign (asynchronously)
-     * Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteLoyaltyProgramAsync(String campaignId, Boolean force, final ApiCallback<LoyaltiesDeleteResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteLoyaltyProgramValidateBeforeCall(campaignId, force, _callback);
@@ -1343,7 +1442,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteRewardAssignment1Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1389,6 +1490,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteRewardAssignment1ValidateBeforeCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1407,23 +1509,27 @@ public class LoyaltiesApi {
 
     /**
      * Delete Campaign Reward Assignment
-     * This method deletes a reward assignment for a particular loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public void deleteRewardAssignment1(String campaignId, String assignmentId) throws ApiException {
         deleteRewardAssignment1WithHttpInfo(campaignId, assignmentId);
     }
 
     /**
      * Delete Campaign Reward Assignment
-     * This method deletes a reward assignment for a particular loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Void> deleteRewardAssignment1WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = deleteRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, null);
         return localVarApiClient.execute(localVarCall);
@@ -1431,13 +1537,15 @@ public class LoyaltiesApi {
 
     /**
      * Delete Campaign Reward Assignment (asynchronously)
-     * This method deletes a reward assignment for a particular loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteRewardAssignment1Async(String campaignId, String assignmentId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, _callback);
@@ -1451,7 +1559,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call disableEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1498,6 +1608,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disableEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1516,12 +1627,14 @@ public class LoyaltiesApi {
 
     /**
      * Disable Earning Rule
-     * Disable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return LoyaltiesEarningRulesDisableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesEarningRulesDisableResponseBody disableEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesDisableResponseBody> localVarResp = disableEarningRuleWithHttpInfo(campaignId, earningRuleId);
         return localVarResp.getData();
@@ -1529,12 +1642,14 @@ public class LoyaltiesApi {
 
     /**
      * Disable Earning Rule
-     * Disable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesDisableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesEarningRulesDisableResponseBody> disableEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = disableEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesDisableResponseBody>(){}.getType();
@@ -1543,13 +1658,15 @@ public class LoyaltiesApi {
 
     /**
      * Disable Earning Rule (asynchronously)
-     * Disable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call disableEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesDisableResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = disableEarningRuleValidateBeforeCall(campaignId, earningRuleId, _callback);
@@ -1564,7 +1681,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call enableEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1611,6 +1730,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call enableEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1629,12 +1749,14 @@ public class LoyaltiesApi {
 
     /**
      * Enable Earning Rule
-     * Enable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return LoyaltiesEarningRulesEnableResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesEarningRulesEnableResponseBody enableEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesEnableResponseBody> localVarResp = enableEarningRuleWithHttpInfo(campaignId, earningRuleId);
         return localVarResp.getData();
@@ -1642,12 +1764,14 @@ public class LoyaltiesApi {
 
     /**
      * Enable Earning Rule
-     * Enable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesEnableResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesEarningRulesEnableResponseBody> enableEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = enableEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesEnableResponseBody>(){}.getType();
@@ -1656,13 +1780,15 @@ public class LoyaltiesApi {
 
     /**
      * Enable Earning Rule (asynchronously)
-     * Enable an earning rule.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
      * @param campaignId Unique campaign ID or name. (required)
      * @param earningRuleId Unique identifier of an earning rule, assigned by Voucherify. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call enableEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesEnableResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = enableEarningRuleValidateBeforeCall(campaignId, earningRuleId, _callback);
@@ -1677,7 +1803,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCampaignTransactionsCall(String campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1724,6 +1852,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportLoyaltyCampaignTransactionsValidateBeforeCall(String campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1737,12 +1866,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Transactions
-     * Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param loyaltiesTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return CampaignsTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public CampaignsTransactionsExportCreateResponseBody exportLoyaltyCampaignTransactions(String campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResp = exportLoyaltyCampaignTransactionsWithHttpInfo(campaignId, loyaltiesTransactionsExportCreateRequestBody);
         return localVarResp.getData();
@@ -1750,12 +1881,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Transactions
-     * Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param loyaltiesTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return ApiResponse&lt;CampaignsTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CampaignsTransactionsExportCreateResponseBody> exportLoyaltyCampaignTransactionsWithHttpInfo(String campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCampaignTransactionsValidateBeforeCall(campaignId, loyaltiesTransactionsExportCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<CampaignsTransactionsExportCreateResponseBody>(){}.getType();
@@ -1764,13 +1897,15 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Campaign Transactions (asynchronously)
-     * Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param loyaltiesTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCampaignTransactionsAsync(String campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, final ApiCallback<CampaignsTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCampaignTransactionsValidateBeforeCall(campaignId, loyaltiesTransactionsExportCreateRequestBody, _callback);
@@ -1785,7 +1920,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCardTransactionsCall(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1832,6 +1969,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportLoyaltyCardTransactionsValidateBeforeCall(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -1845,12 +1983,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return LoyaltiesMembersTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTransactionsExportCreateResponseBody exportLoyaltyCardTransactions(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResp = exportLoyaltyCardTransactionsWithHttpInfo(memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
         return localVarResp.getData();
@@ -1858,12 +1998,14 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> exportLoyaltyCardTransactionsWithHttpInfo(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardTransactionsValidateBeforeCall(memberId, loyaltiesMembersTransactionsExportCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsExportCreateResponseBody>(){}.getType();
@@ -1872,13 +2014,15 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions (asynchronously)
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCardTransactionsAsync(String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback<LoyaltiesMembersTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCardTransactionsValidateBeforeCall(memberId, loyaltiesMembersTransactionsExportCreateRequestBody, _callback);
@@ -1894,7 +2038,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCardTransactions1Call(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1942,6 +2088,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -1960,13 +2107,15 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions with campaign ID
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return LoyaltiesMembersTransactionsExportCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTransactionsExportCreateResponseBody exportLoyaltyCardTransactions1(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResp = exportLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
         return localVarResp.getData();
@@ -1974,13 +2123,15 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions with campaign ID
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsExportCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> exportLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = exportLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsExportCreateResponseBody>(){}.getType();
@@ -1989,14 +2140,16 @@ public class LoyaltiesApi {
 
     /**
      * Export Loyalty Card Transactions with campaign ID (asynchronously)
-     * Export transactions that are associated with point movements on a loyalty card.   
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to export transaction data for. (required)
      * @param loyaltiesMembersTransactionsExportCreateRequestBody Specify the parameters and filters for the transaction export. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call exportLoyaltyCardTransactions1Async(String campaignId, String memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, final ApiCallback<LoyaltiesMembersTransactionsExportCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = exportLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody, _callback);
@@ -2011,7 +2164,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getEarningRuleCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2058,6 +2213,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2076,12 +2232,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Earning Rule
-     * Retrieves an earning rule assigned to a campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return LoyaltiesEarningRulesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesEarningRulesGetResponseBody getEarningRule(String campaignId, String earningRuleId) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesGetResponseBody> localVarResp = getEarningRuleWithHttpInfo(campaignId, earningRuleId);
         return localVarResp.getData();
@@ -2089,12 +2247,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Earning Rule
-     * Retrieves an earning rule assigned to a campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @return ApiResponse&lt;LoyaltiesEarningRulesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesEarningRulesGetResponseBody> getEarningRuleWithHttpInfo(String campaignId, String earningRuleId) throws ApiException {
         okhttp3.Call localVarCall = getEarningRuleValidateBeforeCall(campaignId, earningRuleId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesGetResponseBody>(){}.getType();
@@ -2103,13 +2263,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Earning Rule (asynchronously)
-     * Retrieves an earning rule assigned to a campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getEarningRuleAsync(String campaignId, String earningRuleId, final ApiCallback<LoyaltiesEarningRulesGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEarningRuleValidateBeforeCall(campaignId, earningRuleId, _callback);
@@ -2123,7 +2285,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getLoyaltyProgramCall(String campaignId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2169,6 +2333,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getLoyaltyProgramValidateBeforeCall(String campaignId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2182,11 +2347,13 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Campaign
-     * Retrieve a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @return LoyaltiesGetCampaignResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesGetCampaignResponseBody getLoyaltyProgram(String campaignId) throws ApiException {
         ApiResponse<LoyaltiesGetCampaignResponseBody> localVarResp = getLoyaltyProgramWithHttpInfo(campaignId);
         return localVarResp.getData();
@@ -2194,11 +2361,13 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Campaign
-     * Retrieve a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @return ApiResponse&lt;LoyaltiesGetCampaignResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesGetCampaignResponseBody> getLoyaltyProgramWithHttpInfo(String campaignId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyProgramValidateBeforeCall(campaignId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesGetCampaignResponseBody>(){}.getType();
@@ -2207,12 +2376,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Campaign (asynchronously)
-     * Retrieve a specific loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getLoyaltyProgramAsync(String campaignId, final ApiCallback<LoyaltiesGetCampaignResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyProgramValidateBeforeCall(campaignId, _callback);
@@ -2227,7 +2398,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getLoyaltyTierCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2274,6 +2447,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getLoyaltyTierValidateBeforeCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2292,12 +2466,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Tier
-     * Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return LoyaltiesTiersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesTiersGetResponseBody getLoyaltyTier(String campaignId, String loyaltyTierId) throws ApiException {
         ApiResponse<LoyaltiesTiersGetResponseBody> localVarResp = getLoyaltyTierWithHttpInfo(campaignId, loyaltyTierId);
         return localVarResp.getData();
@@ -2305,12 +2481,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Tier
-     * Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return ApiResponse&lt;LoyaltiesTiersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesTiersGetResponseBody> getLoyaltyTierWithHttpInfo(String campaignId, String loyaltyTierId) throws ApiException {
         okhttp3.Call localVarCall = getLoyaltyTierValidateBeforeCall(campaignId, loyaltyTierId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesTiersGetResponseBody>(){}.getType();
@@ -2319,13 +2497,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Loyalty Tier (asynchronously)
-     * Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getLoyaltyTierAsync(String campaignId, String loyaltyTierId, final ApiCallback<LoyaltiesTiersGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLoyaltyTierValidateBeforeCall(campaignId, loyaltyTierId, _callback);
@@ -2339,7 +2519,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getMemberCall(String memberId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2385,6 +2567,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMemberValidateBeforeCall(String memberId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -2398,11 +2581,13 @@ public class LoyaltiesApi {
 
     /**
      * Get Member
-     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @return LoyaltiesMembersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersGetResponseBody getMember(String memberId) throws ApiException {
         ApiResponse<LoyaltiesMembersGetResponseBody> localVarResp = getMemberWithHttpInfo(memberId);
         return localVarResp.getData();
@@ -2410,11 +2595,13 @@ public class LoyaltiesApi {
 
     /**
      * Get Member
-     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @return ApiResponse&lt;LoyaltiesMembersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersGetResponseBody> getMemberWithHttpInfo(String memberId) throws ApiException {
         okhttp3.Call localVarCall = getMemberValidateBeforeCall(memberId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
@@ -2423,12 +2610,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Member (asynchronously)
-     * Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getMemberAsync(String memberId, final ApiCallback<LoyaltiesMembersGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMemberValidateBeforeCall(memberId, _callback);
@@ -2443,7 +2632,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getMember1Call(String campaignId, String memberId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2490,6 +2681,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMember1ValidateBeforeCall(String campaignId, String memberId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2508,12 +2700,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Member with campaign ID
-     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique code that identifies the loyalty card. (required)
      * @return LoyaltiesMembersGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersGetResponseBody getMember1(String campaignId, String memberId) throws ApiException {
         ApiResponse<LoyaltiesMembersGetResponseBody> localVarResp = getMember1WithHttpInfo(campaignId, memberId);
         return localVarResp.getData();
@@ -2521,12 +2715,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Member with campaign ID
-     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique code that identifies the loyalty card. (required)
      * @return ApiResponse&lt;LoyaltiesMembersGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersGetResponseBody> getMember1WithHttpInfo(String campaignId, String memberId) throws ApiException {
         okhttp3.Call localVarCall = getMember1ValidateBeforeCall(campaignId, memberId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersGetResponseBody>(){}.getType();
@@ -2535,13 +2731,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Member with campaign ID (asynchronously)
-     * Retrieves the loyalty card with the given member ID (i.e. voucher code).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique code that identifies the loyalty card. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getMember1Async(String campaignId, String memberId, final ApiCallback<LoyaltiesMembersGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMember1ValidateBeforeCall(campaignId, memberId, _callback);
@@ -2556,7 +2754,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardAssignment1Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2603,6 +2803,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRewardAssignment1ValidateBeforeCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2621,12 +2822,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignments
-     * Retrieve specific reward assignment.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardAssignmentsGetResponseBody getRewardAssignment1(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> localVarResp = getRewardAssignment1WithHttpInfo(campaignId, assignmentId);
         return localVarResp.getData();
@@ -2634,12 +2837,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignments
-     * Retrieve specific reward assignment.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> getRewardAssignment1WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsGetResponseBody>(){}.getType();
@@ -2648,13 +2853,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignments (asynchronously)
-     * Retrieve specific reward assignment.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardAssignment1Async(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, _callback);
@@ -2669,7 +2876,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardAssignment2Call(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2716,6 +2925,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRewardAssignment2ValidateBeforeCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2734,12 +2944,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignment
-     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return LoyaltiesRewardsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardsGetResponseBody getRewardAssignment2(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardsGetResponseBody> localVarResp = getRewardAssignment2WithHttpInfo(campaignId, assignmentId);
         return localVarResp.getData();
@@ -2747,12 +2959,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignment
-     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardsGetResponseBody> getRewardAssignment2WithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardAssignment2ValidateBeforeCall(campaignId, assignmentId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardsGetResponseBody>(){}.getType();
@@ -2761,13 +2975,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Campaign Reward Assignment (asynchronously)
-     * Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardAssignment2Async(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardsGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRewardAssignment2ValidateBeforeCall(campaignId, assignmentId, _callback);
@@ -2782,7 +2998,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardDetailsCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2829,6 +3047,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRewardDetailsValidateBeforeCall(String campaignId, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2847,12 +3066,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Details
-     * Get reward details in the context of a loyalty campaign and reward assignment ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return LoyaltiesRewardAssignmentsRewardGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardAssignmentsRewardGetResponseBody getRewardDetails(String campaignId, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> localVarResp = getRewardDetailsWithHttpInfo(campaignId, assignmentId);
         return localVarResp.getData();
@@ -2860,12 +3081,14 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Details
-     * Get reward details in the context of a loyalty campaign and reward assignment ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsRewardGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> getRewardDetailsWithHttpInfo(String campaignId, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = getRewardDetailsValidateBeforeCall(campaignId, assignmentId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsRewardGetResponseBody>(){}.getType();
@@ -2874,13 +3097,15 @@ public class LoyaltiesApi {
 
     /**
      * Get Reward Details (asynchronously)
-     * Get reward details in the context of a loyalty campaign and reward assignment ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId Unique reward assignment ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRewardDetailsAsync(String campaignId, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsRewardGetResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRewardDetailsValidateBeforeCall(campaignId, assignmentId, _callback);
@@ -2897,7 +3122,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCampaignPendingPointsCall(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2955,6 +3182,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCampaignPendingPointsValidateBeforeCall(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -2968,14 +3196,16 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Pending Points
-     * Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return LoyaltiesPendingPointsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesPendingPointsListResponseBody listCampaignPendingPoints(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesPendingPointsListResponseBody> localVarResp = listCampaignPendingPointsWithHttpInfo(campaignId, limit, order, startingAfterId);
         return localVarResp.getData();
@@ -2983,14 +3213,16 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Pending Points
-     * Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesPendingPointsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesPendingPointsListResponseBody> listCampaignPendingPointsWithHttpInfo(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listCampaignPendingPointsValidateBeforeCall(campaignId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesPendingPointsListResponseBody>(){}.getType();
@@ -2999,7 +3231,7 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Pending Points (asynchronously)
-     * Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3007,7 +3239,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCampaignPendingPointsAsync(String campaignId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesPendingPointsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCampaignPendingPointsValidateBeforeCall(campaignId, limit, order, startingAfterId, _callback);
@@ -3024,7 +3258,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listEarningRulesCall(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3082,6 +3318,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listEarningRulesValidateBeforeCall(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3095,14 +3332,16 @@ public class LoyaltiesApi {
 
     /**
      * List Earning Rules
-     * Returns a list of all earning rules within a given campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return LoyaltiesEarningRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesEarningRulesListResponseBody listEarningRules(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesListResponseBody> localVarResp = listEarningRulesWithHttpInfo(campaignId, limit, page, order);
         return localVarResp.getData();
@@ -3110,14 +3349,16 @@ public class LoyaltiesApi {
 
     /**
      * List Earning Rules
-     * Returns a list of all earning rules within a given campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;LoyaltiesEarningRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesEarningRulesListResponseBody> listEarningRulesWithHttpInfo(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order) throws ApiException {
         okhttp3.Call localVarCall = listEarningRulesValidateBeforeCall(campaignId, limit, page, order, null);
         Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesListResponseBody>(){}.getType();
@@ -3126,7 +3367,7 @@ public class LoyaltiesApi {
 
     /**
      * List Earning Rules (asynchronously)
-     * Returns a list of all earning rules within a given campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -3134,7 +3375,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listEarningRulesAsync(String campaignId, Integer limit, Integer page, ParameterOrderListEarningRules order, final ApiCallback<LoyaltiesEarningRulesListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listEarningRulesValidateBeforeCall(campaignId, limit, page, order, _callback);
@@ -3152,7 +3395,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCampaignTransactionsCall(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3214,6 +3459,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyCampaignTransactionsValidateBeforeCall(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3227,7 +3473,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaign Transactions
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3235,7 +3481,9 @@ public class LoyaltiesApi {
      * @param filters Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)
      * @return LoyaltiesTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesTransactionsListResponseBody listLoyaltyCampaignTransactions(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters) throws ApiException {
         ApiResponse<LoyaltiesTransactionsListResponseBody> localVarResp = listLoyaltyCampaignTransactionsWithHttpInfo(campaignId, limit, order, startingAfterId, filters);
         return localVarResp.getData();
@@ -3243,7 +3491,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaign Transactions
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3251,7 +3499,9 @@ public class LoyaltiesApi {
      * @param filters Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)
      * @return ApiResponse&lt;LoyaltiesTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesTransactionsListResponseBody> listLoyaltyCampaignTransactionsWithHttpInfo(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyCampaignTransactionsValidateBeforeCall(campaignId, limit, order, startingAfterId, filters, null);
         Type localVarReturnType = new TypeToken<LoyaltiesTransactionsListResponseBody>(){}.getType();
@@ -3260,7 +3510,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaign Transactions (asynchronously)
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3269,7 +3519,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCampaignTransactionsAsync(String campaignId, Integer limit, ParameterOrderListTransactions order, String startingAfterId, ParametersFiltersListCampaignTransactions filters, final ApiCallback<LoyaltiesTransactionsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyCampaignTransactionsValidateBeforeCall(campaignId, limit, order, startingAfterId, filters, _callback);
@@ -3287,7 +3539,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCardTransactionsCall(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3349,6 +3603,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyCardTransactionsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -3362,7 +3617,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3370,7 +3625,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactionsWithHttpInfo(memberId, limit, order, filters, startingAfterId);
         return localVarResp.getData();
@@ -3378,7 +3635,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3386,7 +3643,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactionsWithHttpInfo(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, filters, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
@@ -3395,7 +3654,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions (asynchronously)
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -3404,7 +3663,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCardTransactionsAsync(String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyCardTransactionsValidateBeforeCall(memberId, limit, order, filters, startingAfterId, _callback);
@@ -3423,7 +3684,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCardTransactions1Call(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3486,6 +3749,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyCardTransactions1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3504,7 +3768,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions with campaign ID
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -3513,7 +3777,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return LoyaltiesMembersTransactionsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTransactionsListResponseBody listLoyaltyCardTransactions1(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResp = listLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, filters, startingAfterId);
         return localVarResp.getData();
@@ -3521,7 +3787,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions with campaign ID
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -3530,7 +3796,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransactionsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTransactionsListResponseBody> listLoyaltyCardTransactions1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, filters, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransactionsListResponseBody>(){}.getType();
@@ -3539,7 +3807,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Transactions with campaign ID (asynchronously)
-     * Retrieve transaction data related to point movements for a specific loyalty card.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param memberId A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -3549,7 +3817,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyCardTransactions1Async(String campaignId, String memberId, Integer limit, ParameterOrderListTransactions order, ParameterFiltersListMemberTransactions filters, String startingAfterId, final ApiCallback<LoyaltiesMembersTransactionsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyCardTransactions1ValidateBeforeCall(campaignId, memberId, limit, order, filters, startingAfterId, _callback);
@@ -3566,7 +3836,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyProgramsCall(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3627,6 +3899,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyProgramsValidateBeforeCall(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback _callback) throws ApiException {
         return listLoyaltyProgramsCall(limit, page, expand, order, _callback);
@@ -3635,14 +3908,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaigns
-     * Returns a list of your loyalty campaigns.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return LoyaltiesListCampaignsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesListCampaignsResponseBody listLoyaltyPrograms(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
         ApiResponse<LoyaltiesListCampaignsResponseBody> localVarResp = listLoyaltyProgramsWithHttpInfo(limit, page, expand, order);
         return localVarResp.getData();
@@ -3650,14 +3925,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaigns
-     * Returns a list of your loyalty campaigns.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;LoyaltiesListCampaignsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesListCampaignsResponseBody> listLoyaltyProgramsWithHttpInfo(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, expand, order, null);
         Type localVarReturnType = new TypeToken<LoyaltiesListCampaignsResponseBody>(){}.getType();
@@ -3666,7 +3943,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Campaigns (asynchronously)
-     * Returns a list of your loyalty campaigns.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param expand Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)
@@ -3674,7 +3951,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyProgramsAsync(Integer limit, Integer page, ParameterExpandListCampaigns expand, ParameterOrderListCampaigns order, final ApiCallback<LoyaltiesListCampaignsResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyProgramsValidateBeforeCall(limit, page, expand, order, _callback);
@@ -3691,7 +3970,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTierEarningRulesCall(String campaignId, String loyaltyTierId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3746,6 +4027,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyTierEarningRulesValidateBeforeCall(String campaignId, String loyaltyTierId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3764,14 +4046,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Earning Rules
-     * Retrieve available earning rules for a given tier and the calculation method for earning points.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesTiersEarningRulesListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesTiersEarningRulesListResponseBody listLoyaltyTierEarningRules(String campaignId, String loyaltyTierId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> localVarResp = listLoyaltyTierEarningRulesWithHttpInfo(campaignId, loyaltyTierId, limit, page);
         return localVarResp.getData();
@@ -3779,14 +4063,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Earning Rules
-     * Retrieve available earning rules for a given tier and the calculation method for earning points.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesTiersEarningRulesListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> listLoyaltyTierEarningRulesWithHttpInfo(String campaignId, String loyaltyTierId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTierEarningRulesValidateBeforeCall(campaignId, loyaltyTierId, limit, page, null);
         Type localVarReturnType = new TypeToken<LoyaltiesTiersEarningRulesListResponseBody>(){}.getType();
@@ -3795,7 +4081,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Earning Rules (asynchronously)
-     * Retrieve available earning rules for a given tier and the calculation method for earning points.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -3803,7 +4089,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTierEarningRulesAsync(String campaignId, String loyaltyTierId, Integer limit, Integer page, final ApiCallback<LoyaltiesTiersEarningRulesListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyTierEarningRulesValidateBeforeCall(campaignId, loyaltyTierId, limit, page, _callback);
@@ -3818,7 +4106,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTierRewardsCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3865,6 +4155,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyTierRewardsValidateBeforeCall(String campaignId, String loyaltyTierId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3883,12 +4174,14 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Rewards
-     * Get available rewards for a given tier.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return LoyaltiesTiersRewardsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesTiersRewardsListResponseBody listLoyaltyTierRewards(String campaignId, String loyaltyTierId) throws ApiException {
         ApiResponse<LoyaltiesTiersRewardsListResponseBody> localVarResp = listLoyaltyTierRewardsWithHttpInfo(campaignId, loyaltyTierId);
         return localVarResp.getData();
@@ -3896,12 +4189,14 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Rewards
-     * Get available rewards for a given tier.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @return ApiResponse&lt;LoyaltiesTiersRewardsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesTiersRewardsListResponseBody> listLoyaltyTierRewardsWithHttpInfo(String campaignId, String loyaltyTierId) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTierRewardsValidateBeforeCall(campaignId, loyaltyTierId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesTiersRewardsListResponseBody>(){}.getType();
@@ -3910,13 +4205,15 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tier Rewards (asynchronously)
-     * Get available rewards for a given tier.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
      * @param campaignId Unique campaign ID or name. (required)
      * @param loyaltyTierId Unique loyalty tier ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTierRewardsAsync(String campaignId, String loyaltyTierId, final ApiCallback<LoyaltiesTiersRewardsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyTierRewardsValidateBeforeCall(campaignId, loyaltyTierId, _callback);
@@ -3932,7 +4229,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTiersCall(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3986,6 +4285,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLoyaltyTiersValidateBeforeCall(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -3999,13 +4299,15 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tiers
-     * Retrieve a list of loyalty tiers which were added to the loyalty program.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return LoyaltiesTiersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesTiersListResponseBody listLoyaltyTiers(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order) throws ApiException {
         ApiResponse<LoyaltiesTiersListResponseBody> localVarResp = listLoyaltyTiersWithHttpInfo(campaignId, limit, order);
         return localVarResp.getData();
@@ -4013,13 +4315,15 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tiers
-     * Retrieve a list of loyalty tiers which were added to the loyalty program.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @return ApiResponse&lt;LoyaltiesTiersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesTiersListResponseBody> listLoyaltyTiersWithHttpInfo(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order) throws ApiException {
         okhttp3.Call localVarCall = listLoyaltyTiersValidateBeforeCall(campaignId, limit, order, null);
         Type localVarReturnType = new TypeToken<LoyaltiesTiersListResponseBody>(){}.getType();
@@ -4028,14 +4332,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Tiers (asynchronously)
-     * Retrieve a list of loyalty tiers which were added to the loyalty program.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
      * @param campaignId Unique loyalty campaign ID or name. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listLoyaltyTiersAsync(String campaignId, Integer limit, ParameterOrderListLoyaltyTiers order, final ApiCallback<LoyaltiesTiersListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLoyaltyTiersValidateBeforeCall(campaignId, limit, order, _callback);
@@ -4052,7 +4358,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberActivityCall(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4110,6 +4418,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberActivityValidateBeforeCall(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -4123,14 +4432,16 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
      * @return LoyaltiesMemberActivityListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMemberActivityListResponseBody listMemberActivity(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResp = listMemberActivityWithHttpInfo(memberId, limit, order, startingAfterId);
         return localVarResp.getData();
@@ -4138,14 +4449,16 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMemberActivityListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMemberActivityListResponseBody> listMemberActivityWithHttpInfo(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listMemberActivityValidateBeforeCall(memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
@@ -4154,7 +4467,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity (asynchronously)
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -4162,7 +4475,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberActivityAsync(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback<LoyaltiesMemberActivityListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberActivityValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
@@ -4180,7 +4495,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberActivity1Call(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4239,6 +4556,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberActivity1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -4257,7 +4575,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity with campaign ID
-     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -4265,7 +4583,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
      * @return LoyaltiesMemberActivityListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMemberActivityListResponseBody listMemberActivity1(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResp = listMemberActivity1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
         return localVarResp.getData();
@@ -4273,7 +4593,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity with campaign ID
-     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -4281,7 +4601,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMemberActivityListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMemberActivityListResponseBody> listMemberActivity1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listMemberActivity1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
@@ -4290,7 +4612,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Activity with campaign ID (asynchronously)
-     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -4299,7 +4621,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberActivity1Async(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback<LoyaltiesMemberActivityListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberActivity1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
@@ -4313,7 +4637,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberLoyaltyTierCall(String memberId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4359,6 +4685,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberLoyaltyTierValidateBeforeCall(String memberId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -4372,11 +4699,13 @@ public class LoyaltiesApi {
 
     /**
      * List Member&#39;s Loyalty Tiers
-     * Retrieve member tiers using the loyalty card ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @return LoyaltiesMembersTiersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTiersListResponseBody listMemberLoyaltyTier(String memberId) throws ApiException {
         ApiResponse<LoyaltiesMembersTiersListResponseBody> localVarResp = listMemberLoyaltyTierWithHttpInfo(memberId);
         return localVarResp.getData();
@@ -4384,11 +4713,13 @@ public class LoyaltiesApi {
 
     /**
      * List Member&#39;s Loyalty Tiers
-     * Retrieve member tiers using the loyalty card ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @return ApiResponse&lt;LoyaltiesMembersTiersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTiersListResponseBody> listMemberLoyaltyTierWithHttpInfo(String memberId) throws ApiException {
         okhttp3.Call localVarCall = listMemberLoyaltyTierValidateBeforeCall(memberId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTiersListResponseBody>(){}.getType();
@@ -4397,12 +4728,14 @@ public class LoyaltiesApi {
 
     /**
      * List Member&#39;s Loyalty Tiers (asynchronously)
-     * Retrieve member tiers using the loyalty card ID.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberLoyaltyTierAsync(String memberId, final ApiCallback<LoyaltiesMembersTiersListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberLoyaltyTierValidateBeforeCall(memberId, _callback);
@@ -4419,7 +4752,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberPendingPointsCall(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4477,6 +4812,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberPendingPointsValidateBeforeCall(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -4490,14 +4826,16 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return LoyaltiesMembersPendingPointsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersPendingPointsListResponseBody listMemberPendingPoints(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResp = listMemberPendingPointsWithHttpInfo(memberId, limit, order, startingAfterId);
         return localVarResp.getData();
@@ -4505,14 +4843,16 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPendingPointsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> listMemberPendingPointsWithHttpInfo(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listMemberPendingPointsValidateBeforeCall(memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
@@ -4521,7 +4861,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points (asynchronously)
-     *   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
      * @param order Orders the pending point entries according the pending point entry ID. The dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -4529,7 +4869,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberPendingPointsAsync(String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesMembersPendingPointsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberPendingPointsValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
@@ -4547,7 +4889,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberPendingPoints1Call(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4606,6 +4950,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberPendingPoints1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -4624,7 +4969,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points with campaign ID
-     * Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
@@ -4632,7 +4977,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return LoyaltiesMembersPendingPointsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersPendingPointsListResponseBody listMemberPendingPoints1(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResp = listMemberPendingPoints1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
         return localVarResp.getData();
@@ -4640,7 +4987,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points with campaign ID
-     * Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
@@ -4648,7 +4995,9 @@ public class LoyaltiesApi {
      * @param startingAfterId A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPendingPointsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> listMemberPendingPoints1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId) throws ApiException {
         okhttp3.Call localVarCall = listMemberPendingPoints1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPendingPointsListResponseBody>(){}.getType();
@@ -4657,7 +5006,7 @@ public class LoyaltiesApi {
 
     /**
      * List Member Pending Points with campaign ID (asynchronously)
-     * Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId Unique loyalty card code assigned to a particular customer. (required)
      * @param limit Limit the number of the pending point entries that the API returns in the response. (optional)
@@ -4666,7 +5015,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberPendingPoints1Async(String campaignId, String memberId, Integer limit, ParameterOrderListPendingPoints order, String startingAfterId, final ApiCallback<LoyaltiesMembersPendingPointsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberPendingPoints1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
@@ -4681,7 +5032,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberRewardsCall(String memberId, Boolean affordableOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4731,6 +5084,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberRewardsValidateBeforeCall(String memberId, Boolean affordableOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -4744,12 +5098,14 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards
-     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return LoyaltiesMembersRewardsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersRewardsListResponseBody listMemberRewards(String memberId, Boolean affordableOnly) throws ApiException {
         ApiResponse<LoyaltiesMembersRewardsListResponseBody> localVarResp = listMemberRewardsWithHttpInfo(memberId, affordableOnly);
         return localVarResp.getData();
@@ -4757,12 +5113,14 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards
-     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRewardsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersRewardsListResponseBody> listMemberRewardsWithHttpInfo(String memberId, Boolean affordableOnly) throws ApiException {
         okhttp3.Call localVarCall = listMemberRewardsValidateBeforeCall(memberId, affordableOnly, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersRewardsListResponseBody>(){}.getType();
@@ -4771,13 +5129,15 @@ public class LoyaltiesApi {
 
     /**
      * List Member Rewards (asynchronously)
-     * Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param affordableOnly Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMemberRewardsAsync(String memberId, Boolean affordableOnly, final ApiCallback<LoyaltiesMembersRewardsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMemberRewardsValidateBeforeCall(memberId, affordableOnly, _callback);
@@ -4799,7 +5159,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMembersCall(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4877,6 +5239,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMembersValidateBeforeCall(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -4890,7 +5253,7 @@ public class LoyaltiesApi {
 
     /**
      * List Members
-     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -4902,7 +5265,9 @@ public class LoyaltiesApi {
      * @param ids  (optional)
      * @return LoyaltiesListMembersResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesListMembersResponseBody listMembers(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
         ApiResponse<LoyaltiesListMembersResponseBody> localVarResp = listMembersWithHttpInfo(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids);
         return localVarResp.getData();
@@ -4910,7 +5275,7 @@ public class LoyaltiesApi {
 
     /**
      * List Members
-     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -4922,7 +5287,9 @@ public class LoyaltiesApi {
      * @param ids  (optional)
      * @return ApiResponse&lt;LoyaltiesListMembersResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesListMembersResponseBody> listMembersWithHttpInfo(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids) throws ApiException {
         okhttp3.Call localVarCall = listMembersValidateBeforeCall(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, null);
         Type localVarReturnType = new TypeToken<LoyaltiesListMembersResponseBody>(){}.getType();
@@ -4931,7 +5298,7 @@ public class LoyaltiesApi {
 
     /**
      * List Members (asynchronously)
-     * Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
      * @param campaignId Unique campaign ID of the loyalty program. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -4944,7 +5311,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listMembersAsync(String campaignId, Integer limit, Integer page, String customer, ParameterCreatedBeforeAfter createdAt, ParameterUpdatedBeforeAfter updatedAt, ParameterOrderVouchers order, String code, List<String> ids, final ApiCallback<LoyaltiesListMembersResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMembersValidateBeforeCall(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, _callback);
@@ -4961,7 +5330,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listPointsExpirationCall(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5016,6 +5387,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPointsExpirationValidateBeforeCall(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5034,14 +5406,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Point Expiration
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return LoyaltiesMembersPointsExpirationListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersPointsExpirationListResponseBody listPointsExpiration(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> localVarResp = listPointsExpirationWithHttpInfo(campaignId, memberId, limit, page);
         return localVarResp.getData();
@@ -5049,14 +5423,16 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Point Expiration
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersPointsExpirationListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> listPointsExpirationWithHttpInfo(String campaignId, String memberId, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listPointsExpirationValidateBeforeCall(campaignId, memberId, limit, page, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersPointsExpirationListResponseBody>(){}.getType();
@@ -5065,7 +5441,7 @@ public class LoyaltiesApi {
 
     /**
      * List Loyalty Card Point Expiration (asynchronously)
-     * Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param memberId Loyalty card code. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
@@ -5073,7 +5449,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listPointsExpirationAsync(String campaignId, String memberId, Integer limit, Integer page, final ApiCallback<LoyaltiesMembersPointsExpirationListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listPointsExpirationValidateBeforeCall(campaignId, memberId, limit, page, _callback);
@@ -5090,7 +5468,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listRewardAssignments1Call(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5148,6 +5528,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRewardAssignments1ValidateBeforeCall(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5161,14 +5542,16 @@ public class LoyaltiesApi {
 
     /**
      * List Reward Assignments with campaign ID
-     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param assignmentId A unique reward assignment ID. (optional)
      * @return LoyaltiesRewardAssignmentsListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardAssignmentsListResponseBody listRewardAssignments1(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> localVarResp = listRewardAssignments1WithHttpInfo(campaignId, limit, page, assignmentId);
         return localVarResp.getData();
@@ -5176,14 +5559,16 @@ public class LoyaltiesApi {
 
     /**
      * List Reward Assignments with campaign ID
-     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param assignmentId A unique reward assignment ID. (optional)
      * @return ApiResponse&lt;LoyaltiesRewardAssignmentsListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> listRewardAssignments1WithHttpInfo(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = listRewardAssignments1ValidateBeforeCall(campaignId, limit, page, assignmentId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardAssignmentsListResponseBody>(){}.getType();
@@ -5192,7 +5577,7 @@ public class LoyaltiesApi {
 
     /**
      * List Reward Assignments with campaign ID (asynchronously)
-     * Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -5200,7 +5585,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listRewardAssignments1Async(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback<LoyaltiesRewardAssignmentsListResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listRewardAssignments1ValidateBeforeCall(campaignId, limit, page, assignmentId, _callback);
@@ -5217,7 +5604,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listRewardAssignments2Call(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5275,6 +5664,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRewardAssignments2ValidateBeforeCall(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5288,14 +5678,16 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Rewards
-     * Returns active rewards from a given loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param assignmentId A unique reward assignment ID. (optional)
      * @return LoyaltiesRewardsListAssignmentsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardsListAssignmentsResponseBody listRewardAssignments2(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
         ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> localVarResp = listRewardAssignments2WithHttpInfo(campaignId, limit, page, assignmentId);
         return localVarResp.getData();
@@ -5303,14 +5695,16 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Rewards
-     * Returns active rewards from a given loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
      * @param assignmentId A unique reward assignment ID. (optional)
      * @return ApiResponse&lt;LoyaltiesRewardsListAssignmentsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> listRewardAssignments2WithHttpInfo(String campaignId, Integer limit, Integer page, String assignmentId) throws ApiException {
         okhttp3.Call localVarCall = listRewardAssignments2ValidateBeforeCall(campaignId, limit, page, assignmentId, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardsListAssignmentsResponseBody>(){}.getType();
@@ -5319,7 +5713,7 @@ public class LoyaltiesApi {
 
     /**
      * List Campaign Rewards (asynchronously)
-     * Returns active rewards from a given loyalty campaign.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param page Which page of results to return. The lowest value is 1. (optional)
@@ -5327,7 +5721,9 @@ public class LoyaltiesApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listRewardAssignments2Async(String campaignId, Integer limit, Integer page, String assignmentId, final ApiCallback<LoyaltiesRewardsListAssignmentsResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listRewardAssignments2ValidateBeforeCall(campaignId, limit, page, assignmentId, _callback);
@@ -5342,7 +5738,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call redeemRewardCall(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5389,6 +5787,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call redeemRewardValidateBeforeCall(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -5402,12 +5801,14 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward
-     *   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return LoyaltiesMembersRedemptionRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersRedemptionRedeemResponseBody redeemReward(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResp = redeemRewardWithHttpInfo(memberId, loyaltiesMembersRedemptionRedeemRequestBody);
         return localVarResp.getData();
@@ -5415,12 +5816,14 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward
-     *   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRedemptionRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> redeemRewardWithHttpInfo(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemRewardValidateBeforeCall(memberId, loyaltiesMembersRedemptionRedeemRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersRedemptionRedeemResponseBody>(){}.getType();
@@ -5429,13 +5832,15 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward (asynchronously)
-     *   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call redeemRewardAsync(String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback<LoyaltiesMembersRedemptionRedeemResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = redeemRewardValidateBeforeCall(memberId, loyaltiesMembersRedemptionRedeemRequestBody, _callback);
@@ -5451,7 +5856,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call redeemReward1Call(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5499,6 +5906,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call redeemReward1ValidateBeforeCall(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5517,13 +5925,15 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward with campaign ID
-     * Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return LoyaltiesMembersRedemptionRedeemResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersRedemptionRedeemResponseBody redeemReward1(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResp = redeemReward1WithHttpInfo(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
         return localVarResp.getData();
@@ -5531,13 +5941,15 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward with campaign ID
-     * Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersRedemptionRedeemResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> redeemReward1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody) throws ApiException {
         okhttp3.Call localVarCall = redeemReward1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersRedemptionRedeemResponseBody>(){}.getType();
@@ -5546,14 +5958,16 @@ public class LoyaltiesApi {
 
     /**
      * Redeem Reward with campaign ID (asynchronously)
-     * Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersRedemptionRedeemRequestBody Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call redeemReward1Async(String campaignId, String memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, final ApiCallback<LoyaltiesMembersRedemptionRedeemResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = redeemReward1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody, _callback);
@@ -5569,7 +5983,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call transferPointsCall(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5617,6 +6033,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call transferPointsValidateBeforeCall(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5635,13 +6052,15 @@ public class LoyaltiesApi {
 
     /**
      * Transfer Loyalty Points
-     * Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination). (required)
      * @param memberId A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination). (required)
      * @param loyaltiesTransferPoints Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)
      * @return LoyaltiesMembersTransfersCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersTransfersCreateResponseBody transferPoints(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints) throws ApiException {
         ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResp = transferPointsWithHttpInfo(campaignId, memberId, loyaltiesTransferPoints);
         return localVarResp.getData();
@@ -5649,13 +6068,15 @@ public class LoyaltiesApi {
 
     /**
      * Transfer Loyalty Points
-     * Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination). (required)
      * @param memberId A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination). (required)
      * @param loyaltiesTransferPoints Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersTransfersCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> transferPointsWithHttpInfo(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints) throws ApiException {
         okhttp3.Call localVarCall = transferPointsValidateBeforeCall(campaignId, memberId, loyaltiesTransferPoints, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersTransfersCreateResponseBody>(){}.getType();
@@ -5664,14 +6085,16 @@ public class LoyaltiesApi {
 
     /**
      * Transfer Loyalty Points (asynchronously)
-     * Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
      * @param campaignId A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination). (required)
      * @param memberId A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination). (required)
      * @param loyaltiesTransferPoints Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call transferPointsAsync(String campaignId, String memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, final ApiCallback<LoyaltiesMembersTransfersCreateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = transferPointsValidateBeforeCall(campaignId, memberId, loyaltiesTransferPoints, _callback);
@@ -5687,7 +6110,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateEarningRuleCall(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5735,6 +6160,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateEarningRuleValidateBeforeCall(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5753,13 +6179,15 @@ public class LoyaltiesApi {
 
     /**
      * Update Earning Rule
-     * Update an earning rule definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
      * @return LoyaltiesEarningRulesUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesEarningRulesUpdateResponseBody updateEarningRule(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResp = updateEarningRuleWithHttpInfo(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody);
         return localVarResp.getData();
@@ -5767,13 +6195,15 @@ public class LoyaltiesApi {
 
     /**
      * Update Earning Rule
-     * Update an earning rule definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
      * @return ApiResponse&lt;LoyaltiesEarningRulesUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> updateEarningRuleWithHttpInfo(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateEarningRuleValidateBeforeCall(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesEarningRulesUpdateResponseBody>(){}.getType();
@@ -5782,14 +6212,16 @@ public class LoyaltiesApi {
 
     /**
      * Update Earning Rule (asynchronously)
-     * Update an earning rule definition.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param earningRuleId A unique earning rule ID. (required)
      * @param loyaltiesEarningRulesUpdateRequestBody Specify the parameters that you would like to update for the given earning rule. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateEarningRuleAsync(String campaignId, String earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, final ApiCallback<LoyaltiesEarningRulesUpdateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateEarningRuleValidateBeforeCall(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, _callback);
@@ -5804,7 +6236,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyCardBalanceCall(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5851,6 +6285,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateLoyaltyCardBalanceValidateBeforeCall(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberId' is set
@@ -5864,12 +6299,14 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance
-     * This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return LoyaltiesMembersBalanceUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResp = updateLoyaltyCardBalanceWithHttpInfo(memberId, loyaltiesMembersBalanceUpdateRequestBody);
         return localVarResp.getData();
@@ -5877,12 +6314,14 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance
-     * This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersBalanceUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> updateLoyaltyCardBalanceWithHttpInfo(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyCardBalanceValidateBeforeCall(memberId, loyaltiesMembersBalanceUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersBalanceUpdateResponseBody>(){}.getType();
@@ -5891,13 +6330,15 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance (asynchronously)
-     * This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
      * @param memberId Unique loyalty card assigned to a particular customer. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyCardBalanceAsync(String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback<LoyaltiesMembersBalanceUpdateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateLoyaltyCardBalanceValidateBeforeCall(memberId, loyaltiesMembersBalanceUpdateRequestBody, _callback);
@@ -5913,7 +6354,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyCardBalance1Call(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5961,6 +6404,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateLoyaltyCardBalance1ValidateBeforeCall(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -5979,13 +6423,15 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance with campaign ID
-     * This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return LoyaltiesMembersBalanceUpdateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesMembersBalanceUpdateResponseBody updateLoyaltyCardBalance1(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResp = updateLoyaltyCardBalance1WithHttpInfo(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
         return localVarResp.getData();
@@ -5993,13 +6439,15 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance with campaign ID
-     * This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @return ApiResponse&lt;LoyaltiesMembersBalanceUpdateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> updateLoyaltyCardBalance1WithHttpInfo(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyCardBalance1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesMembersBalanceUpdateResponseBody>(){}.getType();
@@ -6008,14 +6456,16 @@ public class LoyaltiesApi {
 
     /**
      * Adjust Loyalty Card Balance with campaign ID (asynchronously)
-     * This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
      * @param campaignId Unique campaign ID. (required)
      * @param memberId A code that identifies the loyalty card. (required)
      * @param loyaltiesMembersBalanceUpdateRequestBody Specify the point adjustment along with the expiration mechanism. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyCardBalance1Async(String campaignId, String memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, final ApiCallback<LoyaltiesMembersBalanceUpdateResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateLoyaltyCardBalance1ValidateBeforeCall(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, _callback);
@@ -6030,7 +6480,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyProgramCall(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -6077,6 +6529,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateLoyaltyProgramValidateBeforeCall(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -6090,12 +6543,14 @@ public class LoyaltiesApi {
 
     /**
      * Update Loyalty Campaign
-     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
      * @return LoyaltiesUpdateCampaignResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesUpdateCampaignResponseBody updateLoyaltyProgram(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody) throws ApiException {
         ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResp = updateLoyaltyProgramWithHttpInfo(campaignId, loyaltiesUpdateCampaignRequestBody);
         return localVarResp.getData();
@@ -6103,12 +6558,14 @@ public class LoyaltiesApi {
 
     /**
      * Update Loyalty Campaign
-     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
      * @return ApiResponse&lt;LoyaltiesUpdateCampaignResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesUpdateCampaignResponseBody> updateLoyaltyProgramWithHttpInfo(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateLoyaltyProgramValidateBeforeCall(campaignId, loyaltiesUpdateCampaignRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesUpdateCampaignResponseBody>(){}.getType();
@@ -6117,13 +6574,15 @@ public class LoyaltiesApi {
 
     /**
      * Update Loyalty Campaign (asynchronously)
-     * Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param loyaltiesUpdateCampaignRequestBody Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateLoyaltyProgramAsync(String campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, final ApiCallback<LoyaltiesUpdateCampaignResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateLoyaltyProgramValidateBeforeCall(campaignId, loyaltiesUpdateCampaignRequestBody, _callback);
@@ -6139,7 +6598,9 @@ public class LoyaltiesApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateRewardAssignment1Call(String campaignId, String assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -6187,6 +6648,7 @@ public class LoyaltiesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateRewardAssignment1ValidateBeforeCall(String campaignId, String assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
@@ -6205,13 +6667,15 @@ public class LoyaltiesApi {
 
     /**
      * Update Campaign Reward Assignment
-     * Updates rewards parameters, i.e. the points cost for the specific reward.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param loyaltiesRewardsUpdateAssignmentRequestBody Update the points cost for the reward assignment. (optional)
      * @return LoyaltiesRewardsUpdateAssignmentResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public LoyaltiesRewardsUpdateAssignmentResponseBody updateRewardAssignment1(String campaignId, String assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody) throws ApiException {
         ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> localVarResp = updateRewardAssignment1WithHttpInfo(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody);
         return localVarResp.getData();
@@ -6219,13 +6683,15 @@ public class LoyaltiesApi {
 
     /**
      * Update Campaign Reward Assignment
-     * Updates rewards parameters, i.e. the points cost for the specific reward.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param loyaltiesRewardsUpdateAssignmentRequestBody Update the points cost for the reward assignment. (optional)
      * @return ApiResponse&lt;LoyaltiesRewardsUpdateAssignmentResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> updateRewardAssignment1WithHttpInfo(String campaignId, String assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody) throws ApiException {
         okhttp3.Call localVarCall = updateRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody, null);
         Type localVarReturnType = new TypeToken<LoyaltiesRewardsUpdateAssignmentResponseBody>(){}.getType();
@@ -6234,14 +6700,16 @@ public class LoyaltiesApi {
 
     /**
      * Update Campaign Reward Assignment (asynchronously)
-     * Updates rewards parameters, i.e. the points cost for the specific reward.
+     * &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
      * @param campaignId The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
      * @param assignmentId A unique reward assignment ID. (required)
      * @param loyaltiesRewardsUpdateAssignmentRequestBody Update the points cost for the reward assignment. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateRewardAssignment1Async(String campaignId, String assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, final ApiCallback<LoyaltiesRewardsUpdateAssignmentResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateRewardAssignment1ValidateBeforeCall(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody, _callback);

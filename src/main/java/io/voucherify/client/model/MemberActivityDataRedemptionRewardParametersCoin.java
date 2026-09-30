@@ -77,7 +77,7 @@ public class MemberActivityDataRedemptionRewardParametersCoin {
   }
 
    /**
-   * The cash equivalent of the points defined in the points_ratio property.
+   * The cash equivalent of the points defined in the points_ratio property. and The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.
    * @return exchangeRatio
   **/
   @javax.annotation.Nullable

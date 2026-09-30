@@ -17,7 +17,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Create Export
 
-Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
 
 ### Example
 ```java
@@ -110,7 +110,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
-    String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.
+    String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.
     try {
       apiInstance.deleteExport(exportId);
     } catch (ApiException e) {
@@ -128,7 +128,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **exportId** | **String**| Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. |
+| **exportId** | **String**| Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku. |
 
 ### Return type
 
@@ -154,7 +154,7 @@ null (empty response body)
 
 Download Export
 
-Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
 
 ### Example
 ```java
@@ -249,7 +249,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     ExportsApi apiInstance = new ExportsApi(defaultClient);
-    String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.
+    String exportId = "exportId_example"; // String | Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.
     try {
       ExportsGetResponseBody result = apiInstance.getExport(exportId);
       System.out.println(result);
@@ -268,7 +268,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **exportId** | **String**| Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. |
+| **exportId** | **String**| Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku. |
 
 ### Return type
 
@@ -359,5 +359,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. |  -  |
+| **200** | A dictionary with an exports property that contains an array of exports. Each entry in the array is a separate export object. The list will return the following types of exported objects: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, &#x60;voucher_transactions&#x60;, &#x60;product&#x60;, or &#x60;sku&#x60;.   The &#x60;channel&#x60; parameter in the response body returns the channel that was used to generate the particular export. The &#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard; this &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;. |  -  |
 

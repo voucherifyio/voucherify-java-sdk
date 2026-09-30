@@ -23,6 +23,8 @@
 | ORDER | &quot;order&quot; |
 | POINTS_EXPIRATION | &quot;points_expiration&quot; |
 | VOUCHER_TRANSACTIONS | &quot;voucher_transactions&quot; |
+| PRODUCT | &quot;product&quot; |
+| SKU | &quot;sku&quot; |
 
 
 
