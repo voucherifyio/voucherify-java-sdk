@@ -322,7 +322,7 @@ public class PromotionsTiersCreateResponseBodyCampaign {
   }
 
    /**
-   * A flag indicating whether the campaign is active or not active. A campaign can be disabled even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; using the [Disable Campaign](/api-reference/disable-campaign) endpoint.    - &#x60;true&#x60; indicates an *active* campaign - &#x60;false&#x60; indicates an *inactive* campaign
+   * A flag indicating whether the campaign is active or not active. A campaign can be disabled even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; using the [Disable Campaign](/api-reference/campaigns/disable-campaign) endpoint.    - &#x60;true&#x60; indicates an *active* campaign - &#x60;false&#x60; indicates an *inactive* campaign
    * @return active
   **/
   @javax.annotation.Nullable

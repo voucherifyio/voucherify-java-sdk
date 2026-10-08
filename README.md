@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.0.5</version>
+  <version>17.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.0.5"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.1.0"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.0.5.jar`
+* `target/voucherify-java-sdk-17.1.0.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -173,7 +173,7 @@ To run tests locally with commands:
 This SDK is generated automatically from our [OpenAPI specification](https://github.com/voucherifyio/voucherify-openapi). To contribute, submit an issue rather than creating a pull request. Voucherify developers will review your issue and reply as soon as possible.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.0.5)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.1.0)
 
 ## 🔐 Authorization
 
@@ -237,7 +237,26 @@ Authorization schemes defined for the API.
 - **API key parameter name**: X-Management-Token
 - **Location**: HTTP header
 
+### bearerAuth
+
+- **Type**: HTTP Bearer Token authentication (JWT)
+
 ## 📅 Changelog
+- **2026-10-08** - `17.1.0`
+ADDED:
+- **POST** /v2/loyalties/programs/{programId}/members
+- **POST** /v2/loyalties/programs/{programId}/members/batch
+- **GET** /v2/loyalties/programs/{programId}/memberships/{customerId}
+- **GET** /v2/loyalties/programs/{programId}/members/{memberId}
+- **GET** /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/transactions
+- **GET** /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases
+- **POST** /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases
+- **GET** /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments
+- **POST** /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments
+- **POST** /v2/loyalties/examine/earning-rules
+- **POST** /v2/loyalties/examine/rewards
+- Optional `mode`, `messages`, and `library` on validation-rule error models (`ValidationRuleError` and the `ValidationRules*Error` models). Existing `message` is unchanged.
+
 - **2026-08-26** - `17.0.5`
 FIXED:
 - `exchange_ratio` on COIN reward models is `BigDecimal` (create/update request models were `String`, redemption result was `Integer`). `getExchangeRatio()` and `setExchangeRatio()` changed with that type, so update call sites. The API returns fractional values such as `0.01`.
@@ -854,6 +873,17 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**updateLoyaltyCardBalance1**](docs/LoyaltiesApi.md#updateLoyaltyCardBalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Adjust Loyalty Card Balance with campaign ID
 *LoyaltiesApi* | [**updateLoyaltyProgram**](docs/LoyaltiesApi.md#updateLoyaltyProgram) | **PUT** /v1/loyalties/{campaignId} | Update Loyalty Campaign
 *LoyaltiesApi* | [**updateRewardAssignment1**](docs/LoyaltiesApi.md#updateRewardAssignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Campaign Reward Assignment
+*Lv2ExamineApi* | [**examineEarningRules**](docs/Lv2ExamineApi.md#examineEarningRules) | **POST** /v2/loyalties/examine/earning-rules | Examine earning rules
+*Lv2ExamineApi* | [**examineRewards**](docs/Lv2ExamineApi.md#examineRewards) | **POST** /v2/loyalties/examine/rewards | Examine rewards
+*Lv2ProgramsApi* | [**batchCreateProgramMembers**](docs/Lv2ProgramsApi.md#batchCreateProgramMembers) | **POST** /v2/loyalties/programs/{programId}/members/batch | Batch create program members
+*Lv2ProgramsApi* | [**createMemberOrderPayment**](docs/Lv2ProgramsApi.md#createMemberOrderPayment) | **POST** /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments | Pay for order with points
+*Lv2ProgramsApi* | [**createProgramMember**](docs/Lv2ProgramsApi.md#createProgramMember) | **POST** /v2/loyalties/programs/{programId}/members | Create program member
+*Lv2ProgramsApi* | [**getProgramMember**](docs/Lv2ProgramsApi.md#getProgramMember) | **GET** /v2/loyalties/programs/{programId}/members/{memberId} | Get program member
+*Lv2ProgramsApi* | [**getProgramMembership**](docs/Lv2ProgramsApi.md#getProgramMembership) | **GET** /v2/loyalties/programs/{programId}/memberships/{customerId} | Get program membership
+*Lv2ProgramsApi* | [**listCardTransactions**](docs/Lv2ProgramsApi.md#listCardTransactions) | **GET** /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/transactions | List card transactions
+*Lv2ProgramsApi* | [**listMemberOrderPayments**](docs/Lv2ProgramsApi.md#listMemberOrderPayments) | **GET** /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments | List member order payments
+*Lv2ProgramsApi* | [**listMemberRewardPurchases**](docs/Lv2ProgramsApi.md#listMemberRewardPurchases) | **GET** /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases | List member reward purchases
+*Lv2ProgramsApi* | [**purchaseMemberReward**](docs/Lv2ProgramsApi.md#purchaseMemberReward) | **POST** /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases | Purchase reward with points
 *ManagementApi* | [**assignUser**](docs/ManagementApi.md#assignUser) | **POST** /management/v1/projects/{projectId}/users | Assign User
 *ManagementApi* | [**createBrand**](docs/ManagementApi.md#createBrand) | **POST** /management/v1/projects/{projectId}/branding | Create Brand
 *ManagementApi* | [**createCustomEventSchema**](docs/ManagementApi.md#createCustomEventSchema) | **POST** /management/v1/projects/{projectId}/custom-event-schemas | Create Custom Event Schema
@@ -1064,6 +1094,7 @@ Class | Method | HTTP request | Description
 - [CampaignsVouchersCreateResponseBodyLoyaltyCard](docs/CampaignsVouchersCreateResponseBodyLoyaltyCard.md)
 - [CampaignsVouchersCreateResponseBodyPublish](docs/CampaignsVouchersCreateResponseBodyPublish.md)
 - [CampaignsVouchersCreateResponseBodyRedemption](docs/CampaignsVouchersCreateResponseBodyRedemption.md)
+- [CardTransaction](docs/CardTransaction.md)
 - [CategoriesCreateRequestBody](docs/CategoriesCreateRequestBody.md)
 - [CategoriesCreateResponseBody](docs/CategoriesCreateResponseBody.md)
 - [CategoriesGetResponseBody](docs/CategoriesGetResponseBody.md)
@@ -1191,6 +1222,11 @@ Class | Method | HTTP request | Description
 - [EventsCreateRequestBodyLoyalty](docs/EventsCreateRequestBodyLoyalty.md)
 - [EventsCreateRequestBodyReferral](docs/EventsCreateRequestBodyReferral.md)
 - [EventsCreateResponseBody](docs/EventsCreateResponseBody.md)
+- [ExamineCardReference](docs/ExamineCardReference.md)
+- [ExamineCustomerIdentification](docs/ExamineCustomerIdentification.md)
+- [ExamineCustomerReference](docs/ExamineCustomerReference.md)
+- [ExamineMemberReference](docs/ExamineMemberReference.md)
+- [ExamineProgramReference](docs/ExamineProgramReference.md)
 - [Export](docs/Export.md)
 - [ExportCampaignTransactionsFilters](docs/ExportCampaignTransactionsFilters.md)
 - [ExportOrderFields](docs/ExportOrderFields.md)
@@ -1217,6 +1253,7 @@ Class | Method | HTTP request | Description
 - [InapplicableToOrderItemUnitsItem](docs/InapplicableToOrderItemUnitsItem.md)
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)
+- [ListCardTransactionsOrderParameter](docs/ListCardTransactionsOrderParameter.md)
 - [ListPublicationsItemValidSingleVoucher](docs/ListPublicationsItemValidSingleVoucher.md)
 - [ListPublicationsItemValidSingleVoucherMetadata](docs/ListPublicationsItemValidSingleVoucherMetadata.md)
 - [ListPublicationsItemVoucher](docs/ListPublicationsItemVoucher.md)
@@ -1384,6 +1421,40 @@ Class | Method | HTTP request | Description
 - [LoyaltiesEarningRulesUpdateResponseBodyPendingPoints](docs/LoyaltiesEarningRulesUpdateResponseBodyPendingPoints.md)
 - [LoyaltiesEarningRulesUpdateResponseBodySegment](docs/LoyaltiesEarningRulesUpdateResponseBodySegment.md)
 - [LoyaltiesEarningRulesUpdateResponseBodySource](docs/LoyaltiesEarningRulesUpdateResponseBodySource.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBody](docs/LoyaltiesExamineEarningRulesExamineRequestBody.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomEventAll](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomEventAll.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomEventSpecific](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomEventSpecific.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomer](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomer.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEvent](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEvent.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEventAll](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEventAll.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEventSpecific](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomerCustomEventSpecific.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomerOrderPaid](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomerOrderPaid.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyCustomerSegmentEntered](docs/LoyaltiesExamineEarningRulesExamineRequestBodyCustomerSegmentEntered.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyMember](docs/LoyaltiesExamineEarningRulesExamineRequestBodyMember.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyOrder](docs/LoyaltiesExamineEarningRulesExamineRequestBodyOrder.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyOrderItem](docs/LoyaltiesExamineEarningRulesExamineRequestBodyOrderItem.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyTrigger](docs/LoyaltiesExamineEarningRulesExamineRequestBodyTrigger.md)
+- [LoyaltiesExamineEarningRulesExamineRequestBodyTriggerSpecific](docs/LoyaltiesExamineEarningRulesExamineRequestBodyTriggerSpecific.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBody](docs/LoyaltiesExamineEarningRulesExamineResponseBody.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyBenefitEarningRuleEstimation](docs/LoyaltiesExamineEarningRulesExamineResponseBodyBenefitEarningRuleEstimation.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyBenefitEstimation](docs/LoyaltiesExamineEarningRulesExamineResponseBodyBenefitEstimation.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyBenefitReference](docs/LoyaltiesExamineEarningRulesExamineResponseBodyBenefitReference.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyCardEarningRuleEstimation](docs/LoyaltiesExamineEarningRulesExamineResponseBodyCardEarningRuleEstimation.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyCardEstimation](docs/LoyaltiesExamineEarningRulesExamineResponseBodyCardEstimation.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyEarningRuleDetail](docs/LoyaltiesExamineEarningRulesExamineResponseBodyEarningRuleDetail.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyEarningRuleReference](docs/LoyaltiesExamineEarningRulesExamineResponseBodyEarningRuleReference.md)
+- [LoyaltiesExamineEarningRulesExamineResponseBodyMembership](docs/LoyaltiesExamineEarningRulesExamineResponseBodyMembership.md)
+- [LoyaltiesExamineRewardsExamineRequestBody](docs/LoyaltiesExamineRewardsExamineRequestBody.md)
+- [LoyaltiesExamineRewardsExamineRequestBodyCustomer](docs/LoyaltiesExamineRewardsExamineRequestBodyCustomer.md)
+- [LoyaltiesExamineRewardsExamineRequestBodyMember](docs/LoyaltiesExamineRewardsExamineRequestBodyMember.md)
+- [LoyaltiesExamineRewardsExamineResponseBody](docs/LoyaltiesExamineRewardsExamineResponseBody.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyCardEstimation](docs/LoyaltiesExamineRewardsExamineResponseBodyCardEstimation.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyCardRewardEstimation](docs/LoyaltiesExamineRewardsExamineResponseBodyCardRewardEstimation.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyMembership](docs/LoyaltiesExamineRewardsExamineResponseBodyMembership.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyRewardCost](docs/LoyaltiesExamineRewardsExamineResponseBodyRewardCost.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyRewardDetail](docs/LoyaltiesExamineRewardsExamineResponseBodyRewardDetail.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyRewardReference](docs/LoyaltiesExamineRewardsExamineResponseBodyRewardReference.md)
+- [LoyaltiesExamineRewardsExamineResponseBodyRewardUnavailabilityReason](docs/LoyaltiesExamineRewardsExamineResponseBodyRewardUnavailabilityReason.md)
 - [LoyaltiesGetCampaignResponseBody](docs/LoyaltiesGetCampaignResponseBody.md)
 - [LoyaltiesListCampaignsResponseBody](docs/LoyaltiesListCampaignsResponseBody.md)
 - [LoyaltiesListMembersResponseBody](docs/LoyaltiesListMembersResponseBody.md)
@@ -1457,6 +1528,23 @@ Class | Method | HTTP request | Description
 - [LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions](docs/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersCampaignIdConditions.md)
 - [LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId](docs/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherId.md)
 - [LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions](docs/LoyaltiesPointsExpirationExportCreateResponseBodyParametersFiltersVoucherIdConditions.md)
+- [LoyaltiesProgramsMembersCardsTransactionsListRequestQuery](docs/LoyaltiesProgramsMembersCardsTransactionsListRequestQuery.md)
+- [LoyaltiesProgramsMembersCardsTransactionsListResponseBody](docs/LoyaltiesProgramsMembersCardsTransactionsListResponseBody.md)
+- [LoyaltiesProgramsMembersCreateInBulkResponseBody](docs/LoyaltiesProgramsMembersCreateInBulkResponseBody.md)
+- [LoyaltiesProgramsMembersCreateRequestBody](docs/LoyaltiesProgramsMembersCreateRequestBody.md)
+- [LoyaltiesProgramsMembersCreateResponseBody](docs/LoyaltiesProgramsMembersCreateResponseBody.md)
+- [LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody](docs/LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody.md)
+- [LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBodyTransaction](docs/LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBodyTransaction.md)
+- [LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody](docs/LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody.md)
+- [LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery](docs/LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery.md)
+- [LoyaltiesProgramsMembersOrdersPaymentsListResponseBody](docs/LoyaltiesProgramsMembersOrdersPaymentsListResponseBody.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody](docs/LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBodyTransaction](docs/LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBodyTransaction.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBodyTransactionDetails](docs/LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBodyTransactionDetails.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody](docs/LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery](docs/LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery.md)
+- [LoyaltiesProgramsMembersRewardsPurchasesListResponseBody](docs/LoyaltiesProgramsMembersRewardsPurchasesListResponseBody.md)
+- [LoyaltiesProgramsMembershipsGetResponseBody](docs/LoyaltiesProgramsMembershipsGetResponseBody.md)
 - [LoyaltiesRewardAssignmentsGetResponseBody](docs/LoyaltiesRewardAssignmentsGetResponseBody.md)
 - [LoyaltiesRewardAssignmentsGetResponseBodyParameters](docs/LoyaltiesRewardAssignmentsGetResponseBodyParameters.md)
 - [LoyaltiesRewardAssignmentsGetResponseBodyParametersLoyalty](docs/LoyaltiesRewardAssignmentsGetResponseBodyParametersLoyalty.md)
@@ -1537,6 +1625,9 @@ Class | Method | HTTP request | Description
 - [LoyaltyTiersExpirationAllExpirationDate](docs/LoyaltyTiersExpirationAllExpirationDate.md)
 - [LoyaltyTiersExpirationAllExpirationDateRounding](docs/LoyaltyTiersExpirationAllExpirationDateRounding.md)
 - [LoyaltyTiersExpirationAllStartDate](docs/LoyaltyTiersExpirationAllStartDate.md)
+- [LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriod](docs/LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriod.md)
+- [LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriodCurrentPeriod](docs/LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriodCurrentPeriod.md)
+- [LoyaltyV2ActivityRewardPurchaseLimitsFrequencyLimitTriggers](docs/LoyaltyV2ActivityRewardPurchaseLimitsFrequencyLimitTriggers.md)
 - [ManagementProject](docs/ManagementProject.md)
 - [ManagementProjectApiUsageNotifications](docs/ManagementProjectApiUsageNotifications.md)
 - [ManagementProjectDefaultCodeConfig](docs/ManagementProjectDefaultCodeConfig.md)
@@ -1662,6 +1753,7 @@ Class | Method | HTTP request | Description
 - [ManagementProjectsWebhooksUpdateRequestBody](docs/ManagementProjectsWebhooksUpdateRequestBody.md)
 - [ManagementProjectsWebhooksUpdateResponseBody](docs/ManagementProjectsWebhooksUpdateResponseBody.md)
 - [MappingPoints](docs/MappingPoints.md)
+- [Member](docs/Member.md)
 - [MemberActivity](docs/MemberActivity.md)
 - [MemberActivityData](docs/MemberActivityData.md)
 - [MemberActivityData1](docs/MemberActivityData1.md)
@@ -1734,6 +1826,14 @@ Class | Method | HTTP request | Description
 - [MemberActivityDataTransactionDetailsSourceVoucherGift](docs/MemberActivityDataTransactionDetailsSourceVoucherGift.md)
 - [MemberActivityDataTransactionDetailsSourceVoucherLoyaltyCard](docs/MemberActivityDataTransactionDetailsSourceVoucherLoyaltyCard.md)
 - [MemberActivityDataTransactionDetailsSourceVoucherRedemption](docs/MemberActivityDataTransactionDetailsSourceVoucherRedemption.md)
+- [MemberCard](docs/MemberCard.md)
+- [MemberCreate](docs/MemberCreate.md)
+- [MemberTierProgress](docs/MemberTierProgress.md)
+- [MemberTierProgressDeferred](docs/MemberTierProgressDeferred.md)
+- [MemberTierProgressOpportunity](docs/MemberTierProgressOpportunity.md)
+- [MemberTierProgressRisk](docs/MemberTierProgressRisk.md)
+- [MemberWithCards](docs/MemberWithCards.md)
+- [MembershipCard](docs/MembershipCard.md)
 - [MetadataSchemaDefinitionDeprecated](docs/MetadataSchemaDefinitionDeprecated.md)
 - [MetadataSchemaDeprecated](docs/MetadataSchemaDeprecated.md)
 - [MetadataSchemasGetResponseBody](docs/MetadataSchemasGetResponseBody.md)
@@ -1746,6 +1846,8 @@ Class | Method | HTTP request | Description
 - [OrderItem](docs/OrderItem.md)
 - [OrderItemProduct](docs/OrderItemProduct.md)
 - [OrderItemSku](docs/OrderItemSku.md)
+- [OrderPaymentOrder](docs/OrderPaymentOrder.md)
+- [OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
 - [OrderRedemptionsEntry](docs/OrderRedemptionsEntry.md)
 - [OrdersCreateRequestBody](docs/OrdersCreateRequestBody.md)
 - [OrdersCreateResponseBody](docs/OrdersCreateResponseBody.md)
@@ -1902,6 +2004,7 @@ Class | Method | HTTP request | Description
 - [ProductsUpdateInBulkResponseBody](docs/ProductsUpdateInBulkResponseBody.md)
 - [ProductsUpdateRequestBody](docs/ProductsUpdateRequestBody.md)
 - [ProductsUpdateResponseBody](docs/ProductsUpdateResponseBody.md)
+- [ProgramSimple](docs/ProgramSimple.md)
 - [PromotionStack](docs/PromotionStack.md)
 - [PromotionStackBase](docs/PromotionStackBase.md)
 - [PromotionStackBaseTiers](docs/PromotionStackBaseTiers.md)
@@ -2135,6 +2238,11 @@ Class | Method | HTTP request | Description
 - [RewardAssignmentParameters](docs/RewardAssignmentParameters.md)
 - [RewardAssignmentParametersLoyalty](docs/RewardAssignmentParametersLoyalty.md)
 - [RewardAttributes](docs/RewardAttributes.md)
+- [RewardPurchaseLimits](docs/RewardPurchaseLimits.md)
+- [RewardPurchaseLimitsCooldown](docs/RewardPurchaseLimitsCooldown.md)
+- [RewardPurchaseLimitsFrequency](docs/RewardPurchaseLimitsFrequency.md)
+- [RewardPurchaseLimitsFrequencyLimit](docs/RewardPurchaseLimitsFrequencyLimit.md)
+- [RewardPurchaseTransaction](docs/RewardPurchaseTransaction.md)
 - [RewardType](docs/RewardType.md)
 - [RewardTypeCampaign](docs/RewardTypeCampaign.md)
 - [RewardTypeCoin](docs/RewardTypeCoin.md)
@@ -2229,6 +2337,7 @@ Class | Method | HTTP request | Description
 - [ValidationRuleAssignment](docs/ValidationRuleAssignment.md)
 - [ValidationRuleAssignmentsList](docs/ValidationRuleAssignmentsList.md)
 - [ValidationRuleError](docs/ValidationRuleError.md)
+- [ValidationRuleErrorLibrary](docs/ValidationRuleErrorLibrary.md)
 - [ValidationRulesAssignmentsCreateRequestBody](docs/ValidationRulesAssignmentsCreateRequestBody.md)
 - [ValidationRulesAssignmentsCreateResponseBody](docs/ValidationRulesAssignmentsCreateResponseBody.md)
 - [ValidationRulesAssignmentsList](docs/ValidationRulesAssignmentsList.md)
