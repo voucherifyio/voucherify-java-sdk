@@ -29,6 +29,13 @@
 - [Management](#management)
 - [OAuth](#oauth)
 - [Client-side](#client-side)
+- [LV2-Programs](#lv2-programs)
+- [LV2-Card Definitions](#lv2-card-definitions)
+- [LV2-Earning Rules](#lv2-earning-rules)
+- [LV2-Tier Structures](#lv2-tier-structures)
+- [LV2-Benefits](#lv2-benefits)
+- [LV2-Rewards](#lv2-rewards)
+- [LV2-Examine](#lv2-examine)
 # Endpoints
 
 ## Publications
@@ -370,3 +377,126 @@
 | /client/v1/validate         | get    | Validate Voucher (client-side)             |                                      |  <font color='red'>deprecated</font> |
 | /client/v1/redeem           | post   | Redeem Voucher (client-side)               |                                      |  <font color='red'>deprecated</font> |
 | /client/v1/publish          | post   | Create Publication (client-side)           |                                      |                                      |
+## LV2-Programs
+| endpoint                                                                                                | method | summary                                    | is supported                         | is deprecated |
+| ------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------- |
+| /v2/loyalties/programs                                                                                  | post   | Create program                             |                                      |               |
+| /v2/loyalties/programs                                                                                  | get    | List programs                              |                                      |               |
+| /v2/loyalties/programs/{programId}                                                                      | get    | Get program                                |                                      |               |
+| /v2/loyalties/programs/{programId}                                                                      | put    | Update program                             |                                      |               |
+| /v2/loyalties/programs/{programId}                                                                      | delete | Delete program                             |                                      |               |
+| /v2/loyalties/programs/{programId}/activate                                                             | post   | Activate program                           |                                      |               |
+| /v2/loyalties/programs/{programId}/deactivate                                                           | post   | Deactivate program                         |                                      |               |
+| /v2/loyalties/programs/{programId}/activities                                                           | get    | List program activities                    |                                      |               |
+| /v2/loyalties/programs/{programId}/card-definitions                                                     | get    | List program card definition assignments   |                                      |               |
+| /v2/loyalties/programs/{programId}/card-definitions/batch                                               | post   | Batch assign/unassign card definitions     |                                      |               |
+| /v2/loyalties/programs/{programId}/earning-rules                                                        | get    | List program earning rule assignments      |                                      |               |
+| /v2/loyalties/programs/{programId}/earning-rules/batch                                                  | post   | Batch assign/unassign earning rules        |                                      |               |
+| /v2/loyalties/programs/{programId}/tier-structures                                                      | get    | List program tier structure assignments    |                                      |               |
+| /v2/loyalties/programs/{programId}/tier-structures/batch                                                | post   | Batch assign/unassign tier structures      |                                      |               |
+| /v2/loyalties/programs/{programId}/rewards                                                              | get    | List program reward assignments            |                                      |               |
+| /v2/loyalties/programs/{programId}/rewards/batch                                                        | post   | Batch assign/unassign rewards              |                                      |               |
+| /v2/loyalties/programs/{programId}/rewards/{rewardId}                                                   | put    | Update program reward assignment           |                                      |               |
+| /v2/loyalties/programs/{programId}/members                                                              | post   | Create program member                      | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members                                                              | get    | List program members                       |                                      |               |
+| /v2/loyalties/programs/{programId}/members/batch                                                        | post   | Batch create program members               | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}                                                   | get    | Get program member                         | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}                                                   | put    | Update program member                      |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}                                                   | delete | Delete program member                      |                                      |               |
+| /v2/loyalties/memberships/{customerId}                                                                  | get    | Get customer memberships                   |                                      |               |
+| /v2/loyalties/programs/{programId}/memberships/{customerId}                                             | get    | Get program membership                     | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/activate                                          | post   | Activate program member                    |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/deactivate                                        | post   | Deactivate program member                  |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/activities                                        | get    | List program member activities             |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/points                             | post   | Adjust card points                         |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/activities                         | get    | List card activities                       |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/pending-points                     | get    | List card pending point buckets            |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/pending-points/{bucketId}/activate | post   | Activate pending point bucket              |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/pending-points/{bucketId}/cancel   | post   | Cancel pending point bucket                |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/expiring-points                    | get    | List card expiring points buckets          |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/expiring-points/{bucketId}/expire  | post   | Expire point bucket                        |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/transactions                       | get    | List card transactions                     | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/rewards/purchases/{rewardTransactionId}/refund                       | post   | Refund reward purchase                     |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases                                 | get    | List member reward purchases               | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases                                 | post   | Purchase reward with points                | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments                                   | get    | List member order payments                 | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/orders/payments                                   | post   | Pay for order with points                  | <font color='green'>supported</font> |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/benefits/transactions                             | get    | List member benefit transactions           |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/tiers/transactions                                | get    | List member tier transactions              |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/reports/daily                      | get    | List card daily points reports             |                                      |               |
+| /v2/loyalties/programs/{programId}/members/{memberId}/earning-rules/{earningRuleId}/reports/daily       | get    | Get member earning-rule daily report       |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/spending/daily                                               | get    | List program spending daily reports        |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/spending/summary                                             | get    | List program spending summary reports      |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/tiers/daily                                                  | get    | Get program tiers daily report             |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/tiers/summary                                                | get    | Get program tiers summary report           |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/points-earnings/daily                                        | get    | Get program points-earnings daily report   |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/points-earnings/summary                                      | get    | Get program points-earnings summary report |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/earning-rules/daily                                          | get    | Get program earning-rules daily report     |                                      |               |
+| /v2/loyalties/programs/{programId}/reports/earning-rules/summary                                        | get    | Get program earning-rules summary report   |                                      |               |
+## LV2-Card Definitions
+| endpoint                                                     | method | summary                         | is supported | is deprecated |
+| ------------------------------------------------------------ | ------ | ------------------------------- | ------------ | ------------- |
+| /v2/loyalties/card-definitions                               | get    | List Card Definitions           |              |               |
+| /v2/loyalties/card-definitions                               | post   | Create Card Definition          |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}            | get    | Get Card Definition             |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}            | put    | Update Card Definition          |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}            | delete | Delete Card Definition          |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}/activate   | post   | Activate Card Definition        |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}/draft      | post   | Draft Card Definition           |              |               |
+| /v2/loyalties/card-definitions/{cardDefinitionId}/activities | get    | List Card Definition Activities |              |               |
+## LV2-Earning Rules
+| endpoint                                               | method | summary                      | is supported | is deprecated |
+| ------------------------------------------------------ | ------ | ---------------------------- | ------------ | ------------- |
+| /v2/loyalties/earning-rules                            | post   | Create earning rule          |              |               |
+| /v2/loyalties/earning-rules                            | get    | List earning rules           |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}            | get    | Get earning rule             |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}            | put    | Update earning rule          |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}            | delete | Delete earning rule          |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}/activate   | post   | Activate earning rule        |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}/deactivate | post   | Deactivate earning rule      |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}/draft      | post   | Move earning rule to draft   |              |               |
+| /v2/loyalties/earning-rules/{earningRuleId}/activities | get    | List earning rule activities |              |               |
+## LV2-Tier Structures
+| endpoint                                                       | method | summary                        | is supported | is deprecated |
+| -------------------------------------------------------------- | ------ | ------------------------------ | ------------ | ------------- |
+| /v2/loyalties/tier-structures                                  | post   | Create tier structure          |              |               |
+| /v2/loyalties/tier-structures                                  | get    | List tier structures           |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}                | get    | Get tier structure             |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}                | put    | Update tier structure          |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}                | delete | Delete tier structure          |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/activate       | post   | Activate tier structure        |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/deactivate     | post   | Deactivate tier structure      |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/draft          | post   | Move tier structure to draft   |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/tiers          | post   | Create tier                    |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/tiers          | get    | List tiers                     |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/tiers/{tierId} | put    | Update tier                    |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/tiers/{tierId} | delete | Delete tier                    |              |               |
+| /v2/loyalties/tier-structures/{tierStructureId}/activities     | get    | List tier structure activities |              |               |
+## LV2-Benefits
+| endpoint                                      | method | summary                 | is supported | is deprecated |
+| --------------------------------------------- | ------ | ----------------------- | ------------ | ------------- |
+| /v2/loyalties/benefits                        | get    | List benefits           |              |               |
+| /v2/loyalties/benefits                        | post   | Create benefit          |              |               |
+| /v2/loyalties/benefits/{benefitId}            | get    | Get benefit             |              |               |
+| /v2/loyalties/benefits/{benefitId}            | put    | Update benefit          |              |               |
+| /v2/loyalties/benefits/{benefitId}            | delete | Delete benefit          |              |               |
+| /v2/loyalties/benefits/{benefitId}/activate   | post   | Activate benefit        |              |               |
+| /v2/loyalties/benefits/{benefitId}/draft      | post   | Move benefit to draft   |              |               |
+| /v2/loyalties/benefits/{benefitId}/activities | get    | List benefit activities |              |               |
+## LV2-Rewards
+| endpoint                                    | method | summary                   | is supported | is deprecated |
+| ------------------------------------------- | ------ | ------------------------- | ------------ | ------------- |
+| /v2/loyalties/rewards                       | get    | List rewards v2           |              |               |
+| /v2/loyalties/rewards                       | post   | Create a reward           |              |               |
+| /v2/loyalties/rewards/{rewardId}            | get    | Get reward by ID          |              |               |
+| /v2/loyalties/rewards/{rewardId}            | put    | Update a reward           |              |               |
+| /v2/loyalties/rewards/{rewardId}            | delete | Delete a reward           |              |               |
+| /v2/loyalties/rewards/{rewardId}/activate   | post   | Activate reward           |              |               |
+| /v2/loyalties/rewards/{rewardId}/deactivate | post   | Deactivate reward         |              |               |
+| /v2/loyalties/rewards/{rewardId}/draft      | post   | Move reward back to draft |              |               |
+| /v2/loyalties/rewards/{rewardId}/activities | get    | List reward activities    |              |               |
+## LV2-Examine
+| endpoint                            | method | summary               | is supported                         | is deprecated |
+| ----------------------------------- | ------ | --------------------- | ------------------------------------ | ------------- |
+| /v2/loyalties/examine/earning-rules | post   | Examine earning rules | <font color='green'>supported</font> |               |
+| /v2/loyalties/examine/rewards       | post   | Examine rewards       | <font color='green'>supported</font> |               |
