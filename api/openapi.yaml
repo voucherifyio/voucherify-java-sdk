@@ -71715,6 +71715,87 @@ components:
           type: boolean
       title: ManagementProjectsWebhooksUpdateResponseBody
       type: object
+    MemberWithCards:
+      description: A loyalty program member together with its loyalty cards. Returned
+        by member create and get endpoints.
+      example:
+        metadata: "{}"
+        cards:
+        - member_role: OWNER
+          created_at: 2000-01-23T04:56:07.000+00:00
+          card: ""
+          object: member_card
+        - member_role: OWNER
+          created_at: 2000-01-23T04:56:07.000+00:00
+          card: ""
+          object: member_card
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        program_id: program_id
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        customer_id: customer_id
+        status: ACTIVE
+        object: member
+      properties:
+        id:
+          description: Identifies the member.
+          nullable: true
+          pattern: "^lmbr_[a-f0-9]+$"
+          type: string
+        customer_id:
+          description: Identifies the enrolled customer.
+          nullable: true
+          pattern: "^cust_[a-zA-Z0-9]+"
+          type: string
+        program_id:
+          description: Identifies the loyalty program.
+          nullable: true
+          pattern: "^lprg_[a-f0-9]+$"
+          type: string
+        status:
+          description: "Current member status. Allowed values: `ACTIVE`, `INACTIVE`,\
+            \ `DELETED`. `INACTIVE` members cannot earn points or redeem rewards."
+          enum:
+          - ACTIVE
+          - INACTIVE
+          - DELETED
+          nullable: true
+          type: string
+        metadata:
+          description: Stores custom member metadata. Empty object when none is set.
+          nullable: true
+          title: MemberWithCardsMetadata
+          type: object
+        created_at:
+          description: Records when the member was created (ISO 8601).
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description: Records the last update (ISO 8601). `null` if the member has
+            never been updated.
+          format: date-time
+          nullable: true
+          type: string
+        object:
+          default: member
+          description: Object type. Always `member`.
+          enum:
+          - member
+          nullable: true
+          type: string
+          x-openapi-31-const: true
+        cards:
+          description: "Member's loyalty cards - one per card definition assigned\
+            \ to the program. Card codes are generated asynchronously, so `card.code`\
+            \ may be `null` right after member creation."
+          items:
+            $ref: '#/components/schemas/MemberCard'
+          nullable: true
+          title: MemberWithCardsCards
+          type: array
+      title: MemberWithCards
+      type: object
     MetadataSchemasGetResponseBody:
       description: "Response body schema for **GET** `/v1/metadata-schemas/{resource}`."
       example:
@@ -96369,6 +96450,11 @@ components:
         context_type: global
         rules: "{}"
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -96688,6 +96774,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -97038,6 +97129,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -97390,6 +97486,11 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
+            mode: MESSAGES
+            library:
+              key: order.amount
+            messages:
+              key: messages
             message: message
           type: expression
           applicable_to:
@@ -97586,6 +97687,11 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
+            mode: MESSAGES
+            library:
+              key: order.amount
+            messages:
+              key: messages
             message: message
           type: expression
           applicable_to:
@@ -97809,6 +97915,11 @@ components:
         context_type: global
         rules: "{}"
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -98128,6 +98239,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -126785,6 +126901,11 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
+          mode: MESSAGES
+          library:
+            key: order.amount
+          messages:
+            key: messages
           message: message
         type: expression
         applicable_to:
@@ -127226,6 +127347,21 @@ components:
 
         While updating with the PUT method, you can pass `"bundle_rules": null` to delete the configuration; in the response, an empty object is then returned.
       title: ValidationRuleBundleRules
+      type: object
+    ValidationRuleErrorLibrary:
+      description: References an Error Message Library entry. Required when `mode`
+        is `LIBRARY`. Must be omitted or `null` when `mode` is `MESSAGES`.
+      example:
+        key: order.amount
+      properties:
+        key:
+          description: "Identifies the library message. Use a validation-rule name\
+            \ such as `order.amount`, or a custom attribute key such as `order.metadata.location`."
+          example: order.amount
+          maxLength: 100
+          nullable: true
+          type: string
+      title: ValidationRuleErrorLibrary
       type: object
     ValidationRuleRules:
       description: Contains all the rule definitions for the validation rule. It is
@@ -139795,6 +139931,34 @@ components:
           title: RedeemableLoyaltyCardTransfers
           type: array
       title: RedeemableLoyaltyCard
+      type: object
+    RewardPurchaseLimitsFrequencyLimit:
+      description: A frequency limit. Currently only `TIME_BASED` is supported.
+      example:
+        period:
+          current_period:
+            unit: DAY
+          type: CURRENT_PERIOD
+        type: TIME_BASED
+        triggers:
+          max: 1
+      properties:
+        type:
+          default: TIME_BASED
+          description: Limit type. Always `TIME_BASED`.
+          enum:
+          - TIME_BASED
+          nullable: true
+          type: string
+          x-openapi-31-const: true
+        period:
+          $ref: '#/components/schemas/LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriod'
+        triggers:
+          $ref: '#/components/schemas/LoyaltyV2ActivityRewardPurchaseLimitsFrequencyLimitTriggers'
+      required:
+      - period
+      - triggers
+      title: RewardPurchaseLimitsFrequencyLimit
       type: object
     SimpleCampaignVoucher:
       description: Simplified campaign voucher data.
@@ -162694,17 +162858,50 @@ components:
       title: V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBodyCursor
       type: object
     ValidationRulesCreateRequestBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRulesCreateRequestBodyErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRulesCreateRequestBodyError
       type: object
     ValidationRulesCreateRequestBodyApplicableTo:
@@ -162915,17 +163112,50 @@ components:
       title: ValidationRulesCreateRequestBodyApplicableTo
       type: object
     ValidationRulesCreateResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRulesCreateResponseBodyErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRulesCreateResponseBodyError
       type: object
     ValidationRulesCreateResponseBodyApplicableTo:
@@ -163136,17 +163366,50 @@ components:
       title: ValidationRulesCreateResponseBodyApplicableTo
       type: object
     ValidationRulesGetResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRulesGetResponseBodyErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRulesGetResponseBodyError
       type: object
     ValidationRulesGetResponseBodyApplicableTo:
@@ -163357,17 +163620,50 @@ components:
       title: ValidationRulesGetResponseBodyApplicableTo
       type: object
     ValidationRulesUpdateRequestBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRulesUpdateRequestBodyErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRulesUpdateRequestBodyError
       type: object
     ValidationRulesUpdateRequestBodyApplicableTo:
@@ -163578,17 +163874,50 @@ components:
       title: ValidationRulesUpdateRequestBodyApplicableTo
       type: object
     ValidationRulesUpdateResponseBodyError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRulesUpdateResponseBodyErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRulesUpdateResponseBodyError
       type: object
     ValidationRulesUpdateResponseBodyApplicableTo:
@@ -176182,17 +176511,50 @@ components:
       title: TransactionFilterDateConditionsConditions
       type: object
     ValidationRuleError:
-      description: Contains the error message returned from API when validation /
-        redemption fails to meet requirements of defined rules.
+      description: "Defines the custom error returned when validation or redemption\
+        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
+        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
+        \ are mutually exclusive. At validation or redemption time the API resolves\
+        \ this object to a single `{ message }` using `options.language`."
       example:
+        mode: MESSAGES
+        library:
+          key: order.amount
+        messages:
+          key: messages
         message: message
       nullable: true
       properties:
         message:
-          description: The error message returned from API when validation / redemption
-            fails to meet requirements of defined rules.
+          description: "Legacy single-language error message. Used when `mode` is\
+            \ omitted. In `MESSAGES` mode, used when neither the requested language\
+            \ nor the default language has a translation."
+          maxLength: 255
           nullable: true
           type: string
+        mode:
+          description: Selects how the custom error is defined. `MESSAGES` stores
+            per-language text in `messages`. `LIBRARY` references an Error Message
+            Library entry in `library`. Omit `mode` to use the legacy `message` field
+            only.
+          enum:
+          - MESSAGES
+          - LIBRARY
+          nullable: true
+          type: string
+        messages:
+          additionalProperties:
+            maxLength: 255
+            type: string
+          description: "Per-language custom messages keyed by language code (`en`,\
+            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
+            \ or `null` when `mode` is `LIBRARY`."
+          maxProperties: 100
+          nullable: true
+          title: ValidationRuleErrorMessagesEntry
+          type: object
+        library:
+          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
       title: ValidationRuleError
       type: object
     ValidationRuleApplicableTo:
@@ -184802,6 +185164,24 @@ components:
           nullable: true
           type: integer
       title: SimpleCampaignVoucherRedemption
+      type: object
+    LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriodCurrentPeriod:
+      description: Current-period configuration. Present when `type` is `CURRENT_PERIOD`.
+      example:
+        unit: DAY
+      nullable: true
+      properties:
+        unit:
+          description: Calendar period unit.
+          enum:
+          - DAY
+          - WEEK
+          - MONTH
+          - QUARTER
+          - YEAR
+          nullable: true
+          type: string
+      title: LoyaltyV2ActivityCardDefinitionLimitTimeBasedPeriodCurrentPeriod
       type: object
   securitySchemes:
     X-App-Id:
