@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.CustomerLoyalty;
+import io.voucherify.client.model.CustomerLoyaltyMembership;
 import io.voucherify.client.model.CustomerReferrals;
 import io.voucherify.client.model.CustomerSummary;
 import io.voucherify.client.model.CustomersCreateResponseBodyAddress;
@@ -27,7 +28,9 @@ import io.voucherify.client.model.CustomersCreateResponseBodyAssets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -79,6 +82,11 @@ public class CustomersCreateResponseBody {
   public static final String SERIALIZED_NAME_LOYALTY = "loyalty";
   @SerializedName(SERIALIZED_NAME_LOYALTY)
   private CustomerLoyalty loyalty;
+
+  public static final String SERIALIZED_NAME_LOYALTY_MEMBERSHIPS = "loyalty_memberships";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_MEMBERSHIPS)
+  private List<CustomerLoyaltyMembership> loyaltyMemberships;
+    private boolean loyaltyMembershipsIsSet = false;
 
   public static final String SERIALIZED_NAME_REFERRALS = "referrals";
   @SerializedName(SERIALIZED_NAME_REFERRALS)
@@ -290,6 +298,40 @@ public class CustomersCreateResponseBody {
 
   public void setLoyalty(CustomerLoyalty loyalty) {
     this.loyalty = loyalty;
+  }
+
+
+  public CustomersCreateResponseBody loyaltyMemberships(List<CustomerLoyaltyMembership> loyaltyMemberships) {
+    
+    this.loyaltyMemberships = loyaltyMemberships;
+    this.loyaltyMembershipsIsSet = true;
+    return this;
+  }
+
+  public CustomersCreateResponseBody addLoyaltyMembershipsItem(CustomerLoyaltyMembership loyaltyMembershipsItem) {
+    if (this.loyaltyMemberships == null) {
+      this.loyaltyMemberships = new ArrayList<>();
+    }
+    this.loyaltyMemberships.add(loyaltyMembershipsItem);
+    return this;
+  }
+
+   /**
+   * List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored.
+   * @return loyaltyMemberships
+  **/
+  @javax.annotation.Nullable
+  public List<CustomerLoyaltyMembership> getLoyaltyMemberships() {
+    return loyaltyMemberships;
+  }
+
+
+  public void setLoyaltyMemberships(List<CustomerLoyaltyMembership> loyaltyMemberships) {
+    this.loyaltyMemberships = loyaltyMemberships;
+    this.loyaltyMembershipsIsSet = true;
+  }
+  public boolean isLoyaltyMembershipsSet() {
+    return loyaltyMembershipsIsSet;
   }
 
 
@@ -667,6 +709,7 @@ public class CustomersCreateResponseBody {
         Objects.equals(this.sourceId, customersCreateResponseBody.sourceId) &&
         Objects.equals(this.summary, customersCreateResponseBody.summary) &&
         Objects.equals(this.loyalty, customersCreateResponseBody.loyalty) &&
+        Objects.equals(this.loyaltyMemberships, customersCreateResponseBody.loyaltyMemberships) &&
         Objects.equals(this.referrals, customersCreateResponseBody.referrals) &&
         Objects.equals(this.systemMetadata, customersCreateResponseBody.systemMetadata) &&
         Objects.equals(this.createdAt, customersCreateResponseBody.createdAt) &&
@@ -689,7 +732,7 @@ public class CustomersCreateResponseBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sourceId, summary, loyalty, referrals, systemMetadata, createdAt, updatedAt, assets, _object, name, description, email, phone, birthday, birthdate, address, metadata);
+    return Objects.hash(id, sourceId, summary, loyalty, loyaltyMemberships, referrals, systemMetadata, createdAt, updatedAt, assets, _object, name, description, email, phone, birthday, birthdate, address, metadata);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -707,6 +750,7 @@ public class CustomersCreateResponseBody {
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    loyalty: ").append(toIndentedString(loyalty)).append("\n");
+    sb.append("    loyaltyMemberships: ").append(toIndentedString(loyaltyMemberships)).append("\n");
     sb.append("    referrals: ").append(toIndentedString(referrals)).append("\n");
     sb.append("    systemMetadata: ").append(toIndentedString(systemMetadata)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -747,6 +791,7 @@ public class CustomersCreateResponseBody {
     openapiFields.add("source_id");
     openapiFields.add("summary");
     openapiFields.add("loyalty");
+    openapiFields.add("loyalty_memberships");
     openapiFields.add("referrals");
     openapiFields.add("system_metadata");
     openapiFields.add("created_at");

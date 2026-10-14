@@ -149,7 +149,7 @@ public class PublicationsListResponseBody {
   }
 
    /**
-   * Response schema model for publishing vouchers to a specific customer.
+   * Contains array of publication objects, voucher object will be simplified.
    * @return publications
   **/
   @javax.annotation.Nullable

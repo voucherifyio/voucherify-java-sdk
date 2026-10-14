@@ -177,7 +177,7 @@ public class ClientValidationsValidateResponseBody {
   }
 
    /**
-   * Get redeemables
+   * Lists validation results of each redeemable. If  &#x60;redeemables_application_mode&#x60; is &#x60;PARTIAL&#x60; in the &#x60;stacking_rules&#x60; object, all redeemables here will be &#x60;APPLICABLE&#x60;. Read more in [the Stacking rules article](/orchestrate/stacking-rules).
    * @return redeemables
   **/
   @javax.annotation.Nullable

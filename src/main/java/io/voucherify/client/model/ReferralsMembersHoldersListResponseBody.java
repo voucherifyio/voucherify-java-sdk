@@ -185,7 +185,7 @@ public class ReferralsMembersHoldersListResponseBody {
   }
 
    /**
-   * Total number of holders assigned to the redeemable.
+   * Total number of results returned on this page.
    * @return total
   **/
   @javax.annotation.Nullable

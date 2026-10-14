@@ -185,7 +185,7 @@ public class CustomersRedeemablesListResponseBody {
   }
 
    /**
-   * Total number of results returned.
+   * Total number of results returned on this page.
    * @return total
   **/
   @javax.annotation.Nullable
