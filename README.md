@@ -2649,7 +2649,6 @@ Class | Method | HTTP request | Description
 - [ValidationRuleAssignment](docs/ValidationRuleAssignment.md)
 - [ValidationRuleAssignmentsList](docs/ValidationRuleAssignmentsList.md)
 - [ValidationRuleError](docs/ValidationRuleError.md)
-- [ValidationRuleErrorLibrary](docs/ValidationRuleErrorLibrary.md)
 - [ValidationRulesAssignmentsCreateRequestBody](docs/ValidationRulesAssignmentsCreateRequestBody.md)
 - [ValidationRulesAssignmentsCreateResponseBody](docs/ValidationRulesAssignmentsCreateResponseBody.md)
 - [ValidationRulesAssignmentsList](docs/ValidationRulesAssignmentsList.md)
