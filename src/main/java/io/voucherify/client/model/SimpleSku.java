@@ -107,7 +107,7 @@ public class SimpleSku {
   }
 
    /**
-   * Sku source id.
+   * Sku source ID.
    * @return sourceId
   **/
   @javax.annotation.Nullable

@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Filter publications by parent object id.
+ * Filter publications by parent object ID.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

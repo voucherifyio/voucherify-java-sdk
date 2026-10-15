@@ -414,7 +414,7 @@ public class ManagementProjectsMetadataSchemaDefinition {
   }
 
    /**
-   * Get eq
+   * Array of values that are allowed. Available only for the &#x60;string&#x60; and &#x60;number&#x60; types.
    * @return eq
   **/
   @javax.annotation.Nullable

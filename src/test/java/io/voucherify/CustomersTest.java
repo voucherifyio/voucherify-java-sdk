@@ -98,6 +98,7 @@ public class CustomersTest {
                     null,
                     null,
                     null,
+                    null,
                     null);
 
             List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total", "email", "name",

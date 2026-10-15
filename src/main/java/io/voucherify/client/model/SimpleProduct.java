@@ -107,7 +107,7 @@ public class SimpleProduct {
   }
 
    /**
-   * Product source id.
+   * Product source ID.
    * @return sourceId
   **/
   @javax.annotation.Nullable
